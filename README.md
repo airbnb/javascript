@@ -145,22 +145,6 @@
     var name = 'Bob Parr';
     ```
 
-  - Use double quotes `""` for strings that contain interpolated values
-
-    ```javascript
-    // bad
-    var fullName = "Bob" + this.lastName;
-
-    // good
-    var fullName = 'Bob' + this.lastName;
-
-    // bad
-    var fullName = 'Bob #{lastName}';
-
-    // good
-    var fullName = "Bob #{lastName}";
-    ```
-
   - String longer than 80 characters should be written across Multiple lines using string concatenation.
 
     ```javascript
