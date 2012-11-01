@@ -70,7 +70,7 @@
 
 ## <a name='objects'>Objects</a>
 
-  - Use the literal syntax for object creation
+  - Use the literal syntax for object creation.
 
     ```javascript
     // bad
@@ -161,7 +161,7 @@
     var fullName = "Bob #{lastName}";
     ```
 
-  - String longer than 80 characters should be written across Multiple lines using string concatenation.
+  - Strings longer than 80 characters should be written across multiple lines using string concatenation.
 
     ```javascript
     // bad
@@ -214,7 +214,7 @@
       }
 
       return items + '</ul>';
-    };
+    }
 
     // good
     function inbox(messages) {
@@ -225,7 +225,7 @@
       }
 
       return '<ul>' + items.join('') + '</ul>';
-    };
+    }
     ```
 
     **[[⬆]](#TOC)**
@@ -413,7 +413,7 @@
       }
 
       return name;
-    };
+    }
 
     // good
     function() {
@@ -429,7 +429,7 @@
       }
 
       return name;
-    };
+    }
 
     // bad
     function() {
@@ -637,7 +637,7 @@
       // ...stuff...
 
       return element;
-    };
+    }
 
     // good
     /**
@@ -652,7 +652,7 @@
       // ...stuff...
 
       return element;
-    };
+    }
     ```
 
   - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an emptyline before the comment.
@@ -672,7 +672,7 @@
       var type = this._type || 'no type';i
 
       return type;
-    };
+    }
 
     // good
     function getType() {
@@ -682,7 +682,7 @@
       var type = this._type || 'no type';
 
       return type;
-    };
+    }
     ```
 
     **[[⬆]](#TOC)**
@@ -696,7 +696,7 @@
     // bad
     function() {
     ∙∙∙∙var name;
-    };
+    }
 
     // bad
     function() {
@@ -706,7 +706,7 @@
     // good
     function() {
     ∙∙var name;
-    };
+    }
     ```
   - Place 1 space before the leading brace.
 
@@ -714,12 +714,12 @@
     // bad
     function test(){
       console.log('test');
-    };
+    }
 
     // good
     function test() {
       console.log('test');
-    };
+    }
 
     // bad
     dog.set('attr',{
@@ -911,7 +911,7 @@
     // bad
     function user(options){
       this.name = options.name;
-    };
+    }
 
     var bad = new user({
       name: 'nope'
@@ -920,7 +920,7 @@
     // good
     function User(options){
       this.name = options.name;
-    };
+    }
 
     var good = new User({
       name: 'yup'
@@ -992,7 +992,7 @@
       options || (options = {});
       var lightsaber = options.lightsaber || 'blue';
       this.set('lightsaber', lightsaber);
-    };
+    }
 
     Jedi.prototype = {
       set: function(key, val) {
@@ -1015,7 +1015,7 @@
     ```javascript
     function Jedi() {
       console.log('new jedi');
-    };
+    }
 
     // bad
     Jedi.prototype.fight = function fight() {
@@ -1083,7 +1083,7 @@
     function Jedi(options) {
       options || (options = {});
       this.name = options.name || 'no name';
-    };
+    }
 
     Jedi.prototype = {
       getName: function getName() {
@@ -1293,3 +1293,4 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 **[[⬆]](#TOC)**
 
 # };
+
