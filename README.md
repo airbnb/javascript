@@ -135,7 +135,7 @@
 
 ## <a name='strings'>Strings</a>
 
-  - Use single quotes `''` for plain strings
+  - Use single quotes `''` for strings
 
     ```javascript
     // bad
