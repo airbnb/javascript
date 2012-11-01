@@ -135,7 +135,7 @@
 
 ## <a name='strings'>Strings</a>
 
-  - Use single quotes `''` for plain strings
+  - Use single quotes `''` for strings
 
     ```javascript
     // bad
@@ -143,22 +143,12 @@
 
     // good
     var name = 'Bob Parr';
-    ```
 
-  - Use double quotes `""` for strings that contain interpolated values
-
-    ```javascript
     // bad
     var fullName = "Bob" + this.lastName;
 
     // good
     var fullName = 'Bob' + this.lastName;
-
-    // bad
-    var fullName = 'Bob #{lastName}';
-
-    // good
-    var fullName = "Bob #{lastName}";
     ```
 
   - Strings longer than 80 characters should be written across multiple lines using string concatenation.
