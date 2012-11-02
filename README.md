@@ -1240,15 +1240,6 @@
   - [net.tutsplus](http://net.tutsplus.com/?s=javascript)
 
 
-## <a name='authors'>Authors</a>
-
-  - [Harrison Shoff](//github.com/h4rry) || [@hshoff](//twitter.com/hshoff)
-
-
-## <a name='contributors'>Contributors</a>
-
-  - [Dave Augustine](//github.com/daveaugustine) || [@daveaugustine](//twitter.com/daveaugustine)
-
 ## <a name='license'>License</a>
 
 (The MIT License)
