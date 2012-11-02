@@ -264,32 +264,6 @@
     }
     ```
 
-  - Always return as early as possible
-
-    ```javascript
-    // bad
-    function() {
-      var size;
-
-      if (!arguments.length) {
-        size = false;
-      } else {
-        size = arguments.length;
-      }
-
-      return size;
-    }
-
-    // good
-    function() {
-      if (!arguments.length) {
-        return false;
-      }
-
-      return arguments.length;
-    }
-    ```
-
   - Never name a parameter `arguments`, this will take precendence over the `arguments` object that is given to every function scope.
 
     ```javascript
