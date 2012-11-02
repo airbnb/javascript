@@ -1246,7 +1246,7 @@
 ## <a name='contributors'>Contributors</a>
 
   - [Dave Augustine](//github.com/daveaugustine) || [@daveaugustine](//twitter.com/daveaugustine)
-  - [Matt Baker](//github.com/reissbaker) || (@reissbaker)(//twitter/reissbaker)
+  - [Matt Baker](//github.com/reissbaker) || [@reissbaker](//twitter/reissbaker)
 
 ## <a name='license'>License</a>
 
