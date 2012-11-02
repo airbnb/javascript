@@ -588,10 +588,14 @@
 
 ## <a name='blocks'>Blocks</a>
 
-  - Use braces with blocks and always on multiple lines.
+  - Use braces with all multi-line blocks.
 
     ```javascript
     // bad
+    if (test)
+      return false;
+
+    // good
     if (test) return false;
 
     // good
