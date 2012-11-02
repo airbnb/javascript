@@ -80,22 +80,26 @@
     var item = {};
     ```
 
-  - Avoid using reserved words as property names. If you do use them, wrap them in single quotes.
+  - Don't use [reserved words](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Reserved_Words) as property names. If you do use them, wrap them in single quotes.
 
     ```javascript
     // bad
     var superman = {
-      class: 'superhero'
+      class: 'superhero',
+      default: { clark: kent },
+      private: true
     };
 
     // good
     var superman = {
-      klass: 'superhero'
+      klass: 'superhero',
+      defaults: { clark: kent },
+      hidden: true
     };
 
     // good
     var superman = {
-      'class': 'superhero'
+      'class': 'superhero',
     };
     ```
     **[[⬆]](#TOC)**
