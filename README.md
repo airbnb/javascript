@@ -37,9 +37,9 @@
 
   - **Primitives**: When you access a primitive type you work directly on its value
 
-    + `string`
-    + `number`
-    + `boolean`
+    + `String`
+    + `Number`
+    + `Boolean`
     + `null`
     + `undefined`
 
@@ -53,9 +53,9 @@
     ```
   - **Complex**: When you access a complex type you work on a reference to its value
 
-    + `object`
-    + `array`
-    + `function`
+    + `Object`
+    + `Array`
+    + `Function`
 
     ```javascript
     var foo = [1, 2],
