@@ -1000,14 +1000,14 @@
 
 ## <a name='constructors'>Constructors</a>
 
-  - Assign the constructors prototype as an object. This saves us some typing. Also, the extra level of indentation acts as an indication that you are working on the prototype and not instance methods.
+  - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
 
     ```javascript
     function Jedi() {
       console.log('new jedi');
     }
 
-    // bad
+    // good
     Jedi.prototype.fight = function fight() {
       console.log('fighting');
     };
@@ -1016,7 +1016,7 @@
       console.log('blocking');
     };
 
-    // good
+    // bad
     Jedi.prototype = {
       fight: function fight() {
         console.log('fighting');
