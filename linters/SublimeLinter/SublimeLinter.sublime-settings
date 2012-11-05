@@ -1,5 +1,5 @@
 /**
- * Airbnb JSHint for settings for use with SublimeLinter and Sublime Text 2.
+ * Airbnb JSHint settings for use with SublimeLinter and Sublime Text 2.
  *
  *   1. Install SublimeLinter at https://github.com/SublimeLinter/SublimeLinter
  *   2. Open user preferences for the SublimeLinter package in Sublime Text 2
