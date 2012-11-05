@@ -1,0 +1,57 @@
+/**
+ * Airbnb JSHint for settings for use with SublimeLinter and Sublime Text 2.
+ *
+ *   1. Install SublimeLinter at https://github.com/SublimeLinter/SublimeLinter
+ *   2. Open user preferences for the SublimeLinter package in Sublime Text 2
+ *     * For Mac OS X go to _Sublime Text 2_ > _Preferences_ > _Package Settings_ > _SublimeLinter_ > _Settings - User_
+ *   3. Paste the contents of this file into your settings file
+ *   4. Save the settings file
+ *
+ * @version 0.1.0
+ * @see     https://github.com/SublimeLinter/SublimeLinter
+ * @see     http://www.jshint.com/docs/
+ */
+{
+  "jshint_options":
+    {
+      /*
+       * ENVIRONMENTS
+       * =================
+       */
+
+      // Defines globals exposed by modern browsers.
+      "browser": true,
+
+      // Defines globals exposed by jQuery.
+      "jquery": true,
+
+      /*
+       * ENFORCING OPTIONS
+       * =================
+       */
+
+      // Prohibits the use of == and != in favor of === and !==.
+      "eqeqeq": true,
+
+      // Suppresses warnings about == null comparisons.
+      "eqnull": true,
+
+      // Enforces a tab width of 2 spaces.
+      "indent": 2,
+
+      // Prohibits the use of a variable before it was defined.
+      "latedef": true,
+
+      // $equires you to capitalize names of constructor functions.
+      "newcap": true,
+
+      // Makes it an error to leave a trailing whitespace in your code.
+      "trailing": true,
+
+      // Prohibits the use of explicitly undeclared variables.
+      "undef": true,
+
+      // Warns when you define and never use your variables.
+      "unused": true
+    }
+}
