@@ -876,7 +876,7 @@
 
     ```javascript
     // bad
-    function user(options){
+    function user(options) {
       this.name = options.name;
     }
 
@@ -885,7 +885,7 @@
     });
 
     // good
-    function User(options){
+    function User(options) {
       this.name = options.name;
     }
 
