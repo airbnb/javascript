@@ -961,7 +961,7 @@
       this.set('lightsaber', lightsaber);
     }
 
-    Jedi.prototype.set: function(key, val) {
+    Jedi.prototype.set = function(key, val) {
       this[key] = val;
     };
 
