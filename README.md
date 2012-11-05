@@ -29,7 +29,7 @@
   1. [Testing](#testing)
   1. [Performance](#performance)
   1. [Resources](#resources)
-  1. [Authors](#authors)
+  1. [The JavaScript Style Guide Guide](#guide-guide)
   1. [Contributors](#contributors)
   1. [License](#license)
 
@@ -1215,6 +1215,11 @@
   - [Dustin Diaz](http://dustindiaz.com/)
   - [net.tutsplus](http://net.tutsplus.com/?s=javascript)
 
+  **[[⬆]](#TOC)**
+
+## <a name='guide-guide'>The JavaScript Style Guide Guide</a>
+
+  - [Reference](//github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
 ## <a name='authors'>Contributors</a>
 
