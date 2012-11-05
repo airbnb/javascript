@@ -19,10 +19,10 @@
        * =================
        */
 
-      // Defines globals exposed by modern browsers.
+      // Define globals exposed by modern browsers.
       "browser": true,
 
-      // Defines globals exposed by jQuery.
+      // Define globals exposed by jQuery.
       "jquery": true,
 
       /*
@@ -30,32 +30,32 @@
        * =================
        */
 
-      // Forces all variable names to use either camelCase style or UPPER_CASE
+      // Force all variable names to use either camelCase style or UPPER_CASE
       // with underscores.
       "camelcase": true,
 
-      // Prohibits the use of == and != in favor of === and !==.
+      // Prohibit the use of == and != in favor of === and !==.
       "eqeqeq": true,
 
-      // Suppresses warnings about == null comparisons.
+      // Suppress warnings about == null comparisons.
       "eqnull": true,
 
-      // Enforces a tab width of 2 spaces.
+      // Enforce a tab width of 2 spaces.
       "indent": 2,
 
-      // Prohibits the use of a variable before it was defined.
+      // Prohibit the use of a variable before it was defined.
       "latedef": true,
 
-      // $equires you to capitalize names of constructor functions.
+      // Require you to capitalize names of constructor functions.
       "newcap": true,
 
-      // Makes it an error to leave a trailing whitespace in your code.
+      // Make it an error to leave a trailing whitespace in your code.
       "trailing": true,
 
-      // Prohibits the use of explicitly undeclared variables.
+      // Prohibit the use of explicitly undeclared variables.
       "undef": true,
 
-      // Warns when you define and never use your variables.
+      // Warn when you define and never use your variables.
       "unused": true
     }
 }
