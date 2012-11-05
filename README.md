@@ -334,7 +334,7 @@
 
     // good
     var items = getItems(),
-        goGiants = true,
+        goCubs = true,
         dragonball = 'z';
     ```
 
