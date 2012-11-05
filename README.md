@@ -329,12 +329,12 @@
     ```javascript
     // bad
     var items = getItems();
-    var goGiants = true;
+    var goSportsTeam = true;
     var dragonball = 'z';
 
     // good
     var items = getItems(),
-        goGiants = true,
+        goSportsTeam = true,
         dragonball = 'z';
     ```
 
@@ -344,17 +344,17 @@
     // bad
     var i, len, dragonball,
         items = getItems(),
-        goGiants = true;
+        goSportsTeam = true;
 
     // bad
     var i, items = getItems(),
         dragonball,
-        goGiants = true,
+        goSportsTeam = true,
         len;
 
     // good
     var items = getItems(),
-        goGiants = true,
+        goSportsTeam = true,
         dragonball,
         i, length;
     ```
