@@ -1216,15 +1216,10 @@
   - [net.tutsplus](http://net.tutsplus.com/?s=javascript)
 
 
-## <a name='authors'>Authors</a>
+## <a name='authors'>Contributors</a>
 
-  - [Harrison Shoff](//github.com/h4rry) || [@hshoff](//twitter.com/hshoff)
+  - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
 
-
-## <a name='contributors'>Contributors</a>
-
-  - [Dave Augustine](//github.com/daveaugustine) || [@daveaugustine](//twitter.com/daveaugustine)
-  - [Matt Baker](//github.com/reissbaker) || [@reissbaker](//twitter/reissbaker)
 
 ## <a name='license'>License</a>
 
