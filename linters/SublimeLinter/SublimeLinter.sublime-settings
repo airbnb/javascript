@@ -46,16 +46,16 @@
       // Prohibit the use of a variable before it was defined.
       "latedef": true,
 
-      // Require you to capitalize names of constructor functions.
+      // Require capitalized names for constructor functions.
       "newcap": true,
 
-      // Make it an error to leave a trailing whitespace in your code.
+      // Prohibit trailing whitespace.
       "trailing": true,
 
       // Prohibit the use of explicitly undeclared variables.
       "undef": true,
 
-      // Warn when you define and never use your variables.
+      // Warn when variables are defined but never used.
       "unused": true
     }
 }
