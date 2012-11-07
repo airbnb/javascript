@@ -723,7 +723,7 @@
 
   ```javascript
   // bad
-  $('#items').find('.selected').doSomething().end().find('.open').highlightOpen();
+  $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
   // good
   $('#items')
