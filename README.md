@@ -636,7 +636,7 @@
     function getType() {
       console.log('fetching type...');
       // set the default type to 'no type'
-      var type = this._type || 'no type';i
+      var type = this._type || 'no type';
 
       return type;
     }
