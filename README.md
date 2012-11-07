@@ -516,12 +516,12 @@
   - Use `===` and `!==` over `==` and `!=`.
   - Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
 
-    + **Objects** evaluate to `**true**`
-    + **Undefined** evaluates to `**false**`
-    + **Null** evaluates to `**false**`
+    + **Objects** evaluate to **true**
+    + **Undefined** evaluates to **false**
+    + **Null** evaluates to **false**
     + **Booleans** evaluate to **the value of the boolean**
-    + **Numbers** evalute to `**false**` if **+0, -0, or NaN**, otherwise `**true**`
-    + **Strings** evaluate to `**false` if an **empty string `''`**, otherwise `**true**`
+    + **Numbers** evalute to **false** if **+0, -0, or NaN**, otherwise **true**
+    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
     ```javascript
     if ([0]) {
