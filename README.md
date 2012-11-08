@@ -833,8 +833,8 @@
     var totalScore = this.reviewScore + ' total score';
     ```
 
-  - Use parseInt for Numbers and always with a radix for type casting.
-  - If for whatever reason you are doing some wild and parseInt is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
+  - Use `parseInt` for Numbers and always with a radix for type casting.
+  - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
 
     ```javascript
     var inputValue = '4';
