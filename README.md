@@ -1178,20 +1178,27 @@
     }
     ```
 
-  - Scope jQuery object queries with find. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/13)
+  - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > .ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - Use `find` with scoped jQuery object queries.
 
     ```javascript
     // bad
-    $('.sidebar ul').hide();
-
-    // bad
-    $('.sidebar > ul').hide();
-
-    // bad
     $('.sidebar', 'ul').hide();
 
-    // good
+    // bad
     $('.sidebar').find('ul').hide();
+
+    // good
+    $('.sidebar ul').hide();
+
+    // good
+    $('.sidebar > ul').hide();
+
+    // good
+    $sidebar.find('ul');
+
+    // good
+    $($sidebar[0]).find('ul');
     ```
 
     **[[⬆]](#TOC)**
