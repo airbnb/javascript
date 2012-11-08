@@ -1194,10 +1194,10 @@
     // good
     $('.sidebar > ul').hide();
 
-    // good
+    // good (slower)
     $sidebar.find('ul');
 
-    // good
+    // good (faster)
     $($sidebar[0]).find('ul');
     ```
 
