@@ -19,7 +19,7 @@
   1. [Whitespace](#whitespace)
   1. [Leading Commas](#leading-commas)
   1. [Semicolons](#semicolons)
-  1. [Type Coercion](#type-coercion)
+  1. [Type Casting & Coercion](#type-coercion)
   1. [Naming Conventions](#naming-conventions)
   1. [Accessors](#accessors)
   1. [Constructors](#constructors)
@@ -812,7 +812,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='type-coercion'>Type Coercion</a>
+## <a name='type-coercion'>Type Casting & Coercion</a>
 
   - Perform type coercion at the beginning of the statement.
   - Strings:
@@ -833,7 +833,8 @@
     var totalScore = this.reviewScore + ' total score';
     ```
 
-  - Numbers:
+  - Use parseInt for Numbers and always with a radix for type casting.
+  - If for whatever reason you are doing some wild and parseInt is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
 
     ```javascript
     var inputValue = '4';
@@ -841,11 +842,28 @@
     // bad
     var val = new Number(inputValue);
 
+    // bad
+    var val = +inputValue;
+
+    // bad
+    var val = inputValue >> 0;
+
+    // bad
+    var val = parseInt(inputValue);
+
     // good
     var val = Number(inputValue);
 
     // good
-    var val = +inputValue;
+    var val = parseInt(inputValue, 10);
+
+    // good
+    /**
+     * parseInt was the reason my code was slow.
+     * Bitshifting the String to coerce it to a
+     * Number made it a lot faster.
+     */
+    var val = inputValue >> 0;
     ```
 
   - Booleans:
