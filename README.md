@@ -595,7 +595,7 @@
     ```javascript
     // bad
     // make() returns a new element
-    // based on the pased in tag name
+    // based on the passed in tag name
     //
     // @param <String> tag
     // @return <Element> element
@@ -609,7 +609,7 @@
     // good
     /**
      * make() returns a new element
-     * based on the pased in tag name
+     * based on the passed in tag name
      *
      * @param <String> tag
      * @return <Element> element
