@@ -667,7 +667,7 @@
 
     // bad
     function() {
-    ∙ var name;
+    ∙var name;
     }
 
     // good
