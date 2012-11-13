@@ -830,7 +830,7 @@
     var totalScore = '' + this.reviewScore + ' total score';
 
     // good
-    var totalScore = this.reviewScore + ' total score';
+    var totalScore = ' total score' + this.reviewScore;
     ```
 
   - Use `parseInt` for Numbers and always with a radix for type casting.
@@ -948,7 +948,7 @@
     // bad
     this.__firstName__ = 'Panda';
     this.firstName_ = 'Panda';
-    
+
     // good
     this._firstName = 'Panda';
     ```
