@@ -7,7 +7,7 @@
  *   3. Paste the contents of this file into your settings file
  *   4. Save the settings file
  *
- * @version 0.2.0
+ * @version 0.3.0
  * @see     https://github.com/SublimeLinter/SublimeLinter
  * @see     http://www.jshint.com/docs/
  */
@@ -37,25 +37,28 @@
       // with underscores.
       "camelcase": true,
 
-      // Prohibit the use of == and != in favor of === and !==.
+      // Prohibit use of == and != in favor of === and !==.
       "eqeqeq": true,
 
       // Suppress warnings about == null comparisons.
       "eqnull": true,
 
-      // Enforce a tab width of 2 spaces.
+      // Enforce tab width of 2 spaces.
       "indent": 2,
 
-      // Prohibit the use of a variable before it was defined.
+      // Prohibit use of a variable before it is defined.
       "latedef": true,
 
       // Require capitalized names for constructor functions.
       "newcap": true,
 
+      // Enforce use of single quotation marks for strings.
+      "quotmark": "single",
+
       // Prohibit trailing whitespace.
       "trailing": true,
 
-      // Prohibit the use of explicitly undeclared variables.
+      // Prohibit use of explicitly undeclared variables.
       "undef": true,
 
       // Warn when variables are defined but never used.
