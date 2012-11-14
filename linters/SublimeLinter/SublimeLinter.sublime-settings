@@ -37,16 +37,16 @@
       // with underscores.
       "camelcase": true,
 
-      // Prohibit the use of == and != in favor of === and !==.
+      // Prohibit use of == and != in favor of === and !==.
       "eqeqeq": true,
 
       // Suppress warnings about == null comparisons.
       "eqnull": true,
 
-      // Enforce a tab width of 2 spaces.
+      // Enforce tab width of 2 spaces.
       "indent": 2,
 
-      // Prohibit the use of a variable before it was defined.
+      // Prohibit use of a variable before it is defined.
       "latedef": true,
 
       // Require capitalized names for constructor functions.
@@ -55,7 +55,7 @@
       // Prohibit trailing whitespace.
       "trailing": true,
 
-      // Prohibit the use of explicitly undeclared variables.
+      // Prohibit use of explicitly undeclared variables.
       "undef": true,
 
       // Warn when variables are defined but never used.
