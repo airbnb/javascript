@@ -1054,7 +1054,7 @@
     };
     ```
 
-  - Constructor methods should try to return `this`. This helps with method chaining which is often useful.
+  - Methods can return `this` to help with method chaining.
 
     ```javascript
     // bad
