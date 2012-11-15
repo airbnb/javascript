@@ -29,6 +29,7 @@
   1. [Testing](#testing)
   1. [Performance](#performance)
   1. [Resources](#resources)
+  1. [In the Wild](#in-the-wild)
   1. [The JavaScript Style Guide Guide](#guide-guide)
   1. [Contributors](#contributors)
   1. [License](#license)
@@ -1271,9 +1272,16 @@
   - [Ben Alman](http://benalman.com/)
   - [Dmitry Baranovskiy](http://dmitry.baranovskiy.com/)
   - [Dustin Diaz](http://dustindiaz.com/)
-  - [net.tutsplus](http://net.tutsplus.com/?s=javascript)
+  - [nettuts](http://net.tutsplus.com/?s=javascript)
 
   **[[⬆]](#TOC)**
+
+## <a name='in-the-wild'>In the Wild</a>
+
+  This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
+
+  - **Airbnb**: [airbnb/javascript](//github.com/airbnb/javascript)
+  - **American Insitutes for Research**: [AIRAST/javascript](//github.com/AIRAST/javascript)
 
 ## <a name='guide-guide'>The JavaScript Style Guide Guide</a>
 
