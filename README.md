@@ -1282,6 +1282,7 @@
 
   - **Airbnb**: [airbnb/javascript](//github.com/airbnb/javascript)
   - **American Insitutes for Research**: [AIRAST/javascript](//github.com/AIRAST/javascript)
+  - **Shutterfly**: [shutterfly/javascript](//github.com/shutterfly/javascript)
 
 ## <a name='guide-guide'>The JavaScript Style Guide Guide</a>
 
