@@ -1310,6 +1310,7 @@
 
   - **Airbnb**: [airbnb/javascript](//github.com/airbnb/javascript)
   - **American Insitutes for Research**: [AIRAST/javascript](//github.com/AIRAST/javascript)
+  - **How About We**: [howaboutwe/javascript](//github.com/howaboutwe/javascript)
   - **MinnPost**: [MinnPost/javascript](//github.com/MinnPost/javascript)
   - **Shutterfly**: [shutterfly/javascript](//github.com/shutterfly/javascript)
 
