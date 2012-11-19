@@ -1,4 +1,4 @@
-# Airbnb JavaScript Style Guide() {
+# HowAboutWe JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
@@ -44,8 +44,8 @@
     + `undefined`
 
     ```javascript
-    var foo = 1,
-        bar = foo;
+    var foo = 1;
+    var bar = foo;
 
     bar = 9;
 
@@ -58,8 +58,8 @@
     + `Function`
 
     ```javascript
-    var foo = [1, 2],
-        bar = foo;
+    var foo = [1, 2];
+    var bar = foo;
 
     bar[0] = 9;
 
@@ -111,12 +111,34 @@
     var items = [];
     ```
 
+  - For clarity and [performance reasons](http://jsperf.com/caching-array-length/4), cache the length of your arrays in variables outside of the loop
+
+    ```javascript
+    // bad
+    for (var i = 0; i < items.length; i++) {
+      // ...stuff...
+    }
+
+    // bad
+    for (var i = 0, len = items.length; i < len; i++) {
+      // ...stuff...
+    }
+
+    // good
+    var len = items.length;
+    var i;
+
+    for (i = 0; i < len; i++) {
+      // ...stuff...
+    }
+    ```
+
   - For [performance reasons](http://jsperf.com/array-direct-assignment-vs-push/5) use direct assignment over Array#push
 
     ```javascript
-    var len = items.length,
-        itemsCopy = [],
-        i;
+    var len = items.length;
+    var itemsCopy = [];
+    var i;
 
     // bad
     for (i = 0; i < len; i++) {
@@ -128,7 +150,6 @@
       itemsCopy[i] = items[i];
     }
     ```
-
     **[[⬆]](#TOC)**
 
 
@@ -177,9 +198,10 @@
   - When programatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
-    var items,
-        messages,
-        length, i;
+    var items;
+    var messages;
+    var length;
+    var i;
 
     messages = [{
         state: 'success',
@@ -324,39 +346,48 @@
     var superPower = new SuperPower();
     ```
 
-  - Use one `var` declaration for multiple variables and declare each variable on a newline.
+  - Use additional `var` declarations for multiple variables and declare each variable on a newline. This is useful when reordering variables and avoiding simple syntax mistakes.
 
     ```javascript
     // bad
-    var items = getItems();
-    var goSportsTeam = true;
-    var dragonball = 'z';
-
-    // good
     var items = getItems(),
         goSportsTeam = true,
         dragonball = 'z';
+
+    // bad
+    var items = getItems()
+        , goSportsTeam = true
+        , dragonball = 'z';
+
+    // good
+    var items = getItems();
+    var goSportsTeam = true;
+    var dragonball = 'z';
     ```
 
   - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
     ```javascript
     // bad
-    var i, len, dragonball,
-        items = getItems(),
-        goSportsTeam = true;
+    var i;
+    var len;
+    var dragonball;
+    var items = getItems();
+    var goSportsTeam = true;
 
     // bad
-    var i, items = getItems(),
-        dragonball,
-        goSportsTeam = true,
-        len;
+    var items = getItems();
+    var i;
+    var goSportsTeam = true;
+    var len;
+    var dragonball;
 
     // good
-    var items = getItems(),
-        goSportsTeam = true,
-        dragonball,
-        i, length;
+    var items = getItems();
+    var goSportsTeam = true;
+    var i;
+    var len;
+    var dragonball;
     ```
 
   - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
@@ -590,15 +621,16 @@
 
 ## <a name='comments'>Comments</a>
 
-  - Use `/** ... */` for multiline comments. Include a description, specify types and values for all parameters and return values.
+  - Use [JSDoc](http://usejsdoc.org) notation for commenting guidelines.
+  - Use `/** ... */` for multiline comments.
 
     ```javascript
     // bad
     // make() returns a new element
-    // based on the pased in tag name
+    // based on the passed in tag name
     //
-    // @param <String> tag
-    // @return <Element> element
+    // @param {String} tag
+    // @return {Element} element
     function make(tag) {
 
       // ...stuff...
@@ -608,11 +640,11 @@
 
     // good
     /**
-     * make() returns a new element
-     * based on the pased in tag name
+     * Returns a new element based on
+     * the passed in tag name.
      *
-     * @param <String> tag
-     * @return <Element> element
+     * @param {String} tag
+     * @return {Element} element
      */
     function make(tag) {
 
@@ -622,7 +654,7 @@
     }
     ```
 
-  - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an emptyline before the comment.
+  - Use `//` for single line comments. Always place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
 
     ```javascript
     // bad
@@ -649,6 +681,40 @@
       var type = this._type || 'no type';
 
       return type;
+    }
+    ```
+
+  -  Always specify types and values for all parameters and return values. Ideally, provide a description for the function and parameters as well.
+
+    ```javascript
+    // bad
+    function make(tag) {
+      // ...stuff...
+    }
+
+    // good
+    /**
+     * @param {String} tag
+     * @return {Element} element
+     */
+    function make(tag) {
+      // ...stuff...
+    }
+
+    // best
+    /**
+     * Returns a new element based on the passed in tag name.
+     *
+     * @param {String} tag
+     *  Tag to create. -eg 'a', 'span', 'strong'
+     * @return {Element} element
+     *  DOM element object.
+     */
+    function make(tag) {
+
+      // ...stuff...
+
+      return element;
     }
     ```
 
@@ -730,11 +796,6 @@
       , upon
       , aTime;
 
-    // good
-    var once,
-        upon,
-        aTime;
-
     // bad
     var hero = {
         firstName: 'Bob'
@@ -804,6 +865,7 @@
     ```
 
   - Numbers:
+- Don't perform type coercion for integers. Use `parseInt` with a radix parameter instead.
 
     ```javascript
     var inputValue = '4';
@@ -811,11 +873,11 @@
     // bad
     var val = new Number(inputValue);
 
-    // good
-    var val = Number(inputValue);
+    // bad
+    var val = +inputValue;
 
     // good
-    var val = +inputValue;
+    var val = parseInt(inputValue, 10);
     ```
 
   - Booleans:
@@ -852,7 +914,7 @@
     }
     ```
 
-  - Use camelCase when naming objects, functions, and instances
+  - Use lower camelCase when naming objects, functions, and instances
 
     ```javascript
     // bad
@@ -1037,24 +1099,6 @@
       .setHeight(20);
     ```
 
-
-  - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
-
-    ```javascript
-    function Jedi(options) {
-      options || (options = {});
-      this.name = options.name || 'no name';
-    }
-
-    Jedi.prototype.getName = function getName() {
-      return this.name;
-    };
-
-    Jedi.prototype.toString = function toString() {
-      return 'Jedi - ' + this.getName();
-    };
-    ```
-
     **[[⬆]](#TOC)**
 
 
@@ -1100,7 +1144,7 @@
     var $sidebar = $('.sidebar');
     ```
 
-  - Cache jQuery lookups.
+  - If a jQuery lookup is performed more than once, cache the jQuery object.
 
     ```javascript
     // bad
@@ -1112,6 +1156,18 @@
       $('.sidebar').css({
         'background-color': 'pink'
       });
+    }
+
+    // bad
+    function getSideBarHeight() {
+      var $sidebar = $('.sidebar');
+
+      $sidebar.height();
+    }
+
+    // good
+    function getSideBarHeight() {
+      $('.sidebar').height();
     }
 
     // good
