@@ -112,7 +112,37 @@
     var items = [];
     ```
 
-  - For [performance reasons](http://jsperf.com/array-direct-assignment-vs-push/5) use direct assignment over Array#push
+  - When you are managing array length use direct assignment over Array#push for [performance reasons](http://jsperf.com/array-direct-assignment-vs-push/5)
+
+    ```javascript
+    var hundredOdds = [],
+        i;
+
+    // bad
+    for (i = 0; i < 100; i++) {
+      hundredOdds.push(i * 2 + 1);
+    }
+
+    // good
+    for (i = 0; i < 100; i++) {
+      hundredOdds[i] = i * 2 + 1;
+    }
+    ```
+
+  - If you don't know array length use Array#push for [performance reasons](http://jsperf.com/array-direct-assignment-vs-push/5)
+
+    ```javascript
+    var someStack = [],
+
+
+    // bad
+    someStack[someStack.length] = 'abracadabra';
+
+    // good
+    someStack.push('abracadabra');
+    ```
+
+  - When you need to copy an array use Array() constructor [performance](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
     var len = items.length,
@@ -121,13 +151,11 @@
 
     // bad
     for (i = 0; i < len; i++) {
-      itemsCopy.push(items[i])
+      itemsCopy[i] = items[i];
     }
 
     // good
-    for (i = 0; i < len; i++) {
-      itemsCopy[i] = items[i];
-    }
+    itemsCopy = Array.apply(null, items);
     ```
 
     **[[⬆]](#TOC)**
