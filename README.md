@@ -1307,7 +1307,7 @@
 
 **Other Styles**
 
-  - [Naming Nested This](https://gist.github.com/4135065) - Christian Johansen
+  - [Naming this in nested functions](https://gist.github.com/4135065) - Christian Johansen
 
 **Books**
 
