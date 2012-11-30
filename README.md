@@ -37,6 +37,8 @@
 
   - **Primitives**: When you access a primitive type you work directly on its value
 
+  *RMW: not sure this is super valuable ...*
+
     + `String`
     + `Number`
     + `Boolean`
@@ -154,6 +156,7 @@
 
 
 ## <a name='strings'>Strings</a>
+  *RMW: I think this might be hard to enforce ...*
 
   - Use single quotes `''` for strings
 
@@ -302,6 +305,7 @@
 ## <a name='properties'>Properties</a>
 
   - Use dot notation when accessing properties.
+  *RMW: unless programmatically dealing with javascript in HAML/Ruby*
 
     ```javascript
     var luke = {
@@ -317,6 +321,7 @@
     ```
 
   - Use subscript notation `[]` when accessing properties with a variable.
+  *RMW: not thrilled about this - why create a func just for this???*
 
     ```javascript
     var luke = {
@@ -346,7 +351,9 @@
     var superPower = new SuperPower();
     ```
 
-  - Use additional `var` declarations for multiple variables and declare each variable on a newline. This is useful when reordering variables and avoiding simple syntax mistakes.
+  - Use additional `var` declarations for multiple variables and declare each variable on a newline. This is useful when reordering variables and avoiding simple syntax mistakesi
+  *RMW: yay!  Although if there is push back, then it's ok as long as
+the vars aren't being initialized*
 
     ```javascript
     // bad
@@ -366,6 +373,9 @@
     ```
 
   - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+
+    *RMW: I don't know that I feel this is super important and maybe
+hard to maintain/enforce*
 
     ```javascript
     // bad
@@ -454,6 +464,9 @@
 ## <a name='hoisting'>Hoisting</a>
 
   - Variable declarations get hoisted to the top of their scope, their assignment does not.
+
+    *RMW: not sure we should be using hoisting if we can avoid it.
+Declare your shit before you use it*
 
     ```javascript
     // we know this wouldn't work (assuming there
@@ -554,6 +567,9 @@
     + **Numbers** evalute to `**false**` if **+0, -0, or NaN**, otherwise `**true**`
     + **Strings** evaluate to `**false` if an **empty string `''`**, otherwise `**true**`
 
+    *RMW: agree with if(name) but not if(collection.length) - it's
+confusing particularly if it needs to change (> 0 vs. > 1)*
+
     ```javascript
     if ([0]) {
       // true
@@ -593,6 +609,9 @@
 ## <a name='blocks'>Blocks</a>
 
   - Use braces with all multi-line blocks.
+
+  *RMW: I tend to use braces with single line blocks in js out of habit
+and to avoid issues if I need to add logic, but I'm not super committed*
 
     ```javascript
     // bad
@@ -686,6 +705,11 @@
 
   -  Always specify types and values for all parameters and return values. Ideally, provide a description for the function and parameters as well.
 
+  *RMW: this is going to be contentious*
+  *RMW: I think the below commenting style is excessive and mostly
+unnecessary*
+
+
     ```javascript
     // bad
     function make(tag) {
@@ -767,6 +791,8 @@
     });
     ```
   - Place an empty newline at the end of the file.
+
+  *RMW: Why? this is going to be contentious as well*
 
     ```javascript
     // bad
@@ -867,6 +893,8 @@
   - Numbers:
 - Don't perform type coercion for integers. Use `parseInt` with a radix parameter instead.
 
+  *RMW: use radix even for base 10?*
+
     ```javascript
     var inputValue = '4';
 
@@ -881,6 +909,8 @@
     ```
 
   - Booleans:
+
+  *RMW: why is the first bad?*
 
     ```javascript
     var age = 0;
@@ -899,6 +929,8 @@
 
 
 ## <a name='naming-conventions'>Naming Conventions</a>
+
+  *RMW: this is going to be contentious, difficult for Ruby devs*
 
   - Avoid single letter names. Be descriptive with your naming.
 
@@ -958,6 +990,9 @@
 
   - Use a leading underscore `_` when naming private properties
 
+  *RMW: I HATE this!*
+  *RMW: also shouldn't it be this._firstName?*
+
     ```javascript
     // bad
     this.__firstName__ = 'Panda';
@@ -985,6 +1020,9 @@
 
   - Accessor functions for properties are not required
   - If you do make accessor functions use getVal() and setVal('hello')
+
+  *RMW: mmm ... again this is really antithetical for Ruby devs - very
+Javay*
 
     ```javascript
     // bad
@@ -1105,7 +1143,7 @@
 ## <a name='modules'>Modules</a>
 
   - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated.
-  - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
+  - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export. *RMW: at the very least, let's name the file with underscores as it will be consistent with ruby files*
   - Add a method called noConflict() that sets the exported module to the previous version.
   - Always declare `'use strict;'` at the top of the module.
 
@@ -1211,6 +1249,8 @@
 
 ## <a name='testing'>Testing</a>
 
+  *RMW: huh? I don't know what this seciton is about*
+
   - **Yup.**
 
     ```javascript
@@ -1230,13 +1270,24 @@
   - [jQuery Find vs Context, Selector](http://jsperf.com/jquery-find-vs-context-sel/13)
   - Loading...
 
+  *RMW: can we write the basic things for this out?*
+
   **[[⬆]](#TOC)**
+
+*RMW: I would like to see sections on
+  - when we should and shouldn't create objects
+  - naming and folder structure conventions for files/objects (i.e. map
+    to views etc; views and shared folders)
+  - JS testing with Jasmine
+  - using document.ready - use in file or view
+  - guidelines on choosing plugins
+*
 
 
 ## <a name='resources'>Resources</a>
 
 
-**Read This**
+**Read This**e
 
   - [Annotated ECMAScript 5.1](http://es5.github.com/)
 
