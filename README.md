@@ -132,7 +132,7 @@
   - If you don't know array length use Array#push.
 
     ```javascript
-    var someStack = [],
+    var someStack = [];
 
 
     // bad
