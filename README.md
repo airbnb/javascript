@@ -173,10 +173,10 @@
     var name = 'Bob Parr';
 
     // bad
-    var fullName = "Bob" + this.lastName;
+    var fullName = "Bob " + this.lastName;
 
     // good
-    var fullName = 'Bob' + this.lastName;
+    var fullName = 'Bob ' + this.lastName;
     ```
 
   - Strings longer than 80 characters should be written across multiple lines using string concatenation.
