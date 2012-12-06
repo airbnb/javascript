@@ -36,12 +36,11 @@
 
 ## <a name='types'>Types</a>
 
-  - **Primitives**: When you access a primitive type you work directly on its value
+  - **Primitives**: When you access a value that is one of the four **simple** primitive types, you work directly on it by value
 
-    + `String`
-    + `Number`
-    + `Boolean`
-    + `null`
+    + `string`
+    + `number`
+    + `boolean`
     + `undefined`
 
     ```javascript
@@ -52,11 +51,20 @@
 
     console.log(foo, bar); // => 1, 9
     ```
-  - **Complex**: When you access a complex type you work on a reference to its value
+  - **Complex**: When you access a value that is one of the two **complex** primitive types (`object` and `function`), you work on it by reference. These are all values of those two types
 
-    + `Object`
-    + `Array`
-    + `Function`
+    + `function(){..}` (`function`)
+    + `null` (`object`)
+    + `new Object()` (`object`)
+    + `{ }` (`object`)
+    + `new Array()` (`object`)
+    + `[ ]` (`object`)
+    + `new Function()` (`function`)
+    + `new String()` (`object`)
+    + `new Number()` (`object`)
+    + `new Boolean()` (`object`)
+    + `new RegExp()` (`object`)
+    + `new Date()` (`object`)
 
     ```javascript
     var foo = [1, 2],
