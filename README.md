@@ -25,7 +25,7 @@
   1. [Constructors](#constructors)
   1. [Modules](#modules)
   1. [jQuery](#jquery)
-  1. [ES5 Compatability](#es5)
+  1. [ES5 Compatibility](#es5)
   1. [Testing](#testing)
   1. [Performance](#performance)
   1. [Resources](#resources)
@@ -1261,7 +1261,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="es5">ECMAScript 5 Compatability</a>
+## <a name="es5">ECMAScript 5 Compatibility</a>
 
   - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
 
