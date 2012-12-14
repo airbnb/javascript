@@ -1182,7 +1182,7 @@
       var previousFancyInput = global.FancyInput;
 
       function FancyInput(options) {
-        return options || (options = {});
+        this.options = options || {};
       }
 
       FancyInput.noConflict = function noConflict() {
