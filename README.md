@@ -1323,7 +1323,7 @@
 
 **Blogs**
 
-  - [DailyJS](//dailyjs.com)
+  - [DailyJS](http://dailyjs.com/)
   - [JavaScript Weekly](http://javascriptweekly.com/)
   - [JavaScript, JavaScript...](http://javascriptweblog.wordpress.com/)
   - [Bocoup Weblog](http://weblog.bocoup.com/)
