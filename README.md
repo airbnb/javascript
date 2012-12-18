@@ -3,7 +3,7 @@
 *A mostly reasonable approach to JavaScript*
 
 
-## <a name="TOC">Table of Contents</a>
+## <a name='TOC'>Table of Contents</a>
 
   1. [Types](#types)
   1. [Objects](#objects)
@@ -34,7 +34,7 @@
   1. [Contributors](#contributors)
   1. [License](#license)
 
-## <a name="types">Types</a>
+## <a name='types'>Types</a>
 
   - **Primitives**: When you access a primitive type you work directly on its value
 
@@ -69,7 +69,7 @@
 
     **[[⬆]](#TOC)**
 
-## <a name="objects">Objects</a>
+## <a name='objects'>Objects</a>
 
   - Use the literal syntax for object creation.
 
@@ -100,7 +100,7 @@
     ```
     **[[⬆]](#TOC)**
 
-## <a name="arrays">Arrays</a>
+## <a name='arrays'>Arrays</a>
 
   - Use the literal syntax for array creation
 
@@ -161,7 +161,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="strings">Strings</a>
+## <a name='strings'>Strings</a>
 
   - Use single quotes `''` for strings
 
@@ -249,7 +249,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="functions">Functions</a>
+## <a name='functions'>Functions</a>
 
   - Function expressions:
 
@@ -306,7 +306,7 @@
 
 
 
-## <a name="properties">Properties</a>
+## <a name='properties'>Properties</a>
 
   - Use dot notation when accessing properties.
 
@@ -341,7 +341,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="variables">Variables</a>
+## <a name='variables'>Variables</a>
 
   - Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
 
@@ -449,7 +449,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="hoisting">Hoisting</a>
+## <a name='hoisting'>Hoisting</a>
 
   - Variable declarations get hoisted to the top of their scope, their assignment does not.
 
@@ -540,7 +540,7 @@
 
 
 
-## <a name="conditionals">Conditional Expressions & Equality</a>
+## <a name='conditionals'>Conditional Expressions & Equality</a>
 
   - Use `===` and `!==` over `==` and `!=`.
   - Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
@@ -588,7 +588,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="blocks">Blocks</a>
+## <a name='blocks'>Blocks</a>
 
   - Use braces with all multi-line blocks.
 
@@ -617,7 +617,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="comments">Comments</a>
+## <a name='comments'>Comments</a>
 
   - Use `/** ... */` for multiline comments. Include a description, specify types and values for all parameters and return values.
 
@@ -684,7 +684,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="whitespace">Whitespace</a>
+## <a name='whitespace'>Whitespace</a>
 
   - Use soft tabs set to 2 spaces
 
@@ -779,7 +779,7 @@
       .call(tron.led);
   ```
 
-## <a name="leading-commas">Leading Commas</a>
+## <a name='leading-commas'>Leading Commas</a>
 
   - **Nope.**
 
@@ -814,7 +814,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="semicolons">Semicolons</a>
+## <a name='semicolons'>Semicolons</a>
 
   - **Yup.**
 
@@ -841,7 +841,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="type-coercion">Type Casting & Coercion</a>
+## <a name='type-coercion'>Type Casting & Coercion</a>
 
   - Perform type coercion at the beginning of the statement.
   - Strings:
@@ -913,7 +913,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="naming-conventions">Naming Conventions</a>
+## <a name='naming-conventions'>Naming Conventions</a>
 
   - Avoid single letter names. Be descriptive with your naming.
 
@@ -1027,7 +1027,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="accessors">Accessors</a>
+## <a name='accessors'>Accessors</a>
 
   - Accessor functions for properties are not required
   - If you do make accessor functions use getVal() and setVal('hello')
@@ -1081,7 +1081,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="constructors">Constructors</a>
+## <a name='constructors'>Constructors</a>
 
   - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
 
@@ -1166,7 +1166,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="modules">Modules</a>
+## <a name='modules'>Modules</a>
 
   - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated.
   - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
@@ -1196,7 +1196,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="jquery">jQuery</a>
+## <a name='jquery'>jQuery</a>
 
   - Prefix jQuery object variables with a `$`.
 
@@ -1261,14 +1261,14 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="es5">ECMAScript 5 Compatibility</a>
+## <a name='es5'>ECMAScript 5 Compatibility</a>
 
   - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
 
   **[[⬆]](#TOC)**
 
 
-## <a name="testing">Testing</a>
+## <a name='testing'>Testing</a>
 
   - **Yup.**
 
@@ -1281,7 +1281,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name="performance">Performance</a>
+## <a name='performance'>Performance</a>
 
   - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
   - [Try/Catch Cost In a Loop](http://jsperf.com/try-catch-in-loop-cost)
@@ -1293,7 +1293,7 @@
   **[[⬆]](#TOC)**
 
 
-## <a name="resources">Resources</a>
+## <a name='resources'>Resources</a>
 
 
 **Read This**
@@ -1337,7 +1337,7 @@
 
   **[[⬆]](#TOC)**
 
-## <a name="in-the-wild">In the Wild</a>
+## <a name='in-the-wild'>In the Wild</a>
 
   This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
 
@@ -1347,16 +1347,16 @@
   - **MinnPost**: [MinnPost/javascript](//github.com/MinnPost/javascript)
   - **Shutterfly**: [shutterfly/javascript](//github.com/shutterfly/javascript)
 
-## <a name="guide-guide">The JavaScript Style Guide Guide</a>
+## <a name='guide-guide'>The JavaScript Style Guide Guide</a>
 
   - [Reference](//github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
-## <a name="authors">Contributors</a>
+## <a name='authors'>Contributors</a>
 
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
 
 
-## <a name="license">License</a>
+## <a name='license'>License</a>
 
 (The MIT License)
 
