@@ -25,7 +25,7 @@
   1. [Constructors](#constructors)
   1. [Modules](#modules)
   1. [jQuery](#jquery)
-  1. [ES5 Compatability](#es5)
+  1. [ES5 Compatibility](#es5)
   1. [Testing](#testing)
   1. [Performance](#performance)
   1. [Resources](#resources)
@@ -87,14 +87,14 @@
     // bad
     var superman = {
       class: 'superhero',
-      default: { clark: kent },
+      default: { clark: 'kent' },
       private: true
     };
 
     // good
     var superman = {
       klass: 'superhero',
-      defaults: { clark: kent },
+      defaults: { clark: 'kent' },
       hidden: true
     };
     ```
@@ -132,7 +132,7 @@
   - If you don't know array length use Array#push.
 
     ```javascript
-    var someStack = [],
+    var someStack = [];
 
 
     // bad
@@ -173,10 +173,10 @@
     var name = 'Bob Parr';
 
     // bad
-    var fullName = "Bob" + this.lastName;
+    var fullName = "Bob " + this.lastName;
 
     // good
-    var fullName = 'Bob' + this.lastName;
+    var fullName = 'Bob ' + this.lastName;
     ```
 
   - Strings longer than 80 characters should be written across multiple lines using string concatenation.
@@ -1182,7 +1182,7 @@
       var previousFancyInput = global.FancyInput;
 
       function FancyInput(options) {
-        options || (options = {});
+        this.options = options || {};
       }
 
       FancyInput.noConflict = function noConflict() {
@@ -1261,7 +1261,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='es5'>ECMAScript 5 Compatability</a>
+## <a name='es5'>ECMAScript 5 Compatibility</a>
 
   - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
 
@@ -1323,7 +1323,7 @@
 
 **Blogs**
 
-  - [DailyJS](//dailyjs.com)
+  - [DailyJS](http://dailyjs.com/)
   - [JavaScript Weekly](http://javascriptweekly.com/)
   - [JavaScript, JavaScript...](http://javascriptweblog.wordpress.com/)
   - [Bocoup Weblog](http://weblog.bocoup.com/)
