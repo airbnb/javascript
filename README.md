@@ -25,6 +25,7 @@
   1. [Constructors](#constructors)
   1. [Modules](#modules)
   1. [jQuery](#jquery)
+  1. [Backbone](#backbone)
   1. [ES5 Compatability](#es5)
   1. [Testing](#testing)
   1. [Performance](#performance)
@@ -1256,6 +1257,91 @@
 
     // good (faster)
     $($sidebar[0]).find('ul');
+    ```
+
+    **[[⬆]](#TOC)**
+
+
+## <a name='backbone'>Backbone</a>
+
+  - Folder structure guidelines (from Rails 3 project root)
+
+    ```
+    app/
+    └─┬ assets/
+      └─┬ apps/
+        ├── myCoolApp/
+        ├── anotherCoolApp/
+        ├── theCoolestApp/
+        └─┬ app/
+          ├─┬ views/
+          │ ├── ListItemView.js
+          │ └── ListView.js
+          ├── models/
+          ├── collections/
+          ├── routers/
+          └── index.js
+    config/
+    db/
+    lib/
+    ...
+    ```
+
+  - The entry point for any Backbone app should be in the `index.js` file found in the root of the application's directory.
+  - Generally, it should follow the following structure:
+
+    ```javascript
+    // app/assets/apps/app/index.js
+    !function($, Backbone) {
+
+      var app = {
+        init: function() {
+          // application specific init code goes here
+          app.router = new app.Routers.ApplicationRouter();
+          Backbone.history.start();
+        },
+        Views: {},
+        Models: {},
+        Collections: {},
+        Routers: {},
+        Helpers: {}
+      };
+
+      $(function(){
+        // document ready
+        app.init();
+      })();
+
+    }(jQuery, Backbone);
+    ```
+
+  - Classes live in the `app` (or app name) object under the corresponding Backbone type (Models, Collections, Views, Routers) with PascalCase
+
+    ```javascript
+    // bad
+    ListItemView = Backbone.View.extend();
+
+    // bad
+    app.ListItemView = Backbone.View.extend();
+
+    // good
+    app.Views.ListItemView = Backbone.View.extend();
+
+    // bad
+    app.Views.ApplicationRouter = Backbone.Router.extend();
+
+    // good
+    app.Routers.ApplicationRouter = Backbone.Router.extend();
+    ```
+
+  - Instances live directly under the `app` object with camelCase
+
+    ```javascript
+    // bad
+    app.Views.messagesView = new app.Views.ListView();
+
+    // good
+    app.messagesView = new app.Views.ListView();
     ```
 
     **[[⬆]](#TOC)**
