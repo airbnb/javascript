@@ -88,14 +88,14 @@
     // bad
     var superman = {
       class: 'superhero',
-      default: { clark: kent },
+      default: { clark: 'kent' },
       private: true
     };
 
     // good
     var superman = {
       klass: 'superhero',
-      defaults: { clark: kent },
+      defaults: { clark: 'kent' },
       hidden: true
     };
     ```
@@ -133,7 +133,7 @@
   - If you don't know array length use Array#push.
 
     ```javascript
-    var someStack = [],
+    var someStack = [];
 
 
     // bad
@@ -174,10 +174,10 @@
     var name = 'Bob Parr';
 
     // bad
-    var fullName = "Bob" + this.lastName;
+    var fullName = "Bob " + this.lastName;
 
     // good
-    var fullName = 'Bob' + this.lastName;
+    var fullName = 'Bob ' + this.lastName;
     ```
 
   - Strings longer than 80 characters should be written across multiple lines using string concatenation.
@@ -1183,7 +1183,7 @@
       var previousFancyInput = global.FancyInput;
 
       function FancyInput(options) {
-        options || (options = {});
+        this.options = options || {};
       }
 
       FancyInput.noConflict = function noConflict() {
@@ -1409,7 +1409,7 @@
 
 **Blogs**
 
-  - [DailyJS](//dailyjs.com)
+  - [DailyJS](http://dailyjs.com/)
   - [JavaScript Weekly](http://javascriptweekly.com/)
   - [JavaScript, JavaScript...](http://javascriptweblog.wordpress.com/)
   - [Bocoup Weblog](http://weblog.bocoup.com/)
