@@ -1280,6 +1280,7 @@
           ├── models/
           ├── collections/
           ├── routers/
+          ├── templates/
           └── index.js
     config/
     db/
