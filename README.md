@@ -180,6 +180,7 @@
     ```
 
   - Strings longer than 80 characters should be written across multiple lines using string concatenation.
+  - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
 
     ```javascript
     // bad
@@ -1289,6 +1290,7 @@
   - [Bang Function](http://jsperf.com/bang-function)
   - [jQuery Find vs Context, Selector](http://jsperf.com/jquery-find-vs-context-sel/13)
   - [innerHTML vs textContent for script text](http://jsperf.com/innerhtml-vs-textcontent-for-script-text)
+  - [Long String Concatenation](http://jsperf.com/ya-string-concat)
   - Loading...
 
   **[[⬆]](#TOC)**
