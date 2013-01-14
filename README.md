@@ -480,7 +480,7 @@
     }
     ```
 
-  - Anonymous function expression hoist their variable name, but not the function assignment.
+  - Anonymous function expressions hoist their variable name, but not the function assignment.
 
     ```javascript
     function example() {
