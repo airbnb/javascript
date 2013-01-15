@@ -112,23 +112,6 @@
     var items = [];
     ```
 
-  - When you are managing array length use direct assignment over Array#push. [jsPerf](http://jsperf.com/array-direct-assignment-vs-push/11)
-
-    ```javascript
-    var hundredOdds = [],
-        i;
-
-    // bad
-    for (i = 0; i < 100; i++) {
-      hundredOdds.push(i * 2 + 1);
-    }
-
-    // good
-    for (i = 0; i < 100; i++) {
-      hundredOdds[i] = i * 2 + 1;
-    }
-    ```
-
   - If you don't know array length use Array#push.
 
     ```javascript
