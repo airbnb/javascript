@@ -273,7 +273,7 @@
     }
     ```
 
-  - Never name a parameter `arguments`, this will take precendence over the `arguments` object that is given to every function scope.
+  - Never name a parameter `arguments`, this will take precedence over the `arguments` object that is given to every function scope.
 
     ```javascript
     // bad
