@@ -1330,10 +1330,12 @@
 
   - **Airbnb**: [airbnb/javascript](//github.com/airbnb/javascript)
   - **American Insitutes for Research**: [AIRAST/javascript](//github.com/AIRAST/javascript)
+  - **GoCardless**: [gocardless/javascript](//github.com/gocardless/javascript)
   - **GoodData**: [gooddata/gdc-js-style](//github.com/gooddata/gdc-js-style)
   - **How About We**: [howaboutwe/javascript](//github.com/howaboutwe/javascript)
   - **MinnPost**: [MinnPost/javascript](//github.com/MinnPost/javascript)
   - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
+  - **Razorfish**: [razorfish/javascript-style-guide](//github.com/razorfish/javascript-style-guide)
   - **Shutterfly**: [shutterfly/javascript](//github.com/shutterfly/javascript)
 
 ## <a name='guide-guide'>The JavaScript Style Guide Guide</a>
