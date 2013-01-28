@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Javascript : JavaScript Style Guide" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Javascript</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/airbnb/javascript">View on GitHub</a>
+
+          <h1 id="project_title">Javascript</h1>
+          <h2 id="project_tagline">JavaScript Style Guide</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/airbnb/javascript/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/airbnb/javascript/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Airbnb JavaScript Style Guide() {</h1>
+
+<p><em>A mostly reasonable approach to JavaScript</em></p>
+
+<h2><a name="TOC">Table of Contents</a></h2>
+
+<ol>
+<li><a href="#types">Types</a></li>
+<li><a href="#objects">Objects</a></li>
+<li><a href="#arrays">Arrays</a></li>
+<li><a href="#strings">Strings</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#hoisting">Hoisting</a></li>
+<li><a href="#conditionals">Conditional Expressions &amp; Equality</a></li>
+<li><a href="#blocks">Blocks</a></li>
+<li><a href="#comments">Comments</a></li>
+<li><a href="#whitespace">Whitespace</a></li>
+<li><a href="#leading-commas">Leading Commas</a></li>
+<li><a href="#semicolons">Semicolons</a></li>
+<li><a href="#type-coercion">Type Casting &amp; Coercion</a></li>
+<li><a href="#naming-conventions">Naming Conventions</a></li>
+<li><a href="#accessors">Accessors</a></li>
+<li><a href="#constructors">Constructors</a></li>
+<li><a href="#modules">Modules</a></li>
+<li><a href="#jquery">jQuery</a></li>
+<li><a href="#es5">ES5 Compatibility</a></li>
+<li><a href="#testing">Testing</a></li>
+<li><a href="#performance">Performance</a></li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#in-the-wild">In the Wild</a></li>
+<li><a href="#guide-guide">The JavaScript Style Guide Guide</a></li>
+<li><a href="#contributors">Contributors</a></li>
+<li><a href="#license">License</a></li>
+</ol><h2><a name="types">Types</a></h2>
+
+<ul>
+<li>
+<p><strong>Primitives</strong>: When you access a primitive type you work directly on its value</p>
+
+<ul>
+<li><code>string</code></li>
+<li><code>number</code></li>
+<li><code>boolean</code></li>
+<li><code>null</code></li>
+<li><code>undefined</code></li>
+</ul>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">bar</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">;</span>
+
+<span class="nx">bar</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">);</span> <span class="c1">// =&gt; 1, 9</span>
+</pre></div>
+</li>
+<li>
+<p><strong>Complex</strong>: When you access a complex type you work on a reference to its value</p>
+
+<ul>
+<li><code>object</code></li>
+<li><code>array</code></li>
+<li><code>function</code></li>
+</ul>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="nx">bar</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">;</span>
+
+<span class="nx">bar</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">bar</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// =&gt; 9, 9</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="objects">Objects</a></h2>
+
+<ul>
+<li>
+<p>Use the literal syntax for object creation.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="p">{};</span>
+</pre></div>
+</li>
+<li>
+<p>Don't use <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Reserved_Words">reserved words</a> as keys.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">superman</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="kr">class</span><span class="o">:</span> <span class="s1">'superhero'</span><span class="p">,</span>
+  <span class="k">default</span><span class="o">:</span> <span class="p">{</span> <span class="nx">clark</span><span class="o">:</span> <span class="s1">'kent'</span> <span class="p">},</span>
+  <span class="kr">private</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">};</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">superman</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">klass</span><span class="o">:</span> <span class="s1">'superhero'</span><span class="p">,</span>
+  <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span> <span class="nx">clark</span><span class="o">:</span> <span class="s1">'kent'</span> <span class="p">},</span>
+  <span class="nx">hidden</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">};</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="arrays">Arrays</a></h2>
+
+<ul>
+<li>
+<p>Use the literal syntax for array creation</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span>
+</pre></div>
+</li>
+<li>
+<p>If you don't know array length use Array#push.</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">someStack</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="c1">// bad</span>
+<span class="nx">someStack</span><span class="p">[</span><span class="nx">someStack</span><span class="p">.</span><span class="nx">length</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'abracadabra'</span><span class="p">;</span>
+
+<span class="c1">// good</span>
+<span class="nx">someStack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">'abracadabra'</span><span class="p">);</span>
+</pre></div>
+</li>
+<li>
+<p>When you need to copy an array use Array#slice. <a href="http://jsperf.com/converting-arguments-to-an-array/7">jsPerf</a></p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+    <span class="nx">itemsCopy</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="nx">i</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">itemsCopy</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="nx">itemsCopy</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">items</span><span class="p">);</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="strings">Strings</a></h2>
+
+<ul>
+<li>
+<p>Use single quotes <code>''</code> for strings</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"Bob Parr"</span><span class="p">;</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">'Bob Parr'</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">fullName</span> <span class="o">=</span> <span class="s2">"Bob "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">fullName</span> <span class="o">=</span> <span class="s1">'Bob '</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span>
+</pre></div>
+</li>
+<li><p>Strings longer than 80 characters should be written across multiple lines using string concatenation.</p></li>
+<li>
+<p>Note: If overused, long strings with concatenation could impact performance. <a href="http://jsperf.com/ya-string-concat">jsPerf</a> &amp; <a href="https://github.com/airbnb/javascript/issues/40">Discussion</a></p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">errorMessage</span> <span class="o">=</span> <span class="s1">'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.'</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">errorMessage</span> <span class="o">=</span> <span class="s1">'This is a super long error that \</span>
+<span class="s1">was thrown because of Batman. \</span>
+<span class="s1">When you stop to think about \</span>
+<span class="s1">how Batman had anything to do \</span>
+<span class="s1">with this, you would get nowhere \</span>
+<span class="s1">fast.'</span><span class="p">;</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">errorMessage</span> <span class="o">=</span> <span class="s1">'This is a super long error that '</span> <span class="o">+</span>
+  <span class="s1">'was thrown because of Batman.'</span> <span class="o">+</span>
+  <span class="s1">'When you stop to think about '</span> <span class="o">+</span>
+  <span class="s1">'how Batman had anything to do '</span> <span class="o">+</span>
+  <span class="s1">'with this, you would get nowhere '</span> <span class="o">+</span>
+  <span class="s1">'fast.'</span><span class="p">;</span>
+</pre></div>
+</li>
+<li>
+<p>When programatically building up a string, use Array#join instead of string concatenation. Mostly for IE: <a href="http://jsperf.com/string-vs-array-concat/2">jsPerf</a>.</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">items</span><span class="p">,</span>
+    <span class="nx">messages</span><span class="p">,</span>
+    <span class="nx">length</span><span class="p">,</span> <span class="nx">i</span><span class="p">;</span>
+
+<span class="nx">messages</span> <span class="o">=</span> <span class="p">[{</span>
+    <span class="nx">state</span><span class="o">:</span> <span class="s1">'success'</span><span class="p">,</span>
+    <span class="nx">message</span><span class="o">:</span> <span class="s1">'This one worked.'</span>
+<span class="p">},{</span>
+    <span class="nx">state</span><span class="o">:</span> <span class="s1">'success'</span><span class="p">,</span>
+    <span class="nx">message</span><span class="o">:</span> <span class="s1">'This one worked as well.'</span>
+<span class="p">},{</span>
+    <span class="nx">state</span><span class="o">:</span> <span class="s1">'error'</span><span class="p">,</span>
+    <span class="nx">message</span><span class="o">:</span> <span class="s1">'This one did not work.'</span>
+<span class="p">}];</span>
+
+<span class="nx">length</span> <span class="o">=</span> <span class="nx">messages</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="kd">function</span> <span class="nx">inbox</span><span class="p">(</span><span class="nx">messages</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">items</span> <span class="o">=</span> <span class="s1">'&lt;ul&gt;'</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">items</span> <span class="o">+=</span> <span class="s1">'&lt;li&gt;'</span> <span class="o">+</span> <span class="nx">messages</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">message</span> <span class="o">+</span> <span class="s1">'&lt;/li&gt;'</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">items</span> <span class="o">+</span> <span class="s1">'&lt;/ul&gt;'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="kd">function</span> <span class="nx">inbox</span><span class="p">(</span><span class="nx">messages</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">messages</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">message</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="s1">'&lt;ul&gt;&lt;li&gt;'</span> <span class="o">+</span> <span class="nx">items</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">'&lt;/li&gt;&lt;li&gt;'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'&lt;/li&gt;&lt;/ul&gt;'</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="functions">Functions</a></h2>
+
+<ul>
+<li>
+<p>Function expressions:</p>
+
+<div class="highlight"><pre><span class="c1">// anonymous function expression</span>
+<span class="kd">var</span> <span class="nx">anonymous</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// named function expression</span>
+<span class="kd">var</span> <span class="nx">named</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">named</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// immediately-invoked function expression (IIFE)</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Welcome to the Internet. Please follow me.'</span><span class="p">);</span>
+<span class="p">})();</span>
+</pre></div>
+</li>
+<li><p>Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.</p></li>
+<li>
+<p><strong>Note:</strong> ECMA-262 defines a <code>block</code> as a list of statements. A function declartion is not a statement. <a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97">Read ECMA-262's note on this issue</a>.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">currentUser</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Nope.'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">currentUser</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Yup.'</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li>
+<p>Never name a parameter <code>arguments</code>, this will take precedence over the <code>arguments</code> object that is given to every function scope.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">function</span> <span class="nx">nope</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...stuff...</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="kd">function</span> <span class="nx">yup</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...stuff...</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="properties">Properties</a></h2>
+
+<ul>
+<li>
+<p>Use dot notation when accessing properties.</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">luke</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">jedi</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">age</span><span class="o">:</span> <span class="mi">28</span>
+<span class="p">};</span>
+
+<span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">isJedi</span> <span class="o">=</span> <span class="nx">luke</span><span class="p">[</span><span class="s1">'jedi'</span><span class="p">];</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">isJedi</span> <span class="o">=</span> <span class="nx">luke</span><span class="p">.</span><span class="nx">jedi</span><span class="p">;</span>
+</pre></div>
+</li>
+<li>
+<p>Use subscript notation <code>[]</code> when accessing properties with a variable.</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">luke</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">jedi</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">age</span><span class="o">:</span> <span class="mi">28</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">getProp</span><span class="p">(</span><span class="nx">prop</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">luke</span><span class="p">[</span><span class="nx">prop</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">isJedi</span> <span class="o">=</span> <span class="nx">getProp</span><span class="p">(</span><span class="s1">'jedi'</span><span class="p">);</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="variables">Variables</a></h2>
+
+<ul>
+<li>
+<p>Always use <code>var</code> to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="nx">superPower</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SuperPower</span><span class="p">();</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">superPower</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SuperPower</span><span class="p">();</span>
+</pre></div>
+</li>
+<li>
+<p>Use one <code>var</code> declaration for multiple variables and declare each variable on a newline.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">getItems</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">goSportsTeam</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">dragonball</span> <span class="o">=</span> <span class="s1">'z'</span><span class="p">;</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">getItems</span><span class="p">(),</span>
+    <span class="nx">goSportsTeam</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">dragonball</span> <span class="o">=</span> <span class="s1">'z'</span><span class="p">;</span>
+</pre></div>
+</li>
+<li>
+<p>Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">len</span><span class="p">,</span> <span class="nx">dragonball</span><span class="p">,</span>
+    <span class="nx">items</span> <span class="o">=</span> <span class="nx">getItems</span><span class="p">(),</span>
+    <span class="nx">goSportsTeam</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">getItems</span><span class="p">(),</span>
+    <span class="nx">dragonball</span><span class="p">,</span>
+    <span class="nx">goSportsTeam</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">len</span><span class="p">;</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">getItems</span><span class="p">(),</span>
+    <span class="nx">goSportsTeam</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">dragonball</span><span class="p">,</span>
+    <span class="nx">i</span><span class="p">,</span> <span class="nx">length</span><span class="p">;</span>
+</pre></div>
+</li>
+<li>
+<p>Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">test</span><span class="p">();</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'doing stuff..'</span><span class="p">);</span>
+
+  <span class="c1">//..other stuff..</span>
+
+  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">getName</span><span class="p">();</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">===</span> <span class="s1">'test'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">getName</span><span class="p">();</span>
+
+  <span class="nx">test</span><span class="p">();</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'doing stuff..'</span><span class="p">);</span>
+
+  <span class="c1">//..other stuff..</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">===</span> <span class="s1">'test'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// bad</span>
+<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">getName</span><span class="p">();</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">getName</span><span class="p">();</span>
+
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="hoisting">Hoisting</a></h2>
+
+<ul>
+<li>
+<p>Variable declarations get hoisted to the top of their scope, their assignment does not.</p>
+
+<div class="highlight"><pre><span class="c1">// we know this wouldn't work (assuming there</span>
+<span class="c1">// is no notDefined global variable)</span>
+<span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">notDefined</span><span class="p">);</span> <span class="c1">// =&gt; throws a ReferenceError</span>
+<span class="p">}</span>
+
+<span class="c1">// creating a variable declaration after you</span>
+<span class="c1">// reference the variable will work due to</span>
+<span class="c1">// variable hoisting. Note: the assignment</span>
+<span class="c1">// value of `true` is not hoisted.</span>
+<span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">declaredButNotAssigned</span><span class="p">);</span> <span class="c1">// =&gt; undefined</span>
+  <span class="kd">var</span> <span class="nx">declaredButNotAssigned</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// The interpretor is hoisting the variable</span>
+<span class="c1">// declaration to the top of the scope.</span>
+<span class="c1">// Which means our example could be rewritten as:</span>
+<span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">declaredButNotAssigned</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">declaredButNotAssigned</span><span class="p">);</span> <span class="c1">// =&gt; undefined</span>
+  <span class="nx">declaredButNotAssigned</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li>
+<p>Anonymous function expressions hoist their variable name, but not the function assignment.</p>
+
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">anonymous</span><span class="p">);</span> <span class="c1">// =&gt; undefined</span>
+
+  <span class="nx">anonymous</span><span class="p">();</span> <span class="c1">// =&gt; TypeError anonymous is not a function</span>
+
+  <span class="kd">var</span> <span class="nx">anonymous</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'anonymous function expression'</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li>
+<p>Named function expressions hoist the variable name, not the function name or the function body.</p>
+
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">named</span><span class="p">);</span> <span class="c1">// =&gt; undefined</span>
+
+  <span class="nx">named</span><span class="p">();</span> <span class="c1">// =&gt; TypeError named is not a function</span>
+
+  <span class="nx">superPower</span><span class="p">();</span> <span class="c1">// =&gt; ReferenceError superPower is not defined</span>
+
+  <span class="kd">var</span> <span class="nx">named</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">superPower</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Flying'</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="c1">// the same is true when the function name</span>
+  <span class="c1">// is the same as the variable name.</span>
+  <span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">named</span><span class="p">);</span> <span class="c1">// =&gt; undefined</span>
+
+    <span class="nx">named</span><span class="p">();</span> <span class="c1">// =&gt; TypeError named is not a function</span>
+
+    <span class="kd">var</span> <span class="nx">named</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">named</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'named'</span><span class="p">);</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li>
+<p>Function declarations hoist their name and the function body.</p>
+
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">superPower</span><span class="p">();</span> <span class="c1">// =&gt; Flying</span>
+
+  <span class="kd">function</span> <span class="nx">superPower</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Flying'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li>
+<p>For more information refer to <a href="http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting">JavaScript Scoping &amp; Hoisting</a> by <a href="http://www.adequatelygood.com/">Ben Cherry</a></p>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="conditionals">Conditional Expressions &amp; Equality</a></h2>
+
+<ul>
+<li>Use <code>===</code> and <code>!==</code> over <code>==</code> and <code>!=</code>.</li>
+<li>
+<p>Conditional expressions are evaluated using coercion with the <code>ToBoolean</code> method and always follow these simple rules:</p>
+
+<ul>
+<li>
+<strong>Objects</strong> evaluate to <strong>true</strong>
+</li>
+<li>
+<strong>Undefined</strong> evaluates to <strong>false</strong>
+</li>
+<li>
+<strong>Null</strong> evaluates to <strong>false</strong>
+</li>
+<li>
+<strong>Booleans</strong> evaluate to <strong>the value of the boolean</strong>
+</li>
+<li>
+<strong>Numbers</strong> evalute to <strong>false</strong> if <strong>+0, -0, or NaN</strong>, otherwise <strong>true</strong>
+</li>
+<li>
+<strong>Strings</strong> evaluate to <strong>false</strong> if an empty string <code>''</code>, otherwise <strong>true</strong>
+</li>
+</ul>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">([</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+  <span class="c1">// true</span>
+  <span class="c1">// An array is an object, objects evaluate to true</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li>
+<p>Use shortcuts.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">!==</span> <span class="s1">''</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...stuff...</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...stuff...</span>
+<span class="p">}</span>
+
+<span class="c1">// bad</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">collection</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...stuff...</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">collection</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...stuff...</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li>
+<p>For more information see <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108">Truth Equality and JavaScript</a> by Angus Croll</p>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="blocks">Blocks</a></h2>
+
+<ul>
+<li>
+<p>Use braces with all multi-line blocks.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">test</span><span class="p">)</span>
+  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="c1">// good</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">test</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="c1">// good</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">test</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// bad</span>
+<span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="comments">Comments</a></h2>
+
+<ul>
+<li>
+<p>Use <code>/** ... */</code> for multiline comments. Include a description, specify types and values for all parameters and return values.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="c1">// make() returns a new element</span>
+<span class="c1">// based on the passed in tag name</span>
+<span class="c1">//</span>
+<span class="c1">// @param &lt;String&gt; tag</span>
+<span class="c1">// @return &lt;Element&gt; element</span>
+<span class="kd">function</span> <span class="nx">make</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// ...stuff...</span>
+
+  <span class="k">return</span> <span class="nx">element</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="cm">/**</span>
+<span class="cm"> * make() returns a new element</span>
+<span class="cm"> * based on the passed in tag name</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param &lt;String&gt; tag</span>
+<span class="cm"> * @return &lt;Element&gt; element</span>
+<span class="cm"> */</span>
+<span class="kd">function</span> <span class="nx">make</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// ...stuff...</span>
+
+  <span class="k">return</span> <span class="nx">element</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li>
+<p>Use <code>//</code> for single line comments. Place single line comments on a newline above the subject of the comment. Put an emptyline before the comment.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">active</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>  <span class="c1">// is current tab</span>
+
+<span class="c1">// good</span>
+<span class="c1">// is current tab</span>
+<span class="kd">var</span> <span class="nx">active</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="kd">function</span> <span class="nx">getType</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'fetching type...'</span><span class="p">);</span>
+  <span class="c1">// set the default type to 'no type'</span>
+  <span class="kd">var</span> <span class="nx">type</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_type</span> <span class="o">||</span> <span class="s1">'no type'</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="nx">type</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="kd">function</span> <span class="nx">getType</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'fetching type...'</span><span class="p">);</span>
+
+  <span class="c1">// set the default type to 'no type'</span>
+  <span class="kd">var</span> <span class="nx">type</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_type</span> <span class="o">||</span> <span class="s1">'no type'</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="nx">type</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="whitespace">Whitespace</a></h2>
+
+<ul>
+<li>
+<p>Use soft tabs set to 2 spaces</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="err">∙∙∙∙</span><span class="kd">var</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// bad</span>
+<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="err">∙</span><span class="kd">var</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="err">∙∙</span><span class="kd">var</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li>
+<p>Place 1 space before the leading brace.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">function</span> <span class="nx">test</span><span class="p">(){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'test'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'test'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// bad</span>
+<span class="nx">dog</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'attr'</span><span class="p">,{</span>
+  <span class="nx">age</span><span class="o">:</span> <span class="s1">'1 year'</span><span class="p">,</span>
+  <span class="nx">breed</span><span class="o">:</span> <span class="s1">'Bernese Mountain Dog'</span>
+<span class="p">});</span>
+
+<span class="c1">// good</span>
+<span class="nx">dog</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'attr'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">age</span><span class="o">:</span> <span class="s1">'1 year'</span><span class="p">,</span>
+  <span class="nx">breed</span><span class="o">:</span> <span class="s1">'Bernese Mountain Dog'</span>
+<span class="p">});</span>
+</pre></div>
+</li>
+<li>
+<p>Place an empty newline at the end of the file.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">global</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...stuff...</span>
+<span class="p">})(</span><span class="k">this</span><span class="p">);</span>
+</pre></div>
+
+<div class="highlight"><pre><span class="c1">// good</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">global</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...stuff...</span>
+<span class="p">})(</span><span class="k">this</span><span class="p">);</span>
+
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+<li>
+<p>Use indentation when making long method chains.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#items'</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.selected'</span><span class="p">).</span><span class="nx">highlight</span><span class="p">().</span><span class="nx">end</span><span class="p">().</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.open'</span><span class="p">).</span><span class="nx">updateCount</span><span class="p">();</span>
+
+<span class="c1">// good</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#items'</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.selected'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">highlight</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">end</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.open'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">updateCount</span><span class="p">();</span>
+
+<span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">leds</span> <span class="o">=</span> <span class="nx">stage</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s1">'.led'</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="nx">data</span><span class="p">).</span><span class="nx">enter</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s2">"svg:svg"</span><span class="p">).</span><span class="kr">class</span><span class="p">(</span><span class="s1">'led'</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'width'</span><span class="p">,</span>  <span class="p">(</span><span class="nx">radius</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">"svg:g"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"transform"</span><span class="p">,</span> <span class="s2">"translate("</span> <span class="o">+</span> <span class="p">(</span><span class="nx">radius</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">)</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="p">(</span><span class="nx">radius</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">)</span> <span class="o">+</span> <span class="s2">")"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">tron</span><span class="p">.</span><span class="nx">led</span><span class="p">);</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">leds</span> <span class="o">=</span> <span class="nx">stage</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s1">'.led'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">enter</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s2">"svg:svg"</span><span class="p">)</span>
+  <span class="p">.</span><span class="kr">class</span><span class="p">(</span><span class="s1">'led'</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'width'</span><span class="p">,</span>  <span class="p">(</span><span class="nx">radius</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">"svg:g"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"transform"</span><span class="p">,</span> <span class="s2">"translate("</span> <span class="o">+</span> <span class="p">(</span><span class="nx">radius</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">)</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="p">(</span><span class="nx">radius</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">)</span> <span class="o">+</span> <span class="s2">")"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">tron</span><span class="p">.</span><span class="nx">led</span><span class="p">);</span>
+</pre></div>
+</li>
+</ul><h2><a name="leading-commas">Leading Commas</a></h2>
+
+<ul>
+<li>
+<p><strong>Nope.</strong></p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">once</span>
+  <span class="p">,</span> <span class="nx">upon</span>
+  <span class="p">,</span> <span class="nx">aTime</span><span class="p">;</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">once</span><span class="p">,</span>
+    <span class="nx">upon</span><span class="p">,</span>
+    <span class="nx">aTime</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">hero</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s1">'Bob'</span>
+  <span class="p">,</span> <span class="nx">lastName</span><span class="o">:</span> <span class="s1">'Parr'</span>
+  <span class="p">,</span> <span class="nx">heroName</span><span class="o">:</span> <span class="s1">'Mr. Incredible'</span>
+  <span class="p">,</span> <span class="nx">superPower</span><span class="o">:</span> <span class="s1">'strength'</span>
+<span class="p">};</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">hero</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">firstName</span><span class="o">:</span> <span class="s1">'Bob'</span><span class="p">,</span>
+  <span class="nx">lastName</span><span class="o">:</span> <span class="s1">'Parr'</span><span class="p">,</span>
+  <span class="nx">heroName</span><span class="o">:</span> <span class="s1">'Mr. Incredible'</span><span class="p">,</span>
+  <span class="nx">superPower</span><span class="o">:</span> <span class="s1">'strength'</span>
+<span class="p">};</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="semicolons">Semicolons</a></h2>
+
+<ul>
+<li>
+<p><strong>Yup.</strong></p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">'Skywalker'</span>
+  <span class="k">return</span> <span class="nx">name</span>
+<span class="p">})()</span>
+
+<span class="c1">// good</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">'Skywalker'</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">})();</span>
+
+<span class="c1">// good</span>
+<span class="p">;(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">'Skywalker'</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">})();</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="type-coercion">Type Casting &amp; Coercion</a></h2>
+
+<ul>
+<li>Perform type coercion at the beginning of the statement.</li>
+<li>
+<p>Strings:</p>
+
+<div class="highlight"><pre><span class="c1">//  =&gt; this.reviewScore = 9;</span>
+
+<span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">totalScore</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">reviewScore</span> <span class="o">+</span> <span class="s1">''</span><span class="p">;</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">totalScore</span> <span class="o">=</span> <span class="s1">''</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">reviewScore</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">totalScore</span> <span class="o">=</span> <span class="s1">''</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">reviewScore</span> <span class="o">+</span> <span class="s1">' total score'</span><span class="p">;</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">totalScore</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">reviewScore</span> <span class="o">+</span> <span class="s1">' total score'</span><span class="p">;</span>
+</pre></div>
+</li>
+<li><p>Use <code>parseInt</code> for Numbers and always with a radix for type casting.</p></li>
+<li>
+<p>If for whatever reason you are doing something wild and <code>parseInt</code> is your bottleneck and need to use Bitshift for <a href="http://jsperf.com/coercion-vs-casting/3">performance reasons</a>, leave a comment explaining why and what you're doing.</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">inputValue</span> <span class="o">=</span> <span class="s1">'4'</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">inputValue</span><span class="p">);</span>
+
+<span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="o">+</span><span class="nx">inputValue</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">inputValue</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">inputValue</span><span class="p">);</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">inputValue</span><span class="p">);</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">inputValue</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+
+<span class="c1">// good</span>
+<span class="cm">/**</span>
+<span class="cm"> * parseInt was the reason my code was slow.</span>
+<span class="cm"> * Bitshifting the String to coerce it to a</span>
+<span class="cm"> * Number made it a lot faster.</span>
+<span class="cm"> */</span>
+<span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">inputValue</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</li>
+<li>
+<p>Booleans:</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">hasAge</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">hasAge</span> <span class="o">=</span> <span class="nb">Boolean</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">hasAge</span> <span class="o">=</span> <span class="o">!!</span><span class="nx">age</span><span class="p">;</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="naming-conventions">Naming Conventions</a></h2>
+
+<ul>
+<li>
+<p>Avoid single letter names. Be descriptive with your naming.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">function</span> <span class="nx">q</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// ...stuff...</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="kd">function</span> <span class="nx">query</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// ..stuff..</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li>
+<p>Use camelCase when naming objects, functions, and instances</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">OBJEcttsssss</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="kd">var</span> <span class="nx">this_is_my_object</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="kd">var</span> <span class="k">this</span><span class="o">-</span><span class="nx">is</span><span class="o">-</span><span class="nx">my</span><span class="o">-</span><span class="nx">object</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="kd">function</span> <span class="nx">c</span><span class="p">()</span> <span class="p">{};</span>
+<span class="kd">var</span> <span class="nx">u</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">user</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">'Bob Parr'</span>
+<span class="p">});</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">thisIsMyObject</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="kd">function</span> <span class="nx">thisIsMyFunction</span><span class="p">()</span> <span class="p">{};</span>
+<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">'Bob Parr'</span>
+<span class="p">});</span>
+</pre></div>
+</li>
+<li>
+<p>Use PascalCase when naming constructors or classes</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">function</span> <span class="nx">user</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">bad</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">user</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">'nope'</span>
+<span class="p">});</span>
+
+<span class="c1">// good</span>
+<span class="kd">function</span> <span class="nx">User</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">good</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">'yup'</span>
+<span class="p">});</span>
+</pre></div>
+</li>
+<li>
+<p>Use a leading underscore <code>_</code> when naming private properties</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">__firstName__</span> <span class="o">=</span> <span class="s1">'Panda'</span><span class="p">;</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">firstName_</span> <span class="o">=</span> <span class="s1">'Panda'</span><span class="p">;</span>
+
+<span class="c1">// good</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">_firstName</span> <span class="o">=</span> <span class="s1">'Panda'</span><span class="p">;</span>
+</pre></div>
+</li>
+<li>
+<p>When saving a reference to <code>this</code> use <code>_this</code>.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">self</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// bad</span>
+<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">that</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">_this</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">_this</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li>
+<p>Name your functions. This is helpful for stack traces.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">log</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">log</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="accessors">Accessors</a></h2>
+
+<ul>
+<li>Accessor functions for properties are not required</li>
+<li>
+<p>If you do make accessor functions use getVal() and setVal('hello')</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="nx">dragon</span><span class="p">.</span><span class="nx">age</span><span class="p">();</span>
+
+<span class="c1">// good</span>
+<span class="nx">dragon</span><span class="p">.</span><span class="nx">getAge</span><span class="p">();</span>
+
+<span class="c1">// bad</span>
+<span class="nx">dragon</span><span class="p">.</span><span class="nx">age</span><span class="p">(</span><span class="mi">25</span><span class="p">);</span>
+
+<span class="c1">// good</span>
+<span class="nx">dragon</span><span class="p">.</span><span class="nx">setAge</span><span class="p">(</span><span class="mi">25</span><span class="p">);</span>
+</pre></div>
+</li>
+<li>
+<p>If the property is a boolean, use isVal() or hasVal()</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">dragon</span><span class="p">.</span><span class="nx">age</span><span class="p">())</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">dragon</span><span class="p">.</span><span class="nx">hasAge</span><span class="p">())</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li>
+<p>It's okay to create get() and set() functions, but be consistent.</p>
+
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">Jedi</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">options</span> <span class="o">||</span> <span class="p">(</span><span class="nx">options</span> <span class="o">=</span> <span class="p">{});</span>
+  <span class="kd">var</span> <span class="nx">lightsaber</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">lightsaber</span> <span class="o">||</span> <span class="s1">'blue'</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'lightsaber'</span><span class="p">,</span> <span class="nx">lightsaber</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">set</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">get</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+<span class="p">};</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="constructors">Constructors</a></h2>
+
+<ul>
+<li>
+<p>Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!</p>
+
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">Jedi</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'new jedi'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// bad</span>
+<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">fight</span><span class="o">:</span> <span class="kd">function</span> <span class="nx">fight</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'fighting'</span><span class="p">);</span>
+  <span class="p">},</span>
+
+  <span class="nx">block</span><span class="o">:</span> <span class="kd">function</span> <span class="nx">block</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'blocking'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// good</span>
+<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">fight</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">fight</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'fighting'</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">block</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">block</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'blocking'</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</li>
+<li>
+<p>Methods can return <code>this</code> to help with method chaining.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">jump</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">jumping</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setHeight</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">luke</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Jedi</span><span class="p">();</span>
+<span class="nx">luke</span><span class="p">.</span><span class="nx">jump</span><span class="p">();</span> <span class="c1">// =&gt; true</span>
+<span class="nx">luke</span><span class="p">.</span><span class="nx">setHeight</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="c1">// =&gt; undefined</span>
+
+<span class="c1">// good</span>
+<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">jump</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">jumping</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setHeight</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">luke</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Jedi</span><span class="p">();</span>
+
+<span class="nx">luke</span><span class="p">.</span><span class="nx">jump</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">setHeight</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</li>
+<li>
+<p>It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.</p>
+
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">Jedi</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">options</span> <span class="o">||</span> <span class="p">(</span><span class="nx">options</span> <span class="o">=</span> <span class="p">{});</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">name</span> <span class="o">||</span> <span class="s1">'no name'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">getName</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">toString</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s1">'Jedi - '</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">getName</span><span class="p">();</span>
+<span class="p">};</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="modules">Modules</a></h2>
+
+<ul>
+<li>The module should start with a <code>!</code>. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated.</li>
+<li>The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.</li>
+<li>Add a method called noConflict() that sets the exported module to the previous version and returns this one.</li>
+<li>
+<p>Always declare <code>'use strict';</code> at the top of the module.</p>
+
+<div class="highlight"><pre><span class="c1">// fancyInput/fancyInput.js</span>
+
+<span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">global</span><span class="p">)</span> <span class="p">{</span>
+  <span class="s1">'use strict'</span><span class="p">;</span>
+
+  <span class="kd">var</span> <span class="nx">previousFancyInput</span> <span class="o">=</span> <span class="nx">global</span><span class="p">.</span><span class="nx">FancyInput</span><span class="p">;</span>
+
+  <span class="kd">function</span> <span class="nx">FancyInput</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">options</span> <span class="o">=</span> <span class="nx">options</span> <span class="o">||</span> <span class="p">{};</span>
+  <span class="p">}</span>
+
+  <span class="nx">FancyInput</span><span class="p">.</span><span class="nx">noConflict</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">noConflict</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">global</span><span class="p">.</span><span class="nx">FancyInput</span> <span class="o">=</span> <span class="nx">previousFancyInput</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">FancyInput</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="nx">global</span><span class="p">.</span><span class="nx">FancyInput</span> <span class="o">=</span> <span class="nx">FancyInput</span><span class="p">;</span>
+<span class="p">}(</span><span class="k">this</span><span class="p">);</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="jquery">jQuery</a></h2>
+
+<ul>
+<li>
+<p>Prefix jQuery object variables with a <code>$</code>.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">var</span> <span class="nx">sidebar</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar'</span><span class="p">);</span>
+
+<span class="c1">// good</span>
+<span class="kd">var</span> <span class="nx">$sidebar</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar'</span><span class="p">);</span>
+</pre></div>
+</li>
+<li>
+<p>Cache jQuery lookups.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="kd">function</span> <span class="nx">setSidebar</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+
+  <span class="c1">// ...stuff...</span>
+
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar'</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span>
+    <span class="s1">'background-color'</span><span class="o">:</span> <span class="s1">'pink'</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="kd">function</span> <span class="nx">setSidebar</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">$sidebar</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar'</span><span class="p">);</span>
+  <span class="nx">$sidebar</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+
+  <span class="c1">// ...stuff...</span>
+
+  <span class="nx">$sidebar</span><span class="p">.</span><span class="nx">css</span><span class="p">({</span>
+    <span class="s1">'background-color'</span><span class="o">:</span> <span class="s1">'pink'</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li><p>For DOM queries use Cascading <code>$('.sidebar ul')</code> or parent &gt; child <code>$('.sidebar &gt; .ul')</code>. <a href="http://jsperf.com/jquery-find-vs-context-sel/16">jsPerf</a></p></li>
+<li>
+<p>Use <code>find</code> with scoped jQuery object queries.</p>
+
+<div class="highlight"><pre><span class="c1">// bad</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar'</span><span class="p">,</span> <span class="s1">'ul'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+
+<span class="c1">// bad</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar'</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+
+<span class="c1">// good</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar ul'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+
+<span class="c1">// good</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar &gt; ul'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+
+<span class="c1">// good (slower)</span>
+<span class="nx">$sidebar</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>
+
+<span class="c1">// good (faster)</span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">$sidebar</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="nx">find</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="es5">ECMAScript 5 Compatibility</a></h2>
+
+<ul>
+<li>
+<p>Refer to <a href="https://twitter.com/kangax/">Kangax</a>'s ES5 <a href="http://kangax.github.com/es5-compat-table/">compatibility table</a></p>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="testing">Testing</a></h2>
+
+<ul>
+<li>
+<p><strong>Yup.</strong></p>
+
+<div class="highlight"><pre><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="performance">Performance</a></h2>
+
+<ul>
+<li><a href="http://jsperf.com/string-vs-array-concat/2">String vs Array Concat</a></li>
+<li><a href="http://jsperf.com/try-catch-in-loop-cost">Try/Catch Cost In a Loop</a></li>
+<li><a href="http://jsperf.com/bang-function">Bang Function</a></li>
+<li><a href="http://jsperf.com/jquery-find-vs-context-sel/13">jQuery Find vs Context, Selector</a></li>
+<li><a href="http://jsperf.com/innerhtml-vs-textcontent-for-script-text">innerHTML vs textContent for script text</a></li>
+<li><a href="http://jsperf.com/ya-string-concat">Long String Concatenation</a></li>
+<li>
+<p>Loading...</p>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="resources">Resources</a></h2>
+
+<p><strong>Read This</strong></p>
+
+<ul>
+<li><a href="http://es5.github.com/">Annotated ECMAScript 5.1</a></li>
+</ul><p><strong>Other Styleguides</strong></p>
+
+<ul>
+<li><a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml">Google JavaScript Style Guide</a></li>
+<li><a href="http://docs.jquery.com/JQuery_Core_Style_Guidelines">jQuery Core Style Guidelines</a></li>
+<li><a href="https://github.com/rwldrn/idiomatic.js/">Principles of Writing Consistent, Idiomatic JavaScript</a></li>
+</ul><p><strong>Other Styles</strong></p>
+
+<ul>
+<li>
+<a href="https://gist.github.com/4135065">Naming this in nested functions</a> - Christian Johansen</li>
+</ul><p><strong>Books</strong></p>
+
+<ul>
+<li>
+<a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742">JavaScript: The Good Parts</a> - Douglas Crockford</li>
+<li>
+<a href="http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752">JavaScript Patterns</a> - Stoyan Stefanov</li>
+<li>
+<a href="http://www.amazon.com/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X">Pro JavaScript Design Patterns</a>  - Ross Harmes and Dustin Diaz</li>
+<li>
+<a href="http://www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309">High Performance Web Sites: Essential Knowledge for Front-End Engineers</a> - Steve Souders</li>
+<li>
+<a href="http://www.amazon.com/Maintainable-JavaScript-Nicholas-C-Zakas/dp/1449327680">Maintainable JavaScript</a> - Nicholas C. Zakas</li>
+<li>
+<a href="http://www.amazon.com/JavaScript-Web-Applications-Alex-MacCaw/dp/144930351X">JavaScript Web Applications</a> - Alex MacCaw</li>
+<li>
+<a href="http://www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273">Pro JavaScript Techniques</a> - John Resig</li>
+<li>
+<a href="http://www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595">Smashing Node.js: JavaScript Everywhere</a> - Guillermo Rauch</li>
+</ul><p><strong>Blogs</strong></p>
+
+<ul>
+<li><a href="http://dailyjs.com/">DailyJS</a></li>
+<li><a href="http://javascriptweekly.com/">JavaScript Weekly</a></li>
+<li><a href="http://javascriptweblog.wordpress.com/">JavaScript, JavaScript...</a></li>
+<li><a href="http://weblog.bocoup.com/">Bocoup Weblog</a></li>
+<li><a href="http://www.adequatelygood.com/">Adequately Good</a></li>
+<li><a href="http://www.nczonline.net/">NCZOnline</a></li>
+<li><a href="http://perfectionkills.com/">Perfection Kills</a></li>
+<li><a href="http://benalman.com/">Ben Alman</a></li>
+<li><a href="http://dmitry.baranovskiy.com/">Dmitry Baranovskiy</a></li>
+<li><a href="http://dustindiaz.com/">Dustin Diaz</a></li>
+<li>
+<p><a href="http://net.tutsplus.com/?s=javascript">nettuts</a></p>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+</li>
+</ul><h2><a name="in-the-wild">In the Wild</a></h2>
+
+<p>This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.</p>
+
+<ul>
+<li>
+<strong>Airbnb</strong>: <a href="//github.com/airbnb/javascript">airbnb/javascript</a>
+</li>
+<li>
+<strong>American Insitutes for Research</strong>: <a href="//github.com/AIRAST/javascript">AIRAST/javascript</a>
+</li>
+<li>
+<strong>GoCardless</strong>: <a href="//github.com/gocardless/javascript">gocardless/javascript</a>
+</li>
+<li>
+<strong>GoodData</strong>: <a href="//github.com/gooddata/gdc-js-style">gooddata/gdc-js-style</a>
+</li>
+<li>
+<strong>How About We</strong>: <a href="//github.com/howaboutwe/javascript">howaboutwe/javascript</a>
+</li>
+<li>
+<strong>MinnPost</strong>: <a href="//github.com/MinnPost/javascript">MinnPost/javascript</a>
+</li>
+<li>
+<strong>National Geographic</strong>: <a href="https://github.com/natgeo/javascript">natgeo/javascript</a>
+</li>
+<li>
+<strong>Razorfish</strong>: <a href="//github.com/razorfish/javascript-style-guide">razorfish/javascript-style-guide</a>
+</li>
+<li>
+<strong>Shutterfly</strong>: <a href="//github.com/shutterfly/javascript">shutterfly/javascript</a>
+</li>
+</ul><h2><a name="guide-guide">The JavaScript Style Guide Guide</a></h2>
+
+<ul>
+<li><a href="//github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide">Reference</a></li>
+</ul><h2><a name="authors">Contributors</a></h2>
+
+<ul>
+<li><a href="https://github.com/airbnb/javascript/graphs/contributors">View Contributors</a></li>
+</ul><h2><a name="license">License</a></h2>
+
+<p>(The MIT License)</p>
+
+<p>Copyright (c) 2012 Airbnb</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+<p><strong><a href="#TOC">[⬆]</a></strong></p>
+
+<h1>};</h1>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Javascript maintained by <a href="https://github.com/airbnb">airbnb</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
