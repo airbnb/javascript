@@ -1,4 +1,4 @@
-# Airbnb JavaScript Style Guide() {
+# ExactTarget JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
@@ -759,16 +759,6 @@
 
     ```javascript
     // bad
-    var once
-      , upon
-      , aTime;
-
-    // good
-    var once,
-        upon,
-        aTime;
-
-    // bad
     var hero = {
         firstName: 'Bob'
       , lastName: 'Parr'
@@ -1297,6 +1287,7 @@
   This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
 
   - **Airbnb**: [airbnb/javascript](//github.com/airbnb/javascript)
+  - **ExactTarget**: [ExactTarget/javascript](//github.com/ExactTarget/javascript)
   - **American Insitutes for Research**: [AIRAST/javascript](//github.com/AIRAST/javascript)
   - **GoCardless**: [gocardless/javascript](//github.com/gocardless/javascript)
   - **GoodData**: [gooddata/gdc-js-style](//github.com/gooddata/gdc-js-style)
