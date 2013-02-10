@@ -338,39 +338,28 @@
     var superPower = new SuperPower();
     ```
 
-  - Use one `var` declaration for multiple variables and declare each variable on a newline.
+  - Use multiple `var` declarations for multiple variables and declare each variable on a newline. Justification: http://benalman.com/news/2012/05/multiple-var-statements-javascript
 
     ```javascript
     // bad
-    var items = getItems();
-    var goSportsTeam = true;
-    var dragonball = 'z';
-
-    // good
     var items = getItems(),
         goSportsTeam = true,
         dragonball = 'z';
-    ```
-
-  - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
-
-    ```javascript
-    // bad
-    var i, len, dragonball,
-        items = getItems(),
-        goSportsTeam = true;
-
-    // bad
-    var i, items = getItems(),
-        dragonball,
-        goSportsTeam = true,
-        len;
 
     // good
-    var items = getItems(),
-        goSportsTeam = true,
-        dragonball,
-        i, length;
+    var items = getItems();
+    var goSportsTeam = true;
+    var dragonball = 'z';
+    ```
+
+  - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables. Multiple unassigned
+  variables can be declared in a *single-line* var declaration.
+
+    ```javascript
+    // good
+    var items = getItems();
+    var goSportsTeam = true;
+    var i, j, length;
     ```
 
   - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
@@ -582,7 +571,7 @@
     if (test)
       return false;
 
-    // good
+    // good (only for very simple statements and early function return)
     if (test) return false;
 
     // good
@@ -671,23 +660,23 @@
 
 ## <a name='whitespace'>Whitespace</a>
 
-  - Use soft tabs set to 2 spaces
+  - Use tabs. One per indent level. This allows developers to choose their preferred display width.
 
     ```javascript
+    // bad
+    function() {
+    ∙∙var name;
+    }
+
     // bad
     function() {
     ∙∙∙∙var name;
     }
 
-    // bad
-    function() {
-    ∙var name;
-    }
-
-    // good
-    function() {
-    ∙∙var name;
-    }
+	// good
+	function() {
+		var name;
+	}
     ```
   - Place 1 space before the leading brace.
 
@@ -733,7 +722,7 @@
 
     **[[⬆]](#TOC)**
 
-  - Use indentation when making long method chains.
+  - Use indentation when making long method chains. Long method chains should be avoided except in cases of a performance benefit or significant readability benefit.
 
   ```javascript
   // bad
@@ -967,17 +956,9 @@
     this._firstName = 'Panda';
     ```
 
-  - When saving a reference to `this` use `_this`.
+  - When saving a reference to `this` use `self`.
 
     ```javascript
-    // bad
-    function() {
-      var self = this;
-      return function() {
-        console.log(self);
-      };
-    }
-
     // bad
     function() {
       var that = this;
@@ -986,11 +967,19 @@
       };
     }
 
-    // good
+    // bad
     function() {
       var _this = this;
       return function() {
         console.log(_this);
+      };
+    }
+
+    // good
+    function() {
+      var self = this;
+      return function() {
+        console.log(self);
       };
     }
     ```
@@ -1153,31 +1142,9 @@
 
 ## <a name='modules'>Modules</a>
 
-  - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated.
-  - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
-  - Add a method called noConflict() that sets the exported module to the previous version and returns this one.
-  - Always declare `'use strict';` at the top of the module.
-
-    ```javascript
-    // fancyInput/fancyInput.js
-
-    !function(global) {
-      'use strict';
-
-      var previousFancyInput = global.FancyInput;
-
-      function FancyInput(options) {
-        this.options = options || {};
-      }
-
-      FancyInput.noConflict = function noConflict() {
-        global.FancyInput = previousFancyInput;
-        return FancyInput;
-      };
-
-      global.FancyInput = FancyInput;
-    }(this);
-    ```
+  - Use AMD. Justification:
+   - http://requirejs.org/docs/whyamd.html
+   - https://gist.github.com/4686136
 
     **[[⬆]](#TOC)**
 
