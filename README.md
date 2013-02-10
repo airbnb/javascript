@@ -1331,6 +1331,7 @@
 
   - **Airbnb**: [airbnb/javascript](//github.com/airbnb/javascript)
   - **American Insitutes for Research**: [AIRAST/javascript](//github.com/AIRAST/javascript)
+  - **ExactTarget**: [ExactTarget/javascript](//github.com/ExactTarget/javascript)
   - **GoCardless**: [gocardless/javascript](//github.com/gocardless/javascript)
   - **GoodData**: [gooddata/gdc-js-style](//github.com/gooddata/gdc-js-style)
   - **How About We**: [howaboutwe/javascript](//github.com/howaboutwe/javascript)
