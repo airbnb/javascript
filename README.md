@@ -1,4 +1,4 @@
-# ExactTarget JavaScript Style Guide() {
+# ExactTarget JavaScript Style Guide
 
 *A mostly reasonable approach to JavaScript*
 
@@ -1348,5 +1348,4 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 **[[⬆]](#TOC)**
 
-# };
 
