@@ -45,8 +45,8 @@
     + `undefined`
 
     ```javascript
-    var foo = 1,
-        bar = foo;
+    var foo = 1;
+    var bar = foo;
 
     bar = 9;
 
@@ -59,8 +59,8 @@
     + `function`
 
     ```javascript
-    var foo = [1, 2],
-        bar = foo;
+    var foo = [1, 2];
+    var bar = foo;
 
     bar[0] = 9;
 
