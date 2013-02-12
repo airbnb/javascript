@@ -238,13 +238,18 @@
   - Function expressions:
 
     ```javascript
-    // anonymous function expression
-    var anonymous = function () {
+    // anonymous function as event handler
+    $el.on('click', function () {
       return true;
-    };
-
-    // named function expression
-    var named = function named() {
+    });
+    
+    // optional name to aid debugging with stack traces
+    $el.on('click', function elClick() {
+      return true;
+    });
+    
+    // anonymous function as method
+    MyObject.prototype.isTrue = function () {
       return true;
     };
 
@@ -252,6 +257,16 @@
     (function () {
       console.log('Welcome to the Internet. Please follow me.');
     })();
+    ```
+    
+  - Function declarations:
+ 
+    ```javascript
+    // use a named declaration when appropriate mainly
+    // for internal helper logic and organization
+    function namedFunction() {
+        return true;
+    }
     ```
 
   - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
@@ -806,12 +821,6 @@
 
     // good
     (function () {
-      var name = 'Skywalker';
-      return name;
-    })();
-
-    // good
-    ;(function () {
       var name = 'Skywalker';
       return name;
     })();
