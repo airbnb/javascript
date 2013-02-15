@@ -1343,7 +1343,7 @@
 
 ## <a name='translation'>Translation</a>
 
-  The style guide is also available in other language.
+  This style guide is also available in other languages:
 
   - **Japanese**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
 
