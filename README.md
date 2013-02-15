@@ -732,38 +732,38 @@
 
     ```
 
-    **[[⬆]](#TOC)**
-
   - Use indentation when making long method chains.
 
-  ```javascript
-  // bad
-  $('#items').find('.selected').highlight().end().find('.open').updateCount();
+    ```javascript
+    // bad
+    $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
-  // good
-  $('#items')
-    .find('.selected')
-      .highlight()
-      .end()
-    .find('.open')
-      .updateCount();
+    // good
+    $('#items')
+      .find('.selected')
+        .highlight()
+        .end()
+      .find('.open')
+        .updateCount();
 
-  // bad
-  var leds = stage.selectAll('.led').data(data).enter().append("svg:svg").class('led', true)
-      .attr('width',  (radius + margin) * 2).append("svg:g")
-      .attr("transform", "translate(" + (radius + margin) + "," + (radius + margin) + ")")
-      .call(tron.led);
+    // bad
+    var leds = stage.selectAll('.led').data(data).enter().append("svg:svg").class('led', true)
+        .attr('width',  (radius + margin) * 2).append("svg:g")
+        .attr("transform", "translate(" + (radius + margin) + "," + (radius + margin) + ")")
+        .call(tron.led);
 
-  // good
-  var leds = stage.selectAll('.led')
-      .data(data)
-    .enter().append("svg:svg")
-      .class('led', true)
-      .attr('width',  (radius + margin) * 2)
-    .append("svg:g")
-      .attr("transform", "translate(" + (radius + margin) + "," + (radius + margin) + ")")
-      .call(tron.led);
-  ```
+    // good
+    var leds = stage.selectAll('.led')
+        .data(data)
+      .enter().append("svg:svg")
+        .class('led', true)
+        .attr('width',  (radius + margin) * 2)
+      .append("svg:g")
+        .attr("transform", "translate(" + (radius + margin) + "," + (radius + margin) + ")")
+        .call(tron.led);
+    ```
+
+    **[[⬆]](#TOC)**
 
 ## <a name='leading-commas'>Leading Commas</a>
 
@@ -963,7 +963,7 @@
     // bad
     this.__firstName__ = 'Panda';
     this.firstName_ = 'Panda';
-    
+
     // good
     this._firstName = 'Panda';
     ```
@@ -1345,6 +1345,7 @@
 
   This style guide is also available in other languages:
 
+  - **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
   - **Japanese**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
 
 ## <a name='guide-guide'>The JavaScript Style Guide Guide</a>
