@@ -30,6 +30,7 @@
   1. [Performance](#performance)
   1. [Resources](#resources)
   1. [In the Wild](#in-the-wild)
+  1. [Translation](#translation)
   1. [The JavaScript Style Guide Guide](#guide-guide)
   1. [Contributors](#contributors)
   1. [License](#license)
@@ -1339,6 +1340,12 @@
   - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
   - **Razorfish**: [razorfish/javascript-style-guide](//github.com/razorfish/javascript-style-guide)
   - **Shutterfly**: [shutterfly/javascript](//github.com/shutterfly/javascript)
+
+## <a name='translation'>Translation</a>
+
+  The style guide is also available in other language.
+
+  - **Japanese**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
 
 ## <a name='guide-guide'>The JavaScript Style Guide Guide</a>
 
