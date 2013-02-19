@@ -371,8 +371,8 @@
     var items = getItems(),
         goSportsTeam = true,
         dragonball,
-        i, 
-        length;
+        length,
+        i;
     ```
 
   - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
