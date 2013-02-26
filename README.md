@@ -1299,7 +1299,7 @@
 **Other Styles**
 
   - [Naming this in nested functions](https://gist.github.com/4135065) - Christian Johansen
-  - [Conditional Callbacks](//github.com/airbnb/javascript/issues/52)
+  - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52)
 
 **Books**
 
