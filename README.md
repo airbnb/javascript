@@ -1332,16 +1332,16 @@
 
   This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
 
-  - **Airbnb**: [airbnb/javascript](//github.com/airbnb/javascript)
-  - **American Insitutes for Research**: [AIRAST/javascript](//github.com/AIRAST/javascript)
-  - **ExactTarget**: [ExactTarget/javascript](//github.com/ExactTarget/javascript)
-  - **GoCardless**: [gocardless/javascript](//github.com/gocardless/javascript)
-  - **GoodData**: [gooddata/gdc-js-style](//github.com/gooddata/gdc-js-style)
-  - **How About We**: [howaboutwe/javascript](//github.com/howaboutwe/javascript)
-  - **MinnPost**: [MinnPost/javascript](//github.com/MinnPost/javascript)
+  - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
+  - **American Insitutes for Research**: [AIRAST/javascript](https://github.com/AIRAST/javascript)
+  - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
+  - **GoCardless**: [gocardless/javascript](https://github.com/gocardless/javascript)
+  - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
+  - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript)
+  - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
   - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
-  - **Razorfish**: [razorfish/javascript-style-guide](//github.com/razorfish/javascript-style-guide)
-  - **Shutterfly**: [shutterfly/javascript](//github.com/shutterfly/javascript)
+  - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
+  - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
 
 ## <a name='translation'>Translation</a>
 
@@ -1352,7 +1352,7 @@
 
 ## <a name='guide-guide'>The JavaScript Style Guide Guide</a>
 
-  - [Reference](//github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
+  - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
 ## <a name='authors'>Contributors</a>
 
