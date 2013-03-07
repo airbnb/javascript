@@ -1335,7 +1335,6 @@
   - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
   - **American Insitutes for Research**: [AIRAST/javascript](https://github.com/AIRAST/javascript)
   - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
-  - **GoCardless**: [gocardless/javascript](https://github.com/gocardless/javascript)
   - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
   - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript)
   - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
