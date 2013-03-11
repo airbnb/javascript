@@ -1,0 +1,8 @@
+<snippet>
+  <content><![CDATA[
+function ${1}(${2}) {
+  ${3}
+}${4}
+]]></content>
+  <tabTrigger>nf</tabTrigger>
+</snippet>

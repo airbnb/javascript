@@ -1,0 +1,17 @@
+<snippet>
+  <content><![CDATA[
+${1}View = Backbone.View.extend({
+  initialize: function() {
+    ${2}
+  },
+
+  render: function() {
+    ${3}
+  }
+});
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>bvi</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

@@ -1,0 +1,10 @@
+<snippet>
+  <content><![CDATA[
+!function(){
+  'use strict';
+
+  ${1}
+}();
+]]></content>
+  <tabTrigger>mod</tabTrigger>
+</snippet>

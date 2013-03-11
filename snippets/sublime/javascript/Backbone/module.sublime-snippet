@@ -1,0 +1,13 @@
+<snippet>
+  <content><![CDATA[
+(function(){
+  'use strict';
+
+  ${1}
+})();
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>module</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

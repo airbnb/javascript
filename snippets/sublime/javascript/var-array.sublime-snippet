@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+var ${1} = [${2}];
+]]></content>
+  <tabTrigger>va</tabTrigger>
+</snippet>

@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+var _this = this;
+]]></content>
+  <tabTrigger>tr</tabTrigger>
+</snippet>
