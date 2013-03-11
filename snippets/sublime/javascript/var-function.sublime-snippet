@@ -1,0 +1,8 @@
+<snippet>
+  <content><![CDATA[
+var ${1} = function${2}() {
+  ${3}
+};
+]]></content>
+  <tabTrigger>vf</tabTrigger>
+</snippet>

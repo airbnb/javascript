@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+var args = Array.prototype.slice.apply(arguments);
+]]></content>
+  <tabTrigger>args</tabTrigger>
+</snippet>
