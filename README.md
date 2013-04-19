@@ -139,7 +139,7 @@
     }
 
     // good
-    itemsCopy = Array.prototype.slice.call(items);
+    itemsCopy = items.slice();
     ```
 
     **[[⬆]](#TOC)**
