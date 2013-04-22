@@ -142,6 +142,15 @@
     itemsCopy = items.slice();
     ```
 
+  - To convert an array-like object to an array, use Array#slice.
+
+    ```javascript
+    function trigger() {
+      var args = Array.prototype.slice.call(arguments);
+      ...
+    }
+    ```
+
     **[[⬆]](#TOC)**
 
 
