@@ -23,6 +23,7 @@
   1. [Naming Conventions](#naming-conventions)
   1. [Accessors](#accessors)
   1. [Constructors](#constructors)
+  1. [Events](#events)
   1. [Modules](#modules)
   1. [jQuery](#jquery)
   1. [ES5 Compatibility](#es5)
@@ -1186,6 +1187,32 @@
     ```
 
     **[[⬆]](#TOC)**
+
+
+## <a name='events'>Events</a>
+
+  - When attaching data payloads to events use a hash instead of a raw value
+
+    ```javascript
+    // bad
+    $(this).trigger('listingUpdated', listing.id);
+
+    ...
+
+    $(this).on('listingUpdated', function(e, listingId) {
+      // do something with listingId
+    });
+
+    // good
+    $(this).trigger('listingUpdated', { listingId : listing.id });
+
+    ...
+
+    $(this).on('listingUpdated', function(e, data) {
+      // do something with data.listingId
+    });
+    ```
+  **[[⬆]](#TOC)**
 
 
 ## <a name='modules'>Modules</a>
