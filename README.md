@@ -1191,7 +1191,7 @@
 
 ## <a name='events'>Events</a>
 
-  - When attaching data payloads to events use a hash instead of a raw value
+  - When attaching data payloads to events use a hash instead of a raw value.
 
     ```javascript
     // bad
