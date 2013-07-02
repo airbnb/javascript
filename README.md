@@ -1192,7 +1192,7 @@
 ## <a name='events'>Events</a>
 
   - When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
-    
+
     ```js
     // bad
     $(this).trigger('listingUpdated', listing.id);
@@ -1205,7 +1205,7 @@
     ```
 
     prefer:
-    
+
     ```js
     // good
     $(this).trigger('listingUpdated', { listingId : listing.id });
@@ -1367,6 +1367,10 @@
 
   - [Naming this in nested functions](https://gist.github.com/4135065) - Christian Johansen
   - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52)
+
+**Further Reading**
+
+  - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
 
 **Books**
 
