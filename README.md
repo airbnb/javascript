@@ -284,7 +284,7 @@
     }
     ```
 
-  - Never name a parameter `arguments`, this will take precedence over the `arguments` object that is given to every function scope.
+  - Never pass in, nor give the name, `arguments` to a parameter to prevent collision with a local variable. All functions expose an internal `arguments` array-like object containing params passed to functions.
 
     ```javascript
     // bad
@@ -294,7 +294,10 @@
 
     // good
     function yup(name, options, args) {
-      // ...stuff...
+      // ...stuff... then if you want go like:
+      console.log(arguments[0]); // name
+      console.log(arguments[1]); // options
+      console.log(arguments[2]); // args
     }
     ```
 
