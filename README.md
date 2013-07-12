@@ -6,6 +6,7 @@
 ## <a name='TOC'>Table of Contents</a>
 
   1. [Directory Structure](#directory)
+  1. [Namespacing](#namespacing)
   1. [Types](#types)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
@@ -85,8 +86,23 @@
             └── routers
                 └── search.coffee
     ```
+    
+    **[[⬆]](#TOC)**
 
-**[[⬆]](#TOC)**
+## <a name='namespacing'>Namespacing</a>
+
+  - The `GP` namespace should be absolutely reserved for global definitions, utlitity functions, etc.
+
+  ```javascript
+  // bad
+  GP.isPlayingVideo = true
+  
+  // good
+  GP.productCurrencies = {
+  }
+  ```
+
+    **[[⬆]](#TOC)**
 
 ## <a name='types'>Types</a>
 
