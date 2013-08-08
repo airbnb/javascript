@@ -956,6 +956,7 @@
 
   - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
 
+    ```javascript
     // good
     /**
      * parseInt was the reason my code was slow.
