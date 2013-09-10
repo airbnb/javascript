@@ -612,7 +612,7 @@
     if (test)
       return false;
 
-    // good
+    // okay
     if (test) return false;
 
     // good
@@ -621,10 +621,10 @@
     }
 
     // bad
-    function() { return false; }
+    function () { return false; }
 
     // good
-    function() {
+    function () {
       return false;
     }
     ```
@@ -839,16 +839,6 @@
   - Leading commas: **Nope.**
 
     ```javascript
-    // bad
-    var once
-      , upon
-      , aTime;
-
-    // good
-    var once,
-        upon,
-        aTime;
-
     // bad
     var hero = {
         firstName: 'Bob'
