@@ -5,14 +5,12 @@
 
 ## <a name='TOC'>Table of Contents</a>
 
-  1. [Types](#types)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
   1. [Strings](#strings)
   1. [Functions](#functions)
   1. [Properties](#properties)
   1. [Variables](#variables)
-  1. [Hoisting](#hoisting)
   1. [Conditional Expressions & Equality](#conditionals)
   1. [Control Flow](#control-flow)
   1. [Blocks](#blocks)
@@ -26,48 +24,10 @@
   1. [Constructors](#constructors)
   1. [Events](#events)
   1. [jQuery](#jquery)
-  1. [ES5 Compatibility](#es5)
-  1. [Testing](#testing)
-  1. [Performance](#performance)
   1. [Resources](#resources)
   1. [The JavaScript Style Guide Guide](#guide-guide)
   1. [Contributors](#contributors)
   1. [License](#license)
-
-## <a name='types'>Types</a>
-
-  - **Primitives**: When you access a primitive type you work directly on its value
-
-    + `string`
-    + `number`
-    + `boolean`
-    + `null`
-    + `undefined`
-
-    ```javascript
-    var foo = 1;
-    var bar = foo;
-
-    bar = 9;
-
-    console.log(foo, bar); // => 1, 9
-    ```
-  - **Complex**: When you access a complex type you work on a reference to its value
-
-    + `object`
-    + `array`
-    + `function`
-
-    ```javascript
-    var foo = [1, 2];
-    var bar = foo;
-
-    bar[0] = 9;
-
-    console.log(foo[0], bar[0]); // => 9, 9
-    ```
-
-    **[[⬆]](#TOC)**
 
 ## <a name='objects'>Objects</a>
 
@@ -377,31 +337,6 @@
     var dragonball = 'z';
     ```
 
-  - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
-
-    ```javascript
-    // bad
-    var i;
-    var len;
-    var dragonball;
-    var items = getItems();
-    var goSportsTeam = true;
-
-    // bad
-    var i;
-    var items = getItems();
-    var dragonball;
-    var goSportsTeam = true;
-    var len;
-
-    // good
-    var items = getItems();
-    var goSportsTeam = true;
-    var dragonball;
-    var length;
-    var i;
-    ```
-
   - Assign variables at the top of their scope when not inconvenient. This helps avoid issues with variable declaration and assignment hoisting related issues.
 
     ```javascript
@@ -461,98 +396,6 @@
     ```
 
     **[[⬆]](#TOC)**
-
-
-## <a name='hoisting'>Hoisting</a>
-
-  - Variable declarations get hoisted to the top of their scope, their assignment does not.
-
-    ```javascript
-    // we know this wouldn't work (assuming there
-    // is no notDefined global variable)
-    function example () {
-      console.log(notDefined); // => throws a ReferenceError
-    }
-
-    // creating a variable declaration after you
-    // reference the variable will work due to
-    // variable hoisting. Note: the assignment
-    // value of `true` is not hoisted.
-    function example () {
-      console.log(declaredButNotAssigned); // => undefined
-      var declaredButNotAssigned = true;
-    }
-
-    // The interpreter is hoisting the variable
-    // declaration to the top of the scope.
-    // Which means our example could be rewritten as:
-    function example () {
-      var declaredButNotAssigned;
-      console.log(declaredButNotAssigned); // => undefined
-      declaredButNotAssigned = true;
-    }
-    ```
-
-  - Anonymous function expressions hoist their variable name, but not the function assignment.
-
-    ```javascript
-    function example () {
-      console.log(anonymous); // => undefined
-
-      anonymous(); // => TypeError anonymous is not a function
-
-      var anonymous = function () {
-        console.log('anonymous function expression');
-      };
-    }
-    ```
-
-  - Named function expressions hoist the variable name, not the function name or the function body.
-
-    ```javascript
-    function example () {
-      console.log(named); // => undefined
-
-      named(); // => TypeError named is not a function
-
-      superPower(); // => ReferenceError superPower is not defined
-
-      var named = function superPower () {
-        console.log('Flying');
-      };
-
-
-      // the same is true when the function name
-      // is the same as the variable name.
-      function example () {
-        console.log(named); // => undefined
-
-        named(); // => TypeError named is not a function
-
-        var named = function named () {
-          console.log('named');
-        };
-      }
-    }
-    ```
-
-  - Function declarations hoist their name and the function body.
-
-    ```javascript
-    function example () {
-      superPower(); // => Flying
-
-      function superPower () {
-        console.log('Flying');
-      }
-    }
-    ```
-
-  - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/)
-
-    **[[⬆]](#TOC)**
-
-
 
 ## <a name='conditionals'>Conditional Expressions & Equality</a>
 
@@ -994,18 +837,6 @@
     var val = parseInt(inputValue, 10);
     ```
 
-  - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
-
-    ```javascript
-    // good
-    /**
-     * parseInt was the reason my code was slow.
-     * Bitshifting the String to coerce it to a
-     * Number made it a lot faster.
-     */
-    var val = inputValue >> 0;
-    ```
-
   - Booleans:
 
     ```javascript
@@ -1014,7 +845,7 @@
     // bad
     var hasAge = new Boolean(age);
 
-    // good
+    // okay
     var hasAge = Boolean(age);
 
     // good
@@ -1363,41 +1194,6 @@
     ```
 
     **[[⬆]](#TOC)**
-
-
-## <a name='es5'>ECMAScript 5 Compatibility</a>
-
-  - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
-
-  **[[⬆]](#TOC)**
-
-
-## <a name='testing'>Testing</a>
-
-  - **Yup.**
-
-    ```javascript
-    function () {
-      return true;
-    }
-    ```
-
-    **[[⬆]](#TOC)**
-
-
-## <a name='performance'>Performance</a>
-
-  - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
-  - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
-  - [Try/Catch Cost In a Loop](http://jsperf.com/try-catch-in-loop-cost)
-  - [Bang Function](http://jsperf.com/bang-function)
-  - [jQuery Find vs Context, Selector](http://jsperf.com/jquery-find-vs-context-sel/13)
-  - [innerHTML vs textContent for script text](http://jsperf.com/innerhtml-vs-textcontent-for-script-text)
-  - [Long String Concatenation](http://jsperf.com/ya-string-concat)
-  - Loading...
-
-  **[[⬆]](#TOC)**
-
 
 ## <a name='resources'>Resources</a>
 
