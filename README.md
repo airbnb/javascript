@@ -14,6 +14,7 @@
   1. [Variables](#variables)
   1. [Hoisting](#hoisting)
   1. [Conditional Expressions & Equality](#conditionals)
+  1. [Control Flow](#control-flow)
   1. [Blocks](#blocks)
   1. [Comments](#comments)
   1. [Whitespace](#whitespace)
@@ -602,6 +603,42 @@
 
     **[[⬆]](#TOC)**
 
+## <a name='control-flow'>Control Flow</a>
+
+  - Put `else`/`catch` on same line as previous closing `}`.
+    ```javascript
+
+    // bad
+    if (test) {
+      // stuff
+    }
+    else {
+      // stuff
+    }
+
+    // good
+    if (test) {
+      // stuff
+    } else {
+      // stuff
+    }
+
+    // bad
+    try {
+      // stuff
+    }
+    catch (e) {
+      // stuff
+    }
+
+    // good
+    try {
+      // stuff
+    } catch (e) {
+      // stuff
+    }
+
+    ```
 
 ## <a name='blocks'>Blocks</a>
 
