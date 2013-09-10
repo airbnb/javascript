@@ -395,6 +395,44 @@
     }
     ```
 
+  - Don't horizontally-align variable or object properties assignments - it
+    makes them difficult to change, reorder, and maintain.
+
+    ```javascript
+    //bad
+    var one   = 1;
+    var two   = 2;
+    var three = 3;
+    var four  = 4;
+
+    var o = {
+      one   : 1,
+      two   : 2,
+      three : 3,
+      four  : 4
+    };
+
+    o = {
+      one  : 1,
+      two  : 2,
+      three: 3,
+      four : 4
+    };
+
+    // good
+    var one = 1;
+    var two = 2;
+    var three = 3;
+    var four = 4;
+
+    var o = {
+      one: 1,
+      two: 2,
+      three: 3,
+      four: 4
+    };
+    ```
+
     **[[⬆]](#TOC)**
 
 ## <a name='conditionals'>Conditional Expressions & Equality</a>
