@@ -775,14 +775,14 @@
     // bad
     (function(global) {
       // ...stuff...
-    })(this);
+    }(this));
     ```
 
     ```javascript
     // good
     (function(global) {
       // ...stuff...
-    })(this);
+    }(this));
 
     ```
 
@@ -891,19 +891,19 @@
     (function() {
       var name = 'Skywalker'
       return name
-    })()
+    }())
 
     // good
     (function() {
       var name = 'Skywalker';
       return name;
-    })();
+    }());
 
     // good
     ;(function() {
       var name = 'Skywalker';
       return name;
-    })();
+    }());
     ```
 
     **[[⬆]](#TOC)**
