@@ -279,7 +279,7 @@
     // immediately-invoked function expression (IIFE)
     (function() {
       console.log('Welcome to the Internet. Please follow me.');
-    })();
+    }());
     ```
 
   - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
