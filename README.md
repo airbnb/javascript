@@ -220,7 +220,8 @@
     ```javascript
     var items,
         messages,
-        length, i;
+        length,
+        i;
 
     messages = [{
         state: 'success',
