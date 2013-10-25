@@ -1354,11 +1354,8 @@
     // good
     $('.sidebar > ul').hide();
 
-    // good (slower)
+    // good
     $sidebar.find('ul');
-
-    // good (faster)
-    $($sidebar[0]).find('ul');
     ```
 
     **[[⬆]](#TOC)**
