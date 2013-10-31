@@ -1416,6 +1416,7 @@
 **Further Reading**
 
   - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
+  - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
 
 **Books**
 
@@ -1430,6 +1431,7 @@
   - [Secrets of the JavaScript Ninja](http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X) - John Resig and Bear Bibeault
   - [Human JavaScript](http://humanjavascript.com/) - Henrik Joreteg
   - [Superhero.js](http://superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy
+  - [JSBooks](http://jsbooks.revolunet.com/)
 
 **Blogs**
 
