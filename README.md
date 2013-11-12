@@ -1,4 +1,4 @@
-# Airbnb JavaScript Style Guide() {
+# MapMyFitness JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
@@ -727,7 +727,7 @@
 
 ## <a name='whitespace'>Whitespace</a>
 
-  - Use soft tabs set to 2 spaces
+  - Use soft tabs set to 4 spaces (4 due to frequent jumps between python and js)
 
     ```javascript
     // bad
@@ -755,7 +755,7 @@
 
     // good
     function test() {
-      console.log('test');
+        console.log('test');
     }
 
     // bad
@@ -766,8 +766,8 @@
 
     // good
     dog.set('attr', {
-      age: '1 year',
-      breed: 'Bernese Mountain Dog'
+        age: '1 year',
+        breed: 'Bernese Mountain Dog'
     });
     ```
   - Place an empty newline at the end of the file.
@@ -1473,6 +1473,7 @@
   - **Userify**: [userify/javascript](https://github.com/userify/javascript)
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
+  - **MapMyFitness**: [mapmyfitness/javascript](https://github.com/mapmyfitness/javascript)
 
 ## <a name='translation'>Translation</a>
 
