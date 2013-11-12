@@ -1473,6 +1473,7 @@
   - **Userify**: [userify/javascript](https://github.com/userify/javascript)
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
+  - **MapMyFitness**: [mapmyfitness/javascript](https://github.com/mapmyfitness/javascript)
 
 ## <a name='translation'>Translation</a>
 
