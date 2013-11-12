@@ -1455,6 +1455,7 @@
 
   This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
 
+  - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
   - **American Insitutes for Research**: [AIRAST/javascript](https://github.com/AIRAST/javascript)
   - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
