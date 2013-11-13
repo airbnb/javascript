@@ -1,6 +1,8 @@
-# Airbnb JavaScript Style Guide() {
+# [Aan Zee](http://www.aanzee.nl) JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
+
+Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript), slightly modified to fit Aan Zee's conventions.
 
 
 ## <a name='TOC'>Table of Contents</a>
@@ -1498,7 +1500,7 @@
 
 (The MIT License)
 
-Copyright (c) 2012 Airbnb
+Copyright (c) 2013 Aan Zee
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
