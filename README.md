@@ -899,12 +899,6 @@
       var name = 'Skywalker';
       return name;
     })();
-
-    // good
-    ;(function() {
-      var name = 'Skywalker';
-      return name;
-    })();
     ```
 
     **[[⬆]](#TOC)**
