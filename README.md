@@ -1439,17 +1439,17 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
 **Blogs**
 
-  - [DailyJS](http://dailyjs.com/)
-  - [JavaScript Weekly](http://javascriptweekly.com/)
-  - [JavaScript, JavaScript...](http://javascriptweblog.wordpress.com/)
-  - [Bocoup Weblog](http://weblog.bocoup.com/)
   - [Adequately Good](http://www.adequatelygood.com/)
-  - [NCZOnline](http://www.nczonline.net/)
-  - [Perfection Kills](http://perfectionkills.com/)
   - [Ben Alman](http://benalman.com/)
+  - [Bocoup Weblog](http://weblog.bocoup.com/)
+  - [DailyJS](http://dailyjs.com/)
   - [Dmitry Baranovskiy](http://dmitry.baranovskiy.com/)
   - [Dustin Diaz](http://dustindiaz.com/)
-  - [nettuts](http://net.tutsplus.com/?s=javascript)
+  - [JavaScript, JavaScript...](http://javascriptweblog.wordpress.com/)
+  - [JavaScript Weekly](http://javascriptweekly.com/)
+  - [Nettuts+](http://net.tutsplus.com/?s=javascript)
+  - [NCZOnline](http://www.nczonline.net/)
+  - [Perfection Kills](http://perfectionkills.com/)
 
   **[[⬆]](#TOC)**
 
