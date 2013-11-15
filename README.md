@@ -372,32 +372,54 @@
 
     ```javascript
     // bad
-    var items = getItems();
+    var items        = getItems();
     var goSportsTeam = true;
-    var dragonball = 'z';
+    var dragonball   = 'z';
 
     // good
+    var items        = getItems(),
+        goSportsTeam = true,
+        dragonball   = 'z';
+    ```
+
+  - Align the equals symbol.
+   
+    ```javascript
+    // bad
     var items = getItems(),
         goSportsTeam = true,
         dragonball = 'z';
+
+    // bad
+    var items                         = getItems(),
+        dragonball                    = 'z',
+        someVeryLongNameThatIsTooLong = true;
+
+    // good
+    var items        = getItems(),
+        dragonball   = 'z',
+        goSportsTeam = true,
+        someVeryLongNameThatIsTooLong = true;
     ```
+
+
 
   - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
     ```javascript
     // bad
     var i, len, dragonball,
-        items = getItems(),
+        items        = getItems(),
         goSportsTeam = true;
 
     // bad
-    var i, items = getItems(),
+    var i, items     = getItems(),
         dragonball,
         goSportsTeam = true,
         len;
 
     // good
-    var items = getItems(),
+    var items        = getItems(),
         goSportsTeam = true,
         dragonball,
         length,
