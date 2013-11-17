@@ -1008,7 +1008,6 @@
     // bad
     var OBJEcttsssss = {};
     var this_is_my_object = {};
-    var this-is-my-object = {};
     function c() {};
     var u = new user({
       name: 'Bob Parr'
