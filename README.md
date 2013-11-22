@@ -1,4 +1,4 @@
-# Airbnb JavaScript Style Guide() {
+# REI JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
@@ -130,6 +130,8 @@
     // good
     var items = [];
     ```
+
+  - Note: if you know the size of the array beforehand, using the `new Array()` syntax may be preferable because of V8 optimizations. [jsPerf](http://jsperf.com/sized-array-creation)
 
   - If you don't know array length use Array#push.
 
