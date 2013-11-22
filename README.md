@@ -40,6 +40,7 @@
 ## <a name='motivation'>Motivation</a>
 
   - **PEP-020**: [The Zen of Python](http://www.python.org/dev/peps/pep-0020/)
+
   > Beautiful is better than ugly.
   > Explicit is better than implicit.
   > Simple is better than complex.
