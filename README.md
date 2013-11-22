@@ -1,6 +1,6 @@
 # REI JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript*
+*A mostly reasonable approach to JavaScript, lightly modified from Airbnb's excellent version*
 
 
 ## <a name='TOC'>Table of Contents</a>
