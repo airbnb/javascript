@@ -159,8 +159,6 @@
     var items = [];
     ```
 
-  - Note: if you know the size of the array beforehand, using the `new Array()` syntax may be preferable because of V8 optimizations. [jsPerf](http://jsperf.com/sized-array-creation)
-
   - If you don't know array length use Array#push.
 
     ```javascript
@@ -1413,6 +1411,7 @@
   - [jQuery Find vs Context, Selector](http://jsperf.com/jquery-find-vs-context-sel/13)
   - [innerHTML vs textContent for script text](http://jsperf.com/innerhtml-vs-textcontent-for-script-text)
   - [Long String Concatenation](http://jsperf.com/ya-string-concat)
+  - [Array construction](http://jsperf.com/sized-array-creation)
   - Loading...
 
   **[[⬆]](#TOC)**
