@@ -1,3 +1,5 @@
+Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
+
 # Airbnb JavaScript Style Guide() {
 
 *Разумен подход за писане на JavaScript*
@@ -214,7 +216,7 @@
       'fast.';
     ```
 
-  - Когато искате да направите стринг, използвайте Array#join вместо конкатенация. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+  - Когато искате да направите стринг, използвайте Array#join вместо конкатенация. [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
     var items,
@@ -961,7 +963,7 @@
     ```
 
   
-  - В случай, че решите да сте палави с  `parseInt` и това ви е ахилесовата пета и е нужно да използате смяна на битове[performance reasons](http://jsperf.com/coercion-vs-casting/3), оставете коментар какво и защо правите.
+  - В случай, че решите да сте палави с  `parseInt` и това ви е ахилесовата пета и е нужно да използате смяна на битове [performance reasons](http://jsperf.com/coercion-vs-casting/3), оставете коментар какво и защо правите.
   
   - **Забележка:** Бъдете предпазливи като използвате промяна на битове. Числата са представени чрез [64-bit values](http://es5.github.io/#x4.3.19), но смяната на битове винаги връща 32-битов интиджер ([source](http://es5.github.io/#x11.7)). Смяната на битове може да доведе до неочаквано поведени при числови стойности на 32 бита. [Discussion](https://github.com/airbnb/javascript/issues/109)
 
@@ -1247,7 +1249,7 @@
 
 ## <a name='events'>Събития</a>
   
-    ```js
+    ```javascript 
     // зле
     $(this).trigger('listingUpdated', listing.id);
 
@@ -1260,7 +1262,7 @@
 
     предпочитайте:
 
-    ```js
+    ```javascript
     // добре
     $(this).trigger('listingUpdated', { listingId : listing.id });
 
