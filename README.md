@@ -39,7 +39,6 @@
 ## <a name='types'>Types</a>
 
   - **Примитивни**: Когато достъпвате примитивен тип се работи директно със неговата стойност. 
-  //When you access a primitive type you work directly on its value
 
     + `string`
     + `number`
@@ -56,7 +55,6 @@
     console.log(foo, bar); // => 1, 9
     ```
   - **Съставни**: Когато достъпвате комплексен тип данни се работи с референция на стойността и. 
-  //When you access a complex type you work on a reference to its value
 
     + `object`
     + `array`
@@ -75,7 +73,6 @@
 
 ## <a name='objects'>Objects</a> 
   - Използвайте втория вариант за създаване на обект.
-  - //Use the literal syntax for object creation.
 
     ```javascript
     // лошо
@@ -85,7 +82,6 @@
     var item = {};
     ```
 
-  //- Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61)
   - Не използвайте [запазени думи](http://es5.github.io/#x7.6.1) за деклариране на променливи. Тези променливи няма да работят на IE8. [Повече](https://github.com/airbnb/javascript/issues/61)
 
     ```javascript
@@ -102,8 +98,7 @@
     };
     ```
 
-  //- Use readable synonyms in place of reserved words.
-  - Използвайте смислени синоними на мястотото на запазени думи.
+  - Използвайте смислени синоними на мястото на запазени думи.
 
     ```javascript
     // лошо
@@ -125,7 +120,6 @@
 
 ## <a name='arrays'>Масиви</a>
 
-  //- Use the literal syntax for array creation
   - Използвайте варианта със скобите за създаване на масив
 
     ```javascript
@@ -136,7 +130,6 @@
     var items = [];
     ```
 
-  //- If you don't know array length use Array#push.
   - Ако не знаете дължината на масив, използвайте Array#push.
 
     ```javascript
@@ -150,7 +143,6 @@
     someStack.push('abracadabra');
     ```
 
-  - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
   - Ако имате нужда да копирате масив използвайте Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
@@ -167,7 +159,6 @@
     itemsCopy = items.slice();
     ```
 
-  ///- To convert an array-like object to an array, use Array#slice.
   - Да конвертирате подобен на масив обект към масив, използвайте Array#slice.
 
     ```javascript
@@ -182,7 +173,6 @@
 
 ## <a name='strings'>Стрингове</a>
 
-  - Use single quotes `''` for strings
   - Използвайте единични кавички `''` за стрингове.
 
     ```javascript
@@ -199,9 +189,7 @@
     var fullName = 'Bob ' + this.lastName;
     ```
 
-  //- Strings longer than 80 characters should be written across multiple lines using string concatenation.
   - Стрингове, по-дълги от 80 символа трябва да се напишат на няколко реда, като се използва конкатенация.
-  //- Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
   - Забележка: Ако се използват неправилно, . [jsPerf](http://jsperf.com/ya-string-concat) & [s](https://github.com/airbnb/javascript/issues/40)
 
     ```javascript
@@ -226,7 +214,7 @@
       'fast.';
     ```
 
-  - When programatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+  - Когато искате да направите стринг, използвайте Array#join вместо конкатенация. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
     var items,
@@ -288,16 +276,13 @@
       return true;
     };
 
-    // immediately-invoked function expression (IIFE)
     // Моментално изпълнени функции-изрази (IIFE)
     (function() {
       console.log('Welcome to the Internet. Please follow me.');
     })();
     ```
 
-  //- Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is зле news bears.
   - Никога не декларирайте функция в нефункционелен блок (if, while, etc). Дайте и стойност и на променлива вместо това. Браузърите ще дадат това, но ще го интерпретират различно, което не е никак добре.
-  //- **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
   - **Забележка:** ECMA-262 дефинира `block` като лист с декларации/твърдения. Декларирането на фунция не е твърдение. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
@@ -317,7 +302,6 @@
     }
     ```
 
-  //- Never name a parameter `arguments`, this will take precedence over the `arguments` object that is given to every function scope.
   - Никога не кръщавайте параметър `arguments`, това ще вземе значението на `arguments`-обекта, който е деклариран по подразбиране във всеки скоуп.
 
     ```javascript
@@ -338,7 +322,6 @@
 
 ## <a name='properties'>Свойства</a>
 
-  //- Use dot notation when accessing properties.
   - Използвайте '.' за достъпване на свойства.
 
     ```javascript
@@ -354,7 +337,6 @@
     var isJedi = luke.jedi;
     ```
 
-  //- Use subscript notation `[]` when accessing properties with a variable.
   - Използвайте `[]` когато достъпвате свойства със променлива.
 
     ```javascript
@@ -375,7 +357,6 @@
 
 ## <a name='variables'>Променливи</a>
 
-  //- Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
   - Винаги използвайте `var` за деклариране на променливи. В противен случай се декларират глобални променливи. Ние искаме да не 'замърсяване' глобалното пространство с тях. Капитан планета ни предупреди за тях.
 
     ```javascript
@@ -386,7 +367,6 @@
     var superPower = new SuperPower();
     ```
 
- // - Use one `var` declaration for multiple variables and declare each variable on a newline.
   - Използвайте една `var` декларация за много променливи и декларирайте всяка променлива на нов ред.
 
     ```javascript
@@ -401,7 +381,6 @@
         dragonball = 'z';
     ```
 
- // - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
   - Декларирайте променливи, непродобили стойност последни. Това е полезно, когато по-късно се нуждаете от променлива зависеща от някоя от предходно дефинираните променливи.
 
     ```javascript
@@ -424,7 +403,6 @@
         i;
     ```
 
-  //- Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
   - Слагайте променливите винаги в началото на скоупа им. Това помага да се избегнат проблеми с декларации и неправомерно извикване на недефинирани променливи.
 
     ```javascript
@@ -488,13 +466,11 @@
 
 ## <a name='hoisting'>Деклариране и използване на променливи</a>
 
-  //- Variable declarations get hoisted to the top of their scope, their assignment does not.
   - Декларацията на променливи се поставя в началото на функция или обект, тяхното изпозлване става по-надолу.
 
     ```javascript
     // Това няма да работи (приемаме, че няма 
-	//дефинирана notDefined в глобалния скоуп)
-    // is no notDefined global variable)
+	// дефинирана notDefined в глобалния скоуп)
     function example() {
       console.log(notDefined); // => throws a ReferenceError
     }
@@ -502,20 +478,11 @@
     // Извикване на променлива, преди декларацията и ще работи,
 	// но стойносттта и няма да се взима
 	 
-    // creating a variable declaration after you
-	// reference the variable will work due to
-    // variable hoisting. Note: the assignment
-    // value of `true` is not hoisted.
-	
     function example() {
       console.log(declaredButNotAssigned); // => undefined
       var declaredButNotAssigned = true;
     }
 
-    // The interpreter is hoisting the variable
-    // declaration to the top of the scope.
-    // Which means our example could be rewritten as:
-	
 	// Интерпретаторът поставя дефинирането в началото
     // на скоупа. Примерът може да се пренапише така :
 	
@@ -526,7 +493,6 @@
     }
     ```
 
-  //- Anonymous function expressions hoist their variable name, but not the function assignment.
   - Анонимните функции-изрази поставят най-горе дефиницията на променливи, но не и стойността/фунцкията,
     присвоена на променливата.
 
@@ -542,7 +508,6 @@
     }
     ```
 
-  //- Named function expressions hoist the variable name, not the function name or the function body.
   - Именуваните функции-изрази прехвърлят името на променливата, а не името на функцията или тялото и.
 
     ```javascript
@@ -558,8 +523,6 @@
       };
     }
 
-    // the same is true when the function name
-    // is the same as the variable name.    
 	
 	// същото е вярно, когато името на функцията
     // е същото като името на променливата.
@@ -574,7 +537,6 @@
     }
     ```
 
-  //- Function declarations hoist their name and the function body.
   - Декларацията на функцията прехвърля името и тялото на функция.
 
     ```javascript
@@ -587,7 +549,6 @@
     }
     ```
 
-  -// For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/)
   - За повече информация [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) от [Ben Cherry](http://www.adequatelygood.com/)
 
     **[[⬆]](#TOC)**
@@ -597,7 +558,6 @@
 ## <a name='conditionals'>Условни изрази и равенства</a>
 
   - Използвайте `===` и `!==` вместо `==` и `!=`.
-  //- Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
   - Условните изрази се проверяват чрез прехвърляне към `ToBoolean` метод и винаги следват тези прости правила:
 
     + **Objects** става **true**
@@ -640,7 +600,6 @@
     }
     ```
 
-  - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
   - За повече информация [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
 
     **[[⬆]](#TOC)**
@@ -648,7 +607,6 @@
 
 ## <a name='blocks'>Блокове</a>
 
-  - Use braces with all multi-line blocks.
   - Използвайте скоби с всички многоредови блокове.
 
     ```javascript
@@ -678,7 +636,6 @@
 
 ## <a name='comments'>Коментари</a>
 
-  - Use `/** ... */` for multiline comments. Include a description, specify types and values for all parameters and return values.
   - Използвайте `/** ... */` за многоредови коментари. Включете обяснение, изяснете типове и стойности за всички параметри и стойности, които се връщат от функцията.
 
     ```javascript
@@ -713,7 +670,6 @@
 
   - Използвайте `//` за едноредови коментари. Поставятйте едноредовите коментари на нов ред над предмета на обяснение. Поставете и празен ред преди коментара.
 
-//  Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
 
     ```javascript
     // зле
@@ -743,7 +699,6 @@
     }
     ```
 
-  - Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
   - Поставяйте в коментарите `FIXME` или `TODO`, помагайки на други разработчици да разберат ако има проблем, който трябва да бъде прегледан или да предлагате решение на проблем.  Това са различни от обикновените коментари, защото 
 те предлагат действие. 
 `FIXME -- need to figure this out` or `TODO -- need to implement`.
@@ -777,7 +732,6 @@
 
 ## <a name='whitespace'>Празни пространства</a>
 
-  - Use soft tabs set to 2 spaces
   - Използвайте табулации с 2 празни пространства
 
     ```javascript
@@ -796,7 +750,6 @@
     ∙∙var name;
     }
     ```
-  - Place 1 space before the leading brace.
   - Поставяйте 1 празно пространство преди начална скоба.
 
     ```javascript
@@ -822,7 +775,6 @@
       breed: 'Bernese Mountain Dog'
     });
     ```
- // - Place an empty newline at the end of the file.
   - Поставяйте празен ред в края на файл.
 
     ```javascript
@@ -840,7 +792,6 @@
 
     ```
 
-  - Use indentation when making long method chains.
   - Използвайте йерархично подравняване при дълги вериги от методи.
 
     ```javascript
@@ -876,7 +827,6 @@
 
 ## <a name='commas'>Запетаи</a>
 
-  - Leading commas: **Nope.**
   - Запетая на нов ред: **НЕ.**
 
     ```javascript
@@ -907,10 +857,8 @@
     };
     ```
 
-  //- Additional trailing comma: **Nope.** This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
   - Допълнителна запетая в края: **НЕ.** Може да създаде проблем с IE6/7 и IE9. Също, в някои реализации на ES3 може да добави дължина към масив ако има такава запетая. Това е изяснено в ES5 ([source](http://es5.github.io/#D)):
 
-  > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
   > Издание 5 изяснява факта, че запетая в края на ArrayInitialiser не добавя дължина към масива. Това не е семантина промяна от издание 3, но някои реализации може да бъркат това.
 
     ```javascript
@@ -970,9 +918,7 @@
 ## <a name='type-coercion'>Преобразуване на типове</a>
 
   - Изпълнявайте преобразуването на типове в началото.
-  //- Perform type coercion at the beginning of the statement.
   - Стринг:
-  //- Strings:
 
     ```javascript
     //  => this.reviewScore = 9;
@@ -991,7 +937,6 @@
     ```
 
   - Use `parseInt` for Numbers and always with a radix for type casting.
- // - Използвайте `parseInt` за числа и винаги с корен за преобразуването на типа.
 
     ```javascript
     var inputValue = '4';
@@ -1015,22 +960,17 @@
     var val = parseInt(inputValue, 10);
     ```
 
-//  - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
   
   - В случай, че решите да сте палави с  `parseInt` и това ви е ахилесовата пета и е нужно да използате смяна на битове[performance reasons](http://jsperf.com/coercion-vs-casting/3), оставете коментар какво и защо правите.
   
   - **Забележка:** Бъдете предпазливи като използвате промяна на битове. Числата са представени чрез [64-bit values](http://es5.github.io/#x4.3.19), но смяната на битове винаги връща 32-битов интиджер ([source](http://es5.github.io/#x11.7)). Смяната на битове може да доведе до неочаквано поведени при числови стойности на 32 бита. [Discussion](https://github.com/airbnb/javascript/issues/109)
-  //- **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109)
 
     ```javascript
     // добре
     /**
      * parseInt беше причина кода ми да е бавен.
-     * parseInt was the reason my code was slow.
      * Промяната на битове в стринга
-     * Bitshifting the String to coerce it to a
      * към числа го направи по-бърз.
-     * Number made it a lot faster.
      */
     var val = inputValue >> 0;
     ```
@@ -1055,7 +995,6 @@
 
 ## <a name='naming-conventions'>Наименуване практики</a>
 
-  - Avoid single letter names. Be descriptive with your naming.
   - Избягвайте имена от 1 буква. Обяснявайте какво наименувате.
 
     ```javascript
@@ -1070,7 +1009,6 @@
     }
     ```
 
-  - Use camelCase when naming objects, functions, and instances
   - Използвайте camelCase, когато именовате обекти, функции, и инстанции
 
     ```javascript
@@ -1090,7 +1028,6 @@
     });
     ```
 
-  - Use PascalCase when naming constructors or classes
   - Използвайте PascalCase когато именувате конструктори или класове
 
     ```javascript
@@ -1113,7 +1050,6 @@
     });
     ```
 
-  - Use a leading underscore `_` when naming private properties
   - Използвайте долно тире в началото `_`, когато именувате private променливи
 
     ```javascript
@@ -1125,7 +1061,6 @@
     this._firstName = 'Panda';
     ```
 
-  //- When saving a reference to `this` use `_this`.
   - Когато използвате референции към `this` използвайте `_this`.
 
     ```javascript
@@ -1154,7 +1089,6 @@
     }
     ```
 
-  //- Name your functions. This is helpful for stack traces.
   - Именувайте си функцийте. Това е добре за проследяване на стака.
 
     ```javascript
@@ -1174,10 +1108,8 @@
 
 ## <a name='accessors'>Достъпване</a>
 
-  //- Accessor functions for properties are not required
   - Не са необходими функции за променливи
   - Ако има - ползвайте подобни на  getVal() и setVal('hello')
-  - If you do make accessor functions use getVal() and setVal('hello')
 
     ```javascript
     // зле
@@ -1193,7 +1125,6 @@
     dragon.setAge(25);
     ```
 
-  //- If the property is a boolean, use isVal() or hasVal()
   - Ако променлива е булева стойност, използвайте isVal() или hasVal()
 
     ```javascript
@@ -1208,7 +1139,6 @@
     }
     ```
 
-  //- It's okay to create get() and set() functions, but be consistent.
   - Може да се създадат get() и set() функции, но бъдете постоянни с тях.
 
     ```javascript
@@ -1232,7 +1162,6 @@
 
 ## <a name='constructors'>Конструктор</a>
 
-  - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
   - Присвоявайте методи на прототипа обект, вместо да пренаписвате прототипа с нов обект. Пренаписването на прототипа прави наследяването невъзможно: от задаване на нова стойност на прототипа, пренаписване базата!
 
     ```javascript
@@ -1261,7 +1190,6 @@
     };
     ```
 
-  //- Methods can return `this` to help with method chaining.
   - Методите могат да връщат `this` помагайки с навързването на методи.
 
     ```javascript
@@ -1297,8 +1225,7 @@
     ```
 
 
-  //- It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
-  //- Може да дефинира и toString() метод, просто бъдете сигурни, че няма странични ефекти.
+	- Може да дефинира и toString() метод, просто бъдете сигурни, че няма странични ефекти.
 
     ```javascript
     function Jedi(options) {
@@ -1349,17 +1276,13 @@
 
 ## <a name='modules'>Модули</a>
 
-  - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
   - Модул трябва да започва с `!`. Това осигурява, че дори друг модул да е забравил да постави на края точка и запетая, няма да има грешки в продукция, когато скриптовете се конкатенират. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
   
-  - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
   - Файлът се наименува с camelCase, в папка със същото име.
   
   
-  - Add a method called noConflict() that sets the exported module to the previous version and returns this one.
   - Добавете метод, казващ се noConflict(), поставящ експортираните модули към предишна версия и връщащ този.
   
-  //- Always declare `'use strict';` at the top of the module.
   - Декларирайте `'use strict';` в началото на модул.
 
     ```javascript
