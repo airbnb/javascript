@@ -1490,15 +1490,15 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
   Други преводи
 
-  - :de: **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
-  - :jp: **Japanese**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
-  - :br: **Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
-  - :cn: **Chinese**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
-  - :es: **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
-  - :kr: **Korean**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
-  - :fr: **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
-  - :ru: **Russian**: [sbezludny/javascript-style-guide](https://github.com/sbezludny/javascript-style-guide)
-  - :bg: **Bulgarian**: [borislavvv/javascript-style-guide](https://github.com/sbezludny/javascript-style-guide)
+  - :de: **Немски**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
+  - :jp: **Японски**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
+  - :br: **Портогалски**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
+  - :cn: **Китайски**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
+  - :es: **Испански**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
+  - :kr: **Корейски**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
+  - :fr: **Френски**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
+  - :ru: **Руски**: [sbezludny/javascript-style-guide](https://github.com/sbezludny/javascript-style-guide)
+  - :bg: **Български**: [borislavvv/javascript-style-guide](https://github.com/sbezludny/javascript-style-guide)
 
 ## <a name='guide-guide'>JavaScript Стилово ръководство</a>
 
