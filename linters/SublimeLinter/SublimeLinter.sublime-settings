@@ -37,14 +37,21 @@
       // with underscores.
       "camelcase": true,
 
+      // Require curly braces around blocks in loops and conditionals
+      // TODO: curly brace requirement is up for discussion
+      // "curly": true,
+
       // Prohibit use of == and != in favor of === and !==.
       "eqeqeq": true,
 
       // Suppress warnings about == null comparisons.
       "eqnull": true,
 
+      // Prohibit immediate function invocations without wrapping them in parens
+      "immed": true,
+
       // Enforce tab width of 2 spaces.
-      "indent": 2,
+      "indent": 4,
 
       // Prohibit use of a variable before it is defined.
       "latedef": true,
