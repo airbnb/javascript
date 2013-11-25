@@ -1,5 +1,5 @@
 /**
- * Airbnb JSHint settings for use with SublimeLinter and Sublime Text 2.
+ * REI JSHint settings for use with SublimeLinter and Sublime Text 2.
  *
  *   1. Install SublimeLinter at https://github.com/SublimeLinter/SublimeLinter
  *   2. Open user preferences for the SublimeLinter package in Sublime Text 2
@@ -7,7 +7,7 @@
  *   3. Paste the contents of this file into your settings file
  *   4. Save the settings file
  *
- * @version 0.3.0
+ * @version 0.3.1
  * @see     https://github.com/SublimeLinter/SublimeLinter
  * @see     http://www.jshint.com/docs/
  */
