@@ -1488,6 +1488,7 @@
   - :kr: **Korean**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
   - :fr: **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
   - :ru: **Russian**: [sbezludny/javascript-style-guide](https://github.com/sbezludny/javascript-style-guide)
+  - :bg: **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
 
 ## <a name='guide-guide'>The JavaScript Style Guide Guide</a>
 
