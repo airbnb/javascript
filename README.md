@@ -808,7 +808,7 @@
     });
     ```
 
-  - Place 1 space after an opening paren, and before a closing paren.
+  - Place 1 space after an opening paren, and before a closing paren<a name='breathing-room'>.</a>
 
     ```javascript
     // bad
