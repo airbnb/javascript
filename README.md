@@ -807,6 +807,30 @@
         breed: 'Bernese Mountain Dog'
     });
     ```
+
+  - Place 1 space after an opening paren, and before a closing paren.
+
+    ```javascript
+    // bad
+    for(var i = 0; i < foo.length; ++i){
+        ...
+    }
+
+    var f = function(a, b, c){
+        ...
+    };
+
+
+    // good
+    for( var i = 0; i < foo.length; ++i ){
+        ...
+    }
+
+    var f = function( a, b, c ){
+        ...
+    };
+    ```
+
   - Place an empty newline at the end of the file.
 
     ```javascript
