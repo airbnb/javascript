@@ -10,7 +10,7 @@
   1. [Types](#types)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
-  1. [Strings](#strings)
+  1. [Strings](#strings)w
   1. [Functions](#functions)
   1. [Properties](#properties)
   1. [Variables](#variables)
@@ -733,22 +733,27 @@
 
 ## <a name='whitespace'>Whitespace</a>
 
-  - Use soft tabs set to 2 spaces
+  - Use soft tabs (tabs composed of spaces) set to 4 spaces
 
     ```javascript
-    // bad
-    function() {
-    ∙∙∙∙var name;
-    }
-
     // bad
     function() {
     ∙var name;
     }
 
-    // good
+    // bad
     function() {
     ∙∙var name;
+    }
+
+    // bad
+    function() {
+    ∙∙∙var name;
+    }
+
+    // good
+    function() {
+    ∙∙∙∙var name;
     }
     ```
   - Place 1 space before the leading brace.
