@@ -1,9 +1,8 @@
 # REI JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript, lightly modified from [Airbnb's excellent style guide][airbnb-js-styleguide]*
+*A mostly reasonable approach to JavaScript, lightly modified from [Airbnb's excellent style guide][airbnb-js-styleguide].*
 
 [airbnb-js-styleguide]: //github.com/airbnb/javascript
-
 
 ## <a name='TOC'>Table of Contents</a>
 
@@ -11,7 +10,7 @@
   1. [Types](#types)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
-  1. [Strings](#strings)w
+  1. [Strings](#strings)
   1. [Functions](#functions)
   1. [Properties](#properties)
   1. [Variables](#variables)
