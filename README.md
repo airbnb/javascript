@@ -1,6 +1,6 @@
 # REI JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript, lightly modified from [Airbnb's excellent style guide][airbnb-js-styleguide].*
+*A mostly reasonable approach to JavaScript, lightly modified from [Airbnb's excellent style guide][airbnb-js-styleguide]*
 
 [airbnb-js-styleguide]: //github.com/airbnb/javascript
 
@@ -1344,13 +1344,13 @@
     ```javascript
     // bad
     function setSidebar() {
-      $('.sidebar').hide();
+        $('.sidebar').hide();
 
-      // ...stuff...
+        // ...stuff...
 
-      $('.sidebar').css({
-          'background-color': 'pink'
-      });
+        $('.sidebar').css({
+            'background-color': 'pink'
+        });
     }
 
     // good
