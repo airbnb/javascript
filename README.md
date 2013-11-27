@@ -7,6 +7,7 @@
 
 ## <a name='TOC'>Table of Contents</a>
 
+  1. [Inspiration, or: Why?](#inspiration)
   1. [Types](#types)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
@@ -31,13 +32,39 @@
   1. [ES5 Compatibility](#es5)
   1. [Testing](#testing)
   1. [Performance](#performance)
-  1. [Inspiration, or: Why?](#inspiration)
   1. [Resources](#resources)
   1. [In the Wild](#in-the-wild)
   1. [Translation](#translation)
   1. [The JavaScript Style Guide Guide](#guide-guide)
   1. [Contributors](#contributors)
   1. [License](#license)
+
+
+## <a name='inspiration'>Inspiration</a>
+
+  - **PEP-020**: [The Zen of Python](http://www.python.org/dev/peps/pep-0020/)
+
+  ```
+  Beautiful is better than ugly.
+  Explicit is better than implicit.
+  Simple is better than complex.
+  Complex is better than complicated.
+  Flat is better than nested.
+  Sparse is better than dense.
+  Readability counts.
+  Special cases aren't special enough to break the rules.
+  Although practicality beats purity.
+  Errors should never pass silently.
+  Unless explicitly silenced.
+  In the face of ambiguity, refuse the temptation to guess.
+  There should be one-- and preferably only one --obvious way to do it.
+  Although that way may not be obvious at first unless you're Dutch.
+  Now is better than never.
+  Although never is often better than *right* now.
+  If the implementation is hard to explain, it's a bad idea.
+  If the implementation is easy to explain, it may be a good idea.
+  Namespaces are one honking great idea -- let's do more of those!
+  ```
 
 
 ## <a name='types'>Types</a>
@@ -92,14 +119,14 @@
     ```javascript
     // bad
     var superman = {
-      default: { clark: 'kent' },
-      private: true
+        default: { clark: 'kent' },
+        private: true
     };
 
     // good
     var superman = {
-      defaults: { clark: 'kent' },
-      hidden: true
+        defaults: { clark: 'kent' },
+        hidden: true
     };
     ```
 
@@ -108,17 +135,17 @@
     ```javascript
     // bad
     var superman = {
-      class: 'alien'
+        class: 'alien'
     };
 
     // bad
     var superman = {
-      klass: 'alien'
+        klass: 'alien'
     };
 
     // good
     var superman = {
-      type: 'alien'
+        type: 'alien'
     };
     ```
     **[[⬆]](#TOC)**
@@ -157,7 +184,7 @@
 
     // bad
     for (i = 0; i < len; i++) {
-      itemsCopy[i] = items[i];
+        itemsCopy[i] = items[i];
     }
 
     // good
@@ -168,8 +195,8 @@
 
     ```javascript
     function trigger() {
-      var args = Array.prototype.slice.call(arguments);
-      ...
+        var args = Array.prototype.slice.call(arguments);
+        ...
     }
     ```
 
@@ -212,11 +239,11 @@
 
     // good
     var errorMessage = 'This is a super long error that ' +
-      'was thrown because of Batman.' +
-      'When you stop to think about ' +
-      'how Batman had anything to do ' +
-      'with this, you would get nowhere ' +
-      'fast.';
+        'was thrown because of Batman.' +
+        'When you stop to think about ' +
+        'how Batman had anything to do ' +
+        'with this, you would get nowhere ' +
+        'fast.';
     ```
 
   - When programatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
@@ -242,24 +269,24 @@
 
     // bad
     function inbox(messages) {
-      items = '<ul>';
+        items = '<ul>';
 
-      for (i = 0; i < length; i++) {
-        items += '<li>' + messages[i].message + '</li>';
-      }
+        for (i = 0; i < length; i++) {
+            items += '<li>' + messages[i].message + '</li>';
+        }
 
-      return items + '</ul>';
+        return items + '</ul>';
     }
 
     // good
     function inbox(messages) {
-      items = [];
+        items = [];
 
-      for (i = 0; i < length; i++) {
-        items[i] = messages[i].message;
-      }
+        for (i = 0; i < length; i++) {
+          items[i] = messages[i].message;
+        }
 
-      return '<ul><li>' + items.join('</li><li>') + '</li></ul>';
+        return '<ul><li>' + items.join('</li><li>') + '</li></ul>';
     }
     ```
 
@@ -273,17 +300,17 @@
     ```javascript
     // anonymous function expression
     var anonymous = function() {
-      return true;
+        return true;
     };
 
     // named function expression
     var named = function named() {
-      return true;
+        return true;
     };
 
     // immediately-invoked function expression (IIFE)
     (function() {
-      console.log('Welcome to the Internet. Please follow me.');
+        console.log('Welcome to the Internet. Please follow me.');
     })();
     ```
 
@@ -293,17 +320,17 @@
     ```javascript
     // bad
     if (currentUser) {
-      function test() {
-        console.log('Nope.');
-      }
+        function test() {
+            console.log('Nope.');
+        }
     }
 
     // good
     var test;
     if (currentUser) {
-      test = function test() {
-        console.log('Yup.');
-      };
+        test = function test() {
+            console.log('Yup.');
+        };
     }
     ```
 
@@ -312,12 +339,12 @@
     ```javascript
     // bad
     function nope(name, options, arguments) {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     function yup(name, options, args) {
-      // ...stuff...
+        // ...stuff...
     }
     ```
 
@@ -331,8 +358,8 @@
 
     ```javascript
     var luke = {
-      jedi: true,
-      age: 28
+        jedi: true,
+        age: 28
     };
 
     // bad
@@ -346,12 +373,12 @@
 
     ```javascript
     var luke = {
-      jedi: true,
-      age: 28
+        jedi: true,
+        age: 28
     };
 
     function getProp(prop) {
-      return luke[prop];
+        return luke[prop];
     }
 
     var isJedi = getProp('jedi');
@@ -415,56 +442,56 @@
     ```javascript
     // bad
     function() {
-      test();
-      console.log('doing stuff..');
+        test();
+        console.log('doing stuff..');
 
-      //..other stuff..
+        //..other stuff..
 
-      var name = getName();
+        var name = getName();
 
-      if (name === 'test') {
-        return false;
-      }
+        if (name === 'test') {
+            return false;
+        }
 
-      return name;
+        return name;
     }
 
     // good
     function() {
-      var name = getName();
+        var name = getName();
 
-      test();
-      console.log('doing stuff..');
+        test();
+        console.log('doing stuff..');
 
-      //..other stuff..
+        //..other stuff..
 
-      if (name === 'test') {
-        return false;
-      }
+        if (name === 'test') {
+            return false;
+        }
 
-      return name;
+        return name;
     }
 
     // bad
     function() {
-      var name = getName();
+        var name = getName();
 
-      if (!arguments.length) {
-        return false;
-      }
+        if (!arguments.length) {
+            return false;
+        }
 
-      return true;
+        return true;
     }
 
     // good
     function() {
-      if (!arguments.length) {
-        return false;
-      }
+        if (!arguments.length) {
+            return false;
+        }
 
-      var name = getName();
+        var name = getName();
 
-      return true;
+        return true;
     }
     ```
 
@@ -479,7 +506,7 @@
     // we know this wouldn't work (assuming there
     // is no notDefined global variable)
     function example() {
-      console.log(notDefined); // => throws a ReferenceError
+        console.log(notDefined); // => throws a ReferenceError
     }
 
     // creating a variable declaration after you
@@ -487,17 +514,17 @@
     // variable hoisting. Note: the assignment
     // value of `true` is not hoisted.
     function example() {
-      console.log(declaredButNotAssigned); // => undefined
-      var declaredButNotAssigned = true;
+        console.log(declaredButNotAssigned); // => undefined
+        var declaredButNotAssigned = true;
     }
 
     // The interpreter is hoisting the variable
     // declaration to the top of the scope.
     // Which means our example could be rewritten as:
     function example() {
-      var declaredButNotAssigned;
-      console.log(declaredButNotAssigned); // => undefined
-      declaredButNotAssigned = true;
+        var declaredButNotAssigned;
+        console.log(declaredButNotAssigned); // => undefined
+        declaredButNotAssigned = true;
     }
     ```
 
@@ -505,13 +532,13 @@
 
     ```javascript
     function example() {
-      console.log(anonymous); // => undefined
+        console.log(anonymous); // => undefined
 
-      anonymous(); // => TypeError anonymous is not a function
+        anonymous(); // => TypeError anonymous is not a function
 
-      var anonymous = function() {
-        console.log('anonymous function expression');
-      };
+        var anonymous = function() {
+            console.log('anonymous function expression');
+        };
     }
     ```
 
@@ -519,27 +546,27 @@
 
     ```javascript
     function example() {
-      console.log(named); // => undefined
+        console.log(named); // => undefined
 
-      named(); // => TypeError named is not a function
+        named(); // => TypeError named is not a function
 
-      superPower(); // => ReferenceError superPower is not defined
+        superPower(); // => ReferenceError superPower is not defined
 
-      var named = function superPower() {
-        console.log('Flying');
-      };
+        var named = function superPower() {
+            console.log('Flying');
+        };
     }
 
     // the same is true when the function name
     // is the same as the variable name.
     function example() {
-      console.log(named); // => undefined
+        console.log(named); // => undefined
 
-      named(); // => TypeError named is not a function
+        named(); // => TypeError named is not a function
 
-      var named = function named() {
-        console.log('named');
-      }
+        var named = function named() {
+            console.log('named');
+        }
     }
     ```
 
@@ -547,11 +574,11 @@
 
     ```javascript
     function example() {
-      superPower(); // => Flying
+        superPower(); // => Flying
 
-      function superPower() {
-        console.log('Flying');
-      }
+        function superPower() {
+            console.log('Flying');
+        }
     }
     ```
 
@@ -575,8 +602,8 @@
 
     ```javascript
     if ([0]) {
-      // true
-      // An array is an object, objects evaluate to true
+        // true
+        // An array is an object, objects evaluate to true
     }
     ```
 
@@ -585,22 +612,22 @@
     ```javascript
     // bad
     if (name !== '') {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     if (name) {
-      // ...stuff...
+        // ...stuff...
     }
 
     // bad
     if (collection.length > 0) {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     if (collection.length) {
-      // ...stuff...
+        // ...stuff...
     }
     ```
 
@@ -616,14 +643,14 @@
     ```javascript
     // bad
     if (test)
-      return false;
+        return false;
 
     // good
     if (test) return false;
 
     // good
     if (test) {
-      return false;
+        return false;
     }
 
     // bad
@@ -631,7 +658,7 @@
 
     // good
     function() {
-      return false;
+        return false;
     }
     ```
 
@@ -651,9 +678,9 @@
     // @return <Element> element
     function make(tag) {
 
-      // ...stuff...
+        // ...stuff...
 
-      return element;
+        return element;
     }
 
     // good
@@ -666,9 +693,9 @@
      */
     function make(tag) {
 
-      // ...stuff...
+        // ...stuff...
 
-      return element;
+        return element;
     }
     ```
 
@@ -684,21 +711,21 @@
 
     // bad
     function getType() {
-      console.log('fetching type...');
-      // set the default type to 'no type'
-      var type = this._type || 'no type';
+        console.log('fetching type...');
+        // set the default type to 'no type'
+        var type = this._type || 'no type';
 
-      return type;
+        return type;
     }
 
     // good
     function getType() {
-      console.log('fetching type...');
+        console.log('fetching type...');
 
-      // set the default type to 'no type'
-      var type = this._type || 'no type';
+        // set the default type to 'no type'
+        var type = this._type || 'no type';
 
-      return type;
+        return type;
     }
     ```
 
@@ -709,10 +736,10 @@
     ```javascript
     function Calculator() {
 
-      // FIXME: shouldn't use a global here
-      total = 0;
+        // FIXME: shouldn't use a global here
+        total = 0;
 
-      return this;
+        return this;
     }
     ```
 
@@ -721,10 +748,10 @@
     ```javascript
     function Calculator() {
 
-      // TODO: total should be configurable by an options param
-      this.total = 0;
+        // TODO: total should be configurable by an options param
+        this.total = 0;
 
-      return this;
+        return this;
     }
   ```
 
@@ -761,24 +788,24 @@
     ```javascript
     // bad
     function test(){
-      console.log('test');
+        console.log('test');
     }
 
     // good
     function test() {
-      console.log('test');
+        console.log('test');
     }
 
     // bad
     dog.set('attr',{
-      age: '1 year',
-      breed: 'Bernese Mountain Dog'
+        age: '1 year',
+        breed: 'Bernese Mountain Dog'
     });
 
     // good
     dog.set('attr', {
-      age: '1 year',
-      breed: 'Bernese Mountain Dog'
+        age: '1 year',
+        breed: 'Bernese Mountain Dog'
     });
     ```
   - Place an empty newline at the end of the file.
@@ -786,14 +813,14 @@
     ```javascript
     // bad
     (function(global) {
-      // ...stuff...
+        // ...stuff...
     })(this);
     ```
 
     ```javascript
     // good
     (function(global) {
-      // ...stuff...
+        // ...stuff...
     })(this);
 
     ```
@@ -806,11 +833,11 @@
 
     // good
     $('#items')
-      .find('.selected')
-        .highlight()
-        .end()
-      .find('.open')
-        .updateCount();
+        .find('.selected')
+            .highlight()
+            .end()
+        .find('.open')
+            .updateCount();
 
     // bad
     var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
@@ -820,13 +847,13 @@
 
     // good
     var leds = stage.selectAll('.led')
-        .data(data)
-      .enter().append('svg:svg')
-        .class('led', true)
-        .attr('width',  (radius + margin) * 2)
-      .append('svg:g')
-        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
-        .call(tron.led);
+            .data(data)
+        .enter().append('svg:svg')
+            .class('led', true)
+            .attr('width',  (radius + margin) * 2)
+        .append('svg:g')
+            .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+            .call(tron.led);
     ```
 
     **[[⬆]](#TOC)**
@@ -839,17 +866,17 @@
     // bad
     var hero = {
         firstName: 'Bob'
-      , lastName: 'Parr'
-      , heroName: 'Mr. Incredible'
-      , superPower: 'strength'
+        , lastName: 'Parr'
+        , heroName: 'Mr. Incredible'
+        , superPower: 'strength'
     };
 
     // good
     var hero = {
-      firstName: 'Bob',
-      lastName: 'Parr',
-      heroName: 'Mr. Incredible',
-      superPower: 'strength'
+        firstName: 'Bob',
+        lastName: 'Parr',
+        heroName: 'Mr. Incredible',
+        superPower: 'strength'
     };
     ```
 
@@ -860,24 +887,24 @@
     ```javascript
     // bad
     var hero = {
-      firstName: 'Kevin',
-      lastName: 'Flynn',
+        firstName: 'Kevin',
+        lastName: 'Flynn',
     };
 
     var heroes = [
-      'Batman',
-      'Superman',
+        'Batman',
+        'Superman',
     ];
 
     // good
     var hero = {
-      firstName: 'Kevin',
-      lastName: 'Flynn'
+        firstName: 'Kevin',
+        lastName: 'Flynn'
     };
 
     var heroes = [
-      'Batman',
-      'Superman'
+        'Batman',
+        'Superman'
     ];
     ```
 
@@ -891,20 +918,20 @@
     ```javascript
     // bad
     (function() {
-      var name = 'Skywalker'
-      return name
+        var name = 'Skywalker'
+        return name
     })()
 
     // good
     (function() {
-      var name = 'Skywalker';
-      return name;
+        var name = 'Skywalker';
+        return name;
     })();
 
     // good
     ;(function() {
-      var name = 'Skywalker';
-      return name;
+        var name = 'Skywalker';
+        return name;
     })();
     ```
 
@@ -994,12 +1021,12 @@
     ```javascript
     // bad
     function q() {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     function query() {
-      // ..stuff..
+        // ..stuff..
     }
     ```
 
@@ -1011,14 +1038,14 @@
     var this_is_my_object = {};
     function c() {};
     var u = new user({
-      name: 'Bob Parr'
+        name: 'Bob Parr'
     });
 
     // good
     var thisIsMyObject = {};
     function thisIsMyFunction() {};
     var user = new User({
-      name: 'Bob Parr'
+        name: 'Bob Parr'
     });
     ```
 
@@ -1027,20 +1054,20 @@
     ```javascript
     // bad
     function user(options) {
-      this.name = options.name;
+        this.name = options.name;
     }
 
     var bad = new user({
-      name: 'nope'
+        name: 'nope'
     });
 
     // good
     function User(options) {
-      this.name = options.name;
+        this.name = options.name;
     }
 
     var good = new User({
-      name: 'yup'
+        name: 'yup'
     });
     ```
 
@@ -1060,26 +1087,26 @@
     ```javascript
     // bad
     function() {
-      var self = this;
-      return function() {
-        console.log(self);
-      };
+        var self = this;
+        return function() {
+            console.log(self);
+        };
     }
 
     // bad
     function() {
-      var that = this;
-      return function() {
-        console.log(that);
-      };
+        var that = this;
+        return function() {
+            console.log(that);
+        };
     }
 
     // good
     function() {
-      var _this = this;
-      return function() {
-        console.log(_this);
-      };
+        var _this = this;
+        return function() {
+            console.log(_this);
+        };
     }
     ```
 
@@ -1088,12 +1115,12 @@
     ```javascript
     // bad
     var log = function(msg) {
-      console.log(msg);
+        console.log(msg);
     };
 
     // good
     var log = function log(msg) {
-      console.log(msg);
+        console.log(msg);
     };
     ```
 
@@ -1124,12 +1151,12 @@
     ```javascript
     // bad
     if (!dragon.age()) {
-      return false;
+        return false;
     }
 
     // good
     if (!dragon.hasAge()) {
-      return false;
+        return false;
     }
     ```
 
@@ -1137,17 +1164,17 @@
 
     ```javascript
     function Jedi(options) {
-      options || (options = {});
-      var lightsaber = options.lightsaber || 'blue';
-      this.set('lightsaber', lightsaber);
+        options || (options = {});
+        var lightsaber = options.lightsaber || 'blue';
+        this.set('lightsaber', lightsaber);
     }
 
     Jedi.prototype.set = function(key, val) {
-      this[key] = val;
+        this[key] = val;
     };
 
     Jedi.prototype.get = function(key) {
-      return this[key];
+        return this[key];
     };
     ```
 
@@ -1160,27 +1187,27 @@
 
     ```javascript
     function Jedi() {
-      console.log('new jedi');
+        console.log('new jedi');
     }
 
     // bad
     Jedi.prototype = {
-      fight: function fight() {
-        console.log('fighting');
-      },
+        fight: function fight() {
+            console.log('fighting');
+        },
 
-      block: function block() {
-        console.log('blocking');
-      }
+        block: function block() {
+            console.log('blocking');
+        }
     };
 
     // good
     Jedi.prototype.fight = function fight() {
-      console.log('fighting');
+        console.log('fighting');
     };
 
     Jedi.prototype.block = function block() {
-      console.log('blocking');
+        console.log('blocking');
     };
     ```
 
@@ -1189,12 +1216,12 @@
     ```javascript
     // bad
     Jedi.prototype.jump = function() {
-      this.jumping = true;
-      return true;
+        this.jumping = true;
+        return true;
     };
 
     Jedi.prototype.setHeight = function(height) {
-      this.height = height;
+        this.height = height;
     };
 
     var luke = new Jedi();
@@ -1203,19 +1230,19 @@
 
     // good
     Jedi.prototype.jump = function() {
-      this.jumping = true;
-      return this;
+        this.jumping = true;
+        return this;
     };
 
     Jedi.prototype.setHeight = function(height) {
-      this.height = height;
-      return this;
+        this.height = height;
+        return this;
     };
 
     var luke = new Jedi();
 
     luke.jump()
-      .setHeight(20);
+        .setHeight(20);
     ```
 
 
@@ -1223,16 +1250,16 @@
 
     ```javascript
     function Jedi(options) {
-      options || (options = {});
-      this.name = options.name || 'no name';
+        options || (options = {});
+        this.name = options.name || 'no name';
     }
 
     Jedi.prototype.getName = function getName() {
-      return this.name;
+        return this.name;
     };
 
     Jedi.prototype.toString = function toString() {
-      return 'Jedi - ' + this.getName();
+        return 'Jedi - ' + this.getName();
     };
     ```
 
@@ -1250,7 +1277,7 @@
     ...
 
     $(this).on('listingUpdated', function(e, listingId) {
-      // do something with listingId
+        // do something with listingId
     });
     ```
 
@@ -1263,7 +1290,7 @@
     ...
 
     $(this).on('listingUpdated', function(e, data) {
-      // do something with data.listingId
+        // do something with data.listingId
     });
     ```
 
@@ -1281,20 +1308,20 @@
     // fancyInput/fancyInput.js
 
     !function(global) {
-      'use strict';
+        'use strict';
 
-      var previousFancyInput = global.FancyInput;
+        var previousFancyInput = global.FancyInput;
 
-      function FancyInput(options) {
-        this.options = options || {};
-      }
+        function FancyInput(options) {
+            this.options = options || {};
+        }
 
-      FancyInput.noConflict = function noConflict() {
-        global.FancyInput = previousFancyInput;
-        return FancyInput;
-      };
+        FancyInput.noConflict = function noConflict() {
+            global.FancyInput = previousFancyInput;
+            return FancyInput;
+        };
 
-      global.FancyInput = FancyInput;
+        global.FancyInput = FancyInput;
     }(this);
     ```
 
@@ -1323,20 +1350,20 @@
       // ...stuff...
 
       $('.sidebar').css({
-        'background-color': 'pink'
+          'background-color': 'pink'
       });
     }
 
     // good
     function setSidebar() {
-      var $sidebar = $('.sidebar');
-      $sidebar.hide();
+        var $sidebar = $('.sidebar');
+        $sidebar.hide();
 
-      // ...stuff...
+        // ...stuff...
 
-      $sidebar.css({
-        'background-color': 'pink'
-      });
+        $sidebar.css({
+            'background-color': 'pink'
+        });
     }
     ```
 
@@ -1376,7 +1403,7 @@
 
     ```javascript
     function() {
-      return true;
+        return true;
     }
     ```
 
@@ -1397,32 +1424,6 @@
 
   **[[⬆]](#TOC)**
 
-
-## <a name='inspiration'>Inspiration</a>
-
-  - **PEP-020**: [The Zen of Python](http://www.python.org/dev/peps/pep-0020/)
-
-  ```
-  Beautiful is better than ugly.
-  Explicit is better than implicit.
-  Simple is better than complex.
-  Complex is better than complicated.
-  Flat is better than nested.
-  Sparse is better than dense.
-  Readability counts.
-  Special cases aren't special enough to break the rules.
-  Although practicality beats purity.
-  Errors should never pass silently.
-  Unless explicitly silenced.
-  In the face of ambiguity, refuse the temptation to guess.
-  There should be one-- and preferably only one --obvious way to do it.
-  Although that way may not be obvious at first unless you're Dutch.
-  Now is better than never.
-  Although never is often better than *right* now.
-  If the implementation is hard to explain, it's a bad idea.
-  If the implementation is easy to explain, it may be a good idea.
-  Namespaces are one honking great idea -- let's do more of those!
-  ```
 
 ## <a name='resources'>Resources</a>
 
