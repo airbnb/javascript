@@ -62,6 +62,9 @@
       "undef": true,
 
       // Warn when variables are defined but never used.
-      "unused": true
+      "unused": true,
+      
+      // Enforce line length to 80 characters
+      "maxlen": 80
     }
 }
