@@ -745,6 +745,7 @@
     ∙∙var name;
     }
     ```
+
   - Place 1 space before the leading brace.
 
     ```javascript
@@ -770,6 +771,17 @@
       breed: 'Bernese Mountain Dog'
     });
     ```
+
+  - Set off operators with spaces.
+
+    ```javascript
+    // bad
+    var x=y+5;
+
+    // good
+    var x = y + 5;
+    ```
+
   - Place an empty newline at the end of the file.
 
     ```javascript
