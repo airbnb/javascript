@@ -1368,7 +1368,7 @@
     $('.sidebar > ul').hide();
 
     // good
-    $sidebar.find('ul');
+    $sidebar.find('ul').hide();
     ```
 
     **[[⬆]](#TOC)**
