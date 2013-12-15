@@ -207,12 +207,13 @@
 
 
     // good
-    var errorMessage = 'This is a super long error that ' +
-      'was thrown because of Batman. ' +
-      'When you stop to think about ' +
-      'how Batman had anything to do ' +
-      'with this, you would get nowhere ' +
-      'fast.';
+    var errorMessage = 
+        'This is a super long error that '
+      + 'was thrown because of Batman. '
+      + 'When you stop to think about '
+      + 'how Batman had anything to do '
+      + 'with this, you would get nowhere '
+      + 'fast.';
     ```
 
   - When programatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
