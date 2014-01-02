@@ -1055,15 +1055,15 @@
     });
     ```
 
-  - Use a leading underscore `_` when naming private properties
+  - Use a leading underscore `_` when naming private properties ([When a member is private?](http://javascript.crockford.com/private.html))
 
     ```javascript
     // bad
-    this.__firstName__ = 'Panda';
-    this.firstName_ = 'Panda';
+    var __firstName__ = 'Panda';
+    var firstName_ = 'Panda';
 
     // good
-    this._firstName = 'Panda';
+    var _firstName = 'Panda';
     ```
 
   - When saving a reference to `this` use `_this`.
