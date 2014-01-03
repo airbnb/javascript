@@ -472,7 +472,7 @@
     ```javascript
     // we know this wouldn't work (assuming there
     // is no notDefined global variable)
-    function example() {
+    function example () {
         console.log(notDefined); // => throws a ReferenceError
     }
 
@@ -480,7 +480,7 @@
     // reference the variable will work due to
     // variable hoisting. Note: the assignment
     // value of `true` is not hoisted.
-    function example() {
+    function example () {
         console.log(declaredButNotAssigned); // => undefined
         var declaredButNotAssigned = true;
     }
@@ -488,7 +488,7 @@
     // The interpreter is hoisting the variable
     // declaration to the top of the scope.
     // Which means our example could be rewritten as:
-    function example() {
+    function example () {
         var declaredButNotAssigned;
         console.log(declaredButNotAssigned); // => undefined
         declaredButNotAssigned = true;
@@ -1090,7 +1090,7 @@
 
     ```javascript
     // bad
-    function user(options) {
+    function user (options) {
         this.name = options.name;
     }
 
@@ -1330,7 +1330,7 @@
 
   - Wrap the function expression in parentheses.
   - The module should start with a `;`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
-  - The file should be named with camelCase, and match the name of the single export.
+  - The file name should match the name of the single export. Casing should follow the same rules as the export -- e.g. a module that exports a constructor should be PascalCase.
   - Add a method called noConflict() that sets the exported module to the previous version and returns this one.
   - Always declare `'use strict';` at the top of the module.
 
@@ -1433,7 +1433,7 @@
 
     ```javascript
     function () {
-      return true;
+        return true;
     }
     ```
 
