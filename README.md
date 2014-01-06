@@ -1094,15 +1094,15 @@
     }
     ```
 
-  - Name your functions. This is helpful for stack traces.
+  - Name your functions. This is helpful for stack traces. //I don't understand why this can stack traces??
 
     ```javascript
-    // bad
+    // bad   I think this is good.
     var log = function(msg) {
       console.log(msg);
     };
 
-    // good
+    // good  I can't understand why is good? I think is not necessary js style.I hope you can explain this problem for me, I really confused. thank you.
     var log = function log(msg) {
       console.log(msg);
     };
