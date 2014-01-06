@@ -79,7 +79,7 @@
     // bad
     var item = new Object();
 
-    // better
+    // good
     var item = {};
     ```
 
