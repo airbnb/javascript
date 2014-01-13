@@ -727,12 +727,12 @@
 
 ## <a name='whitespace'>Whitespace</a>
 
-  - Use soft tabs set to 2 spaces
+  - Use soft tabs set to 4 spaces
 
     ```javascript
     // bad
     function() {
-    ∙∙∙∙var name;
+    ∙∙var name;
     }
 
     // bad
@@ -742,7 +742,7 @@
 
     // good
     function() {
-    ∙∙var name;
+    ∙∙∙∙var name;
     }
     ```
 
@@ -911,7 +911,11 @@
       var name = 'Skywalker';
       return name;
     })();
+    ```
 
+ - **For jQuery plugins.**   
+ 
+    ```javascript
     // good
     ;(function() {
       var name = 'Skywalker';
@@ -988,11 +992,11 @@
     // bad
     var hasAge = new Boolean(age);
 
-    // good
-    var hasAge = Boolean(age);
+    // bad
+    var hasAge = !!age;
 
     // good
-    var hasAge = !!age;
+    var hasAge = Boolean(age);
     ```
 
     **[[⬆]](#TOC)**
@@ -1055,7 +1059,7 @@
     });
     ```
 
-  - Use a leading underscore `_` when naming private properties
+  - All private properties must be in the closure.
 
     ```javascript
     // bad
@@ -1063,10 +1067,21 @@
     this.firstName_ = 'Panda';
 
     // good
-    this._firstName = 'Panda';
+    function animals() {
+        var firstName = 'Panda';
+        
+        return {
+            setFirstName: function (firstName) {
+                firstName = firstName;
+            },
+            getFirstName: function() {
+                return firstName;
+            }
+        }
+    }
     ```
 
-  - When saving a reference to `this` use `_this`.
+  - When saving a reference to `this` use the meaning `this`.
 
     ```javascript
     // bad
@@ -1085,11 +1100,20 @@
       };
     }
 
-    // good
+    // bad
     function() {
       var _this = this;
       return function() {
         console.log(_this);
+      };
+    }
+    
+    // good
+    function createPlugin() {
+      var createPluginContext = this;
+      
+      return function() {
+        console.log(createPluginContext);
       };
     }
     ```
