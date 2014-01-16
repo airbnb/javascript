@@ -1,6 +1,8 @@
-# Airbnb JavaScript Style Guide() {
+# [Aan Zee](http://www.aanzee.nl) JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
+
+Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript), slightly modified to fit Aan Zee's conventions.
 
 
 ## <a name='TOC'>Table of Contents</a>
@@ -1450,17 +1452,17 @@
 
 **Blogs**
 
-  - [DailyJS](http://dailyjs.com/)
-  - [JavaScript Weekly](http://javascriptweekly.com/)
-  - [JavaScript, JavaScript...](http://javascriptweblog.wordpress.com/)
-  - [Bocoup Weblog](http://weblog.bocoup.com/)
   - [Adequately Good](http://www.adequatelygood.com/)
-  - [NCZOnline](http://www.nczonline.net/)
-  - [Perfection Kills](http://perfectionkills.com/)
   - [Ben Alman](http://benalman.com/)
+  - [Bocoup Weblog](http://weblog.bocoup.com/)
+  - [DailyJS](http://dailyjs.com/)
   - [Dmitry Baranovskiy](http://dmitry.baranovskiy.com/)
   - [Dustin Diaz](http://dustindiaz.com/)
-  - [nettuts](http://net.tutsplus.com/?s=javascript)
+  - [JavaScript, JavaScript...](http://javascriptweblog.wordpress.com/)
+  - [JavaScript Weekly](http://javascriptweekly.com/)
+  - [Nettuts+](http://net.tutsplus.com/?s=javascript)
+  - [NCZOnline](http://www.nczonline.net/)
+  - [Perfection Kills](http://perfectionkills.com/)
 
   **[[⬆]](#TOC)**
 
@@ -1517,7 +1519,7 @@
 
 (The MIT License)
 
-Copyright (c) 2012 Airbnb
+Copyright (c) 2013 Aan Zee
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
