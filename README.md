@@ -1036,6 +1036,22 @@
       name: 'Bob Parr'
     });
     ```
+    
+  - Use camelCase when naming trigger eventType 
+
+    ```javascript
+    // bad
+    var $button = $('button');
+    $button.trigger('PressMeSoftly');
+
+    // bad
+    var $button = $('button');
+    $button.trigger('press_Me_Softly');
+
+    // good
+    var $button = $('button');
+    $button.trigger('pressMeSoftly');
+    ```
 
   - Use PascalCase when naming constructors or classes
 
