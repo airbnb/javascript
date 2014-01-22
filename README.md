@@ -1483,6 +1483,7 @@
   - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
   - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
   - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
+  - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
   - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
   - **REI**: [reidev/js-style-guide](https://github.com/reidev/js-style-guide)
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
