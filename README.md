@@ -928,6 +928,7 @@
         lastName: 'Flynn',
     };
 
+    // bad
     var heroes = [
         'Batman',
         'Superman',
@@ -939,6 +940,7 @@
         lastName: 'Flynn'
     };
 
+    // good
     var heroes = [
         'Batman',
         'Superman'
@@ -950,7 +952,7 @@
 
 ## <a name='semicolons'>Semicolons</a>
 
-  - **Yup.**
+  - **Yup.** Javascript will automatically insert semicolons -- that it's they're optional in the strict sense. But leaving out semicolons can cause some pernicious bugs, particularly when multiple people are working on the same code, or when not everyone is an expert on the edge case rules for semicolon insertion. So for consistency's sake, always use them.
 
     ```javascript
     // bad
@@ -1012,9 +1014,6 @@
 
     // bad
     var val = parseInt(inputValue);
-
-    // good
-    var val = Number(inputValue);
 
     // good
     var val = parseInt(inputValue, 10);
