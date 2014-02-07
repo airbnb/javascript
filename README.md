@@ -121,17 +121,29 @@
 
 ## <a name='arrays'>Arrays</a>
 
-  - Use the literal syntax for array creation
+ - Use the literal syntax for array creation
 
     ```javascript
     // bad
     var items = new Array();
 
     // good
-    var items = [];
+    var items = [];        
     ```
+ - Declare each new array item on a new line
+ 	
+ 	```javascript
+ 	// bad
+ 	var items = ['foo', 'bar', 'bam']
+ 	
+ 	// good
+ 	var items = ['foo',
+ 				 'bar',
+ 				 'bam']  
+	``` 
+ 
 
-  - If you don't know array length use Array#push.
+ - If you don't know array length use Array#push.
 
     ```javascript
     var someStack = [];
@@ -144,7 +156,7 @@
     someStack.push('abracadabra');
     ```
 
-  - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
+ - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
     var len = items.length,
@@ -160,7 +172,7 @@
     itemsCopy = items.slice();
     ```
 
-  - To convert an array-like object to an array, use Array#slice.
+ - To convert an array-like object to an array, use Array#slice.
 
     ```javascript
     function trigger() {
