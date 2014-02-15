@@ -17,12 +17,13 @@
   1. [Blocks](#blocks)
   1. [Comments](#comments)
   1. [Whitespace](#whitespace)
-  1. [Leading Commas](#leading-commas)
+  1. [Commas](#commas)
   1. [Semicolons](#semicolons)
   1. [Type Casting & Coercion](#type-coercion)
   1. [Naming Conventions](#naming-conventions)
   1. [Accessors](#accessors)
   1. [Constructors](#constructors)
+  1. [Events](#events)
   1. [Modules](#modules)
   1. [jQuery](#jquery)
   1. [ES5 Compatibility](#es5)
@@ -82,21 +83,38 @@
     var item = {};
     ```
 
-  - Don't use [reserved words](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Reserved_Words) as keys.
+  - Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61)
 
     ```javascript
     // bad
     var superman = {
-      class: 'superhero',
       default: { clark: 'kent' },
       private: true
     };
 
     // good
     var superman = {
-      klass: 'superhero',
       defaults: { clark: 'kent' },
       hidden: true
+    };
+    ```
+
+  - Use readable synonyms in place of reserved words.
+
+    ```javascript
+    // bad
+    var superman = {
+      class: 'alien'
+    };
+
+    // bad
+    var superman = {
+      klass: 'alien'
+    };
+
+    // good
+    var superman = {
+      type: 'alien'
     };
     ```
     **[[⬆]](#TOC)**
@@ -139,7 +157,16 @@
     }
 
     // good
-    itemsCopy = Array.prototype.slice.call(items);
+    itemsCopy = items.slice();
+    ```
+
+  - To convert an array-like object to an array, use Array#slice.
+
+    ```javascript
+    function trigger() {
+      var args = Array.prototype.slice.call(arguments);
+      ...
+    }
     ```
 
     **[[⬆]](#TOC)**
@@ -181,7 +208,7 @@
 
     // good
     var errorMessage = 'This is a super long error that ' +
-      'was thrown because of Batman.' +
+      'was thrown because of Batman. ' +
       'When you stop to think about ' +
       'how Batman had anything to do ' +
       'with this, you would get nowhere ' +
@@ -193,17 +220,18 @@
     ```javascript
     var items,
         messages,
-        length, i;
+        length,
+        i;
 
     messages = [{
-        state: 'success',
-        message: 'This one worked.'
-    },{
-        state: 'success',
-        message: 'This one worked as well.'
-    },{
-        state: 'error',
-        message: 'This one did not work.'
+      state: 'success',
+      message: 'This one worked.'
+    }, {
+      state: 'success',
+      message: 'This one worked as well.'
+    }, {
+      state: 'error',
+      message: 'This one did not work.'
     }];
 
     length = messages.length;
@@ -267,8 +295,9 @@
     }
 
     // good
+    var test;
     if (currentUser) {
-      var test = function test() {
+      test = function test() {
         console.log('Yup.');
       };
     }
@@ -493,18 +522,17 @@
       var named = function superPower() {
         console.log('Flying');
       };
+    }
 
+    // the same is true when the function name
+    // is the same as the variable name.
+    function example() {
+      console.log(named); // => undefined
 
-      // the same is true when the function name
-      // is the same as the variable name.
-      function example() {
-        console.log(named); // => undefined
+      named(); // => TypeError named is not a function
 
-        named(); // => TypeError named is not a function
-
-        var named = function named() {
-          console.log('named');
-        };
+      var named = function named() {
+        console.log('named');
       }
     }
     ```
@@ -536,7 +564,7 @@
     + **Undefined** evaluates to **false**
     + **Null** evaluates to **false**
     + **Booleans** evaluate to **the value of the boolean**
-    + **Numbers** evalute to **false** if **+0, -0, or NaN**, otherwise **true**
+    + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
     + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
     ```javascript
@@ -638,7 +666,7 @@
     }
     ```
 
-  - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an emptyline before the comment.
+  - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
 
     ```javascript
     // bad
@@ -668,6 +696,32 @@
     }
     ```
 
+  - Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
+
+  - Use `// FIXME:` to annotate problems
+
+    ```javascript
+    function Calculator() {
+
+      // FIXME: shouldn't use a global here
+      total = 0;
+
+      return this;
+    }
+    ```
+
+  - Use `// TODO:` to annotate solutions to problems
+
+    ```javascript
+    function Calculator() {
+
+      // TODO: total should be configurable by an options param
+      this.total = 0;
+
+      return this;
+    }
+  ```
+
     **[[⬆]](#TOC)**
 
 
@@ -691,6 +745,7 @@
     ∙∙var name;
     }
     ```
+
   - Place 1 space before the leading brace.
 
     ```javascript
@@ -716,6 +771,17 @@
       breed: 'Bernese Mountain Dog'
     });
     ```
+
+  - Set off operators with spaces.
+
+    ```javascript
+    // bad
+    var x=y+5;
+
+    // good
+    var x = y + 5;
+    ```
+
   - Place an empty newline at the end of the file.
 
     ```javascript
@@ -748,27 +814,27 @@
         .updateCount();
 
     // bad
-    var leds = stage.selectAll('.led').data(data).enter().append("svg:svg").class('led', true)
-        .attr('width',  (radius + margin) * 2).append("svg:g")
-        .attr("transform", "translate(" + (radius + margin) + "," + (radius + margin) + ")")
+    var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
+        .attr('width',  (radius + margin) * 2).append('svg:g')
+        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
 
     // good
     var leds = stage.selectAll('.led')
         .data(data)
-      .enter().append("svg:svg")
+      .enter().append('svg:svg')
         .class('led', true)
         .attr('width',  (radius + margin) * 2)
-      .append("svg:g")
-        .attr("transform", "translate(" + (radius + margin) + "," + (radius + margin) + ")")
+      .append('svg:g')
+        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
     ```
 
     **[[⬆]](#TOC)**
 
-## <a name='leading-commas'>Leading Commas</a>
+## <a name='commas'>Commas</a>
 
-  - **Nope.**
+  - Leading commas: **Nope.**
 
     ```javascript
     // bad
@@ -796,6 +862,34 @@
       heroName: 'Mr. Incredible',
       superPower: 'strength'
     };
+    ```
+
+  - Additional trailing comma: **Nope.** This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
+
+  > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
+
+    ```javascript
+    // bad
+    var hero = {
+      firstName: 'Kevin',
+      lastName: 'Flynn',
+    };
+
+    var heroes = [
+      'Batman',
+      'Superman',
+    ];
+
+    // good
+    var hero = {
+      firstName: 'Kevin',
+      lastName: 'Flynn'
+    };
+
+    var heroes = [
+      'Batman',
+      'Superman'
+    ];
     ```
 
     **[[⬆]](#TOC)**
@@ -850,7 +944,6 @@
     ```
 
   - Use `parseInt` for Numbers and always with a radix for type casting.
-  - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
 
     ```javascript
     var inputValue = '4';
@@ -872,7 +965,12 @@
 
     // good
     var val = parseInt(inputValue, 10);
+    ```
 
+  - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
+  - **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109)
+
+    ```javascript
     // good
     /**
      * parseInt was the reason my code was slow.
@@ -922,7 +1020,6 @@
     // bad
     var OBJEcttsssss = {};
     var this_is_my_object = {};
-    var this-is-my-object = {};
     function c() {};
     var u = new user({
       name: 'Bob Parr'
@@ -1153,9 +1250,40 @@
     **[[⬆]](#TOC)**
 
 
+## <a name='events'>Events</a>
+
+  - When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+
+    ```js
+    // bad
+    $(this).trigger('listingUpdated', listing.id);
+
+    ...
+
+    $(this).on('listingUpdated', function(e, listingId) {
+      // do something with listingId
+    });
+    ```
+
+    prefer:
+
+    ```js
+    // good
+    $(this).trigger('listingUpdated', { listingId : listing.id });
+
+    ...
+
+    $(this).on('listingUpdated', function(e, data) {
+      // do something with data.listingId
+    });
+    ```
+
+  **[[⬆]](#TOC)**
+
+
 ## <a name='modules'>Modules</a>
 
-  - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated.
+  - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
   - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
   - Add a method called noConflict() that sets the exported module to the previous version and returns this one.
   - Always declare `'use strict';` at the top of the module.
@@ -1223,12 +1351,12 @@
     }
     ```
 
-  - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > .ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
   - Use `find` with scoped jQuery object queries.
 
     ```javascript
     // bad
-    $('.sidebar', 'ul').hide();
+    $('ul', '.sidebar').hide();
 
     // bad
     $('.sidebar').find('ul').hide();
@@ -1239,11 +1367,8 @@
     // good
     $('.sidebar > ul').hide();
 
-    // good (slower)
-    $sidebar.find('ul');
-
-    // good (faster)
-    $($sidebar[0]).find('ul');
+    // good
+    $sidebar.find('ul').hide();
     ```
 
     **[[⬆]](#TOC)**
@@ -1300,6 +1425,13 @@
 
   - [Naming this in nested functions](https://gist.github.com/4135065) - Christian Johansen
   - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52)
+  - [Popular JavaScript Coding Conventions on Github](http://sideeffect.kr/popularconvention/#javascript)
+
+**Further Reading**
+
+  - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
+  - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
+  - [You Might Not Need jQuery](http://youmightnotneedjquery.com/) - Zack Bloom & Adam Schwartz
 
 **Books**
 
@@ -1311,6 +1443,11 @@
   - [JavaScript Web Applications](http://www.amazon.com/JavaScript-Web-Applications-Alex-MacCaw/dp/144930351X) - Alex MacCaw
   - [Pro JavaScript Techniques](http://www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273) - John Resig
   - [Smashing Node.js: JavaScript Everywhere](http://www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595) - Guillermo Rauch
+  - [Secrets of the JavaScript Ninja](http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X) - John Resig and Bear Bibeault
+  - [Human JavaScript](http://humanjavascript.com/) - Henrik Joreteg
+  - [Superhero.js](http://superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy
+  - [JSBooks](http://jsbooks.revolunet.com/)
+  - [Third Party JavaScript](http://manning.com/vinegar/) - Ben Vinegar and Anton Kovalyov
 
 **Blogs**
 
@@ -1332,16 +1469,28 @@
 
   This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
 
+  - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
   - **American Insitutes for Research**: [AIRAST/javascript](https://github.com/AIRAST/javascript)
+  - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
   - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
-  - **GoCardless**: [gocardless/javascript](https://github.com/gocardless/javascript)
+  - **Gawker Media**: [gawkermedia/javascript](https://github.com/gawkermedia/javascript)
+  - **GeneralElectric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
   - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
+  - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
   - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript)
+  - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
   - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
+  - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
   - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
+  - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
+  - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
   - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
+  - **REI**: [reidev/js-style-guide](https://github.com/reidev/js-style-guide)
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
+  - **Userify**: [userify/javascript](https://github.com/userify/javascript)
+  - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
+  - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
 ## <a name='translation'>Translation</a>
 
@@ -1349,6 +1498,13 @@
 
   - :de: **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
   - :jp: **Japanese**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
+  - :br: **Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
+  - :cn: **Chinese**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
+  - :es: **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
+  - :kr: **Korean**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
+  - :fr: **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
+  - :ru: **Russian**: [uprock/javascript](https://github.com/uprock/javascript)
+  - :bg: **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
 
 ## <a name='guide-guide'>The JavaScript Style Guide Guide</a>
 
@@ -1363,7 +1519,7 @@
 
 (The MIT License)
 
-Copyright (c) 2012 Airbnb
+Copyright (c) 2014 Airbnb
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -1387,4 +1543,3 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 **[[⬆]](#TOC)**
 
 # };
-
