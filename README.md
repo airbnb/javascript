@@ -1,4 +1,4 @@
-# Airbnb JavaScript Style Guide() {
+# Pardot JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
@@ -1383,13 +1383,8 @@
 
 ## <a name='testing'>Testing</a>
 
-  - **Yup.**
-
-    ```javascript
-    function() {
-      return true;
-    }
-    ```
+  - **Yup.** See [Javascript
+    Testing](https://github.com/Pardot/pardot/blob/master/test/js/README.md)
 
     **[[⬆]](#TOC)**
 
