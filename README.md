@@ -69,7 +69,7 @@
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 ## Objects
 
@@ -117,7 +117,8 @@
       type: 'alien'
     };
     ```
-    **[[⬆]](#TOC)**
+
+**[⬆ back to top](#table-of-contents)**
 
 ## Arrays
 
@@ -169,7 +170,7 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Strings
@@ -259,7 +260,7 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Functions
@@ -317,7 +318,7 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 
@@ -353,7 +354,7 @@
     var isJedi = getProp('jedi');
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Variables
@@ -462,7 +463,7 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Hoisting
@@ -551,7 +552,7 @@
 
   - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/)
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 
@@ -600,7 +601,7 @@
 
   - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Blocks
@@ -629,7 +630,7 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Comments
@@ -722,7 +723,7 @@
     }
   ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Whitespace
@@ -830,7 +831,7 @@
         .call(tron.led);
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 ## Commas
 
@@ -892,7 +893,7 @@
     ];
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Semicolons
@@ -919,7 +920,7 @@
     })();
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Type Casting & Coercion
@@ -995,7 +996,7 @@
     var hasAge = !!age;
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Naming Conventions
@@ -1108,7 +1109,7 @@
     };
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Accessors
@@ -1162,7 +1163,7 @@
     };
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Constructors
@@ -1247,7 +1248,7 @@
     };
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Events
@@ -1278,7 +1279,7 @@
     });
     ```
 
-  **[[⬆]](#TOC)**
+  **[⬆ back to top](#table-of-contents)**
 
 
 ## Modules
@@ -1309,7 +1310,7 @@
     }(this);
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## jQuery
@@ -1371,14 +1372,14 @@
     $sidebar.find('ul').hide();
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## ECMAScript 5 Compatibility
 
   - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
 
-  **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Testing
@@ -1391,7 +1392,7 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Performance
@@ -1405,7 +1406,7 @@
   - [Long String Concatenation](http://jsperf.com/ya-string-concat)
   - Loading...
 
-  **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Resources
@@ -1464,7 +1465,7 @@
   - [Dustin Diaz](http://dustindiaz.com/)
   - [nettuts](http://net.tutsplus.com/?s=javascript)
 
-  **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 ## In the Wild
 
@@ -1543,6 +1544,6 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 # };
