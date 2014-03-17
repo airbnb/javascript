@@ -1491,6 +1491,7 @@
   - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
   - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
   - **REI**: [reidev/js-style-guide](https://github.com/reidev/js-style-guide)
+  - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
   - **Userify**: [userify/javascript](https://github.com/userify/javascript)
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
