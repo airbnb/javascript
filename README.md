@@ -3,7 +3,7 @@
 *A mostly reasonable approach to JavaScript*
 
 
-## <a name='TOC'>Table of Contents</a>
+## Table of Contents
 
   1. [Types](#types)
   1. [Objects](#objects)
@@ -13,30 +13,30 @@
   1. [Properties](#properties)
   1. [Variables](#variables)
   1. [Hoisting](#hoisting)
-  1. [Conditional Expressions & Equality](#conditionals)
+  1. [Conditional Expressions & Equality](#conditional-expressions--equality)
   1. [Blocks](#blocks)
   1. [Comments](#comments)
   1. [Whitespace](#whitespace)
   1. [Commas](#commas)
   1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-coercion)
+  1. [Type Casting & Coercion](#type-casting--coercion)
   1. [Naming Conventions](#naming-conventions)
   1. [Accessors](#accessors)
   1. [Constructors](#constructors)
   1. [Events](#events)
   1. [Modules](#modules)
   1. [jQuery](#jquery)
-  1. [ES5 Compatibility](#es5)
+  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [Testing](#testing)
   1. [Performance](#performance)
   1. [Resources](#resources)
   1. [In the Wild](#in-the-wild)
   1. [Translation](#translation)
-  1. [The JavaScript Style Guide Guide](#guide-guide)
+  1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
   1. [Contributors](#contributors)
   1. [License](#license)
 
-## <a name='types'>Types</a>
+## Types
 
   - **Primitives**: When you access a primitive type you work directly on its value
 
@@ -69,9 +69,9 @@
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
-## <a name='objects'>Objects</a>
+## Objects
 
   - Use the literal syntax for object creation.
 
@@ -117,9 +117,10 @@
       type: 'alien'
     };
     ```
-    **[[⬆]](#TOC)**
 
-## <a name='arrays'>Arrays</a>
+**[⬆ back to top](#table-of-contents)**
+
+## Arrays
 
   - Use the literal syntax for array creation
 
@@ -169,10 +170,10 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='strings'>Strings</a>
+## Strings
 
   - Use single quotes `''` for strings
 
@@ -259,10 +260,10 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='functions'>Functions</a>
+## Functions
 
   - Function expressions:
 
@@ -317,11 +318,11 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 
-## <a name='properties'>Properties</a>
+## Properties
 
   - Use dot notation when accessing properties.
 
@@ -353,10 +354,10 @@
     var isJedi = getProp('jedi');
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='variables'>Variables</a>
+## Variables
 
   - Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
 
@@ -462,10 +463,10 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='hoisting'>Hoisting</a>
+## Hoisting
 
   - Variable declarations get hoisted to the top of their scope, their assignment does not.
 
@@ -551,11 +552,11 @@
 
   - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/)
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
 
-## <a name='conditionals'>Conditional Expressions & Equality</a>
+## Conditional Expressions & Equality
 
   - Use `===` and `!==` over `==` and `!=`.
   - Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
@@ -600,10 +601,10 @@
 
   - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='blocks'>Blocks</a>
+## Blocks
 
   - Use braces with all multi-line blocks.
 
@@ -629,10 +630,10 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='comments'>Comments</a>
+## Comments
 
   - Use `/** ... */` for multiline comments. Include a description, specify types and values for all parameters and return values.
 
@@ -722,10 +723,10 @@
     }
   ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='whitespace'>Whitespace</a>
+## Whitespace
 
   - Use soft tabs set to 2 spaces
 
@@ -830,9 +831,9 @@
         .call(tron.led);
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
-## <a name='commas'>Commas</a>
+## Commas
 
   - Leading commas: **Nope.**
 
@@ -892,10 +893,10 @@
     ];
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='semicolons'>Semicolons</a>
+## Semicolons
 
   - **Yup.**
 
@@ -919,10 +920,10 @@
     })();
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='type-coercion'>Type Casting & Coercion</a>
+## Type Casting & Coercion
 
   - Perform type coercion at the beginning of the statement.
   - Strings:
@@ -995,10 +996,10 @@
     var hasAge = !!age;
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='naming-conventions'>Naming Conventions</a>
+## Naming Conventions
 
   - Avoid single letter names. Be descriptive with your naming.
 
@@ -1108,10 +1109,10 @@
     };
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='accessors'>Accessors</a>
+## Accessors
 
   - Accessor functions for properties are not required
   - If you do make accessor functions use getVal() and setVal('hello')
@@ -1162,10 +1163,10 @@
     };
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='constructors'>Constructors</a>
+## Constructors
 
   - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
 
@@ -1247,10 +1248,10 @@
     };
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='events'>Events</a>
+## Events
 
   - When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
 
@@ -1278,10 +1279,10 @@
     });
     ```
 
-  **[[⬆]](#TOC)**
+  **[⬆ back to top](#table-of-contents)**
 
 
-## <a name='modules'>Modules</a>
+## Modules
 
   - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
   - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
@@ -1309,10 +1310,10 @@
     }(this);
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='jquery'>jQuery</a>
+## jQuery
 
   - Prefix jQuery object variables with a `$`.
 
@@ -1371,17 +1372,17 @@
     $sidebar.find('ul').hide();
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='es5'>ECMAScript 5 Compatibility</a>
+## ECMAScript 5 Compatibility
 
   - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
 
-  **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='testing'>Testing</a>
+## Testing
 
   - **Yup.**
 
@@ -1391,10 +1392,10 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='performance'>Performance</a>
+## Performance
 
   - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
@@ -1405,10 +1406,10 @@
   - [Long String Concatenation](http://jsperf.com/ya-string-concat)
   - Loading...
 
-  **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 
-## <a name='resources'>Resources</a>
+## Resources
 
 
 **Read This**
@@ -1464,9 +1465,9 @@
   - [Dustin Diaz](http://dustindiaz.com/)
   - [nettuts](http://net.tutsplus.com/?s=javascript)
 
-  **[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
-## <a name='in-the-wild'>In the Wild</a>
+## In the Wild
 
   This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
 
@@ -1495,7 +1496,7 @@
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
-## <a name='translation'>Translation</a>
+## Translation
 
   This style guide is also available in other languages:
 
@@ -1509,16 +1510,16 @@
   - :ru: **Russian**: [uprock/javascript](https://github.com/uprock/javascript)
   - :bg: **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
 
-## <a name='guide-guide'>The JavaScript Style Guide Guide</a>
+## The JavaScript Style Guide Guide
 
   - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
-## <a name='authors'>Contributors</a>
+## Contributors
 
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
 
 
-## <a name='license'>License</a>
+## License
 
 (The MIT License)
 
@@ -1543,6 +1544,6 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[[⬆]](#TOC)**
+**[⬆ back to top](#table-of-contents)**
 
 # };
