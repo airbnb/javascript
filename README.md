@@ -29,6 +29,7 @@
   1. [ES5 Compatibility](#es5)
   1. [Testing](#testing)
   1. [Performance](#performance)
+  1. [Documentation](#documentation)
   1. [Resources](#resources)
   1. [In the Wild](#in-the-wild)
   1. [Translation](#translation)
@@ -1402,6 +1403,9 @@
 
   **[[⬆]](#TOC)**
 
+## <a name='documentation'>Documentation</a>
+
+  - **Yup.** Use [YUIDoc](http://yui.github.io/yuidoc/syntax/) as a reference.
 
 ## <a name='resources'>Resources</a>
 
