@@ -1,4 +1,4 @@
-# ~~Airbnb~~ SeekingAlpha JavaScript Style Guide() {
+# Airbnb JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
@@ -1490,6 +1490,7 @@
   - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
   - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
   - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
+  - **SeekingAlpha**: [seekingalpha/javascript-style-guide](https://github.com/seekingalpha/javascript-style-guide)
   - **REI**: [reidev/js-style-guide](https://github.com/reidev/js-style-guide)
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
   - **Userify**: [userify/javascript](https://github.com/userify/javascript)
