@@ -215,8 +215,11 @@
       'with this, you would get nowhere ' +
       'fast.';
     ```
-
-  - When programatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+  - When programatically building up a string in browser, use Array#join, but in NodeJS especially holding big data, use string concatenation.
+  
+    Benchmarks:
+    - [Browser](http://jsperf.com/string-vs-array-concat/2)
+    - [NodeJS](https://gist.github.com/yorkie/7837575)
 
     ```javascript
     var items,
