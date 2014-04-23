@@ -638,8 +638,6 @@
     // good
     if (test) {
       return 1;
-    } else if (anotherTest) {
-      return 0;
     } else {
       return -1;
     }
