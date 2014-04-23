@@ -191,6 +191,12 @@
     var fullName = 'Bob ' + this.lastName;
     ```
 
+  - Escape single quotes in strings
+
+    ```javascript
+    var myDonut = 'That donut doesn\'t belong to you, it\'s mine!';
+    ```
+
   - Strings longer than 80 characters should be written across multiple lines using string concatenation.
   - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
 
