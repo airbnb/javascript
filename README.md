@@ -666,6 +666,7 @@
 ## Comments
 
   - Use `/** ... */` for multiline comments. Include a description, specify types and values for all parameters and return values.
+  - Use [JSDoc](http://usejsdoc.org)
 
     ```javascript
     // bad
@@ -686,8 +687,8 @@
      * make() returns a new element
      * based on the passed in tag name
      *
-     * @param <String> tag
-     * @return <Element> element
+     * @param {String} tag
+     * @return {Element} element
      */
     function make(tag) {
 
@@ -727,21 +728,7 @@
     }
     ```
 
-  - Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
-
-  - Use `// FIXME:` to annotate problems
-
-    ```javascript
-    function Calculator() {
-
-      // FIXME: shouldn't use a global here
-      total = 0;
-
-      return this;
-    }
-    ```
-
-  - Use `// TODO:` to annotate solutions to problems
+  - Use `@todo` to annotate todos
 
     ```javascript
     function Calculator() {
@@ -758,7 +745,7 @@
 
 ## Whitespace
 
-  - Use soft tabs set to 2 spaces
+  - Use soft tabs set to 4 spaces
 
     ```javascript
     // bad
@@ -773,7 +760,7 @@
 
     // good
     function() {
-    ∙∙var name;
+    ∙∙∙∙var name;
     }
     ```
 
@@ -801,6 +788,20 @@
       age: '1 year',
       breed: 'Bernese Mountain Dog'
     });
+    ```
+  
+  - Place 1 space after keywords (such as `if`, `for` and `function`).
+   
+    ```javascript
+    // bad
+    var foo = function() {
+        alert('hello');
+    };
+  
+    // good
+    var foo = function () {
+        alert('hello');
+    };
     ```
 
   - Set off operators with spaces.
@@ -1097,7 +1098,7 @@
     this._firstName = 'Panda';
     ```
 
-  - When saving a reference to `this` use `_this`.
+  - When saving a reference to `this` use `me`.
 
     ```javascript
     // bad
@@ -1110,26 +1111,44 @@
 
     // bad
     function() {
-      var that = this;
-      return function() {
-        console.log(that);
-      };
-    }
-
-    // good
-    function() {
       var _this = this;
       return function() {
         console.log(_this);
       };
     }
+
+    // good
+    function() {
+      var me = this;
+      return function() {
+        console.log(me);
+      };
+    }
+    ```
+
+  - When implementing the JavaScript module pattern use `that` for referencing
+    the "public" interface.
+
+    ```javascript
+    
+    var mymodule = (function mymodule() {
+        var that = {},
+            privateCounter = 0;
+        
+        that.increment = function increment() {
+            privateCounter += 1;
+            return privateCounter;
+        };
+        
+        return that;
+    })();
     ```
 
   - Name your functions. This is helpful for stack traces.
 
     ```javascript
     // bad
-    var log = function(msg) {
+    var log = function (msg) {
       console.log(msg);
     };
 
@@ -1522,6 +1541,7 @@
   - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
   - **SeekingAlpha**: [seekingalpha/javascript-style-guide](https://github.com/seekingalpha/javascript-style-guide)
   - **REI**: [reidev/js-style-guide](https://github.com/reidev/js-style-guide)
+  - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
   - **Userify**: [userify/javascript](https://github.com/userify/javascript)
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
