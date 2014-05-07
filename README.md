@@ -166,7 +166,7 @@
     ```javascript
     function trigger() {
       var args = Array.prototype.slice.call(arguments);
-      ...
+      // ... stuff ...
     }
     ```
 
@@ -303,12 +303,12 @@
     ```javascript
     // bad
     function nope(name, options, arguments) {
-      // ...stuff...
+      // ... stuff ...
     }
 
     // good
     function yup(name, options, args) {
-      // ...stuff...
+      // ... stuff ...
     }
     ```
 
@@ -407,7 +407,7 @@
       test();
       console.log('doing stuff..');
 
-      //..other stuff..
+      // ... other stuff ...
 
       var name = getName();
 
@@ -425,7 +425,7 @@
       test();
       console.log('doing stuff..');
 
-      //..other stuff..
+      // ... other stuff ...
 
       if (name === 'test') {
         return false;
@@ -574,22 +574,22 @@
     ```javascript
     // bad
     if (name !== '') {
-      // ...stuff...
+      // ... stuff ...
     }
 
     // good
     if (name) {
-      // ...stuff...
+      // ... stuff ...
     }
 
     // bad
     if (collection.length > 0) {
-      // ...stuff...
+      // ... stuff ...
     }
 
     // good
     if (collection.length) {
-      // ...stuff...
+      // ... stuff ...
     }
     ```
 
@@ -640,7 +640,7 @@
     // @return <Element> element
     function make(tag) {
 
-      // ...stuff...
+      // ... stuff ...
 
       return element;
     }
@@ -655,7 +655,7 @@
      */
     function make(tag) {
 
-      // ...stuff...
+      // ... stuff ...
 
       return element;
     }
@@ -782,14 +782,14 @@
     ```javascript
     // bad
     (function(global) {
-      // ...stuff...
+      // ... stuff ...
     })(this);
     ```
 
     ```javascript
     // good
     (function(global) {
-      // ...stuff...
+      // ... stuff ...
     })(this);
 
     ```
@@ -1000,12 +1000,12 @@
     ```javascript
     // bad
     function q() {
-      // ...stuff...
+      // ... stuff ...
     }
 
     // good
     function query() {
-      // ..stuff..
+      // ... stuff ...
     }
     ```
 
@@ -1253,7 +1253,7 @@
     // bad
     $(this).trigger('listingUpdated', listing.id);
 
-    ...
+    // ... stuff ...
 
     $(this).on('listingUpdated', function(e, listingId) {
       // do something with listingId
@@ -1266,7 +1266,7 @@
     // good
     $(this).trigger('listingUpdated', { listingId : listing.id });
 
-    ...
+    // ... stuff ...
 
     $(this).on('listingUpdated', function(e, data) {
       // do something with data.listingId
@@ -1326,7 +1326,7 @@
     function setSidebar() {
       $('.sidebar').hide();
 
-      // ...stuff...
+      // ... stuff ...
 
       $('.sidebar').css({
         'background-color': 'pink'
@@ -1338,7 +1338,7 @@
       var $sidebar = $('.sidebar');
       $sidebar.hide();
 
-      // ...stuff...
+      // ... stuff ...
 
       $sidebar.css({
         'background-color': 'pink'
