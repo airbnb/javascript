@@ -1315,6 +1315,16 @@
 
 ## <a name='jquery'>jQuery</a>
 
+  - Use document ready shortcut.
+
+    ```javascript
+    // bad
+    $(document).ready(function(){...});
+
+    // good
+    $(function(){...});
+    ```
+
   - Prefix jQuery object variables with a `$`.
 
     ```javascript
