@@ -1,4 +1,4 @@
-# Airbnb JavaScript Style Guide() {
+# Pardot JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
@@ -29,6 +29,7 @@
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [Testing](#testing)
   1. [Performance](#performance)
+  1. [Documentation](#documentation)
   1. [Resources](#resources)
   1. [In the Wild](#in-the-wild)
   1. [Translation](#translation)
@@ -722,22 +723,22 @@
 
 ## Whitespace
 
-  - Use soft tabs set to 2 spaces
+  - Use hard tabs, one per indentation level
 
     ```javascript
     // bad
     function() {
-    ∙∙∙∙var name;
+    ∙∙var name;
     }
 
     // bad
     function() {
-    ∙var name;
+    ⇥⇥var name;
     }
 
     // good
     function() {
-    ∙∙var name;
+    ⇥var name;
     }
     ```
 
@@ -1309,6 +1310,16 @@
 
 ## jQuery
 
+  - Use document ready shortcut.
+
+    ```javascript
+    // bad
+    $(document).ready(function(){...});
+
+    // good
+    $(function(){...});
+    ```
+
   - Prefix jQuery object variables with a `$`.
 
     ```javascript
@@ -1378,13 +1389,8 @@
 
 ## Testing
 
-  - **Yup.**
-
-    ```javascript
-    function() {
-      return true;
-    }
-    ```
+  - **Yup.** See [Javascript
+    Testing](https://github.com/Pardot/pardot/blob/master/test/js/README.md)
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -1402,6 +1408,9 @@
 
 **[⬆ back to top](#table-of-contents)**
 
+## <a name='documentation'>Documentation</a>
+
+  - **Yup.** Use [YUIDoc](http://yui.github.io/yuidoc/syntax/) as a reference.
 
 ## Resources
 
