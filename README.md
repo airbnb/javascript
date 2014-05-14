@@ -734,7 +734,7 @@
 
 ## Whitespace
 
-  - Use soft tabs set to 2 spaces
+  - Use hard tabs set to 4 spaces
 
     ```javascript
     // bad
@@ -744,12 +744,12 @@
 
     // bad
     function() {
-    ∙var name;
+    ∙∙var name;
     }
 
     // good
     function() {
-    ∙∙var name;
+        var name;
     }
     ```
 
