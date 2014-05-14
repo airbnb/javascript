@@ -734,7 +734,7 @@
 
 ## Whitespace
 
-  - Use hard tabs set to 4 spaces
+  - Current FED convention is to use hard tabs, so each dev can define their own preferred tab width.
 
     ```javascript
     // bad
@@ -752,6 +752,8 @@
         var name;
     }
     ```
+
+  - The above guideline is up for debate. Some environments render hard tabs as 8 spaces and can't be easily modified to use a more reasonable tab width. Most editors are capable of editing soft-tab content intelligently, so we might consider using soft tabs to for more consistent formatting across environments. Discuss.
 
   - Place 1 space before the leading brace.
 
