@@ -758,13 +758,13 @@
     ```
     Add your name to A or B
     A. I prefer a tab width equal to 2 spaces: 
-    B. I prefer a tab width equal to 4 spaces: Pascal, Nigel
+    B. I prefer a tab width equal to 4 spaces: Pascal, Nigel, 
     C. I prefer a tab width equal to 8 spaces: 
  
     Add your name to A, B, or C
     A. I prefer hard tabs: Pascal, 
     B. I prefer soft tabs (spaces): 
-    C. I don't have a strong preference of tabs vs. spaces: Nigel
+    C. I don't have a strong preference of tabs vs. spaces: Nigel, 
     
     ```
 
