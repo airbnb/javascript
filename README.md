@@ -15,7 +15,7 @@ The whitespace guideline in this document is up for debate. Current FED conventi
  
     Add your name to A, B, or C
     A. I prefer hard tabs (tabs): Pascal, Nathan
-    B. I prefer soft tabs (spaces): 
+    B. I prefer soft tabs (spaces): David
     C. I don't have a strong preference of tabs vs. spaces: Nigel, Nick
 
 
