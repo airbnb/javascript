@@ -2,6 +2,7 @@
 
 *A mostly reasonable approach to JavaScript*
 
+*Modified with about.me conventions*
 
 ## Table of Contents
 
@@ -691,7 +692,18 @@
     }
     ```
 
-  - Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
+  - Prefixing your comments with `DNR`, `FIXME`, or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
+
+  - Use `// DNR` to mark code which should not be released under any circumstances
+
+    ```javascript
+    function Calculator() {
+
+        window.total = this.total; // DNR
+
+        return this;
+    }
+    ```
 
   - Use `// FIXME:` to annotate problems
 
