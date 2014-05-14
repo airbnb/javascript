@@ -995,7 +995,7 @@
 
 ## Naming Conventions
 
- - Avoid single letter names. Be descriptive with your naming.
+ - Avoid single letter names. Be descriptive with your naming. Use verbs when naming functions, nouns for objects.
 
     ```javascript
     // bad
@@ -1004,28 +1004,9 @@
     }
 
     // good
-    function query() {
+    function findPerson() {
         // ..stuff..
     }
-    ```
-
- - Use camelCase when naming objects, functions, and instances
-
-    ```javascript
-    // bad
-    var OBJEcttsssss = {};
-    var this_is_my_object = {};
-    function c() {};
-    var u = new user({
-        name: 'Bob Parr'
-    });
-
-    // good
-    var thisIsMyObject = {};
-    function thisIsMyFunction() {};
-    var user = new User({
-        name: 'Bob Parr'
-    });
     ```
 
  - Use PascalCase when naming constructors or classes
@@ -1050,7 +1031,49 @@
     });
     ```
 
- - Use a leading underscore `_` when naming private properties
+  - Use camelCase when naming functions or object methods. Use descriptive names, preferably starting with a verb.
+
+    ```javascript
+    // bad
+    function MethodName() {};
+    function method_name() {};
+    var MyObject = {
+        MethodName: function() {},
+        method_name: function() {}
+    };
+
+    // good
+    function doSomething() {};
+    var MyObject = {
+        doSomething: function() {}
+    };
+    ```
+
+  - Use lowercase_with_underscores when naming instances, variables, or object properties.
+
+    ```javascript
+    // bad
+    var myObject = new MyObject();
+    var myVar = 'bad';
+    myObject.myProperty = 'bad';
+
+    // good
+    var my_object = new MyObject();
+    var my_var = 'good';
+    my_object.my_property = 'good';
+    ```
+
+  - Use ALL_CAPS_WITH_UNDERSCORES when naming constants.
+
+    ```javascript
+    // bad
+    var some_constant = 'immutable value';
+
+    // good
+    var SOME_CONSTANT = 'immutable value';
+    ```
+
+ - Use a leading underscore `_` when naming private properties. Or, avoid exposing private properties to other modules entirely.
 
     ```javascript
     // bad
