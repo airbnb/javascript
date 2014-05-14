@@ -6,7 +6,7 @@
 
 ## Please Vote:
 
-The whitespace guideline in this document is up for debate. Current FED convention is to use hard tabs, allowing each developer to define their own tab width. But some environments render hard tabs as 8 spaces and can't be easily modified to use a more reasonable tab width. Most editors are capable of editing soft-tab content intelligently, so we might consider using soft tabs to for more consistent formatting across environments. Please edit this document and add your name to the following lists:
+The whitespace guideline in this document is up for debate. Current FED convention is to use hard tabs, allowing each developer to define their own tab width. But some environments render hard tabs as 8 spaces and can't be easily modified to use a more reasonable tab width. Most editors are capable of editing soft tabs intelligently, so we might consider using soft tabs for more consistent formatting across environments. Please edit this document and add your name to the following lists:
   
     ```
     Add your name to A, B, or C
