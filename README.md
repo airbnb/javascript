@@ -777,7 +777,7 @@
     var x = y + 5;
     ```
 
-  - Place an empty newline at the end of the file.
+  - End files with a single newline character.
 
     ```javascript
     // bad
@@ -787,11 +787,18 @@
     ```
 
     ```javascript
+    // bad
+    (function(global) {
+      // ...stuff...
+    })(this);↵
+    ↵
+    ```
+
+    ```javascript
     // good
     (function(global) {
       // ...stuff...
-    })(this);
-
+    })(this);↵
     ```
 
   - Use indentation when making long method chains.
