@@ -48,7 +48,7 @@
 
         ```javascript
         var foo = 1,
-                bar = foo;
+            bar = foo;
 
         bar = 9;
 
@@ -62,7 +62,7 @@
 
         ```javascript
         var foo = [1, 2],
-                bar = foo;
+            bar = foo;
 
         bar[0] = 9;
 
@@ -149,8 +149,8 @@
 
         ```javascript
         var len = items.length,
-                itemsCopy = [],
-                i;
+            itemsCopy = [],
+            i;
 
         // bad
         for (i = 0; i < len; i++) {
@@ -214,9 +214,9 @@
 
         ```javascript
         var items,
-                messages,
-                length,
-                i;
+            messages,
+            length,
+            i;
 
         messages = [{
             state: 'success',
@@ -373,8 +373,8 @@
 
         // good
         var items = getItems(),
-                goSportsTeam = true,
-                dragonball = 'z';
+            goSportsTeam = true,
+            dragonball = 'z';
         ```
 
     - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
@@ -382,21 +382,21 @@
         ```javascript
         // bad
         var i, len, dragonball,
-                items = getItems(),
-                goSportsTeam = true;
+            items = getItems(),
+            goSportsTeam = true;
 
         // bad
         var i, items = getItems(),
-                dragonball,
-                goSportsTeam = true,
-                len;
+            dragonball,
+            goSportsTeam = true,
+            len;
 
         // good
         var items = getItems(),
-                goSportsTeam = true,
-                dragonball,
-                length,
-                i;
+            goSportsTeam = true,
+            dragonball,
+            length,
+            i;
         ```
 
     - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
@@ -810,9 +810,9 @@
 
         // bad
         var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
-                .attr('width',  (radius + margin) * 2).append('svg:g')
-                .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
-                .call(tron.led);
+            .attr('width',  (radius + margin) * 2).append('svg:g')
+            .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+            .call(tron.led);
 
         // good
         var leds = stage.selectAll('.led')
@@ -839,12 +839,12 @@
 
         // good
         var once,
-                upon,
-                aTime;
+            upon,
+            aTime;
 
         // bad
         var hero = {
-                firstName: 'Bob'
+            firstName: 'Bob'
             , lastName: 'Parr'
             , heroName: 'Mr. Incredible'
             , superPower: 'strength'
