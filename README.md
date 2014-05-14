@@ -4,6 +4,23 @@
 
 *Modified with about.me conventions*
 
+## Please Vote:
+
+  - The whitespace guideline in this docuemnt is up for debate. Current FED convention is to use hard tabs, allowing each developer to define their own tab width. But some environments render hard tabs as 8 spaces and can't be easily modified to use a more reasonable tab width. Most editors are capable of editing soft-tab content intelligently, so we might consider using soft tabs to for more consistent formatting across environments. Please edit this document and add your name to the following lists:
+  
+    ```
+    Add your name to A, B, or C
+    A. I prefer a tab width equal to 2 spaces: 
+    B. I prefer a tab width equal to 4 spaces: Pascal, Nigel, 
+    C. I prefer a tab width equal to 8 spaces: 
+ 
+    Add your name to A, B, or C
+    A. I prefer hard tabs (tabs): Pascal, 
+    B. I prefer soft tabs (spaces): 
+    C. I don't have a strong preference of tabs vs. spaces: Nigel, 
+    ```
+
+
 ## Table of Contents
 
 1. [Types](#types)
@@ -753,20 +770,8 @@
     }
     ```
 
-  - The above guideline is up for debate. Some environments render hard tabs as 8 spaces and can't be easily modified to use a more reasonable tab width. Most editors are capable of editing soft-tab content intelligently, so we might consider using soft tabs to for more consistent formatting across environments. Please edit this document and add your name to the following lists:
+  - The above guideline is up for debate. See the note at the top of this document.
   
-    ```
-    Add your name to A, B, or C
-    A. I prefer a tab width equal to 2 spaces: 
-    B. I prefer a tab width equal to 4 spaces: Pascal, Nigel, 
-    C. I prefer a tab width equal to 8 spaces: 
- 
-    Add your name to A, B, or C
-    A. I prefer hard tabs: Pascal, 
-    B. I prefer soft tabs (spaces): 
-    C. I don't have a strong preference of tabs vs. spaces: Nigel, 
-    ```
-
   - Place 1 space before the leading brace.
 
     ```javascript
