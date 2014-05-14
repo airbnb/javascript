@@ -38,7 +38,7 @@
 
 ## Types
 
- - **Primitives**: When you access a primitive type you work directly on its value
+  - **Primitives**: When you access a primitive type you work directly on its value
 
     + `string`
     + `number`
@@ -54,7 +54,7 @@
 
     console.log(foo, bar); // => 1, 9
     ```
- - **Complex**: When you access a complex type you work on a reference to its value
+  - **Complex**: When you access a complex type you work on a reference to its value
 
     + `object`
     + `array`
@@ -73,7 +73,7 @@
 
 ## Objects
 
- - Use the literal syntax for object creation.
+  - Use the literal syntax for object creation.
 
     ```javascript
     // bad
@@ -83,7 +83,7 @@
     var item = {};
     ```
 
- - Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61)
+  - Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61)
 
     ```javascript
     // bad
@@ -99,7 +99,7 @@
     };
     ```
 
- - Use readable synonyms in place of reserved words.
+  - Use readable synonyms in place of reserved words.
 
     ```javascript
     // bad
@@ -122,7 +122,7 @@
 
 ## Arrays
 
- - Use the literal syntax for array creation
+  - Use the literal syntax for array creation
 
     ```javascript
     // bad
@@ -132,7 +132,7 @@
     var items = [];
     ```
 
- - If you don't know array length use Array#push.
+  - If you don't know array length use Array#push.
 
     ```javascript
     var someStack = [];
@@ -145,7 +145,7 @@
     someStack.push('abracadabra');
     ```
 
- - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
+  - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
     var len = items.length,
@@ -161,7 +161,7 @@
     itemsCopy = items.slice();
     ```
 
- - To convert an array-like object to an array, use Array#slice.
+  - To convert an array-like object to an array, use Array#slice.
 
     ```javascript
     function trigger() {
@@ -175,7 +175,7 @@
 
 ## Strings
 
- - Use single quotes `''` for strings
+  - Use single quotes `''` for strings
 
     ```javascript
     // bad
@@ -191,8 +191,8 @@
     var fullName = 'Bob ' + this.lastName;
     ```
 
- - Strings longer than 80 characters should be written across multiple lines using string concatenation.
- - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
+  - Strings longer than 80 characters should be written across multiple lines using string concatenation.
+  - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
 
     ```javascript
     // bad
@@ -210,7 +210,7 @@
         'with this, you would get nowhere fast.';
     ```
 
- - When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+  - When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
     var items,
@@ -259,7 +259,7 @@
 
 ## Functions
 
- - Function expressions:
+  - Function expressions:
 
     ```javascript
     // anonymous function expression
@@ -278,8 +278,8 @@
     })();
     ```
 
- - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
- - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
+  - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
     // bad
@@ -298,7 +298,7 @@
     }
     ```
 
- - Never name a parameter `arguments`, this will take precedence over the `arguments` object that is given to every function scope.
+  - Never name a parameter `arguments`, this will take precedence over the `arguments` object that is given to every function scope.
 
     ```javascript
     // bad
@@ -318,7 +318,7 @@
 
 ## Properties
 
- - Use dot notation when accessing properties.
+  - Use dot notation when accessing properties.
 
     ```javascript
     var luke = {
@@ -333,7 +333,7 @@
     var isJedi = luke.jedi;
     ```
 
- - Use subscript notation `[]` when accessing properties with a variable.
+  - Use subscript notation `[]` when accessing properties with a variable.
 
     ```javascript
     var luke = {
@@ -353,7 +353,7 @@
 
 ## Variables
 
- - Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  - Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
 
     ```javascript
     // bad
@@ -363,7 +363,7 @@
     var superPower = new SuperPower();
     ```
 
- - Use one `var` declaration for multiple variables and declare each variable on a newline.
+  - Use one `var` declaration for multiple variables and declare each variable on a newline.
 
     ```javascript
     // bad
@@ -377,7 +377,7 @@
         dragonball = 'z';
     ```
 
- - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+  - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
     ```javascript
     // bad
@@ -399,7 +399,7 @@
         i;
     ```
 
- - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
+  - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
 
     ```javascript
     // bad
@@ -462,7 +462,7 @@
 
 ## Hoisting
 
- - Variable declarations get hoisted to the top of their scope, their assignment does not.
+  - Variable declarations get hoisted to the top of their scope, their assignment does not.
 
     ```javascript
     // we know this wouldn't work (assuming there
@@ -490,7 +490,7 @@
     }
     ```
 
- - Anonymous function expressions hoist their variable name, but not the function assignment.
+  - Anonymous function expressions hoist their variable name, but not the function assignment.
 
     ```javascript
     function example() {
@@ -504,7 +504,7 @@
     }
     ```
 
- - Named function expressions hoist the variable name, not the function name or the function body.
+  - Named function expressions hoist the variable name, not the function name or the function body.
 
     ```javascript
     function example() {
@@ -532,7 +532,7 @@
     }
     ```
 
- - Function declarations hoist their name and the function body.
+  - Function declarations hoist their name and the function body.
 
     ```javascript
     function example() {
@@ -544,7 +544,7 @@
     }
     ```
 
- - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/)
+  - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/)
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -552,8 +552,8 @@
 
 ## Conditional Expressions & Equality
 
- - Use `===` and `!==` over `==` and `!=`.
- - Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
+  - Use `===` and `!==` over `==` and `!=`.
+  - Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
 
     + **Objects** evaluate to **true**
     + **Undefined** evaluates to **false**
@@ -569,7 +569,7 @@
     }
     ```
 
- - Use shortcuts.
+  - Use shortcuts.
 
     ```javascript
     // bad
@@ -593,14 +593,14 @@
     }
     ```
 
- - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
+  - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
 
 **[⬆ back to top](#table-of-contents)**
 
 
 ## Blocks
 
- - Use braces with all multi-line blocks.
+  - Use braces with all multi-line blocks.
 
     ```javascript
     // bad
@@ -629,7 +629,7 @@
 
 ## Comments
 
- - Use `/** ... */` for multiline comments. Include a description, specify types and values for all parameters and return values.
+  - Use `/** ... */` for multiline comments. Include a description, specify types and values for all parameters and return values.
 
     ```javascript
     // bad
@@ -661,7 +661,7 @@
     }
     ```
 
- - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
+  - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
 
     ```javascript
     // bad
@@ -691,9 +691,9 @@
     }
     ```
 
- - Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
+  - Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
 
- - Use `// FIXME:` to annotate problems
+  - Use `// FIXME:` to annotate problems
 
     ```javascript
     function Calculator() {
@@ -705,7 +705,7 @@
     }
     ```
 
- - Use `// TODO:` to annotate solutions to problems
+  - Use `// TODO:` to annotate solutions to problems
 
     ```javascript
     function Calculator() {
@@ -722,7 +722,7 @@
 
 ## Whitespace
 
- - Use soft tabs set to 2 spaces
+  - Use soft tabs set to 2 spaces
 
     ```javascript
     // bad
@@ -741,7 +741,7 @@
     }
     ```
 
- - Place 1 space before the leading brace.
+  - Place 1 space before the leading brace.
 
     ```javascript
     // bad
@@ -767,7 +767,7 @@
     });
     ```
 
- - Set off operators with spaces.
+  - Set off operators with spaces.
 
     ```javascript
     // bad
@@ -777,7 +777,7 @@
     var x = y + 5;
     ```
 
- - Place an empty newline at the end of the file.
+  - Place an empty newline at the end of the file.
 
     ```javascript
     // bad
@@ -794,7 +794,7 @@
 
     ```
 
- - Use indentation when making long method chains.
+  - Use indentation when making long method chains.
 
     ```javascript
     // bad
@@ -829,7 +829,7 @@
 
 ## Commas
 
- - Leading commas: **Nope.**
+  - Leading commas: **Nope.**
 
     ```javascript
     // bad
@@ -859,7 +859,7 @@
     };
     ```
 
- - Additional trailing comma: **Nope.** This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
+  - Additional trailing comma: **Nope.** This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
 
 > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
 
@@ -892,7 +892,7 @@
 
 ## Semicolons
 
- - **Yup.**
+  - **Yup.**
 
     ```javascript
     // bad
@@ -919,8 +919,8 @@
 
 ## Type Casting & Coercion
 
- - Perform type coercion at the beginning of the statement.
- - Strings:
+  - Perform type coercion at the beginning of the statement.
+  - Strings:
 
     ```javascript
     //  => this.reviewScore = 9;
@@ -938,7 +938,7 @@
     var totalScore = this.reviewScore + ' total score';
     ```
 
- - Use `parseInt` for Numbers and always with a radix for type casting.
+  - Use `parseInt` for Numbers and always with a radix for type casting.
 
     ```javascript
     var inputValue = '4';
@@ -962,8 +962,8 @@
     var val = parseInt(inputValue, 10);
     ```
 
- - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
- - **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109)
+  - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
+  - **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109)
 
     ```javascript
     // good
@@ -975,7 +975,7 @@
     var val = inputValue >> 0;
     ```
 
- - Booleans:
+  - Booleans:
 
     ```javascript
     var age = 0;
@@ -995,7 +995,7 @@
 
 ## Naming Conventions
 
- - Avoid single letter names. Be descriptive with your naming. Use verbs when naming functions, nouns for objects.
+  - Avoid single letter names. Be descriptive with your naming. Use verbs when naming functions, nouns for objects.
 
     ```javascript
     // bad
@@ -1009,7 +1009,7 @@
     }
     ```
 
- - Use PascalCase when naming constructors or classes
+  - Use PascalCase when naming constructors or classes
 
     ```javascript
     // bad
@@ -1073,7 +1073,7 @@
     var SOME_CONSTANT = 'immutable value';
     ```
 
- - Use a leading underscore `_` when naming private properties. Or, avoid exposing private properties to other modules entirely.
+  - Use a leading underscore `_` when naming private properties. Or, avoid exposing private properties to other modules entirely.
 
     ```javascript
     // bad
@@ -1084,7 +1084,7 @@
     this._firstName = 'Panda';
     ```
 
- - When saving a reference to `this` use `_this`.
+  - When saving a reference to `this` use `_this`.
 
     ```javascript
     // bad
@@ -1112,7 +1112,7 @@
     }
     ```
 
- - Name your functions. This is helpful for stack traces.
+  - Name your functions. This is helpful for stack traces.
 
     ```javascript
     // bad
@@ -1131,8 +1131,8 @@
 
 ## Accessors
 
- - Accessor functions for properties are not required
- - If you do make accessor functions use getVal() and setVal('hello')
+  - Accessor functions for properties are not required
+  - If you do make accessor functions use getVal() and setVal('hello')
 
     ```javascript
     // bad
@@ -1148,7 +1148,7 @@
     dragon.setAge(25);
     ```
 
- - If the property is a boolean, use isVal() or hasVal()
+  - If the property is a boolean, use isVal() or hasVal()
 
     ```javascript
     // bad
@@ -1162,7 +1162,7 @@
     }
     ```
 
- - It's okay to create get() and set() functions, but be consistent.
+  - It's okay to create get() and set() functions, but be consistent.
 
     ```javascript
     function Jedi(options) {
@@ -1185,7 +1185,7 @@
 
 ## Constructors
 
- - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
+  - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
 
     ```javascript
     function Jedi() {
@@ -1213,7 +1213,7 @@
     };
     ```
 
- - Methods can return `this` to help with method chaining.
+  - Methods can return `this` to help with method chaining.
 
     ```javascript
     // bad
@@ -1248,7 +1248,7 @@
     ```
 
 
- - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
 
     ```javascript
     function Jedi(options) {
@@ -1270,7 +1270,7 @@
 
 ## Events
 
- - When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+  - When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
 
     ```js
     // bad
@@ -1301,10 +1301,10 @@
 
 ## Modules
 
- - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
- - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
- - Add a method called noConflict() that sets the exported module to the previous version and returns this one.
- - Always declare `'use strict';` at the top of the module.
+  - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
+  - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
+  - Add a method called noConflict() that sets the exported module to the previous version and returns this one.
+  - Always declare `'use strict';` at the top of the module.
 
     ```javascript
     // fancyInput/fancyInput.js
@@ -1332,7 +1332,7 @@
 
 ## jQuery
 
- - Prefix jQuery object variables with a `$`.
+  - Prefix jQuery object variables with a `$`.
 
     ```javascript
     // bad
@@ -1342,7 +1342,7 @@
     var $sidebar = $('.sidebar');
     ```
 
- - Cache jQuery lookups.
+  - Cache jQuery lookups.
 
     ```javascript
     // bad
@@ -1369,8 +1369,8 @@
     }
     ```
 
- - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
- - Use `find` with scoped jQuery object queries.
+  - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - Use `find` with scoped jQuery object queries.
 
     ```javascript
     // bad
@@ -1394,14 +1394,14 @@
 
 ## ECMAScript 5 Compatibility
 
- - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
+  - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
 
 **[⬆ back to top](#table-of-contents)**
 
 
 ## Testing
 
- - **Yup.**
+  - **Yup.**
 
     ```javascript
     function() {
@@ -1414,14 +1414,14 @@
 
 ## Performance
 
- - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
- - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
- - [Try/Catch Cost In a Loop](http://jsperf.com/try-catch-in-loop-cost)
- - [Bang Function](http://jsperf.com/bang-function)
- - [jQuery Find vs Context, Selector](http://jsperf.com/jquery-find-vs-context-sel/13)
- - [innerHTML vs textContent for script text](http://jsperf.com/innerhtml-vs-textcontent-for-script-text)
- - [Long String Concatenation](http://jsperf.com/ya-string-concat)
- - Loading...
+  - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
+  - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
+  - [Try/Catch Cost In a Loop](http://jsperf.com/try-catch-in-loop-cost)
+  - [Bang Function](http://jsperf.com/bang-function)
+  - [jQuery Find vs Context, Selector](http://jsperf.com/jquery-find-vs-context-sel/13)
+  - [innerHTML vs textContent for script text](http://jsperf.com/innerhtml-vs-textcontent-for-script-text)
+  - [Long String Concatenation](http://jsperf.com/ya-string-concat)
+  - Loading...
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -1431,56 +1431,56 @@
 
 **Read This**
 
- - [Annotated ECMAScript 5.1](http://es5.github.com/)
+  - [Annotated ECMAScript 5.1](http://es5.github.com/)
 
 **Other Styleguides**
 
- - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
- - [jQuery Core Style Guidelines](http://docs.jquery.com/JQuery_Core_Style_Guidelines)
- - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwldrn/idiomatic.js/)
+  - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
+  - [jQuery Core Style Guidelines](http://docs.jquery.com/JQuery_Core_Style_Guidelines)
+  - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwldrn/idiomatic.js/)
 
 **Other Styles**
 
- - [Naming this in nested functions](https://gist.github.com/4135065) - Christian Johansen
- - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52)
- - [Popular JavaScript Coding Conventions on Github](http://sideeffect.kr/popularconvention/#javascript)
+  - [Naming this in nested functions](https://gist.github.com/4135065) - Christian Johansen
+  - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52)
+  - [Popular JavaScript Coding Conventions on Github](http://sideeffect.kr/popularconvention/#javascript)
 
 **Further Reading**
 
- - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
- - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
- - [You Might Not Need jQuery](http://youmightnotneedjquery.com/) - Zack Bloom & Adam Schwartz
- - [ES6 Features](https://github.com/lukehoban/es6features) - Luke Hoban
+  - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
+  - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
+  - [You Might Not Need jQuery](http://youmightnotneedjquery.com/) - Zack Bloom & Adam Schwartz
+  - [ES6 Features](https://github.com/lukehoban/es6features) - Luke Hoban
 
 **Books**
 
- - [JavaScript: The Good Parts](http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
- - [JavaScript Patterns](http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
- - [Pro JavaScript Design Patterns](http://www.amazon.com/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X)  - Ross Harmes and Dustin Diaz
- - [High Performance Web Sites: Essential Knowledge for Front-End Engineers](http://www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309) - Steve Souders
- - [Maintainable JavaScript](http://www.amazon.com/Maintainable-JavaScript-Nicholas-C-Zakas/dp/1449327680) - Nicholas C. Zakas
- - [JavaScript Web Applications](http://www.amazon.com/JavaScript-Web-Applications-Alex-MacCaw/dp/144930351X) - Alex MacCaw
- - [Pro JavaScript Techniques](http://www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273) - John Resig
- - [Smashing Node.js: JavaScript Everywhere](http://www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595) - Guillermo Rauch
- - [Secrets of the JavaScript Ninja](http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X) - John Resig and Bear Bibeault
- - [Human JavaScript](http://humanjavascript.com/) - Henrik Joreteg
- - [Superhero.js](http://superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy
- - [JSBooks](http://jsbooks.revolunet.com/)
- - [Third Party JavaScript](http://manning.com/vinegar/) - Ben Vinegar and Anton Kovalyov
+  - [JavaScript: The Good Parts](http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
+  - [JavaScript Patterns](http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
+  - [Pro JavaScript Design Patterns](http://www.amazon.com/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X)  - Ross Harmes and Dustin Diaz
+  - [High Performance Web Sites: Essential Knowledge for Front-End Engineers](http://www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309) - Steve Souders
+  - [Maintainable JavaScript](http://www.amazon.com/Maintainable-JavaScript-Nicholas-C-Zakas/dp/1449327680) - Nicholas C. Zakas
+  - [JavaScript Web Applications](http://www.amazon.com/JavaScript-Web-Applications-Alex-MacCaw/dp/144930351X) - Alex MacCaw
+  - [Pro JavaScript Techniques](http://www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273) - John Resig
+  - [Smashing Node.js: JavaScript Everywhere](http://www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595) - Guillermo Rauch
+  - [Secrets of the JavaScript Ninja](http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X) - John Resig and Bear Bibeault
+  - [Human JavaScript](http://humanjavascript.com/) - Henrik Joreteg
+  - [Superhero.js](http://superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy
+  - [JSBooks](http://jsbooks.revolunet.com/)
+  - [Third Party JavaScript](http://manning.com/vinegar/) - Ben Vinegar and Anton Kovalyov
 
 **Blogs**
 
- - [DailyJS](http://dailyjs.com/)
- - [JavaScript Weekly](http://javascriptweekly.com/)
- - [JavaScript, JavaScript...](http://javascriptweblog.wordpress.com/)
- - [Bocoup Weblog](http://weblog.bocoup.com/)
- - [Adequately Good](http://www.adequatelygood.com/)
- - [NCZOnline](http://www.nczonline.net/)
- - [Perfection Kills](http://perfectionkills.com/)
- - [Ben Alman](http://benalman.com/)
- - [Dmitry Baranovskiy](http://dmitry.baranovskiy.com/)
- - [Dustin Diaz](http://dustindiaz.com/)
- - [nettuts](http://net.tutsplus.com/?s=javascript)
+  - [DailyJS](http://dailyjs.com/)
+  - [JavaScript Weekly](http://javascriptweekly.com/)
+  - [JavaScript, JavaScript...](http://javascriptweblog.wordpress.com/)
+  - [Bocoup Weblog](http://weblog.bocoup.com/)
+  - [Adequately Good](http://www.adequatelygood.com/)
+  - [NCZOnline](http://www.nczonline.net/)
+  - [Perfection Kills](http://perfectionkills.com/)
+  - [Ben Alman](http://benalman.com/)
+  - [Dmitry Baranovskiy](http://dmitry.baranovskiy.com/)
+  - [Dustin Diaz](http://dustindiaz.com/)
+  - [nettuts](http://net.tutsplus.com/?s=javascript)
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -1488,56 +1488,56 @@
 
 This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
 
- - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
- - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
- - **American Insitutes for Research**: [AIRAST/javascript](https://github.com/AIRAST/javascript)
- - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
- - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
- - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
- - **Gawker Media**: [gawkermedia/javascript](https://github.com/gawkermedia/javascript)
- - **GeneralElectric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
- - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
- - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
- - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript)
- - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
- - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
- - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
- - **Money Advice Service**: [moneyadviceservice/javascript](https://github.com/moneyadviceservice/javascript)
- - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
- - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
- - **Orion Health**: [orionhealth/javascript](https://github.com/orionhealth/javascript)
- - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
- - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
- - **SeekingAlpha**: [seekingalpha/javascript-style-guide](https://github.com/seekingalpha/javascript-style-guide)
- - **reddit**: [reddit/styleguide/javascript](https://github.com/reddit/styleguide/tree/master/javascript)
- - **REI**: [reidev/js-style-guide](https://github.com/reidev/js-style-guide)
- - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
- - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
- - **Userify**: [userify/javascript](https://github.com/userify/javascript)
- - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
- - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
+  - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
+  - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
+  - **American Insitutes for Research**: [AIRAST/javascript](https://github.com/AIRAST/javascript)
+  - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
+  - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
+  - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
+  - **Gawker Media**: [gawkermedia/javascript](https://github.com/gawkermedia/javascript)
+  - **GeneralElectric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
+  - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
+  - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
+  - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript)
+  - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
+  - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
+  - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
+  - **Money Advice Service**: [moneyadviceservice/javascript](https://github.com/moneyadviceservice/javascript)
+  - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
+  - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
+  - **Orion Health**: [orionhealth/javascript](https://github.com/orionhealth/javascript)
+  - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
+  - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
+  - **SeekingAlpha**: [seekingalpha/javascript-style-guide](https://github.com/seekingalpha/javascript-style-guide)
+  - **reddit**: [reddit/styleguide/javascript](https://github.com/reddit/styleguide/tree/master/javascript)
+  - **REI**: [reidev/js-style-guide](https://github.com/reidev/js-style-guide)
+  - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
+  - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
+  - **Userify**: [userify/javascript](https://github.com/userify/javascript)
+  - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
+  - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
 ## Translation
 
 This style guide is also available in other languages:
 
- - :de: **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
- - :jp: **Japanese**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
- - :br: **Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
- - :cn: **Chinese**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
- - :es: **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
- - :kr: **Korean**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
- - :fr: **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
- - :ru: **Russian**: [uprock/javascript](https://github.com/uprock/javascript)
- - :bg: **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
+  - :de: **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
+  - :jp: **Japanese**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
+  - :br: **Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
+  - :cn: **Chinese**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
+  - :es: **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
+  - :kr: **Korean**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
+  - :fr: **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
+  - :ru: **Russian**: [uprock/javascript](https://github.com/uprock/javascript)
+  - :bg: **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
 
 ## The JavaScript Style Guide Guide
 
- - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
+  - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
 ## Contributors
 
- - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
+  - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
 
 
 ## License
