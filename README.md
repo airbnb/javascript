@@ -753,7 +753,18 @@
     }
     ```
 
-  - The above guideline is up for debate. Some environments render hard tabs as 8 spaces and can't be easily modified to use a more reasonable tab width. Most editors are capable of editing soft-tab content intelligently, so we might consider using soft tabs to for more consistent formatting across environments. Discuss.
+  - The above guideline is up for debate. Some environments render hard tabs as 8 spaces and can't be easily modified to use a more reasonable tab width. Most editors are capable of editing soft-tab content intelligently, so we might consider using soft tabs to for more consistent formatting across environments. Please edit this document and add your name to one of the following lists:
+  
+    ```
+    Add your name to A or B
+    A. I prefer a tab width equal to 2 spaces: _your name here_
+    B. I prefer a tab width equal to 4 spaces: Pascal, _your name here_
+ 
+    Add your name to A B or C
+    A. I prefer hard tabs: Pascal
+    B. I prefer soft tabs (spaces):
+    C. I don't have a strong preference of tabs vs. spaces: Pascal
+    ```
 
   - Place 1 space before the leading brace.
 
