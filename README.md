@@ -10,13 +10,13 @@ The whitespace guideline in this document is up for debate. Current FED conventi
   
     Add your name to A, B, or C
     A. I prefer a tab width equal to 2 spaces: 
-    B. I prefer a tab width equal to 4 spaces: Pascal, Nigel, Nick, Nathan, Paul, David
+    B. I prefer a tab width equal to 4 spaces: Pascal, Nigel, Nick, Nathan, Paul, David, Daisy
     C. I prefer a tab width equal to 8 spaces: 
  
     Add your name to A, B, or C
     A. I prefer hard tabs (tabs): Pascal, Nathan
     B. I prefer soft tabs (spaces): David, Paul
-    C. I don't have a strong preference of tabs vs. spaces: Nigel, Nick
+    C. I don't have a strong preference of tabs vs. spaces: Nigel, Nick, Daisy
 
 
 ## Table of Contents
