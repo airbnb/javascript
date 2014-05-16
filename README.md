@@ -2,21 +2,9 @@
 
 *A mostly reasonable approach to JavaScript*
 
-*Forked from [Airbnb's Javascript Style Guide](https://github.com/airbnb/javascript). Modified with about.me conventions*
-
-## Please Vote:
-
-The whitespace guideline in this document is up for debate. Current FED convention is to use hard tabs, allowing each developer to define their own tab width. But some environments render hard tabs as 8 spaces and can't be easily modified to use a more reasonable tab width. Most editors are capable of editing soft tabs intelligently, so we might consider using soft tabs for more consistent formatting across environments. Please edit this document and add your name to the following lists:
-  
-    Add your name to A, B, or C
-    A. I prefer a tab width equal to 2 spaces: 
-    B. I prefer a tab width equal to 4 spaces: Pascal, Nigel, Nick, Nathan, Paul, David, Daisy
-    C. I prefer a tab width equal to 8 spaces: 
- 
-    Add your name to A, B, or C
-    A. I prefer hard tabs (tabs): Pascal, Nathan
-    B. I prefer soft tabs (spaces): David, Paul
-    C. I don't have a strong preference of tabs vs. spaces: Nigel, Nick, Daisy
+*Forked from [Airbnb's Javascript Style
+Guide](https://github.com/airbnb/javascript). Modified with about.me
+conventions*
 
 
 ## Table of Contents
@@ -749,10 +737,10 @@ The whitespace guideline in this document is up for debate. Current FED conventi
 
 ## Whitespace
 
-  - Current FED convention is to use hard tabs, so each dev can define their own preferred tab width.
+  - Use soft tabs set to 4 spaces.
 
     ```javascript
-    // bad
+    // good
     function() {
     ∙∙∙∙var name;
     }
