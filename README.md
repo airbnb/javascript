@@ -1022,14 +1022,14 @@
     // bad
     var OBJEcttsssss = {};
     var this_is_my_object = {};
-    function c() {};
+    function c() {}
     var u = new user({
       name: 'Bob Parr'
     });
 
     // good
     var thisIsMyObject = {};
-    function thisIsMyFunction() {};
+    function thisIsMyFunction() {}
     var user = new User({
       name: 'Bob Parr'
     });
