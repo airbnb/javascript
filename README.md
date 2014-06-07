@@ -1103,7 +1103,7 @@
     }
     ```
 
-  - Name your functions. This is helpful for stack traces.
+  - Name your functions. This is helpful for stack traces. Note this will not play nice with ie8 and lower see - http://kangax.github.io/nfe/
 
     ```javascript
     // bad
