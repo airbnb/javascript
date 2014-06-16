@@ -364,40 +364,18 @@ Based on the JS styleguide by [Airbnb](https://github.com/airbnb/javascript)
     var superPower = new SuperPower();
     ```
 
-  - Use one `var` declaration for multiple variables and declare each variable on a newline.
+  - Use a `var` declaration for each variable and declare each variable on a newline.
 
     ```javascript
     // bad
-    var items = getItems();
-    var goSportsTeam = true;
-    var dragonball = 'z';
-
-    // good
     var items = getItems(),
         goSportsTeam = true,
         dragonball = 'z';
-    ```
-
-  - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
-
-    ```javascript
-    // bad
-    var i, len, dragonball,
-        items = getItems(),
-        goSportsTeam = true;
-
-    // bad
-    var i, items = getItems(),
-        dragonball,
-        goSportsTeam = true,
-        len;
 
     // good
-    var items = getItems(),
-        goSportsTeam = true,
-        dragonball,
-        length,
-        i;
+    var items = getItems();
+    var goSportsTeam = true;
+    var dragonball = 'z';
     ```
 
   - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
@@ -716,7 +694,16 @@ Based on the JS styleguide by [Airbnb](https://github.com/airbnb/javascript)
 
       return this;
     }
-  ```
+    ```
+
+  - Prefix quirks, gotchas, hacks, etc. with `XXX`, especially if it's not
+  immediately obvious by looking at the code.
+
+    ```javascript
+    dashboard.controller('Filters', function() {
+      // XXX: Filters are not tested on CI due to Selenium constraints, please test in browser.
+    });
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -831,6 +818,24 @@ Based on the JS styleguide by [Airbnb](https://github.com/airbnb/javascript)
       .append('svg:g')
         .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
+    ```
+
+  - Use indentation for deeply nested objects.
+
+    ```javascript
+    // bad
+    var user = { name: 'John Smith', posts: [ { id: 123, title: 'Hello world' } ] };
+
+    // good
+    var user = {
+      name:  'John Smith',
+      posts: [
+        {
+          id:    123,
+          title: 'Hello world'
+        }
+      ]
+    };
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1040,6 +1045,20 @@ Based on the JS styleguide by [Airbnb](https://github.com/airbnb/javascript)
     function thisIsMyFunction() {}
     var user = new User({
       name: 'Bob Parr'
+    });
+    ```
+
+  - Using snake\_case is only acceptable for attributes returned from an API
+
+    ```javascript
+    // bad
+    Users.get().then(function(data) {
+      $scope.user_name = data.user_name;
+    });
+
+    // good
+    Users.get().then(function(data) {
+      $scope.userName = data.user_name;
     });
     ```
 
