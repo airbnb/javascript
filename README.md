@@ -1,7 +1,8 @@
-# Airbnb JavaScript Style Guide() {
+# Crowdtap JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
+Based on the JS styleguide by [Airbnb](https://github.com/airbnb/javascript)
 
 ## Table of Contents
 
