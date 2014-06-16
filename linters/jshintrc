@@ -13,6 +13,12 @@
   // Define globals exposed by Node.js.
   "node": true,
 
+  // Define globals exposed by Mocha test framework.
+  "mocha": true,
+
+  // Define globals provided by assets.shared
+  "predef": ["Q", "EventBus", "ActionFetcher", "B64"],
+
   /*
    * ENFORCING OPTIONS
    * =================
@@ -27,6 +33,9 @@
 
   // Suppress warnings about == null comparisons.
   "eqnull": true,
+
+  // Prohibit overwriting prototypes of native objects.
+  "freeze": true,
 
   // Enforce tab width of 2 spaces.
   "indent": 2,
