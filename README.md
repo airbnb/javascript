@@ -263,20 +263,34 @@
 
     ```javascript
     // anonymous function expression
-    var anonymous = function() {
+    var anonymous = function () {
       return true;
     };
 
     // named function expression
-    var named = function named() {
+    var named = function named () {
       return true;
     };
 
     // immediately-invoked function expression (IIFE)
-    (function() {
+    (function () {
       console.log('Welcome to the Internet. Please follow me.');
     })();
     ```
+
+  - Always include a space after the function keyword and the opening perenz of the arguments and after the closing perenz.
+
+  ```javascript
+  //bad
+  var foo = function(){
+    console.log('I have no spaces');  
+  };
+  
+  //good
+  var bar = function () {
+    console.log('Envy all of my spaces.');
+  };
+  ```
 
   - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
   - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
@@ -284,7 +298,7 @@
     ```javascript
     // bad
     if (currentUser) {
-      function test() {
+      function test () {
         console.log('Nope.');
       }
     }
@@ -292,7 +306,7 @@
     // good
     var test;
     if (currentUser) {
-      test = function test() {
+      test = function test () {
         console.log('Yup.');
       };
     }
@@ -302,12 +316,12 @@
 
     ```javascript
     // bad
-    function nope(name, options, arguments) {
+    function nope (name, options, arguments) {
       // ...stuff...
     }
 
     // good
-    function yup(name, options, args) {
+    function yup (name, options, args) {
       // ...stuff...
     }
     ```
