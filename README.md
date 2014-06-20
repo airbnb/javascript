@@ -27,6 +27,7 @@
   1. [Modules](#modules)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
+  1. [Logging](#logging)
   1. [Testing](#testing)
   1. [Performance](#performance)
   1. [Resources](#resources)
@@ -1405,6 +1406,20 @@
 
 **[⬆ back to top](#table-of-contents)**
 
+
+## Logging
+
+  - Always describe console logs before logging values.
+
+    ```javascript
+    // bad
+    console.log(userRecord);
+
+    // good
+    console.log('User Record Found:', userRecord);
+    ```
+
+**[⬆ back to top](#table-of-contents)**
 
 ## Testing
 
