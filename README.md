@@ -47,8 +47,8 @@
     + `undefined`
 
     ```javascript
-    var foo = 1,
-        bar = foo;
+    var foo = 1;
+    var bar = foo;
 
     bar = 9;
 
@@ -61,8 +61,8 @@
     + `function`
 
     ```javascript
-    var foo = [1, 2],
-        bar = foo;
+    var foo = [1, 2];
+    var bar = foo;
 
     bar[0] = 9;
 
@@ -213,10 +213,7 @@
   - When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
-    var items,
-        messages,
-        length,
-        i;
+    var items, messages, length, i;
 
     messages = [{
       state: 'success',
@@ -259,23 +256,33 @@
 
 ## Functions
 
-  - Function expressions:
+  - Function expressions should be named in order to give easy-to-read stack traces
 
     ```javascript
+    // Bad
     // anonymous function expression
     var anonymous = function() {
       return true;
     };
 
+    // Good
     // named function expression
     var named = function named() {
       return true;
     };
 
-    // immediately-invoked function expression (IIFE)
+    // immediately-invoked function expression (IIFE) should be wrapped in parentheses to make it more obvious this function is immediately-invoked.
+    // Good
     (function() {
       console.log('Welcome to the Internet. Please follow me.');
     })();
+
+    // Bad
+    function() {
+      console.log('Welcome to the Internet. Please follow me.');
+    }();
+
+
     ```
 
   - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
@@ -363,15 +370,16 @@
     var superPower = new SuperPower();
     ```
 
-  - Use one `var` declaration for multiple variables and declare each variable on a newline.
+  - Use one `var` declaration for each line of a variable declaration.
+  - Put multiple variables assignments on new lines, only declare multiple variables in a single line when not immediately assigned.
 
     ```javascript
-    // bad
+    // good
     var items = getItems();
     var goSportsTeam = true;
-    var dragonball = 'z';
+    var dragonball, pizza;
 
-    // good
+    // bad
     var items = getItems(),
         goSportsTeam = true,
         dragonball = 'z';
@@ -381,28 +389,26 @@
 
     ```javascript
     // bad
-    var i, len, dragonball,
-        items = getItems(),
-        goSportsTeam = true;
+    var i, len, dragonball;
+    var items = getItems();
+    var goSportsTeam = true;
 
     // bad
-    var i, items = getItems(),
-        dragonball,
-        goSportsTeam = true,
-        len;
+    var i, items = getItems();
+    var dragonball;
+    var goSportsTeam = true;
+    var len;
 
     // good
-    var items = getItems(),
-        goSportsTeam = true,
-        dragonball,
-        length,
-        i;
+    var items = getItems();
+    var goSportsTeam = true;
+    var dragonball, length, i;
     ```
 
-  - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
+  - Assign variables close to their usage. *Note: (unlikely) problems may arrise with [variable hoisting](#hoisting), use better names*
 
     ```javascript
-    // bad
+    // good
     function() {
       test();
       console.log('doing stuff..');
@@ -418,7 +424,7 @@
       return name;
     }
 
-    // good
+    // bad
     function() {
       var name = getName();
 
@@ -552,7 +558,8 @@
 
 ## Conditional Expressions & Equality
 
-  - Use `===` and `!==` over `==` and `!=`.
+  - Use `===` and `!==` over `==` and `!=`. If [coercion](#type-casting--coercion) is desired, be explicit.
+
   - Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
 
     + **Objects** evaluate to **true**
@@ -1077,10 +1084,10 @@
     this._firstName = 'Panda';
     ```
 
-  - When saving a reference to `this` use `_this`.
+  - When saving a reference to `this` use `self`.
 
     ```javascript
-    // bad
+    // good
     function() {
       var self = this;
       return function() {
@@ -1096,7 +1103,7 @@
       };
     }
 
-    // good
+    // bad
     function() {
       var _this = this;
       return function() {
