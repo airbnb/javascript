@@ -1499,6 +1499,7 @@
   - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
   - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
   - **Money Advice Service**: [moneyadviceservice/javascript](https://github.com/moneyadviceservice/javascript)
+  - **Muber**: [muber/javascript](https://github.com/muber/javascript)
   - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
   - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
   - **Orion Health**: [orionhealth/javascript](https://github.com/orionhealth/javascript)
