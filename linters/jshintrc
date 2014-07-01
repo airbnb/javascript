@@ -16,8 +16,8 @@
   // Define globals exposed by Mocha test framework.
   "mocha": true,
 
-  // Define globals provided by assets.shared
-  "predef": ["Q", "EventBus", "ActionFetcher", "B64"],
+  // Define globals from assets.shared and other libraries
+  "predef": ["Q", "EventBus", "ActionFetcher", "B64", "angular"],
 
   /*
    * ENFORCING OPTIONS
