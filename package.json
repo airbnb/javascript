@@ -2,7 +2,6 @@
   "name": "airbnb-style",
   "version": "1.0.0",
   "description": "A mostly reasonable approach to JavaScript.",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
