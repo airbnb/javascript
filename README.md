@@ -607,16 +607,13 @@
     if (test)
       return false;
 
-    // good
-    if (test) return false;
+    // bad
+    if (test) { return false; }
 
     // good
     if (test) {
       return false;
     }
-
-    // bad
-    function() { return false; }
 
     // good
     function() {
@@ -722,14 +719,9 @@
 
 ## Whitespace
 
-  - Use soft tabs set to 2 spaces
+  - Use soft tabs set to 4 spaces
 
     ```javascript
-    // bad
-    function() {
-    ∙∙∙∙var name;
-    }
-
     // bad
     function() {
     ∙var name;
@@ -737,7 +729,7 @@
 
     // good
     function() {
-    ∙∙var name;
+    ∙∙∙∙var name;
     }
     ```
 
@@ -965,9 +957,6 @@
     var val = parseInt(inputValue);
 
     // good
-    var val = Number(inputValue);
-
-    // good
     var val = parseInt(inputValue, 10);
     ```
 
@@ -998,9 +987,6 @@
 
     // bad
     var hasAge = new Boolean(age);
-
-    // good
-    var hasAge = Boolean(age);
 
     // good
     var hasAge = !!age;
@@ -1064,45 +1050,6 @@
     var good = new User({
       name: 'yup'
     });
-    ```
-
-  - Use a leading underscore `_` when naming private properties
-
-    ```javascript
-    // bad
-    this.__firstName__ = 'Panda';
-    this.firstName_ = 'Panda';
-
-    // good
-    this._firstName = 'Panda';
-    ```
-
-  - When saving a reference to `this` use `_this`.
-
-    ```javascript
-    // bad
-    function() {
-      var self = this;
-      return function() {
-        console.log(self);
-      };
-    }
-
-    // bad
-    function() {
-      var that = this;
-      return function() {
-        console.log(that);
-      };
-    }
-
-    // good
-    function() {
-      var _this = this;
-      return function() {
-        console.log(_this);
-      };
-    }
     ```
 
   - Name your functions. This is helpful for stack traces.
