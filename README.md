@@ -1882,11 +1882,39 @@ Other Style Guides
     }
     ```
 
+  <a name="comparison--shortcircuit"></a>
+  - [15.4](#comparison--shortcircuit) Avoid Short Circuit Evaluation: only use Short Circuit Evaluation for returning Booleans, or for default parameters
+
+  ```javascript
+  // bad
+  someBooleanVar && someFunction();
+
+  // good
+  if (someBooleanVar) {
+    someFunction();
+  }
+
+  // bad
+  return someBooleanVar && someFunction() || 'defaultValue';
+
+  // good
+  if (someBooleanVar) {
+    return someFunction();
+  }
+  return 'defaultValue';
+
+  // good
+  var test = someBooleanVar || 'defaultValue';
+
+  // good
+  return someBoolean1 || someBoolean2;
+  ```
+
   <a name="comparison--moreinfo"></a><a name="15.4"></a>
-  - [15.4](#comparison--moreinfo) For more information see [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
+  - [15.5](#comparison--moreinfo) For more information see [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
 
   <a name="comparison--switch-blocks"></a><a name="15.5"></a>
-  - [15.5](#comparison--switch-blocks) Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`). eslint: [`no-case-declarations`](https://eslint.org/docs/rules/no-case-declarations.html)
+  - [15.6](#comparison--switch-blocks) Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`). eslint: [`no-case-declarations`](https://eslint.org/docs/rules/no-case-declarations.html)
 
     > Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
 
@@ -1934,7 +1962,7 @@ Other Style Guides
     ```
 
   <a name="comparison--nested-ternaries"></a><a name="15.6"></a>
-  - [15.6](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions. eslint: [`no-nested-ternary`](https://eslint.org/docs/rules/no-nested-ternary.html)
+  - [15.7](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions. eslint: [`no-nested-ternary`](https://eslint.org/docs/rules/no-nested-ternary.html)
 
     ```javascript
     // bad
@@ -1970,7 +1998,7 @@ Other Style Guides
     ```
 
   <a name="comparison--no-mixed-operators"></a>
-  - [15.8](#comparison--no-mixed-operators) When mixing operators, enclose them in parentheses. The only exception is the standard arithmetic operators (`+`, `-`, `*`, & `/`) since their precedence is broadly understood. eslint: [`no-mixed-operators`](https://eslint.org/docs/rules/no-mixed-operators.html)
+  - [15.9](#comparison--no-mixed-operators) When mixing operators, enclose them in parentheses. The only exception is the standard arithmetic operators (`+`, `-`, `*`, & `/`) since their precedence is broadly understood. eslint: [`no-mixed-operators`](https://eslint.org/docs/rules/no-mixed-operators.html)
 
     > Why? This improves readability and clarifies the developer’s intention.
 
