@@ -64,9 +64,9 @@
     var foo = [1, 2],
         bar = foo;
 
-    bar[0] = 9;
+    bar[0] = 1;
 
-    console.log(foo[0], bar[0]); // => 9, 9
+    console.log(foo[0], bar[0]); // => 1, 1
     ```
 
 **[⬆ back to top](#table-of-contents)**
