@@ -1515,6 +1515,7 @@
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
   - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
   - **Userify**: [userify/javascript](https://github.com/userify/javascript)
+  - **VoxFeed**: [VoxFeed/javascript-style-guide](https://github.com/VoxFeed/javascript-style-guide)
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
