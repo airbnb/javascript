@@ -1,3 +1,5 @@
+原文：https://github.com/airbnb/javascript
+
 # Airbnb JavaScript Style Guide() {
 
 *JavaScript における合理的なアプローチ*
