@@ -14,12 +14,12 @@
   1. [変数](#変数)
   1. [変数巻き上げ(ホイスティング)](#変数巻き上げ(ホイスティング))
   1. [条件式・等価式](#条件式・等価式)
-  1. [Blocks](#blocks)
-  1. [Comments](#comments)
-  1. [Whitespace](#whitespace)
-  1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-casting--coercion)
+  1. [ブロック](#ブロック)
+  1. [コメント](#コメント)
+  1. [ホワイトスペース](#ホワイトスペース)
+  1. [カンマ](#カンマ)
+  1. [セミコロン](#セミコロン)
+  1. [型キャスト・強制変換](#型キャスト・強制変換)
   1. [Naming Conventions](#naming-conventions)
   1. [Accessors](#accessors)
   1. [Constructors](#constructors)
@@ -600,9 +600,9 @@
 **[⬆ back to top](#目次)**
 
 
-## Blocks
+## ブロック
 
-  - Use braces with all multi-line blocks.
+  - 括弧を使うときは複数行のブロックにする。
 
     ```javascript
     // bad
@@ -629,9 +629,9 @@
 **[⬆ back to top](#目次)**
 
 
-## Comments
+## コメント
 
-  - Use `/** ... */` for multiline comments. Include a description, specify types and values for all parameters and return values.
+  - 複数行のコメントには `/** ... */` を使う。すべての引数と戻り値の型と値の説明を含める。
 
     ```javascript
     // bad
@@ -663,7 +663,7 @@
     }
     ```
 
-  - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
+  - 1行のコメントには `//` を使う。コメントする対象の上部に改行を入れてコメントを書く。コメントの前には空の行を入れる。
 
     ```javascript
     // bad
@@ -693,9 +693,9 @@
     }
     ```
 
-  - Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
+  - コメントのプリフィックスに`FIXME`や`TODO`と書くことで、指摘した問題について再検討したり、実装が必要な問題の解決方法に早く気づくことができます。実用的である点で、これらは通常のコメントとは異なります。 `FIXME`は問題を把握する必要があります。`TODO`は実装が必要です。
 
-  - Use `// FIXME:` to annotate problems
+  - `// FIXME:` は問題を注釈するときに使います。
 
     ```javascript
     function Calculator() {
@@ -707,7 +707,7 @@
     }
     ```
 
-  - Use `// TODO:` to annotate solutions to problems
+  - `// TODO:` は問題の解決策を注釈するときに使います。
 
     ```javascript
     function Calculator() {
@@ -722,9 +722,9 @@
 **[⬆ back to top](#目次)**
 
 
-## Whitespace
+## ホワイトスペース
 
-  - Use soft tabs set to 2 spaces
+  - ソフトタブで2個のスペースを使います。
 
     ```javascript
     // bad
@@ -743,7 +743,7 @@
     }
     ```
 
-  - Place 1 space before the leading brace.
+  - 中括弧の前に1個のスペースを使います。
 
     ```javascript
     // bad
@@ -769,7 +769,7 @@
     });
     ```
 
-  - Set off operators with spaces.
+  - 演算子にはスペースをつけます。
 
     ```javascript
     // bad
@@ -779,7 +779,7 @@
     var x = y + 5;
     ```
 
-  - End files with a single newline character.
+  - ファイルの終わりは改行をつけます。
 
     ```javascript
     // bad
@@ -803,7 +803,7 @@
     })(this);↵
     ```
 
-  - Use indentation when making long method chains.
+  - 長いメソッドチェーンではインデントをつけます。
 
     ```javascript
     // bad
@@ -836,9 +836,9 @@
 
 **[⬆ back to top](#目次)**
 
-## Commas
+## カンマ
 
-  - Leading commas: **Nope.**
+  - 主要なカンマ
 
     ```javascript
     // bad
@@ -868,7 +868,7 @@
     };
     ```
 
-  - Additional trailing comma: **Nope.** This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
+  - 末尾のカンマ: IE6/7 and IE9 やその互換モードのときに問題を引き起こす可能性があります。ES3 のいくつかの実装では末尾のカンマを保つ場合に配列の長さが追加されます。これは ES5 で明らかにされました。([ソース](http://es5.github.io/#D)):
 
   > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
 
@@ -899,9 +899,9 @@
 **[⬆ back to top](#目次)**
 
 
-## Semicolons
+## セミコロン
 
-  - **Yup.**
+  - 見ての通り
 
     ```javascript
     // bad
@@ -928,10 +928,10 @@
 **[⬆ back to top](#目次)**
 
 
-## Type Casting & Coercion
+## 型キャスト・強制変換
 
-  - Perform type coercion at the beginning of the statement.
-  - Strings:
+  - 実行時に強制変換されます。
+  - 文字列:
 
     ```javascript
     //  => this.reviewScore = 9;
@@ -949,7 +949,7 @@
     var totalScore = this.reviewScore + ' total score';
     ```
 
-  - Use `parseInt` for Numbers and always with a radix for type casting.
+  - 数値は基数を指定した `parseInt` で変換してください。
 
     ```javascript
     var inputValue = '4';
@@ -973,7 +973,7 @@
     var val = parseInt(inputValue, 10);
     ```
 
-  - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
+  - `parseInt` がボトルネックとなってビット演算を使う場合 ([performance reasons](http://jsperf.com/coercion-vs-casting/3))は、理由と何をしているかの説明をコメントで残してください。
 
     ```javascript
     // good
@@ -985,7 +985,7 @@
     var val = inputValue >> 0;
     ```
 
-  - **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
+  - **注:** ビット演算を使う場合は気をつけてください。[64ビットの値](http://es5.github.io/#x4.3.19)でもビット演算後は32ビットの値が返ってきます。([ソース](http://es5.github.io/#x11.7)) ビット演算は32ビットで表現できる値より大きい値では予期せぬ動作につながります。[議論](https://github.com/airbnb/javascript/issues/109) 符号付き32ビットでは最大値は 2,147,483,647 です。
 
     ```javascript
     2147483647 >> 0 //=> 2147483647
