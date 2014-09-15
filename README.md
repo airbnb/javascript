@@ -1,44 +1,45 @@
+原文：https://github.com/airbnb/javascript
+
 # Airbnb JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript*
+*JavaScript における合理的なアプローチ*
 
 
-## Table of Contents
+## 目次
 
-  1. [Types](#types)
-  1. [Objects](#objects)
-  1. [Arrays](#arrays)
-  1. [Strings](#strings)
-  1. [Functions](#functions)
-  1. [Properties](#properties)
-  1. [Variables](#variables)
-  1. [Hoisting](#hoisting)
-  1. [Conditional Expressions & Equality](#conditional-expressions--equality)
-  1. [Blocks](#blocks)
-  1. [Comments](#comments)
-  1. [Whitespace](#whitespace)
-  1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-casting--coercion)
-  1. [Naming Conventions](#naming-conventions)
-  1. [Accessors](#accessors)
-  1. [Constructors](#constructors)
-  1. [Events](#events)
-  1. [Modules](#modules)
+  1. [型](#型)
+  1. [オブジェクト](#オブジェクト)
+  1. [配列](#配列)
+  1. [文字列](#文字列)
+  1. [関数](#関数)
+  1. [プロパティ](#プロパティ)
+  1. [変数](#変数)
+  1. [変数巻き上げ(ホイスティング)](#変数巻き上げ(ホイスティング))
+  1. [条件式・等価式](#条件式・等価式)
+  1. [ブロック](#ブロック)
+  1. [コメント](#コメント)
+  1. [ホワイトスペース](#ホワイトスペース)
+  1. [カンマ](#カンマ)
+  1. [セミコロン](#セミコロン)
+  1. [型キャスト・強制変換](#型キャスト・強制変換)
+  1. [命名規則](#命名規則)
+  1. [アクセサー](#アクセサー)
+  1. [コンストラクタ](#コンストラクタ)
+  1. [イベント](#イベント)
+  1. [モジュール](#モジュール)
   1. [jQuery](#jquery)
-  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
-  1. [Testing](#testing)
-  1. [Performance](#performance)
-  1. [Resources](#resources)
+  1. [ECMAScript5の互換性](#ECMAScript5の互換性)
+  1. [パフォーマンス](#パフォーマンス)
+  1. [参考資料](#参考資料)
   1. [In the Wild](#in-the-wild)
   1. [Translation](#translation)
   1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
   1. [Contributors](#contributors)
   1. [License](#license)
 
-## Types
+## 型
 
-  - **Primitives**: When you access a primitive type you work directly on its value
+  - **プリミティブ**: プリミティブな型では直接その値にアクセスします。
 
     + `string`
     + `number`
@@ -54,7 +55,7 @@
 
     console.log(foo, bar); // => 1, 9
     ```
-  - **Complex**: When you access a complex type you work on a reference to its value
+  - **参照型**: 参照型では参照した値にアクセスします。
 
     + `object`
     + `array`
@@ -69,11 +70,11 @@
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
-## Objects
+## オブジェクト
 
-  - Use the literal syntax for object creation.
+  - オブジェクトの生成ではリテラル表現を使います。
 
     ```javascript
     // bad
@@ -83,7 +84,7 @@
     var item = {};
     ```
 
-  - Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61)
+  - 予約語を使ってはいけません。IE8で動かなくなります。 [More info](https://github.com/airbnb/javascript/issues/61)
 
     ```javascript
     // bad
@@ -99,7 +100,7 @@
     };
     ```
 
-  - Use readable synonyms in place of reserved words.
+  - 予約語を使うかわりに通じる同義語を使います。
 
     ```javascript
     // bad
@@ -118,11 +119,11 @@
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
-## Arrays
+## 配列
 
-  - Use the literal syntax for array creation
+  - 配列の生成ではリテラル表現を使います。
 
     ```javascript
     // bad
@@ -132,7 +133,7 @@
     var items = [];
     ```
 
-  - If you don't know array length use Array#push.
+  - 配列の長さがわからない場合は Array#push を使います。
 
     ```javascript
     var someStack = [];
@@ -145,7 +146,7 @@
     someStack.push('abracadabra');
     ```
 
-  - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
+  - 配列のコピーが必要なときは Array#slice を使います。 [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
     var len = items.length,
@@ -161,7 +162,7 @@
     itemsCopy = items.slice();
     ```
 
-  - To convert an array-like object to an array, use Array#slice.
+  - 配列のようなオブジェクトを配列に変換するときは Array#slice を使います。
 
     ```javascript
     function trigger() {
@@ -170,12 +171,12 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Strings
+## 文字列
 
-  - Use single quotes `''` for strings
+  - 文字列ではシングルコート `''` を使います。
 
     ```javascript
     // bad
@@ -191,8 +192,8 @@
     var fullName = 'Bob ' + this.lastName;
     ```
 
-  - Strings longer than 80 characters should be written across multiple lines using string concatenation.
-  - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
+  - 80文字を超える文字列は連結させて複数行に渡って書く必要があります。
+  - 注: もし過剰に連結を使うと、パフォーマンスに影響を与える可能性があります。 [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
 
     ```javascript
     // bad
@@ -210,7 +211,7 @@
       'with this, you would get nowhere fast.';
     ```
 
-  - When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+  - プログラム上で文字列を連結する場合は Array#join を使います。主にIEのために。: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
     var items,
@@ -254,12 +255,12 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Functions
+## 関数
 
-  - Function expressions:
+  - 関数:
 
     ```javascript
     // anonymous function expression
@@ -278,8 +279,10 @@
     })();
     ```
 
-  - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
+  - 関数のブロックでない箇所(if, while, etc)で関数を宣言する必要はありません。その代わりに変数に代入します。Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
   - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+
+//TODO
 
     ```javascript
     // bad
@@ -298,7 +301,7 @@
     }
     ```
 
-  - Never name a parameter `arguments`, this will take precedence over the `arguments` object that is given to every function scope.
+  - `arguments` という名前のパラメータを付けることはありません。これはすべての関数スコープに与えられる `arguments` オブジェクトより優先してしまうためです。
 
     ```javascript
     // bad
@@ -312,13 +315,13 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 
-## Properties
+## プロパティ
 
-  - Use dot notation when accessing properties.
+  - プロパティへのアクセスにはドット表記を使います。
 
     ```javascript
     var luke = {
@@ -333,7 +336,7 @@
     var isJedi = luke.jedi;
     ```
 
-  - Use subscript notation `[]` when accessing properties with a variable.
+  - 変数を介してプロパティにアクセスする場合は `[]` の添字表記を使います。
 
     ```javascript
     var luke = {
@@ -348,12 +351,12 @@
     var isJedi = getProp('jedi');
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Variables
+## 変数
 
-  - Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  - 変数宣言には `var` を使います。さもないとグローバル変数になってしまいます。グローバルな名前空間の汚染を防ぎましょう。キャプテン・プラネットは私達にそれを教えてくれました。
 
     ```javascript
     // bad
@@ -363,7 +366,7 @@
     var superPower = new SuperPower();
     ```
 
-  - Use one `var` declaration for multiple variables and declare each variable on a newline.
+  - 複数の変数を宣言するには改行します。
 
     ```javascript
     // bad
@@ -377,7 +380,7 @@
         dragonball = 'z';
     ```
 
-  - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+  - 最後に代入のない変数を宣言します。変数への代入がそれより前に代入した変数に与える依存しないことをわかりやすくします。
 
     ```javascript
     // bad
@@ -399,7 +402,7 @@
         i;
     ```
 
-  - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
+  - 変数の代入はスコープの先頭で行います。変数の宣言と代入によって問題が起こるのを防ぎます。
 
     ```javascript
     // bad
@@ -457,12 +460,12 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Hoisting
+## 変数巻き上げ(ホイスティング)
 
-  - Variable declarations get hoisted to the top of their scope, their assignment does not.
+  - 変数の宣言はそのスコープの先頭に巻き上げが行われ、代入されない。
 
     ```javascript
     // we know this wouldn't work (assuming there
@@ -490,7 +493,7 @@
     }
     ```
 
-  - Anonymous function expressions hoist their variable name, but not the function assignment.
+  - 匿名の関数は関数として代入されず、変数名として巻き上げが行われる。
 
     ```javascript
     function example() {
@@ -504,7 +507,7 @@
     }
     ```
 
-  - Named function expressions hoist the variable name, not the function name or the function body.
+  - 名前付きの関数は関数名ではなく変数名や関数本体として巻き上げが行われる。
 
     ```javascript
     function example() {
@@ -532,7 +535,7 @@
     }
     ```
 
-  - Function declarations hoist their name and the function body.
+  - 関数の宣言は名前や関数本体として巻き上げが行われる。
 
     ```javascript
     function example() {
@@ -544,23 +547,23 @@
     }
     ```
 
-  - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/)
+  - より深く知りたい場合は右を参照。 [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/) 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 
-## Conditional Expressions & Equality
+## 条件式・等価式
 
-  - Use `===` and `!==` over `==` and `!=`.
-  - Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
+  - `==` や `!=` ではなく、 `===` や `!==` を使う。
+  - 条件式は`ToBoolean`メソッドで強制的に評価されるので、常に後述の単純なルールに従います。
 
-    + **Objects** evaluate to **true**
-    + **Undefined** evaluates to **false**
-    + **Null** evaluates to **false**
-    + **Booleans** evaluate to **the value of the boolean**
-    + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
-    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+    + **Objects** は **true**
+    + **Undefined** は **false**
+    + **Null** は **false**
+    + **Booleans** は **boolean の値**
+    + **Numbers** は基本的に **true**,  **+0, -0, or NaN** では **false**
+    + **Strings** は基本的に **true** 空文字(`''`)では **false**
 
     ```javascript
     if ([0]) {
@@ -569,7 +572,7 @@
     }
     ```
 
-  - Use shortcuts.
+  - 省略を使う。
 
     ```javascript
     // bad
@@ -593,14 +596,14 @@
     }
     ```
 
-  - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
+  - より深く知りたい場合は右を参照。 [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Blocks
+## ブロック
 
-  - Use braces with all multi-line blocks.
+  - 括弧を使うときは複数行のブロックにする。
 
     ```javascript
     // bad
@@ -624,12 +627,12 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Comments
+## コメント
 
-  - Use `/** ... */` for multiline comments. Include a description, specify types and values for all parameters and return values.
+  - 複数行のコメントには `/** ... */` を使う。すべての引数と戻り値の型と値の説明を含める。
 
     ```javascript
     // bad
@@ -661,7 +664,7 @@
     }
     ```
 
-  - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
+  - 1行のコメントには `//` を使う。コメントする対象の上部に改行を入れてコメントを書く。コメントの前には空の行を入れる。
 
     ```javascript
     // bad
@@ -691,9 +694,9 @@
     }
     ```
 
-  - Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
+  - コメントのプリフィックスに`FIXME`や`TODO`と書くことで、指摘した問題について再検討したり、実装が必要な問題の解決方法に早く気づくことができます。実用的である点で、これらは通常のコメントとは異なります。 `FIXME`は問題を把握する必要があります。`TODO`は実装が必要です。
 
-  - Use `// FIXME:` to annotate problems
+  - `// FIXME:` は問題を注釈するときに使います。
 
     ```javascript
     function Calculator() {
@@ -705,7 +708,7 @@
     }
     ```
 
-  - Use `// TODO:` to annotate solutions to problems
+  - `// TODO:` は問題の解決策を注釈するときに使います。
 
     ```javascript
     function Calculator() {
@@ -717,12 +720,12 @@
     }
   ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Whitespace
+## ホワイトスペース
 
-  - Use soft tabs set to 2 spaces
+  - ソフトタブで2個のスペースを使います。
 
     ```javascript
     // bad
@@ -741,7 +744,7 @@
     }
     ```
 
-  - Place 1 space before the leading brace.
+  - 中括弧の前に1個のスペースを使います。
 
     ```javascript
     // bad
@@ -767,7 +770,7 @@
     });
     ```
 
-  - Set off operators with spaces.
+  - 演算子にはスペースをつけます。
 
     ```javascript
     // bad
@@ -777,7 +780,7 @@
     var x = y + 5;
     ```
 
-  - End files with a single newline character.
+  - ファイルの終わりは改行をつけます。
 
     ```javascript
     // bad
@@ -801,7 +804,7 @@
     })(this);↵
     ```
 
-  - Use indentation when making long method chains.
+  - 長いメソッドチェーンではインデントをつけます。
 
     ```javascript
     // bad
@@ -832,11 +835,11 @@
         .call(tron.led);
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
-## Commas
+## カンマ
 
-  - Leading commas: **Nope.**
+  - 主要なカンマ
 
     ```javascript
     // bad
@@ -866,7 +869,7 @@
     };
     ```
 
-  - Additional trailing comma: **Nope.** This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
+  - 末尾のカンマ: IE6/7 and IE9 やその互換モードのときに問題を引き起こす可能性があります。ES3 のいくつかの実装では末尾のカンマを保つ場合に配列の長さが追加されます。これは ES5 で明らかにされました。([ソース](http://es5.github.io/#D)):
 
   > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
 
@@ -894,12 +897,12 @@
     ];
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Semicolons
+## セミコロン
 
-  - **Yup.**
+  - 見ての通り
 
     ```javascript
     // bad
@@ -923,13 +926,13 @@
 
     [Read more](http://stackoverflow.com/a/7365214/1712802).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Type Casting & Coercion
+## 型キャスト・強制変換
 
-  - Perform type coercion at the beginning of the statement.
-  - Strings:
+  - 実行時に強制変換されます。
+  - 文字列:
 
     ```javascript
     //  => this.reviewScore = 9;
@@ -947,7 +950,7 @@
     var totalScore = this.reviewScore + ' total score';
     ```
 
-  - Use `parseInt` for Numbers and always with a radix for type casting.
+  - 数値は基数を指定した `parseInt` で変換してください。
 
     ```javascript
     var inputValue = '4';
@@ -971,7 +974,7 @@
     var val = parseInt(inputValue, 10);
     ```
 
-  - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
+  - `parseInt` がボトルネックとなってビット演算を使う場合 ([performance reasons](http://jsperf.com/coercion-vs-casting/3))は、理由と何をしているかの説明をコメントで残してください。
 
     ```javascript
     // good
@@ -983,7 +986,7 @@
     var val = inputValue >> 0;
     ```
 
-  - **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
+  - **注:** ビット演算を使う場合は気をつけてください。[64ビットの値](http://es5.github.io/#x4.3.19)でもビット演算後は32ビットの値が返ってきます。([ソース](http://es5.github.io/#x11.7)) ビット演算は32ビットで表現できる値より大きい値では予期せぬ動作につながります。[議論](https://github.com/airbnb/javascript/issues/109) 符号付き32ビットでは最大値は 2,147,483,647 です。
 
     ```javascript
     2147483647 >> 0 //=> 2147483647
@@ -1006,12 +1009,12 @@
     var hasAge = !!age;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Naming Conventions
+## 命名規則
 
-  - Avoid single letter names. Be descriptive with your naming.
+  - 1文字の名前は避けてください。名前で説明してください。
 
     ```javascript
     // bad
@@ -1025,7 +1028,7 @@
     }
     ```
 
-  - Use camelCase when naming objects, functions, and instances
+  - オブジェクトや関数、インスタンスにはキャメルケースを使います。
 
     ```javascript
     // bad
@@ -1044,7 +1047,7 @@
     });
     ```
 
-  - Use PascalCase when naming constructors or classes
+  - コンストラクタやクラスではパスカルケースを使います。
 
     ```javascript
     // bad
@@ -1066,7 +1069,7 @@
     });
     ```
 
-  - Use a leading underscore `_` when naming private properties
+  - プライペートプロパティではアンダースコア`_` を先頭につけます。
 
     ```javascript
     // bad
@@ -1077,7 +1080,7 @@
     this._firstName = 'Panda';
     ```
 
-  - When saving a reference to `this` use `_this`.
+  - `this` の保持には `_this` を使います。
 
     ```javascript
     // bad
@@ -1105,7 +1108,7 @@
     }
     ```
 
-  - Name your functions. This is helpful for stack traces.
+  - 関数には名前をつけてください。スタックトレースで役立ちます。
 
     ```javascript
     // bad
@@ -1119,15 +1122,15 @@
     };
     ```
 
-  - **Note:** IE8 and below exhibit some quirks with named function expressions.  See [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/) for more info.
+  - **注:** IE8 やそれ以前のブラウザでは名前付き関数にいくつかのクセがあります。詳しくは [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/) を参照してください。
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Accessors
+## アクセサー
 
-  - Accessor functions for properties are not required
-  - If you do make accessor functions use getVal() and setVal('hello')
+  - プロパティのアクセサー関数は必須ではありません。
+  - もし作る場合は getVal() や setVal('hello') のようにしてください。
 
     ```javascript
     // bad
@@ -1143,7 +1146,7 @@
     dragon.setAge(25);
     ```
 
-  - If the property is a boolean, use isVal() or hasVal()
+  - プロパティが boolean の場合は、isVal() や hasVal() とします。
 
     ```javascript
     // bad
@@ -1157,7 +1160,7 @@
     }
     ```
 
-  - It's okay to create get() and set() functions, but be consistent.
+  - get() や set() 関数は一貫性を保たせてください。
 
     ```javascript
     function Jedi(options) {
@@ -1175,12 +1178,12 @@
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Constructors
+## コンストラクタ
 
-  - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
+  - プロトタイプオブジェクトを上書きするのではなく、プロトタイプオブジェクトにメソッドを割り当てます。プロトタイプを上書きすると、継承ができなくなります。：プロトタイプをリセットすると、ベースを上書きしてしまいます！ 
 
     ```javascript
     function Jedi() {
@@ -1208,7 +1211,7 @@
     };
     ```
 
-  - Methods can return `this` to help with method chaining.
+  - メソッドは this を返すことでメソッドチェーンをしやすくします。
 
     ```javascript
     // bad
@@ -1243,7 +1246,7 @@
     ```
 
 
-  - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - toString() メソッドをカスタマイズするには、その影響が出ないようにしてください。
 
     ```javascript
     function Jedi(options) {
@@ -1260,12 +1263,12 @@
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Events
+## イベント
 
-  - When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+  - イベント（DOMイベントやバックボーンのイベントのようなより独自なもの）にデータを渡す場合は、生の値ではなくハッシュを使います。これにより次の修正者がイベントハンドラーを修正することなくデータを追加できます。
 
     ```js
     // bad
@@ -1291,15 +1294,15 @@
     });
     ```
 
-  **[⬆ back to top](#table-of-contents)**
+  **[⬆ back to top](#目次)**
 
 
-## Modules
+## モジュール
 
-  - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
-  - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
-  - Add a method called `noConflict()` that sets the exported module to the previous version and returns this one.
-  - Always declare `'use strict';` at the top of the module.
+  - モジュールは`!`で始まる必要があります。これは最後のセミコロンを付け忘れた時、製品でスクリプトが連結されてエラーとなることを防ぐためです。[説明](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
+  - ファイルはキャメルケースで命名し、同じ名前のフォルダに入れ、export と同じ名前である必要があります。 
+  - `noConflict（）` というメソッドを追加し、以前エクスポートされていたモジュールを返します。 
+  - `'use strict';` はモジュールの先頭で宣言します。
 
     ```javascript
     // fancyInput/fancyInput.js
@@ -1322,12 +1325,12 @@
     }(this);
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 ## jQuery
 
-  - Prefix jQuery object variables with a `$`.
+  - jQuery オブジェクトの変数には `$`のプリフィックスをつけます。
 
     ```javascript
     // bad
@@ -1337,7 +1340,7 @@
     var $sidebar = $('.sidebar');
     ```
 
-  - Cache jQuery lookups.
+  - jQuery の読み込みはキャッシュを使います。
 
     ```javascript
     // bad
@@ -1364,8 +1367,9 @@
     }
     ```
 
-  - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-  - Use `find` with scoped jQuery object queries.
+  - DOM のクエリーは `$('.sidebar ul')` ではなく、カスケードを使って parent > child `$('.sidebar > ul')` のように書きます。
+[jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - jQuery オブジェクトのクエリのスコープが決まっている場合は `find` を使います。
 
     ```javascript
     // bad
@@ -1384,30 +1388,16 @@
     $sidebar.find('ul').hide();
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## ECMAScript 5 Compatibility
+## ECMAScript5の互換性
 
-  - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
+  -[Kangax](https://twitter.com/kangax/) のES5[互換表](http://kangax.github.com/es5-compat-table/)を参照ください。
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
-
-## Testing
-
-  - **Yup.**
-
-    ```javascript
-    function() {
-      return true;
-    }
-    ```
-
-**[⬆ back to top](#table-of-contents)**
-
-
-## Performance
+## パフォーマンス
 
   - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
@@ -1418,10 +1408,10 @@
   - [Long String Concatenation](http://jsperf.com/ya-string-concat)
   - Loading...
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Resources
+## 参考資料
 
 
 **Read This**
@@ -1478,7 +1468,7 @@
   - [Dustin Diaz](http://dustindiaz.com/)
   - [nettuts](http://net.tutsplus.com/?s=javascript)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 ## In the Wild
 
@@ -1568,6 +1558,6 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 # };
