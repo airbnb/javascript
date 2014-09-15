@@ -20,11 +20,11 @@
   1. [カンマ](#カンマ)
   1. [セミコロン](#セミコロン)
   1. [型キャスト・強制変換](#型キャスト・強制変換)
-  1. [Naming Conventions](#naming-conventions)
-  1. [Accessors](#accessors)
-  1. [Constructors](#constructors)
-  1. [Events](#events)
-  1. [Modules](#modules)
+  1. [命名規則](#命名規則)
+  1. [アクセサー](#アクセサー)
+  1. [コンストラクタ](#コンストラクタ)
+  1. [イベント](#イベント)
+  1. [モジュール](#モジュール)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [Testing](#testing)
@@ -1011,9 +1011,9 @@
 **[⬆ back to top](#目次)**
 
 
-## Naming Conventions
+## 命名規則
 
-  - Avoid single letter names. Be descriptive with your naming.
+  - 1文字の名前は避けてください。名前で説明してください。
 
     ```javascript
     // bad
@@ -1027,7 +1027,7 @@
     }
     ```
 
-  - Use camelCase when naming objects, functions, and instances
+  - オブジェクトや関数、インスタンスにはキャメルケースを使います。
 
     ```javascript
     // bad
@@ -1046,7 +1046,7 @@
     });
     ```
 
-  - Use PascalCase when naming constructors or classes
+  - コンストラクタやクラスではパスカルケースを使います。
 
     ```javascript
     // bad
@@ -1068,7 +1068,7 @@
     });
     ```
 
-  - Use a leading underscore `_` when naming private properties
+  - プライペートプロパティではアンダースコア`_` を先頭につけます。
 
     ```javascript
     // bad
@@ -1079,7 +1079,7 @@
     this._firstName = 'Panda';
     ```
 
-  - When saving a reference to `this` use `_this`.
+  - `this` の保持には `_this` を使います。
 
     ```javascript
     // bad
@@ -1107,7 +1107,7 @@
     }
     ```
 
-  - Name your functions. This is helpful for stack traces.
+  - 関数には名前をつけてください。スタックトレースで役立ちます。
 
     ```javascript
     // bad
@@ -1121,15 +1121,15 @@
     };
     ```
 
-  - **Note:** IE8 and below exhibit some quirks with named function expressions.  See [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/) for more info.
+  - **注:** IE8 やそれ以前のブラウザでは名前付き関数にいくつかのクセがあります。詳しくは [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/) を参照してください。
 
 **[⬆ back to top](#目次)**
 
 
-## Accessors
+## アクセサー
 
-  - Accessor functions for properties are not required
-  - If you do make accessor functions use getVal() and setVal('hello')
+  - プロパティのアクセサー関数は必須ではありません。
+  - もし作る場合は getVal() や setVal('hello') のようにしてください。
 
     ```javascript
     // bad
@@ -1145,7 +1145,7 @@
     dragon.setAge(25);
     ```
 
-  - If the property is a boolean, use isVal() or hasVal()
+  - プロパティが boolean の場合は、isVal() や hasVal() とします。
 
     ```javascript
     // bad
@@ -1159,7 +1159,7 @@
     }
     ```
 
-  - It's okay to create get() and set() functions, but be consistent.
+  - get() や set() 関数は一貫性を保たせてください。
 
     ```javascript
     function Jedi(options) {
@@ -1180,9 +1180,9 @@
 **[⬆ back to top](#目次)**
 
 
-## Constructors
+## コンストラクタ
 
-  - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
+  - プロトタイプオブジェクトを上書きするのではなく、プロトタイプオブジェクトにメソッドを割り当てます。プロトタイプを上書きすると、継承ができなくなります。：プロトタイプをリセットすると、ベースを上書きしてしまいます！ 
 
     ```javascript
     function Jedi() {
@@ -1210,7 +1210,7 @@
     };
     ```
 
-  - Methods can return `this` to help with method chaining.
+  - メソッドは this を返すことでメソッドチェーンをしやすくします。
 
     ```javascript
     // bad
@@ -1245,7 +1245,7 @@
     ```
 
 
-  - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - toString() メソッドをカスタマイズするには、その影響が出ないようにしてください。
 
     ```javascript
     function Jedi(options) {
@@ -1265,9 +1265,9 @@
 **[⬆ back to top](#目次)**
 
 
-## Events
+## イベント
 
-  - When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+  - イベント（DOMイベントやバックボーンのイベントのようなより独自なもの）にデータを渡す場合は、生の値ではなくハッシュを使います。これにより次の修正者がイベントハンドラーを修正することなくデータを追加できます。
 
     ```js
     // bad
@@ -1296,12 +1296,12 @@
   **[⬆ back to top](#目次)**
 
 
-## Modules
+## モジュール
 
-  - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
-  - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
-  - Add a method called `noConflict()` that sets the exported module to the previous version and returns this one.
-  - Always declare `'use strict';` at the top of the module.
+  - モジュールは`!`で始まる必要があります。これは最後のセミコロンを付け忘れた時、製品でスクリプトが連結されてエラーとなることを防ぐためです。[説明](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
+  - ファイルはキャメルケースで命名し、同じ名前のフォルダに入れ、export と同じ名前である必要があります。 
+  - `noConflict（）` というメソッドを追加し、以前エクスポートされていたモジュールを返します。 
+  - `'use strict';` はモジュールの先頭で宣言します。
 
     ```javascript
     // fancyInput/fancyInput.js
