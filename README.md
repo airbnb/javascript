@@ -26,10 +26,9 @@
   1. [イベント](#イベント)
   1. [モジュール](#モジュール)
   1. [jQuery](#jquery)
-  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
-  1. [Testing](#testing)
-  1. [Performance](#performance)
-  1. [Resources](#resources)
+  1. [ECMAScript5の互換性](#ECMAScript5の互換性)
+  1. [パフォーマンス](#パフォーマンス)
+  1. [参考資料](#参考資料)
   1. [In the Wild](#in-the-wild)
   1. [Translation](#translation)
   1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
@@ -1329,7 +1328,7 @@
 
 ## jQuery
 
-  - Prefix jQuery object variables with a `$`.
+  - jQuery オブジェクトの変数には `$`のプリフィックスをつけます。
 
     ```javascript
     // bad
@@ -1339,7 +1338,7 @@
     var $sidebar = $('.sidebar');
     ```
 
-  - Cache jQuery lookups.
+  - jQuery の読み込みはキャッシュを使います。
 
     ```javascript
     // bad
@@ -1366,8 +1365,9 @@
     }
     ```
 
-  - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-  - Use `find` with scoped jQuery object queries.
+  - DOM のクエリーは `$('.sidebar ul')` ではなく、カスケードを使って parent > child `$('.sidebar > ul')` のように書きます。
+[jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - jQuery オブジェクトのクエリのスコープが決まっている場合は `find` を使います。
 
     ```javascript
     // bad
@@ -1389,27 +1389,13 @@
 **[⬆ back to top](#目次)**
 
 
-## ECMAScript 5 Compatibility
+## ECMAScript5の互換性
 
-  - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
-
-**[⬆ back to top](#目次)**
-
-
-## Testing
-
-  - **Yup.**
-
-    ```javascript
-    function() {
-      return true;
-    }
-    ```
+  -[Kangax](https://twitter.com/kangax/) のES5[互換表](http://kangax.github.com/es5-compat-table/)を参照ください。
 
 **[⬆ back to top](#目次)**
 
-
-## Performance
+## パフォーマンス
 
   - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
@@ -1423,7 +1409,7 @@
 **[⬆ back to top](#目次)**
 
 
-## Resources
+## 参考資料
 
 
 **Read This**
