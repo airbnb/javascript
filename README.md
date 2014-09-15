@@ -1,13 +1,13 @@
 # Airbnb JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript*
+*JavaScript における合理的なアプローチ*
 
 
-## Table of Contents
+## 目次
 
-  1. [Types](#types)
-  1. [Objects](#objects)
-  1. [Arrays](#arrays)
+  1. [型](#型)
+  1. [オブジェクト](#オブジェクト)
+  1. [配列](#配列)
   1. [Strings](#strings)
   1. [Functions](#functions)
   1. [Properties](#properties)
@@ -36,9 +36,9 @@
   1. [Contributors](#contributors)
   1. [License](#license)
 
-## Types
+## 型
 
-  - **Primitives**: When you access a primitive type you work directly on its value
+  - **プリミティブ**: プリミティブな型では直接その値にアクセスします。
 
     + `string`
     + `number`
@@ -54,7 +54,7 @@
 
     console.log(foo, bar); // => 1, 9
     ```
-  - **Complex**: When you access a complex type you work on a reference to its value
+  - **参照型**: 参照型では参照した値にアクセスします。
 
     + `object`
     + `array`
@@ -69,11 +69,11 @@
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
-## Objects
+## オブジェクト
 
-  - Use the literal syntax for object creation.
+  - オブジェクトの生成ではリテラル表現を使います。
 
     ```javascript
     // bad
@@ -83,7 +83,7 @@
     var item = {};
     ```
 
-  - Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61)
+  - 予約語を使ってはいけません。IE8で動かなくなります。 [More info](https://github.com/airbnb/javascript/issues/61)
 
     ```javascript
     // bad
@@ -99,7 +99,7 @@
     };
     ```
 
-  - Use readable synonyms in place of reserved words.
+  - 予約語を使うかわりに通じる同義語を使います。
 
     ```javascript
     // bad
@@ -120,9 +120,9 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-## Arrays
+## 配列
 
-  - Use the literal syntax for array creation
+  - 配列の生成ではリテラル表現を使います。
 
     ```javascript
     // bad
@@ -132,7 +132,7 @@
     var items = [];
     ```
 
-  - If you don't know array length use Array#push.
+  - 配列の長さがわからない場合は Array#push を使います。
 
     ```javascript
     var someStack = [];
@@ -145,7 +145,7 @@
     someStack.push('abracadabra');
     ```
 
-  - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
+  - 配列のコピーが必要なときは Array#slice を使います。 [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
     var len = items.length,
@@ -161,7 +161,7 @@
     itemsCopy = items.slice();
     ```
 
-  - To convert an array-like object to an array, use Array#slice.
+  - 配列のようなオブジェクトを配列に変換するときは Array#slice を使います。
 
     ```javascript
     function trigger() {
