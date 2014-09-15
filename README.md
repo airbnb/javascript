@@ -8,10 +8,10 @@
   1. [型](#型)
   1. [オブジェクト](#オブジェクト)
   1. [配列](#配列)
-  1. [Strings](#strings)
-  1. [Functions](#functions)
-  1. [Properties](#properties)
-  1. [Variables](#variables)
+  1. [文字列](#文字列)
+  1. [関数](#関数)
+  1. [プロパティ](#プロパティ)
+  1. [変数](#変数)
   1. [Hoisting](#hoisting)
   1. [Conditional Expressions & Equality](#conditional-expressions--equality)
   1. [Blocks](#blocks)
@@ -118,7 +118,7 @@
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 ## 配列
 
@@ -170,12 +170,12 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Strings
+## 文字列
 
-  - Use single quotes `''` for strings
+  - 文字列ではシングルコート `''` を使います。
 
     ```javascript
     // bad
@@ -191,8 +191,8 @@
     var fullName = 'Bob ' + this.lastName;
     ```
 
-  - Strings longer than 80 characters should be written across multiple lines using string concatenation.
-  - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
+  - 80文字を超える文字列は連結させて複数行に渡って書く必要があります。
+  - 注: もし過剰に連結を使うと、パフォーマンスに影響を与える可能性があります。 [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
 
     ```javascript
     // bad
@@ -210,7 +210,7 @@
       'with this, you would get nowhere fast.';
     ```
 
-  - When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+  - プログラム上で文字列を連結する場合は Array#join を使います。主にIEのために。: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
     var items,
@@ -254,12 +254,12 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Functions
+## 関数
 
-  - Function expressions:
+  - 関数:
 
     ```javascript
     // anonymous function expression
@@ -278,7 +278,7 @@
     })();
     ```
 
-  - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
+  - 関数のブロックでない箇所(if, while, etc)で関数を宣言する必要はありません。その代わりに変数に代入します。Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
   - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
@@ -298,7 +298,7 @@
     }
     ```
 
-  - Never name a parameter `arguments`, this will take precedence over the `arguments` object that is given to every function scope.
+  - `arguments` という名前のパラメータを付けることはありません。これはすべての関数スコープに与えられる `arguments` オブジェクトより優先してしまうためです。
 
     ```javascript
     // bad
@@ -312,13 +312,13 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 
-## Properties
+## プロパティ
 
-  - Use dot notation when accessing properties.
+  - プロパティへのアクセスにはドット表記を使います。
 
     ```javascript
     var luke = {
@@ -333,7 +333,7 @@
     var isJedi = luke.jedi;
     ```
 
-  - Use subscript notation `[]` when accessing properties with a variable.
+  - 変数を介してプロパティにアクセスする場合は `[]` の添字表記を使います。
 
     ```javascript
     var luke = {
@@ -348,12 +348,12 @@
     var isJedi = getProp('jedi');
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
-## Variables
+## 変数
 
-  - Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  - 変数宣言には `var` を使います。さもないとグローバル変数になってしまいます。グローバルな名前空間の汚染を防ぎましょう。キャプテン・プラネットは私達にそれを教えてくれました。
 
     ```javascript
     // bad
@@ -363,7 +363,7 @@
     var superPower = new SuperPower();
     ```
 
-  - Use one `var` declaration for multiple variables and declare each variable on a newline.
+  - 複数の変数を宣言するには改行します。
 
     ```javascript
     // bad
@@ -377,7 +377,7 @@
         dragonball = 'z';
     ```
 
-  - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+  - 最後に代入のない変数を宣言します。変数への代入がそれより前に代入した変数に与える依存しないことをわかりやすくします。
 
     ```javascript
     // bad
@@ -399,7 +399,7 @@
         i;
     ```
 
-  - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
+  - 変数の代入はスコープの先頭で行います。変数の宣言と代入によって問題が起こるのを防ぎます。
 
     ```javascript
     // bad
@@ -457,7 +457,7 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 ## Hoisting
@@ -546,7 +546,7 @@
 
   - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 
@@ -595,7 +595,7 @@
 
   - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 ## Blocks
@@ -624,7 +624,7 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 ## Comments
@@ -717,7 +717,7 @@
     }
   ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 ## Whitespace
@@ -832,7 +832,7 @@
         .call(tron.led);
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 ## Commas
 
@@ -894,7 +894,7 @@
     ];
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 ## Semicolons
@@ -923,7 +923,7 @@
 
     [Read more](http://stackoverflow.com/a/7365214/1712802).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 ## Type Casting & Coercion
@@ -1006,7 +1006,7 @@
     var hasAge = !!age;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 ## Naming Conventions
@@ -1121,7 +1121,7 @@
 
   - **Note:** IE8 and below exhibit some quirks with named function expressions.  See [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/) for more info.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 ## Accessors
@@ -1175,7 +1175,7 @@
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 ## Constructors
@@ -1260,7 +1260,7 @@
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 ## Events
@@ -1291,7 +1291,7 @@
     });
     ```
 
-  **[⬆ back to top](#table-of-contents)**
+  **[⬆ back to top](#目次)**
 
 
 ## Modules
@@ -1322,7 +1322,7 @@
     }(this);
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 ## jQuery
@@ -1384,14 +1384,14 @@
     $sidebar.find('ul').hide();
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 ## ECMAScript 5 Compatibility
 
   - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 ## Testing
@@ -1404,7 +1404,7 @@
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 ## Performance
@@ -1418,7 +1418,7 @@
   - [Long String Concatenation](http://jsperf.com/ya-string-concat)
   - Loading...
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 
 ## Resources
@@ -1478,7 +1478,7 @@
   - [Dustin Diaz](http://dustindiaz.com/)
   - [nettuts](http://net.tutsplus.com/?s=javascript)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 ## In the Wild
 
@@ -1568,6 +1568,6 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#目次)**
 
 # };
