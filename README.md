@@ -12,8 +12,8 @@
   1. [関数](#関数)
   1. [プロパティ](#プロパティ)
   1. [変数](#変数)
-  1. [Hoisting](#hoisting)
-  1. [Conditional Expressions & Equality](#conditional-expressions--equality)
+  1. [変数巻き上げ(ホイスティング)](#変数巻き上げ(ホイスティング))
+  1. [条件式・等価式](#条件式・等価式)
   1. [Blocks](#blocks)
   1. [Comments](#comments)
   1. [Whitespace](#whitespace)
@@ -281,6 +281,8 @@
   - 関数のブロックでない箇所(if, while, etc)で関数を宣言する必要はありません。その代わりに変数に代入します。Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
   - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
+//TODO
+
     ```javascript
     // bad
     if (currentUser) {
@@ -460,9 +462,9 @@
 **[⬆ back to top](#目次)**
 
 
-## Hoisting
+## 変数巻き上げ(ホイスティング)
 
-  - Variable declarations get hoisted to the top of their scope, their assignment does not.
+  - 変数の宣言はそのスコープの先頭に巻き上げが行われ、代入されない。
 
     ```javascript
     // we know this wouldn't work (assuming there
@@ -490,7 +492,7 @@
     }
     ```
 
-  - Anonymous function expressions hoist their variable name, but not the function assignment.
+  - 匿名の関数は関数として代入されず、変数名として巻き上げが行われる。
 
     ```javascript
     function example() {
@@ -504,7 +506,7 @@
     }
     ```
 
-  - Named function expressions hoist the variable name, not the function name or the function body.
+  - 名前付きの関数は関数名ではなく変数名や関数本体として巻き上げが行われる。
 
     ```javascript
     function example() {
@@ -532,7 +534,7 @@
     }
     ```
 
-  - Function declarations hoist their name and the function body.
+  - 関数の宣言は名前や関数本体として巻き上げが行われる。
 
     ```javascript
     function example() {
@@ -544,23 +546,23 @@
     }
     ```
 
-  - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/)
+  - より深く知りたい場合は右を参照。 [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/) 
 
 **[⬆ back to top](#目次)**
 
 
 
-## Conditional Expressions & Equality
+## 条件式・等価式
 
-  - Use `===` and `!==` over `==` and `!=`.
-  - Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
+  - `==` や `!=` ではなく、 `===` や `!==` を使う。
+  - 条件式は`ToBoolean`メソッドで強制的に評価されるので、常に後述の単純なルールに従います。
 
-    + **Objects** evaluate to **true**
-    + **Undefined** evaluates to **false**
-    + **Null** evaluates to **false**
-    + **Booleans** evaluate to **the value of the boolean**
-    + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
-    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+    + **Objects** は **true**
+    + **Undefined** は **false**
+    + **Null** は **false**
+    + **Booleans** は **boolean の値**
+    + **Numbers** は基本的に **true**,  **+0, -0, or NaN** では **false**
+    + **Strings** は基本的に **true** 空文字(`''`)では **false**
 
     ```javascript
     if ([0]) {
@@ -569,7 +571,7 @@
     }
     ```
 
-  - Use shortcuts.
+  - 省略を使う。
 
     ```javascript
     // bad
@@ -593,7 +595,7 @@
     }
     ```
 
-  - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
+  - より深く知りたい場合は右を参照。 [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
 
 **[⬆ back to top](#目次)**
 
