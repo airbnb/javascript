@@ -2,6 +2,8 @@
 
 *A mostly reasonable approach to JavaScript*
 
+## Usage
+
 
 ## <a name='TOC'>Table of Contents</a>
 
@@ -162,73 +164,6 @@
     var fullName = 'Bob ' + this.lastName;
     ```
 
-  - Strings longer than 80 characters should be written across multiple lines using string concatenation.
-  - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
-
-    ```javascript
-    // bad
-    var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
-
-    // bad
-    var errorMessage = 'This is a super long error that \
-    was thrown because of Batman. \
-    When you stop to think about \
-    how Batman had anything to do \
-    with this, you would get nowhere \
-    fast.';
-
-
-    // good
-    var errorMessage = 'This is a super long error that ' +
-      'was thrown because of Batman.' +
-      'When you stop to think about ' +
-      'how Batman had anything to do ' +
-      'with this, you would get nowhere ' +
-      'fast.';
-    ```
-
-  - When programatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
-
-    ```javascript
-    var items,
-        messages,
-        length, i;
-
-    messages = [{
-        state: 'success',
-        message: 'This one worked.'
-    },{
-        state: 'success',
-        message: 'This one worked as well.'
-    },{
-        state: 'error',
-        message: 'This one did not work.'
-    }];
-
-    length = messages.length;
-
-    // bad
-    function inbox(messages) {
-      items = '<ul>';
-
-      for (i = 0; i < length; i++) {
-        items += '<li>' + messages[i].message + '</li>';
-      }
-
-      return items + '</ul>';
-    }
-
-    // good
-    function inbox(messages) {
-      items = [];
-
-      for (i = 0; i < length; i++) {
-        items[i] = messages[i].message;
-      }
-
-      return '<ul><li>' + items.join('</li><li>') + '</li></ul>';
-    }
-    ```
 
     **[[⬆]](#TOC)**
 
@@ -242,12 +177,12 @@
     $el.on('click', function () {
       return true;
     });
-    
+
     // optional name to aid debugging with stack traces
     $el.on('click', function elClick() {
       return true;
     });
-    
+
     // anonymous function as method
     MyObject.prototype.isTrue = function () {
       return true;
@@ -258,9 +193,9 @@
       console.log('Welcome to the Internet. Please follow me.');
     })();
     ```
-    
+
   - Function declarations:
- 
+
     ```javascript
     // use a named declaration when appropriate mainly
     // for internal helper logic and organization
@@ -965,7 +900,7 @@
     // bad
     this.__firstName__ = 'Panda';
     this.firstName_ = 'Panda';
-    
+
     // good
     this._firstName = 'Panda';
     ```
