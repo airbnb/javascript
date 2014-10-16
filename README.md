@@ -117,7 +117,23 @@
       type: 'alien'
     };
     ```
+  - Object declarations can be made on a single line if they are short. When an object declaration is too long to fit on one line, there must be one property per line.
 
+    ```javascript
+    // bad
+    var map = { ready: 9,
+    when: 4, "you are": 15 };
+
+    // good
+    var map = { ready: 9, when: 4, "you are": 15 };
+
+    // good as well
+    var map = {
+      ready: 9,
+      when: 4,
+      "you are": 15
+    };
+    ```
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrays
@@ -1504,6 +1520,7 @@
   - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
   - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
   - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript)
+  - **InfoJobs**: [InfoJobs/JavaScript-Style-Guide](https://github.com/InfoJobs/JavaScript-Style-Guide)
   - **Intent Media**: [intentmedia/javascript](https://github.com/intentmedia/javascript)
   - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
   - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
