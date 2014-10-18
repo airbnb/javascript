@@ -923,6 +923,8 @@
 
     [Read more about semicolons and IIFEs](http://stackoverflow.com/a/7365214/1712802).
 
+    [Read more about semicolon usage](http://www.choskim.me/when-to-use-semicolons-in-javascript/).
+
 **[⬆ back to top](#table-of-contents)**
 
 
