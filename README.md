@@ -529,7 +529,7 @@
       return false;
     }
 
-    // bad
+    // good
     function () { return false; }
 
     // good
