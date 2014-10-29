@@ -117,7 +117,23 @@
       type: 'alien'
     };
     ```
+  - Object declarations can be made on a single line if they are short. When an object declaration is too long to fit on one line, there must be one property per line.
 
+    ```javascript
+    // bad
+    var map = { ready: 9,
+    when: 4, "you are": 15 };
+
+    // good
+    var map = { ready: 9, when: 4, "you are": 15 };
+
+    // good as well
+    var map = {
+      ready: 9,
+      when: 4,
+      "you are": 15
+    };
+    ```
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrays
@@ -1075,6 +1091,26 @@
 
     // good
     this._firstName = 'Panda';
+    ```
+  - Use hungarianNotation when naming vars
+
+    ```javascript
+    var sName = 'John';
+    var sSurname  = 'Summers';
+    var sFullName = sName + ' ' + sSurname;
+    var nIndexNumbers = 0;
+    var oNewYorkCity = { id: 1, population: '5M', shortName: 'NY' };
+    var aNumbers = [ 1, 2, 3, 4 ];
+    var dStart = new Date();
+    var reEscapeBacklash = new RegExp(/\\/, '\\\\');
+    var elItem1 = document.getElementById('item1');
+    var $Item1 = $('#item1');
+    var fnMultiply = function multiply(nMultiplier) {
+        return nMultiplier * nMultiplier;
+    };
+    var fTaxesPercentage = 0.21;
+    var erEmptyMessage = new Error('Message is empty!');
+    var bIsIndexNumberGreaterThanZero = d > 0 ? true : false;
     ```
 
   - When saving a reference to `this` use `_this`.
