@@ -33,6 +33,7 @@
   1. [In the Wild](#in-the-wild)
   1. [Translation](#translation)
   1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
+  1. [Chat With Us About Javascript](#chat-with-us-about-javascript)
   1. [Contributors](#contributors)
   1. [License](#license)
 
@@ -1546,6 +1547,10 @@
 ## The JavaScript Style Guide Guide
 
   - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
+
+## Chat With Us About JavaScript
+
+  - Find us on [gitter](https://gitter.im/airbnb/javascript).
 
 ## Contributors
 
