@@ -1,4 +1,4 @@
-# Airbnb Dobre Praktyki JavaScriptu() {
+# Dobre Praktyki JavaScriptu by Airbnb() {
 
 *Najbardziej sensowne podejście do programowania w JavaScript'cie*
 
@@ -39,7 +39,7 @@
 
 ## Typy
 
-  - **Typy Prymitywne**: Kiedy operujesz na prymitywach, działasz bezpośrednio na ich wartościach
+  - **Typy prymitywne**: Kiedy operujesz na prymitywach, działasz bezpośrednio na ich wartościach. Zmienne prymitywne to:
 
     + `string`
     + `number`
@@ -55,7 +55,7 @@
 
     console.log(foo, bar); // => 1, 9
     ```
-  - **Typy złożone**: Pracując ze zmienną o złożonym typie, modyfikujesz wartość schowaną za referencją/wskaźnikiem
+  - **Typy złożone**: Pracując ze zmienną o złożonym typie, modyfikujesz wartość schowaną za referencją/wskaźnikiem. Zmienne zlożone to:
 
     + `object`
     + `array`
@@ -74,7 +74,7 @@
 
 ## Obiekty
 
-  - Używaj klamerek do tworzenia nowych obiektów, zamiast konstruktorów.
+  - Zamiast konstruktorów i `new`, używaj klamerek do tworzenia nowych obiektów.
 
     ```javascript
     // źle
@@ -84,7 +84,7 @@
     var item = {};
     ```
 
-  - Nie używaj [słów kluczowych JavaScriptu](http://es5.github.io/#x7.6.1) jako nazw w tablicach/obiektach. Nie będą działać pod IE8. [Więcej info](https://github.com/airbnb/javascript/issues/61)
+  - Nie używaj [słów kluczowych JavaScriptu](http://es5.github.io/#x7.6.1) jako nazw pól w tablicach i obiektach. Nie będą działać pod IE8. [Więcej info](https://github.com/airbnb/javascript/issues/61).
 
     ```javascript
     // źle
@@ -100,7 +100,7 @@
     };
     ```
 
-  - Zamiast słów kluczowych użyj sensownych synonimów.
+  - Zamiast słów kluczowych używaj sensownych synonimów.
 
     ```javascript
     // źle
@@ -133,7 +133,7 @@
     var items = [];
     ```
 
-  - Jeżeli nie znasz długości tablicy, dodawaj do niej elementy przy pomocy Array#push.
+  - Jeżeli nie znasz długości tablicy, dodawaj do niej elementy przy pomocy metody Array#push.
 
     ```javascript
     var someStack = [];
@@ -146,7 +146,7 @@
     someStack.push('abracadabra');
     ```
 
-  - Do kopiowania tablic używaj Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
+  - Do kopiowania tablic używaj metody Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
     var len = items.length,
@@ -162,7 +162,7 @@
     itemsCopy = items.slice();
     ```
 
-  - Żeby zamienić tablico-podobny obiekt w tablicę, użyj Array#slice.
+  - Aby zamienić tablico-podobny obiekt w tablicę, używaj metody Array#slice.
 
     ```javascript
     function trigger() {
@@ -176,7 +176,7 @@
 
 ## Stringi
 
-  - Do tekstu używaj pojedynczego cudysłowu.
+  - Używaj pojedynczego cudysłowu podczas zapisywania String'ów.
 
     ```javascript
     // źle
@@ -192,8 +192,8 @@
     var fullName = 'Bob ' + this.lastName;
     ```
 
-  - Tekst dłuższy niż 80 znaków powinieneś zapisywać dzieląc go na kilka osobnych lini..
-  - Jedna uwaga: Przy nadmiernym stosowaniu, łączone String'i mogą wpływać negatywnie na działanie skryptu. [jsPerf](http://jsperf.com/ya-string-concat) & [Dyskusja na GitHub](https://github.com/airbnb/javascript/issues/40)
+  - Tekst dłuższy niż 80 znaków powinieneś zapisywać dzieląc go na kilka osobnych linii.
+  - Jedna uwaga: Przy nadmiernym stosowaniu powyższej zasady, łączone String'i mogą wpływać negatywnie na działanie aplikacji. [jsPerf](http://jsperf.com/ya-string-concat) & [Dyskusja na GitHub](https://github.com/airbnb/javascript/issues/40)
 
     ```javascript
     // źle
@@ -211,7 +211,7 @@
       'with this, you would get nowhere fast.';
     ```
 
-  - Kiedy tworzysz w kodzie długi tekst z kilku mniejszych, używaj funkcji Array#join zamiast dodawać String'i przy pomocy operatora. Głównie ze względu na IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+  - Kiedy tworzysz w kodzie długi tekst z kilku mniejszych, używaj metody Array#join zamiast dodawać Stringi przy pomocy operatora. Głównie ze względu na działanie pod IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
     var items,
@@ -260,7 +260,7 @@
 
 ## Funkcje
 
-  - Sposoby zapisu funkcji:
+  - Sposoby zapisu funkcji w JavaScript'cie:
 
     ```javascript
     // funkcja anonimowa
@@ -279,7 +279,7 @@
     })();
     ```
 
-  - Nigdy nie deklaruj nowej funkcji w bloku warunkowym ani iteracyjnym (if, while, itp). Zamiast tego zapisz funkcję przy pomocy zmiennej. Przeglądarki pozwolą Ci na takie deklarowanie, ale każda będzie interpretowała to na swój sposób.
+  - Nigdy nie deklaruj nowej funkcji w bloku warunkowym ani iteracyjnym (if, while itp).  Przeglądarki pozwolą Ci na takie deklarowanie, ale każda będzie interpretowała to na swój sposób. Zamiast tego zapisuj funkcje przy pomocy zmiennej.
   - **Note:** ECMA-262 definiuje blok jako listę komend. Deklaracja funkcji to nie komenda. [Więcej o ECMA-262's i tym problemie](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
@@ -299,17 +299,17 @@
     }
     ```
 
-  - Nie dawaj żadnej z funkcji argumentu o nazwie 'arguments'. Jest to jeden z domyślnie tworzonych parametrów dla każdej nowej funkcji i nie powinieneś go nadpisywać, zmieniać jego zachowania ani wartości.
+  - Nie nadawaj żadnej funkcji argumentu o nazwie 'arguments'. Jest to jeden z domyślnie tworzonych parametrów dla każdej nowej funkcji i nie powinieneś go nadpisywać, zmieniać jego zachowania ani wartości.
 
     ```javascript
     // źle
     function nope(name, options, arguments) {
-      // ...stuff...
+      // ...kod...
     }
 
     // dobrze
     function yup(name, options, args) {
-      // ...stuff...
+      // ...kod...
     }
     ```
 
@@ -354,7 +354,7 @@
 
 ## Zmienne
 
-  - Zawsze używaj słowa kluczowego 'var', aby tworzyć nowe zmienne. W przeciwnym wypadku będą one automatycznie przypisywane do zasięgu globalnego i mogą namieszać w aplikacji. Unikaj zmiennych globalnych zawsze, gdy jest ile to możliwe.
+  - Zawsze używaj słowa kluczowego 'var', aby tworzyć nowe zmienne. W przeciwnym wypadku będą one automatycznie przypisywane do bloku globalnego i mogą namieszać w aplikacji. Unikaj zmiennych globalnych zawsze, gdy jest to możliwe.
 
     ```javascript
     // źle
@@ -364,7 +364,7 @@
     var superPower = new SuperPower();
     ```
 
-  - Jeżeli tworzysz kilka zmiennych, użyj do tego jednego słówka 'var', a kolejne zmienne oddzielaj przecinkami i enterami.
+  - Jeżeli tworzysz kilka zmiennych, używaj do tego pojedynczego słówka 'var', a kolejne zmienne dodawaj w nowych linijkach, oddzielając jest przecinkami.
 
     ```javascript
     // źle
@@ -378,7 +378,7 @@
         dragonball = 'z';
     ```
 
-  - Zmienne niezdefiniowane deklaruj na końcu. Dzięku temu będziesz miał zawsze możliwość nadania im wartości na bazie wcześniej utworzonych zmiennych.
+  - Niezdefiniowane zmienne deklaruj na końcu. Dzięku temu będziesz miał zawsze możliwość nadania im wartości na bazie wcześniej utworzonych zmiennych.
 
     ```javascript
     // źle
@@ -400,7 +400,7 @@
         i;
     ```
 
-  - Nowe zmienne deklaruj zawsze na początku ich zakresu (scope). JavaScript w przeciwnym razie zrobi to za Ciebie, a to może doprowadzić do niespodziewanych błędów ( Więcej w części Hoisting ).
+  - Nowe zmienne deklaruj zawsze na początku bloku w którym je tworzysz ( na początku scope'a ). JavaScript w przeciwnym razie przeniesie je tam za Ciebie 'w tle', a to może doprowadzić do niespodziewanych błędów ( Więcej w części - Hoisting ).
 
     ```javascript
     // źle
@@ -408,7 +408,7 @@
       test();
       console.log('doing stuff..');
 
-      //..other stuff..
+      //..kod..
 
       var name = getName();
 
@@ -426,7 +426,7 @@
       test();
       console.log('doing stuff..');
 
-      //..other stuff..
+      //..kod..
 
       if (name === 'test') {
         return false;
@@ -463,7 +463,7 @@
 
 ## Hoisting
 
-  - Deklaracje zmiennych są automatycznie przenoszone przez JavaScript na początek ich zakresu. Definicje, przypisywane wartości, nie są przenoszone. Dla osób z doświadczeniem z języków C++/Java może się to wydać z początku nielogiczne.
+  - Deklaracje zmiennych są automatycznie przenoszone przez JavaScript na początek bloku w którym zostały utworzone i w którym działają - tzw. scope'a. Przypisywane wartości nie są przenoszone. Dla osób, które zwykle używały języków C++/Java może się to wydać z początku lekko nielogiczne, ponieważ JavaScript pozwala na użycie zmiennej, która w danym miejscu w kodzie jeszcze nie istnieje.
 
     ```javascript
     // to nie powinno zadziałać (o ile tylko
@@ -492,8 +492,8 @@
     ```
 
   - Anonimowe funkcje zapisane w zmiennych działają na podobnej zasadzie. Ich nazwa zostaje
-    przeniesiona na początek zakresu, a sama wartość, wnętrze funkcji, pozostaje na swoim
-    miejscu w kodzie.
+    przeniesiona na początek scope'a, a sama wartość, tj. wnętrze funkcji, pozostaje na swoim
+    miejscu.
 
     ```javascript
     function example() {
@@ -507,8 +507,8 @@
     }
     ```
 
-  - Funkcje zapisane w zmiennych, posiadające swoją własną nazwę, tracą ją. Na początek zakresu
-    wyniesiona zostaje nazwa zmiennej, do której funkcja została przypisana.
+  - Funkcje zapisane w zmiennych, posiadające swoją własną nazwę, tracą ją. Na początek scope'a
+    wyniesiona zostaje nazwa zmiennej do której funkcja została przypisana.
 
     ```javascript
     function example() {
@@ -525,7 +525,8 @@
 
     // to samo dotyczy funkcji, których
     // nazwa jest taka sama jak nazwa
-    // okupowanej zmiennej
+    // okupowanej zmiennej - ale to
+    // w miarę logiczne
     function example() {
       console.log(named); // => undefined
 
@@ -537,7 +538,7 @@
     }
     ```
 
-  - Funkcje nieprzypisane do zmiennych zostają automatycznie wyniesione na początek zakresu.
+  - Funkcje nieprzypisane do zmiennych zostają automatycznie wyniesione na początek scope'a.
 
     ```javascript
     function example() {
@@ -549,7 +550,7 @@
     }
     ```
 
-  - Więcej informacji na temat działania JavaScriptu, zakresów i hoistingu: [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/)
+  - Więcej informacji na temat działania JavaScriptu, scope'ów i hoistingu: [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/)
 
 **[⬆ na górę](#table-of-contents)**
 
@@ -558,14 +559,14 @@
 ## Warunki i równości
 
   - Używaj `===` i `!==` zamiast `==` i `!=`.
-  - Wyrażenia warunkowe zawsze rzutowane są przy pomocy toBoolean, którego zasady działania wyglądają następująco:
+  - Wyrażenia warunkowe zawsze rzutowane są przy pomocy metody toBoolean(), której zasada działania wyglądaja następująco:
 
     + **Jakikolwiek Obiekt** równy jest **true**
     + **Undefined** równe jest **false**
     + **Null** równe jest **false**
-    + **Boolean** równy jest **wartości zmiennej**
-    + **Liczby**  **false** jeżeli **+0, -0, lub NaN**, w przeciwnym razie **true**
-    + **String'i** równe są **false** jeżeli są puste `''`, w przeciwnym razie **true**
+    + **Boolean** równy jest **swojej wartości**
+    + **Liczby** -  **false** jeżeli **+0, -0, lub NaN**, w przeciwnym razie **true**
+    + **Stringi** równe są **false** jeżeli są puste `''`, w przeciwnym razie **true**
 
     ```javascript
     if ([0]) {
@@ -574,27 +575,27 @@
     }
     ```
 
-  - Streszczaj się i korzystaj z dostępnych skrótów zapisu.
+  - Staraj się zapisywać warunki w jak najkrótszej formie, jeżeli jest to możliwe.
 
     ```javascript
     // źle
     if (name !== '') {
-      // ...komendy...
+      // ...kod...
     }
 
     // dobrze
     if (name) {
-      // ...komendy...
+      // ...kod...
     }
 
     // źle
     if (collection.length > 0) {
-      // ...komendy...
+      // ...kod...
     }
 
     // dobrze
     if (collection.length) {
-      // ...komendy...
+      // ...kod...
     }
     ```
 
@@ -605,7 +606,7 @@
 
 ## Bloki kodu
 
-  - Jeżeli twój blok ma więcej niż jedną linijkę kodu, użyj klamerek.
+  - Jeżeli twój kod ma więcej niż jedną linijkę, obejmij go klamerkami.
 
     ```javascript
     // źle
@@ -634,8 +635,8 @@
 
 ## Komentarze
 
-  - Do długich, kilku wierszowych komentarzy używaj zapisu `/** ... */`. Podaj w nich opis, zdefiniuj użyte typy zmiennych, argumenty funkcji i zwracane wartości.
-
+  - Do długich, kilkuwierszowych komentarzy używaj zapisu `/** ... */`. W komentarzach zawieraj takie informacje jak: krótki opis, listę użytych typów zmiennych, argumenty funkcji i zwracane wartości.
+kod
     ```javascript
     // źle
     // make() zwraca nowy element
@@ -645,7 +646,7 @@
     // @return <Element> element
     function make(tag) {
 
-      // ...komendy...
+      // ...kod...
 
       return element;
     }
@@ -660,13 +661,13 @@
      */
     function make(tag) {
 
-      // ...komendy...
+      // ...kod...
 
       return element;
     }
     ```
 
-  - Zapisu `//` używaj do krótkich, jedno-linijkowych komentarzy. Komentarz umieszczaj linijkę ponad opisywanym elementem. Nad komentarzem dodaj też jeden enter, dla czytelności.
+  - Zapisu `//` używaj do krótkich, jednolinijkowych komentarzy. Komentarze umieszczaj linijkę ponad opisywanymi elementami. Nad komentarzami dodawaj też jedną pustą linijkę, dla czytelności.
 
     ```javascript
     // źle
@@ -695,7 +696,7 @@
       return type;
     }
     ```
-  - Jeżeli chcesz zaznaczyć błąd, który trzeba będzie w przyszłości poprawić, używaj prefiksu 'FIXME'. Do oznaczenia pomysłów, które mogą poczekać na swoją kolej, używaj 'TODO'. Pomoże to innym programistom w odszukaniu i zrozumieniu tych komentarzy. Takie specjalne znaczniki działają inaczej niż zwykłe komentarze, nie niosą ze sobą informacji, a raczej ogłoszenie dla innych programistów. Przykładowo 'FIXME -- trzeba to później rozkminić' lub 'TODO -- trzeba by tutaj to dodać'.
+  - Aby oznaczyć błędy, które trzeba będzie w przyszłości poprawić, używaj prefiksu 'FIXME'. Do oznaczania pomysłów, które mogą poczekać na swoją kolej, używaj 'TODO'. Pomoże to innym programistom w odszukaniu i zrozumieniu Twoich komentarzy. Takie specjalne znaczniki działają inaczej niż zwykłe komentarze. Nie niosą ze sobą konkretnych informacji, a raczej stanowią ogłoszenia dla innych programistów pracujących nad projektem. Przykładowo 'FIXME -- trzeba to później rozkminić' lub 'TODO -- trzeba by tutaj to dodać'.
 
   - Używaj `// FIXME:`, aby oznaczyć problemy w kodzie
 
@@ -738,14 +739,14 @@
     function() {
     ∙var name;
     }
-
+kod
     // dobrze
     function() {
     ∙∙var name;
     }
     ```
 
-  - Dodawaj pojedynczą spację przed rozpoczynającymi klamrami.
+  - Dodawaj pojedynczą spację przed rozpoczynającymi blok klamrami.
 
     ```javascript
     // źle
@@ -786,14 +787,14 @@
     ```javascript
     // źle
     (function(global) {
-      // ...komendy...
+      // ...kod...
     })(this);
     ```
 
     ```javascript
     // źle
     (function(global) {
-      // ...komendy...
+      // ...kod...
     })(this);↵
     ↵
     ```
@@ -801,11 +802,11 @@
     ```javascript
     // dobrze
     (function(global) {
-      // ...komendy...
+      // ...kod...
     })(this);↵
     ```
 
-  - Jeżeli chain'ujesz metody wywołane na jednym elemencie, rozdziel je przy pomocy enterów i spacji.
+  - Chain'ując metody wywołane na jednym elemencie, rozdzielaj je przy pomocy nowych linii i spacji.
 
     ```javascript
     // źle
@@ -870,7 +871,7 @@
     };
     ```
 
-  - **Nie** dodawaj po ostatnim elemencie w tablicy przecinka. Może to wywołać błędy w starszych wersjach IE. W niektórych wersjach ES3 powiększy to również tablicę o jeden, niezidentyfikowany element - ten błąd nie dotyczy ES5 ([źródło](http://es5.github.io/#D)):
+  - **Nie** dodawaj przecinka po ostatnim elemencie w tablicy. Może to wywołać błędy w starszych wersjach IE. W niektórych implementacjach ES3 powiększy to również tablicę o jeden niezidentyfikowany element - ten błąd nie dotyczy ES5 ([źródło](http://es5.github.io/#D)):
 
   > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
 
@@ -918,7 +919,7 @@
       return name;
     })();
 
-    // dobrze (taki zapis zapewnia poprawne działanie funkcji przed i po minimalizacji kodu przy pomocy np. Grunt'a)
+    // dobrze (taki zapis zapewnia poprawne działanie funkcji przed i po minimalizacji kodu przy pomocy np. Grunt'a, concat'a itp.)
     ;(function() {
       var name = 'Skywalker';
       return name;
@@ -933,7 +934,7 @@
 ## Rzutowania i korekcje typów
 
   - Jeżeli to konieczne, dokonuj korekcji typu na początku wyrażenia.
-  - String:
+  - Rzutowanie Stringów:
 
     ```javascript
     //  => this.reviewScore = 9;
@@ -951,7 +952,7 @@
     var totalScore = this.reviewScore + ' total score';
     ```
 
-  - Używaj `parseInt` dla zmiennych numerycznych i zawsze podawaj podstawę systemu liczbowego.
+  - Rzutowanie liczb. Używaj `parseInt` do zmiennych numerycznych i zawsze podawaj podstawę systemu liczbowego użytego podczas rzutowania.
 
     ```javascript
     var inputValue = '4';
@@ -975,19 +976,19 @@
     var val = parseInt(inputValue, 10);
     ```
 
-  - Jeżeli tworzysz akurat maszynę kwantową i niestety parseInt nie spełnia Twoich oczekiwań pod względem optymalizacji, posłuż się przesunięciem bitowym, [są ku temu powody](http://jsperf.com/coercion-vs-casting/3), ale koniecznie pozostaw komentarz czemu to zrobiłeś.
+  - Jeżeli tworzysz akurat maszynę kwantową i niestety `parseInt` nie spełnia Twoich oczekiwań pod względem optymalizacji, posłuż się przesunięciem bitowym. [Są ku temu powody](http://jsperf.com/coercion-vs-casting/3), ale koniecznie pozostaw komentarz czemu to zrobiłeś.
 
     ```javascript
     // dobrze
     /**
      * parseInt sprawiało, że program lagował.
-     * Przesunięcie bitower Stringa koryguje
+     * Przesunięcie bitowe Stringa koryguje
      * typ zmiennej i zachowuje szybkość działania.
      */
     var val = inputValue >> 0;
     ```
 
-  - **Note:** Uważaj z rzutowaniem przez przesunięcie bitowe, jeżeli nie masz doświadczenia. Liczby przedstawione są w systemie jako [wartości 64-bitowe](http://es5.github.io/#x4.3.19), ale przesunięcia w JavaScript'cie zwracają zawsze 32-bitową liczbę ([źródło](http://es5.github.io/#x11.7)). Przesunięcia mogą przez to zachowywać się w dziwny sposób na liczbach przekraczających 32-bity. [Dyskusja na temat](https://github.com/airbnb/javascript/issues/109). Największa liczba 32-bitowa to 2,147,483,647:
+  - **Note:** Uważaj z rzutowaniem poprzez przesunięcie bitowe, jeżeli nie masz doświadczenia. Liczby przedstawione są w systemie jako [wartości 64-bitowe](http://es5.github.io/#x4.3.19), ale przesunięcia w JavaScript'cie zwracają zawsze 32-bitową liczbę ([źródło](http://es5.github.io/#x11.7)). Przesunięcia mogą przez to zachowywać się w dziwny sposób na liczbach przekraczających 32-bity ( [Dyskusja na temat](https://github.com/airbnb/javascript/issues/109) ). Największa liczba 32-bitowa to 2,147,483,647. Przykładowe przesunięcia i ich wyniki:
 
     ```javascript
     2147483647 >> 0 //=> 2147483647
@@ -995,7 +996,7 @@
     2147483649 >> 0 //=> -2147483647
     ```
 
-  - Booleany:
+  - Rzutowanie Booleanów:
 
     ```javascript
     var age = 0;
@@ -1015,17 +1016,17 @@
 
 ## Nazwy zmiennych i funkcji
 
-  - Unikaj jedno-znakowych nazw. Staraj się w nazwie zawrzeć zastosowanie tworzonej funkcji/zmiennej.
+  - Unikaj jednoznakowych nazw. Staraj się w nazwie zawrzeć skrócony opis funkcjonalności tworzonej funkcji lub zmiennej.
 
     ```javascript
     // źle
     function q() {
-      // ...stuff...
+      // ...kod...
     }
 
     // dobrze
     function query() {
-      // ..stuff..
+      // ..kod..
     }
     ```
 
@@ -1070,7 +1071,7 @@
     });
     ```
 
-  - Zmienne prywatne oznaczaj podkreśleniem `_`
+  - Zmienne prywatne oznaczaj podkreśleniem `_`.
 
     ```javascript
     // źle
@@ -1123,14 +1124,14 @@
     };
     ```
 
-  - **Note:** IE8 i starsze wersje mogą się trochę dziwnie zachowywać, jeżeli zastosujesz powyższą zasadę. Więcej na temat [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/)
+  - **Note:** IE8 i starsze wersje mogą się trochę dziwnie zachowywać, jeżeli zastosujesz powyższą zasadę. Więcej na temat [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/).
 
 **[⬆ do góry](#table-of-contents)**
 
 
 ## Gettery i settery
 
-  - Akcesory nie są wymagane przy dostępie do własności.
+  - Akcesory nie są wymagane przy dostępie do parametrów obiektów.
   - Jeżeli tworzysz akcesory używaj formatu getVal() i setVal('hello').
 
     ```javascript
@@ -1147,7 +1148,7 @@
     dragon.setAge(25);
     ```
 
-  - Jeżeli zmienna do której się odnosisz to boolean, użyj isVal() lub hasVal().
+  - Jeżeli zmienna do której się odnosisz to boolean, używaj isVal() lub hasVal().
 
     ```javascript
     // źle
@@ -1161,7 +1162,7 @@
     }
     ```
 
-  - get() i set() są w porządku o ile używasz ich w czytelny sposób.
+  - get() i set() są w porządku, o ile używasz ich w czytelny sposób.
 
     ```javascript
     function Jedi(options) {
@@ -1184,7 +1185,7 @@
 
 ## Konstruktory
 
-  - Zamiast nadpisywać prototype nowym obiektem, dodawaj do niego metody pojedynczo. Nadpisywanie prototype sprawia, że dziedziczenie staje się niemożliwe, a prototypowanie traci swój sens.
+  - Zamiast nadpisywać `prototype` nowym obiektem, dodawaj do niego pojedyncze metody. Nadpisywanie `prototype` sprawia, że dziedziczenie staje się niemożliwe, a prototypowanie traci swój sens.
 
     ```javascript
     function Jedi() {
@@ -1247,7 +1248,7 @@
     ```
 
 
-  - Tworzenie własnej wersji konwertera toString() jest ok, tylko upewnij się, że Twoja metoda działać będzie w odpowiedni sposób i nie spowoduje bałąganu w kodzie.
+  - Tworzenie własnej wersji konwertera toString() jest ok, jednak upewnij się, że Twoja metoda będzie działać w odpowiedni sposób i nie spowoduje bałąganu w kodzie.
 
     ```javascript
     function Jedi(options) {
@@ -1269,7 +1270,7 @@
 
 ## Eventy
 
-  - Wywołując event w aplikacji, utwórz nowy obiekt na parametry eventu i dopiero w nim dodaj swoje zmienne, które chcesz wysłać. Dzięki temu kolejni współtwórcy aplikacji będą mogli bezproblemowo dodawać własne wartości do eventu, bez obaw, że nadpiszą Twoje zmienne. Przykładowo:
+  - Wywołując event w aplikacji, utwórz nowy obiekt dla parametrów eventu i dopiero w nim dodaj zmienne, które chcesz wysłać. Dzięki temu kolejni programiści aplikacji będą mogli dodawać własne wartości do eventu, bez obaw, że nadpiszą Twoje zmienne. Przykładowo:
 
     ```js
     // źle
@@ -1282,7 +1283,7 @@
     });
     ```
 
-    Zamiast tego lepiej jest użyć tej formy:
+    Zamiast tego lepiej jest używać tej formy:
 
     ```js
     // dobrze
@@ -1300,10 +1301,10 @@
 
 ## Moduły
 
-  - Deklarację modułu rozpoczynaj znakiem `!`. Zapewnia to poprawne działanie modułu w każdych  warunkach, również po połączeniu skryptu z plikiem w którym, przykładowo, brakuje średnika na końcu innego modułu. [Wytłumaczenie](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
-  - Pliki nazywaj stosując sposób zapisu camelCase. Moduł powinien znajdować się w pliku o odpowiadającej nazwie, w odpowiadającym folderze. Powinien również pasować do jednej, unikalnej referencji globalnej.
-  - W module zawsze dodawaj metodę `noConflict()`, która odrzuca Twój moduł i nadpisuje go innym, istniejącym w aplikacji odpowiednikiem. 
-  - Zawsze dodawaj 'use strict;' w nagłówku swojego modułu.
+  - Deklarację modułu rozpoczynaj znakiem `!`. Zapewnia to poprawne działanie modułu w każdych  warunkach, również po połączeniu skryptu z plikiem w którym, przykładowo, brakuje średnika na końcu innego modułu. [Wytłumaczenie](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933).
+  - Pliki nazywaj stosując sposób zapisu camelCase. Moduły powinny znajdować się w plikach o odpowiadającej im nazwie, w odpowiadającym im folderom. Każdy moduł powinien również posiadać jedną, unikalną, globalną referencję - jeżeli jest ona potrzebna.
+  - W modułach zawsze dodawaj metodę `noConflict()`, która odrzuca moduł i nadpisuje go innym, istniejącym w aplikacji odpowiednikiem. 
+  - Zawsze dodawaj 'use strict;' w nagłówkach swoich modułów.
 
     ```javascript
     // fancyInput/fancyInput.js
@@ -1348,7 +1349,7 @@
     function setSidebar() {
       $('.sidebar').hide();
 
-      // ...komendy...
+      // ...kod...
 
       $('.sidebar').css({
         'background-color': 'pink'
@@ -1360,7 +1361,7 @@
       var $sidebar = $('.sidebar');
       $sidebar.hide();
 
-      // ...komendy...
+      // ...kod...
 
       $sidebar.css({
         'background-color': 'pink'
@@ -1368,8 +1369,8 @@
     }
     ```
 
-  - Ograniczaj zakres poszukiwań selektora jQuery, przy pomocy elementów dzidziczących i dziedziczonych, tak bardzo jak tylko to możliwe, np.: `$('.sidebar ul')` lub rodzic > dziecko `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-  - Używaj metody 'find' tylko na selektorach zapisanych  wcześniej w zmiennych. W pozostałych przypadkach połącz całe wyrażenie w jeden selektor jQuery.
+  - Ograniczaj zakres poszukiwań selektora jQuery przy pomocy elementów dziedziczących i dziedziczonych, tak bardzo jak tylko to możliwe, przykładowo: `$('.sidebar ul')` lub rodzic > dziecko: `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - Używaj metody find() tylko na selektorach zapisanych wcześniej w zmiennych. W pozostałych przypadkach łącz całe wyrażenia w jeden selektor jQuery.
 
     ```javascript
     // źle
