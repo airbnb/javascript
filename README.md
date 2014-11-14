@@ -1542,7 +1542,7 @@
   - :kr: **Korean**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
   - :fr: **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
   - :ru: **Russian**: [uprock/javascript](https://github.com/uprock/javascript)
-  - :bg: **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
+  - ![ScreenShot](https://raw.githubusercontent.com/gosquared/flags/master/src/flags/Bulgaria/16.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
   - ![ScreenShot](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
   - ![ScreenShot](https://raw.githubusercontent.com/gosquared/flags/master/src/flags/Poland/16.png) **Polish**: [mjurczyk/javascript](https://github.com/mjurczyk/javascript)
 
