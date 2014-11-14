@@ -1544,6 +1544,7 @@
   - :ru: **Russian**: [uprock/javascript](https://github.com/uprock/javascript)
   - :bg: **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
   - ![ScreenShot](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
+  - :pl: **Polish**: [mjurczyk/javascript](https://github.com/mjurczyk/javascript)
 
 ## The JavaScript Style Guide Guide
 
