@@ -8,7 +8,7 @@
   1. [Typy](#types)
   1. [Obiekty](#objects)
   1. [Tablice](#arrays)
-  1. [Tekst](#strings)
+  1. [Stringi](#strings)
   1. [Funkcje](#functions)
   1. [Własności](#properties)
   1. [Zmienne](#variables)
@@ -19,7 +19,7 @@
   1. [Białe znaki](#whitespace)
   1. [Przecinki](#commas)
   1. [Średniki](#semicolons)
-  1. [Rzutowanie i korekcja typu](#type-casting--coercion)
+  1. [Rzutowania i korekcje typów](#type-casting--coercion)
   1. [Nazwy zmiennych i funkcji](#naming-conventions)
   1. [Gettery i settery](#accessors)
   1. [Konstruktory](#constructors)
@@ -174,7 +174,7 @@
 **[⬆ do góry](#table-of-contents)**
 
 
-## Tekst
+## Stringi
 
   - Do tekstu używaj pojedynczego cudysłowu.
 
@@ -600,7 +600,7 @@
 
   - Więcej informacji: [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ na górę](#table-of-contents)**
 
 
 ## Bloki kodu
@@ -629,7 +629,7 @@
     }
     ```
 
-**[⬆ na górę](#table-of-contents)**
+**[⬆ do góry](#table-of-contents)**
 
 
 ## Komentarze
@@ -930,7 +930,7 @@
 **[⬆ do góry](#table-of-contents)**
 
 
-## Rzutowanie i korekcja typu
+## Rzutowania i korekcje typów
 
   - Jeżeli to konieczne, dokonuj korekcji typu na początku wyrażenia.
   - String:
@@ -1432,13 +1432,13 @@
 
   - [Annotated ECMAScript 5.1](http://es5.github.com/)
 
-**Narzędzia**
+**Narzędzia do formatowania**
 
   - Upiękniacze kodu
     + [JSHint](http://www.jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/jshintrc)
     + [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json)
 
-**Inne poradniki dotyczące stylistyki kodu**
+**Inne, duże poradniki dotyczące stylistyki kodu**
 
   - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
   - [jQuery Core Style Guidelines](http://docs.jquery.com/JQuery_Core_Style_Guidelines)
@@ -1451,7 +1451,7 @@
   - [Popular JavaScript Coding Conventions on Github](http://sideeffect.kr/popularconvention/#javascript) - JeongHoon Byun
   - [Multiple var statements in JavaScript, not superfluous](http://benalman.com/news/2012/05/multiple-var-statements-javascript/) - Ben Alman
 
-**Poza tym warto również zerknąć na**
+**Poza tym warto również zerknąć na to**
 
   - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
   - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
