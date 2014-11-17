@@ -1534,17 +1534,17 @@
 
   This style guide is also available in other languages:
 
-  - :de: **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
-  - :jp: **Japanese**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
-  - ![ScreenShot](https://raw.githubusercontent.com/gosquared/flags/master/src/flags/Portugal/16.png) **Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
-  - :cn: **Chinese**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
-  - :es: **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
-  - :kr: **Korean**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
-  - :fr: **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
-  - :ru: **Russian**: [uprock/javascript](https://github.com/uprock/javascript)
-  - ![ScreenShot](https://raw.githubusercontent.com/gosquared/flags/master/src/flags/Bulgaria/16.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
-  - ![ScreenShot](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
-  - ![ScreenShot](https://raw.githubusercontent.com/gosquared/flags/master/src/flags/Poland/16.png) **Polish**: [mjurczyk/javascript](https://github.com/mjurczyk/javascript)
+  - ![de](https://raw.githubusercontent.com/gosquared/flags/master/src/flags/Germany/16.png) **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
+  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/src/flags/Japan/16.png) **Japanese**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
+  - ![br](https://raw.githubusercontent.com/gosquared/flags/master/src/flags/Portugal/16.png) **Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
+  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/src/flags/China/16.png) **Chinese**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
+  - ![es](https://raw.githubusercontent.com/gosquared/flags/master/src/flags/Spain/16.png) **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
+  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/src/flags/South-Korea/16.png) **Korean**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
+  - ![fr](https://raw.githubusercontent.com/gosquared/flags/master/src/flags/France/16.png) **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
+  - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/src/flags/Russia/16.png) **Russian**: [uprock/javascript](https://github.com/uprock/javascript)
+  - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/src/flags/Bulgaria/16.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
+  - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
+  - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/src/flags/Poland/16.png) **Polish**: [mjurczyk/javascript](https://github.com/mjurczyk/javascript)
 
 ## The JavaScript Style Guide Guide
 
