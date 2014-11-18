@@ -1,8 +1,10 @@
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-# Airbnb JavaScript Style Guide() {
+# Yesware JavaScript Style Guide() {
+
 
 *A mostly reasonable approach to JavaScript*
+*Forked from Airbnb*
 
 
 ## Table of Contents
@@ -366,40 +368,43 @@
     var superPower = new SuperPower();
     ```
 
-  - Use one `var` declaration for multiple variables and declare each variable on a newline.
+  - Declare each variable on its own line with its own `var` statement.
 
     ```javascript
     // bad
-    var items = getItems();
-    var goSportsTeam = true;
-    var dragonball = 'z';
-
-    // good
     var items = getItems(),
         goSportsTeam = true,
         dragonball = 'z';
+
+    // good
+    var items = getItems();
+    var goSportsTeam = true;
+    var dragonball = 'z';
     ```
 
   - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
     ```javascript
     // bad
-    var i, len, dragonball,
-        items = getItems(),
-        goSportsTeam = true;
+    var i;
+    var len;
+    var dragonball;
+    var items = getItems();
+    var goSportsTeam = true;
 
     // bad
-    var i, items = getItems(),
-        dragonball,
-        goSportsTeam = true,
-        len;
+    var i;
+    var items = getItems();
+    var dragonball;
+    var goSportsTeam = true;
+    var len;
 
     // good
-    var items = getItems(),
-        goSportsTeam = true,
-        dragonball,
-        length,
-        i;
+    var items = getItems();
+    var goSportsTeam = true;
+    var dragonball;
+    var length;
+    var i;
     ```
 
   - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
