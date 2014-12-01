@@ -50,8 +50,8 @@
     + `undefined`
 
     ```javascript
-    var foo = 1,
-        bar = foo;
+    var foo = 1;
+    var bar = foo;
 
     bar = 9;
 
@@ -64,8 +64,8 @@
     + `function`
 
     ```javascript
-    var foo = [1, 2],
-        bar = foo;
+    var foo = [1, 2];
+    var bar = foo;
 
     bar[0] = 9;
 
@@ -151,9 +151,9 @@
   - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
-    var len = items.length,
-        itemsCopy = [],
-        i;
+    var len = items.length;
+    var itemsCopy = [];
+    var i;
 
     // bad
     for (i = 0; i < len; i++) {
@@ -216,10 +216,10 @@
   - When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
-    var items,
-        messages,
-        length,
-        i;
+    var items;
+    var messages;
+    var length;
+    var i;
 
     messages = [{
       state: 'success',
@@ -366,17 +366,28 @@
     var superPower = new SuperPower();
     ```
 
-  - Use one `var` declaration for multiple variables and declare each variable on a newline.
+  - Use one `var` declaration per variable.
 
     ```javascript
     // bad
+    var items = getItems(),
+        goSportsTeam = true,
+        dragonball = 'z';
+
+    // good
     var items = getItems();
     var goSportsTeam = true;
     var dragonball = 'z';
+    ```
 
-    // good
+    It's easier to add new variable declarations this way, and you never have
+    to worry about swapping out a `;` for a `,` or introducing punctuation-only
+    diffs. Also, you can't make the following mistake:
+
+    ```javascript
+    // can you catch the error?
     var items = getItems(),
-        goSportsTeam = true,
+        goSportsTeam = true;
         dragonball = 'z';
     ```
 
@@ -389,17 +400,18 @@
         goSportsTeam = true;
 
     // bad
-    var i, items = getItems(),
-        dragonball,
-        goSportsTeam = true,
-        len;
+    var i;
+    var items = getItems();
+    var dragonball;
+    var goSportsTeam = true;
+    var len;
 
     // good
-    var items = getItems(),
-        goSportsTeam = true,
-        dragonball,
-        length,
-        i;
+    var items = getItems();
+    var goSportsTeam = true;
+    var dragonball;
+    var length;
+    var i;
     ```
 
   - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
@@ -843,14 +855,18 @@
 
     ```javascript
     // bad
-    var once
+    var story = [
+        once
       , upon
-      , aTime;
+      , aTime
+    ];
 
     // good
-    var once,
-        upon,
-        aTime;
+    var story = [
+      once,
+      upon,
+      aTime
+    ];
 
     // bad
     var hero = {
