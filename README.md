@@ -366,6 +366,9 @@
     ```
 
   - Use one `var` declaration per variable.
+    It's easier to add new variable declarations this way, and you never have
+    to worry about swapping out a `;` for a `,` or introducing punctuation-only
+    diffs. 
 
     ```javascript
     // bad
@@ -373,21 +376,16 @@
         goSportsTeam = true,
         dragonball = 'z';
 
+    // bad
+    // (compare to above, and try to spot the mistake)
+    var items = getItems(),
+        goSportsTeam = true;
+        dragonball = 'z';
+
     // good
     var items = getItems();
     var goSportsTeam = true;
     var dragonball = 'z';
-    ```
-
-    It's easier to add new variable declarations this way, and you never have
-    to worry about swapping out a `;` for a `,` or introducing punctuation-only
-    diffs. Also, you can't make the following mistake:
-
-    ```javascript
-    // can you catch the error?
-    var items = getItems(),
-        goSportsTeam = true;
-        dragonball = 'z';
     ```
 
   - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
