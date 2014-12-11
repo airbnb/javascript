@@ -58,11 +58,11 @@
     "maxlen": 80,
     // Prohibit trailing whitespace
     "trailing": true,
-    // Code complexity
-    "maxparams": 4,
-    "maxdepth": 3,
-    "maxstatements": 30,
-    "maxcomplexity": 6,
+    // Code complexity (disable all, for now)
+    "maxparams": false,
+    "maxdepth": false,
+    "maxstatements": false,
+    "maxcomplexity": false,
 
     "asi": false,
     "boss": false,
