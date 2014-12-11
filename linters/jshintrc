@@ -59,10 +59,10 @@
     // Prohibit trailing whitespace
     "trailing": true,
     // Code complexity (disable all, for now)
-    "maxparams": false,
-    "maxdepth": false,
-    "maxstatements": false,
-    "maxcomplexity": false,
+    "maxparams": 100,
+    "maxdepth": 100,
+    "maxstatements": 1000,
+    "maxcomplexity": 100,
 
     "asi": false,
     "boss": false,
