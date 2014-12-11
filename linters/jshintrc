@@ -1,57 +1,102 @@
 {
-  /*
-   * ENVIRONMENTS
-   * =================
-   */
+    // Define globals exposed by node.js
+    "node": true,
+    // Define globals exposed by modern browsers
+    "browser": true,
+    // Define globals exposed by jQuery
+    "jquery": true,
 
-  // Define globals exposed by modern browsers.
-  "browser": true,
+    // Additional globals used in mocha tests
+    "globals": { 
+        "describe": true,
+        "it": true,
+        "before": true,
+        "beforeEach": true,
+        "after": true,
+        "afterEach": true
+    },
 
-  // Define globals exposed by jQuery.
-  "jquery": true,
+    // No bitwise operators allowed
+    "bitwise": true,
+    // Allow snake_case variables
+    "camelcase": false,
+    // Don't always require braces
+    "curly": false,
+    // Prefer === and !===
+    "eqeqeq": true,
+    // Don't need es3
+    "es3": false,
+    // Require for (.. in ..) loops to check hasOwnProperty
+    "forin": true,
+    // Prohibit immediate function invocation without parens
+    "immed": true,
+    // We use 4 space indents
+    "indent": 4,
+    // Don't allow using a variable before it's defined (Explicit Hoisting)
+    "latedef": true,
+    // Constructor functions must be capitalize
+    "newcap": true,
+    // Prohibit arguments.caller/callee
+    "noarg": true,
+    // Warn on empty blocks
+    "noempty": true,
+    // Don't allow nbsp chars
+    "nonbsp": true,
+    // No side-effect new invocations
+    "nonew": true,
+    // Prohibit ++ and --
+    "plusplus": false,
+    // Always use single quotes
+    "quotmark": "single",
+    // Prohibit undefined variables
+    "undef": true,
+    // Warn on unused vars
+    "unused": "vars",
+    // Must declare strict mode
+    "strict": true,
+    // Enforce 80 char line length
+    "maxlen": 80,
+    // Prohibit trailing whitespace
+    "trailing": true,
+    // Code complexity
+    "maxparams": 4,
+    "maxdepth": 3,
+    "maxstatements": 30,
+    "maxcomplexity": 6,
 
-  // Define globals exposed by Node.js.
-  "node": true,
+    "asi": false,
+    "boss": false,
+    "debug": false,
+    "eqnull": false,
+    "esnext": false,
+    "evil": false,
+    "expr": false,
+    "funcscope": false,
+    "globalstrict": false,
+    "iterator": false,
+    "lastsemic": false,
+    "laxbreak": false,
+    "laxcomma": false,
+    "loopfunc": false,
+    "maxerr": 20,
+    "multistr": false,
+    "notypeof": false,
+    "proto": false,
+    "scripturl": false,
+    "shadow": false,
+    "sub": true,
+    "supernew": false,
+    "validthis": false,
+    "noyield": false,
 
-  /*
-   * ENFORCING OPTIONS
-   * =================
-   */
-
-  // Force all variable names to use either camelCase style or UPPER_CASE
-  // with underscores.
-  "camelcase": true,
-
-  // Prohibit use of == and != in favor of === and !==.
-  "eqeqeq": true,
-
-  // Suppress warnings about == null comparisons.
-  "eqnull": true,
-
-  // Enforce tab width of 2 spaces.
-  "indent": 2,
-
-  // Prohibit use of a variable before it is defined.
-  "latedef": true,
-
-  // Require capitalized names for constructor functions.
-  "newcap": true,
-
-  // Enforce use of single quotation marks for strings.
-  "quotmark": "single",
-
-  // Prohibit trailing whitespace.
-  "trailing": true,
-
-  // Prohibit use of explicitly undeclared variables.
-  "undef": true,
-
-  // Warn when variables are defined but never used.
-  "unused": true,
-
-  // Enforce line length to 80 characters
-  "maxlen": 80,
-
-  // Enforce placing 'use strict' at the top function scope
-  "strict": true
+    "couch": false,
+    "devel": false,
+    "dojo": false,
+    "mootools": false,
+    "nonstandard": false,
+    "prototypejs": false,
+    "rhino": false,
+    "worker": false,
+    "wsh": false,
+    "yui": false
 }
