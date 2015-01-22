@@ -1028,7 +1028,7 @@
 
 ## Naming Conventions
 
-  - Avoid single letter names. Be descriptive with your naming.
+  - Avoid single letter names. Be descriptive with your naming. Names representing types should be nouns. Names representing methods should be verbs or verb phrases.
 
     ```javascript
     // bad
@@ -1042,7 +1042,7 @@
     }
     ```
 
-  - Use camelCase when naming objects, functions, and instances
+  - Use camelCase when naming objects, functions, and instances. Abbreviations and acronyms should also use camel case when used as a name.
 
     ```javascript
     // bad
@@ -1053,12 +1053,20 @@
       name: 'Bob Parr'
     });
 
+    // bad
+    function parseJSON() {};
+    var XMLDocument;
+
     // good
     var thisIsMyObject = {};
     function thisIsMyFunction() {}
     var user = new User({
       name: 'Bob Parr'
     });
+
+    // good
+    function parseJson() {};
+    var xmlDocument;
     ```
 
   - Use PascalCase when naming constructors or classes
@@ -1081,6 +1089,16 @@
     var good = new User({
       name: 'yup'
     });
+    ```
+
+  - Use Screaming Snake Case for constants
+
+    ```javascript
+    // bad
+    var some_constant = 5;
+
+    // good
+    var SOME_CONSTANT = 5;
     ```
 
   - Use a leading underscore `_` when naming private properties
@@ -1122,7 +1140,7 @@
     }
     ```
 
-  - Name your functions. This is helpful for stack traces.
+  - Name your functions. This is helpful for stack traces. Note this is not necessary for class methods.
 
     ```javascript
     // bad
@@ -1133,6 +1151,20 @@
     // good
     var log = function log(msg) {
       console.log(msg);
+    };
+
+    // bad
+    var MyObj = {
+      log: function log(msg) {
+        console.log(msg);
+      }
+    };
+
+    // good
+    var MyObj = {
+      log: function(msg) {
+        console.log(msg);
+      }
     };
     ```
 
