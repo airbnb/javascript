@@ -494,8 +494,8 @@
     }
 
     // The interpreter is hoisting the variable
-    // declaration to the top of the scope.
-    // Which means our example could be rewritten as:
+    // declaration to the top of the scope,
+    // which means our example could be rewritten as:
     function example() {
       var declaredButNotAssigned;
       console.log(declaredButNotAssigned); // => undefined
