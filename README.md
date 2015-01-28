@@ -814,6 +814,24 @@
     })(this);↵
     ```
 
+  - Remove all trailing whitespace
+
+    ```javascript
+    // bad
+    function() {∙∙
+      var name;
+    ∙∙
+      // ... stuff ...
+    }
+
+    // good
+    function() {
+      var name;
+
+      // ... stuff ...
+    }
+    ```
+
   - Use indentation when making long method chains.
 
     ```javascript
