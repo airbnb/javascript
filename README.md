@@ -858,28 +858,29 @@
 
     ```javascript
     // bad
-    if (true) {
-      var a = 2;
+    if (foo) {
+      return bar;
     }
-    var b = 3;
+    return baz;
 
     // good
-    if (true) {
-      var a = 2;
+    if (foo) {
+      return bar;
     }
-    var b = 3;
+
+    return baz
 
     // bad
-    var o = {
+    var obj = {
       foo: function() {
       },
       bar: function() {
       }
     };
-    return o;
+    return obj;
 
     // good
-    var o = {
+    var obj = {
       foo: function() {
       },
 
@@ -887,7 +888,7 @@
       }
     };
 
-    return o;
+    return obj;
     ```
 
 
