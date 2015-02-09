@@ -369,7 +369,7 @@
   - Use one `var` declaration per variable.
     It's easier to add new variable declarations this way, and you never have
     to worry about swapping out a `;` for a `,` or introducing punctuation-only
-    diffs. 
+    diffs.
 
     ```javascript
     // bad
@@ -853,6 +853,44 @@
         .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
     ```
+
+  - Leave a blank line after blocks and before the next statement
+
+    ```javascript
+    // bad
+    if (foo) {
+      return bar;
+    }
+    return baz;
+
+    // good
+    if (foo) {
+      return bar;
+    }
+
+    return baz
+
+    // bad
+    var obj = {
+      foo: function() {
+      },
+      bar: function() {
+      }
+    };
+    return obj;
+
+    // good
+    var obj = {
+      foo: function() {
+      },
+
+      bar: function() {
+      }
+    };
+
+    return obj;
+    ```
+
 
 **[⬆ back to top](#table-of-contents)**
 
