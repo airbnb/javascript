@@ -868,7 +868,7 @@
       return bar;
     }
 
-    return baz
+    return baz;
 
     // bad
     var obj = {
