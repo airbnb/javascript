@@ -8,6 +8,7 @@
 
 ## Table of Contents
 
+  1. [Column Limit](#column-limit)
   1. [Types](#types)
   1. [References](#references)
   1. [Objects](#objects)
@@ -44,6 +45,15 @@
   1. [Chat With Us About Javascript](#chat-with-us-about-javascript)
   1. [Contributors](#contributors)
   1. [License](#license)
+
+## Column Limit
+
+  - Column limit is 120 characters. Except as noted below, any line that would exceed this limit must be line-wrapped.
+
+  **Exceptions**:
+  1. Lines where obeying the column limit is not possible.
+
+**[⬆ back to top](#table-of-contents)**
 
 ## Types
 
@@ -291,12 +301,11 @@
     ```javascript
     const someStack = [];
 
-
     // bad
-    someStack[someStack.length] = 'abracadabra';
+    someStack[someStack.length] = "abracadabra";
 
     // good
-    someStack.push('abracadabra');
+    someStack.push("abracadabra");
     ```
 
   <a name="es6-array-spreads"></a>
@@ -403,7 +412,7 @@
     const name = 'Capt. Janeway';
     ```
 
-  - Strings longer than 80 characters should be written across multiple lines using string concatenation.
+  - Strings longer than 120 characters should be written across multiple lines using string concatenation.
   - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
@@ -871,13 +880,13 @@
     // bad
     const items = getItems(),
         goSportsTeam = true,
-        dragonball = 'z';
+        dragonball = "z";
 
     // bad
     // (compare to above, and try to spot the mistake)
     const items = getItems(),
         goSportsTeam = true;
-        dragonball = 'z';
+        dragonball = "z";
 
     // good
     const items = getItems();
@@ -918,13 +927,13 @@
     // good
     function() {
       test();
-      console.log('doing stuff..');
+      console.log("doing stuff..");
 
       //..other stuff..
 
       const name = getName();
 
-      if (name === 'test') {
+      if (name === "test") {
         return false;
       }
 
@@ -1006,7 +1015,7 @@
       anonymous(); // => TypeError anonymous is not a function
 
       var anonymous = function() {
-        console.log('anonymous function expression');
+        console.log("anonymous function expression");
       };
     }
     ```
@@ -1022,7 +1031,7 @@
       superPower(); // => ReferenceError superPower is not defined
 
       var named = function superPower() {
-        console.log('Flying');
+        console.log("Flying");
       };
     }
 
@@ -1034,7 +1043,7 @@
       named(); // => TypeError named is not a function
 
       var named = function named() {
-        console.log('named');
+        console.log("named");
       }
     }
     ```
@@ -1046,7 +1055,7 @@
       superPower(); // => Flying
 
       function superPower() {
-        console.log('Flying');
+        console.log("Flying");
       }
     }
     ```
@@ -1066,7 +1075,7 @@
     + **Null** evaluates to **false**
     + **Booleans** evaluate to **the value of the boolean**
     + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
-    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+    + **Strings** evaluate to **false** if an empty string `""`, otherwise **true**
 
     ```javascript
     if ([0]) {
@@ -1079,7 +1088,7 @@
 
     ```javascript
     // bad
-    if (name !== '') {
+    if (name !== "") {
       // ...stuff...
     }
 
@@ -1211,7 +1220,7 @@
 
     // good
     function getType() {
-      console.log('fetching type...');
+      console.log("fetching type...");
 
       // set the default type to 'no type'
       const type = this._type || 'no type';
@@ -1242,7 +1251,7 @@
         this.total = 0;
       }
     }
-  ```
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -1273,24 +1282,24 @@
     ```javascript
     // bad
     function test(){
-      console.log('test');
+      console.log("test");
     }
 
     // good
     function test() {
-      console.log('test');
+      console.log("test");
     }
 
     // bad
-    dog.set('attr',{
-      age: '1 year',
-      breed: 'Bernese Mountain Dog'
+    dog.set("attr",{
+      age: "1 year",
+      breed: "Bernese Mountain Dog"
     });
 
     // good
-    dog.set('attr', {
-      age: '1 year',
-      breed: 'Bernese Mountain Dog'
+    dog.set("attr", {
+      age: "1 year",
+      breed: "Bernese Mountain Dog"
     });
     ```
 
@@ -1352,27 +1361,26 @@
     })(this);↵
     ```
 
-  - Use indentation when making long method chains. Use a leading dot, which
-    emphasizes that the line is a method call, not a new statement.
+  - Use indentation when making long method chains. Use a leading dot, which emphasizes that the line is a method call, not a new statement.
 
     ```javascript
     // bad
-    $('#items').find('.selected').highlight().end().find('.open').updateCount();
+    $("#items").find(".selected").highlight().end().find(".open").updateCount();
 
     // bad
     $('#items').
       find('.selected').
         highlight().
         end().
-      find('.open').
+      find(".open").
         updateCount();
 
     // good
-    $('#items')
-      .find('.selected')
+    $("#items")
+      .find(".selected")
         .highlight()
         .end()
-      .find('.open')
+      .find(".open")
         .updateCount();
 
     // bad
@@ -1406,7 +1414,7 @@
       return bar;
     }
 
-    return baz;
+    return baz
 
     // bad
     const obj = {
@@ -1677,11 +1685,11 @@
 
     ```javascript
     // bad
-    this.__firstName__ = 'Panda';
-    this.firstName_ = 'Panda';
+    this.__firstName__ = "Panda";
+    this.firstName_ = "Panda";
 
     // good
-    this._firstName = 'Panda';
+    this._firstName = "Panda";
     ```
 
   - Don't save references to `this`. Use arrow functions or Function#bind.
@@ -1757,7 +1765,7 @@
 ## Accessors
 
   - Accessor functions for properties are not required.
-  - If you do make accessor functions use getVal() and setVal('hello').
+  - If you do make accessor functions use getVal() and setVal("hello").
 
     ```javascript
     // bad
@@ -1815,11 +1823,11 @@
 
     ```javascript
     // bad
-    $(this).trigger('listingUpdated', listing.id);
+    $(this).trigger("listingUpdated", listing.id);
 
     ...
 
-    $(this).on('listingUpdated', function(e, listingId) {
+    $(this).on("listingUpdated", function(e, listingId) {
       // do something with listingId
     });
     ```
@@ -1828,17 +1836,16 @@
 
     ```javascript
     // good
-    $(this).trigger('listingUpdated', { listingId : listing.id });
+    $(this).trigger("listingUpdated", { listingId : listing.id });
 
     ...
 
-    $(this).on('listingUpdated', function(e, data) {
+    $(this).on("listingUpdated", function(e, data) {
       // do something with data.listingId
     });
     ```
 
   **[⬆ back to top](#table-of-contents)**
-
 
 ## jQuery
 
@@ -1857,12 +1864,12 @@
     ```javascript
     // bad
     function setSidebar() {
-      $('.sidebar').hide();
+      $(".sidebar").hide();
 
       // ...stuff...
 
-      $('.sidebar').css({
-        'background-color': 'pink'
+      $(".sidebar").css({
+        "background-color": "pink"
       });
     }
 
@@ -1874,29 +1881,29 @@
       // ...stuff...
 
       $sidebar.css({
-        'background-color': 'pink'
+        "background-color": "pink"
       });
     }
     ```
 
-  - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - For DOM queries use Cascading `$(".sidebar ul")` or parent > child `$(".sidebar > ul")`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
   - Use `find` with scoped jQuery object queries.
 
     ```javascript
     // bad
-    $('ul', '.sidebar').hide();
+    $("ul", ".sidebar").hide();
 
     // bad
-    $('.sidebar').find('ul').hide();
+    $(".sidebar").find("ul").hide();
 
     // good
-    $('.sidebar ul').hide();
+    $(".sidebar ul").hide();
 
     // good
-    $('.sidebar > ul').hide();
+    $(".sidebar > ul").hide();
 
     // good
-    $sidebar.find('ul').hide();
+    $sidebar.find("ul").hide();
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -2066,7 +2073,6 @@ This is a collection of links to the various es6 features.
   - **Muber**: [muber/javascript](https://github.com/muber/javascript)
   - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
   - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
-  - **Nimbl3**: [nimbl3/javascript](https://github.com/nimbl3/javascript)
   - **Orion Health**: [orionhealth/javascript](https://github.com/orionhealth/javascript)
   - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
   - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
