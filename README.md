@@ -1517,6 +1517,7 @@
   - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
   - [You Might Not Need jQuery](http://youmightnotneedjquery.com/) - Zack Bloom & Adam Schwartz
   - [ES6 Features](https://github.com/lukehoban/es6features) - Luke Hoban
+  - [Frontend Guidelines](https://github.com/bendc/frontend-guidelines) - Benjamin De Cock
 
 **Books**
 
