@@ -1208,6 +1208,25 @@
 
   - **Note:** IE8 and below exhibit some quirks with named function expressions.  See [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/) for more info.
 
+  - If your file exports a single class, your filename should be exactly the name of the class.
+    ```javascript
+    // file contents
+    class CheckBox {
+      // ...
+    }
+    module.exports = CheckBox;
+
+    // in some other file
+    // bad
+    var CheckBox = require('./checkBox');
+
+    // bad
+    var CheckBox = require('./check_box');
+
+    // good
+    var CheckBox = require('./CheckBox');
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 
