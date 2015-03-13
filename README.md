@@ -1591,6 +1591,11 @@
   - [Dustin Diaz](http://dustindiaz.com/)
   - [nettuts](http://net.tutsplus.com/?s=javascript)
 
+**Podcasts**
+
+-[JavaScript Jabber](http://devchat.tv/js-jabber/)
+
+
 **[⬆ back to top](#table-of-contents)**
 
 ## In the Wild
