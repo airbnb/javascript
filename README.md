@@ -1593,7 +1593,7 @@
 
 **Podcasts**
 
--[JavaScript Jabber](http://devchat.tv/js-jabber/)
+  - [JavaScript Jabber](http://devchat.tv/js-jabber/)
 
 
 **[⬆ back to top](#table-of-contents)**
