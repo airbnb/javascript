@@ -15,6 +15,7 @@
   1. [Properties](#properties)
   1. [Variables](#variables)
   1. [Hoisting](#hoisting)
+  1. [Loop](#loop)
   1. [Conditional Expressions & Equality](#conditional-expressions--equality)
   1. [Blocks](#blocks)
   1. [Comments](#comments)
@@ -561,6 +562,27 @@
 
 **[⬆ back to top](#table-of-contents)**
 
+
+## Loop
+
+  - Cache the length of the array.
+  
+  ```javascript
+  // bad
+  for (var i = 0; i < arr.length; i++) {
+    // do something
+  }
+  
+  // good
+  for (var i = 0, l = arr.length; i < l; i++) {
+    // do something
+  }
+  
+  // good
+  for (var i = types.length; i--;) {
+    // do something
+  }
+  ```
 
 
 ## Conditional Expressions & Equality
