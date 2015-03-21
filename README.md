@@ -1635,6 +1635,7 @@
   - **StudentSphere**: [studentsphere/javascript](https://github.com/studentsphere/javascript)
   - **Target**: [target/javascript](https://github.com/target/javascript)
   - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
+  - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
   - **Userify**: [userify/javascript](https://github.com/userify/javascript)
   - **VoxFeed**: [VoxFeed/javascript-style-guide](https://github.com/VoxFeed/javascript-style-guide)
   - **Weggo**: [Weggo/javascript](https://github.com/Weggo/javascript)
