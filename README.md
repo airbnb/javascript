@@ -3139,6 +3139,33 @@ Other Style Guides
     ];
     ```
 
+  <a name="naming--uppercase"></a>
+  - [23.10](#naming--uppercase) Use UPPERCASE for nested object namespacing, global variables, and constants.
+
+
+    ```javascript
+    // bad
+    const namespace = namespace || {};
+
+    namespace.util.Widget = {
+       // ...stuff...
+    }
+
+    // bad
+    const apiKey = '44b345234534t455245njkl523452-vbb9';
+
+    // good
+    const NAMESPACE = NAMESPACE || {};
+
+    NAMESPACE.util.Widget = {
+       // ...stuff...
+    }
+
+    // good
+    const API_KEY = '44b345234534t455245njkl523452-vbb9';
+    ```
+
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Accessors
