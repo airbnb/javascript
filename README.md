@@ -8,6 +8,7 @@
 ## Table of Contents
 
   1. [Types](#types)
+  1. [Dates and times](#dates-and-times)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
   1. [Strings](#strings)
@@ -71,6 +72,14 @@
 
     console.log(foo[0], bar[0]); // => 9, 9
     ```
+
+**[⬆ back to top](#table-of-contents)**
+
+## Dates and times
+
+  - **Thou shalt use [moment.js](http://momentjs.com/)**: because it does common stuff sensibly including formatting, parsing and edge cases like DST.
+
+  - **Thou shalt not output numeric months** (unless preceded by year) because [it is easily confused](http://metabroadcast.com/blog/dd-mm-yyyy-is-evil) with day. Use `mmm` instead.
 
 **[⬆ back to top](#table-of-contents)**
 
