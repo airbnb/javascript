@@ -253,7 +253,7 @@
         items[i] = messages[i].message;
       }
 
-      return '<ul><li>' + items.join('</li><li>') + '</li></ul>';
+      return '<ul>' + items.join('</li><li>') + '</ul>';
     }
     ```
 
