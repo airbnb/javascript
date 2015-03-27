@@ -250,10 +250,10 @@
       items = [];
 
       for (i = 0; i < length; i++) {
-        items[i] = messages[i].message;
+        items[i] = '<li>' + messages[i].message + '</li>';
       }
 
-      return '<ul><li>' + items.join('</li><li>') + '</li></ul>';
+      return '<ul>' + items.join('') + '</ul>';
     }
     ```
 
