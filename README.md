@@ -1,6 +1,6 @@
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+# AltSchool JavaScript Style Guide() {
 
-# Airbnb JavaScript Style Guide() {
+Forked from [Airbnb's Style Guide](https://github.com/airbnb/javascript).
 
 *A mostly reasonable approach to JavaScript*
 
