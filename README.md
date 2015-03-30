@@ -446,9 +446,11 @@
 
       return name;
     }
+    ```
     
  - Declare variables at the top of their scope even if they are unassigned to avoid variable declaration hoisting. 
  
+ ```javascript
     // bad
     function() {
       var name = getName();
