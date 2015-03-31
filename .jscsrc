@@ -105,7 +105,6 @@
     ],
     "requireBlocksOnNewline": true,
     "requireCamelCaseOrUpperCaseIdentifiers": true,
-    "requirePaddingNewLinesAfterBlocks": true,
     "safeContextKeyword": "PleaseUseFunctionDotPrototypeDotBind",
     "validateLineBreaks": "LF",
     "validateQuoteMarks": "'",
@@ -113,5 +112,5 @@
     "excludeFiles": [
         "node_modules/**"
     ],
-    "maximumLineLength"                        : 130
+    "maximumLineLength": 130
 }
