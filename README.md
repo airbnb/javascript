@@ -758,7 +758,7 @@
 
 ## Whitespace
 
-  - Use soft tabs set to 2 spaces.
+  - Use 4 spaces.
 
     ```javascript
     // bad
