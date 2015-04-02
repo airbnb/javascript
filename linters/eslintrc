@@ -1,8 +1,6 @@
 env: 
   browser: true
   node: true
-  amd: true
-  jquery: true
 
 rules:
   no-new-object: 2
