@@ -785,7 +785,7 @@
     }
 
     // good
-    function test() {
+    function test()∙{
       console.log('test');
     }
 
@@ -796,7 +796,7 @@
     });
 
     // good
-    dog.set('attr', {
+    dog.set('attr',∙{
       age: '1 year',
       breed: 'Bernese Mountain Dog'
     });
@@ -807,7 +807,7 @@
     ```javascript
     // bad
     if(isJedi) {
-      fight ();
+      fight∙();
     }
 
     // good
@@ -816,7 +816,7 @@
     }
 
     // bad
-    function fight () {
+    function fight∙() {
       console.log ('Swooosh!');
     }
 
@@ -833,7 +833,7 @@
     var x=y+5;
 
     // good
-    var x = y + 5;
+    var x∙=∙y∙+∙5;
     ```
 
   - End files with a single newline character.
