@@ -4,21 +4,14 @@
 
 *A mostly reasonable approach to JavaScript*
 
-[For our old ES5-only guide click here](es5/).
 
 ## Table of Contents
 
   1. [Types](#types)
-  1. [References](#references)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
-  1. [Destructuring](#destructuring)
   1. [Strings](#strings)
   1. [Functions](#functions)
-  1. [Arrow Functions](#arrow-functions)
-  1. [Constructors](#constructors)
-  1. [Modules](#modules)
-  1. [Iterators and Generators](#iterators-and-generators)
   1. [Properties](#properties)
   1. [Variables](#variables)
   1. [Hoisting](#hoisting)
@@ -31,11 +24,11 @@
   1. [Type Casting & Coercion](#type-casting--coercion)
   1. [Naming Conventions](#naming-conventions)
   1. [Accessors](#accessors)
+  1. [Constructors](#constructors)
   1. [Events](#events)
   1. [Modules](#modules)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
-  1. [ECMAScript 6 Styles](#ecmascript-6-styles)
   1. [Testing](#testing)
   1. [Performance](#performance)
   1. [Resources](#resources)
@@ -57,8 +50,8 @@
     + `undefined`
 
     ```javascript
-    const foo = 1;
-    let bar = foo;
+    var foo = 1;
+    var bar = foo;
 
     bar = 9;
 
@@ -71,60 +64,12 @@
     + `function`
 
     ```javascript
-    const foo = [1, 2];
-    const bar = foo;
+    var foo = [1, 2];
+    var bar = foo;
 
     bar[0] = 9;
 
     console.log(foo[0], bar[0]); // => 9, 9
-    ```
-
-**[⬆ back to top](#table-of-contents)**
-
-## References
-
-  - Use `const` for all of your references; avoid using `var`.
-
-  > Why? This ensures that you can't reassign your references (mutation), which can lead to bugs and difficult to comprehend code.
-
-    ```javascript
-    // bad
-    var a = 1;
-    var b = 2;
-
-    // good
-    const a = 1;
-    const b = 2;
-    ```
-
-  - If you must mutate references, use `let` instead of `var`.
-
-  > Why? `let` is block-scoped rather than function-scoped like `var`.
-
-    ```javascript
-    // bad
-    var count = 1;
-    if (true) {
-      count += 1;
-    }
-
-    // good, use the let.
-    let count = 1;
-    if (true) {
-      count += 1;
-    }
-    ```
-
-  - Note that both `let` and `const` are block-scoped.
-
-    ```javascript
-    // const and let only exist in the blocks they are defined in.
-    {
-      let a = 1;
-      const b = 1;
-    }
-    console.log(a); // ReferenceError
-    console.log(b); // ReferenceError
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -135,23 +80,23 @@
 
     ```javascript
     // bad
-    const item = new Object();
+    var item = new Object();
 
     // good
-    const item = {};
+    var item = {};
     ```
 
   - Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61).
 
     ```javascript
     // bad
-    const superman = {
+    var superman = {
       default: { clark: 'kent' },
       private: true
     };
 
     // good
-    const superman = {
+    var superman = {
       defaults: { clark: 'kent' },
       hidden: true
     };
@@ -161,115 +106,18 @@
 
     ```javascript
     // bad
-    const superman = {
+    var superman = {
       class: 'alien'
     };
 
     // bad
-    const superman = {
+    var superman = {
       klass: 'alien'
     };
 
     // good
-    const superman = {
+    var superman = {
       type: 'alien'
-    };
-    ```
-
-  <a name="es6-computed-properties"></a>
-  - Use computed property names when creating objects with dynamic property names.
-
-  > Why? They allow you to define all the properties of an object in one place.
-
-    ```javascript
-
-    function getKey(k) {
-      return `a key named ${k}`;
-    }
-
-    // bad
-    const obj = {
-      id: 5,
-      name: 'San Francisco'
-    };
-    obj[getKey('enabled')] = true;
-
-    // good
-    const obj = {
-      id: 5,
-      name: 'San Francisco',
-      [getKey('enabled')]: true,
-    };
-    ```
-
-  <a name="es6-object-shorthand"></a>
-  - Use object method shorthand.
-
-    ```javascript
-    // bad
-    const atom = {
-      value: 1,
-
-      addValue: function (value) {
-        return atom.value + value;
-      },
-    };
-
-    // good
-    const atom = {
-      value: 1,
-
-      addValue(value) {
-        return atom.value + value;
-      },
-    };
-    ```
-
-  <a name="es6-object-concise"></a>
-  - Use property value shorthand.
-
-  > Why? It is shorter to write and descriptive.
-
-    ```javascript
-    const lukeSkywalker = 'Luke Skywalker';
-
-    // bad
-    const obj = {
-      lukeSkywalker: lukeSkywalker
-    };
-
-    // good
-    const obj = {
-      lukeSkywalker
-    };
-    ```
-
-  - Group your shorthand properties at the beginning of your object declaration.
-
-  > Why? It's easier to tell which properties are using the shorthand.
-
-    ```javascript
-    const anakinSkywalker = 'Anakin Skywalker';
-    const lukeSkywalker = 'Luke Skywalker';
-
-    // bad
-    const obj = {
-      episodeOne: 1,
-      twoJedisWalkIntoACantina: 2,
-      lukeSkywalker,
-      episodeThree: 3,
-      mayTheFourth: 4,
-      anakinSkywalker
-    };
-
-    // good
-    const obj = {
-      lukeSkywalker,
-      anakinSkywalker,
-      episodeOne: 1,
-      twoJedisWalkIntoACantina: 2,
-      episodeThree: 3,
-      mayTheFourth: 4
     };
     ```
 
@@ -281,16 +129,16 @@
 
     ```javascript
     // bad
-    const items = new Array();
+    var items = new Array();
 
     // good
-    const items = [];
+    var items = [];
     ```
 
-  - Use Array#push instead of direct assignment to add items to an array.
+  - If you don't know array length use Array#push.
 
     ```javascript
-    const someStack = [];
+    var someStack = [];
 
 
     // bad
@@ -300,96 +148,33 @@
     someStack.push('abracadabra');
     ```
 
-  <a name="es6-array-spreads"></a>
-  - Use array spreads `...` to copy arrays.
+  - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
-    // bad
-    const len = items.length;
-    const itemsCopy = [];
-    let i;
+    var len = items.length;
+    var itemsCopy = [];
+    var i;
 
+    // bad
     for (i = 0; i < len; i++) {
       itemsCopy[i] = items[i];
     }
 
     // good
-    const itemsCopy = [...items];
+    itemsCopy = items.slice();
     ```
-  - To convert an array-like object to an array, use Array#from.
+
+  - To convert an array-like object to an array, use Array#slice.
 
     ```javascript
-    const foo = document.querySelectorAll('.foo');
-    const nodes = Array.from(foo);
+    function trigger() {
+      var args = Array.prototype.slice.call(arguments);
+      ...
+    }
     ```
 
 **[⬆ back to top](#table-of-contents)**
 
-## Destructuring
-
-  - Use object destructuring when accessing and using multiple properties of an object.
-
-  > Why? Destructuring saves you from creating temporary references for those properties.
-
-    ```javascript
-    // bad
-    function getFullName(user) {
-      const firstName = user.firstName;
-      const lastName = user.lastName;
-
-      return `${firstName} ${lastName}`;
-    }
-
-    // good
-    function getFullName(obj) {
-      const { firstName, lastName } = obj;
-      return `${firstName} ${lastName}`;
-    }
-
-    // best
-    function getFullName({ firstName, lastName }) {
-      return `${firstName} ${lastName}`;
-    }
-    ```
-
-  - Use array destructuring.
-
-    ```javascript
-    const arr = [1, 2, 3, 4];
-
-    // bad
-    const first = arr[0];
-    const second = arr[1];
-
-    // good
-    const [first, second] = arr;
-    ```
-
-  - Use object destructuring for multiple return values, not array destructuring.
-
-  > Why? You can add new properties over time or change the order of things without breaking call sites.
-
-    ```javascript
-    function processInput(input) {
-      // then a miracle occurs
-      return [left, right, top, bottom];
-    }
-
-    // the caller needs to think about the order of return data
-    const [left, __, top] = processInput(input);
-
-    // good
-    function processInput(input) {
-      // then a miracle occurs
-      return { left, right, top, bottom };
-    }
-
-    // the caller selects only the data they need
-    const { left, right } = processInput(input);
-    ```
-
-
-**[⬆ back to top](#table-of-contents)**
 
 ## Strings
 
@@ -397,16 +182,16 @@
 
     ```javascript
     // bad
-    const name = "Bob Parr";
+    var name = "Bob Parr";
 
     // good
-    const name = 'Bob Parr';
+    var name = 'Bob Parr';
 
     // bad
-    const fullName = "Bob " + this.lastName;
+    var fullName = "Bob " + this.lastName;
 
     // good
-    const fullName = 'Bob ' + this.lastName;
+    var fullName = 'Bob ' + this.lastName;
     ```
 
   - Strings longer than 80 characters should be written across multiple lines using string concatenation.
@@ -414,39 +199,61 @@
 
     ```javascript
     // bad
-    const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+    var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 
     // bad
-    const errorMessage = 'This is a super long error that was thrown because \
+    var errorMessage = 'This is a super long error that was thrown because \
     of Batman. When you stop to think about how Batman had anything to do \
     with this, you would get nowhere \
     fast.';
 
     // good
-    const errorMessage = 'This is a super long error that was thrown because ' +
+    var errorMessage = 'This is a super long error that was thrown because ' +
       'of Batman. When you stop to think about how Batman had anything to do ' +
       'with this, you would get nowhere fast.';
     ```
 
-  <a name="es6-template-literals"></a>
-  - When programmatically building up strings, use template strings instead of concatenation.
-
-  > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+  - When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
-    // bad
-    function sayHi(name) {
-      return 'How are you, ' + name + '?';
-    }
+    var items;
+    var messages;
+    var length;
+    var i;
+
+    messages = [{
+      state: 'success',
+      message: 'This one worked.'
+    }, {
+      state: 'success',
+      message: 'This one worked as well.'
+    }, {
+      state: 'error',
+      message: 'This one did not work.'
+    }];
+
+    length = messages.length;
 
     // bad
-    function sayHi(name) {
-      return ['How are you, ', name, '?'].join();
+    function inbox(messages) {
+      items = '<ul>';
+
+      for (i = 0; i < length; i++) {
+        items += '<li>' + messages[i].message + '</li>';
+      }
+
+      return items + '</ul>';
     }
 
     // good
-    function sayHi(name) {
-      return `How are you, ${name}?`;
+    function inbox(messages) {
+      items = [];
+
+      for (i = 0; i < length; i++) {
+        items[i] = '<li>' + messages[i].message + '</li>';
+      }
+
+      return '<ul>' + items.join('') + '</ul>';
     }
     ```
 
@@ -455,25 +262,21 @@
 
 ## Functions
 
-  - Use function declarations instead of function expressions.
-
-  > Why? Function declarations are named, so they're easier to identify in call stacks. Also, the whole body of a function declaration is hoisted, whereas only the reference of a function expression is hoisted. This rule makes it possible to always use [Arrow Functions](#arrow-functions) in place of function expressions.
-
-    ```javascript
-    // bad
-    const foo = function () {
-    };
-
-    // good
-    function foo() {
-    }
-    ```
-
   - Function expressions:
 
     ```javascript
+    // anonymous function expression
+    var anonymous = function() {
+      return true;
+    };
+
+    // named function expression
+    var named = function named() {
+      return true;
+    };
+
     // immediately-invoked function expression (IIFE)
-    (() => {
+    (function() {
       console.log('Welcome to the Internet. Please follow me.');
     })();
     ```
@@ -490,15 +293,15 @@
     }
 
     // good
-    let test;
+    var test;
     if (currentUser) {
-      test = () => {
+      test = function test() {
         console.log('Yup.');
       };
     }
     ```
 
-  - Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+  - Never name a parameter `arguments`, this will take precedence over the `arguments` object that is given to every function scope.
 
     ```javascript
     // bad
@@ -512,297 +315,8 @@
     }
     ```
 
-  <a name="es6-rest"></a>
-  - Never use `arguments`, opt to use rest syntax `...` instead.
-
-  > Why? `...` is explicit about which arguments you want pulled. Plus rest arguments are a real Array and not Array-like like `arguments`.
-
-    ```javascript
-    // bad
-    function concatenateAll() {
-      const args = Array.prototype.slice.call(arguments);
-      return args.join('');
-    }
-
-    // good
-    function concatenateAll(...args) {
-      return args.join('');
-    }
-    ```
-
-  <a name="es6-default-parameters"></a>
-  - Use default parameter syntax rather than mutating function arguments.
-
-    ```javascript
-    // really bad
-    function handleThings(opts) {
-      // No! We shouldn't mutate function arguments.
-      // Double bad: if opts is falsy it'll be set to an object which may
-      // be what you want but it can introduce subtle bugs.
-      opts = opts || {};
-      // ...
-    }
-
-    // still bad
-    function handleThings(opts) {
-      if (opts === void 0) {
-        opts = {};
-      }
-      // ...
-    }
-
-    // good
-    function handleThings(opts = {}) {
-      // ...
-    }
-    ```
-
 **[⬆ back to top](#table-of-contents)**
 
-## Arrow Functions
-
-  - When you must use function expressions (as when passing an anonymous function), use arrow function notation.
-
-  > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
-
-  > Why not? If you have a fairly complicated function, you might move that logic out into its own function declaration.
-
-    ```javascript
-    // bad
-    [1, 2, 3].map(function (x) {
-      return x * x;
-    });
-
-    // good
-    [1, 2, 3].map((x) => {
-      return x * x
-    });
-    ```
-
-  - If the function body fits on one line, feel free to omit the braces and use implicit return. Otherwise, add the braces and use a `return` statement.
-
-  > Why? Syntactic sugar. It reads well when multiple functions are chained together.
-
-  > Why not? If you plan on returning an object.
-
-    ```javascript
-    // good
-    [1, 2, 3].map((x) => x * x);
-
-    // good
-    [1, 2, 3].map((x) => {
-      return { number: x };
-    });
-    ```
-
-  - Always use parentheses around the arguments. Omitting the parentheses makes the functions less readable and only works for single arguments.
-
-  > Why? These declarations read better with parentheses. They are also required when you have multiple parameters so this enforces consistency.
-
-    ```javascript
-    // bad
-    [1, 2, 3].map(x => x * x);
-
-    // good
-    [1, 2, 3].map((x) => x * x);
-    ```
-
-**[⬆ back to top](#table-of-contents)**
-
-
-## Constructors
-
-  - Always use `class`. Avoid manipulating `prototype` directly.
-
-  > Why? `class` syntax is more concise and easier to reason about.
-
-    ```javascript
-    // bad
-    function Queue(contents = []) {
-      this._queue = [...contents];
-    }
-    Queue.prototype.pop = function() {
-      const value = this._queue[0];
-      this._queue.splice(0, 1);
-      return value;
-    }
-
-
-    // good
-    class Queue {
-      constructor(contents = []) {
-        this._queue = [...contents];
-      }
-      pop() {
-        const value = this._queue[0];
-        this._queue.splice(0, 1);
-        return value;
-      }
-    }
-    ```
-
-  - Use `extends` for inheritance.
-
-  > Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
-
-    ```javascript
-    // bad
-    const inherits = require('inherits');
-    function PeekableQueue(contents) {
-      Queue.apply(this, contents);
-    }
-    inherits(PeekableQueue, Queue);
-    PeekableQueue.prototype.peek = function() {
-      return this._queue[0];
-    }
-
-    // good
-    class PeekableQueue extends Queue {
-      peek() {
-        return this._queue[0];
-      }
-    }
-    ```
-
-  - Methods can return `this` to help with method chaining.
-
-    ```javascript
-    // bad
-    Jedi.prototype.jump = function() {
-      this.jumping = true;
-      return true;
-    };
-
-    Jedi.prototype.setHeight = function(height) {
-      this.height = height;
-    };
-
-    const luke = new Jedi();
-    luke.jump(); // => true
-    luke.setHeight(20); // => undefined
-
-    // good
-    class Jedi {
-      jump() {
-        this.jumping = true;
-        return this;
-      }
-
-      setHeight(height) {
-        this.height = height;
-        return this;
-      }
-    }
-
-    const luke = new Jedi();
-
-    luke.jump()
-      .setHeight(20);
-    ```
-
-
-  - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
-
-    ```javascript
-    class Jedi {
-      contructor(options = {}) {
-        this.name = options.name || 'no name';
-      }
-
-      getName() {
-        return this.name;
-      }
-
-      toString() {
-        return 'Jedi - ' + this.getName();
-      }
-    }
-    ```
-
-**[⬆ back to top](#table-of-contents)**
-
-
-## Modules
-
-  - Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
-
-  > Why? Modules are the future, let's start using the future now.
-
-    ```javascript
-    // bad
-    const AirbnbStyleGuide = require('./AirbnbStyleGuide');
-    module.exports = AirbnbStyleGuide.es6;
-
-    // ok
-    import AirbnbStyleGuide from './AirbnbStyleGuide';
-    export default AirbnbStyleGuide.es6;
-
-    // best
-    import { es6 } from './AirbnbStyleGuide';
-    export default es6;
-    ```
-
-  - Do not use wildcard imports.
-
-  > Why? This makes sure you have a single default export.
-
-    ```javascript
-    // bad
-    import * as AirbnbStyleGuide from './AirbnbStyleGuide';
-
-    // good
-    import AirbnbStyleGuide from './AirbnbStyleGuide';
-    ```
-
-  - And do not export directly from an import.
-
-  > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
-
-    ```javascript
-    // bad
-    // filename es6.js
-    export default { es6 } from './airbnbStyleGuide';
-
-    // good
-    // filename es6.js
-    import { es6 } from './AirbnbStyleGuide';
-    export default es6;
-    ```
-
-**[⬆ back to top](#table-of-contents)**
-
-## Iterators and Generators
-
-  - Don't use iterators. Prefer JavaScript's function constructors instead of loops like `for-of`.
-
-  > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side-effects.
-
-    ```javascript
-    const numbers = [1, 2, 3, 4, 5];
-
-    // bad
-    let sum = 0;
-    for (let num of numbers) {
-      sum += num;
-    }
-
-    sum === 10;
-
-    // good
-    let sum = 0;
-    numbers.forEach((num) => sum += num);
-    sum === 10;
-
-    // best (use the functional force)
-    const sum = numbers.reduce((total, num) => total + num, 0);
-    sum === 10;
-    ```
-
-  - Don't use generators.
-
-  > Why? They don't transpile well to ES5.
-
-**[⬆ back to top](#table-of-contents)**
 
 
 ## Properties
@@ -810,22 +324,22 @@
   - Use dot notation when accessing properties.
 
     ```javascript
-    const luke = {
+    var luke = {
       jedi: true,
       age: 28
     };
 
     // bad
-    const isJedi = luke['jedi'];
+    var isJedi = luke['jedi'];
 
     // good
-    const isJedi = luke.jedi;
+    var isJedi = luke.jedi;
     ```
 
   - Use subscript notation `[]` when accessing properties with a variable.
 
     ```javascript
-    const luke = {
+    var luke = {
       jedi: true,
       age: 28
     };
@@ -834,7 +348,7 @@
       return luke[prop];
     }
 
-    const isJedi = getProp('jedi');
+    var isJedi = getProp('jedi');
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -842,76 +356,73 @@
 
 ## Variables
 
-  - Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  - Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
 
     ```javascript
     // bad
     superPower = new SuperPower();
 
     // good
-    const superPower = new SuperPower();
+    var superPower = new SuperPower();
     ```
 
-  - Use one `const` declaration per variable.
-
-    > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs.
+  - Use one `var` declaration per variable.
+    It's easier to add new variable declarations this way, and you never have
+    to worry about swapping out a `;` for a `,` or introducing punctuation-only
+    diffs.
 
     ```javascript
     // bad
-    const items = getItems(),
+    var items = getItems(),
         goSportsTeam = true,
         dragonball = 'z';
 
     // bad
     // (compare to above, and try to spot the mistake)
-    const items = getItems(),
+    var items = getItems(),
         goSportsTeam = true;
         dragonball = 'z';
 
     // good
-    const items = getItems();
-    const goSportsTeam = true;
-    const dragonball = 'z';
+    var items = getItems();
+    var goSportsTeam = true;
+    var dragonball = 'z';
     ```
 
-  - Group all your `const`s and then group all your `let`s.
-
-  > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+  - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
     ```javascript
     // bad
-    let i, len, dragonball,
+    var i, len, dragonball,
         items = getItems(),
         goSportsTeam = true;
 
     // bad
-    let i;
-    let items = getItems();
-    let dragonball;
-    let goSportsTeam = true;
-    let len;
+    var i;
+    var items = getItems();
+    var dragonball;
+    var goSportsTeam = true;
+    var len;
 
     // good
-    const goSportsTeam = true;
-    const items = getItems();
-    let dragonball;
-    let i;
-    let length;
+    var items = getItems();
+    var goSportsTeam = true;
+    var dragonball;
+    var length;
+    var i;
     ```
 
-  - Assign variables where you need them, but place them in a reasonable place.
-
-  > Why? `let` and `const` are block scoped and not function scoped.
+  - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
 
     ```javascript
-    // good
+    // bad
     function() {
       test();
       console.log('doing stuff..');
 
       //..other stuff..
 
-      const name = getName();
+      var name = getName();
 
       if (name === 'test') {
         return false;
@@ -920,27 +431,40 @@
       return name;
     }
 
-    // bad - unnessary function call
-    function(hasName) {
-      const name = getName();
+    // good
+    function() {
+      var name = getName();
 
-      if (!hasName) {
+      test();
+      console.log('doing stuff..');
+
+      //..other stuff..
+
+      if (name === 'test') {
         return false;
       }
 
-      this.setFirstName(name);
+      return name;
+    }
+
+    // bad
+    function() {
+      var name = getName();
+
+      if (!arguments.length) {
+        return false;
+      }
 
       return true;
     }
 
     // good
-    function(hasName) {
-      if (!hasName) {
+    function() {
+      if (!arguments.length) {
         return false;
       }
 
-      const name = getName();
-      this.setFirstName(name);
+      var name = getName();
 
       return true;
     }
@@ -951,7 +475,7 @@
 
 ## Hoisting
 
-  - `var` declarations get hoisted to the top of their scope, but their assignment does not. `const` and `let` declarations suffer from [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). Also see why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
+  - Variable declarations get hoisted to the top of their scope, their assignment does not.
 
     ```javascript
     // we know this wouldn't work (assuming there
@@ -973,16 +497,9 @@
     // declaration to the top of the scope,
     // which means our example could be rewritten as:
     function example() {
-      let declaredButNotAssigned;
+      var declaredButNotAssigned;
       console.log(declaredButNotAssigned); // => undefined
       declaredButNotAssigned = true;
-    }
-
-    // using const and let
-    function example() {
-      console.log(declaredButNotAssigned); // => throws a ReferenceError
-      console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
-      const declaredButNotAssigned = true;
     }
     ```
 
@@ -994,7 +511,7 @@
 
       anonymous(); // => TypeError anonymous is not a function
 
-      let anonymous = function() {
+      var anonymous = function() {
         console.log('anonymous function expression');
       };
     }
@@ -1010,7 +527,7 @@
 
       superPower(); // => ReferenceError superPower is not defined
 
-      let named = function superPower() {
+      var named = function superPower() {
         console.log('Flying');
       };
     }
@@ -1022,7 +539,7 @@
 
       named(); // => TypeError named is not a function
 
-      let named = function named() {
+      var named = function named() {
         console.log('named');
       }
     }
@@ -1043,6 +560,7 @@
   - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/).
 
 **[⬆ back to top](#table-of-contents)**
+
 
 
 ## Comparison Operators & Equality
@@ -1147,7 +665,7 @@
 
 ## Comments
 
-  - Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
+  - Use `/** ... */` for multiline comments. Include a description, specify types and values for all parameters and return values.
 
     ```javascript
     // bad
@@ -1183,17 +701,17 @@
 
     ```javascript
     // bad
-    const active = true;  // is current tab
+    var active = true;  // is current tab
 
     // good
     // is current tab
-    const active = true;
+    var active = true;
 
     // bad
     function getType() {
       console.log('fetching type...');
       // set the default type to 'no type'
-      const type = this._type || 'no type';
+      var type = this._type || 'no type';
 
       return type;
     }
@@ -1203,7 +721,7 @@
       console.log('fetching type...');
 
       // set the default type to 'no type'
-      const type = this._type || 'no type';
+      var type = this._type || 'no type';
 
       return type;
     }
@@ -1245,17 +763,17 @@
     ```javascript
     // bad
     function() {
-    ∙∙∙∙const name;
+    ∙∙∙∙var name;
     }
 
     // bad
     function() {
-    ∙const name;
+    ∙var name;
     }
 
     // good
     function() {
-    ∙∙const name;
+    ∙∙var name;
     }
     ```
 
@@ -1285,38 +803,14 @@
     });
     ```
 
-  - Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space before the argument list in function calls and declarations.
-
-    ```javascript
-    // bad
-    if(isJedi) {
-      fight ();
-    }
-
-    // good
-    if (isJedi) {
-      fight();
-    }
-
-    // bad
-    function fight () {
-      console.log ('Swooosh!');
-    }
-
-    // good
-    function fight() {
-      console.log('Swooosh!');
-    }
-    ```
-
   - Set off operators with spaces.
 
     ```javascript
     // bad
-    const x=y+5;
+    var x=y+5;
 
     // good
-    const x = y + 5;
+    var x = y + 5;
     ```
 
   - End files with a single newline character.
@@ -1352,7 +846,7 @@
 
     // bad
     $('#items').
-      find('.selected').
+      find('selected').
         highlight().
         end().
       find('.open').
@@ -1367,17 +861,17 @@
         .updateCount();
 
     // bad
-    const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
-        .attr('width', (radius + margin) * 2).append('svg:g')
+    var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
+        .attr('width',  (radius + margin) * 2).append('svg:g')
         .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
 
     // good
-    const leds = stage.selectAll('.led')
+    var leds = stage.selectAll('.led')
         .data(data)
       .enter().append('svg:svg')
-        .classed('led', true)
-        .attr('width', (radius + margin) * 2)
+        .class('led', true)
+        .attr('width',  (radius + margin) * 2)
       .append('svg:g')
         .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
@@ -1400,7 +894,7 @@
     return baz;
 
     // bad
-    const obj = {
+    var obj = {
       foo: function() {
       },
       bar: function() {
@@ -1409,7 +903,7 @@
     return obj;
 
     // good
-    const obj = {
+    var obj = {
       foo: function() {
       },
 
@@ -1429,21 +923,21 @@
 
     ```javascript
     // bad
-    const story = [
+    var story = [
         once
       , upon
       , aTime
     ];
 
     // good
-    const story = [
+    var story = [
       once,
       upon,
       aTime
     ];
 
     // bad
-    const hero = {
+    var hero = {
         firstName: 'Bob'
       , lastName: 'Parr'
       , heroName: 'Mr. Incredible'
@@ -1451,7 +945,7 @@
     };
 
     // good
-    const hero = {
+    var hero = {
       firstName: 'Bob',
       lastName: 'Parr',
       heroName: 'Mr. Incredible',
@@ -1465,23 +959,23 @@
 
     ```javascript
     // bad
-    const hero = {
+    var hero = {
       firstName: 'Kevin',
       lastName: 'Flynn',
     };
 
-    const heroes = [
+    var heroes = [
       'Batman',
       'Superman',
     ];
 
     // good
-    const hero = {
+    var hero = {
       firstName: 'Kevin',
       lastName: 'Flynn'
     };
 
-    const heroes = [
+    var heroes = [
       'Batman',
       'Superman'
     ];
@@ -1497,19 +991,19 @@
     ```javascript
     // bad
     (function() {
-      const name = 'Skywalker'
+      var name = 'Skywalker'
       return name
     })()
 
     // good
-    (() => {
-      const name = 'Skywalker';
+    (function() {
+      var name = 'Skywalker';
       return name;
     })();
 
     // good (guards against the function becoming an argument when two files with IIFEs are concatenated)
-    ;(() => {
-      const name = 'Skywalker';
+    ;(function() {
+      var name = 'Skywalker';
       return name;
     })();
     ```
@@ -1528,40 +1022,40 @@
     //  => this.reviewScore = 9;
 
     // bad
-    const totalScore = this.reviewScore + '';
+    var totalScore = this.reviewScore + '';
 
     // good
-    const totalScore = '' + this.reviewScore;
+    var totalScore = '' + this.reviewScore;
 
     // bad
-    const totalScore = '' + this.reviewScore + ' total score';
+    var totalScore = '' + this.reviewScore + ' total score';
 
     // good
-    const totalScore = this.reviewScore + ' total score';
+    var totalScore = this.reviewScore + ' total score';
     ```
 
   - Use `parseInt` for Numbers and always with a radix for type casting.
 
     ```javascript
-    const inputValue = '4';
+    var inputValue = '4';
 
     // bad
-    const val = new Number(inputValue);
+    var val = new Number(inputValue);
 
     // bad
-    const val = +inputValue;
+    var val = +inputValue;
 
     // bad
-    const val = inputValue >> 0;
+    var val = inputValue >> 0;
 
     // bad
-    const val = parseInt(inputValue);
+    var val = parseInt(inputValue);
 
     // good
-    const val = Number(inputValue);
+    var val = Number(inputValue);
 
     // good
-    const val = parseInt(inputValue, 10);
+    var val = parseInt(inputValue, 10);
     ```
 
   - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
@@ -1573,7 +1067,7 @@
      * Bitshifting the String to coerce it to a
      * Number made it a lot faster.
      */
-    const val = inputValue >> 0;
+    var val = inputValue >> 0;
     ```
 
   - **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
@@ -1587,16 +1081,16 @@
   - Booleans:
 
     ```javascript
-    const age = 0;
+    var age = 0;
 
     // bad
-    const hasAge = new Boolean(age);
+    var hasAge = new Boolean(age);
 
     // good
-    const hasAge = Boolean(age);
+    var hasAge = Boolean(age);
 
     // good
-    const hasAge = !!age;
+    var hasAge = !!age;
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1622,13 +1116,19 @@
 
     ```javascript
     // bad
-    const OBJEcttsssss = {};
-    const this_is_my_object = {};
+    var OBJEcttsssss = {};
+    var this_is_my_object = {};
     function c() {}
+    var u = new user({
+      name: 'Bob Parr'
+    });
 
     // good
-    const thisIsMyObject = {};
+    var thisIsMyObject = {};
     function thisIsMyFunction() {}
+    var user = new User({
+      name: 'Bob Parr'
+    });
     ```
 
   - Use PascalCase when naming constructors or classes.
@@ -1639,18 +1139,16 @@
       this.name = options.name;
     }
 
-    const bad = new user({
+    var bad = new user({
       name: 'nope'
     });
 
     // good
-    class User {
-      constructor(options) {
-        this.name = options.name;
-      }
+    function User(options) {
+      this.name = options.name;
     }
 
-    const good = new User({
+    var good = new User({
       name: 'yup'
     });
     ```
@@ -1666,32 +1164,49 @@
     this._firstName = 'Panda';
     ```
 
-  - Don't save references to `this`. Use arrow functions or Function#bind.
+  - When saving a reference to `this` use `_this`.
 
     ```javascript
     // bad
-    function foo() {
-      const self = this;
+    function() {
+      var self = this;
       return function() {
         console.log(self);
       };
     }
 
     // bad
-    function foo() {
-      const that = this;
+    function() {
+      var that = this;
       return function() {
         console.log(that);
       };
     }
 
     // good
-    function foo() {
-      return () => {
-        console.log(this);
+    function() {
+      var _this = this;
+      return function() {
+        console.log(_this);
       };
     }
     ```
+
+  - Name your functions. This is helpful for stack traces.
+
+    ```javascript
+    // bad
+    var log = function(msg) {
+      console.log(msg);
+    };
+
+    // good
+    var log = function log(msg) {
+      console.log(msg);
+    };
+    ```
+
+  - **Note:** IE8 and below exhibit some quirks with named function expressions.  See [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/) for more info.
 
   - If your file exports a single class, your filename should be exactly the name of the class.
     ```javascript
@@ -1703,35 +1218,14 @@
 
     // in some other file
     // bad
-    const CheckBox = require('./checkBox');
+    var CheckBox = require('./checkBox');
 
     // bad
-    const CheckBox = require('./check_box');
+    var CheckBox = require('./check_box');
 
     // good
-    const CheckBox = require('./CheckBox');
+    var CheckBox = require('./CheckBox');
     ```
-
-  - Use camelCase when you export-default a function. Your filename should be identical to your function's name.
-
-    ```javascript
-    function makeStyleGuide() {
-    }
-
-    export default makeStyleGuide;
-    ```
-
-  - Use PascalCase when you export a singleton / function library / bare object.
-
-    ```javascript
-    const AirbnbStyleGuide = {
-      es6: {
-      }
-    };
-
-    export default AirbnbStyleGuide;
-    ```
-
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -1772,20 +1266,104 @@
   - It's okay to create get() and set() functions, but be consistent.
 
     ```javascript
-    class Jedi {
-      constructor(options = {}) {
-        const lightsaber = options.lightsaber || 'blue';
-        this.set('lightsaber', lightsaber);
-      }
-
-      set(key, val) {
-        this[key] = val;
-      }
-
-      get(key) {
-        return this[key];
-      }
+    function Jedi(options) {
+      options || (options = {});
+      var lightsaber = options.lightsaber || 'blue';
+      this.set('lightsaber', lightsaber);
     }
+
+    Jedi.prototype.set = function(key, val) {
+      this[key] = val;
+    };
+
+    Jedi.prototype.get = function(key) {
+      return this[key];
+    };
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+
+## Constructors
+
+  - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
+
+    ```javascript
+    function Jedi() {
+      console.log('new jedi');
+    }
+
+    // bad
+    Jedi.prototype = {
+      fight: function fight() {
+        console.log('fighting');
+      },
+
+      block: function block() {
+        console.log('blocking');
+      }
+    };
+
+    // good
+    Jedi.prototype.fight = function fight() {
+      console.log('fighting');
+    };
+
+    Jedi.prototype.block = function block() {
+      console.log('blocking');
+    };
+    ```
+
+  - Methods can return `this` to help with method chaining.
+
+    ```javascript
+    // bad
+    Jedi.prototype.jump = function() {
+      this.jumping = true;
+      return true;
+    };
+
+    Jedi.prototype.setHeight = function(height) {
+      this.height = height;
+    };
+
+    var luke = new Jedi();
+    luke.jump(); // => true
+    luke.setHeight(20); // => undefined
+
+    // good
+    Jedi.prototype.jump = function() {
+      this.jumping = true;
+      return this;
+    };
+
+    Jedi.prototype.setHeight = function(height) {
+      this.height = height;
+      return this;
+    };
+
+    var luke = new Jedi();
+
+    luke.jump()
+      .setHeight(20);
+    ```
+
+
+  - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+
+    ```javascript
+    function Jedi(options) {
+      options || (options = {});
+      this.name = options.name || 'no name';
+    }
+
+    Jedi.prototype.getName = function getName() {
+      return this.name;
+    };
+
+    Jedi.prototype.toString = function toString() {
+      return 'Jedi - ' + this.getName();
+    };
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1795,7 +1373,7 @@
 
   - When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
 
-    ```javascript
+    ```js
     // bad
     $(this).trigger('listingUpdated', listing.id);
 
@@ -1808,7 +1386,7 @@
 
     prefer:
 
-    ```javascript
+    ```js
     // good
     $(this).trigger('listingUpdated', { listingId : listing.id });
 
@@ -1822,16 +1400,47 @@
   **[⬆ back to top](#table-of-contents)**
 
 
+## Modules
+
+  - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
+  - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
+  - Add a method called `noConflict()` that sets the exported module to the previous version and returns this one.
+  - Always declare `'use strict';` at the top of the module.
+
+    ```javascript
+    // fancyInput/fancyInput.js
+
+    !function(global) {
+      'use strict';
+
+      var previousFancyInput = global.FancyInput;
+
+      function FancyInput(options) {
+        this.options = options || {};
+      }
+
+      FancyInput.noConflict = function noConflict() {
+        global.FancyInput = previousFancyInput;
+        return FancyInput;
+      };
+
+      global.FancyInput = FancyInput;
+    }(this);
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+
 ## jQuery
 
   - Prefix jQuery object variables with a `$`.
 
     ```javascript
     // bad
-    const sidebar = $('.sidebar');
+    var sidebar = $('.sidebar');
 
     // good
-    const $sidebar = $('.sidebar');
+    var $sidebar = $('.sidebar');
     ```
 
   - Cache jQuery lookups.
@@ -1850,7 +1459,7 @@
 
     // good
     function setSidebar() {
-      const $sidebar = $('.sidebar');
+      var $sidebar = $('.sidebar');
       $sidebar.hide();
 
       // ...stuff...
@@ -1890,25 +1499,6 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-## ECMAScript 6 Styles
-
-This is a collection of links to the various es6 features.
-
-1. [Arrow Functions](#arrow-functions)
-1. [Classes](#constructors)
-1. [Object Shorthand](#es6-object-shorthand)
-1. [Object Concise](#es6-object-concise)
-1. [Object Computed Properties](#es6-computed-properties)
-1. [Template Strings](#es6-template-literals)
-1. [Destructuring](#destructuring)
-1. [Default Parameters](#es6-default-parameters)
-1. [Rest](#es6-rest)
-1. [Array Spreads](#es6-array-spreads)
-1. [Let and Const](#references)
-1. [Iterators and Generators](#iterators-and-generators)
-1. [Modules](#modules)
-
-**[⬆ back to top](#table-of-contents)**
 
 ## Testing
 
@@ -1955,6 +1545,7 @@ This is a collection of links to the various es6 features.
   - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
   - [jQuery Core Style Guidelines](http://docs.jquery.com/JQuery_Core_Style_Guidelines)
   - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwldrn/idiomatic.js/)
+  - [JavaScript Standard Style](https://github.com/feross/standard)
 
 **Other Styles**
 
@@ -1987,6 +1578,8 @@ This is a collection of links to the various es6 features.
   - [JSBooks](http://jsbooks.revolunet.com/) - Julien Bouquillon
   - [Third Party JavaScript](http://manning.com/vinegar/) - Ben Vinegar and Anton Kovalyov
   - [Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript](http://amzn.com/0321812182) - David Herman
+  - [Eloquent JavaScript](http://eloquentjavascript.net) - Marijn Haverbeke
+  - [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS) - Kyle Simpson
 
 **Blogs**
 
@@ -2014,7 +1607,6 @@ This is a collection of links to the various es6 features.
   This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
 
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
-  - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
   - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
   - **American Insitutes for Research**: [AIRAST/javascript](https://github.com/AIRAST/javascript)
   - **Apartmint**: [apartmint/javascript](https://github.com/apartmint/javascript)
@@ -2024,7 +1616,6 @@ This is a collection of links to the various es6 features.
   - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
   - **Evernote**: [evernote/javascript-style-guide](https://github.com/evernote/javascript-style-guide)
   - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
-  - **Flexberry**: [Flexberry/javascript-style-guide](https://github.com/Flexberry/javascript-style-guide)
   - **Gawker Media**: [gawkermedia/javascript](https://github.com/gawkermedia/javascript)
   - **GeneralElectric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
   - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
@@ -2033,7 +1624,6 @@ This is a collection of links to the various es6 features.
   - **InfoJobs**: [InfoJobs/JavaScript-Style-Guide](https://github.com/InfoJobs/JavaScript-Style-Guide)
   - **Intent Media**: [intentmedia/javascript](https://github.com/intentmedia/javascript)
   - **Jam3**: [Jam3/Javascript-Code-Conventions](https://github.com/Jam3/Javascript-Code-Conventions)
-  - **JSSolutions**: [JSSolutions/javascript](https://github.com/JSSolutions/javascript)
   - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/javascript)
   - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
   - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
@@ -2043,6 +1633,7 @@ This is a collection of links to the various es6 features.
   - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
   - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
   - **Nimbl3**: [nimbl3/javascript](https://github.com/nimbl3/javascript)
+  - **Nordic Venture Family**: [CodeDistillery/javascript](https://github.com/CodeDistillery/javascript)
   - **Orion Health**: [orionhealth/javascript](https://github.com/orionhealth/javascript)
   - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
   - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
@@ -2065,20 +1656,18 @@ This is a collection of links to the various es6 features.
 
   This style guide is also available in other languages:
 
+  - ![de](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png) **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
+  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
   - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
-  - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
-  - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
   - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chinese(Traditional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript)
   - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese(Simplified)**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
-  - ![fr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/France.png) **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
-  - ![de](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png) **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
-  - ![it](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png) **Italian**: [sinkswim/javascript-style-guide](https://github.com/sinkswim/javascript-style-guide)
-  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
-  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
-  - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polish**: [mjurczyk/javascript](https://github.com/mjurczyk/javascript)
-  - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [uprock/javascript](https://github.com/uprock/javascript)
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
-  - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
+  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
+  - ![fr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/France.png) **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
+  - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [uprock/javascript](https://github.com/uprock/javascript)
+  - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
+  - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
+  - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polish**: [mjurczyk/javascript](https://github.com/mjurczyk/javascript)
 
 ## The JavaScript Style Guide Guide
 
