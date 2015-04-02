@@ -1631,6 +1631,7 @@
   This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
 
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
+  - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
   - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
   - **American Insitutes for Research**: [AIRAST/javascript](https://github.com/AIRAST/javascript)
   - **Apartmint**: [apartmint/javascript](https://github.com/apartmint/javascript)
