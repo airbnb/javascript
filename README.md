@@ -198,7 +198,7 @@
     const obj = {
       id: 5,
       name: 'San Francisco',
-      [getKey('enabled')]: true,
+      [getKey('enabled')]: true
     };
     ```
 
@@ -212,7 +212,7 @@
 
       addValue: function (value) {
         return atom.value + value;
-      },
+      }
     };
 
     // good
@@ -221,7 +221,7 @@
 
       addValue(value) {
         return atom.value + value;
-      },
+      }
     };
     ```
 
