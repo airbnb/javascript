@@ -401,12 +401,6 @@
 
     // good
     const name = 'Bob Parr';
-
-    // bad
-    const fullName = "Bob " + this.lastName;
-
-    // good
-    const fullName = 'Bob ' + this.lastName;
     ```
 
   - Strings longer than 80 characters should be written across multiple lines using string concatenation.
@@ -714,7 +708,7 @@
       }
 
       toString() {
-        return 'Jedi - ' + this.getName();
+        return `Jedi - ${this.getName()}`;
       }
     }
     ```
@@ -951,7 +945,7 @@
 
 ## Hoisting
 
-  - `var` declarations get hoisted to the top of their scope, but their assignment does not. `const` and `let` declarations suffer from [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). Also see why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
+  - `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It's important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
 
     ```javascript
     // we know this wouldn't work (assuming there
@@ -1531,13 +1525,7 @@
     const totalScore = this.reviewScore + '';
 
     // good
-    const totalScore = '' + this.reviewScore;
-
-    // bad
-    const totalScore = '' + this.reviewScore + ' total score';
-
-    // good
-    const totalScore = this.reviewScore + ' total score';
+    const totalScore = String(this.reviewScore);
     ```
 
   - Use `parseInt` for Numbers and always with a radix for type casting.
