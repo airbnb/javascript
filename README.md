@@ -767,7 +767,7 @@
 
 ## Iterators and Generators
 
-  - Don't use iterators. Prefer JavaScript's function constructors instead of loops like `for-of`.
+  - Don't use iterators. Prefer JavaScript's higher-order functions like `map()` and `reduce()` instead of loops like `for-of`.
 
   > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side-effects.
 
