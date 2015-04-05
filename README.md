@@ -301,7 +301,7 @@
     }
     ```
 
-  - Never name a parameter `arguments`, this will take precedence over the `arguments` object that is given to every function scope.
+  - Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
 
     ```javascript
     // bad
@@ -475,7 +475,7 @@
 
 ## Hoisting
 
-  - Variable declarations get hoisted to the top of their scope, their assignment does not.
+  - Variable declarations get hoisted to the top of their scope, but their assignment does not.
 
     ```javascript
     // we know this wouldn't work (assuming there
@@ -665,7 +665,7 @@
 
 ## Comments
 
-  - Use `/** ... */` for multiline comments. Include a description, specify types and values for all parameters and return values.
+  - Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
 
     ```javascript
     // bad
