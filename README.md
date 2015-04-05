@@ -370,6 +370,7 @@
   > Why? You can add new properties over time or change the order of things without breaking call sites.
 
     ```javascript
+    // bad
     function processInput(input) {
       // then a miracle occurs
       return [left, right, top, bottom];
