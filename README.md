@@ -736,7 +736,7 @@
     ```javascript
     function Calculator() {
 
-      // FIXME (John Adams): shouldn't use a global here
+      // FIXME (Leia Amidala): shouldn't use a global here
       total = 0;
 
       return this;
@@ -748,7 +748,7 @@
     ```javascript
     function Calculator() {
 
-      // TODO (Rick Martin): total should be configurable by an options param
+      // TODO (Han Solo): total should be configurable by an options param
       this.total = 0;
 
       return this;
