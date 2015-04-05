@@ -729,7 +729,7 @@
 
   - Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
 
-  - Include the name of someone you can refrence to aid in either the `FIXME` or `TODO`. Usually, if you are the one writing the `TODO` or `FIXME`, you should refrence yourself.
+  - Include the name of someone you can reference to aid in either the `FIXME` or `TODO`. Usually, if you are the one writing the `TODO` or `FIXME`, you should reference yourself.
 
   - Use `// FIXME:` to annotate problems.
 
