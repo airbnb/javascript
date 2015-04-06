@@ -870,7 +870,7 @@
 
     // bad
     $('#items').
-      find('selected').
+      find('.selected').
         highlight().
         end().
       find('.open').
