@@ -771,7 +771,7 @@
     ```javascript
     // bad
     // filename es6.js
-    export default { es6 } from './airbnbStyleGuide';
+    export { es6 as default } from './airbnbStyleGuide';
 
     // good
     // filename es6.js
