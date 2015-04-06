@@ -135,7 +135,7 @@
     var items = [];
     ```
 
-  - If you don't know array length use Array#push.
+  - Use Array#push instead of direct assignment to add items to an array.
 
     ```javascript
     var someStack = [];
