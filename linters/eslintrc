@@ -33,6 +33,7 @@ rules:
   space-before-function-paren: [2, "never"]
   no-spaced-func: 2
   no-wrap-func: 2
+  one-var: [2, "never"]
   camelcase: 2
   new-cap: 2
   consistent-this: [1, "_this"]
