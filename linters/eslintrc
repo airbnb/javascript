@@ -1,0 +1,43 @@
+env: 
+  browser: true
+  node: true
+
+rules:
+  no-new-object: 2
+  no-reserved-keys: 2
+  no-array-constructor: 2
+  quotes: [2, "single"]
+  indent: [2, 2]
+  no-multi-str: 2
+  no-multi-spaces: 2
+  no-shadow-restricted-names: 2
+  dot-notation: 2
+  block-scoped-var: 2
+  vars-on-top: 2
+  no-unused-vars: 2
+  eqeqeq: 2
+  use-isnan: 2
+  no-eq-null: 2
+  brace-style: 2
+  spaced-line-comment: 2
+  valid-jsdoc: 2
+  space-infix-ops: 2
+  eol-last: 2
+  padded-blocks: [2, "never"]
+  space-before-blocks: 2
+  comma-dangle: [2, "never"]
+  comma-style: 2
+  semi: [2, always]
+  semi-spacing: 2
+  no-extra-boolean-cast: 2
+  space-before-function-paren: [2, "never"]
+  no-spaced-func: 2
+  no-wrap-func: 2
+  one-var: [2, "never"]
+  camelcase: 2
+  new-cap: 2
+  consistent-this: [1, "_this"]
+  func-names: 2
+  key-spacing: 2
+  no-dupe-keys: 2
+  strict: 2
