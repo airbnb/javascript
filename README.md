@@ -896,9 +896,9 @@
 
     // bad
     let i;
-    let items = getItems();
+    const items = getItems();
     let dragonball;
-    let goSportsTeam = true;
+    const goSportsTeam = true;
     let len;
 
     // good
