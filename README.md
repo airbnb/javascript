@@ -1004,7 +1004,7 @@
 
       anonymous(); // => TypeError anonymous is not a function
 
-      let anonymous = function() {
+      var anonymous = function() {
         console.log('anonymous function expression');
       };
     }
@@ -1020,7 +1020,7 @@
 
       superPower(); // => ReferenceError superPower is not defined
 
-      let named = function superPower() {
+      var named = function superPower() {
         console.log('Flying');
       };
     }
@@ -1032,7 +1032,7 @@
 
       named(); // => TypeError named is not a function
 
-      let named = function named() {
+      var named = function named() {
         console.log('named');
       }
     }
