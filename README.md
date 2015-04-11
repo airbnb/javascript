@@ -318,7 +318,7 @@
   - To convert an array-like object to an array, use Array#from.
 
     ```javascript
-    const foo = document.querySelectorAll('.foo');
+    const foo = document.querySelectorAll('.foo');ho
     const nodes = Array.from(foo);
     ```
 
@@ -985,7 +985,7 @@
 
       anonymous(); // => TypeError anonymous is not a function
 
-      let anonymous = function() {
+      var anonymous = function() {
         console.log('anonymous function expression');
       };
     }
@@ -1001,7 +1001,7 @@
 
       superPower(); // => ReferenceError superPower is not defined
 
-      let named = function superPower() {
+      var named = function superPower() {
         console.log('Flying');
       };
     }
@@ -1013,7 +1013,7 @@
 
       named(); // => TypeError named is not a function
 
-      let named = function named() {
+      var named = function named() {
         console.log('named');
       }
     }
