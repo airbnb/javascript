@@ -1704,17 +1704,17 @@
     class CheckBox {
       // ...
     }
-    module.exports = CheckBox;
+    export default CheckBox;
 
     // in some other file
     // bad
-    const CheckBox = require('./checkBox');
+    import CheckBox from './checkBox';
 
     // bad
-    const CheckBox = require('./check_box');
+    import CheckBox from './check_box';
 
     // good
-    const CheckBox = require('./CheckBox');
+    import CheckBox from './CheckBox';
     ```
 
   - Use camelCase when you export-default a function. Your filename should be identical to your function's name.
