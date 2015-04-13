@@ -178,7 +178,7 @@
 
 ## Strings
 
-  - Use single quotes `''` for strings.
+  - Use single quotes `''` for strings, except to avoid having to escape.
 
     ```javascript
     // bad
@@ -192,6 +192,12 @@
 
     // good
     var fullName = 'Bob ' + this.lastName;
+
+    // bad
+    var name = 'Tommy\'s Joynt';
+
+    // good
+    var name = "Tommy's Joynt";
     ```
 
   - Strings longer than 80 characters should be written across multiple lines using string concatenation.
