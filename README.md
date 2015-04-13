@@ -550,21 +550,21 @@
       // ...
     }
     ```
-    
+
   - Don't put side effect into default parameter
-  
-  > it introduces confusion and subtlety. Arguments in function call are evaluated at call site, but default parameters are not evaluated at define site. 
+
+  > it introduces confusion and subtlety. Arguments in function call are evaluated at call site, but default parameters are not evaluated at define site.
 
   ```javascript
-  var b = 1
+  var b = 1;
   // bad
   function count(a = b++) {
-    console.log(a)
+    console.log(a);
   }
-  count()  // 1
-  count()  // 2
-  count(3) // 3
-  count()  // 3
+  count();  // 1
+  count();  // 2
+  count(3); // 3
+  count();  // 3
   ```
 
 
