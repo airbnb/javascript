@@ -8,7 +8,7 @@
 ## Table of Contents
 
   1. [Types](#types)
-  1. [Objects](#objects)S
+  1. [Objects](#objects)
   1. [Arrays](#arrays)
   1. [Strings](#strings)
   1. [Functions](#functions)
