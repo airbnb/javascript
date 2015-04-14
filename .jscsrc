@@ -112,5 +112,5 @@
     "excludeFiles": [
         "node_modules/**"
     ],
-    "maximumLineLength": 130
+    "maximumLineLength": 150
 }
