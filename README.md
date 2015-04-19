@@ -447,24 +447,29 @@
       return name;
     }
 
-    // bad
+    // bad - unnessary function call
     function() {
       var name = getName();
 
       if (!arguments.length) {
         return false;
       }
+
+      this.setFirstName(name);
 
       return true;
     }
 
     // good
     function() {
+      var name;
+
       if (!arguments.length) {
         return false;
       }
 
-      var name = getName();
+      name = getName();
+      this.setFirstName(name);
 
       return true;
     }
