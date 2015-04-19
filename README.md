@@ -446,25 +446,25 @@
 
       return name;
     }
-
+    
     // bad
     function() {
-      var name = getName();
-
       if (!arguments.length) {
         return false;
       }
+
+      var name = getName();
 
       return true;
     }
 
     // good
     function() {
+      var name = getName();
+
       if (!arguments.length) {
         return false;
       }
-
-      var name = getName();
 
       return true;
     }
