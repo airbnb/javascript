@@ -891,7 +891,7 @@
 
     // bad
     var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
-        .attr('width',  (radius + margin) * 2).append('svg:g')
+        .attr('width', (radius + margin) * 2).append('svg:g')
         .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
 
@@ -900,7 +900,7 @@
         .data(data)
       .enter().append('svg:svg')
         .classed('led', true)
-        .attr('width',  (radius + margin) * 2)
+        .attr('width', (radius + margin) * 2)
       .append('svg:g')
         .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
