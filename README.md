@@ -578,15 +578,16 @@
   - If condition is true, the operator returns the value of expr1; otherwise, it returns the value of expr2.
     ```javascript
     //without ternary operator
-    var now = new Date();
-    var greeting = "Good";
-    if (now.getHours() > 17)
-       greeting += " evening.";
-    else
-       greeting += " day."
+      var now = new Date();
+      var greeting = "Good";
+      if (now.getHours() > 17)
+        greeting += " evening.";
+      else
+        greeting += " day.";
+        
     //with ternary operator
-     var now = new Date();
-     var greeting = "Good" + ((now.getHours() > 17) ? " evening." : " day.");
+      var now = new Date();
+      var greeting = "Good" + ((now.getHours() > 17) ? " evening." : " day.");
     ```
   - Comparison operators are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
 
