@@ -15,7 +15,7 @@
   1. [Properties](#properties)
   1. [Variables](#variables)
   1. [Hoisting](#hoisting)
-  1. [Comparison Operators & Equality](#comparison-operators--equality)
+  1. [Comparison Operators, Conditional(Ternary) Operator & Equality](#comparison-operators--ternary--equality)
   1. [Blocks](#blocks)
   1. [Comments](#comments)
   1. [Whitespace](#whitespace)
@@ -568,9 +568,26 @@
 
 
 
-## Comparison Operators & Equality
+## Comparison Operators , Conditional (Ternary) Operators & Equality
 
   - Use `===` and `!==` over `==` and `!=`.
+  - Conditional operators is frequently used as shortcut for if statement and takes three operands.
+   ```javascript
+     condition ? expr1 : expr2 
+    ```
+  - If condition is true, the operator returns the value of expr1; otherwise, it returns the value of expr2.
+    ```javascript
+    //without ternary operator
+    var now = new Date();
+    var greeting = "Good";
+    if (now.getHours() > 17)
+       greeting += " evening.";
+    else
+       greeting += " day."
+    //with ternary operator
+     var now = new Date();
+     var greeting = "Good" + ((now.getHours() > 17) ? " evening." : " day.");
+    ```
   - Comparison operators are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
 
     + **Objects** evaluate to **true**
