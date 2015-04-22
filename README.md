@@ -1162,12 +1162,14 @@
     });
     ```
 
-  - Use a leading underscore `_` when naming private properties.
+  - Use a leading underscore `_` when naming private properties (not local vars).
 
     ```javascript
     // bad
     this.__firstName__ = 'Panda';
     this.firstName_ = 'Panda';
+    function foo() {
+      var _fullName = '';
 
     // good
     this._firstName = 'Panda';
