@@ -444,6 +444,20 @@
     }
     ```
 
+- When simply adding a string to an existing value, use concatenation.
+
+    ```javascript
+    // bad
+    function makePercent(num) {
+      return `${num}%`;
+    }
+
+    // good
+    function makePercent(num) {
+      return num + '%';
+    }
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 
