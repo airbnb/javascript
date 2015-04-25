@@ -79,7 +79,7 @@
     "curly": [2, "multi-line"],      // http://eslint.org/docs/rules/curly
     "default-case": 2,               // http://eslint.org/docs/rules/default-case
     "dot-notation": [2, {            // http://eslint.org/docs/rules/dot-notation
-      "allowKeywords": false
+      "allowKeywords": true
     }],
     "eqeqeq": 2,                     // http://eslint.org/docs/rules/eqeqeq
     "guard-for-in": 2,               // http://eslint.org/docs/rules/guard-for-in
