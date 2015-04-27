@@ -551,9 +551,9 @@
     }
     ```
 
-  - Don't put side effect into default parameter
+  - Avoid side effects with default parameters
 
-  > it introduces confusion and subtlety. Arguments in function call are evaluated at call site, but default parameters are not evaluated at define site.
+  > Why? They are confusing to reason about.
 
   ```javascript
   var b = 1;
