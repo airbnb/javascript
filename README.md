@@ -250,6 +250,7 @@
       items = [];
 
       for (i = 0; i < length; i++) {
+        // use direct assignment in this case because we're micro-optimizing.
         items[i] = '<li>' + messages[i].message + '</li>';
       }
 
