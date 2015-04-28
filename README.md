@@ -837,10 +837,10 @@
     var x = y + 5;
     ```
 
-  - End files with a single newline character.
+  - End files _without_ additional whitespace (that is, do not include a trailing newline).
 
     ```javascript
-    // bad
+    // good
     (function(global) {
       // ...stuff...
     })(this);
@@ -855,7 +855,7 @@
     ```
 
     ```javascript
-    // good
+    // bad
     (function(global) {
       // ...stuff...
     })(this);↵
@@ -938,6 +938,7 @@
     return obj;
     ```
 
+  - Trailing whitespace is an error. **Please set your editor or IDE to strip trailing whitespace on save**, or at least set it to make trailing whitespace visible so you can remove it yourself.
 
 **[⬆ back to top](#table-of-contents)**
 
