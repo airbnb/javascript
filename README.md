@@ -1494,8 +1494,7 @@
     // bad
     const hero = {
       firstName: 'Dana',
-      lastName: 'Scully',
-      catchPhrase: 'Adventure is out there'
+      lastName: 'Scully'
     };
 
     const heroes = [
@@ -1507,7 +1506,6 @@
     const hero = {
       firstName: 'Dana',
       lastName: 'Scully',
-      catchPhrase: 'Adventure is out there',
     };
 
     const heroes = [
