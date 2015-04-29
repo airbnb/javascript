@@ -1944,6 +1944,12 @@ This is a collection of links to the various es6 features.
 
 ## Resources
 
+**Learning ES6**
+
+  - [Draft ECMA 2015 (ES6) Spec](https://people.mozilla.org/~jorendorff/es6-draft.html)
+  - [ExploringJS](http://exploringjs.com/)
+  - [ES6 Compatibility Table](https://kangax.github.io/compat-table/es6/)
+  - [Comprehensive Overview of ES6 Features](http://es6-features.org/)
 
 **Read This**
 
