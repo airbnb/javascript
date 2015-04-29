@@ -1476,7 +1476,8 @@
     ```javascript
     // bad - git diff without trailing comma
     const hero = {
-    -    firstName: 'Bob',
+         firstName: 'Bob',
+    -    lastName: 'Parr'
     +    lastName: 'Parr',
     +    heroName: 'Mr. Incredible'
     }
