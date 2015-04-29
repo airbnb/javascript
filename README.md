@@ -4,7 +4,7 @@
 
 *A mostly reasonable approach to JavaScript*
 
-[For our old ES5-only guide click here](es5/).
+[For the ES5-only guide click here](es5/).
 
 ## Table of Contents
 
