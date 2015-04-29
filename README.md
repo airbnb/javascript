@@ -15,7 +15,7 @@
   1. [Properties](#properties)
   1. [Variables](#variables)
   1. [Hoisting](#hoisting)
-  1. [Comparison Operators, Conditional(Ternary) Operator & Equality](#comparison-operators--ternary--equality)
+  1. [Comparison Operators & Equality](#comparison-operators--equality)
   1. [Blocks](#blocks)
   1. [Comments](#comments)
   1. [Whitespace](#whitespace)
@@ -627,6 +627,30 @@
     if (collection.length) {
       // ...stuff...
     }
+    
+    // good
+    var superpower = isSuperman(user) ? 'flight' : 'none';
+    // bad
+    for (var i = 1; i <= 16; i++) {
+      var msg = i % 3 === 0 ? i % 5 === 0 ? 'FizzBuzz' : 'Fizz' : i % 5 === 0 ? 'Buzz' : '';
+      console.log(msg || i);
+    }
+
+    // good
+   for (var i = 1; i <= 16; i++) {
+     var msg = '';
+    if (i % 3 === 0) {
+     if (i % 5 === 0 {
+       msg = 'FizzBuzz';
+      } else {
+      msg = 'Fizz';
+      }
+    } else if (i % 5 === 0) {
+    msg = 'Buzz'
+  } 
+    console.log(msg || i);
+  }
+
     ```
 
   - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
