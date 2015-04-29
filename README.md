@@ -189,7 +189,7 @@
     // bad
     const obj = {
       id: 5,
-      name: 'San Francisco'
+      name: 'San Francisco',
     };
     obj[getKey('enabled')] = true;
 
@@ -197,7 +197,7 @@
     const obj = {
       id: 5,
       name: 'San Francisco',
-      [getKey('enabled')]: true
+      [getKey('enabled')]: true,
     };
     ```
 
@@ -211,7 +211,7 @@
 
       addValue: function (value) {
         return atom.value + value;
-      }
+      },
     };
 
     // good
@@ -220,7 +220,7 @@
 
       addValue(value) {
         return atom.value + value;
-      }
+      },
     };
     ```
 
@@ -258,7 +258,7 @@
       lukeSkywalker,
       episodeThree: 3,
       mayTheFourth: 4,
-      anakinSkywalker
+      anakinSkywalker,
     };
 
     // good
@@ -268,7 +268,7 @@
       episodeOne: 1,
       twoJedisWalkIntoACantina: 2,
       episodeThree: 3,
-      mayTheFourth: 4
+      mayTheFourth: 4,
     };
     ```
 
@@ -397,10 +397,10 @@
 
     ```javascript
     // bad
-    const name = "Bob Parr";
+    const name = "Capt. Janeway";
 
     // good
-    const name = 'Bob Parr';
+    const name = 'Capt. Janeway';
     ```
 
   - Strings longer than 80 characters should be written across multiple lines using string concatenation.
@@ -809,7 +809,7 @@
     sum === 15;
     ```
 
-  - Don't use generators.
+  - Don't use generators for now.
 
   > Why? They don't transpile well to ES5.
 
@@ -823,7 +823,7 @@
     ```javascript
     const luke = {
       jedi: true,
-      age: 28
+      age: 28,
     };
 
     // bad
@@ -838,7 +838,7 @@
     ```javascript
     const luke = {
       jedi: true,
-      age: 28
+      age: 28,
     };
 
     function getProp(prop) {
@@ -1225,24 +1225,26 @@
   - Use `// FIXME:` to annotate problems.
 
     ```javascript
-    function Calculator() {
+    class Calculator {
+      constructor() {
+        // FIXME: shouldn't use a global here
+        total = 0;
 
-      // FIXME: shouldn't use a global here
-      total = 0;
-
-      return this;
+        return this;
+      }
     }
     ```
 
   - Use `// TODO:` to annotate solutions to problems.
 
     ```javascript
-    function Calculator() {
+    class Calculator {
+      constructor() {
+        // TODO: total should be configurable by an options param
+        this.total = 0;
 
-      // TODO: total should be configurable by an options param
-      this.total = 0;
-
-      return this;
+        return this;
+      }
     }
   ```
 
@@ -1412,20 +1414,20 @@
 
     // bad
     const obj = {
-      foo: function() {
+      foo() {
       },
-      bar: function() {
-      }
+      bar() {
+      },
     };
     return obj;
 
     // good
     const obj = {
-      foo: function() {
+      foo() {
       },
 
-      bar: function() {
-      }
+      bar() {
+      },
     };
 
     return obj;
@@ -1450,23 +1452,23 @@
     const story = [
       once,
       upon,
-      aTime
+      aTime,
     ];
 
     // bad
     const hero = {
-        firstName: 'Bob'
-      , lastName: 'Parr'
-      , heroName: 'Mr. Incredible'
-      , superPower: 'strength'
+        firstName: 'Ada'
+      , lastName: 'Lovelace'
+      , birthYear: 1815
+      , superPower: 'computers'
     };
 
     // good
     const hero = {
-      firstName: 'Bob',
-      lastName: 'Parr',
-      heroName: 'Mr. Incredible',
-      superPower: 'strength'
+      firstName: 'Ada',
+      lastName: 'Lovelace',
+      birthYear: 1815,
+      superPower: 'computers',
     };
     ```
 
@@ -1477,23 +1479,23 @@
     ```javascript
     // bad - git diff without trailing comma
     const hero = {
-         firstName: 'Bob',
-    -    lastName: 'Parr'
-    +    lastName: 'Parr',
-    +    heroName: 'Mr. Incredible'
+         firstName: 'Florence',
+    -    lastName: 'Nightingale'
+    +    lastName: 'Nightingale',
+    +    inventorOf: ['coxcomb graph', 'mordern nursing']
     }
 
     // good - git diff with trailing comma
     const hero = {
-         firstName: 'Bob',
-         lastName: 'Parr',
-    +    heroName: 'Mr. Incredible',
+         firstName: 'Florence',
+         lastName: 'Nightingale',
+    +    inventorOf: ['coxcomb chart', 'mordern nursing'],
     }
 
     // bad
     const hero = {
-      firstName: 'Kevin',
-      lastName: 'Flynn'
+      firstName: 'Dana',
+      lastName: 'Scully'
     };
 
     const heroes = [
@@ -1503,8 +1505,8 @@
 
     // good
     const hero = {
-      firstName: 'Kevin',
-      lastName: 'Flynn',
+      firstName: 'Dana',
+      lastName: 'Scully',
     };
 
     const heroes = [
@@ -1660,7 +1662,7 @@
     }
 
     const bad = new user({
-      name: 'nope'
+      name: 'nope',
     });
 
     // good
@@ -1671,7 +1673,7 @@
     }
 
     const good = new User({
-      name: 'yup'
+      name: 'yup',
     });
     ```
 
