@@ -1470,23 +1470,27 @@
     };
     ```
 
-  - Additional trailing comma: **Nope.** This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
+  - Additional trailing comma: **Yup.**
 
-  > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
+  > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](es5/README.md#commas) in legacy browsers.
 
     ```javascript
-    // bad
+    // bad - git diff without trailing comma
     const hero = {
-      firstName: 'Kevin',
-      lastName: 'Flynn',
-    };
+         firstName: 'Bob',
+    -    lastName: 'Parr'
+    +    lastName: 'Parr',
+    +    heroName: 'Mr. Incredible'
+    }
 
-    const heroes = [
-      'Batman',
-      'Superman',
-    ];
+    // good - git diff with trailing comma
+    const hero = {
+         firstName: 'Bob',
+         lastName: 'Parr',
+    +    heroName: 'Mr. Incredible',
+    }
 
-    // good
+    // bad
     const hero = {
       firstName: 'Kevin',
       lastName: 'Flynn'
@@ -1495,6 +1499,17 @@
     const heroes = [
       'Batman',
       'Superman'
+    ];
+
+    // good
+    const hero = {
+      firstName: 'Kevin',
+      lastName: 'Flynn',
+    };
+
+    const heroes = [
+      'Batman',
+      'Superman',
     ];
     ```
 
