@@ -13,18 +13,19 @@
   1. [Props](#props)
   1. [Parentheses](#parentheses)
   1. [Tags](#tags)
+  1. [Methods](#methods)
   1. [Ordering](#ordering)
 
 ## Basic Rules
 
   - Only include one React component per file.
   - Always use JSX syntax.
-  - Do not use `React.createElement` unless you're initializing the app from a `.js` file.
+  - Do not use `React.createElement` unless you're initializing the app from a file that does not transform JSX.
 
 ## Naming
 
-  - **Extensions**: Use `.jsx` extension for React components.
-  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
+  - **Extensions**: Use `.js` extension for React components.
+  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.js`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances:
     ```javascript
     // bad
@@ -40,13 +41,13 @@
     const reservationItem = <ReservationCard />;
     ```
 
-    **Component Naming**: Use the filename as the component name. So `ReservationCard.jsx` should have a reference name of ReservationCard. However, for root components of a directory, use index.jsx as the filename and use the directory name as the component name:
+    **Component Naming**: Use the filename as the component name. So `ReservationCard.js` should have a reference name of ReservationCard. However, for root components of a directory, use index.js as the filename and use the directory name as the component name:
     ```javascript
     // bad
-    const Footer = require('./Footer/Footer.jsx')
+    const Footer = require('./Footer/Footer.js')
 
     // bad
-    const Footer = require('./Footer/index.jsx')
+    const Footer = require('./Footer/index.js')
 
     // good
     const Footer = require('./Footer')
@@ -71,17 +72,17 @@
     ```
 
 ## Alignment
-  - Follow these alignment styles for JSX syntax
+  - Follow these alignment styles for js syntax
 
     ```javascript
     // bad
-    <Foo bar="bar"
-         baz="baz" />
+    <Foo superLongParam="bar"
+         anotherSuperLongParam="baz" />
 
     // good
     <Foo
-      bar="bar"
-      baz="baz"
+      superLongParam="bar"
+      anotherSuperLongParam="baz"
     />
 
     // if props fit in one line then keep it on the same line
@@ -89,8 +90,8 @@
 
     // children get indented normally
     <Foo
-      bar="bar"
-      baz="baz"
+      superLongParam="bar"
+      anotherSuperLongParam="baz"
     >
       <Spazz />
     </Foo>
@@ -130,18 +131,18 @@
     ```
 
 ## Props
-  - Alphabetically order your props.
+  - Always use camelCase for prop names.
     ```javascript
     // bad
     <Foo
-      className="bar baz"
-      bar="bar"
+      UserName="hello"
+      phone_number={12345678}
     />
 
     // good
     <Foo
-      bar="bar"
-      className="bar baz"
+      userName="hello"
+      phoneNumber={12345678}
     />
     ```
 
@@ -150,7 +151,7 @@
     ```javascript
     /// bad
     render() {
-      return <MyComponent className="long body" foo="bar" >
+      return <MyComponent className="long body" foo="bar">
                <MyChild />
              </MyComponent>;
     }
@@ -195,6 +196,28 @@
     />
     ```
 
+## Methods
+  - Do not use underscore prefix for internal methods of a react component.
+    ```javascript
+    // bad
+    React.createClass({
+      _onClickSubmit() {
+        // do stuff
+      }
+
+      // other stuff
+    });
+
+    // good
+    React.createClass({
+      onClickSubmit() {
+        // do stuff
+      }
+
+      // other stuff
+    });
+    ```
+
 ## Ordering
   - Always follow the following order for methods in a react component:
 
@@ -211,7 +234,7 @@
   11. componentWillUpdate
   12. componentWillUnmount
   13. *clickHandlers or eventHandlers* like onClickSubmit() or onChangeDescription()
-  14. *gettter methods for render* like getSelectReason() or getFooterContent()
+  14. *getter methods for render* like getSelectReason() or getFooterContent()
   15. *Optional render methods* like renderNavigation() or renderProfilePicture()
   16. render
 
