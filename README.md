@@ -585,7 +585,7 @@
 
     // good
     [1, 2, 3].map((x) => {
-      return x * x
+      return x * x;
     });
     ```
 
