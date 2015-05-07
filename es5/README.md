@@ -572,7 +572,7 @@
 ## Comparison Operators & Equality
 
   - Use `===` and `!==` over `==` and `!=`.
-  - Comparison operators are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
+  - Conditional statements such as the `if` statement evaulate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
 
     + **Objects** evaluate to **true**
     + **Undefined** evaluates to **false**
