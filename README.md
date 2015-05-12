@@ -1242,7 +1242,7 @@
         this.total = 0;
       }
     }
-  ```
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
