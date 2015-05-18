@@ -590,7 +590,7 @@
     });
     ```
 
-  - [8.2](#8.2) <a name='8.2'></a> If the function body fits on one line and there is only a single argument, feel free to omit the braces and parenthesis, and use the implicit return. Otherwise, add the parenthesis, braces, and use a `return` statement.
+  - [8.2](#8.2) <a name='8.2'></a> If the function body fits on one line and there is only a single argument, feel free to omit the braces and parentheses, and use the implicit return. Otherwise, add the parentheses, braces, and use a `return` statement.
 
   > Why? Syntactic sugar. It reads well when multiple functions are chained together.
 
