@@ -590,7 +590,7 @@
     });
     ```
 
-  - [8.2](#8.2) <a name='8.2'></a> If the function body fits on one line, feel free to omit the braces and use implicit return. Otherwise, add the braces and use a `return` statement.
+  - [8.2](#8.2) <a name='8.2'></a> If the function body fits on one line and there is only a single argument, feel free to omit the braces and parentheses, and use the implicit return. Otherwise, add the parentheses, braces, and use a `return` statement.
 
   > Why? Syntactic sugar. It reads well when multiple functions are chained together.
 
@@ -598,24 +598,12 @@
 
     ```javascript
     // good
-    [1, 2, 3].map((x) => x * x);
-
-    // good
-    [1, 2, 3].map((x) => {
-      return { number: x };
-    });
-    ```
-
-  - [8.3](#8.3) <a name='8.3'></a> Always use parentheses around the arguments. Omitting the parentheses makes the functions less readable and only works for single arguments.
-
-  > Why? These declarations read better with parentheses. They are also required when you have multiple parameters so this enforces consistency.
-
-    ```javascript
-    // bad
     [1, 2, 3].map(x => x * x);
 
     // good
-    [1, 2, 3].map((x) => x * x);
+    [1, 2, 3].reduce((total, n) => {
+      return total + n;
+    }, 0);
     ```
 
 **[⬆ back to top](#table-of-contents)**
