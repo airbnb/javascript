@@ -567,6 +567,53 @@
   count();  // 3
   ```
 
+  - [7.9](#7.9) <a name='7.9'></a> If you have a configuration values that are used inside of function, use them as default parameters (if this makes sense).
+
+  > Why? That's how you will be able to keep legacy call format for your configuration and be able to modify configuration options during the call.
+
+  ```javascript
+  const requestTimeout = 60;
+
+  // bad
+  function call(url) {
+    return request.call(url, {timeout: requestTimeout});
+  }
+
+  // bad
+  function call(url) {
+    const timeout = 60;
+    return request.call(url, {timeout});
+  }
+
+  //good 
+  function call(url, timeout = 60) {
+    return request.call(url, {timeout});
+  }
+
+  //good 
+  function count(url, timeout = requestTimeout) {
+    return request.call(url, {timeout});
+  }
+  ```
+
+  - [7.10](#7.10) <a name='7.10'></a> If you have an independent configuration values, use default object parameter with configuration values.
+
+  > Why? If you have default parameters, you have to set them one-by-one, so that to set last value you will have to set all previous ones. Using configuration object default parameter makes you able to configure only specific values.
+
+  ```javascript
+  const requestTimeout = 60;
+  const requestBaseUrl = 'http://some.api/';
+
+  // bad
+  function call(url) {
+    return request.call(baseUrl + url, {timeout: requestTimeout});
+  }
+
+  //good
+  function call(url, {timeout = requestTimeout, baseUrl = requestBaseUrl} = {}) {
+    return request.call(baseUrl + url, {timeout: requestTimeout});
+  }
+  ```
 
 **[⬆ back to top](#table-of-contents)**
 
