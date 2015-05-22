@@ -8,13 +8,14 @@
 
 ### Modules
 
+- use CommonJS module style
 - use DI pattern
 
-```js
-module.exports = function(dependency1, dependency2, dependency3) {
-  return {};
-};
-```
+  ```js
+  module.exports = function(dependency1, dependency2, dependency3) {
+    return {};
+  };
+  ```
 
 ## Next
 
