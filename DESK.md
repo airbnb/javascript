@@ -12,10 +12,22 @@
 - use DI pattern
 
   ```js
-  module.exports = function(dependency1, dependency2, dependency3) {
-    return {};
-  };
-  ```
+// before
+function Car() {
+  this.engine = new Engine();
+  this.tires = Tires.getInstance();
+  this.doors = app.get('doors');
+  this.milesDriven = 0;
+}
+
+// after
+function Car(engine, tires, doors) {
+  this.engine = engine;
+  this.tires = tires;
+  this.doors = doors;
+  this.milesDriven = 0;
+}
+```
   
 ### Flux architecture
 
