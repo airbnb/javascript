@@ -16,6 +16,24 @@
     return {};
   };
   ```
+  
+### Flux acrhitecture
+
+- organize your code in `services`, `stores`, and `views`
+
+#### Services
+
+- access external APIs (similar to angular)
+
+#### Stores
+
+- "store" (mutable) models
+ 
+#### Views
+
+- written in React/JSX
+- own only its view logic
+- don't own any business logic
 
 ## Next
 
