@@ -12,7 +12,6 @@
 
 ```js
 module.exports = function(dependency1, dependency2, dependency3) {
-  
   return {};
 };
 ```
