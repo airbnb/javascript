@@ -17,7 +17,7 @@
   };
   ```
   
-### Flux acrhitecture
+### Flux architecture
 
 - organize your code in `services`, `stores`, and `views`
 
