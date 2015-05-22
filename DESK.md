@@ -7,7 +7,15 @@
 - use [Flux](https://facebook.github.io/flux/docs/overview.html) as our application architecture
 
 ### Modules
+
 - use DI pattern
+
+```js
+module.exports = function(dependency1, dependency2, dependency3) {
+  
+  return {};
+};
+```
 
 ## Next
 
