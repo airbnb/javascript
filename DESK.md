@@ -8,7 +8,7 @@
 
 ### Modules
 
-- use CommonJS module style
+- use CommonJS module style (node-like style via Browserify)
 - use DI pattern
 
   ```js
