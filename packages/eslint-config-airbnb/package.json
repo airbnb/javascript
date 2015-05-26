@@ -1,0 +1,35 @@
+{
+  "name": "eslint-config-airbnb",
+  "version": "0.0.6",
+  "description": "Airbnb's ESLint config, following our styleguide",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airbnb/javascript"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "config",
+    "airbnb",
+    "javascript",
+    "styleguide"
+  ],
+  "author": "Jake Teton-Landis (https://twitter.com/@jitl)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/airbnb/javascript/issues"
+  },
+  "homepage": "https://github.com/airbnb/javascript",
+  "dependencies": {
+    "airbnb-style": "2.0.0",
+    "babel-eslint": "3.1.7",
+    "eslint": "0.21.2",
+    "eslint-plugin-react": "2.3.0",
+    "resolve": "1.1.6",
+    "strip-json-comments": "1.0.2"
+  }
+}
