@@ -64,17 +64,21 @@ function Car(engine, tires, doors) {
 Problem:
 - When trying to loop on an array, there was a warning: 'Each child in an array should have a unique "key" prop. Check the render method of List.'
 
+```jsx
 {
   myArray.map(function(item) {
     return <div>{item.name}</div>
   })
 }
+```
 
 Solution:
 - Add the key attribute:
 
+```jsx
 {
   myArray.map(function(item) {
     return <div key={item.id}>{item.name}</div>
   })
 }
+```
