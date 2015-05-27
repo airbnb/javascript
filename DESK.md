@@ -31,7 +31,10 @@ function Car(engine, tires, doors) {
   
 ### Flux architecture
 
-- organize your code in `services`, `stores`, and `views`
+- organize you code by components
+- Each component contains 3 folders : `stores`, `views`
+- And 2 files `actions` and `events`
+- At the root of src, we'll find an `events` file that will require every `events` file. This way we can communicate between components
 
 #### Services
 
@@ -55,3 +58,23 @@ function Car(engine, tires, doors) {
 
 - use Reactive programming ([Rx.js](https://github.com/Reactive-Extensions/RxJS)?)
 - use [Typescript](http://www.typescriptlang.org/)
+
+### List of issues that we have been confronted to
+
+Problem:
+- When trying to loop on an array, there was a warning: 'Each child in an array should have a unique "key" prop. Check the render method of List.'
+
+{
+  myArray.map(function(item) {
+    return <div>{item.name}</div>
+  })
+}
+
+Solution:
+- Add the key attribute:
+
+{
+  myArray.map(function(item) {
+    return <div key={item.id}>{item.name}</div>
+  })
+}
