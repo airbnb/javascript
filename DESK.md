@@ -29,7 +29,7 @@ function Car(engine, tires, doors) {
 }
 ```
 
-- if you find yourself using `require('../xxx')` back in the tree hierarchy, you're doing it wrong. Use DI pattern instead.
+- don't `require('../xxx')` back in the tree hierarchy. Use DI pattern instead.
 
   ```js
   // bad
