@@ -53,7 +53,7 @@
  * Possible errors
  */
     "comma-dangle": [2, "never"],    // http://eslint.org/docs/rules/comma-dangle
-    "no-cond-assign": [2, "always"],  // http://eslint.org/docs/rules/no-cond-assign
+    "no-cond-assign": [2, "always"], // http://eslint.org/docs/rules/no-cond-assign
     "no-console": 1,                 // http://eslint.org/docs/rules/no-console
     "no-debugger": 1,                // http://eslint.org/docs/rules/no-debugger
     "no-alert": 1,                   // http://eslint.org/docs/rules/no-alert
