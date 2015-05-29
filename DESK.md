@@ -28,6 +28,24 @@ function Car(engine, tires, doors) {
   this.milesDriven = 0;
 }
 ```
+
+- don't `require('../xxx')` back in the tree hierarchy. Use DI pattern instead.
+
+  ```js
+  // bad
+
+  var events = require('../events');
+  // use events somewhere in the module
+  module.exports = {...};
+  ```
+  
+  ```js
+  // good
+
+  module.exports = function(events) {
+    // use events somewhere in the module
+  };
+  ```
   
 ### Flux architecture
 
