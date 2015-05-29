@@ -29,6 +29,49 @@ function Car(engine, tires, doors) {
 }
 ```
 
+- Follow object oriented programming encapsulation principle (in a larger sense) in file structure and naming: 
+
+```
+// before
+/profilePanel
+  /views
+    - logoutButton.js
+    - profilePanel.js
+    - profilePicture.js
+    - profilePictureUpdater.js
+    - profileStatistics.js
+    - rankingWidget.js
+    - userProfile.js
+    - userProfileEditor.js
+    - userStatus.js
+    - (cette ligne)
+  /services
+    - gravatarService.js
+    - profileStatisticsService.js
+    - siteService.js
+    - userProfileService.js
+  /stores
+    - statisticsStore.js
+    - userStore.js
+
+// after
+/ProfilePanel
+  /Statistics
+    - StatisticsStore.jsx
+    - ProfileStatistics.jsx
+    - ProfileStatisticsService.jsx
+    - index.jsx
+  /UserProfile
+    - UserProfileView.jsx
+    - UserProfileEditorView.jsx
+    - UserStatusView.jsx
+    - UserProfileService.jsx
+    - UserStore.jsx
+    - index.jsx
+  /...
+...
+``
+
 - don't `require('../xxx')` back in the tree hierarchy. Use DI pattern instead.
 
   ```js
