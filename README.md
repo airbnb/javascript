@@ -146,13 +146,13 @@
     // bad
     const superman = {
       default: { clark: 'kent' },
-      private: true
+      private: true,
     };
 
     // good
     const superman = {
       defaults: { clark: 'kent' },
-      hidden: true
+      hidden: true,
     };
     ```
 
@@ -161,17 +161,17 @@
     ```javascript
     // bad
     const superman = {
-      class: 'alien'
+      class: 'alien',
     };
 
     // bad
     const superman = {
-      klass: 'alien'
+      klass: 'alien',
     };
 
     // good
     const superman = {
-      type: 'alien'
+      type: 'alien',
     };
     ```
 
@@ -234,12 +234,12 @@
 
     // bad
     const obj = {
-      lukeSkywalker: lukeSkywalker
+      lukeSkywalker: lukeSkywalker,
     };
 
     // good
     const obj = {
-      lukeSkywalker
+      lukeSkywalker,
     };
     ```
 
@@ -1272,13 +1272,13 @@
     // bad
     dog.set('attr',{
       age: '1 year',
-      breed: 'Bernese Mountain Dog'
+      breed: 'Bernese Mountain Dog',
     });
 
     // good
     dog.set('attr', {
       age: '1 year',
-      breed: 'Bernese Mountain Dog'
+      breed: 'Bernese Mountain Dog',
     });
     ```
 
