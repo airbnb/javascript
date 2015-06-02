@@ -367,37 +367,32 @@
     var superPower = new SuperPower();
     ```
 
-  - Use one `var` declaration per variable.
-    It's easier to add new variable declarations this way, and you never have
-    to worry about swapping out a `;` for a `,` or introducing punctuation-only
-    diffs.
+  - Use single `var` declaration for multiple variables.
+    Having one `var` declaration per variable is an unnecessary code repetition
+    and it should hardly ever be a problem anyway as you always want to strive
+    at simple functions with as few local variables as possible.  If you need
+    more of them, it's probably a good time to break the function down into
+    smaller pieces.
+
+    As for potential syntax issues around the semicolons instead of commas,
+    this should not be a problem as tools like JSHint or other code quality
+    assurance tools are able to pick this kind of issue up.
 
     ```javascript
     // bad
-    var items = getItems(),
-        goSportsTeam = true,
-        dragonball = 'z';
-
-    // bad
-    // (compare to above, and try to spot the mistake)
-    var items = getItems(),
-        goSportsTeam = true;
-        dragonball = 'z';
-
-    // good
     var items = getItems();
     var goSportsTeam = true;
     var dragonball = 'z';
+
+    // good
+    var items = getItems(),
+      goSportsTeam = true,
+      dragonball = 'z';
     ```
 
   - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
     ```javascript
-    // bad
-    var i, len, dragonball,
-        items = getItems(),
-        goSportsTeam = true;
-
     // bad
     var i;
     var items = getItems();
@@ -405,12 +400,17 @@
     var goSportsTeam = true;
     var len;
 
+    // bad
+    var i, len, dragonball,
+        items = getItems(),
+        goSportsTeam = true;
+
     // good
-    var items = getItems();
-    var goSportsTeam = true;
-    var dragonball;
-    var length;
-    var i;
+    var items = getItems(),
+      goSportsTeam = true,
+      dragonball,
+      length,
+      i;
     ```
 
   - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
