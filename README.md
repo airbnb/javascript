@@ -1,8 +1,8 @@
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
-# Airbnb JavaScript Style Guide() {
+# Hudl JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
+
+Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
 
 [For the ES5-only guide click here](es5/).
 
