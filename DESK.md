@@ -29,7 +29,7 @@ function Car(engine, tires, doors) {
 }
 ```
 
-- Follow object oriented programming encapsulation principle (in a larger sense) in file structure and naming: 
+### Follow object oriented programming encapsulation principle (in a larger sense) in file structure and naming: 
 
 ```
 // before
