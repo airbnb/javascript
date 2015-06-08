@@ -1,0 +1,20 @@
+{
+  "name": "me-javascript",
+  "version": "1.0.3",
+  "description": "installs .jshintrc file for the parent module. this should only be used as a dev dependency.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node linters/jshintrc_install.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aboutdotme/javascript.git"
+  },
+  "author": "Nigel Kibodeaux",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aboutdotme/javascript/issues"
+  },
+  "homepage": "https://github.com/aboutdotme/javascript"
+}
