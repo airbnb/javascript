@@ -1,3 +1,6 @@
+# NPM package
+`npm install --save-dev me-javascript` to install the .jshintrc file in the parent module's root directory
+
 # About.me JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
