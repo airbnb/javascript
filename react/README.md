@@ -232,10 +232,11 @@
   9. componentWillReceiveProps
   10. shouldComponentUpdate
   11. componentWillUpdate
-  12. componentWillUnmount
-  13. *clickHandlers or eventHandlers* like onClickSubmit() or onChangeDescription()
-  14. *getter methods for render* like getSelectReason() or getFooterContent()
-  15. *Optional render methods* like renderNavigation() or renderProfilePicture()
-  16. render
+  12. componentDidUpdate
+  13. componentWillUnmount
+  14. *clickHandlers or eventHandlers* like onClickSubmit() or onChangeDescription()
+  15. *getter methods for render* like getSelectReason() or getFooterContent()
+  16. *Optional render methods* like renderNavigation() or renderProfilePicture()
+  17. render
 
 **[⬆ back to top](#table-of-contents)**
