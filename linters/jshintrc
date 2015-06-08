@@ -15,6 +15,7 @@
 
   // Allow ES6.
   "esnext": true,
+  "proto": true,
 
   /*
    * ENFORCING OPTIONS
