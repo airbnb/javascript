@@ -89,7 +89,32 @@ function Car(engine, tires, doors) {
     // use events somewhere in the module
   };
   ```
-  
+
+
+### exports inside index.js
+
+Each "package" (folder) should have a `index.js` that exports publicly available dependencies at the package level. That way parent packages will be able to require the package via its name since require will always use index.js by default.
+
+```javascript
+// /LiveFeed/index.js
+module.exports = function (dispatcher, events, action, publications, loggedUserStore) {
+  var LiveFeedTogglerView = require('./LiveFeedTogglerView.jsx')(actions);
+  var LiveFeedStore = require('./LiveFeedStore')(dispatcher, events);
+  var LiveFeedPanelView = require('./LiveFeedPanelView.jsx')(events, dispatcher, actions, LiveFeedStore, publications, loggedUserStore);
+
+  return {
+    LiveFeedTogglerView: LiveFeedTogglerView,
+    LiveFeedStore: LiveFeedStore,
+    LiveFeedPanelView: LiveFeedPanelView
+  };
+};
+
+// /app.js
+// [...]
+var LiveFeed = require('./LiveFeed')(dispatcher, events, action, publications, loggedUserStore);
+```
+
+
 ### Flux architecture
 
 - organize you code by components
