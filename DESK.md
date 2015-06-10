@@ -45,6 +45,11 @@
     var myModule = {};
     module.exports = myModule;
     
+    // bad
+    // filename = "myClass.js"
+    function MyClass() {}
+    module.exports = MyClass;
+    
     // good
     // filename = "myModule.js"
     var myModule = {};
