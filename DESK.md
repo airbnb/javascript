@@ -63,23 +63,23 @@
     
 - use DI pattern
 
-  ```js
-// before
-function Car() {
-  this.engine = new Engine();
-  this.tires = Tires.getInstance();
-  this.doors = app.get('doors');
-  this.milesDriven = 0;
-}
-
-// after
-function Car(engine, tires, doors) {
-  this.engine = engine;
-  this.tires = tires;
-  this.doors = doors;
-  this.milesDriven = 0;
-}
-```
+    ```js
+    // bad
+    function Car() {
+      this.engine = new Engine();
+      this.tires = Tires.getInstance();
+      this.doors = app.get('doors');
+      this.milesDriven = 0;
+    }
+    
+    // good
+    function Car(engine, tires, doors) {
+      this.engine = engine;
+      this.tires = tires;
+      this.doors = doors;
+      this.milesDriven = 0;
+    }
+    ```
 
 ### Follow object oriented programming encapsulation principle (in a larger sense) in file structure and naming: 
 
