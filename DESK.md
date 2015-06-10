@@ -6,9 +6,56 @@
 - use [React](https://facebook.github.io/react/) and [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html) as our view engine
 - use [Flux](https://facebook.github.io/flux/docs/overview.html) as our application architecture
 
+### Naming conventions
+
+- Use `PascalCase` when naming constructors or classes (i.e. something you can instantiate with `new`)
+  
+    ```javascript
+    // bad
+    function user() {}
+
+    var bad = new user();
+
+    // good
+    function User() {}
+
+    var good = new User();
+    ```
+  
+- Use `CAPITALIZE_CASE` when naming constants
+    
+    ```js
+      // bad
+      var pi = 3.1416;
+      
+      // good
+      var PI = 3.1416;
+    ```
+    
+- Use `camelCase` for all the other things
+
 ### Modules
 
 - use CommonJS style (node-like style via Browserify)
+- the file should match the name and the case of the single export
+    
+    ```js
+    // bad
+    // filename = "MyModule.js"
+    var myModule = {};
+    module.exports = myModule;
+    
+    // good
+    // filename = "myModule.js"
+    var myModule = {};
+    module.exports = myModule;
+    
+    // good
+    // filename = "MyClass.js"
+    function MyClass() {}
+    module.exports = MyClass;
+    ```
+    
 - use DI pattern
 
   ```js
