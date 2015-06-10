@@ -22,7 +22,7 @@
     var good = new User();
     ```
   
-- Use `CAPITALIZE_CASE` when naming constants
+- Use `CAPITAL_CASE` when naming constants
     
     ```js
       // bad
