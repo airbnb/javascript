@@ -1380,7 +1380,7 @@
         .call(tron.led);
     ```
 
-  - [18.6](#18.6) <a name='18.6'></a> Leave a blank line after blocks and before the next statement
+  - [18.6](#18.6) <a name='18.6'></a> Leave a blank line after blocks and before the next statement.
 
     ```javascript
     // bad
