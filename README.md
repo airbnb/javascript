@@ -1898,7 +1898,7 @@
 
 ## ECMAScript 6 Styles
 
-[27.1](#27.1) <a name='27.1'></a> This is a collection of links to the various es6 features.
+  - [27.1](#27.1) <a name='27.1'></a> This is a collection of links to the various es6 features.
 
 1. [Arrow Functions](#arrow-functions)
 1. [Classes](#constructors)
