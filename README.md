@@ -2038,6 +2038,7 @@
   - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
   - **Evernote**: [evernote/javascript-style-guide](https://github.com/evernote/javascript-style-guide)
   - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
+  - **Expensify** [Expensify/Style-Guide](https://github.com/Expensify/Style-Guide/blob/master/javascript.md)
   - **Flexberry**: [Flexberry/javascript-style-guide](https://github.com/Flexberry/javascript-style-guide)
   - **Gawker Media**: [gawkermedia/javascript](https://github.com/gawkermedia/javascript)
   - **GeneralElectric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
