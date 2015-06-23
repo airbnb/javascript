@@ -314,6 +314,7 @@
 
     // good
     const itemsCopy = [...items];
+    const itemsCopy = items.slice();
     ```
   - [4.4](#4.4) <a name='4.4'></a> To convert an array-like object to an array, use Array#from.
 
