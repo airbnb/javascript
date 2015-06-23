@@ -1414,6 +1414,26 @@
     };
 
     return obj;
+
+    // bad
+    const arr = [
+      function foo() {
+      },
+      function bar() {
+      },
+    ];
+    return arr;
+
+    // good
+    const arr = [
+      function foo() {
+      },
+
+      function bar() {
+      },
+    ];
+
+    return arr;
     ```
 
 
