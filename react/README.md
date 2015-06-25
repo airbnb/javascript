@@ -24,8 +24,8 @@
 
 ## Naming
 
-  - **Extensions**: Use `.js` extension for React components.
-  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.js`.
+  - **Extensions**: Use `.jsx` extension for React components.
+  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances:
     ```javascript
     // bad
@@ -41,13 +41,13 @@
     const reservationItem = <ReservationCard />;
     ```
 
-    **Component Naming**: Use the filename as the component name. So `ReservationCard.js` should have a reference name of ReservationCard. However, for root components of a directory, use index.js as the filename and use the directory name as the component name:
+    **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
     ```javascript
     // bad
-    const Footer = require('./Footer/Footer.js')
+    const Footer = require('./Footer/Footer.jsx')
 
     // bad
-    const Footer = require('./Footer/index.js')
+    const Footer = require('./Footer/index.jsx')
 
     // good
     const Footer = require('./Footer')
@@ -55,7 +55,7 @@
 
 
 ## Declaration
-  - Do not use displayName for naming components, instead name the component by reference.
+  - Do not use displayName for naming components. Instead, name the component by reference.
 
     ```javascript
     // bad
@@ -72,7 +72,7 @@
     ```
 
 ## Alignment
-  - Follow these alignment styles for js syntax
+  - Follow these alignment styles for JS syntax
 
     ```javascript
     // bad
@@ -98,7 +98,7 @@
     ```
 
 ## Quotes
-  - Always use double quotes (`"`) for JSX attributes, but single quotes for all other JavaScript.
+  - Always use double quotes (`"`) for JSX attributes, but single quotes for all other JS.
     ```javascript
     // bad
     <Foo bar='bar' />
@@ -197,7 +197,7 @@
     ```
 
 ## Methods
-  - Do not use underscore prefix for internal methods of a react component.
+  - Do not use underscore prefix for internal methods of a React component.
     ```javascript
     // bad
     React.createClass({
@@ -219,10 +219,10 @@
     ```
 
 ## Ordering
-  - Always follow the following order for methods in a react component:
+  - Always follow the following order for methods in a React component:
 
   1. displayName
-  2. mixins (as of React v0.13 mixins are deprecated)
+  2. mixins (as of React v0.13, mixins are deprecated)
   3. statics
   4. propTypes
   5. getDefaultProps
