@@ -70,7 +70,6 @@ Finally, properties are what give the selected elements of a rule declaration th
 * Put a space before `{` in rule declarations
 * Put blank lines between rule declarations
 * In property declarations, put a space after, but not before, the `:` character.
-* Order property declarations alphabetically for consistency
 * Put closing braces of declaration blocks on a new line
 
 **Bad**
@@ -227,7 +226,7 @@ We recommend creating JavaScript-specific classes to bind to, prefixed with `.js
       background: green;
       font-weight: bold;
       @include transition(background 0.5s ease);
-      
+
       .icon {
         margin-right: 10px;
       }
