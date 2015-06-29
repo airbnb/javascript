@@ -19,6 +19,9 @@
   // Define globals from assets.shared and other libraries
   "predef": ["Q", "EventBus", "ActionFetcher", "B64", "angular"],
 
+  // Allow ES6.
+  "esnext": true,
+
   /*
    * ENFORCING OPTIONS
    * =================
@@ -31,9 +34,6 @@
   // Prohibit use of == and != in favor of === and !==.
   "eqeqeq": true,
 
-  // Suppress warnings about == null comparisons.
-  "eqnull": true,
-
   // Prohibit overwriting prototypes of native objects.
   "freeze": true,
 
@@ -42,6 +42,9 @@
 
   // Prohibit use of a variable before it is defined.
   "latedef": true,
+
+  // Enforce line length to 80 characters
+  "maxlen": 80,
 
   // Require capitalized names for constructor functions.
   "newcap": true,
@@ -56,5 +59,13 @@
   "unused": true,
 
   // Enforce placing 'use strict' at the top function scope
-  "strict": true
+  "strict": true,
+
+  /*
+   * RELAXING OPTIONS
+   * =================
+   */
+
+  // Suppress warnings about == null comparisons.
+  "eqnull": true
 }
