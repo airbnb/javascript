@@ -1,6 +1,4 @@
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
-# Airbnb JavaScript Style Guide() {
+# Crowdtap JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
@@ -1231,6 +1229,13 @@
       }
     }
     ```
+    
+  - [17.6](#17.6) <a name='17.6'></a> Use `// XXX:` to annotate quirks, gotchas, and hacks, especially if it's not immediately obvious what the code is doing.
+  
+    ```javascript
+    // XXX: Trims the ", 20XX" from the date string if in current year
+    if (expiresAt.isSame(moment(), 'year')) time = time.slice(0, -6);
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -1736,6 +1741,24 @@
     };
 
     export default AirbnbStyleGuide;
+    ```
+    
+  - [22.9](#22.9) <a name='22.9'></a> Using snake_case is only acceptable for attributes returned from an API.
+  
+    ```javascript
+    // bad
+    Users
+      .get()
+      .then( (data) => {
+        vm.user_name = data.user_name;
+      });
+      
+    // good
+    Users
+      .get()
+      .then( (data) => {
+        vm.userName = data.user_name;
+      });
     ```
 
 
