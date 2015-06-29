@@ -1,0 +1,34 @@
+linters:
+
+  BorderZero:
+    enabled: true
+    convention: none
+
+  BemDepth:
+    enabled: true
+
+  DeclarationOrder:
+    enabled: false
+
+  LeadingZero:
+    enabled: false
+
+  PropertySortOrder:
+    enabled: false
+
+  QualifyingElement:
+    enabled: false
+
+  SelectorFormat:
+    enabled: true
+    convention: hyphenated_BEM
+    class_convention: ^(?!js-).*
+    class_convention_explanation: should not be written in the form js-*
+
+  SingleLinePerProperty:
+    enabled: true
+    allow_single_line_rule_sets: false
+
+  StringQuotes:
+    enabled: true
+    style: double_quotes
