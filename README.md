@@ -67,10 +67,10 @@ Finally, properties are what give the selected elements of a rule declaration th
 * Prefer dashes over camelCasing in class names. Underscores are OK if you're using BEM (see [OOCSS and BEM](#oocss-and-bem) below).
 * Do not use ID selectors
 * When using multiple selectors in a rule declaration, give each selector its own line.
-* Put a space before `{` in rule declarations
+* Put a space before the opening brace `{` in rule declarations
+* In properties, put a space after, but not before, the `:` character.
+* Put closing braces `}` of rule declarations on a new line
 * Put blank lines between rule declarations
-* In property declarations, put a space after, but not before, the `:` character.
-* Put closing braces of declaration blocks on a new line
 
 **Bad**
 
@@ -155,7 +155,7 @@ We encourage some combination of OOCSS and BEM for these reasons:
 
 ### ID selectors
 
-While it is possible to select elements by ID in CSS, it should generally be considered an anti-pattern. ID selectors introduce an unnecessarily high level of [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) to your rule declarations.
+While it is possible to select elements by ID in CSS, it should generally be considered an anti-pattern. ID selectors introduce an unnecessarily high level of [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) to your rule declarations, and they are not reusable.
 
 For more on this subject, read [CSS Wizardry's article](http://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/) on dealing with specificity.
 
@@ -173,7 +173,7 @@ We recommend creating JavaScript-specific classes to bind to, prefixed with `.js
 
 ### Syntax
 
-* Use the .scss syntax, never the original .sass syntax
+* Use the `.scss` syntax, never the original `.sass` syntax
 * Order your `@extend`, regular CSS and `@include` declarations logically (see below)
 
 ### Ordering of property declarations
@@ -218,7 +218,7 @@ We recommend creating JavaScript-specific classes to bind to, prefixed with `.js
 
 4. Nested selectors
 
-    Nested selectors, if necessary, go last, and nothing goes after them. Add whitespace between your rule declarations and nested selectors, as well as between adjacent nested selectors. Apply the same guidelines as above to your nested selectors.
+    Nested selectors, _if necessary_, go last, and nothing goes after them. Add whitespace between your rule declarations and nested selectors, as well as between adjacent nested selectors. Apply the same guidelines as above to your nested selectors.
 
     ```scss
     .btn {
@@ -239,9 +239,9 @@ Mixins, defined via `@mixin` and called with `@include`, should be used sparingl
 
 ### Placeholders
 
-Placeholders in Sass, defined via `%selector` and used with `@extend`, are a way of defining a block of properties that aren't automatically output in your compiled stylesheet. Instead, other selectors “inherit” from the placeholder, and the relevant selectors are copied to the point in the stylesheet where the placeholder is defined. This is best illustrated with the example below.
+Placeholders in Sass, defined via `%selector` and used with `@extend`, are a way of defining rule declarations that aren't automatically output in your compiled stylesheet. Instead, other selectors “inherit” from the placeholder, and the relevant selectors are copied to the point in the stylesheet where the placeholder is defined. This is best illustrated with the example below.
 
-Placeholders are powerful but easy to abuse, especially when combined with nested selectors. *As a rule of thumb, avoid creating placeholders with nested declaration blocks, or calling `@extend` inside nested selectors.** Placeholders are great for simple inheritance, but can easily result in the accidental creation of additional selectors without paying close attention to how and where they are used.
+Placeholders are powerful but easy to abuse, especially when combined with nested selectors. **As a rule of thumb, avoid creating placeholders with nested rule declarations, or calling `@extend` inside nested selectors.** Placeholders are great for simple inheritance, but can easily result in the accidental creation of additional selectors without paying close attention to how and where they are used.
 
 **Sass**
 
@@ -257,7 +257,7 @@ Placeholders are powerful but easy to abuse, especially when combined with neste
 }
 
 .icon-success {
-  @extend %hide;
+  @extend %icon;
   color: green;
 }
 ```
@@ -302,4 +302,4 @@ When selectors become this long, you're likely writing CSS that is:
 
 Again: **never nest ID selectors!**
 
-If you must use an ID selector in the first place (and you should really try not to), they should never be nested. If you find yourself doing this, you need to revisit your markup, or figure out why such strong specificity is needed. If you're writing well thought-out CSS, you should rarely, *if ever* need to do this.
+If you must use an ID selector in the first place (and you should really try not to), they should never be nested. If you find yourself doing this, you need to revisit your markup, or figure out why such strong specificity is needed. If you are writing well formed HTML and CSS, you should **never** need to do this.
