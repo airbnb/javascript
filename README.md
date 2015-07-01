@@ -1761,7 +1761,7 @@
     dragon.setAge(25);
     ```
 
-  - [23.3](#23.3) <a name='23.3'></a> If the property is a boolean, use isVal() or hasVal().
+  - [23.3](#23.3) <a name='23.3'></a> If the property is a `boolean`, use `isVal()` or `hasVal()`.
 
     ```javascript
     // bad
