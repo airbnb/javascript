@@ -1564,10 +1564,12 @@
     const val = parseInt(inputValue);
 
     // good
-    const val = Number(inputValue);
+    // Prevent assign of NaN value
+    const val = Number(inputValue) || 0;
 
     // good
-    const val = parseInt(inputValue, 10);
+    // Prevent assign of NaN value
+    const val = parseInt(inputValue, 10) || 0;
     ```
 
   - [21.4](#21.4) <a name='21.4'></a> If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
