@@ -1094,7 +1094,7 @@
 
 ## Blocks
 
-  - [16.1](#16.1) <a name='16.1'></a> Use braces with all multi-line blocks.
+  - [16.1](#16.1) <a name='16.1'></a> Use braces with all multi-line blocks. 
 
     ```javascript
     // bad
@@ -1140,6 +1140,39 @@
     }
     ```
 
+  - [16.3](#16.3) <a name='16.3'></a>Your opening braces go on the same line as the statement.
+
+    ```javascript
+    // bad
+    if (test){
+      thing1();
+      thing2();
+    }
+    else{
+      thing3();
+    }
+    
+    // bad
+    if (test)
+    {
+      thing1();
+      thing2();
+    }
+    else
+    {
+      thing3();
+    }
+
+    // good
+    if (test) {
+      thing1();
+      thing2();
+    } else {
+      thing3();
+    }
+    ```
+    
+  **Note**: Also, notice the use of whitespace before and after the condition statement.
 
 **[⬆ back to top](#table-of-contents)**
 
