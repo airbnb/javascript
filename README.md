@@ -2077,6 +2077,8 @@
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
+  **[⬆ back to top](#table-of-contents)**
+
 ## Translation
 
   This style guide is also available in other languages:
