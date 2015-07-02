@@ -393,7 +393,7 @@
 
 ## Strings
 
-  - [6.1](#6.1) <a name='6.1'></a> Use single quotes `''` for strings.
+  - [6.1](#6.1) <a name='6.1'></a> Use single quotes, unless you are writing JSON. 
 
     ```javascript
     // bad
