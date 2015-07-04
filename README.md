@@ -1466,14 +1466,14 @@
          firstName: 'Florence',
     -    lastName: 'Nightingale'
     +    lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb graph', 'mordern nursing']
+    +    inventorOf: ['coxcomb graph', 'modern nursing']
     }
 
     // good - git diff with trailing comma
     const hero = {
          firstName: 'Florence',
          lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb chart', 'mordern nursing'],
+    +    inventorOf: ['coxcomb chart', 'modern nursing'],
     }
 
     // bad
