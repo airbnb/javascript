@@ -919,7 +919,7 @@
       return name;
     }
 
-    // bad - unnessary function call
+    // bad - unnecessary function call
     function(hasName) {
       const name = getName();
 
