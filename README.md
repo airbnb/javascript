@@ -704,7 +704,7 @@
 
     ```javascript
     class Jedi {
-      contructor(options = {}) {
+      constructor(options = {}) {
         this.name = options.name || 'no name';
       }
 
