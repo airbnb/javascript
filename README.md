@@ -403,7 +403,7 @@
     const name = 'Capt. Janeway';
     ```
 
-  - [6.2](#6.2) <a name='6.2'></a> Strings longer than 80 characters should be written across multiple lines using string concatenation.
+  - [6.2](#6.2) <a name='6.2'></a> Strings longer than 100 characters should be written across multiple lines using string concatenation.
   - [6.3](#6.3) <a name='6.3'></a> Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
