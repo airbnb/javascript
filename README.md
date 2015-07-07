@@ -248,7 +248,7 @@ Placeholders are powerful but easy to abuse, especially when combined with neste
 ```sass
 // Unless we call `@extend %icon` these properties won't be compiled!
 %icon {
-  font-family: 'Airglyphs';
+  font-family: "Airglyphs";
 }
 
 .icon-error {
@@ -267,7 +267,7 @@ Placeholders are powerful but easy to abuse, especially when combined with neste
 ```css
 .icon-error,
 .icon-success {
-  font-family: 'Airglyphs';
+  font-family: "Airglyphs";
 }
 
 .icon-error {
