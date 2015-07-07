@@ -254,7 +254,7 @@
     // bad
     const obj = {
       episodeOne: 1,
-      twoJedisWalkIntoACantina: 2,
+      twoJediWalkIntoACantina: 2,
       lukeSkywalker,
       episodeThree: 3,
       mayTheFourth: 4,
@@ -266,7 +266,7 @@
       lukeSkywalker,
       anakinSkywalker,
       episodeOne: 1,
-      twoJedisWalkIntoACantina: 2,
+      twoJediWalkIntoACantina: 2,
       episodeThree: 3,
       mayTheFourth: 4,
     };
