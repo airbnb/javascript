@@ -188,25 +188,6 @@
     "react/react-in-jsx-scope": 2,
     "react/self-closing-comp": 2,
     "react/wrap-multilines": 2,
-    "react/sort-comp": [2, {
-      "order": [
-        "displayName",
-        "mixins",
-        "statics",
-        "propTypes",
-        "getDefaultProps",
-        "getInitialState",
-        "componentWillMount",
-        "componentDidMount",
-        "componentWillReceiveProps",
-        "shouldComponentUpdate",
-        "componentWillUpdate",
-        "componentWillUnmount",
-        "/^on.+$/",
-        "/^get.+$/",
-        "/^render.+$/",
-        "render"
-      ]
-    }]
+    "react/sort-comp": 2,
   }
 }
