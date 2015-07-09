@@ -1,6 +1,6 @@
 ## `.eslintrc`
 
-Our `.eslintrc` requires the following NPM packages packages:
+Our `.eslintrc` requires the following NPM packages:
 
 - `eslint`
 - `babel-eslint`
