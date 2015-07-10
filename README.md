@@ -1216,7 +1216,7 @@ Other Style Guides
     if (test)
       return false;
 
-    // good
+    // bad
     if (test) return false;
 
     // good
