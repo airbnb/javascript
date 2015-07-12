@@ -72,6 +72,7 @@
     "no-reserved-keys": 2,           // http://eslint.org/docs/rules/no-reserved-keys
     "no-sparse-arrays": 2,           // http://eslint.org/docs/rules/no-sparse-arrays
     "no-unreachable": 2,             // http://eslint.org/docs/rules/no-unreachable
+    "no-undef": 2,                   // http://eslint.org/docs/rules/no-undef
     "use-isnan": 2,                  // http://eslint.org/docs/rules/use-isnan
     "block-scoped-var": 2,           // http://eslint.org/docs/rules/block-scoped-var
 
