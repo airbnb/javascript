@@ -4,6 +4,8 @@
 
 *A mostly reasonable approach to JavaScript*
 
+**Using ES6/ES7/ES2015 is preferred over of ES5 when applicable. Using ES5 for node is fine until we see a stable release with ES6+ features.**
+
 
 ## Table of Contents
 
