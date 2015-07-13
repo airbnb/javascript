@@ -4,7 +4,7 @@
 
 *A mostly reasonable approach to JavaScript*
 
-**All JavaScript at Blendle should be written in ES6/ES7/ES2015. Writing ES5 is only allowed for the node environment.**
+**Using ES6/ES7/ES2015 is preferred over of ES5 when applicable. Using ES5 for node is fine until we see a stable release with ES6+ features.**
 
 
 ## Table of Contents
