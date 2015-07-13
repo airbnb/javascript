@@ -1,4 +1,4 @@
-# ~~Airbnb~~Blendle React/JSX Style Guide
+# Blendle React/JSX Style Guide
 
 *A mostly reasonable approach to React and JSX*
 
