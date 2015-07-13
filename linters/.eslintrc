@@ -118,6 +118,12 @@
     "vars-on-top": 2,                // http://eslint.org/docs/rules/vars-on-top
     "wrap-iife": [2, "any"],         // http://eslint.org/docs/rules/wrap-iife
     "yoda": 2,                       // http://eslint.org/docs/rules/yoda
+    "complexity": [1, 3],            // http://eslint.org/docs/rules/complexity
+    "max-depth": [1, 3],             // http://eslint.org/docs/rules/max-depth
+    "max-len": [1, 100, 2],          // http://eslint.org/docs/rules/max-len
+    "max-nested-callbacks": [1, 3],  // http://eslint.org/docs/rules/max-nested-callbacks
+    "max-params": [1, 4],            // http://eslint.org/docs/rules/max-params
+    "max-statements": [1, 8],        // http://eslint.org/docs/rules/max-statements
 
 /**
  * Style
