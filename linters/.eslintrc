@@ -207,9 +207,9 @@
         "componentWillUpdate",
         "componentDidUpdate",
         "componentWillUnmount",
-        "/^on.+$/",
-        "/^get.+$/",
-        "/^render.+$/",
+        "/^_on.+$/",
+        "/^_get.+$/",
+        "/^_render.+$/",
         "render"
       ]
     }]
