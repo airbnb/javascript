@@ -573,7 +573,7 @@
 
   ```javascript
   // bad
-  var add = new Function("a", "b", "return a + b");
+  var add = new Function('a', 'b', 'return a + b');
   ```
 
 **[⬆ back to top](#table-of-contents)**
