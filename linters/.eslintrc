@@ -208,7 +208,7 @@
         "componentDidUpdate",
         "componentWillUnmount",
         "/^on.+$/",
-        "/^get.+$/",
+        "/^get(?!(InitialState$|DefaultProps$|ChildContext$)).+$/",
         "/^render.+$/",
         "render"
       ]
