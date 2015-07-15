@@ -2054,6 +2054,7 @@
   - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/javascript)
   - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
   - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
+  - **MitocGroup**: [MitocGroup/javascript](https://github.com/MitocGroup/javascript)
   - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
   - **Money Advice Service**: [moneyadviceservice/javascript](https://github.com/moneyadviceservice/javascript)
   - **Muber**: [muber/javascript](https://github.com/muber/javascript)
