@@ -574,6 +574,9 @@
   ```javascript
   // bad
   var add = new Function('a', 'b', 'return a + b');
+  
+  // still bad
+  var subtract = Function('a', 'b', 'return a - b');
   ```
 
 **[⬆ back to top](#table-of-contents)**
