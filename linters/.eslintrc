@@ -127,7 +127,7 @@
       "allowSingleLine": true
     }],
     "quotes": [
-      2, "single", "avoid-escape"    // http://eslint.org/docs/rules/quotes
+      2, "double"                    // http://eslint.org/docs/rules/quotes
     ],
     "camelcase": [2, {               // http://eslint.org/docs/rules/camelcase
       "properties": "never"

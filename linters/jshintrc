@@ -40,8 +40,8 @@
   // Require capitalized names for constructor functions.
   "newcap": true,
 
-  // Enforce use of single quotation marks for strings.
-  "quotmark": "single",
+  // Enforce use of double quotation marks for strings.
+  "quotmark": "double",
 
   // Enforce placing 'use strict' at the top function scope
   "strict": true,
