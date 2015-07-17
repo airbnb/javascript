@@ -291,7 +291,6 @@
     ```javascript
     const someStack = [];
 
-
     // bad
     someStack[someStack.length] = 'abracadabra';
 
