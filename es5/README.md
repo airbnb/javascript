@@ -1,8 +1,10 @@
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-# Airbnb JavaScript Style Guide() {
+# Blendle JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
+
+**Using ES6/ES7/ES2015 is preferred over of ES5 when applicable. Using ES5 for node is fine until we see a stable release with ES6+ features.**
 
 
 ## Table of Contents
