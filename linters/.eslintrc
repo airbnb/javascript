@@ -136,7 +136,7 @@
     "quotes": [
       2, "single", "avoid-escape"    // http://eslint.org/docs/rules/quotes
     ],
-    "camelcase": [2, {               // http://eslint.org/docs/rules/camelcase
+    "camelcase": [1, {               // http://eslint.org/docs/rules/camelcase
       "properties": "never"
     }],
     "comma-spacing": [2, {           // http://eslint.org/docs/rules/comma-spacing
