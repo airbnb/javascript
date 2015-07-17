@@ -27,6 +27,11 @@
   },
   "rules": {
 /**
+ * Warn about TODO comments
+ */
+    "no-warning-comments": [1, { "terms": ["@TODO", "@FIXME"], "location": "anywhere" }], // http://eslint.org/docs/rules/no-warning-comments
+
+/**
  * Strict mode
  */
     // babel inserts "use strict"; for us
