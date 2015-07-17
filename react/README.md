@@ -1,4 +1,4 @@
-# Airbnb React/JSX Style Guide
+# Blendle React/JSX Style Guide
 
 *A mostly reasonable approach to React and JSX*
 
@@ -24,8 +24,8 @@
 
 ## Naming
 
-  - **Extensions**: Use `.jsx` extension for React components.
-  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
+  - **Extensions**: Use `.js` extension for React components.
+  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.js`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances:
     ```javascript
     // bad
@@ -41,13 +41,13 @@
     const reservationItem = <ReservationCard />;
     ```
 
-    **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+    **Component Naming**: Use the filename as the component name. For example, `ReservationCard.js` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.js` as the filename and use the directory name as the component name:
     ```javascript
     // bad
-    const Footer = require('./Footer/Footer.jsx')
+    const Footer = require('./Footer/Footer.js')
 
     // bad
-    const Footer = require('./Footer/index.jsx')
+    const Footer = require('./Footer/index.js')
 
     // good
     const Footer = require('./Footer')
@@ -161,8 +161,7 @@
       return (
         <MyComponent className="long body" foo="bar">
           <MyChild />
-        </MyComponent>
-      );
+        </MyComponent>);
     }
 
     // good, when single line
@@ -197,11 +196,11 @@
     ```
 
 ## Methods
-  - Do not use underscore prefix for internal methods of a React component.
+  - Do use underscore prefixes for internal methods of a React component.
     ```javascript
     // bad
     React.createClass({
-      _onClickSubmit() {
+      onClickSubmit() {
         // do stuff
       }
 
@@ -210,7 +209,7 @@
 
     // good
     React.createClass({
-      onClickSubmit() {
+      _onClickSubmit() {
         // do stuff
       }
 
@@ -234,9 +233,9 @@
   11. componentWillUpdate
   12. componentDidUpdate
   13. componentWillUnmount
-  14. *clickHandlers or eventHandlers* like onClickSubmit() or onChangeDescription()
-  15. *getter methods for render* like getSelectReason() or getFooterContent()
-  16. *Optional render methods* like renderNavigation() or renderProfilePicture()
+  14. *clickHandlers or eventHandlers* like _onClickSubmit() or _onChangeDescription()
+  15. *getter methods for render* like _getSelectReason() or _getFooterContent()
+  16. *Optional render methods* like _renderNavigation() or _renderProfilePicture()
   17. render
 
 **[⬆ back to top](#table-of-contents)**
