@@ -566,6 +566,17 @@
   count();  // 3
   ```
 
+- [7.9](#7.9) <a name='7.9'></a> Never use the Function constructor to create a new function.
+
+  > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
+
+  ```javascript
+  // bad
+  var add = new Function('a', 'b', 'return a + b');
+  
+  // still bad
+  var subtract = Function('a', 'b', 'return a - b');
+  ```
 
 **[⬆ back to top](#table-of-contents)**
 
