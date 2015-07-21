@@ -109,17 +109,17 @@
 // after
 /ProfilePanel
   /Statistics
-    - StatisticsStore.jsx
-    - ProfileStatistics.jsx
-    - ProfileStatisticsService.jsx
-    - index.jsx
+    - StatisticsStore.js
+    - ProfileStatistics.js
+    - ProfileStatisticsService.js
+    - index.js
   /UserProfile
     - UserProfileView.jsx
     - UserProfileEditorView.jsx
     - UserStatusView.jsx
-    - UserProfileService.jsx
-    - UserStore.jsx
-    - index.jsx
+    - UserProfileService.js
+    - UserStore.js
+    - index.js
   /...
 ...
 ``
@@ -187,6 +187,7 @@ var LiveFeed = require('./LiveFeed')(dispatcher, events, action, publications, l
 - written in React/JSX
 - own only its view logic
 - don't own any business logic
+- only files containing JSX should have .jsx extension
 
 ## Next
 
