@@ -1984,7 +1984,7 @@
 
 **Read This**
 
-  - [Annotated ECMAScript 5.1](http://es5.github.com/)
+  - [Standard ECMA-262](http://www.ecma-international.org/ecma-262/6.0/index.html)
 
 **Tools**
 
