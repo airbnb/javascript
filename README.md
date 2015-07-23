@@ -140,19 +140,19 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
     const item = {};
     ```
 
-  - [3.2](#3.2) <a name='3.2'></a> Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61).
+  - [3.2](#3.2) <a name='3.2'></a> If your code will be executed in browsers in script context, don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61). It’s OK to use them in ES6 modules and server-side code.
 
     ```javascript
     // bad
     const superman = {
       default: { clark: 'kent' },
-      private: true
+      private: true,
     };
 
     // good
     const superman = {
       defaults: { clark: 'kent' },
-      hidden: true
+      hidden: true,
     };
     ```
 
@@ -161,17 +161,17 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
     ```javascript
     // bad
     const superman = {
-      class: 'alien'
+      class: 'alien',
     };
 
     // bad
     const superman = {
-      klass: 'alien'
+      klass: 'alien',
     };
 
     // good
     const superman = {
-      type: 'alien'
+      type: 'alien',
     };
     ```
 
@@ -234,12 +234,12 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
 
     // bad
     const obj = {
-      lukeSkywalker: lukeSkywalker
+      lukeSkywalker: lukeSkywalker,
     };
 
     // good
     const obj = {
-      lukeSkywalker
+      lukeSkywalker,
     };
     ```
 
@@ -254,7 +254,7 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
     // bad
     const obj = {
       episodeOne: 1,
-      twoJedisWalkIntoACantina: 2,
+      twoJediWalkIntoACantina: 2,
       lukeSkywalker,
       episodeThree: 3,
       mayTheFourth: 4,
@@ -266,7 +266,7 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
       lukeSkywalker,
       anakinSkywalker,
       episodeOne: 1,
-      twoJedisWalkIntoACantina: 2,
+      twoJediWalkIntoACantina: 2,
       episodeThree: 3,
       mayTheFourth: 4,
     };
@@ -290,7 +290,6 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
 
     ```javascript
     const someStack = [];
-
 
     // bad
     someStack[someStack.length] = 'abracadabra';
@@ -567,6 +566,17 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
   count();  // 3
   ```
 
+- [7.9](#7.9) <a name='7.9'></a> Never use the Function constructor to create a new function.
+
+  > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
+
+  ```javascript
+  // bad
+  var add = new Function('a', 'b', 'return a + b');
+  
+  // still bad
+  var subtract = Function('a', 'b', 'return a - b');
+  ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -704,7 +714,7 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
 
     ```javascript
     class Jedi {
-      contructor(options = {}) {
+      constructor(options = {}) {
         this.name = options.name || 'no name';
       }
 
@@ -919,7 +929,7 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
       return name;
     }
 
-    // bad - unnessary function call
+    // bad - unnecessary function call
     function(hasName) {
       const name = getName();
 
@@ -1047,7 +1057,7 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
 ## Comparison Operators & Equality
 
   - [15.1](#15.1) <a name='15.1'></a> Use `===` and `!==` over `==` and `!=`.
-  - [15.2](#15.2) <a name='15.2'></a> Conditional statements such as the `if` statement evaulate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
+  - [15.2](#15.2) <a name='15.2'></a> Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
 
     + **Objects** evaluate to **true**
     + **Undefined** evaluates to **false**
@@ -1272,13 +1282,13 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
     // bad
     dog.set('attr',{
       age: '1 year',
-      breed: 'Bernese Mountain Dog'
+      breed: 'Bernese Mountain Dog',
     });
 
     // good
     dog.set('attr', {
       age: '1 year',
-      breed: 'Bernese Mountain Dog'
+      breed: 'Bernese Mountain Dog',
     });
     ```
 
@@ -1380,7 +1390,7 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
         .call(tron.led);
     ```
 
-  - [18.6](#18.6) <a name='18.6'></a> Leave a blank line after blocks and before the next statement
+  - [18.6](#18.6) <a name='18.6'></a> Leave a blank line after blocks and before the next statement.
 
     ```javascript
     // bad
@@ -1415,6 +1425,26 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
     };
 
     return obj;
+
+    // bad
+    const arr = [
+      function foo() {
+      },
+      function bar() {
+      },
+    ];
+    return arr;
+
+    // good
+    const arr = [
+      function foo() {
+      },
+
+      function bar() {
+      },
+    ];
+
+    return arr;
     ```
 
 
@@ -1466,14 +1496,14 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
          firstName: 'Florence',
     -    lastName: 'Nightingale'
     +    lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb graph', 'mordern nursing']
+    +    inventorOf: ['coxcomb graph', 'modern nursing']
     }
 
     // good - git diff with trailing comma
     const hero = {
          firstName: 'Florence',
          lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb chart', 'mordern nursing'],
+    +    inventorOf: ['coxcomb chart', 'modern nursing'],
     }
 
     // bad
@@ -1761,7 +1791,7 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
     dragon.setAge(25);
     ```
 
-  - [23.3](#23.3) <a name='23.3'></a> If the property is a boolean, use isVal() or hasVal().
+  - [23.3](#23.3) <a name='23.3'></a> If the property is a `boolean`, use `isVal()` or `hasVal()`.
 
     ```javascript
     // bad
@@ -1898,7 +1928,7 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
 
 ## ECMAScript 6 Styles
 
-[27.1](#27.1) <a name='27.1'></a> This is a collection of links to the various es6 features.
+  - [27.1](#27.1) <a name='27.1'></a> This is a collection of links to the various es6 features.
 
 1. [Arrow Functions](#arrow-functions)
 1. [Classes](#constructors)
@@ -1959,10 +1989,11 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
 **Tools**
 
   - Code Style Linters
+    + [ESlint](http://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/airbnb/javascript/blob/master/linters/.eslintrc)
     + [JSHint](http://www.jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/jshintrc)
     + [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json)
 
-**Other Styleguides**
+**Other Style Guides**
 
   - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
   - [jQuery Core Style Guidelines](http://docs.jquery.com/JQuery_Core_Style_Guidelines)
@@ -1999,6 +2030,7 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
   - [JSBooks](http://jsbooks.revolunet.com/) - Julien Bouquillon
   - [Third Party JavaScript](http://manning.com/vinegar/) - Ben Vinegar and Anton Kovalyov
   - [Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript](http://amzn.com/0321812182) - David Herman
+  - [Eloquent JavaScript](http://eloquentjavascript.net/) - Marijn Haverbeke
 
 **Blogs**
 
@@ -2028,21 +2060,23 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
   - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
-  - **American Insitutes for Research**: [AIRAST/javascript](https://github.com/AIRAST/javascript)
   - **Apartmint**: [apartmint/javascript](https://github.com/apartmint/javascript)
   - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
   - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
+  - **Blendle**: [blendle/javascript](https://github.com/blendle/javascript)
   - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
   - **DailyMotion**: [dailymotion/javascript](https://github.com/dailymotion/javascript)
   - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
   - **Evernote**: [evernote/javascript-style-guide](https://github.com/evernote/javascript-style-guide)
   - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
+  - **Expensify** [Expensify/Style-Guide](https://github.com/Expensify/Style-Guide/blob/master/javascript.md)
   - **Flexberry**: [Flexberry/javascript-style-guide](https://github.com/Flexberry/javascript-style-guide)
   - **Gawker Media**: [gawkermedia/javascript](https://github.com/gawkermedia/javascript)
-  - **GeneralElectric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
+  - **General Electric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
   - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
   - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
   - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript)
+  - **Huballin**: [huballin/javascript](https://github.com/huballin/javascript)
   - **InfoJobs**: [InfoJobs/JavaScript-Style-Guide](https://github.com/InfoJobs/JavaScript-Style-Guide)
   - **Intent Media**: [intentmedia/javascript](https://github.com/intentmedia/javascript)
   - **Jam3**: [Jam3/Javascript-Code-Conventions](https://github.com/Jam3/Javascript-Code-Conventions)
@@ -2050,6 +2084,7 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
   - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/javascript)
   - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
   - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
+  - **MitocGroup**: [MitocGroup/javascript](https://github.com/MitocGroup/javascript)
   - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
   - **Money Advice Service**: [moneyadviceservice/javascript](https://github.com/moneyadviceservice/javascript)
   - **Muber**: [muber/javascript](https://github.com/muber/javascript)
@@ -2068,11 +2103,12 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
   - **Target**: [target/javascript](https://github.com/target/javascript)
   - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
   - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
-  - **Userify**: [userify/javascript](https://github.com/userify/javascript)
   - **VoxFeed**: [VoxFeed/javascript-style-guide](https://github.com/VoxFeed/javascript-style-guide)
   - **Weggo**: [Weggo/javascript](https://github.com/Weggo/javascript)
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
+
+**[⬆ back to top](#table-of-contents)**
 
 ## Translation
 
@@ -2082,7 +2118,7 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
   - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
   - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
   - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chinese(Traditional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript)
-  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese(Simplified)**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
+  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese(Simplified)**: [sivan/javascript-style-guide](https://github.com/sivan/javascript-style-guide)
   - ![fr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/France.png) **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
   - ![de](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png) **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
   - ![it](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png) **Italian**: [sinkswim/javascript-style-guide](https://github.com/sinkswim/javascript-style-guide)
