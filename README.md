@@ -1094,15 +1094,12 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
 
 ## Blocks
 
-  - [16.1](#16.1) <a name='16.1'></a> Use braces with all multi-line blocks.
+  - [16.1](#16.1) <a name='16.1'></a> Use braces with all single- and multi-line blocks.
 
     ```javascript
     // bad
     if (test)
       return false;
-
-    // good
-    if (test) return false;
 
     // good
     if (test) {
@@ -1140,6 +1137,20 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
     }
     ```
 
+  - [16.3](#16.3) <a name='16.3'></a> Never place block code on the same line as the block braces.
+
+    ```javascript
+    // bad
+    if (test) return false;
+
+    // bad
+    if (test) { return false; }
+
+    // good
+    if (test) {
+      return false;
+    }
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
