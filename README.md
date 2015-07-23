@@ -573,7 +573,7 @@
   ```javascript
   // bad
   var add = new Function('a', 'b', 'return a + b');
-  
+
   // still bad
   var subtract = Function('a', 'b', 'return a - b');
   ```
@@ -1223,8 +1223,10 @@
   - [17.4](#17.4) <a name='17.4'></a> Use `// FIXME:` to annotate problems.
 
     ```javascript
-    class Calculator {
+    class Calculator extends Abacus {
       constructor() {
+        super();
+
         // FIXME: shouldn't use a global here
         total = 0;
       }
@@ -1234,8 +1236,10 @@
   - [17.5](#17.5) <a name='17.5'></a> Use `// TODO:` to annotate solutions to problems.
 
     ```javascript
-    class Calculator {
+    class Calculator extends Abacus {
       constructor() {
+        super();
+
         // TODO: total should be configurable by an options param
         this.total = 0;
       }
