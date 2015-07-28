@@ -190,6 +190,13 @@ var LiveFeed = require('./LiveFeed')(dispatcher, events, action, publications, l
 - only files containing JSX should have .jsx extension
 - React class must set displayName attribute to make debugging with chrome extension easier (see [documentation](https://facebook.github.io/react/docs/component-specs.html#displayname))
 
+  ```jsx
+  var MyComponent = React.createClass({
+    displayName: 'myComponent',
+    render: function() {}
+  });
+  ```
+
 ## Next
 
 - use some ES6/2015 syntax
