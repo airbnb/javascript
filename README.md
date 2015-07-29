@@ -1452,6 +1452,36 @@
     return arr;
     ```
 
+  - [18.7](#18.7) <a name='18.7'></a> Leave a blank line before return statement block and other business logic.
+
+  ```javascript
+  // bad
+  function calculateSumBetweenToNumbers(firstNumber, secondNumber) {
+    if (firstNumber < secondNumber) {
+      let sum = 0;
+      for (let i = firstNumber; i <= secondNumber; i++) {
+        sum += i;
+      }
+      return sum;
+    } else {
+      console.log('Invalid statement');
+    }
+  }
+  
+  // good
+  function calculateSumBetweenToNumbers(firstNumber, secondNumber) {
+    if (firstNumber < secondNumber) {
+      let sum = 0;
+      for (let i = firstNumber; i <= secondNumber; i++) {
+        sum += i;
+      }
+  
+      return sum;
+    } else {
+      console.log('Invalid statement');
+    }
+  }
+  ```
 
 **[⬆ back to top](#table-of-contents)**
 
