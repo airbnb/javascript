@@ -28,6 +28,7 @@
   1. [Constructors](#constructors)
   1. [Events](#events)
   1. [Modules](#modules)
+  1. [3rd Party Libraries](#3rd-party-libraries)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [Testing](#testing)
