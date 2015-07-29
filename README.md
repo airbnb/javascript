@@ -1441,6 +1441,14 @@
 
 **[⬆ back to top](#table-of-contents)**
 
+## 3rd Party Libraries
+
+ - namespace all 3rd party libraries
+ - use the namespace `MBST`
+ - if available use `noconflict`
+ - otherwise modify the library
+
+**[⬆ back to top](#table-of-contents)**
 
 ## jQuery
 
