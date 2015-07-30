@@ -4,7 +4,7 @@ This package provides Airbnb's .eslintrc as an extensible shared config.
 
 ## Usage
 
-1. `npm install --save-dev eslint-config-airbnb`
+1. `npm install --save-dev eslint-config-airbnb babel-eslint eslint-plugin-react`
 2. add `"extends": "eslint-config-airbnb"` to your .eslintrc
 
 See [Airbnb's Javascript styleguide](https://github.com/airbnb/javascript) and
