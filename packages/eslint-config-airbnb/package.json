@@ -26,9 +26,5 @@
   "homepage": "https://github.com/airbnb/javascript",
   "dependencies": {
     "strip-json-comments": "1.0.2"
-  },
-  "peerDependencies": {
-    "babel-eslint": ">= 3.0",
-    "eslint-plugin-react": ">= 2.3.0"
   }
 }
