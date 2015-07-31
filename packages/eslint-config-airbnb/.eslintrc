@@ -166,7 +166,10 @@
     "space-before-function-paren": [2, "never"], // http://eslint.org/docs/rules/space-before-function-paren
     "space-infix-ops": 2,            // http://eslint.org/docs/rules/space-infix-ops
     "space-return-throw-case": 2,    // http://eslint.org/docs/rules/space-return-throw-case
-    "spaced-comment": 2,             // http://eslint.org/docs/rules/spaced-comment
+    "spaced-comment": [2, "always",  {// http://eslint.org/docs/rules/spaced-comment
+      "exceptions": ["-", "+"],
+      "markers": ["=", "!"]           // space here to support sprockets directives
+    }],
 
 /**
  * JSX style
