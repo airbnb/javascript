@@ -1,4 +1,14 @@
 {
+    // jshintrc iAdvize base file.
+    //
+    // In your own project, create a .jshintrc file that extends this file with :
+    // {
+    //   "extends": "./.jshintrc_base",
+    //   ...
+    // }
+    //
+    // This will extend iAdvize JSHint base file for your own project configuration.
+    //
     "maxerr"        : 50,       // {int} Maximum error before stopping
 
     // Enforcing
