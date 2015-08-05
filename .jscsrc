@@ -1,4 +1,5 @@
 {
+    "esnext": true,
     "disallowDanglingUnderscores": true,
     "disallowSpacesInNamedFunctionExpression": {
         "beforeOpeningRoundBrace": true
