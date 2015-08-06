@@ -121,6 +121,9 @@
 /**
  * Style
  */
+    "max-len": [2, 120, 2, {         // http://eslint.org/docs/rules/max-len
+      ignoreUrls: true
+    }],
     "indent": [2, 2],                // http://eslint.org/docs/rules/
     "brace-style": [2,               // http://eslint.org/docs/rules/brace-style
       "1tbs", {
