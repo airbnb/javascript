@@ -23,8 +23,5 @@
   "bugs": {
     "url": "https://github.com/airbnb/javascript/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript",
-  "dependencies": {
-    "strip-json-comments": "1.0.2"
-  }
+  "homepage": "https://github.com/airbnb/javascript"
 }
