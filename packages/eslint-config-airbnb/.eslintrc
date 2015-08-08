@@ -202,6 +202,7 @@
         "constructor",
         "getDefaultProps",
         "getInitialState",
+        "state",
         "getChildContext",
         "componentWillMount",
         "componentDidMount",
