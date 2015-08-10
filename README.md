@@ -1874,6 +1874,9 @@
 
     // good
     const $sidebar = $('.sidebar');
+
+    // good
+    const $sidebarBtn = $('.sidebar-btn');
     ```
 
   - [25.2](#25.2) <a name='25.2'></a> Cache jQuery lookups.
