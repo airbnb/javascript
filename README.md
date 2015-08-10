@@ -1852,7 +1852,7 @@
 
     ```javascript
     // good
-    $(this).trigger('listingUpdated', { listingId : listing.id });
+    $(this).trigger('listingUpdated', { listingId: listing.id });
 
     ...
 
