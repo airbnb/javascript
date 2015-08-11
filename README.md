@@ -2071,6 +2071,7 @@
   - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
   - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
   - **Blendle**: [blendle/javascript](https://github.com/blendle/javascript)
+  - **ComparaOnline**: [comparaonline/javascript](https://github.com/comparaonline/javascript)
   - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
   - **DailyMotion**: [dailymotion/javascript](https://github.com/dailymotion/javascript)
   - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
