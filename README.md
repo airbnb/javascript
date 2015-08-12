@@ -602,7 +602,9 @@
     });
     ```
 
-  - [8.2](#8.2) <a name='8.2'></a> If the function body fits on one line and there is only a single argument, feel free to omit the braces and parentheses, and use the implicit return. Otherwise, add the parentheses, braces, and use a `return` statement.
+  - [8.2](#8.2) <a name='8.2'></a> If the function body consists of a single expression, feel free to omit the braces and use the implicit return. Otherwise use a `return` statement.
+
+    In case the expression spans over multiple lines, wrap it in parentheses for better readability.
 
   > Why? Syntactic sugar. It reads well when multiple functions are chained together.
 
@@ -610,12 +612,25 @@
 
     ```javascript
     // good
-    [1, 2, 3].map(x => x * x);
+    [1, 2, 3].map(number => `A string containing the ${number}.`);
 
     // good
-    [1, 2, 3].reduce((total, n) => {
-      return total + n;
-    }, 0);
+    [1, 2, 3].map(number => (
+      `As time went by, the string containing the ${number} became much ` +
+      'longer. So we needed to break it over multiple lines.'
+    ));
+
+    // bad
+    [1, 2, 3].map(number => {
+      let nextNumber = number + 1;
+      `A string containing the ${nextNumber}.`;
+    });
+
+    // good
+    [1, 2, 3].map(number => {
+      let nextNumber = number + 1;
+      return `A string containing the ${nextNumber}.`;
+    });
     ```
 
 **[⬆ back to top](#table-of-contents)**
