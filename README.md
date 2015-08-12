@@ -597,9 +597,7 @@
     });
 
     // good
-    [1, 2, 3].map((x) => {
-      return x * x;
-    });
+    [1, 2, 3].map(x => x * x);
     ```
 
   - [8.2](#8.2) <a name='8.2'></a> If the function body consists of a single expression, feel free to omit the braces and use the implicit return. Otherwise use a `return` statement.
