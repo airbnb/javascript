@@ -631,6 +631,18 @@
     });
     ```
 
+  - [8.3](#8.3) <a name='8.3'></a> If your function only takes a single argument, feel free to omit the parentheses.
+
+    > Why? Less visual clutter.
+
+    ```js
+    // good
+    [1, 2, 3].map(x => x * x);
+
+    // good
+    [1, 2, 3].reduce((y, x) => x + y);
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 
