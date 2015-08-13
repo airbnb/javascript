@@ -616,13 +616,13 @@
 
     // bad
     [1, 2, 3].map(number => {
-      let nextNumber = number + 1;
+      const nextNumber = number + 1;
       `A string containing the ${nextNumber}.`;
     });
 
     // good
     [1, 2, 3].map(number => {
-      let nextNumber = number + 1;
+      const nextNumber = number + 1;
       return `A string containing the ${nextNumber}.`;
     });
     ```
