@@ -1,9 +1,9 @@
 # TouchTribe JavaScript Style Guide
 
-*A mostly reasonable approach to JavaScript*
+###A mostly reasonable approach to JavaScript
+At TouchTribe we value code and mostly we value great code quality to ensure our developers are flexible with code sharing and are using the latest best practices in our industry. 
 
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+Generator for ES2015 project with scaffolding (link will be done soon)
 
 [For the ES5-only guide click here](es5/).
 
