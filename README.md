@@ -644,7 +644,7 @@
 
   - [8.4](#8.4) <a name='8.4'></a> If your function only takes a single argument, feel free to omit the parentheses.
 
-    > Why? Less visual clutter.
+  > Why? Less visual clutter.
 
     ```js
     // good
