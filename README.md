@@ -593,11 +593,15 @@
     ```javascript
     // bad
     [1, 2, 3].map(function (x) {
-      return x * x;
+      const y = x + 1;
+      return x * y;
     });
 
     // good
-    [1, 2, 3].map(x => x * x);
+    [1, 2, 3].map((x) => {
+      const y = x + 1;
+      return x * y;
+    });
     ```
 
   - [8.2](#8.2) <a name='8.2'></a> If the function body consists of a single expression, feel free to omit the braces and use the implicit return. Otherwise use a `return` statement.
