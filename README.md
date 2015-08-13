@@ -602,8 +602,6 @@
 
   - [8.2](#8.2) <a name='8.2'></a> If the function body consists of a single expression, feel free to omit the braces and use the implicit return. Otherwise use a `return` statement.
 
-    In case the expression spans over multiple lines, wrap it in parentheses for better readability.
-
   > Why? Syntactic sugar. It reads well when multiple functions are chained together.
 
   > Why not? If you plan on returning an object.
@@ -611,12 +609,6 @@
     ```javascript
     // good
     [1, 2, 3].map(number => `A string containing the ${number}.`);
-
-    // good
-    [1, 2, 3].map(number => (
-      `As time went by, the string containing the ${number} became much ` +
-      'longer. So we needed to break it over multiple lines.'
-    ));
 
     // bad
     [1, 2, 3].map(number => {
@@ -631,7 +623,26 @@
     });
     ```
 
-  - [8.3](#8.3) <a name='8.3'></a> If your function only takes a single argument, feel free to omit the parentheses.
+  - [8.3](#8.3) <a name='8.3'></a> In case the expression spans over multiple lines, wrap it in parentheses for better readability.
+
+  > Why? It shows clearly where the function starts and ends.
+
+    ```js
+    // bad
+    [1, 2, 3].map(number => 'As time went by, the string containing the ' +
+      `${number} became much longer. So we needed to break it over multiple ` +
+      'lines.'
+    );
+
+    // good
+    [1, 2, 3].map(number => (
+      `As time went by, the string containing the ${number} became much ` +
+      'longer. So we needed to break it over multiple lines.'
+    ));
+    ```
+
+
+  - [8.4](#8.4) <a name='8.4'></a> If your function only takes a single argument, feel free to omit the parentheses.
 
     > Why? Less visual clutter.
 
