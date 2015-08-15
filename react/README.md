@@ -220,7 +220,7 @@
   - Do not use underscore prefix for internal methods of a React component.
     ```javascript
     // bad
-    React.createClass({
+    class extends React.Component {
       _onClickSubmit() {
         // do stuff
       }
