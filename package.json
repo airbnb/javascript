@@ -1,8 +1,8 @@
 {
-  "name": "lint-trap",
+  "name": "eslint-config-lint-trap",
   "version": "1.0.0",
   "description": "A fork of AirBnB's eslint config for use at Virtru",
-  "main": "index.js",
+  "main": "eslint-config-lint-trap/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
