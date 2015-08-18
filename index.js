@@ -178,7 +178,7 @@ module.exports = {
     'space-return-throw-case': 2,    // http://eslint.org/docs/rules/space-return-throw-case
     'spaced-comment': [1, 'always',  {// http://eslint.org/docs/rules/spaced-comment
       'exceptions': ['*'],
-      'markers': ['@']
+      'markers': ['@TODO:', '@NOTE:']
     }],
 
 /**
