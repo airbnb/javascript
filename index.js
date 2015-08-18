@@ -139,7 +139,7 @@ module.exports = {
       2, 'single', 'avoid-escape'    // http://eslint.org/docs/rules/quotes
     ],
     'camelcase': [2, {               // http://eslint.org/docs/rules/camelcase
-      'properties': 'never'
+      'properties': 'always'
     }],
     'comma-spacing': [2, {           // http://eslint.org/docs/rules/comma-spacing
       'before': false,
