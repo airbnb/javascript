@@ -1396,7 +1396,7 @@
     })(this);↵
     ```
 
-  - [18.5](#18.5) <a name='18.5'></a> Use indentation when making long method chains. Use a leading dot, which
+  - [18.6](#18.6) <a name='18.6'></a> Use indentation when making long method chains. Use a leading dot, which
     emphasizes that the line is a method call, not a new statement.
 
     ```javascript
@@ -1436,7 +1436,7 @@
         .call(tron.led);
     ```
 
-  - [18.6](#18.6) <a name='18.6'></a> Leave a blank line after blocks and before the next statement.
+  - [18.7](#18.7) <a name='18.7'></a> Leave a blank line after blocks and before the next statement.
 
     ```javascript
     // bad
