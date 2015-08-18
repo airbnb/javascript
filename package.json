@@ -1,0 +1,23 @@
+{
+  "name": "lint-trap",
+  "version": "1.0.0",
+  "description": "A fork of AirBnB's eslint config for use at Virtru",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/virtru/lint-trap.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
+  "author": "Jake Teton-Landis <Akkuma> (https://twitter.com/@jitl)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/virtru/lint-trap/issues"
+  },
+  "homepage": "https://github.com/virtru/lint-trap#readme"
+}
