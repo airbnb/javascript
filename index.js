@@ -132,7 +132,7 @@ module.exports = {
     ],
     'brace-style': [                 // http://eslint.org/docs/rules/brace-style
       2,
-      'stroustrup',
+      '1tbs',
       { 'allowSingleLine': true }
     ],
     'quotes': [
