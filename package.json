@@ -1,14 +1,14 @@
 {
-  "name": "airbnb-style",
-  "version": "2.0.0",
+  "name": "touchtribe-js-style-guide",
+  "version": "1.0.0",
   "description": "A mostly reasonable approach to JavaScript.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "publish-all": "npm publish && cd ./packages/eslint-config-airbnb && npm publish"
+    "publish-all": "npm publish && cd ./packages/eslint-config-touchtribe && npm publish"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airbnb/javascript.git"
+    "url": "https://github.com/TouchTribe/javascript.git"
   },
   "keywords": [
     "style guide",
@@ -22,7 +22,7 @@
   "author": "Harrison Shoff <hi@hshoff.com> (https://twitter.com/hshoff)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/airbnb/javascript/issues"
+    "url": "https://github.com/TouchTribe/javascript/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript"
+  "homepage": "https://github.com/TouchTribe/javascript"
 }

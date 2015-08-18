@@ -1,11 +1,13 @@
-# Airbnb JavaScript Style Guide() {
+# TouchTribe JavaScript Style Guide
 
-*A mostly reasonable approach to JavaScript*
+![TouchTribe](http://www.touchtribe.nl/wp-content/uploads/2014/08/logo_110x110.png)
 
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+### A mostly reasonable approach to JavaScript
+Congratulations! You are now an official member of Touchtribe. Before you go any further. Read our code guidelines before getting started. If this guide appears familiar to you, means that you have probably seen it before. It is a fork from the AirBnb styleguide and we have added changes to it, as a process making it our own and solidifying our believes for our standards.
 
-[For the ES5-only guide click here](es5/).
+One thing that sets us Tribers aside from other companies is the fact that we value code quality and code design. We also believe in extending our developers knowledge in further grasping the standards the community has.
+
+If you are following the current standards of ES15 and transpiling to Babel. Please read this document. If you are still stuck on ES5 due to your first project. [Check the ES5 Style Guide](es5/).
 
 ## Table of Contents
 
@@ -35,7 +37,7 @@
   1. [Events](#events)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
-  1. [ECMAScript 6 Styles](#ecmascript-6-styles)
+  1. [ECMAScript 2015 Styles](#ecmascript-6-styles)
   1. [Testing](#testing)
   1. [Performance](#performance)
   1. [Resources](#resources)
@@ -2187,42 +2189,8 @@
 
 ## Chat With Us About JavaScript
 
-  - Find us on [gitter](https://gitter.im/airbnb/javascript).
+  - Find us on Slack.
 
 ## Contributors
 
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
-
-
-## License
-
-(The MIT License)
-
-Copyright (c) 2014 Airbnb
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-**[⬆ back to top](#table-of-contents)**
-
-## Amendments
-
-We encourage you to fork this guide and change the rules to fit your team's style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
-
-# };
