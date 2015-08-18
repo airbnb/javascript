@@ -211,6 +211,7 @@ module.exports = {
         'componentDidUpdate',
         'componentWillUnmount',
         '/^on.+$/',
+        'everything-else',
         '/^get.+$/',
         '/^render.+$/',
         'render'
