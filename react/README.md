@@ -1,4 +1,4 @@
-# Airbnb React/JSX Style Guide
+# Touchtribe React/JSX Style Guide
 
 *A mostly reasonable approach to React and JSX*
 
@@ -33,7 +33,7 @@
       return <div />;
     }
   });
-  
+
   // good
   class Listing extends React.Component {
     render() {
@@ -58,7 +58,7 @@
     const ReservationItem = <ReservationCard />;
 
     // good
-    const reservationItem = <ReservationCard />;
+    const reservationItem = <ReservationCard>;
     ```
 
     **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
@@ -87,7 +87,7 @@
     // good
     class ReservationCard extends React.Component {
     }
- 
+
     export default ReservationCard;
     ```
 
@@ -103,17 +103,17 @@
     <Foo
       superLongParam="bar"
       anotherSuperLongParam="baz"
-    />
+    >
 
     // if props fit in one line then keep it on the same line
-    <Foo bar="bar" />
+    <Foo bar="bar">
 
     // children get indented normally
     <Foo
       superLongParam="bar"
       anotherSuperLongParam="baz"
     >
-      <Spazz />
+      <Spazz>
     </Foo>
     ```
 
@@ -124,13 +124,13 @@
     <Foo bar='bar' />
 
     // good
-    <Foo bar="bar" />
+    <Foo bar="bar">
 
     // bad
     <Foo style={{ left: "20px" }} />
 
     // good
-    <Foo style={{ left: '20px' }} />
+    <Foo style={{ left: '20px' }}>
     ```
 
 ## Spacing
@@ -146,8 +146,11 @@
     <Foo
      />
 
+     // bad
+     <Foo />
+
     // good
-    <Foo />
+    <Foo>
     ```
 
 ## Props
@@ -163,7 +166,7 @@
     <Foo
       userName="hello"
       phoneNumber={12345678}
-    />
+    >
     ```
 
 ## Parentheses
@@ -180,7 +183,7 @@
     render() {
       return (
         <MyComponent className="long body" foo="bar">
-          <MyChild />
+          <MyChild>
         </MyComponent>
       );
     }
@@ -199,7 +202,7 @@
     <Foo className="stuff"></Foo>
 
     // good
-    <Foo className="stuff" />
+    <Foo className="stuff">
     ```
 
   - If your component has multi-line properties, close its tag on a new line.
@@ -213,7 +216,7 @@
     <Foo
       bar="bar"
       baz="baz"
-    />
+    >
     ```
 
 ## Methods
@@ -241,7 +244,7 @@
 ## Ordering
 
   - Ordering for class extends React.Component:
-  
+
   1. constructor
   1. optional static methods
   1. getChildContext
@@ -261,30 +264,30 @@
 
   ```javascript
   import React, { Component, PropTypes } from 'react';
-  
+
   const propTypes = {
     id: PropTypes.number.isRequired,
     url: PropTypes.string.isRequired,
     text: PropTypes.string,
   };
-  
+
   const defaultProps = {
     text: 'Hello World',
   };
-  
+
   class Link extends Component {
     static methodsAreOk() {
       return true;
     }
-  
+
     render() {
       return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
     }
   }
-  
+
   Link.propTypes = propTypes;
   Link.defaultProps = defaultProps;
-  
+
   export default Link;
   ```
 

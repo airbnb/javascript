@@ -1,6 +1,8 @@
 # TouchTribe JavaScript Style Guide
 
-###A mostly reasonable approach to JavaScript
+![TouchTribe](http://www.touchtribe.nl/wp-content/uploads/2014/08/logo_110x110.png)
+
+### A mostly reasonable approach to JavaScript
 Congratulations! You are now an official member of Touchtribe. Before you go any further. Read our code guidelines before getting started. If this guide appears familiar to you, means that you have probably seen it before. It is a fork from the AirBnb styleguide and we have added changes to it, as a process making it our own and solidifying our believes for our standards.
 
 One thing that sets us Tribers aside from other companies is the fact that we value code quality and code design. We also believe in extending our developers knowledge in further grasping the standards the community has.
