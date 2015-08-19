@@ -1,28 +1,23 @@
 {
-  "name": "airbnb-style",
-  "version": "2.0.0",
-  "description": "A mostly reasonable approach to JavaScript.",
+  "name": "eslint-config-lint-trap",
+  "version": "1.0.0",
+  "description": "A fork of AirBnB's eslint config for use at Virtru",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "publish-all": "npm publish && cd ./packages/eslint-config-airbnb && npm publish"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airbnb/javascript.git"
+    "url": "git+https://github.com/virtru/lint-trap.git"
   },
   "keywords": [
-    "style guide",
-    "lint",
-    "airbnb",
-    "es6",
-    "es2015",
-    "react",
-    "jsx"
+    "eslint",
+    "eslintconfig"
   ],
-  "author": "Harrison Shoff <hi@hshoff.com> (https://twitter.com/hshoff)",
+  "author": "Jake Teton-Landis <Akkuma> (https://twitter.com/@jitl)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/airbnb/javascript/issues"
+    "url": "https://github.com/virtru/lint-trap/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript"
+  "homepage": "https://github.com/virtru/lint-trap#readme"
 }
