@@ -4,7 +4,7 @@
   "description": "Airbnb's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/babel-tape-runner ./test/test-*.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,13 @@
   "bugs": {
     "url": "https://github.com/airbnb/javascript/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript"
+  "homepage": "https://github.com/airbnb/javascript",
+  "devDependencies": {
+    "babel-eslint": "4.0.10",
+    "babel-tape-runner": "1.2.0",
+    "eslint": "1.1.0",
+    "eslint-plugin-react": "3.2.3",
+    "react": "0.13.3",
+    "tape": "4.2.0"
+  }
 }
