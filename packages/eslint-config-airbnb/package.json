@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint .",
-    "test": "./node_modules/.bin/babel-tape-runner ./test/test-*.js",
+    "test": "./node_modules/.bin/babel-tape-runner ./test/test-*.js"
   },
   "repository": {
     "type": "git",
