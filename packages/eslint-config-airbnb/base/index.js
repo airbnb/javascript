@@ -23,21 +23,21 @@ module.exports = {
     'jsx': true
   },
   'rules': {
-/**
- * Strict mode
- */
+    /**
+     * Strict mode
+     */
     // babel inserts 'use strict'; for us
     'strict': [2, 'never'],          // http://eslint.org/docs/rules/strict
 
-/**
- * ES6
- */
+    /**
+     * ES6
+     */
     'no-var': 2,                     // http://eslint.org/docs/rules/no-var
     'prefer-const': 2,               // http://eslint.org/docs/rules/prefer-const
 
-/**
- * Variables
- */
+    /**
+     * Variables
+     */
     'no-shadow': 2,                  // http://eslint.org/docs/rules/no-shadow
     'no-shadow-restricted-names': 2, // http://eslint.org/docs/rules/no-shadow-restricted-names
     'no-unused-vars': [2, {          // http://eslint.org/docs/rules/no-unused-vars
@@ -46,9 +46,9 @@ module.exports = {
     }],
     'no-use-before-define': 2,       // http://eslint.org/docs/rules/no-use-before-define
 
-/**
- * Possible errors
- */
+    /**
+     * Possible errors
+     */
     'comma-dangle': [2, 'always-multiline'],    // http://eslint.org/docs/rules/comma-dangle
     'no-cond-assign': [2, 'always'], // http://eslint.org/docs/rules/no-cond-assign
     'no-console': 1,                 // http://eslint.org/docs/rules/no-console
@@ -71,9 +71,9 @@ module.exports = {
     'use-isnan': 2,                  // http://eslint.org/docs/rules/use-isnan
     'block-scoped-var': 2,           // http://eslint.org/docs/rules/block-scoped-var
 
-/**
- * Best practices
- */
+    /**
+     * Best practices
+     */
     'consistent-return': 2,          // http://eslint.org/docs/rules/consistent-return
     'curly': [2, 'multi-line'],      // http://eslint.org/docs/rules/curly
     'default-case': 2,               // http://eslint.org/docs/rules/default-case
@@ -114,14 +114,16 @@ module.exports = {
     'wrap-iife': [2, 'any'],         // http://eslint.org/docs/rules/wrap-iife
     'yoda': 2,                       // http://eslint.org/docs/rules/yoda
 
-/**
- * Style
- */
+    /**
+     * Style
+     */
     'indent': [2, 2],                // http://eslint.org/docs/rules/indent
-    'brace-style': [2,               // http://eslint.org/docs/rules/brace-style
+    'brace-style': [
+      2,               // http://eslint.org/docs/rules/brace-style
       '1tbs', {
-      'allowSingleLine': true
-    }],
+        'allowSingleLine': true
+      }
+    ],
     'quotes': [
       2, 'single', 'avoid-escape'    // http://eslint.org/docs/rules/quotes
     ],
@@ -136,8 +138,8 @@ module.exports = {
     'eol-last': 2,                   // http://eslint.org/docs/rules/eol-last
     'func-names': 1,                 // http://eslint.org/docs/rules/func-names
     'key-spacing': [2, {             // http://eslint.org/docs/rules/key-spacing
-        'beforeColon': false,
-        'afterColon': true
+      'beforeColon': false,
+      'afterColon': true
     }],
     'new-cap': [2, {                 // http://eslint.org/docs/rules/new-cap
       'newIsCap': true

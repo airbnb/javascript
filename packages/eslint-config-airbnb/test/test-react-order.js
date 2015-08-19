@@ -1,5 +1,5 @@
 import test from 'tape';
-import { CLIEngine, linter } from 'eslint';
+import { CLIEngine } from 'eslint';
 import eslintrc from '../';
 
 const cli = new CLIEngine({
