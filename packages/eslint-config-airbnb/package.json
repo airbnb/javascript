@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint .",
-    "test": "./node_modules/.bin/babel-tape-runner ./test/test-*.js"
+    "test": "./node_modules/.bin/babel-tape-runner ./test/test-*.js",
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "babel-tape-runner": "1.2.0",
     "eslint": "1.1.0",
     "eslint-plugin-react": "3.2.3",
+    "marked": "0.3.5",
     "react": "0.13.3",
     "tape": "4.2.0"
   }
