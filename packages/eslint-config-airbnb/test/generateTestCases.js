@@ -23,6 +23,11 @@ const DELIMETERS = [
   BEST,
 ];
 
+function log(...things) {
+  if (true) return;
+  console.error(...things);
+}
+
 /**
  * given a block of JS code with // good and // bad delimiters,
  * split out the good and bad code, and return them.
@@ -36,24 +41,24 @@ function extractExamples(text) {
     memo[DELIM_MAP[delim]] = [];
     return memo;
   }, {});
-  console.error(result);
+  log(result);
   const parts = text.split(delimiter).filter(Boolean);
   let currentDelimeter = null;
   let first = true;
 
   parts.forEach(part => {
-    console.error(`saw part "${part}"`);
+    log(`saw part "${part}"`);
     if (DELIMETERS.indexOf(part) >= 0) {
       // this is a delimeter
       currentDelimeter = part;
       first = false;
-      console.error('  its a delimiter');
+      log('  its a delimiter');
       return;
     }
 
     if (currentDelimeter) {
       result[DELIM_MAP[currentDelimeter]].push(part);
-      console.error(`added to result[${currentDelimeter}]: `, result[currentDelimeter]);
+      log(`added to result[${currentDelimeter}]: `, result[currentDelimeter]);
       currentDelimeter = null;
       return;
     }
@@ -61,10 +66,10 @@ function extractExamples(text) {
     if (first) {
       result.prepend = part;
       first = false;
-      console.error('  was first');
+      log('  was first');
     }
 
-    console.error('  skipped.');
+    log('  skipped.');
   });
 
   return result;
@@ -98,6 +103,9 @@ function group(arrayOfExamples) {
   }, result);
 }
 
+/**
+ * parse out the grouped code examples from some markdown text
+ */
 export function analyze(markdown) {
   const tokens = marked.lexer(markdown);
   const codes = tokens.filter(token => token.type === 'code' && token.lang === 'javascript')
@@ -105,12 +113,7 @@ export function analyze(markdown) {
   const extracted = codes.map(extractExamples);
   const examples = extracted.map(buildExamples);
   const grouped = group(examples);
-  //const parsed = marked.parser(tokens);
-  console.error('--- codes ---');
-  //console.error(codes);
-  console.error(grouped);
-  //console.error('--- parsed ---');
-  //console.error(parsed);
+  log(grouped);
   return grouped;
 }
 
