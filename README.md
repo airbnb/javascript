@@ -1,12 +1,11 @@
-# eslint-config-airbnb
+# lint-trap
 
-This package provides Airbnb's .eslintrc as an extensible shared config.
+This package provides Virtru's .eslintrc as an extensible shared config.
 
 ## Usage
 
-1. `npm install --save-dev eslint-config-airbnb babel-eslint eslint-plugin-react`
-2. add `"extends": "eslint-config-airbnb"` to your .eslintrc
+1. `npm install --save-dev virtru/lint-trap`
+2. add `"extends": "lint-trap"` to your .eslintrc
 
-See [Airbnb's Javascript styleguide](https://github.com/airbnb/javascript) and
-the [ESlint config docs](http://eslint.org/docs/user-guide/configuring#extending-configuration-files)
+See the [ESlint config docs](http://eslint.org/docs/user-guide/configuring#extending-configuration-files)
 for more information.
