@@ -8,7 +8,7 @@
 Other Style Guides
  - [ES5](es5/)
  - [React](react/)
- - [css/scss](https://github.com/airbnb/css)
+ - [CSS & Sass](https://github.com/airbnb/css)
  - [Ruby](https://github.com/airbnb/ruby)
 
 ## Table of Contents
