@@ -27,3 +27,9 @@ programming to structure our README as test cases for our .eslintrc?
 You can run tests with `npm test`.
 
 You can make sure this module lints with itself using `npm run lint`.
+
+## Changelog
+
+### 0.0.8
+ - now has a changelog
+ - now is modular (see instructions above for with react and without react versions)
