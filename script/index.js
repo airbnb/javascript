@@ -119,6 +119,10 @@ function main() {
   // const filename = path.join(__dirname, '../sections/06_Strings.md');
   const filename = path.join(__dirname, '../sections/05_Destructuring.md');
   const input = fs.readFileSync(filename, 'utf-8');
+
+  console.error('\n\n\nINPUT MARKDOWN TEXT:');
+  console.error(input);
+
   const tree = mdast.parse(input);
   visit(tree, 'code', code => code.value = '(elided)');
 
