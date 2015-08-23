@@ -21,6 +21,12 @@ export class Parent extends Node {
   }
 }
 
+export class Root extends Parent {
+  constructor(children = []) {
+    super('root', children);
+  }
+}
+
 export class Text extends Node {
   constructor(value) {
     super('text');

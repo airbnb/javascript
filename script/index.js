@@ -2,7 +2,8 @@ import fs from 'fs';
 import mdast from 'mdast';
 import path from 'path';
 import inspect from 'unist-util-inspect';
-import { Section, Rule, OutlineSection, toMarkdownAST } from './styleguide';
+import { Section, Rule, OutlineSection, Styleguide, toMarkdownAST, sectionOfTree } from './styleguide';
+import { Root } from './nodes';
 import headingRange from 'mdast-util-heading-range';
 import visit from 'unist-util-visit';
 
@@ -124,15 +125,22 @@ function main() {
   console.error('\n\n\nORIGINAL:');
   console.error(inspect(tree));
 
-  //const h1s = headingAndChildren(tree, 1);
   const wat = groupHeadings(tree);
-  //console.error(toJSON(tree));
+
   console.error('\n\n\nGROUPED:');
   console.error(inspect(tree));
-  const topLevel = tree.children[0]
-  //console.error(toJSON(topLevel.toAST()))
+
+  const section = sectionOfTree(tree);
+  const styleguide = new Styleguide(section);
+  const styleRoot = new Root(styleguide);
+  console.error('\n\n\nSTYLING:');
+  console.error(inspect(styleRoot));
+
   console.error('\n\n\nBACK BABY:');
-  console.error(inspect(toMarkdownAST(tree)));
+  console.error(inspect(toMarkdownAST(styleRoot)));
+
+  console.error('\n\n\nAND VIOLA:');
+  console.error(mdast.stringify(styleRoot));
 }
 
 if (require.main === module) main();

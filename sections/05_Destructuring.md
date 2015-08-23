@@ -1,6 +1,6 @@
 # Destructuring
 
-##Use object destructuring when accessing and using multiple properties of an object.
+## Use object destructuring when accessing and using multiple properties of an object.
 
 > Why? Destructuring saves you from creating temporary references for those
 > properties.
