@@ -2,9 +2,8 @@ import fs from 'fs';
 import mdast from 'mdast';
 import path from 'path';
 import inspect from 'unist-util-inspect';
-import { Section, Rule } from './styleguide';
+import { Section, Rule, OutlineSection, toMarkdownAST } from './styleguide';
 import headingRange from 'mdast-util-heading-range';
-import { GroupedHeadingChildren } from './nodes';
 import visit from 'unist-util-visit';
 
 /**
@@ -59,11 +58,14 @@ function headingAndChildren(tree, depth, mutate = false) {
     return node.depth === depth;
   }
 
+  // we should be using arg #2 here, but the library is broken until my PR is merged here:
+  // https://github.com/wooorm/mdast-util-heading-range/pull/1
+  // fortunatley there's a workaround ;)
   function visitor(heading, brokenLibraryChildrenDoNotUse, nextHeading, extra) {
     const childrenStart = extra.start + 1;
     const childrenEnd = extra.end === null ? extra.parent.children.length + 1 : extra.end;
     const children = extra.parent.children.slice(childrenStart, childrenEnd);
-    const group = new GroupedHeadingChildren(heading, children);
+    const group = new OutlineSection(heading, children);
     section = group;
 
     if (mutate) {
@@ -78,7 +80,7 @@ function headingAndChildren(tree, depth, mutate = false) {
   return section;
 }
 
-function doesNodeExist(tree, predicate) {
+function nodeExists(tree, predicate) {
   let exists = false;
   visit(tree, function(node, index, parent) {
     if (predicate(node, index, parent)) {
@@ -90,15 +92,19 @@ function doesNodeExist(tree, predicate) {
   return exists;
 }
 
-function groupHeadings(orig) {
-  const tree = JSON.parse(toJSON(orig));
+/**
+ * transform a markdown document into outline format with subheadings and text
+ * the explicit children of parent headings.
+ * @param {Node} original - the tree to transform
+ * @param {Boolean?} mutate - default true. modify in place, or construct a new tree?
+ */
+function groupHeadings(original, mutate = true) {
+  const tree = mutate ? original : JSON.parse(toJSON(original));
   const groupsByDepth = {};
   for (let depth=6; depth>=1; depth--) {
     const groups = [];
     let run = 0;
-    while(doesNodeExist(tree, node => node.type === 'heading' && node.depth === depth)) {
-      console.error(`\n\nDEPTH: ${depth} RUN ${run}`);
-      console.error(inspect(tree));
+    while(nodeExists(tree, node => node.type === 'heading' && node.depth === depth)) {
       groups.push(headingAndChildren(tree, depth, true));
       run++;
     }
@@ -108,24 +114,6 @@ function groupHeadings(orig) {
   return groupsByDepth;
 }
 
-// grab the "children" of all level-1 headings
-//function extractSections(tree) {
-//  const test = node => node.type === 'heading' && node.depth === 1;
-//  const sections = [];
-//  const makeSearch = headingRange(test, function capture(start, children, end) {
-//    sections.push({title: start, children: children });
-//
-//    // have to do this so the whole thing is a no-op instead of a transform
-//    const most = [start].concat(children);
-//    if (end) most.push(end);
-//    return most;
-//  });
-//  const search = makeSearch();
-//
-//  search(tree);
-//  return sections;
-//}
-
 function main() {
   // const filename = path.join(__dirname, '../sections/06_Strings.md');
   const filename = path.join(__dirname, '../sections/05_Destructuring.md');
@@ -133,10 +121,18 @@ function main() {
   const tree = mdast.parse(input);
   visit(tree, 'code', code => code.value = '(elided)');
 
+  console.error('\n\n\nORIGINAL:');
+  console.error(inspect(tree));
+
   //const h1s = headingAndChildren(tree, 1);
   const wat = groupHeadings(tree);
   //console.error(toJSON(tree));
-  //console.error(inspect(tree));
+  console.error('\n\n\nGROUPED:');
+  console.error(inspect(tree));
+  const topLevel = tree.children[0]
+  //console.error(toJSON(topLevel.toAST()))
+  console.error('\n\n\nBACK BABY:');
+  console.error(inspect(toMarkdownAST(tree)));
 }
 
 if (require.main === module) main();

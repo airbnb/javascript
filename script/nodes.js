@@ -79,11 +79,3 @@ export class ListItem extends Parent {
     this.loose = loose;
   }
 }
-
-export class GroupedHeadingChildren extends Parent {
-  constructor(heading, children = []) {
-    super('ext.GroupedHeadingChildren-' + heading.depth, children);
-    this.heading = heading;
-    this.value = textOfNode(this.heading);
-  }
-}
