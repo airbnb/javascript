@@ -23,8 +23,8 @@ You may need to add repo specific environments and globals, but this is all you 
 
 There are two environment variables that you can set to determine what rules are ran.
 
-`REPO_ENVIRONMENT`
+##### REPO_ENVIRONMENT
 Either `'dev'` or `'ci'`. The default is `'dev'`. CI rules are for things we don't want to be allowed into a repo, but allow for convenience during development.
 
-`REPO_TYPE`
+##### REPO_TYPE
 Either `'frontend'` or `'backend'`. The default is `'frontend'`. Currently only is used when `REPO_ENVIRONMENT` is set to `'ci'`
