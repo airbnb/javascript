@@ -67,15 +67,15 @@
         "no-unreachable": 2,          // disallow unreachable statements after a return, throw, continue, or break statement
         "use-isnan": 2,               // disallow comparisons with the value NaN
         "valid-jsdoc": 0,             // Ensure JSDoc comments are valid (off by default)
-        "valid-typeof": 0,            // Ensure that the results of typeof are compared against a valid string
+        "valid-typeof": 2,            // Ensure that the results of typeof are compared against a valid string
 
 
         ////////// Best Practices //////////
 
-        "block-scoped-var": 0,      // treat var statements as if they were block scoped (off by default)
+        "block-scoped-var": 2,      // treat var statements as if they were block scoped (off by default)
         "complexity": [1, 6],       // specify the maximum cyclomatic complexity allowed in a program (off by default)
-        "consistent-return": 0,     // require return statements to either always or never specify values
-        "curly": 0,                 // specify curly brace conventions for all control statements
+        "consistent-return": 2,     // require return statements to either always or never specify values
+        "curly": 2,                 // specify curly brace conventions for all control statements
         "default-case": 0,          // require default case in switch statements (off by default)
         "dot-notation": 0,          // encourages use of dot notation whenever possible
         "eqeqeq": 2,                // require the use of === and !==
