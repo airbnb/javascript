@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/virtru/lint-trap/issues"
   },
-  "homepage": "https://github.com/virtru/lint-trap#readme"
+  "homepage": "https://github.com/virtru/lint-trap#readme",
+  "dependencies": {
+    "eslint-plugin-virtru-lint": "virtru/eslint-plugin-virtru-lint"
+  }
 }
