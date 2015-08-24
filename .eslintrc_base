@@ -7,7 +7,7 @@
         "defaultParams": true,                      // enable default function parameters
         "forOf": false,                             // enable for-of loops
         "generators": true,                         // enable generators
-        "objectLiteralComputedProperties": false,   // enable computed object literal property names
+        "objectLiteralComputedProperties": true,   // enable computed object literal property names
         "objectLiteralDuplicateProperties": false,  // enable duplicate object literal properties in strict mode
         "objectLiteralShorthandMethods": true,      // enable object literal shorthand methods
         "objectLiteralShorthandProperties": true,   // enable object literal shorthand properties
@@ -44,9 +44,9 @@
         ////////// Possible Errors //////////
 
         "no-comma-dangle": 0,         // disallow trailing commas in object literals
-        "no-cond-assign": 0,          // disallow assignment in conditional expressions
+        "no-cond-assign": 1,          // disallow assignment in conditional expressions
         "no-console": 2,              // disallow use of console (off by default in the node environment)
-        "no-constant-condition": 0,   // disallow use of constant expressions in conditions
+        "no-constant-condition": 1,   // disallow use of constant expressions in conditions
         "no-control-regex": 0,        // disallow control characters in regular expressions
         "no-debugger": 0,             // disallow use of debugger
         "no-dupe-keys": 0,            // disallow duplicate keys when creating object literals
@@ -55,8 +55,8 @@
         "no-ex-assign": 0,            // disallow assigning to the exception in a catch block
         "no-extra-boolean-cast": 0,   // disallow double-negation boolean casts in a boolean context
         "no-extra-parens": 0,         // disallow unnecessary parentheses (off by default)
-        "no-extra-semi": 2,           // disallow unnecessary semicolons
-        "no-func-assign": 0,          // disallow overwriting functions written as function declarations
+        "no-extra-semi": 1,           // disallow unnecessary semicolons
+        "no-func-assign": 1,          // disallow overwriting functions written as function declarations
         "no-inner-declarations": 0,   // disallow function or variable declarations in nested blocks
         "no-invalid-regexp": 0,       // disallow invalid regular expression strings in the RegExp constructor
         "no-irregular-whitespace": 2, // disallow irregular whitespace outside of strings and comments
