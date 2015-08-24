@@ -514,7 +514,7 @@ Other Style Guides
   <a name="es6-rest"></a>
   - [7.6](#7.6) <a name='7.6'></a> Never use `arguments`, opt to use rest syntax `...` instead.
 
-  > Why? `...` is explicit about which arguments you want pulled. Plus rest arguments are a real Array and not Array-like like `arguments`.
+  > Why? `...` is explicit about which arguments you want to be pulled. Plus rest arguments are a real Array and not Array-like like `arguments`.
 
     ```javascript
     // bad
