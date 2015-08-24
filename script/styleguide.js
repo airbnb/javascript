@@ -21,8 +21,7 @@ function needsFlatten(array) {
   return array.filter(o => Array.isArray(o)).length > 0
 }
 
-function flatten(array) {
-
+export function flatten(array) {
   if (!needsFlatten(array)) return array;
 
   return flatten(array.reduce((all, item) => all.concat(item), []));
@@ -54,12 +53,41 @@ export class HiddenCode extends Node {
 }
 
 export class Styleguide extends Parent {
-  constructor(sections = []) {
+  constructor(sections = [], preChildren = [], postChildren = []) {
     super('ext.Styleguide', sections);
+    this.preChildren = preChildren;
+    this.postChildren = postChildren;
   }
 
   toAST() {
-    return this.children.map((section, idx) => section.toAST(idx))
+    return [
+      this.preChildren,
+      this.tableOfContents(),
+      this.children.map((section, idx) => section.toAST(idx)),
+      this.postChildren,
+    ];
+  }
+
+  tableOfContents() {
+    function slugify(text) {
+      return text.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
+    }
+
+    const titles = this.children.map(section => section.value);
+    const items = titles.map(title => 
+      new ListItem(
+        new Paragraph(
+          new Link(`#${slugify(title)}`,
+            new Text(title)
+          )
+      )
+      , false)
+    );
+
+    return [
+      new Heading(2, new Text('Table of Contents')),
+      new List(items, true, 1),
+    ];
   }
 }
 

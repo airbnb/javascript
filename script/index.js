@@ -2,7 +2,7 @@ import fs from 'fs';
 import mdast from 'mdast';
 import path from 'path';
 import inspect from 'unist-util-inspect';
-import { Section, Rule, OutlineSection, Styleguide, toMarkdownAST, sectionOfTree } from './styleguide';
+import { Section, Rule, OutlineSection, Styleguide, toMarkdownAST, sectionOfTree, flatten } from './styleguide';
 import { Root } from './nodes';
 import headingRange from 'mdast-util-heading-range';
 import visit from 'unist-util-visit';
@@ -98,10 +98,12 @@ class StyleguideBuilder {
   constructor() {
     this.sectionBuilders = {};
     this.buildersInOrder = [];
+    this.preChildren = [];
+    this.postChildren = [];
   }
 
   loadSectionFile(filename) {
-    const source = fs.readFileSync(filename, 'utf-8');
+    const source = this.loadFileSource(filename);
     const builder =  new SectionBuilder(source, filename);
     this.sectionBuilders[filename] = builder;
     this.buildersInOrder.push(builder);
@@ -112,14 +114,31 @@ class StyleguideBuilder {
     sectionFilenames.forEach(fname => this.loadSectionFile(fname));
   }
 
+  loadFileSource(filename) {
+    console.error(`StyleguideBuilder: read file ${filename}`);
+    return fs.readFileSync(filename, 'utf-8');
+  }
+
+  loadPrechildren(filename) {
+    this.preChildren.push(this.loadFileSource(filename));
+  }
+
+  loadPostchildren(filename) {
+    this.postChildren.push(this.loadFileSource(filename));
+  }
+
   build() {
     const sections = this.buildersInOrder
       .map(builder => builder.build())
       .filter(Boolean);
 
+    const preChildren = flatten(this.preChildren.map(text => mdast.parse(text).children))
+    const postChildren = flatten(this.postChildren.map(text => mdast.parse(text).children))
+
+
     console.error(`have ${sections.length} sections`);
 
-    return new Styleguide(sections);
+    return new Styleguide(sections, preChildren, postChildren);
   }
 }
 
@@ -212,9 +231,16 @@ function testBuildingSection() {
 }
 
 function testBuildingStyleguide() {
-  const dirname = path.join(__dirname, '../sections');
+  // filenames
+  const src = path.join(__dirname, '../src');
+  const sections = path.join(src, 'sections');
+  const foreword = path.join(src, 'foreword.md');
+  const afterword = path.join(src, 'afterword.md');
+
   const builder = new StyleguideBuilder();
-  builder.loadSectionDirectory(dirname);
+  builder.loadSectionDirectory(sections);
+  builder.loadPrechildren(foreword);
+  builder.loadPostchildren(afterword);
   const styleguide = builder.build();
 
   console.error('GUIDE', styleguide);
