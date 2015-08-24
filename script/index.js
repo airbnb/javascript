@@ -6,6 +6,7 @@ import { Section, Rule, OutlineSection, Styleguide, toMarkdownAST, sectionOfTree
 import { Root } from './nodes';
 import headingRange from 'mdast-util-heading-range';
 import visit from 'unist-util-visit';
+import glob from 'glob';
 
 /**
  * this script does the following:
@@ -93,6 +94,69 @@ function nodeExists(tree, predicate) {
   return exists;
 }
 
+class StyleguideBuilder {
+  constructor() {
+    this.sectionBuilders = {};
+    this.buildersInOrder = [];
+  }
+
+  loadSectionFile(filename) {
+    const source = fs.readFileSync(filename, 'utf-8');
+    const builder =  new SectionBuilder(source, filename);
+    this.sectionBuilders[filename] = builder;
+    this.buildersInOrder.push(builder);
+  }
+
+  loadSectionDirectory(dirname) {
+    const sectionFilenames = glob.sync(path.join(dirname, '*.md'));
+    sectionFilenames.forEach(fname => this.loadSectionFile(fname));
+  }
+
+  build() {
+    const sections = this.buildersInOrder
+      .map(builder => builder.build())
+      .filter(Boolean);
+
+    console.error(`have ${sections.length} sections`);
+
+    return new Styleguide(sections);
+  }
+}
+
+class SectionBuilder {
+  constructor(source, filename) {
+    this.filename = filename;
+    this.source = source;
+    this.raw = mdast.parse(this.source);
+  }
+
+  build() {
+    console.error(`building ${this.filename} (length: ${this.source.length})`);
+    const tree = clone(this.raw);
+    groupHeadings(tree);
+
+    let section;
+    try {
+      section = sectionOfTree(tree);
+    } catch (err) {
+      console.error(`ERROR: section ${this.filename} failed convert AST to Section`);
+      return null;
+    }
+
+    // TODO: make these explicit constructor parameters?
+    section.source = this.source;
+    section.filename = this.filename;
+    return section;
+  }
+}
+
+// note: cloning will only work well on vanilla, unextended AST trees. we will
+// need to get more complicated if we want to deep-copy enhanced trees since
+// they're instances of classes instead of plain old javascript objects.
+function clone(tree) {
+  return JSON.parse(toJSON(tree));
+}
+
 /**
  * transform a markdown document into outline format with subheadings and text
  * the explicit children of parent headings.
@@ -115,7 +179,7 @@ function groupHeadings(original, mutate = true) {
   return groupsByDepth;
 }
 
-function main() {
+function testBuildingSection() {
   // const filename = path.join(__dirname, '../sections/06_Strings.md');
   const filename = path.join(__dirname, '../sections/05_Destructuring.md');
   const input = fs.readFileSync(filename, 'utf-8');
@@ -136,7 +200,7 @@ function main() {
 
   const section = sectionOfTree(tree);
   const styleguide = new Styleguide(section);
-  const styleRoot = new Root(styleguide);
+  const styleRoot = root(styleguide);
   console.error('\n\n\nSTYLING:');
   console.error(inspect(styleRoot));
 
@@ -147,4 +211,26 @@ function main() {
   console.error(mdast.stringify(styleRoot));
 }
 
-if (require.main === module) main();
+function testBuildingStyleguide() {
+  const dirname = path.join(__dirname, '../sections');
+  const builder = new StyleguideBuilder();
+  builder.loadSectionDirectory(dirname);
+  const styleguide = builder.build();
+
+  console.error('GUIDE', styleguide);
+
+  const mkdwn = toMarkdownAST(root(styleguide));
+  console.error(inspect(mkdwn));
+  const text = mdast.stringify(mkdwn);
+
+  console.log(text);
+}
+
+function root(tree) {
+  if (Array.isArray(tree) || tree.type !== 'root') {
+    return new Root(tree);
+  }
+  return tree;
+}
+
+if (require.main === module) testBuildingStyleguide();

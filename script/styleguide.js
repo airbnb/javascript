@@ -2,6 +2,7 @@
 import visit from 'unist-util-visit';
 import assert from 'assert';
 import textOf from 'mdast-util-to-string';
+import inspect from 'unist-util-inspect';
 
 import {
   Node,
@@ -16,6 +17,17 @@ import {
   Root,
 } from './nodes';
 
+function needsFlatten(array) {
+  return array.filter(o => Array.isArray(o)).length > 0
+}
+
+function flatten(array) {
+
+  if (!needsFlatten(array)) return array;
+
+  return flatten(array.reduce((all, item) => all.concat(item), []));
+}
+
 export class OutlineSection extends Parent {
   constructor(heading, children = []) {
     super('ext.OutlineSection', children);
@@ -28,6 +40,19 @@ export class OutlineSection extends Parent {
   }
 }
 
+// pulls a code but doesn't show a value in the tree
+export class HiddenCode extends Node {
+  constructor(code) {
+    super('ext.HiddenCode');
+    this.code = clone(code);
+    this.value = '(hidden in inspector)';
+  }
+
+  toAST() {
+    return this.code;
+  }
+}
+
 export class Styleguide extends Parent {
   constructor(sections = []) {
     super('ext.Styleguide', sections);
@@ -35,7 +60,6 @@ export class Styleguide extends Parent {
 
   toAST() {
     return this.children.map((section, idx) => section.toAST(idx))
-      .reduce((all, chunk) => all.concat(chunk), []);
   }
 }
 
@@ -52,15 +76,14 @@ export class Section extends Node {
   }
 
   toAST(sectionIndex) {
-    let nodes = [];
+    const nodes = [];
     nodes.push(this.heading())
-    nodes = nodes.concat(this.preChildren);
+    nodes.push(this.preChildren);
 
     const listItems = this.rules.map((r, idx) => r.toAST(sectionIndex, idx));
     nodes.push(new List(listItems));
 
-    nodes = nodes.concat(this.postChildren);
-
+    nodes.push(this.postChildren);
     nodes.push(this.backToTop());
 
     return nodes;
@@ -85,7 +108,8 @@ export class Rule extends Parent {
 
   toAST(sectionIndex, ruleIndex) {
     // TODO: include this.anchors for more anchors
-    const renderedSummary = new Paragraph(this.anchor(sectionIndex, ruleIndex).concat(this.summary));
+    const renderedSummary = new Paragraph(this.anchor(sectionIndex, ruleIndex)
+                                          .concat(this.summary));
     return new ListItem([renderedSummary].concat(this.children));
   }
 
@@ -116,8 +140,9 @@ function ruleOfOutline(outline) {
 }
 
 function sectionOfOutline(outline) {
+  assert.ok(outline, 'outline is defined');
   assert.equal(outline.type, 'ext.OutlineSection');
-  assert.equal(outline.depth, 1);
+  assert.equal(outline.depth, 1, 'the outline is top-level (from H1 tag)');
 
   const rules = outline.children.map(ruleOfOutline);
   return new Section(outline.heading.children, rules);
@@ -125,7 +150,12 @@ function sectionOfOutline(outline) {
 
 export function sectionOfTree(extendedTree) {
   const root = extendedTree.children[0];
-  return sectionOfOutline(root);
+  try {
+    return sectionOfOutline(root);
+  } catch (err) {
+    console.error(inspect(root || {value: '`root` was falsy or undefined'}));
+    throw err;
+  }
 }
 
 /**
@@ -145,8 +175,7 @@ export function toMarkdownAST(extendedTree) {
 
   function convertNodeArray(nodes) {
     const converted = nodes.map(convertNode);
-    const flattened = converted.reduce((all, next) => all.concat(next), []);
-    return flattened;
+    return flatten(converted);
   }
 
   function visitNode(node) {

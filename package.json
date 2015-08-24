@@ -28,6 +28,7 @@
   "homepage": "https://github.com/airbnb/javascript",
   "devDependencies": {
     "babel": "^5.8.21",
+    "glob": "^5.0.14",
     "locus": "^1.0.4",
     "mdast": "^1.1.0",
     "mdast-util-heading-range": "^1.0.1",
