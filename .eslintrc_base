@@ -132,23 +132,23 @@
         "no-delete-var": 2,               // disallow deletion of variables
         "no-label-var": 2,                // disallow labels that share a name with a variable
         "no-shadow": 2,                   // disallow declaration of variables already declared in the outer scope
-        "no-shadow-restricted-names": 0,  // disallow shadowing of names such as arguments
+        "no-shadow-restricted-names": 2,  // disallow shadowing of names such as arguments
         "no-undef": 2,                    // disallow use of undeclared variables unless mentioned in a /*global */ block
-        "no-undef-init": 0,               // disallow use of undefined when initializing variables
-        "no-undefined": 0,                // disallow use of undefined variable (off by default)
+        "no-undef-init": 2,               // disallow use of undefined when initializing variables
+        "no-undefined": 2,                // disallow use of undefined variable (off by default)
         "no-unused-vars": 2,              // disallow declaration of variables that are not used in the code
-        "no-use-before-define": 0,        // disallow use of variables before they are defined
+        "no-use-before-define": 2,        // disallow use of variables before they are defined
 
 
         ////////// Node.js //////////
 
         "handle-callback-err": 0,   // enforces error handling in callbacks (off by default) (on by default in the node environment)
         "no-mixed-requires": 0,     // disallow mixing regular variable and require declarations (off by default) (on by default in the node environment)
-        "no-new-require": 0,        // disallow use of new operator with the require function (off by default) (on by default in the node environment)
-        "no-path-concat": 0,        // disallow string concatenation with __dirname and __filename (off by default) (on by default in the node environment)
-        "no-process-exit": 0,       // disallow process.exit() (on by default in the node environment)
+        "no-new-require": 2,        // disallow use of new operator with the require function (off by default) (on by default in the node environment)
+        "no-path-concat": 2,        // disallow string concatenation with __dirname and __filename (off by default) (on by default in the node environment)
+        "no-process-exit": 2,       // disallow process.exit() (on by default in the node environment)
         "no-restricted-modules": 0, // restrict usage of specified node modules (off by default)
-        "no-sync": 0,               // disallow use of synchronous methods (off by default)
+        "no-sync": 2,               // disallow use of synchronous methods (off by default)
 
 
         ////////// Stylistic Issues //////////
@@ -163,22 +163,21 @@
         "func-style": 0,                // enforces use of function declarations or expressions (off by default)
         "key-spacing": 0,               // enforces spacing between keys and values in object literal properties
         "max-nested-callbacks": 0,      // specify the maximum depth callbacks can be nested (off by default)
-        "new-cap": 0,                   // require a capital letter for constructors
-        "new-parens": 0,                // disallow the omission of parentheses when invoking a constructor with no arguments
-        "no-array-constructor": 0,      // disallow use of the Array constructor
+        "new-cap": 2,                   // require a capital letter for constructors
+        "new-parens": 2,                // disallow the omission of parentheses when invoking a constructor with no arguments
+        "no-array-constructor": 2,      // disallow use of the Array constructor
         "no-inline-comments": 0,        // disallow comments inline after code (off by default)
-        "no-lonely-if": 0,              // disallow if as the only statement in an else block (off by default)
-        "no-mixed-spaces-and-tabs": 0,  // disallow mixed spaces and tabs for indentation
+        "no-lonely-if": 2,              // disallow if as the only statement in an else block (off by default)
+        "no-mixed-spaces-and-tabs": 2,  // disallow mixed spaces and tabs for indentation
         "no-multiple-empty-lines": 0,   // disallow multiple empty lines (off by default)
-        "no-nested-ternary": 0,         // disallow nested ternary expressions (off by default)
+        "no-nested-ternary": 2,         // disallow nested ternary expressions (off by default)
         "no-new-object": 0,             // disallow use of the Object constructor
-        "no-space-before-semi": 0,      // disallow space before semicolon
+        "no-space-before-semi": 2,      // disallow space before semicolon
         "no-spaced-func": 0,            // disallow space between function identifier and application
         "no-ternary": 0,                // disallow the use of ternary operators (off by default)
         "no-trailing-spaces": 0,        // disallow trailing whitespace at the end of lines
         "no-underscore-dangle": 2,      // disallow dangling underscores in identifiers
-        "no-wrap-func": 0,              // disallow wrapping of non-IIFE statements in parens
-        "one-var": 2,                   // allow just one var statement per function (off by default)
+        "one-var": [2, "always"],       // allow just one var statement per function (off by default)
         "operator-assignment": 0,       // require assignment operator shorthand where possible or prohibit it entirely (off by default)
         "padded-blocks": 0,             // enforce padding within blocks (off by default)
         "quote-props": 0,               // require quotes around object literal property names (off by default)
@@ -199,7 +198,7 @@
         "array-bracket-spacing": [2, "never"],
 
         ////////// ECMAScript 6 //////////
-        "no-var": 0,          // require let or const instead of var (off by default)
+        "no-var": 2,          // require let or const instead of var (off by default)
         "generator-star": 0,  // enforce the position of the * in generator functions (off by default)
 
         ////////// Legacy //////////
