@@ -40,6 +40,7 @@ module.exports = {
      */
     'no-shadow': 2,                  // http://eslint.org/docs/rules/no-shadow
     'no-shadow-restricted-names': 2, // http://eslint.org/docs/rules/no-shadow-restricted-names
+    'no-undef': 2,                   // http://eslint.org/docs/rules/no-undef
     'no-unused-vars': [2, {          // http://eslint.org/docs/rules/no-unused-vars
       'vars': 'local',
       'args': 'after-used'
