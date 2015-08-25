@@ -780,6 +780,40 @@
     });
     ```
 
+    ```javascript
+    // Bad
+    function functionName∙()∙{
+      // kiss
+    }
+
+    // Bad
+    function functionName()
+    {
+      // kisss
+    }
+
+    // Good
+    function functionName()∙{
+      // hey you
+    }
+    ```
+
+    ```javascript
+    // Bad
+    this.is.sparta(function(){
+      // Hey boromir
+    });
+
+    // Bad
+    this.is.sparta(function∙()∙{
+      // Hey boromir
+    });
+
+    // Good
+    this.is.sparta(function()∙{
+      // Hey boromir
+    });
+    ```
   - Set off operators with spaces.
 
     ```javascript
