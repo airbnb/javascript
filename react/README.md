@@ -92,7 +92,7 @@
     ```
 
 ## Alignment
-  - Follow these alignment styles for JS syntax
+  - Follow these alignment styles for JSX syntax
 
     ```javascript
     // bad
