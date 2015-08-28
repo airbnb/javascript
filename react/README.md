@@ -260,7 +260,7 @@
   ```javascript
   import React, { Component, PropTypes } from 'react';
   
-  export const propTypes = {
+  const propTypes = {
     id: PropTypes.number.isRequired,
     url: PropTypes.string.isRequired,
     text: PropTypes.string,
