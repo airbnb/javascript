@@ -556,21 +556,7 @@ Other Style Guides
     }
     ```
 
-  - [7.8](#7.8) <a name='7.8'></a> Always put default parameters last.
-
-    ```javascript
-    // bad
-    function handleThings(opts = {}, name) {
-      // ...
-    }
-
-    // good
-    function handleThings(name, opts = {}) {
-      // ...
-    }
-    ```
-
-  - [7.9](#7.9) <a name='7.9'></a> Avoid side effects with default parameters.
+  - [7.8](#7.8) <a name='7.8'></a> Avoid side effects with default parameters.
 
   > Why? They are confusing to reason about.
 
@@ -585,6 +571,20 @@ Other Style Guides
   count(3); // 3
   count();  // 3
   ```
+
+  - [7.9](#7.9) <a name='7.9'></a> Always put default parameters last.
+
+    ```javascript
+    // bad
+    function handleThings(opts = {}, name) {
+      // ...
+    }
+
+    // good
+    function handleThings(name, opts = {}) {
+      // ...
+    }
+    ```
 
 - [7.10](#7.10) <a name='7.10'></a> Never use the Function constructor to create a new function.
 
