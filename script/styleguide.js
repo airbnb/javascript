@@ -17,6 +17,20 @@ import {
   Root,
 } from './nodes';
 
+export function group(array, grouper) {
+  const result = {};
+  array.forEach(item => {
+    const group = grouper(item);
+    const itemsInGroup = result[group] || [];
+    itemsInGroup.push(item);
+    result[group] = itemsInGroup;
+  });
+}
+
+export function either(array, predicate) {
+  return group(array, element => predicate(element) ? 'true' : 'false');
+}
+
 function needsFlatten(array) {
   return array.filter(o => Array.isArray(o)).length > 0
 }
@@ -74,7 +88,7 @@ export class Styleguide extends Parent {
     }
 
     const titles = this.children.map(section => section.value);
-    const items = titles.map(title => 
+    const items = titles.map(title =>
       new ListItem(
         new Paragraph(
           new Link(`#${slugify(title)}`,
@@ -99,8 +113,8 @@ export class Section extends Node {
     this.value = textOf(new Paragraph(this.title));
 
     // non-rule-items before and after the list
-    this.preChildren = [];
-    this.postChildren = [];
+    this.preChildren = preChildren;
+    this.postChildren = postChildren;
   }
 
   toAST(sectionIndex) {
@@ -108,8 +122,10 @@ export class Section extends Node {
     nodes.push(this.heading())
     nodes.push(this.preChildren);
 
-    const listItems = this.rules.map((r, idx) => r.toAST(sectionIndex, idx));
-    nodes.push(new List(listItems));
+    if (this.rules.length) {
+      const listItems = this.rules.map((r, idx) => r.toAST(sectionIndex, idx));
+      nodes.push(new List(listItems));
+    }
 
     nodes.push(this.postChildren);
     nodes.push(this.backToTop());
@@ -172,8 +188,32 @@ function sectionOfOutline(outline) {
   assert.equal(outline.type, 'ext.OutlineSection');
   assert.equal(outline.depth, 1, 'the outline is top-level (from H1 tag)');
 
-  const rules = outline.children.map(ruleOfOutline);
-  return new Section(outline.heading.children, rules);
+  const pre = [];
+  const post = [];
+  const rules = [];
+  outline.children.forEach(node => {
+    if (node.type === 'ext.OutlineSection' && node.depth === 2) {
+      // ok, we can parse a rule out of this.
+      rules.push(ruleOfOutline(node));
+    } else {
+      console.error('saw a non-rule element in section', node);
+      // otherwise, we still want the node
+      if (rules.length) {
+        // this is going to get shoved to the end of the section,
+        // even if it somehow comes between rules.
+        //
+        // I find it hard to imagine any post-children existing if there are
+        // any ryles at all.
+        post.push(node);
+      } else {
+        pre.push(node);
+      }
+    }
+  });
+
+  console.error('pre, post', pre, post)
+
+  return new Section(outline.heading.children, rules, pre, post);
 }
 
 export function sectionOfTree(extendedTree) {
