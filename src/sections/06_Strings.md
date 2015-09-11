@@ -2,13 +2,13 @@
 
 ## Use single quotes `''` for strings.
 
-    ```javascript
-    // bad
-    const name = "Capt. Janeway";
+```javascript
+// bad
+const name = "Capt. Janeway";
 
-    // good
-    const name = 'Capt. Janeway';
-    ```
+// good
+const name = 'Capt. Janeway';
+```
 
 ## Strings longer than 100 characters should be written across multiple lines using string concatenation.
 
@@ -30,7 +30,7 @@ const errorMessage = 'This is a super long error that was thrown because ' +
   'with this, you would get nowhere fast.';
 ```
 
-  <a name="es6-template-literals"></a>
+<a name="es6-template-literals"></a>
 ## When programmatically building up strings, use template strings instead of concatenation.
 
 > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
