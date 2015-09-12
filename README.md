@@ -529,7 +529,6 @@
   - [7.7](#7.7) <a name='7.7'></a> Use default parameter syntax rather than mutating function arguments.
 
     ```javascript
-    // bad
     // really bad
     function handleThings(opts) {
       // No! We shouldn't mutate function arguments.
@@ -539,7 +538,6 @@
       // ...
     }
 
-    // bad
     // still bad
     function handleThings(opts) {
       if (opts === void 0) {
@@ -786,7 +784,7 @@
     const AirbnbStyleGuide = require('./AirbnbStyleGuide');
     module.exports = AirbnbStyleGuide.es6;
 
-    // good
+    // ok
     import AirbnbStyleGuide from './AirbnbStyleGuide';
     export default AirbnbStyleGuide.es6;
 
@@ -846,8 +844,7 @@
     numbers.forEach((num) => sum += num);
     sum === 15;
 
-    // best
-    // (use the functional force)
+    // best (use the functional force)
     const sum = numbers.reduce((total, num) => total + num, 0);
     sum === 15;
     ```
@@ -974,8 +971,7 @@
       return name;
     }
 
-    // bad
-    // unnecessary function call
+    // bad - unnecessary function call
     function(hasName) {
       const name = getName();
 
@@ -1541,8 +1537,7 @@
   > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](es5/README.md#commas) in legacy browsers.
 
     ```javascript
-    // bad
-    // git diff without trailing comma
+    // bad - git diff without trailing comma
     const hero = {
          firstName: 'Florence',
     -    lastName: 'Nightingale'
@@ -1600,8 +1595,7 @@
       return name;
     })();
 
-    // good
-    // (guards against the function becoming an argument when two files with IIFEs are concatenated)
+    // good (guards against the function becoming an argument when two files with IIFEs are concatenated)
     ;(() => {
       const name = 'Skywalker';
       return name;
@@ -1887,7 +1881,7 @@
     // bad
     $(this).trigger('listingUpdated', listing.id);
 
-    // ...
+    ...
 
     $(this).on('listingUpdated', function(e, listingId) {
       // do something with listingId
@@ -1900,7 +1894,7 @@
     // good
     $(this).trigger('listingUpdated', { listingId: listing.id });
 
-    // ...
+    ...
 
     $(this).on('listingUpdated', function(e, data) {
       // do something with data.listingId
