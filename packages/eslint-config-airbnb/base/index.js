@@ -128,6 +128,10 @@ module.exports = {
     'quotes': [
       2, 'single', 'avoid-escape'    // http://eslint.org/docs/rules/quotes
     ],
+    'id-length': [2, {
+      'min': 2,
+      'properties': 'never'
+    }],
     'camelcase': [2, {               // http://eslint.org/docs/rules/camelcase
       'properties': 'never'
     }],
