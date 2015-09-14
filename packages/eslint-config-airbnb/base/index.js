@@ -128,7 +128,7 @@ module.exports = {
     'quotes': [
       2, 'single', 'avoid-escape'    // http://eslint.org/docs/rules/quotes
     ],
-    'id-length': [2, {
+    'id-length': [2, {               // http://eslint.org/docs/rules/id-length
       'min': 2,
       'properties': 'never'
     }],
