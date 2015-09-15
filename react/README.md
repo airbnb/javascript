@@ -217,7 +217,7 @@
     ```
 
 ## Methods
-  - Do not use underscore prefix for internal methods of a React component.
+  - Do not use underscore prefix for internal methods of a React component. Internal methods are private by default, so there is no need to differentiate with an underscore.
     ```javascript
     // bad
     React.createClass({
