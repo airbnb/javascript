@@ -1995,15 +1995,15 @@ Other Style Guides
 
     ```javascript
     // bad
-    var foo = { "bar": "This is a bar.", "baz": { "qux": "This is a qux" }, "difficult": "to read" };
+    var foo = { bar: "This is a bar.", baz: { "qux": "This is a qux" }, difficult: "to read" };
 
     // good
     var foo = {
-      "bar": "This is a bar.",
-      "baz": {
-        "qux": "This is a qux"
+      bar: "This is a bar.",
+      baz: {
+        qux: "This is a qux"
       },
-      "difficult": "to read"
+      difficult: "to read"
     };
     ```
 
