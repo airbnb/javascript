@@ -4,7 +4,8 @@
 
 *A mostly reasonable approach to JavaScript*
 
-[For the ES5-only guide click here](es5/).
+NOTE: VHL uses the less cutting-edge EcmaScript 5 version of this Guide!  
+**[For the ES5-only guide click here](es5/)**.
 
 ## Table of Contents
 
