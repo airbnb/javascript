@@ -83,6 +83,7 @@ module.exports = {
     }],
     'eqeqeq': 2,                     // http://eslint.org/docs/rules/eqeqeq
     'guard-for-in': 2,               // http://eslint.org/docs/rules/guard-for-in
+    'max-len': [2, 80, 4]            // http://eslint.org/docs/rules/max-len
     'no-caller': 2,                  // http://eslint.org/docs/rules/no-caller
     'no-else-return': 2,             // http://eslint.org/docs/rules/no-else-return
     'no-eq-null': 2,                 // http://eslint.org/docs/rules/no-eq-null
