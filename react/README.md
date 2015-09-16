@@ -85,10 +85,8 @@
     });
 
     // good
-    class ReservationCard extends React.Component {
+    export default class ReservationCard extends React.Component {
     }
- 
-    export default ReservationCard;
     ```
 
 ## Alignment
@@ -272,7 +270,7 @@
     text: 'Hello World',
   };
   
-  class Link extends Component {
+  export default class Link extends Component {
     static methodsAreOk() {
       return true;
     }
@@ -284,8 +282,6 @@
   
   Link.propTypes = propTypes;
   Link.defaultProps = defaultProps;
-  
-  export default Link;
   ```
 
   - Ordering for React.createClass:
