@@ -19,8 +19,7 @@ module.exports = {
     'objectLiteralShorthandProperties': true,
     'spread': true,
     'superInFunctions': true,
-    'templateStrings': true,
-    'jsx': true
+    'templateStrings': true
   },
   'rules': {
     /**

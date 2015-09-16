@@ -2,7 +2,7 @@ module.exports = {
   'plugins': [
     'react'                          // https://github.com/yannickcr/eslint-plugin-react
   ],
-  rules: {
+  'rules': {
     /**
      * JSX style
      */
@@ -32,5 +32,8 @@ module.exports = {
         'render'
       ]
     }]
+  },
+  'ecmaFeatures': {
+    'jsx': true
   }
 };
