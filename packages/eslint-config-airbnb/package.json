@@ -32,5 +32,8 @@
     "eslint-plugin-react": "3.2.3",
     "react": "0.13.3",
     "tape": "4.2.0"
+  },
+  "dependencies": {
+    "lodash.defaultsdeep": "^3.10.0"
   }
 }

@@ -19,8 +19,7 @@ module.exports = {
     'objectLiteralShorthandProperties': true,
     'spread': true,
     'superInFunctions': true,
-    'templateStrings': true,
-    'jsx': true
+    'templateStrings': true
   },
   'rules': {
     /**
@@ -43,7 +42,7 @@ module.exports = {
     'no-undef': 2,                   // http://eslint.org/docs/rules/no-undef
     'no-unused-vars': [2, {          // http://eslint.org/docs/rules/no-unused-vars
       'vars': 'local',
-      'args': 'after-used'
+      'args': 'none'
     }],
     'no-use-before-define': 2,       // http://eslint.org/docs/rules/no-use-before-define
 

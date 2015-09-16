@@ -1,13 +1,9 @@
-const reactRules = require('./react');
+const react = require('./react');
 const base = require('./base');
+const defaultsDeep = require('lodash.defaultsdeep');
 
 // clone this so we aren't mutating a module
 const eslintrc = JSON.parse(JSON.stringify(base));
+const reactRules = JSON.parse(JSON.stringify(react));
 
-// manually merge in React rules
-eslintrc.plugins = reactRules.plugins;
-Object.keys(reactRules.rules).forEach(function assignRule(ruleId) {
-  eslintrc.rules[ruleId] = reactRules.rules[ruleId];
-});
-
-module.exports = eslintrc;
+module.exports = defaultsDeep(reactRules, eslintrc);
