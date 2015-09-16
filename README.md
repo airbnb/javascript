@@ -1989,7 +1989,7 @@ Other Style Guides
 
 ## Line length
 
-  - [26.1](#26.1) <a name='26.1'></a> Avoid very long lines of code.
+  - [26.1](#26.1) <a name='26.1'></a> Avoid very long lines of code longer than 100 characters.
 
   > Why? This ensures readability and maintainability.
 
