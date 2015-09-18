@@ -1,15 +1,7 @@
-# Airbnb JavaScript Style Guide() {
+# Oscar JavaScript Style Guide
 
 *A mostly reasonable approach to JavaScript*
 
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
-Other Style Guides
- - [ES5](es5/)
- - [React](react/)
- - [CSS & Sass](https://github.com/airbnb/css)
- - [Ruby](https://github.com/airbnb/ruby)
 
 ## Table of Contents
 
@@ -42,12 +34,7 @@ Other Style Guides
   1. [ECMAScript 6 Styles](#ecmascript-6-styles)
   1. [Testing](#testing)
   1. [Performance](#performance)
-  1. [Resources](#resources)
-  1. [In the Wild](#in-the-wild)
-  1. [Translation](#translation)
   1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
-  1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
-  1. [Contributors](#contributors)
   1. [License](#license)
 
 ## Types
@@ -2211,7 +2198,6 @@ Other Style Guides
 
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
 
-
 ## License
 
 (The MIT License)
@@ -2238,9 +2224,3 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 **[⬆ back to top](#table-of-contents)**
-
-## Amendments
-
-We encourage you to fork this guide and change the rules to fit your team's style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
-
-# };
