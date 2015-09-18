@@ -22,15 +22,15 @@ ${body}
 `;
 }
 
-test('validate react prop order', t => {
-  t.test('make sure our eslintrc has React linting dependencies', t => {
-    t.plan(2);
-    t.equal(eslintrc.parser, 'babel-eslint', 'uses babel-eslint');
-    t.equal(eslintrc.plugins[0], 'react', 'uses eslint-plugin-react');
+test('validate react prop order', tst => {
+  tst.test('make sure our eslintrc has React linting dependencies', tst => {
+    tst.plan(2);
+    tst.equal(eslintrc.parser, 'babel-eslint', 'uses babel-eslint');
+    tst.equal(eslintrc.plugins[0], 'react', 'uses eslint-plugin-react');
   });
 
-  t.test('passes a good component', t => {
-    t.plan(3);
+  tst.test('passes a good component', tst => {
+    tst.plan(3);
     const result = lint(wrapComponent(`
   componentWillMount() {  }
   componentDidMount() {  }
@@ -42,13 +42,13 @@ test('validate react prop order', t => {
   render() { return <div />; }
 `));
 
-    t.notOk(result.warningCount, 'no warnings');
-    t.notOk(result.errorCount, 'no errors');
-    t.deepEquals(result.messages, [], 'no messages in results');
+    tst.notOk(result.warningCount, 'no warnings');
+    tst.notOk(result.errorCount, 'no errors');
+    tst.deepEquals(result.messages, [], 'no messages in results');
   });
 
-  t.test('order: when random method is first', t => {
-    t.plan(2);
+  tst.test('order: when random method is first', tst => {
+    tst.plan(2);
     const result = lint(wrapComponent(`
   someMethod() {  }
   componentWillMount() {  }
@@ -60,12 +60,12 @@ test('validate react prop order', t => {
   render() { return <div />; }
 `));
 
-    t.ok(result.errorCount, 'fails');
-    t.equal(result.messages[0].ruleId, 'react/sort-comp', 'fails due to sort');
+    tst.ok(result.errorCount, 'fails');
+    tst.equal(result.messages[0].ruleId, 'react/sort-comp', 'fails due to sort');
   });
 
-  t.test('order: when random method after lifecycle methods', t => {
-    t.plan(2);
+  tst.test('order: when random method after lifecycle methods', tst => {
+    tst.plan(2);
     const result = lint(wrapComponent(`
   componentWillMount() {  }
   componentDidMount() {  }
@@ -77,7 +77,7 @@ test('validate react prop order', t => {
   render() { return <div />; }
 `));
 
-    t.ok(result.errorCount, 'fails');
-    t.equal(result.messages[0].ruleId, 'react/sort-comp', 'fails due to sort');
+    tst.ok(result.errorCount, 'fails');
+    tst.equal(result.messages[0].ruleId, 'react/sort-comp', 'fails due to sort');
   });
 });
