@@ -1,9 +1,10 @@
 {
   "name": "airbnb-style",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A mostly reasonable approach to JavaScript.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish-all": "npm publish && cd ./packages/eslint-config-airbnb && npm publish"
   },
   "repository": {
     "type": "git",
@@ -12,7 +13,11 @@
   "keywords": [
     "style guide",
     "lint",
-    "airbnb"
+    "airbnb",
+    "es6",
+    "es2015",
+    "react",
+    "jsx"
   ],
   "author": "Harrison Shoff <hi@hshoff.com> (https://twitter.com/hshoff)",
   "license": "MIT",
