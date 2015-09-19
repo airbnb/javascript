@@ -128,6 +128,7 @@ module.exports = {
     'quotes': [
       2, 'single', 'avoid-escape'    // http://eslint.org/docs/rules/quotes
     ],
+    'jsx-quotes': [2, 'prefer-double'], // http://eslint.org/docs/rules/jsx-quotes
     'id-length': [2, {               // http://eslint.org/docs/rules/id-length
       'min': 2,
       'properties': 'never'
