@@ -28,7 +28,7 @@
   "devDependencies": {
     "babel-eslint": "4.0.10",
     "babel-tape-runner": "1.2.0",
-    "eslint": "1.1.0",
+    "eslint": "1.3.0",
     "eslint-plugin-react": "3.2.3",
     "react": "0.13.3",
     "tape": "4.2.0"
