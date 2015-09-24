@@ -30,6 +30,11 @@ You can make sure this module lints with itself using `npm run lint`.
 
 ## Changelog
 
+### 0.0.9
+
+- add rule no-undef
+- add rule id-length
+
 ### 0.0.8
  - now has a changelog
  - now is modular (see instructions above for with react and without react versions)
