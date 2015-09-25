@@ -24,6 +24,8 @@ module.exports = {
     'id-length': [2, {'min': 2, 'properties': 'never'}],
     // this option sets a specific tab width for your code
     'indent': [2, 2],
+    // specify whether double or single quotes should be used in JSX attributes
+    'jsx-quotes': 2,
     // enforces spacing between keys and values in object literal properties
     'key-spacing': [2, {'beforeColon': false, 'afterColon': true}],
     // enforces empty lines around comments

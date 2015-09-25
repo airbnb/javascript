@@ -31,7 +31,7 @@ module.exports = {
     // disallow use of labels for anything other then loops and switches
     'no-empty-label': 2,
     // disallow comparisons to null without a type-checking operator
-    'no-eq-null': 2,
+    'no-eq-null': 0,
     // disallow use of eval()
     'no-eval': 2,
     // disallow adding to native types
