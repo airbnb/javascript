@@ -37,13 +37,13 @@ test('validate react prop order', t => {
   t.test('passes a good component', t => {
     t.plan(3);
     const result = lint(wrapComponent(`
-  componentWillMount() {  }
-  componentDidMount() {  }
-  setFoo() {  }
-  getFoo() {  }
-  setBar() {  }
-  someMethod() {  }
-  renderDogs() {  }
+  componentWillMount() {}
+  componentDidMount() {}
+  setFoo() {}
+  getFoo() {}
+  setBar() {}
+  someMethod() {}
+  renderDogs() {}
   render() { return <div />; }
 `));
 
@@ -55,13 +55,13 @@ test('validate react prop order', t => {
   t.test('order: when random method is first', t => {
     t.plan(2);
     const result = lint(wrapComponent(`
-  someMethod() {  }
-  componentWillMount() {  }
-  componentDidMount() {  }
-  setFoo() {  }
-  getFoo() {  }
-  setBar() {  }
-  renderDogs() {  }
+  someMethod() {}
+  componentWillMount() {}
+  componentDidMount() {}
+  setFoo() {}
+  getFoo() {}
+  setBar() {}
+  renderDogs() {}
   render() { return <div />; }
 `));
 
@@ -72,13 +72,13 @@ test('validate react prop order', t => {
   t.test('order: when random method after lifecycle methods', t => {
     t.plan(2);
     const result = lint(wrapComponent(`
-  componentWillMount() {  }
-  componentDidMount() {  }
-  someMethod() {  }
-  setFoo() {  }
-  getFoo() {  }
-  setBar() {  }
-  renderDogs() {  }
+  componentWillMount() {}
+  componentDidMount() {}
+  someMethod() {}
+  setFoo() {}
+  getFoo() {}
+  setBar() {}
+  renderDogs() {}
   render() { return <div />; }
 `));
 
