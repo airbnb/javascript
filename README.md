@@ -38,6 +38,7 @@ Other Style Guides
   1. [Accessors](#accessors)
   1. [Events](#events)
   1. [jQuery](#jquery)
+  1. [Line length](#line-length)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [ECMAScript 6 Styles](#ecmascript-6-styles)
   1. [Testing](#testing)
@@ -1986,16 +1987,35 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
+## Line length
+
+  - [26.1](#26.1) <a name='26.1'></a> Avoid very long lines of code longer than 100 characters.
+
+  > Why? This ensures readability and maintainability.
+
+    ```javascript
+    // bad
+    var foo = { bar: "This is a bar.", baz: { "qux": "This is a qux" }, difficult: "to read" };
+
+    // good
+    var foo = {
+      bar: "This is a bar.",
+      baz: {
+        qux: "This is a qux"
+      },
+      difficult: "to read"
+    };
+    ```
 
 ## ECMAScript 5 Compatibility
 
-  - [26.1](#26.1) <a name='26.1'></a> Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/).
+  - [27.1](#27.1) <a name='26.1'></a> Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/).
 
 **[⬆ back to top](#table-of-contents)**
 
 ## ECMAScript 6 Styles
 
-  - [27.1](#27.1) <a name='27.1'></a> This is a collection of links to the various es6 features.
+  - [28.1](#28.1) <a name='27.1'></a> This is a collection of links to the various es6 features.
 
 1. [Arrow Functions](#arrow-functions)
 1. [Classes](#constructors)
@@ -2015,7 +2035,7 @@ Other Style Guides
 
 ## Testing
 
-  - [28.1](#28.1) <a name='28.1'></a> **Yup.**
+  - [29.1](#29.1) <a name='28.1'></a> **Yup.**
 
     ```javascript
     function() {
