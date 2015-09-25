@@ -4,8 +4,8 @@
   "description": "Airbnb's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint .",
-    "test": "./node_modules/.bin/babel-tape-runner ./test/test-*.js"
+    "lint": "eslint .",
+    "test": "babel-tape-runner ./test/test-*.js"
   },
   "repository": {
     "type": "git",
