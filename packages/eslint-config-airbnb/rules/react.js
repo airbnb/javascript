@@ -4,7 +4,7 @@ module.exports = {
     'react'
   ],
   'ecmaFeatures': {
-    'jsx': false
+    'jsx': true
   },
   'rules': {
     // Prevent missing displayName in a React component definition
@@ -48,26 +48,10 @@ module.exports = {
     // Enforce component methods order
     'react/sort-comp': [2, {
       'order': [
-        'displayName',
-        'propTypes',
-        'contextTypes',
-        'childContextTypes',
-        'mixins',
-        'statics',
-        'defaultProps',
-        'constructor',
-        'getDefaultProps',
-        'getInitialState',
-        'getChildContext',
-        'componentWillMount',
-        'componentDidMount',
-        'componentWillReceiveProps',
-        'shouldComponentUpdate',
-        'componentWillUpdate',
-        'componentDidUpdate',
-        'componentWillUnmount',
+        'lifecycle',
         '/^on.+$/',
-        '/^get.+$/',
+        '/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/',
+        'everything-else',
         '/^render.+$/',
         'render'
       ]
