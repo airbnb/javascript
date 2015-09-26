@@ -1,17 +1,8 @@
 import test from 'tape';
-import { CLIEngine } from 'eslint';
 import eslintrc from '../';
+import { makeLint } from './helpers';
 
-const cli = new CLIEngine({
-  useEslintrc: false,
-  baseConfig: eslintrc,
-});
-
-function lint(text) {
-  // @see http://eslint.org/docs/developer-guide/nodejs-api.html#executeonfiles
-  // @see http://eslint.org/docs/developer-guide/nodejs-api.html#executeontext
-  return cli.executeOnText(text).results[0];
-}
+const lint = makeLint();
 
 function wrapComponent(body) {
   return `

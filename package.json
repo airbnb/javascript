@@ -4,7 +4,8 @@
   "description": "A mostly reasonable approach to JavaScript.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "publish-all": "npm publish && cd ./packages/eslint-config-airbnb && npm publish"
+    "publish-all": "npm publish && cd ./packages/eslint-config-airbnb && npm publish",
+    "script": "./node_modules/.bin/babel-node ./script/index.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,16 @@
   "bugs": {
     "url": "https://github.com/airbnb/javascript/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript"
+  "homepage": "https://github.com/airbnb/javascript",
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "concat-stream": "^1.5.0",
+    "glob": "^5.0.14",
+    "locus": "^1.0.4",
+    "mdast": "^1.1.0",
+    "mdast-util-heading-range": "^1.0.1",
+    "mdast-util-to-string": "^1.0.0",
+    "unist-util-inspect": "^1.0.0",
+    "unist-util-visit": "^1.0.0"
+  }
 }
