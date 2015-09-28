@@ -44,6 +44,19 @@ You can make sure this module lints with itself using `npm run lint`.
 
 ## Changelog
 
+### 0.1.0
+
+- switch to modular rules files courtesy the [eslint-config-default][ecd]
+  project and [@taion][taion]. [PR][pr-modular]
+- export `eslint-config-airbnb/legacy` for ES5-only users.
+  `eslint-config-airbnb/legacy` does not require the `babel-eslint` parser.
+  [PR][pr-legacy]
+
+[ecd]: https://github.com/walmartlabs/eslint-config-defaults
+[taion]: https://github.com/taion
+[pr-modular]: https://github.com/airbnb/javascript/pull/526
+[pr-legacy]: https://github.com/airbnb/javascript/pull/527
+
 ### 0.0.9
 
 - add rule no-undef
