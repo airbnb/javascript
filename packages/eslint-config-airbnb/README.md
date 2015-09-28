@@ -4,15 +4,29 @@ This package provides Airbnb's .eslintrc as an extensible shared config.
 
 ## Usage
 
-### With React Style
+We export three ESLint configurations for your usage.
 
-1. `npm install --save-dev eslint-config-airbnb babel-eslint eslint-plugin-react`
+### eslint-config-airbnb
+
+Our default export contains all of our ESLint rules, including EcmaScript 6+
+and React. It requires `eslint`, `babel-eslint`, and `eslint-plugin-react`.
+
+1. `npm install --save-dev eslint-config-airbnb babel-eslint eslint-plugin-react eslint`
 2. add `"extends": "airbnb"` to your .eslintrc
 
-### Without React Style
+### eslint-config-airbnb/base
 
-1. `npm install --save-dev eslint-config-airbnb babel-eslint `
+Lints ES6+ but does not lint React. Requires `eslint` and `babel-eslint`.
+
+1. `npm install --save-dev eslint-config-airbnb babel-eslint eslint`
 2. add `"extends": "airbnb/base"` to your .eslintrc
+
+### eslint-config-airbnb/legacy
+
+Lints ES5 and below. Only requires `eslint`.
+
+1. `npm install --save-dev eslint-config-airbnb eslint`
+2. add `"extends": "airbnb/legacy"` to your .eslintrc
 
 See [Airbnb's Javascript styleguide](https://github.com/airbnb/javascript) and
 the [ESlint config docs](http://eslint.org/docs/user-guide/configuring#extending-configuration-files)
