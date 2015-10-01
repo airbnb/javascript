@@ -39,7 +39,9 @@ npm install @iadvize/health-check-library
 
 ### How and where to publish a public npm module?
 
-Simply use the official npm repository for that. Don't prefix your package name with a scope and use `npm publish`.
+\#tradeoff We **would like** to use scoped package and artifactory as well for that **BUT**, **currently** they are not configured on npm so include the public git url inside your package.json. 
+
+If you really need to want your package published publicly under @iadvize scope, contact your lead to configure artifactory accordingly and don't forget to update this documentation!
 
 ### How and where to publish a private iAdvize npm package?
 
