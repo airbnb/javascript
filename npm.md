@@ -1,7 +1,5 @@
 # npm at iAdvize
 
-=====================================
-
 ### How to setup iAdvize npm private registry in my environment?
 
 - Update your npm version with `npm i npm@latest -g` because [scoped package require at least npm v2.7.0](https://docs.npmjs.com/getting-started/scoped-packages#update-npm-and-log-in).
