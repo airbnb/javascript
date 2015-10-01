@@ -1,4 +1,8 @@
-# How to setup iAdvize npm private registry in my environment?
+# npm at iAdvize
+
+=====================================
+
+### How to setup iAdvize npm private registry in my environment?
 
 - Update your npm version with `npm i npm@latest -g` because [scoped package require at least npm v2.7.0](https://docs.npmjs.com/getting-started/scoped-packages#update-npm-and-log-in).
 - Login to [artifactory](https://iadvize.artifactoryonline.com/iadvize/webapp/)
@@ -27,7 +31,7 @@ npm config set @iadvize:registry https://iadvize.artifactoryonline.com/iadvize/a
 
 - finally check that your setup is complete by trying to install a private npm package (see below).
 
-# How to install a private iAdvize package?
+### How to install a private iAdvize package?
 
 Same as a usual `npm install`
 
@@ -35,10 +39,10 @@ Same as a usual `npm install`
 npm install @iadvize/health-check-library
 ```
 
-# How and where to publish a public npm module?
+### How and where to publish a public npm module?
 
 Simply use the official npm repository for that. Don't prefix your package name with a scope and use `npm publish`.
 
-# How and where to publish a private iAdvize npm package?
+### How and where to publish a private iAdvize npm package?
 
 Your package.json should have a `name` attribute prefixed `@iadvize/`
