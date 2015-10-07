@@ -2,5 +2,11 @@
   "extends": "airbnb",
   "rules": {
     "no-console": 0,
+    "id-length": [
+      2,
+      {
+        "exceptions": ["_"]
+      }
+    ]
   }
 }
