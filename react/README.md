@@ -20,12 +20,32 @@
 
   - Only include one React component per file.
   - Always use JSX syntax.
-  - Do not use `React.createElement` unless you're initializing the app from a file that does not transform JSX.
+  - Do not use `React.createElement` unless you're initializing the app from a file that is not JSX.
+
+## Class vs React.createClass
+
+  - Use class extends React.Component unless you have a very good reason to use mixins.
+
+  ```javascript
+  // bad
+  const Listing = React.createClass({
+    render() {
+      return <div />;
+    }
+  });
+  
+  // good
+  class Listing extends React.Component {
+    render() {
+      return <div />;
+    }
+  }
+  ```
 
 ## Naming
 
-  - **Extensions**: Use `.js` extension for React components.
-  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.js`.
+  - **Extensions**: Use `.jsx` extension for React components.
+  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances:
     ```javascript
     // bad
@@ -41,13 +61,13 @@
     const reservationItem = <ReservationCard />;
     ```
 
-    **Component Naming**: Use the filename as the component name. So `ReservationCard.js` should have a reference name of ReservationCard. However, for root components of a directory, use index.js as the filename and use the directory name as the component name:
+    **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
     ```javascript
     // bad
-    const Footer = require('./Footer/Footer.js')
+    const Footer = require('./Footer/Footer.jsx')
 
     // bad
-    const Footer = require('./Footer/index.js')
+    const Footer = require('./Footer/index.jsx')
 
     // good
     const Footer = require('./Footer')
@@ -55,7 +75,7 @@
 
 
 ## Declaration
-  - Do not use displayName for naming components, instead name the component by reference.
+  - Do not use displayName for naming components. Instead, name the component by reference.
 
     ```javascript
     // bad
@@ -65,14 +85,12 @@
     });
 
     // good
-    const ReservationCard = React.createClass({
-      // stuff goes here
-    });
-    export default ReservationCard;
+    export default class ReservationCard extends React.Component {
+    }
     ```
 
 ## Alignment
-  - Follow these alignment styles for js syntax
+  - Follow these alignment styles for JSX syntax
 
     ```javascript
     // bad
@@ -98,7 +116,11 @@
     ```
 
 ## Quotes
-  - Always use double quotes (`"`) for JSX attributes, but single quotes for all other JavaScript.
+  - Always use double quotes (`"`) for JSX attributes, but single quotes for all other JS.
+
+  > Why? JSX attributes [can't contain escaped quotes](http://eslint.org/docs/rules/jsx-quotes), so double quotes make conjunctions like `"don't"` easier to type.
+  > Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
+
     ```javascript
     // bad
     <Foo bar='bar' />
@@ -197,7 +219,7 @@
     ```
 
 ## Methods
-  - Do not use underscore prefix for internal methods of a react component.
+  - Do not use underscore prefix for internal methods of a React component.
     ```javascript
     // bad
     React.createClass({
@@ -209,7 +231,7 @@
     });
 
     // good
-    React.createClass({
+    class extends React.Component {
       onClickSubmit() {
         // do stuff
       }
@@ -219,23 +241,75 @@
     ```
 
 ## Ordering
-  - Always follow the following order for methods in a react component:
+
+  - Ordering for class extends React.Component:
+  
+  1. constructor
+  1. optional static methods
+  1. getChildContext
+  1. componentWillMount
+  1. componentDidMount
+  1. componentWillReceiveProps
+  1. shouldComponentUpdate
+  1. componentWillUpdate
+  1. componentDidUpdate
+  1. componentWillUnmount
+  1. *clickHandlers or eventHandlers* like onClickSubmit() or onChangeDescription()
+  1. *getter methods for render* like getSelectReason() or getFooterContent()
+  1. *Optional render methods* like renderNavigation() or renderProfilePicture()
+  1. render
+
+  - How to define propTypes, defaultProps, contextTypes, etc...  
+
+  ```javascript
+  import React, { Component, PropTypes } from 'react';
+  
+  const propTypes = {
+    id: PropTypes.number.isRequired,
+    url: PropTypes.string.isRequired,
+    text: PropTypes.string,
+  };
+  
+  const defaultProps = {
+    text: 'Hello World',
+  };
+  
+  export default class Link extends Component {
+    static methodsAreOk() {
+      return true;
+    }
+  
+    render() {
+      return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
+    }
+  }
+  
+  Link.propTypes = propTypes;
+  Link.defaultProps = defaultProps;
+  ```
+
+  - Ordering for React.createClass:
 
   1. displayName
-  2. mixins (as of React v0.13 mixins are deprecated)
-  3. statics
-  4. propTypes
-  5. getDefaultProps
-  6. getInitialState
-  7. componentWillMount
-  8. componentDidMount
-  9. componentWillReceiveProps
-  10. shouldComponentUpdate
-  11. componentWillUpdate
-  12. componentWillUnmount
-  13. *clickHandlers or eventHandlers* like onClickSubmit() or onChangeDescription()
-  14. *getter methods for render* like getSelectReason() or getFooterContent()
-  15. *Optional render methods* like renderNavigation() or renderProfilePicture()
-  16. render
+  1. propTypes
+  1. contextTypes
+  1. childContextTypes
+  1. mixins
+  1. statics
+  1. defaultProps
+  1. getDefaultProps
+  1. getInitialState
+  1. getChildContext
+  1. componentWillMount
+  1. componentDidMount
+  1. componentWillReceiveProps
+  1. shouldComponentUpdate
+  1. componentWillUpdate
+  1. componentDidUpdate
+  1. componentWillUnmount
+  1. *clickHandlers or eventHandlers* like onClickSubmit() or onChangeDescription()
+  1. *getter methods for render* like getSelectReason() or getFooterContent()
+  1. *Optional render methods* like renderNavigation() or renderProfilePicture()
+  1. render
 
 **[⬆ back to top](#table-of-contents)**
