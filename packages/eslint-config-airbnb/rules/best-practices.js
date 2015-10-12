@@ -17,7 +17,7 @@ module.exports = {
     // enforces consistent newlines before or after dots
     'dot-location': 0,
     // require the use of === and !==
-    'eqeqeq': 2,
+    'eqeqeq': [2, 'allow-null'],
     // make sure for-in loops have an if statement
     'guard-for-in': 2,
     // disallow the use of alert, confirm, and prompt
