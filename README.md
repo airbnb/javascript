@@ -2147,6 +2147,7 @@ Other Style Guides
   - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
   - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript)
   - **Huballin**: [huballin/javascript](https://github.com/huballin/javascript)
+  - **HubSpot**: [HubSpot/javascript](https://github.com/HubSpot/javascript)
   - **Hyper**: [hyperoslo/javascript-playbook](https://github.com/hyperoslo/javascript-playbook/blob/master/style.md)
   - **InfoJobs**: [InfoJobs/JavaScript-Style-Guide](https://github.com/InfoJobs/JavaScript-Style-Guide)
   - **Intent Media**: [intentmedia/javascript](https://github.com/intentmedia/javascript)
