@@ -1217,7 +1217,21 @@
     }
     ```
 
-  - Name your functions. This is helpful for stack traces.
+  - Naming your functions can be helpful for stack traces, but is not required.
+
+    ```javascript
+    // no name - truly anonymous function
+    var log = function(msg) {
+      console.log(msg);
+    };
+
+    // function with a name that shows up in stack traces
+    var log = function log(msg) {
+      console.log(msg);
+    };
+    ```
+
+  - Use function declarations instead of function expressions. [Explanation](https://github.com/eslint/eslint/blob/master/docs/rules/func-style.md)
 
     ```javascript
     // bad
@@ -1226,7 +1240,7 @@
     };
 
     // good
-    var log = function log(msg) {
+    function log(msg) {
       console.log(msg);
     };
     ```
