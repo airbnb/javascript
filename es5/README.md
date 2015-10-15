@@ -1217,19 +1217,20 @@
     }
     ```
 
-  - Name your functions. This is helpful for stack traces.
+  - Naming your functions can be helpful for stack traces, but is not required.
 
     ```javascript
-    // bad
+    // no name - truly anonymous function
     var log = function(msg) {
       console.log(msg);
     };
 
-    // good
+    // function with a name that shows up in stack traces
     var log = function log(msg) {
       console.log(msg);
     };
     ```
+
 
   - **Note:** IE8 and below exhibit some quirks with named function expressions.  See [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/) for more info.
 
