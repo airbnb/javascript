@@ -1231,6 +1231,19 @@
     };
     ```
 
+  - Use function declarations instead of function expressions. [Explanation](https://github.com/eslint/eslint/blob/master/docs/rules/func-style.md)
+
+    ```javascript
+    // bad
+    var log = function(msg) {
+      console.log(msg);
+    };
+
+    // good
+    function log(msg) {
+      console.log(msg);
+    };
+    ```
 
   - **Note:** IE8 and below exhibit some quirks with named function expressions.  See [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/) for more info.
 
