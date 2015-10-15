@@ -1,4 +1,4 @@
-# Your Majesrt JavaScript Style Guide() {
+# Your Majesty ES2015 & ES2016 JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript, forked from AirBnB*
 
