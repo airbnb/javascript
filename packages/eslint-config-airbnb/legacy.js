@@ -13,9 +13,12 @@ module.exports = {
     'node': true,
     'amd': false,
     'mocha': false,
-    'jasmine': false
+    'jquery': true,
+    'jasmine': true
   },
   'ecmaFeatures': {},
-  'globals': {},
+  'globals': {
+    'angular': true
+  },
   'rules': {}
 };
