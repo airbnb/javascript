@@ -1530,19 +1530,23 @@ Other Style Guides
     }
 
     // also bad
-    function bar() {
+    if (baz) {
 
-      console.log(foo);
-    }
-
-    // still bad
-    function bar() {
+      console.log(qux);
+    } else {
       console.log(foo);
 
     }
 
     // good
     function bar() {
+      console.log(foo);
+    }
+
+    // good
+    if (baz) {
+      console.log(qux);
+    } else {
       console.log(foo);
     }
     ```
