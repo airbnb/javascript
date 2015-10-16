@@ -1511,6 +1511,34 @@ Other Style Guides
     return arr;
     ```
 
+  - [18.8](#18.8) <a name='18.8'></a> Do not pad your blocks with blank lines.
+
+    ```javascript
+    // bad
+    function bar() {
+
+      console.log(foo);
+
+    }
+
+    // also bad
+    function bar() {
+
+      console.log(foo);
+    }
+
+    // still bad
+    function bar() {
+      console.log(foo);
+
+    }
+
+    // good
+    function bar() {
+      console.log(foo);
+    }
+    ```
+
 
 **[⬆ back to top](#table-of-contents)**
 
