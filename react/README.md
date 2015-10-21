@@ -274,7 +274,7 @@
     text: 'Hello World',
   };
   
-  export default class Link extends Component {
+  class Link extends Component {
     static methodsAreOk() {
       return true;
     }
@@ -286,6 +286,8 @@
   
   Link.propTypes = propTypes;
   Link.defaultProps = defaultProps;
+  
+  export default Link;
   ```
 
   - Ordering for React.createClass:
