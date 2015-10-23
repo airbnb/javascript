@@ -18,7 +18,8 @@ module.exports = {
   },
   'ecmaFeatures': {},
   'globals': {
-    'angular': true
+    'angular': true,
+      '_': true
   },
   'rules': {}
 };
