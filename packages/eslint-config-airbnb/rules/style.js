@@ -17,9 +17,9 @@ module.exports = {
     // enforce newline at the end of file, with no multiple empty lines
     'eol-last': 2,
     // require function expressions to have a name
-    'func-names': 1,
+    'func-names': 0,
     // enforces use of function declarations or expressions
-    'func-style': 0,
+    'func-style': [2, 'declaration'],
     // this option enforces minimum and maximum identifier lengths (variable names, property names etc.)
     'id-length': [2, {'min': 2, 'properties': 'never'}],
     // this option sets a specific tab width for your code
