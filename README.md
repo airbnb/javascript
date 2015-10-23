@@ -60,7 +60,7 @@ Other Style Guides
     + `null`
     + `undefined`
 
-    ```javascript
+    ```es6
     const foo = 1;
     let bar = foo;
 
@@ -74,7 +74,7 @@ Other Style Guides
     + `array`
     + `function`
 
-    ```javascript
+    ```es6
     const foo = [1, 2];
     const bar = foo;
 
@@ -91,7 +91,7 @@ Other Style Guides
 
   > Why? This ensures that you can't reassign your references (mutation), which can lead to bugs and difficult to comprehend code.
 
-    ```javascript
+    ```es6
     // bad
     var a = 1;
     var b = 2;
@@ -105,7 +105,7 @@ Other Style Guides
 
   > Why? `let` is block-scoped rather than function-scoped like `var`.
 
-    ```javascript
+    ```es6
     // bad
     var count = 1;
     if (true) {
@@ -121,7 +121,7 @@ Other Style Guides
 
   - [2.3](#2.3) <a name='2.3'></a> Note that both `let` and `const` are block-scoped.
 
-    ```javascript
+    ```es6
     // const and let only exist in the blocks they are defined in.
     {
       let a = 1;
@@ -137,7 +137,7 @@ Other Style Guides
 
   - [3.1](#3.1) <a name='3.1'></a> Use the literal syntax for object creation.
 
-    ```javascript
+    ```es6
     // bad
     const item = new Object();
 
@@ -147,7 +147,7 @@ Other Style Guides
 
   - [3.2](#3.2) <a name='3.2'></a> If your code will be executed in browsers in script context, don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61). It’s OK to use them in ES6 modules and server-side code.
 
-    ```javascript
+    ```es6
     // bad
     const superman = {
       default: { clark: 'kent' },
@@ -163,7 +163,7 @@ Other Style Guides
 
   - [3.3](#3.3) <a name='3.3'></a> Use readable synonyms in place of reserved words.
 
-    ```javascript
+    ```es6
     // bad
     const superman = {
       class: 'alien',
@@ -185,7 +185,7 @@ Other Style Guides
 
   > Why? They allow you to define all the properties of an object in one place.
 
-    ```javascript
+    ```es6
 
     function getKey(k) {
       return `a key named ${k}`;
@@ -209,7 +209,7 @@ Other Style Guides
   <a name="es6-object-shorthand"></a>
   - [3.5](#3.5) <a name='3.5'></a> Use object method shorthand.
 
-    ```javascript
+    ```es6
     // bad
     const atom = {
       value: 1,
@@ -234,7 +234,7 @@ Other Style Guides
 
   > Why? It is shorter to write and descriptive.
 
-    ```javascript
+    ```es6
     const lukeSkywalker = 'Luke Skywalker';
 
     // bad
@@ -252,7 +252,7 @@ Other Style Guides
 
   > Why? It's easier to tell which properties are using the shorthand.
 
-    ```javascript
+    ```es6
     const anakinSkywalker = 'Anakin Skywalker';
     const lukeSkywalker = 'Luke Skywalker';
 
@@ -283,7 +283,7 @@ Other Style Guides
 
   - [4.1](#4.1) <a name='4.1'></a> Use the literal syntax for array creation.
 
-    ```javascript
+    ```es6
     // bad
     const items = new Array();
 
@@ -293,7 +293,7 @@ Other Style Guides
 
   - [4.2](#4.2) <a name='4.2'></a> Use Array#push instead of direct assignment to add items to an array.
 
-    ```javascript
+    ```es6
     const someStack = [];
 
     // bad
@@ -306,7 +306,7 @@ Other Style Guides
   <a name="es6-array-spreads"></a>
   - [4.3](#4.3) <a name='4.3'></a> Use array spreads `...` to copy arrays.
 
-    ```javascript
+    ```es6
     // bad
     const len = items.length;
     const itemsCopy = [];
@@ -321,7 +321,7 @@ Other Style Guides
     ```
   - [4.4](#4.4) <a name='4.4'></a> To convert an array-like object to an array, use Array#from.
 
-    ```javascript
+    ```es6
     const foo = document.querySelectorAll('.foo');
     const nodes = Array.from(foo);
     ```
@@ -334,7 +334,7 @@ Other Style Guides
 
   > Why? Destructuring saves you from creating temporary references for those properties.
 
-    ```javascript
+    ```es6
     // bad
     function getFullName(user) {
       const firstName = user.firstName;
@@ -357,7 +357,7 @@ Other Style Guides
 
   - [5.2](#5.2) <a name='5.2'></a> Use array destructuring.
 
-    ```javascript
+    ```es6
     const arr = [1, 2, 3, 4];
 
     // bad
@@ -372,7 +372,7 @@ Other Style Guides
 
   > Why? You can add new properties over time or change the order of things without breaking call sites.
 
-    ```javascript
+    ```es6
     // bad
     function processInput(input) {
       // then a miracle occurs
@@ -399,7 +399,7 @@ Other Style Guides
 
   - [6.1](#6.1) <a name='6.1'></a> Use single quotes `''` for strings.
 
-    ```javascript
+    ```es6
     // bad
     const name = "Capt. Janeway";
 
@@ -410,7 +410,7 @@ Other Style Guides
   - [6.2](#6.2) <a name='6.2'></a> Strings longer than 100 characters should be written across multiple lines using string concatenation.
   - [6.3](#6.3) <a name='6.3'></a> Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
 
-    ```javascript
+    ```es6
     // bad
     const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 
@@ -431,7 +431,7 @@ Other Style Guides
 
   > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
 
-    ```javascript
+    ```es6
     // bad
     function sayHi(name) {
       return 'How are you, ' + name + '?';
@@ -447,7 +447,7 @@ Other Style Guides
       return `How are you, ${name}?`;
     }
     ```
-  - [6.5](#6.5) <a name='6.5'></a> Never use eval() on a string, it opens too many vulnerabilities.
+  - [6.5](#6.5) <a name='6.5'></a> Never use `eval()` on a string, it opens too many vulnerabilities.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -458,7 +458,7 @@ Other Style Guides
 
   > Why? Function declarations are named, so they're easier to identify in call stacks. Also, the whole body of a function declaration is hoisted, whereas only the reference of a function expression is hoisted. This rule makes it possible to always use [Arrow Functions](#arrow-functions) in place of function expressions.
 
-    ```javascript
+    ```es6
     // bad
     const foo = function () {
     };
@@ -470,7 +470,7 @@ Other Style Guides
 
   - [7.2](#7.2) <a name='7.2'></a> Function expressions:
 
-    ```javascript
+    ```es6
     // immediately-invoked function expression (IIFE)
     (() => {
       console.log('Welcome to the Internet. Please follow me.');
@@ -480,7 +480,7 @@ Other Style Guides
   - [7.3](#7.3) <a name='7.3'></a> Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
   - [7.4](#7.4) <a name='7.4'></a> **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
-    ```javascript
+    ```es6
     // bad
     if (currentUser) {
       function test() {
@@ -499,7 +499,7 @@ Other Style Guides
 
   - [7.5](#7.5) <a name='7.5'></a> Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
 
-    ```javascript
+    ```es6
     // bad
     function nope(name, options, arguments) {
       // ...stuff...
@@ -516,7 +516,7 @@ Other Style Guides
 
   > Why? `...` is explicit about which arguments you want pulled. Plus rest arguments are a real Array and not Array-like like `arguments`.
 
-    ```javascript
+    ```es6
     // bad
     function concatenateAll() {
       const args = Array.prototype.slice.call(arguments);
@@ -532,7 +532,7 @@ Other Style Guides
   <a name="es6-default-parameters"></a>
   - [7.7](#7.7) <a name='7.7'></a> Use default parameter syntax rather than mutating function arguments.
 
-    ```javascript
+    ```es6
     // really bad
     function handleThings(opts) {
       // No! We shouldn't mutate function arguments.
@@ -560,7 +560,7 @@ Other Style Guides
 
   > Why? They are confusing to reason about.
 
-  ```javascript
+  ```es6
   var b = 1;
   // bad
   function count(a = b++) {
@@ -574,7 +574,7 @@ Other Style Guides
 
   - [7.9](#7.9) <a name='7.9'></a> Always put default parameters last.
 
-    ```javascript
+    ```es6
     // bad
     function handleThings(opts = {}, name) {
       // ...
@@ -590,7 +590,7 @@ Other Style Guides
 
   > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
 
-  ```javascript
+  ```es6
   // bad
   var add = new Function('a', 'b', 'return a + b');
 
@@ -608,7 +608,7 @@ Other Style Guides
 
   > Why not? If you have a fairly complicated function, you might move that logic out into its own function declaration.
 
-    ```javascript
+    ```es6
     // bad
     [1, 2, 3].map(function (x) {
       const y = x + 1;
@@ -628,7 +628,7 @@ Other Style Guides
 
   > Why not? If you plan on returning an object.
 
-    ```javascript
+    ```es6
     // good
     [1, 2, 3].map(number => `A string containing the ${number}.`);
 
@@ -685,7 +685,7 @@ Other Style Guides
 
   > Why? `class` syntax is more concise and easier to reason about.
 
-    ```javascript
+    ```es6
     // bad
     function Queue(contents = []) {
       this._queue = [...contents];
@@ -714,7 +714,7 @@ Other Style Guides
 
   > Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
 
-    ```javascript
+    ```es6
     // bad
     const inherits = require('inherits');
     function PeekableQueue(contents) {
@@ -735,7 +735,7 @@ Other Style Guides
 
   - [9.3](#9.3) <a name='9.3'></a> Methods can return `this` to help with method chaining.
 
-    ```javascript
+    ```es6
     // bad
     Jedi.prototype.jump = function() {
       this.jumping = true;
@@ -772,7 +772,7 @@ Other Style Guides
 
   - [9.4](#9.4) <a name='9.4'></a> It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
 
-    ```javascript
+    ```es6
     class Jedi {
       constructor(options = {}) {
         this.name = options.name || 'no name';
@@ -797,7 +797,7 @@ Other Style Guides
 
   > Why? Modules are the future, let's start using the future now.
 
-    ```javascript
+    ```es6
     // bad
     const AirbnbStyleGuide = require('./AirbnbStyleGuide');
     module.exports = AirbnbStyleGuide.es6;
@@ -815,7 +815,7 @@ Other Style Guides
 
   > Why? This makes sure you have a single default export.
 
-    ```javascript
+    ```es6
     // bad
     import * as AirbnbStyleGuide from './AirbnbStyleGuide';
 
@@ -827,7 +827,7 @@ Other Style Guides
 
   > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
 
-    ```javascript
+    ```es6
     // bad
     // filename es6.js
     export { es6 as default } from './airbnbStyleGuide';
@@ -846,7 +846,7 @@ Other Style Guides
 
   > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side-effects.
 
-    ```javascript
+    ```es6
     const numbers = [1, 2, 3, 4, 5];
 
     // bad
@@ -878,7 +878,7 @@ Other Style Guides
 
   - [12.1](#12.1) <a name='12.1'></a> Use dot notation when accessing properties.
 
-    ```javascript
+    ```es6
     const luke = {
       jedi: true,
       age: 28,
@@ -893,7 +893,7 @@ Other Style Guides
 
   - [12.2](#12.2) <a name='12.2'></a> Use subscript notation `[]` when accessing properties with a variable.
 
-    ```javascript
+    ```es6
     const luke = {
       jedi: true,
       age: 28,
@@ -913,7 +913,7 @@ Other Style Guides
 
   - [13.1](#13.1) <a name='13.1'></a> Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
 
-    ```javascript
+    ```es6
     // bad
     superPower = new SuperPower();
 
@@ -925,7 +925,7 @@ Other Style Guides
 
     > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs.
 
-    ```javascript
+    ```es6
     // bad
     const items = getItems(),
         goSportsTeam = true,
@@ -947,7 +947,7 @@ Other Style Guides
 
   > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
-    ```javascript
+    ```es6
     // bad
     let i, len, dragonball,
         items = getItems(),
@@ -972,7 +972,7 @@ Other Style Guides
 
   > Why? `let` and `const` are block scoped and not function scoped.
 
-    ```javascript
+    ```es6
     // good
     function() {
       test();
@@ -1022,7 +1022,7 @@ Other Style Guides
 
   - [14.1](#14.1) <a name='14.1'></a> `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It's important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
 
-    ```javascript
+    ```es6
     // we know this wouldn't work (assuming there
     // is no notDefined global variable)
     function example() {
@@ -1057,7 +1057,7 @@ Other Style Guides
 
   - [14.2](#14.2) <a name='14.2'></a> Anonymous function expressions hoist their variable name, but not the function assignment.
 
-    ```javascript
+    ```es6
     function example() {
       console.log(anonymous); // => undefined
 
@@ -1071,7 +1071,7 @@ Other Style Guides
 
   - [14.3](#14.3) <a name='14.3'></a> Named function expressions hoist the variable name, not the function name or the function body.
 
-    ```javascript
+    ```es6
     function example() {
       console.log(named); // => undefined
 
@@ -1099,7 +1099,7 @@ Other Style Guides
 
   - [14.4](#14.4) <a name='14.4'></a> Function declarations hoist their name and the function body.
 
-    ```javascript
+    ```es6
     function example() {
       superPower(); // => Flying
 
@@ -1126,7 +1126,7 @@ Other Style Guides
     + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
     + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
-    ```javascript
+    ```es6
     if ([0]) {
       // true
       // An array is an object, objects evaluate to true
@@ -1135,7 +1135,7 @@ Other Style Guides
 
   - [15.3](#15.3) <a name='15.3'></a> Use shortcuts.
 
-    ```javascript
+    ```es6
     // bad
     if (name !== '') {
       // ...stuff...
@@ -1166,7 +1166,7 @@ Other Style Guides
 
   - [16.1](#16.1) <a name='16.1'></a> Use braces with all multi-line blocks.
 
-    ```javascript
+    ```es6
     // bad
     if (test)
       return false;
@@ -1191,7 +1191,7 @@ Other Style Guides
   - [16.2](#16.2) <a name='16.2'></a> If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your
     `if` block's closing brace.
 
-    ```javascript
+    ```es6
     // bad
     if (test) {
       thing1();
@@ -1218,7 +1218,7 @@ Other Style Guides
 
   - [17.1](#17.1) <a name='17.1'></a> Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
 
-    ```javascript
+    ```es6
     // bad
     // make() returns a new element
     // based on the passed in tag name
@@ -1250,7 +1250,7 @@ Other Style Guides
 
   - [17.2](#17.2) <a name='17.2'></a> Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
 
-    ```javascript
+    ```es6
     // bad
     const active = true;  // is current tab
 
@@ -1282,7 +1282,7 @@ Other Style Guides
 
   - [17.4](#17.4) <a name='17.4'></a> Use `// FIXME:` to annotate problems.
 
-    ```javascript
+    ```es6
     class Calculator extends Abacus {
       constructor() {
         super();
@@ -1295,7 +1295,7 @@ Other Style Guides
 
   - [17.5](#17.5) <a name='17.5'></a> Use `// TODO:` to annotate solutions to problems.
 
-    ```javascript
+    ```es6
     class Calculator extends Abacus {
       constructor() {
         super();
@@ -1313,7 +1313,7 @@ Other Style Guides
 
   - [18.1](#18.1) <a name='18.1'></a> Use soft tabs set to 2 spaces.
 
-    ```javascript
+    ```es6
     // bad
     function() {
     ∙∙∙∙const name;
@@ -1332,7 +1332,7 @@ Other Style Guides
 
   - [18.2](#18.2) <a name='18.2'></a> Place 1 space before the leading brace.
 
-    ```javascript
+    ```es6
     // bad
     function test(){
       console.log('test');
@@ -1358,7 +1358,7 @@ Other Style Guides
 
   - [18.3](#18.3) <a name='18.3'></a> Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space before the argument list in function calls and declarations.
 
-    ```javascript
+    ```es6
     // bad
     if(isJedi) {
       fight ();
@@ -1382,7 +1382,7 @@ Other Style Guides
 
   - [18.4](#18.4) <a name='18.4'></a> Set off operators with spaces.
 
-    ```javascript
+    ```es6
     // bad
     const x=y+5;
 
@@ -1392,14 +1392,14 @@ Other Style Guides
 
   - [18.5](#18.5) <a name='18.5'></a> End files with a single newline character.
 
-    ```javascript
+    ```es6
     // bad
     (function(global) {
       // ...stuff...
     })(this);
     ```
 
-    ```javascript
+    ```es6
     // bad
     (function(global) {
       // ...stuff...
@@ -1407,7 +1407,7 @@ Other Style Guides
     ↵
     ```
 
-    ```javascript
+    ```es6
     // good
     (function(global) {
       // ...stuff...
@@ -1417,7 +1417,7 @@ Other Style Guides
   - [18.6](#18.6) <a name='18.6'></a> Use indentation when making long method chains. Use a leading dot, which
     emphasizes that the line is a method call, not a new statement.
 
-    ```javascript
+    ```es6
     // bad
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
@@ -1456,7 +1456,7 @@ Other Style Guides
 
   - [18.7](#18.7) <a name='18.7'></a> Leave a blank line after blocks and before the next statement.
 
-    ```javascript
+    ```es6
     // bad
     if (foo) {
       return bar;
@@ -1518,7 +1518,7 @@ Other Style Guides
 
   - [19.1](#19.1) <a name='19.1'></a> Leading commas: **Nope.**
 
-    ```javascript
+    ```es6
     // bad
     const story = [
         once
@@ -1554,7 +1554,7 @@ Other Style Guides
 
   > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](es5/README.md#commas) in legacy browsers.
 
-    ```javascript
+    ```es6
     // bad - git diff without trailing comma
     const hero = {
          firstName: 'Florence',
@@ -1600,7 +1600,7 @@ Other Style Guides
 
   - [20.1](#20.1) <a name='20.1'></a> **Yup.**
 
-    ```javascript
+    ```es6
     // bad
     (function() {
       const name = 'Skywalker'
@@ -1630,7 +1630,7 @@ Other Style Guides
   - [21.1](#21.1) <a name='21.1'></a> Perform type coercion at the beginning of the statement.
   - [21.2](#21.2) <a name='21.2'></a> Strings:
 
-    ```javascript
+    ```es6
     //  => this.reviewScore = 9;
 
     // bad
@@ -1642,7 +1642,7 @@ Other Style Guides
 
   - [21.3](#21.3) <a name='21.3'></a> Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings.
 
-    ```javascript
+    ```es6
     const inputValue = '4';
 
     // bad
@@ -1666,7 +1666,7 @@ Other Style Guides
 
   - [21.4](#21.4) <a name='21.4'></a> If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
 
-    ```javascript
+    ```es6
     // good
     /**
      * parseInt was the reason my code was slow.
@@ -1678,7 +1678,7 @@ Other Style Guides
 
   - [21.5](#21.5) <a name='21.5'></a> **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
 
-    ```javascript
+    ```es6
     2147483647 >> 0 //=> 2147483647
     2147483648 >> 0 //=> -2147483648
     2147483649 >> 0 //=> -2147483647
@@ -1686,7 +1686,7 @@ Other Style Guides
 
   - [21.6](#21.6) <a name='21.6'></a> Booleans:
 
-    ```javascript
+    ```es6
     const age = 0;
 
     // bad
@@ -1706,7 +1706,7 @@ Other Style Guides
 
   - [22.1](#22.1) <a name='22.1'></a> Avoid single letter names. Be descriptive with your naming.
 
-    ```javascript
+    ```es6
     // bad
     function q() {
       // ...stuff...
@@ -1720,7 +1720,7 @@ Other Style Guides
 
   - [22.2](#22.2) <a name='22.2'></a> Use camelCase when naming objects, functions, and instances.
 
-    ```javascript
+    ```es6
     // bad
     const OBJEcttsssss = {};
     const this_is_my_object = {};
@@ -1733,7 +1733,7 @@ Other Style Guides
 
   - [22.3](#22.3) <a name='22.3'></a> Use PascalCase when naming constructors or classes.
 
-    ```javascript
+    ```es6
     // bad
     function user(options) {
       this.name = options.name;
@@ -1757,7 +1757,7 @@ Other Style Guides
 
   - [22.4](#22.4) <a name='22.4'></a> Use a leading underscore `_` when naming private properties.
 
-    ```javascript
+    ```es6
     // bad
     this.__firstName__ = 'Panda';
     this.firstName_ = 'Panda';
@@ -1768,7 +1768,7 @@ Other Style Guides
 
   - [22.5](#22.5) <a name='22.5'></a> Don't save references to `this`. Use arrow functions or Function#bind.
 
-    ```javascript
+    ```es6
     // bad
     function foo() {
       const self = this;
@@ -1794,7 +1794,7 @@ Other Style Guides
     ```
 
   - [22.6](#22.6) <a name='22.6'></a> If your file exports a single class, your filename should be exactly the name of the class.
-    ```javascript
+    ```es6
     // file contents
     class CheckBox {
       // ...
@@ -1814,7 +1814,7 @@ Other Style Guides
 
   - [22.7](#22.7) <a name='22.7'></a> Use camelCase when you export-default a function. Your filename should be identical to your function's name.
 
-    ```javascript
+    ```es6
     function makeStyleGuide() {
     }
 
@@ -1823,7 +1823,7 @@ Other Style Guides
 
   - [22.8](#22.8) <a name='22.8'></a> Use PascalCase when you export a singleton / function library / bare object.
 
-    ```javascript
+    ```es6
     const AirbnbStyleGuide = {
       es6: {
       }
@@ -1841,7 +1841,7 @@ Other Style Guides
   - [23.1](#23.1) <a name='23.1'></a> Accessor functions for properties are not required.
   - [23.2](#23.2) <a name='23.2'></a> If you do make accessor functions use getVal() and setVal('hello').
 
-    ```javascript
+    ```es6
     // bad
     dragon.age();
 
@@ -1857,7 +1857,7 @@ Other Style Guides
 
   - [23.3](#23.3) <a name='23.3'></a> If the property is a `boolean`, use `isVal()` or `hasVal()`.
 
-    ```javascript
+    ```es6
     // bad
     if (!dragon.age()) {
       return false;
@@ -1871,7 +1871,7 @@ Other Style Guides
 
   - [23.4](#23.4) <a name='23.4'></a> It's okay to create get() and set() functions, but be consistent.
 
-    ```javascript
+    ```es6
     class Jedi {
       constructor(options = {}) {
         const lightsaber = options.lightsaber || 'blue';
@@ -1895,7 +1895,7 @@ Other Style Guides
 
   - [24.1](#24.1) <a name='24.1'></a> When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
 
-    ```javascript
+    ```es6
     // bad
     $(this).trigger('listingUpdated', listing.id);
 
@@ -1908,7 +1908,7 @@ Other Style Guides
 
     prefer:
 
-    ```javascript
+    ```es6
     // good
     $(this).trigger('listingUpdated', { listingId: listing.id });
 
@@ -1926,7 +1926,7 @@ Other Style Guides
 
   - [25.1](#25.1) <a name='25.1'></a> Prefix jQuery object variables with a `$`.
 
-    ```javascript
+    ```es6
     // bad
     const sidebar = $('.sidebar');
 
@@ -1939,7 +1939,7 @@ Other Style Guides
 
   - [25.2](#25.2) <a name='25.2'></a> Cache jQuery lookups.
 
-    ```javascript
+    ```es6
     // bad
     function setSidebar() {
       $('.sidebar').hide();
@@ -1967,7 +1967,7 @@ Other Style Guides
   - [25.3](#25.3) <a name='25.3'></a> For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
   - [25.4](#25.4) <a name='25.4'></a> Use `find` with scoped jQuery object queries.
 
-    ```javascript
+    ```es6
     // bad
     $('ul', '.sidebar').hide();
 
@@ -2017,7 +2017,7 @@ Other Style Guides
 
   - [28.1](#28.1) <a name='28.1'></a> **Yup.**
 
-    ```javascript
+    ```es6
     function() {
       return true;
     }
