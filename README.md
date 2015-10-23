@@ -5,6 +5,9 @@
 NOTE: VHL uses the less cutting-edge EcmaScript 5 version of this Guide!  
 **[For the ES5-only guide click here](es5/)**.
 
+NOTE: Before you start, why don't you configure your node installation to install modules in your home folder?
+**[This is how](node_modules_locally.md)**.
+
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
