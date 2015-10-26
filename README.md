@@ -7,7 +7,7 @@ Since all of us liked [Airbnb's JavaScript Style Guide](https://github.com/airbn
 ## Approach
 As we want everyone in the team to be able to take part in the creation of this style guide, we decided to have it reviewed and transformed to our specific needs.
 This is why we're going to remove all the contents of this document, to add them bit-by-bit again through a process of pull-requests and reviews.
-Depending on how fast the review will be, every other day there will be a pull a new pull request for everyone to read and comment on.
+Depending on how fast the review will be, every other day there will be a new pull request for everyone to read and comment on.
 
 As for adjusting the linters, we still need to figure out a way on how to change them efficiently. So if you have suggestions, come forward.
 
