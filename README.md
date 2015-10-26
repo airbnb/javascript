@@ -18,10 +18,10 @@ Other Style Guides
 
 ## Table of Contents
 
-  1. [Types](#types) #TBD
-  1. [References](#references) #TBD
-  1. [Objects](#objects) #TBD
-  1. [Arrays](#arrays) #TBD
+  1. [Types](#types)
+  1. [References](#references)
+  1. [Objects](#objects)
+  1. [Arrays](#arrays)
   1. [Destructuring](#destructuring) #TBD
   1. [Strings](#strings) #TBD
   1. [Functions](#functions) #TBD
