@@ -1,15 +1,20 @@
-# Airbnb JavaScript Style Guide() {
+# ~~Airbnb~~ ascribe JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript*
+## Introduction
+At ascribe we write a lot of JavaScript and value quality code.
+Since all of us liked [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript), we figured that we can just fork it and change it to our needs.
 
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+## Approach
+As we want everyone in the team to be able to take part in the creation of this style guide, we decided to have it reviewed and transformed to our specific needs.
+This is why we're going to remove all the contents of this document, to add them bit-by-bit again through a process of pull-requests and reviews.
+Depending on how fast the review will be, every other day there will be a pull a new pull request for everyone to read and comment on.
+
+As for adjusting the linters, we still need to figure out a way on how to change them efficiently. So if you have suggestions, come forward.
+
 
 Other Style Guides
  - [ES5](es5/)
  - [React](react/)
- - [CSS & Sass](https://github.com/airbnb/css)
- - [Ruby](https://github.com/airbnb/ruby)
 
 ## Table of Contents
 
