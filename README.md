@@ -199,14 +199,14 @@ Other Style Guides
     // bad
     const obj = {
       id: 5,
-      name: 'San Francisco',
+      name: 'Berlin',
     };
     obj[getKey('enabled')] = true;
 
     // good
     const obj = {
       id: 5,
-      name: 'San Francisco',
+      name: 'Berlin',
       [getKey('enabled')]: true,
     };
     ```
