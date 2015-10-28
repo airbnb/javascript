@@ -501,7 +501,7 @@ Other Style Guides
     }
     ```
 
-  - [7.5](#7.5) <a name='7.5'></a> Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+  - [7.5](#7.5) <a name='7.5'></a> **NEVER** name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
 
     ```javascript
     // bad
@@ -516,7 +516,7 @@ Other Style Guides
     ```
 
   <a name="es6-rest"></a>
-  - [7.6](#7.6) <a name='7.6'></a> Never use `arguments`, opt to use rest syntax `...` instead.
+  - [7.6](#7.6) <a name='7.6'></a> **NEVER** use `arguments`, opt to use rest syntax `...` instead.
 
   > Why? `...` is explicit about which arguments you want pulled. Plus rest arguments are a real Array and not Array-like like `arguments`.
 
@@ -590,7 +590,7 @@ Other Style Guides
     }
     ```
 
-- [7.10](#7.10) <a name='7.10'></a> Never use the Function constructor to create a new function.
+- [7.10](#7.10) <a name='7.10'></a> **NEVER** use the Function constructor to create a new function.
 
   > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
 
