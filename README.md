@@ -22,10 +22,10 @@ Other Style Guides
   1. [References](#references)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
-  1. [Destructuring](#destructuring) #TBD
-  1. [Strings](#strings) #TBD
-  1. [Functions](#functions) #TBD
-  1. [Arrow Functions](#arrow-functions) #TBD
+  1. [Destructuring](#destructuring)
+  1. [Strings](#strings)
+  1. [Functions](#functions)
+  1. [Arrow Functions](#arrow-functions)
   1. [Constructors](#constructors) #TBD
   1. [Modules](#modules) #TBD
   1. [Iterators and Generators](#iterators-and-generators) #TBD
@@ -329,6 +329,355 @@ Other Style Guides
     ```javascript
     const foo = document.querySelectorAll('.foo');
     const nodes = Array.from(foo);
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+## Destructuring
+
+  - [5.1](#5.1) <a name='5.1'></a> Use object destructuring when accessing and using multiple properties of an object.
+
+  > Why? Destructuring saves you from creating temporary references for those properties.
+
+    ```javascript
+    // bad
+    function getFullName(user) {
+      const firstName = user.firstName;
+      const lastName = user.lastName;
+
+      return `${firstName} ${lastName}`;
+    }
+
+    // good
+    function getFullName(obj) {
+      const { firstName, lastName } = obj;
+      return `${firstName} ${lastName}`;
+    }
+
+    // best
+    function getFullName({ firstName, lastName }) {
+      return `${firstName} ${lastName}`;
+    }
+    ```
+
+  - [5.2](#5.2) <a name='5.2'></a> Use array destructuring.
+
+    ```javascript
+    const arr = [1, 2, 3, 4];
+
+    // bad
+    const first = arr[0];
+    const second = arr[1];
+
+    // good
+    const [first, second] = arr;
+    ```
+
+  - [5.3](#5.3) <a name='5.3'></a> Use object destructuring for multiple return values, not array destructuring.
+
+  > Why? You can add new properties over time or change the order of things without breaking call sites.
+
+    ```javascript
+    // bad
+    function processInput(input) {
+      // then a miracle occurs
+      return [left, right, top, bottom];
+    }
+
+    // the caller needs to think about the order of return data
+    const [left, __, top] = processInput(input);
+
+    // good
+    function processInput(input) {
+      // then a miracle occurs
+      return { left, right, top, bottom };
+    }
+
+    // the caller selects only the data they need
+    const { left, right } = processInput(input);
+    ```
+
+
+**[⬆ back to top](#table-of-contents)**
+
+## Strings
+
+  - [6.1](#6.1) <a name='6.1'></a> Use single quotes `''` for strings.
+
+    ```javascript
+    // bad
+    const name = "Capt. Janeway";
+
+    // good
+    const name = 'Capt. Janeway';
+    ```
+
+  - [6.2](#6.2) <a name='6.2'></a> Strings longer than 100 characters should be written across multiple lines using string concatenation.
+  - [6.3](#6.3) <a name='6.3'></a> Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
+
+    ```javascript
+    // bad
+    const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+
+    // bad
+    const errorMessage = 'This is a super long error that was thrown because \
+    of Batman. When you stop to think about how Batman had anything to do \
+    with this, you would get nowhere \
+    fast.';
+
+    // good
+    const errorMessage = 'This is a super long error that was thrown because ' +
+      'of Batman. When you stop to think about how Batman had anything to do ' +
+      'with this, you would get nowhere fast.';
+    ```
+
+  <a name="es6-template-literals"></a>
+  - [6.4](#6.4) <a name='6.4'></a> When programmatically building up strings, use template strings instead of concatenation.
+
+  > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+
+    ```javascript
+    // bad
+    function sayHi(name) {
+      return 'How are you, ' + name + '?';
+    }
+
+    // bad
+    function sayHi(name) {
+      return ['How are you, ', name, '?'].join();
+    }
+
+    // good
+    function sayHi(name) {
+      return `How are you, ${name}?`;
+    }
+    ```
+  - [6.5](#6.5) <a name='6.5'></a> Never use eval() on a string, it opens too many vulnerabilities.
+
+**[⬆ back to top](#table-of-contents)**
+
+## Functions
+
+  - [7.1](#7.1) <a name='7.1'></a> Use function declarations instead of function expressions.
+
+  > Why? Function declarations are named, so they're easier to identify in call stacks. Also, the whole body of a function declaration is hoisted, whereas only the reference of a function expression is hoisted. This rule makes it possible to always use [Arrow Functions](#arrow-functions) in place of function expressions.
+
+    ```javascript
+    // bad
+    const foo = function () {
+    };
+
+    // good
+    function foo() {
+    }
+    ```
+
+  - [7.2](#7.2) <a name='7.2'></a> Function expressions:
+
+    ```javascript
+    // immediately-invoked function expression (IIFE)
+    (() => {
+      console.log('Welcome to the Internet. Please follow me.');
+    })();
+    ```
+
+  - [7.3](#7.3) <a name='7.3'></a> Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
+  - [7.4](#7.4) <a name='7.4'></a> **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+
+    ```javascript
+    // bad
+    if (currentUser) {
+      function test() {
+        console.log('Nope.');
+      }
+    }
+
+    // good
+    let test;
+    if (currentUser) {
+      test = () => {
+        console.log('Yup.');
+      };
+    }
+    ```
+
+  - [7.5](#7.5) <a name='7.5'></a> Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+
+    ```javascript
+    // bad
+    function nope(name, options, arguments) {
+      // ...stuff...
+    }
+
+    // good
+    function yup(name, options, args) {
+      // ...stuff...
+    }
+    ```
+
+  <a name="es6-rest"></a>
+  - [7.6](#7.6) <a name='7.6'></a> Never use `arguments`, opt to use rest syntax `...` instead.
+
+  > Why? `...` is explicit about which arguments you want pulled. Plus rest arguments are a real Array and not Array-like like `arguments`.
+
+    ```javascript
+    // bad
+    function concatenateAll() {
+      const args = Array.prototype.slice.call(arguments);
+      return args.join('');
+    }
+
+    // good
+    function concatenateAll(...args) {
+      return args.join('');
+    }
+    ```
+
+  <a name="es6-default-parameters"></a>
+  - [7.7](#7.7) <a name='7.7'></a> Use default parameter syntax rather than mutating function arguments.
+
+    ```javascript
+    // really bad
+    function handleThings(opts) {
+      // No! We shouldn't mutate function arguments.
+      // Double bad: if opts is falsy it'll be set to an object which may
+      // be what you want but it can introduce subtle bugs.
+      opts = opts || {};
+      // ...
+    }
+
+    // still bad
+    function handleThings(opts) {
+      if (opts === void 0) {
+        opts = {};
+      }
+      // ...
+    }
+
+    // good
+    function handleThings(opts = {}) {
+      // ...
+    }
+    ```
+
+  - [7.8](#7.8) <a name='7.8'></a> Avoid side effects with default parameters.
+
+  > Why? They are confusing to reason about.
+
+  ```javascript
+  var b = 1;
+  // bad
+  function count(a = b++) {
+    console.log(a);
+  }
+  count();  // 1
+  count();  // 2
+  count(3); // 3
+  count();  // 3
+  ```
+
+  - [7.9](#7.9) <a name='7.9'></a> Always put default parameters last.
+
+    ```javascript
+    // bad
+    function handleThings(opts = {}, name) {
+      // ...
+    }
+
+    // good
+    function handleThings(name, opts = {}) {
+      // ...
+    }
+    ```
+
+- [7.10](#7.10) <a name='7.10'></a> Never use the Function constructor to create a new function.
+
+  > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
+
+  ```javascript
+  // bad
+  var add = new Function('a', 'b', 'return a + b');
+
+  // still bad
+  var subtract = Function('a', 'b', 'return a - b');
+  ```
+
+**[⬆ back to top](#table-of-contents)**
+
+## Arrow Functions
+
+  - [8.1](#8.1) <a name='8.1'></a> When you must use function expressions (as when passing an anonymous function), use arrow function notation.
+
+  > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
+
+  > Why not? If you have a fairly complicated function, you might move that logic out into its own function declaration.
+
+    ```javascript
+    // bad
+    [1, 2, 3].map(function (x) {
+      const y = x + 1;
+      return x * y;
+    });
+
+    // good
+    [1, 2, 3].map((x) => {
+      const y = x + 1;
+      return x * y;
+    });
+    ```
+
+  - [8.2](#8.2) <a name='8.2'></a> If the function body consists of a single expression, feel free to omit the braces and use the implicit return. Otherwise use a `return` statement.
+
+  > Why? Syntactic sugar. It reads well when multiple functions are chained together.
+
+  > Why not? If you plan on returning an object.
+
+    ```javascript
+    // good
+    [1, 2, 3].map(number => `A string containing the ${number}.`);
+
+    // bad
+    [1, 2, 3].map(number => {
+      const nextNumber = number + 1;
+      `A string containing the ${nextNumber}.`;
+    });
+
+    // good
+    [1, 2, 3].map(number => {
+      const nextNumber = number + 1;
+      return `A string containing the ${nextNumber}.`;
+    });
+    ```
+
+  - [8.3](#8.3) <a name='8.3'></a> In case the expression spans over multiple lines, wrap it in parentheses for better readability.
+
+  > Why? It shows clearly where the function starts and ends.
+
+    ```js
+    // bad
+    [1, 2, 3].map(number => 'As time went by, the string containing the ' +
+      `${number} became much longer. So we needed to break it over multiple ` +
+      'lines.'
+    );
+
+    // good
+    [1, 2, 3].map(number => (
+      `As time went by, the string containing the ${number} became much ` +
+      'longer. So we needed to break it over multiple lines.'
+    ));
+    ```
+
+
+  - [8.4](#8.4) <a name='8.4'></a> If your function only takes a single argument, feel free to omit the parentheses.
+
+  > Why? Less visual clutter.
+
+    ```js
+    // good
+    [1, 2, 3].map(x => x * x);
+
+    // good
+    [1, 2, 3].reduce((y, x) => x + y);
     ```
 
 **[⬆ back to top](#table-of-contents)**
