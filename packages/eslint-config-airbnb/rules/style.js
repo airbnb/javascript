@@ -49,7 +49,7 @@ module.exports = {
     // disallow if as the only statement in an else block
     'no-lonely-if': 0,
     // disallow mixed spaces and tabs for indentation
-    'no-mixed-spaces-and-tabs': 0,
+    'no-mixed-spaces-and-tabs': 2,
     // disallow multiple empty lines
     'no-multiple-empty-lines': [2, {'max': 2}],
     // disallow nested ternary expressions
