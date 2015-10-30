@@ -32,7 +32,7 @@ module.exports = {
     // disallow modifying variables of class declarations
     'no-class-assign': 0,
     // disallow modifying variables that are declared using const
-    'no-const-assign': 0,
+    'no-const-assign': 2,
     // disallow to use this/super before super() calling in constructors.
     'no-this-before-super': 0,
     // require let or const instead of var
