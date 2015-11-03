@@ -26,11 +26,11 @@ Other Style Guides
   1. [Strings](#strings)
   1. [Functions](#functions)
   1. [Arrow Functions](#arrow-functions)
-  1. [Constructors](#constructors) #TBD
-  1. [Modules](#modules) #TBD
-  1. [Iterators and Generators](#iterators-and-generators) #TBD
-  1. [Properties](#properties) #TBD
-  1. [Variables](#variables) #TBD
+  1. [Constructors](#constructors)
+  1. [Modules](#modules)
+  1. [Iterators and Generators](#iterators-and-generators)
+  1. [Properties](#properties)
+  1. [Variables](#variables)
   1. [Hoisting](#hoisting) #TBD
   1. [Comparison Operators & Equality](#comparison-operators--equality) #TBD
   1. [Blocks](#blocks) #TBD
@@ -696,6 +696,344 @@ Other Style Guides
 
     // good
     [1, 2, 3].reduce((y, x) => x + y);
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+## Constructors
+
+  - [9.1](#9.1) <a name='9.1'></a> Always use `class`. Avoid manipulating `prototype` directly.
+
+  > Why? `class` syntax is more concise and easier to reason about.
+
+    ```javascript
+    // bad
+    function Queue(contents = []) {
+      this._queue = [...contents];
+    }
+    Queue.prototype.pop = function() {
+      const value = this._queue[0];
+      this._queue.splice(0, 1);
+      return value;
+    }
+
+
+    // good
+    class Queue {
+      constructor(contents = []) {
+        this._queue = [...contents];
+      }
+      pop() {
+        const value = this._queue[0];
+        this._queue.splice(0, 1);
+        return value;
+      }
+    }
+    ```
+
+  - [9.2](#9.2) <a name='9.2'></a> Use `extends` for inheritance.
+
+  > Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
+
+    ```javascript
+    // bad
+    const inherits = require('inherits');
+    function PeekableQueue(contents) {
+      Queue.apply(this, contents);
+    }
+    inherits(PeekableQueue, Queue);
+    PeekableQueue.prototype.peek = function() {
+      return this._queue[0];
+    }
+
+    // good
+    class PeekableQueue extends Queue {
+      peek() {
+        return this._queue[0];
+      }
+    }
+    ```
+
+  - [9.3](#9.3) <a name='9.3'></a> Methods can return `this` to help with method chaining.
+
+    ```javascript
+    // bad
+    Jedi.prototype.jump = function() {
+      this.jumping = true;
+      return true;
+    };
+
+    Jedi.prototype.setHeight = function(height) {
+      this.height = height;
+    };
+
+    const luke = new Jedi();
+    luke.jump(); // => true
+    luke.setHeight(20); // => undefined
+
+    // good
+    class Jedi {
+      jump() {
+        this.jumping = true;
+        return this;
+      }
+
+      setHeight(height) {
+        this.height = height;
+        return this;
+      }
+    }
+
+    const luke = new Jedi();
+
+    luke.jump()
+      .setHeight(20);
+    ```
+
+
+  - [9.4](#9.4) <a name='9.4'></a> It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+
+    ```javascript
+    class Jedi {
+      constructor(options = {}) {
+        this.name = options.name || 'no name';
+      }
+
+      getName() {
+        return this.name;
+      }
+
+      toString() {
+        return `Jedi - ${this.getName()}`;
+      }
+    }
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+
+## Modules
+
+  - [10.1](#10.1) <a name='10.1'></a> Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
+
+  > Why? Modules are the future, let's start using the future now.
+
+    ```javascript
+    // bad
+    const AirbnbStyleGuide = require('./AirbnbStyleGuide');
+    module.exports = AirbnbStyleGuide.es6;
+
+    // ok
+    import AirbnbStyleGuide from './AirbnbStyleGuide';
+    export default AirbnbStyleGuide.es6;
+
+    // best
+    import { es6 } from './AirbnbStyleGuide';
+    export default es6;
+    ```
+
+  - [10.2](#10.2) <a name='10.2'></a> Do not use wildcard imports.
+
+  > Why? This makes sure you have a single default export.
+
+    ```javascript
+    // bad
+    import * as AirbnbStyleGuide from './AirbnbStyleGuide';
+
+    // good
+    import AirbnbStyleGuide from './AirbnbStyleGuide';
+    ```
+
+  - [10.3](#10.3) <a name='10.3'></a>And do not export directly from an import.
+
+  > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
+
+    ```javascript
+    // bad
+    // filename es6.js
+    export { es6 as default } from './airbnbStyleGuide';
+
+    // good
+    // filename es6.js
+    import { es6 } from './AirbnbStyleGuide';
+    export default es6;
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+## Iterators and Generators
+
+  - [11.1](#11.1) <a name='11.1'></a> Don't use iterators. Prefer JavaScript's higher-order functions like `map()` and `reduce()` instead of loops like `for-of`.
+
+  > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side-effects.
+
+    ```javascript
+    const numbers = [1, 2, 3, 4, 5];
+
+    // bad
+    let sum = 0;
+    for (let num of numbers) {
+      sum += num;
+    }
+
+    sum === 15;
+
+    // good
+    let sum = 0;
+    numbers.forEach((num) => sum += num);
+    sum === 15;
+
+    // best (use the functional force)
+    const sum = numbers.reduce((total, num) => total + num, 0);
+    sum === 15;
+    ```
+
+  - [11.2](#11.2) <a name='11.2'></a> Don't use generators for now.
+
+  > Why? They don't transpile well to ES5.
+
+**[⬆ back to top](#table-of-contents)**
+
+
+## Properties
+
+  - [12.1](#12.1) <a name='12.1'></a> Use dot notation when accessing properties.
+
+    ```javascript
+    const luke = {
+      jedi: true,
+      age: 28,
+    };
+
+    // bad
+    const isJedi = luke['jedi'];
+
+    // good
+    const isJedi = luke.jedi;
+    ```
+
+  - [12.2](#12.2) <a name='12.2'></a> Use subscript notation `[]` when accessing properties with a variable.
+
+    ```javascript
+    const luke = {
+      jedi: true,
+      age: 28,
+    };
+
+    function getProp(prop) {
+      return luke[prop];
+    }
+
+    const isJedi = getProp('jedi');
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+
+## Variables
+
+  - [13.1](#13.1) <a name='13.1'></a> Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+
+    ```javascript
+    // bad
+    superPower = new SuperPower();
+
+    // good
+    const superPower = new SuperPower();
+    ```
+
+  - [13.2](#13.2) <a name='13.2'></a> Use one `const` declaration per variable.
+
+    > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs.
+
+    ```javascript
+    // bad
+    const items = getItems(),
+        goSportsTeam = true,
+        dragonball = 'z';
+
+    // bad
+    // (compare to above, and try to spot the mistake)
+    const items = getItems(),
+        goSportsTeam = true;
+        dragonball = 'z';
+
+    // good
+    const items = getItems();
+    const goSportsTeam = true;
+    const dragonball = 'z';
+    ```
+
+  - [13.3](#13.3) <a name='13.3'></a> Group all your `const`s and then group all your `let`s.
+
+  > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+
+    ```javascript
+    // bad
+    let i, len, dragonball,
+        items = getItems(),
+        goSportsTeam = true;
+
+    // bad
+    let i;
+    const items = getItems();
+    let dragonball;
+    const goSportsTeam = true;
+    let len;
+
+    // good
+    const goSportsTeam = true;
+    const items = getItems();
+    let dragonball;
+    let i;
+    let length;
+    ```
+
+  - [13.4](#13.4) <a name='13.4'></a> Assign variables where you need them, but place them in a reasonable place.
+
+  > Why? `let` and `const` are block scoped and not function scoped.
+
+    ```javascript
+    // good
+    function() {
+      test();
+      console.log('doing stuff..');
+
+      //..other stuff..
+
+      const name = getName();
+
+      if (name === 'test') {
+        return false;
+      }
+
+      return name;
+    }
+
+    // bad - unnecessary function call
+    function(hasName) {
+      const name = getName();
+
+      if (!hasName) {
+        return false;
+      }
+
+      this.setFirstName(name);
+
+      return true;
+    }
+
+    // good
+    function(hasName) {
+      if (!hasName) {
+        return false;
+      }
+
+      const name = getName();
+      this.setFirstName(name);
+
+      return true;
+    }
     ```
 
 **[⬆ back to top](#table-of-contents)**
