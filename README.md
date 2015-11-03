@@ -412,8 +412,24 @@ Other Style Guides
     const name = 'Capt. Janeway';
     ```
 
-  - [6.2](#6.2) <a name='6.2'></a> Strings longer than 100 characters should be written across multiple lines using string concatenation.
-  - [6.3](#6.3) <a name='6.3'></a> Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
+  - [6.2](#6.2) <a name='6.2'></a> When using (single- or double) quotes in a string, use the other literal (`''` or `""`).
+
+    ```javascript
+    // bad
+    const name = "What a \"nice\" day!";
+
+    // bad
+    const name = 'Let\'s go to Rosi\'s!';
+
+    // good
+    const name = 'What a "nice" day!';
+
+    // good
+    const name = "Let's go to Rosi's!";
+    ```
+
+  - [6.3](#6.3) <a name='6.3'></a> Strings longer than 100 characters should be written across multiple lines using string concatenation.
+  - [6.4](#6.4) <a name='6.4'></a> Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
     // bad
@@ -432,7 +448,7 @@ Other Style Guides
     ```
 
   <a name="es6-template-literals"></a>
-  - [6.4](#6.4) <a name='6.4'></a> When programmatically building up strings, use template strings instead of concatenation.
+  - [6.5](#6.5) <a name='6.5'></a> When programmatically building up strings, use template strings instead of concatenation.
 
   > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
 
@@ -452,7 +468,7 @@ Other Style Guides
       return `How are you, ${name}?`;
     }
     ```
-  - [6.5](#6.5) <a name='6.5'></a> Never use eval() on a string, it opens too many vulnerabilities.
+  - [6.6](#6.6) <a name='6.6'></a> Never use eval() on a string, it opens too many vulnerabilities.
 
 **[⬆ back to top](#table-of-contents)**
 
