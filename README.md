@@ -429,7 +429,6 @@ Other Style Guides
     ```
 
   - [6.3](#6.3) <a name='6.3'></a> Strings longer than 100 characters should be written across multiple lines using string concatenation.
-  - [6.4](#6.4) <a name='6.4'></a> Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
     // bad
@@ -446,6 +445,8 @@ Other Style Guides
       'of Batman. When you stop to think about how Batman had anything to do ' +
       'with this, you would get nowhere fast.';
     ```
+
+  - [6.4](#6.4) <a name='6.4'></a> Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
 
   <a name="es6-template-literals"></a>
   - [6.5](#6.5) <a name='6.5'></a> When programmatically building up strings, use template strings instead of concatenation.
@@ -468,7 +469,8 @@ Other Style Guides
       return `How are you, ${name}?`;
     }
     ```
-  - [6.6](#6.6) <a name='6.6'></a> Never use eval() on a string, it opens too many vulnerabilities.
+
+  - [6.6](#6.6) <a name='6.6'></a> **NEVER** use eval() on a string, it opens too many vulnerabilities.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -488,7 +490,7 @@ Other Style Guides
     }
     ```
 
-  - [7.2](#7.2) <a name='7.2'></a> Function expressions:
+  - [7.2](#7.2) <a name='7.2'></a> Immediately-invoked function expressions should use arrow functions as opposed to traditional functions:
 
     ```javascript
     // immediately-invoked function expression (IIFE)
@@ -497,7 +499,7 @@ Other Style Guides
     })();
     ```
 
-  - [7.3](#7.3) <a name='7.3'></a> Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
+  - [7.3](#7.3) <a name='7.3'></a> **NEVER** declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
   - [7.4](#7.4) <a name='7.4'></a> **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
@@ -517,7 +519,7 @@ Other Style Guides
     }
     ```
 
-  - [7.5](#7.5) <a name='7.5'></a> Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+  - [7.5](#7.5) <a name='7.5'></a> **NEVER** name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
 
     ```javascript
     // bad
@@ -532,7 +534,7 @@ Other Style Guides
     ```
 
   <a name="es6-rest"></a>
-  - [7.6](#7.6) <a name='7.6'></a> Never use `arguments`, opt to use rest syntax `...` instead.
+  - [7.6](#7.6) <a name='7.6'></a> **NEVER** use `arguments`, opt to use rest syntax `...` instead.
 
   > Why? `...` is explicit about which arguments you want pulled. Plus rest arguments are a real Array and not Array-like like `arguments`.
 
@@ -606,7 +608,7 @@ Other Style Guides
     }
     ```
 
-- [7.10](#7.10) <a name='7.10'></a> Never use the Function constructor to create a new function.
+- [7.10](#7.10) <a name='7.10'></a> **NEVER** use the Function constructor to create a new function.
 
   > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
 
