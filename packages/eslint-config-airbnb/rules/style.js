@@ -107,7 +107,7 @@ module.exports = {
     // require or disallow a space immediately following the // or /* in a comment
     'spaced-comment': [2, 'always', {
       'exceptions': ['-', '+'],
-      'markers': ['=', '!']           // space here to support sprockets directives
+      'markers': ['=', '!', ':']           // space here to support sprockets directives
     }],
     // require regex literals to be wrapped in parentheses
     'wrap-regex': 0
