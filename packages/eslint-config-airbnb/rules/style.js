@@ -21,7 +21,7 @@ module.exports = {
     // enforces use of function declarations or expressions
     'func-style': 0,
     // this option enforces minimum and maximum identifier lengths (variable names, property names etc.)
-    'id-length': [2, {'min': 2, 'properties': 'never'}],
+    'id-length': 0,
     // this option sets a specific tab width for your code
     'indent': [2, 2],
     // specify whether double or single quotes should be used in JSX attributes
