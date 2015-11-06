@@ -1248,7 +1248,7 @@ Other Style Guides
     }
     ```
 
-  - [17.2](#17.2) <a name='17.2'></a> Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
+  - [17.2](#17.2) <a name='17.2'></a> Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it's on the first line of a block.
 
     ```javascript
     // bad
@@ -1271,6 +1271,14 @@ Other Style Guides
     function getType() {
       console.log('fetching type...');
 
+      // set the default type to 'no type'
+      const type = this._type || 'no type';
+
+      return type;
+    }
+
+    // also good
+    function getType() {
       // set the default type to 'no type'
       const type = this._type || 'no type';
 
@@ -1509,6 +1517,38 @@ Other Style Guides
     ];
 
     return arr;
+    ```
+
+  - [18.8](#18.8) <a name='18.8'></a> Do not pad your blocks with blank lines.
+
+    ```javascript
+    // bad
+    function bar() {
+
+      console.log(foo);
+
+    }
+
+    // also bad
+    if (baz) {
+
+      console.log(qux);
+    } else {
+      console.log(foo);
+
+    }
+
+    // good
+    function bar() {
+      console.log(foo);
+    }
+
+    // good
+    if (baz) {
+      console.log(qux);
+    } else {
+      console.log(foo);
+    }
     ```
 
 
