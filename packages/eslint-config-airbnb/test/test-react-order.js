@@ -29,8 +29,7 @@ ${body}
 
 test('validate react prop order', t => {
   t.test('make sure our eslintrc has React linting dependencies', t => {
-    t.plan(2);
-    t.equal(baseConfig.parser, 'babel-eslint', 'uses babel-eslint');
+    t.plan(1);
     t.equal(reactRules.plugins[0], 'react', 'uses eslint-plugin-react');
   });
 
