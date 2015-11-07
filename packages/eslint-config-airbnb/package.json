@@ -31,5 +31,8 @@
     "eslint-plugin-react": "^3.7.1",
     "react": "^0.13.3",
     "tape": "^4.2.2"
+  },
+  "peerDependencies": {
+    "eslint": ">=1.0.0"
   }
 }
