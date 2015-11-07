@@ -44,6 +44,16 @@ You can make sure this module lints with itself using `npm run lint`.
 
 ## Changelog
 
+### 1.0.0
+- require `eslint` `v1.0.0` or higher
+- removes `babel-eslint` dependency
+
+### 0.1.1
+- remove id-length rule (#569)
+- enable `no-mixed-spaces-and-tabs` (#539)
+- enable `no-const-assign` (#560)
+- enable `space-before-keywords` (#554)
+
 ### 0.1.0
 
 - switch to modular rules files courtesy the [eslint-config-default][ecd]

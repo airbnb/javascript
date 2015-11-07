@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Airbnb's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,17 @@
     "styleguide"
   ],
   "author": "Jake Teton-Landis (https://twitter.com/@jitl)",
+  "contributors": [
+    {
+      "name": "Jake Teton-Landis",
+      "url": "https://twitter.com/jitl"
+    },
+    {
+      "name": "Jordan Harband",
+      "email": "ljharb@gmail.com",
+      "url": "http://ljharb.codes"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/airbnb/javascript/issues"
