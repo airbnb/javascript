@@ -9,16 +9,16 @@ We export three ESLint configurations for your usage.
 ### eslint-config-airbnb
 
 Our default export contains all of our ESLint rules, including EcmaScript 6+
-and React. It requires `eslint`, `babel-eslint`, and `eslint-plugin-react`.
+and React. It requires `eslint` and `eslint-plugin-react`.
 
-1. `npm install --save-dev eslint-config-airbnb babel-eslint eslint-plugin-react eslint`
+1. `npm install --save-dev eslint-config-airbnb eslint-plugin-react eslint`
 2. add `"extends": "airbnb"` to your .eslintrc
 
 ### eslint-config-airbnb/base
 
-Lints ES6+ but does not lint React. Requires `eslint` and `babel-eslint`.
+Lints ES6+ but does not lint React. Requires `eslint`.
 
-1. `npm install --save-dev eslint-config-airbnb babel-eslint eslint`
+1. `npm install --save-dev eslint-config-airbnb eslint`
 2. add `"extends": "airbnb/base"` to your .eslintrc
 
 ### eslint-config-airbnb/legacy
