@@ -30,7 +30,7 @@
     "requireSpacesInConditionalExpression": true,
     "requireBlocksOnNewline": 1,
     "requireCommaBeforeLineBreak": true,
-    "requireSpaceBeforeBinaryOperators"        : [
+    "requireSpaceBeforeBinaryOperators": [
         "?",
         "+",
         "-",
@@ -47,7 +47,6 @@
         "<="
     ],
     "requireSpaceAfterBinaryOperators": true,
-    "requireCamelCaseOrUpperCaseIdentifiers": true,
     "requireLineFeedAtFileEnd": true,
     "requireCapitalizedConstructors": true,
     "requireDotNotation": true,
@@ -105,7 +104,6 @@
         ":"
     ],
     "requireBlocksOnNewline": true,
-    "requireCamelCaseOrUpperCaseIdentifiers": true,
     "safeContextKeyword": "PleaseUseFunctionDotPrototypeDotBind",
     "validateLineBreaks": "LF",
     "validateQuoteMarks": "'",
