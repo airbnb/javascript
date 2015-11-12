@@ -699,7 +699,7 @@ Other Style Guides
     });
     ```
 
-  - [8.2](#8.2) <a name='8.2'></a> If the function body consists of a single expression, feel free to omit the braces and use the implicit return. Otherwise use a `return` statement.
+  - [8.2](#8.2) <a name='8.2'></a> If the function body consists of a single expression, feel free to omit the braces and use the implicit return. Otherwise add the parentheses, braces, and use a `return` statement.
 
     > Why? Syntactic sugar. It reads well when multiple functions are chained together.
 
