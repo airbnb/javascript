@@ -41,6 +41,7 @@ Other Style Guides
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [ECMAScript 6 Styles](#ecmascript-6-styles)
   1. [Testing](#testing)
+  1. [Design Patterns](#design-patterns)
   1. [Performance](#performance)
   1. [Resources](#resources)
   1. [In the Wild](#in-the-wild)
@@ -49,6 +50,7 @@ Other Style Guides
   1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
   1. [Contributors](#contributors)
   1. [License](#license)
+  
 
 ## Types
 
@@ -1983,36 +1985,6 @@ Other Style Guides
     // good
     $sidebar.find('ul').hide();
     ```
-    
-  - [25.5](#25.5) <a name='25.5'></a> jQuery plugins have few concrete rules, which is one of the reasons for the incredible diversity in how they are implemented across the community. At the most basic level, we can write a plugin simply by adding a new function property to jQuery’s `jQuery.fn` object, as follows:
-    
-    ```javascript
-    $.fn.myPluginName = function () {
-            // our plugin logic
-    };
-    ```
-      
-    This is great for compactness, but the following would be a better foundation to build on:
-    
-    ```javascript
-    (function( $ ){
-      $.fn.myPluginName = function () {
-        // our plugin logic
-      };
-    })( jQuery );
-    ```
-    
-    An alternative way to write this pattern would be to use `jQuery.extend()`, which enables us to define multiple functions at once and which sometimes make more sense semantically:
-    
-    ```javascript
-    (function( $ ){
-        $.extend($.fn, {
-            myplugin: function(){
-                // your plugin logic
-            }
-        });
-    })( jQuery );
-    ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -2051,6 +2023,351 @@ Other Style Guides
     function() {
       return true;
     }
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+## JavaScript Design Patterns
+
+  - [29.1](#29.1) <a name='29.1'></a> The patterns we will be exploring in this section are the:
+  
+  <a name='29.1.1'></a> **Singleton Pattern**
+  
+  The Singleton pattern is thus known because it restricts instantiation of a class to a single object. Classically, 
+  the Singleton pattern can be implemented by creating a class with a method that creates a new instance of the class 
+  if one doesn't exist. In the event of an instance already existing, it simply returns a reference to that object.
+  
+  We can use a Singleton as follows:
+  
+  ```javascript
+      let _singleton = Symbol();
+      
+      class Singleton {
+      
+          constructor(singletonToken) {
+              if (_singleton !== singletonToken)
+                  throw new Error('Cannot instantiate directly.');
+          }
+      
+          static get instance() {
+              if(!this[_singleton])
+                  this[_singleton] = new Singleton(_singleton);
+      
+              return this[_singleton]
+          }      
+      }
+
+      var singleA = mySingleton.getInstance();
+      var singleB = mySingleton.getInstance();
+      console.log( singleA.getRandomNumber() === singleB.getRandomNumber() ); // true
+       
+      var badSingleA = myBadSingleton.getInstance();
+      var badSingleB = myBadSingleton.getInstance();
+      console.log( badSingleA.getRandomNumber() !== badSingleB.getRandomNumber() ); // true
+       
+      // Note: as we are working with random numbers, there is a
+      // mathematical possibility both numbers will be the same,
+      // however unlikely. The above example should otherwise still
+      // be valid.
+  ```
+  
+  <a name='29.1.2'></a> **Observer Pattern**
+  
+  The Observer is a design pattern where an object (known as a subject) maintains a list of objects depending 
+  on it (observers), automatically notifying them of any changes to state.
+  
+  We can now expand on what we've learned to implement the Observer pattern with the following components:
+  
+  **Subject:** maintains a list of observers, facilitates adding or removing observers.
+  **Observer:** provides a update interface for objects that need to be notified of a Subject's changes of state.
+  **ConcreteSubject:** broadcasts notifications to observers on changes of state, stores the state of ConcreteObservers.
+  **ConcreteObserver:** stores a reference to the ConcreteSubject, implements an update interface for the Observer to 
+  ensure state is consistent with the Subject's.
+  
+  You created a ObserverList constructor function which creates an empty list of observers. 
+  After that you create an interface of public prototype methods for tasks like adding, deleting, etc. 
+  Now it's much more simple we have a handy dandy Object.observe method we can use to do the same job with a lot less code.
+  
+  ```javascript
+  var model = {};
+  
+  Object.observe(model, function(changes) {
+    // async callback
+    changes.forEach(function(change) {
+      console.log(change.type, change.name, change.oldValue);
+    });
+  });
+  ```
+  
+  <a name='29.1.3'></a> **Mediator Pattern**
+  
+  A Mediator is an object that coordinates interactions (logic and behavior) between multiple objects. 
+  It's a pattern that acts as a unified interface through which the different components of an application may communicate. If a 
+  unit of code has too many direct relationships between components, it may be time to have a central point of control that components can communicate through.  
+  
+  ```javascript  
+  class PubSub {
+    constructor() {
+      this.handlers = [];
+    }
+  
+    subscribe(event, handler, context) {
+      if (typeof context === 'undefined') { context = handler; }
+      this.handlers.push({ event: event, handler: handler.bind(context) });
+    }
+  
+    publish(event, args) {
+      this.handlers.forEach(topic => {
+        if (topic.event === event) {
+          topic.handler(args)
+        }
+      })
+    }
+  }
+  
+  class Mediator extends PubSub {
+    constructor(opts) {
+      super();
+    }
+  
+    attachToObject(obj) {
+      obj.handlers = [];
+      obj.publish = this.publish;
+      obj.subscribe = this.subscribe;
+    }
+  }
+  
+  var mediator = new Mediator();
+  
+  var myRoom = {
+    name: 'myRoom'
+  };
+  
+  mediator.attachToObject(myRoom);
+  
+  myRoom.subscribe('connection', function() {
+    console.group('Mediator');
+    console.log(`user connected to ${myRoom.name}!`);
+    console.groupEnd();
+  }, myRoom);
+  
+  myRoom.publish('connection');
+  ```
+    
+  <a name='29.1.4'></a> **Command Pattern**
+  
+  The Command pattern aims to encapsulate method invocation, requests or operations into a single object and gives us 
+  the ability to both parameterize and pass method calls around that can be executed at our discretion. 
+  This pattern has numerous elements involved, which are as below:
+  
+  **Receiver:** This element contains the actual implementation (knows how to carry out requested command) of any commands. 
+  This also maintains the history of executed commands, but it is not part of the actual command pattern. We will see that part in the Memento Design Pattern.
+  
+  **Command:** This element contains information about the necessary action to be taken. It calls the required method from receiver.
+  
+  **Client:** This element really behaves like a client (deciding what to do). Its job is to determine which command to execute, without knowing who will execute it and how it will be executed. 
+  In this example I have taken command as a hard-coded value, but it can be grabbed from anywhere like a value from a URL and/or post variable as well.
+  
+  **Invoker:** This element initiates the whole process. It takes arguments from the client and invokes the process to call the required command.  
+  
+  ```javascript
+  // Receiver
+  class radioControl {
+      public function turnOn() {
+          // Turning On Radio
+          echo "Turning On Radio";
+      }
+      public function turnOff() {
+          // Turning Off Radio
+          echo "Turning Off Radio";
+      }
+  }
+   
+  // Command
+  interface radioCommand {
+      public function execute();
+  }
+   
+  class turnOnRadio implements radioCommand {
+      private $radioControl;
+      public function __construct(radioControl $radioControl) {
+          $this->radioControl = $radioControl;
+      }
+      public function execute() {
+          $this->radioControl->turnOn ();
+      }
+  }
+   
+  class turnOffRadio implements radioCommand {
+      private $radioControl;
+      public function __construct(radioControl $radioControl) {
+          $this->radioControl = $radioControl;
+      }
+      public function execute() {
+          $this->radioControl->turnOff ();
+      }
+  }
+   
+   
+  // Client
+  $in = 'turnOffRadio';
+   
+  // Invoker
+  if (class_exists ( $in )) {
+      $command = new $in ( new radioControl () );
+  } else {
+      throw new Exception ( '..Command Not Found..' );
+  }
+   
+  $command->execute ();
+  ```
+  
+  <a name='29.1.5'></a> **Facade Pattern**
+  
+  When we put up a facade, we present an outward appearance to the world which may conceal a very different reality. 
+  This was the inspiration for the name behind the next pattern we're going to review - the Facade pattern. 
+  This pattern provides a convenient higher-level interface to a larger body of code, hiding its true underlying complexity. 
+  Think of it as simplifying the API being presented to other developers, something which almost always improves usability.
+  
+  Let’s take a look at the pattern in action. This is an unoptimized code example, but here we're utilizing a Facade 
+  to simplify an interface for listening to events cross-browser. We do this by creating a common method that can be used 
+  in one’s code which does the task of checking for the existence of features so that it can provide a safe and cross-browser compatible solution.
+  
+  ```javascript
+  var addMyEvent = function( el,ev,fn ){
+   
+     if( el.addEventListener ){
+              el.addEventListener( ev,fn, false );
+        }else if(el.attachEvent){
+              el.attachEvent( "on" + ev, fn );
+        } else{
+             el["on" + ev] = fn;
+      }
+   
+  };
+  ```
+  
+  In a similar manner, we're all familiar with jQuery's $(document).ready(..). Internally, this is actually being powered by a method called bindReady().  
+  
+  <a name='29.1.6'></a> **Factory Pattern**
+  
+  The Factory pattern is another creational pattern concerned with the notion of creating objects. 
+  Where it differs from the other patterns in its category is that it doesn't explicitly require us use a constructor. 
+  Instead, a Factory can provide a generic interface for creating objects, where we can specify the type of factory object we wish to be created.
+    
+  ```javascript
+  // ES6 Class
+  class MyObjectA {
+    constructor () {
+      this.list = [];
+    }
+  }
+  new MyObjectA().list === new MyObjectA().list; // false
+  
+  // Object factory
+  function MyObjectB (obj = {}) {
+    obj.list = [];
+    return obj;
+  }
+  MyObjectB().list === MyObjectB().list // false  ```
+  
+  As you can see in the object factory pattern the function itself is the instantiating function, there is no constructor function that implicitely gets called whenever you use the new keyword in front of the class, calling it as a function.
+  
+  <a name='29.1.7'></a> **Decorator Pattern**
+  
+  Decorators are a structural design pattern that aim to promote code re-use. 
+  Classically, Decorators offered the ability to add behaviour to existing classes in a system dynamically. 
+  The idea was that the decoration itself wasn't essential to the base functionality of the class, otherwise it would be baked into the superclass itself.
+    
+  **Example: Decorating a Card class**
+  
+  ```javascript
+  class Card 
+  {
+      constructor(type, points=10) {
+          this.points =  points;
+          this.type   =  type;
+      }
+      draw() {
+          console.log('Draw the card');
+      }
+      execute() {
+          console.log('Used the card');
+      }
+      discard() {
+          console.log('Discard the card');
+      }
+      getType() {
+          return this.type;   
+      }
+      getPoints() {
+          return this.points;   
+      }
+  }
+  ```
+  
+  **We can create a Decorator class and it will allow to "decorate" Card Features**
+  
+  ```javascript
+  class CardDecorator
+  {
+      constructor(card) {
+          this.card = card;   
+      }
+      draw() {
+          this.card.draw();
+      }
+      execute() {
+          this.card.execute();
+      }
+      discard() {
+          this.card.discard();
+      }
+      getPoints() {
+          return this.card.getPoints();   
+      }
+  }
+  ```
+  
+  **For each feature, we can create a class that it will extend from CardDecorator class and will implement these methods **
+    
+    ```javascript
+    class AttackDecorator extends CardDecorator
+    {
+        constructor(card, attack=1) {
+            super(card);
+            this.attack = attack;
+        }
+        execute() {
+            console.log('attack ' + this.attack);
+            super.execute();
+        }
+        getPoints() {
+            return super.getPoints() + (5 * this.attack);   
+        }
+    }
+    
+    class HealDecorator extends CardDecorator
+    {
+        constructor(card, heal=1) {
+            super(card);
+            this.heal = heal;
+        }
+        execute() {
+            console.log('heal ' + this.heal);
+            super.execute();
+        }
+        getPoints() {
+            return super.getPoints() + (3 * this.heal); 
+        }
+    }
+    ```
+    
+    ```javascript
+    // Usage
+    let card = new Card('action');
+    card     = new AttackDecorator(card, 2);
+    card     = new HealDecorator(card);
     ```
 
 **[⬆ back to top](#table-of-contents)**
