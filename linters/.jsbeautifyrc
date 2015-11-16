@@ -1,0 +1,36 @@
+/*
+ * Gesto .jsbeautifyrc
+ *
+ * See all available options at: https://github.com/Glavin001/atom-beautify/blob/master/docs/options.md
+ */
+{
+  "html": {
+    "brace_style": "collapse",
+    "indent_char": " ",
+    "indent_scripts": "normal",
+    "indent_size": 2,
+    "max_preserve_newlines": 1,
+    "preserve_newlines": true,
+    "unformatted": ["a", "sub", "sup", "b", "i", "u"],
+    "wrap_line_length": 0
+  },
+  "css": {
+    "indent_char": " ",
+    "indent_size": 2
+  },
+  "js": {
+    "indent_size": 2,
+    "indent_char": " ",
+    "indent_level": 0,
+    "indent_with_tabs": false,
+    "preserve_newlines": true,
+    "max_preserve_newlines": 2,
+    "jslint_happy": true
+  },
+  "sql": {
+    "indent_size": 2,
+    "indent_char": " ",
+    "indent_level": 0,
+    "indent_with_tabs": false
+  }
+}
