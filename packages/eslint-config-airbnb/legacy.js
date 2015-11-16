@@ -7,7 +7,7 @@ module.exports = {
     'eslint-config-airbnb/rules/strict',
     'eslint-config-airbnb/rules/style',
     'eslint-config-airbnb/rules/variables'
-  ],
+  ].map(require.resolve),
   'env': {
     'browser': true,
     'node': true,
