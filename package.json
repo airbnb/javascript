@@ -1,6 +1,6 @@
 {
-  "name": "me-javascript",
-  "version": "1.0.3",
+  "name": "@aboutdotme/javascript",
+  "version": "1.0.4",
   "description": "installs .jshintrc file for the parent module. this should only be used as a dev dependency.",
   "main": "index.js",
   "scripts": {
