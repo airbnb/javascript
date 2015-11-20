@@ -1,0 +1,28 @@
+{
+  "checkbuild": {
+    "enable": ["buddyjs", "eslint", "jsinspect", "jscs",  "nsp", "david"],
+    // don't exit immediately if one of the tools reports an error
+    "continueOnError": true,
+    // don't exit(1) even if we had some failures
+    "allowFailures": false
+  },
+  "eslint": {
+    "args": ["**/*.js", "!src/**/*.test.js", "!*node_modules/**"],
+    "url":"https://raw.githubusercontent.com/iadvize/javascript/master/.eslintrc_base"
+  },
+  "jscs": {
+    "args": ["**/*.js", "!*node_modules/**"],
+    "url":"https://raw.githubusercontent.com/iadvize/javascript/master/.jscsrc"
+  },
+  "jsinspect": {
+    "args": ["**/*.js", "!src/**/*.test.js", "!*node_modules/**"],
+    "diff": true,
+    "threshold": 40
+  },
+  "buddyjs": {
+    "args": ["**/*.js", "!*node_modules/**", "!**/**.test.js"]
+  },
+  "nsp": {
+    "args": ["--subdep-warn-only"]
+  }
+}
