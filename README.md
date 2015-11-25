@@ -1521,13 +1521,10 @@
 
 ## Testing
 
-  - **Yup.**
-
-    ```javascript
-    function() {
-      return true;
-    }
-    ```
+- **Libraries**
+- [Jasmine](http://jasmine.github.io/) for running tests.
+- [Sinon](http://sinonjs.org/) for stubs and mocks.
+- [FrisbyJS](http://frisbyjs.com/) for testing api’s and endpoints.
 
 **[⬆ back to top](#table-of-contents)**
 
