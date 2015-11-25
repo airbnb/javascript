@@ -1,0 +1,6 @@
+{
+  "extends": "airbnb/base",
+  "rules": {
+    // any additional rules or overrides go here
+  }
+}

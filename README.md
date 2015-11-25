@@ -3,9 +3,9 @@
 
 *A mostly reasonable approach to JavaScript*
 
-
 ## Table of Contents
 
+  1. [Linting](#linting)
   1. [Types](#types)
   1. [Dates and times](#dates-and-times)
   1. [Objects](#objects)
@@ -39,6 +39,15 @@
   1. [Chat With Us About Javascript](#chat-with-us-about-javascript)
   1. [Contributors](#contributors)
   1. [License](#license)
+
+## Linting
+ESLint is already included in FESK and BESK, but if your current project isn't using it install the necessary modules:
+
+```
+npm install --save-dev eslint-config-airbnb eslint
+```
+
+Copy the `.eslintrc` file from this repos `linters` directory to your project root.
 
 ## Types
 
