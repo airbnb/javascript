@@ -44,6 +44,14 @@ You can make sure this module lints with itself using `npm run lint`.
 
 ## Changelog
 
+### 1.0.2
+- enable rest params in linter, derp. (#592)
+- enforce rule 18.5, ensuring files end with a single newline character. (#578)
+
+### 1.0.1
+
+oops
+
 ### 1.0.0
 - require `eslint` `v1.0.0` or higher
 - removes `babel-eslint` dependency
