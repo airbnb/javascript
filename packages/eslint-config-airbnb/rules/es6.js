@@ -15,6 +15,7 @@ module.exports = {
     'objectLiteralDuplicateProperties': false,
     'objectLiteralShorthandMethods': true,
     'objectLiteralShorthandProperties': true,
+    'restParams': true,
     'spread': true,
     'superInFunctions': true,
     'templateStrings': true,
