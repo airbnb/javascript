@@ -1551,6 +1551,29 @@ Other Style Guides
     }
     ```
 
+  - [18.9](#18.9) <a name='18.9'></a> Do not add spaces inside parentheses.
+
+    ```javascript
+    // bad
+    function bar( foo ) {
+      return foo;
+    }
+
+    // good
+    function bar(foo) {
+      return foo;
+    }
+
+    // bad
+    if ( foo ) {
+      console.log(foo);
+    }
+
+    // good
+    if (foo) {
+      console.log(foo);
+    }
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
