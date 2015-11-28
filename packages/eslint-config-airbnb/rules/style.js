@@ -1,7 +1,7 @@
 module.exports = {
   'rules': {
     // enforce spacing inside array brackets
-    'array-bracket-spacing': 0,
+    'array-bracket-spacing': [2, 'never'],
     // enforce one true brace style
     'brace-style': [2, '1tbs', {'allowSingleLine': true }],
     // require camel case names
@@ -10,8 +10,8 @@ module.exports = {
     'comma-spacing': [2, {'before': false, 'after': true}],
     // enforce one true comma style
     'comma-style': [2, 'last'],
-    // require or disallow padding inside computed properties
-    'computed-property-spacing': 0,
+    // disallow padding inside computed properties
+    'computed-property-spacing': [2, 'never'],
     // enforces consistent naming when capturing the current execution context
     'consistent-this': 0,
     // enforce newline at the end of file, with no multiple empty lines
