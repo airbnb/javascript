@@ -1575,6 +1575,18 @@ Other Style Guides
     }
     ```
 
+  - [18.10](#18.10) <a name='18.10'></a> Do not add spaces inside brackets.
+
+    ```javascript
+    // bad
+    const foo = [ 1, 2, 3 ];
+    console.log(foo[ 0 ]);
+
+    // good
+    const foo = [1, 2, 3];
+    console.log(foo[0]);
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Commas
