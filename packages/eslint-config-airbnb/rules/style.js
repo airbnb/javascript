@@ -96,8 +96,8 @@ module.exports = {
     'space-before-blocks': 2,
     // require or disallow space before function opening parenthesis
     'space-before-function-paren': [2, 'never'],
-    // require or disallow spaces inside parentheses
-    'space-in-parens': 0,
+    // disallow spaces inside parentheses
+    'space-in-parens': [2, 'never'],
     // require spaces around operators
     'space-infix-ops': 2,
     // require a space after return, throw, and case
