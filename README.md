@@ -1551,6 +1551,51 @@ Other Style Guides
     }
     ```
 
+  - [18.9](#18.9) <a name='18.9'></a> Do not add spaces inside parentheses.
+
+    ```javascript
+    // bad
+    function bar( foo ) {
+      return foo;
+    }
+
+    // good
+    function bar(foo) {
+      return foo;
+    }
+
+    // bad
+    if ( foo ) {
+      console.log(foo);
+    }
+
+    // good
+    if (foo) {
+      console.log(foo);
+    }
+    ```
+
+  - [18.10](#18.10) <a name='18.10'></a> Do not add spaces inside brackets.
+
+    ```javascript
+    // bad
+    const foo = [ 1, 2, 3 ];
+    console.log(foo[ 0 ]);
+
+    // good
+    const foo = [1, 2, 3];
+    console.log(foo[0]);
+    ```
+
+  - [18.11](#18.11) <a name='18.11'></a> Add spaces inside curly braces.
+
+    ```javascript
+    // bad
+    const foo = {clark: 'kent'};
+
+    // good
+    const foo = { clark: 'kent' };
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 

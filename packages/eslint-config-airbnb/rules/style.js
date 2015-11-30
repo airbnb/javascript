@@ -1,7 +1,7 @@
 module.exports = {
   'rules': {
     // enforce spacing inside array brackets
-    'array-bracket-spacing': 0,
+    'array-bracket-spacing': [2, 'never'],
     // enforce one true brace style
     'brace-style': [2, '1tbs', {'allowSingleLine': true }],
     // require camel case names
@@ -10,8 +10,8 @@ module.exports = {
     'comma-spacing': [2, {'before': false, 'after': true}],
     // enforce one true comma style
     'comma-style': [2, 'last'],
-    // require or disallow padding inside computed properties
-    'computed-property-spacing': 0,
+    // disallow padding inside computed properties
+    'computed-property-spacing': [2, 'never'],
     // enforces consistent naming when capturing the current execution context
     'consistent-this': 0,
     // enforce newline at the end of file, with no multiple empty lines
@@ -66,8 +66,8 @@ module.exports = {
     'no-underscore-dangle': 0,
     // disallow the use of Boolean literals in conditional expressions
     'no-unneeded-ternary': 0,
-    // require or disallow padding inside curly braces
-    'object-curly-spacing': 0,
+    // require padding inside curly braces
+    'object-curly-spacing': [2, 'always'],
     // allow just one var statement per function
     'one-var': [2, 'never'],
     // require assignment operator shorthand where possible or prohibit it entirely
@@ -96,8 +96,8 @@ module.exports = {
     'space-before-blocks': 2,
     // require or disallow space before function opening parenthesis
     'space-before-function-paren': [2, 'never'],
-    // require or disallow spaces inside parentheses
-    'space-in-parens': 0,
+    // disallow spaces inside parentheses
+    'space-in-parens': [2, 'never'],
     // require spaces around operators
     'space-infix-ops': 2,
     // require a space after return, throw, and case
