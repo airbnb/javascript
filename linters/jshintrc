@@ -7,7 +7,7 @@
     "jquery": true,
 
     // Additional globals used in mocha tests
-    "globals": { 
+    "globals": {
         "describe": true,
         "it": true,
         "before": true,
@@ -68,7 +68,7 @@
     "boss": false,
     "debug": false,
     "eqnull": false,
-    "esnext": false,
+    "esnext": true,
     "evil": false,
     "expr": false,
     "funcscope": false,
