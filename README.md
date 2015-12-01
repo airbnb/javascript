@@ -795,8 +795,8 @@ Other Style Guides
 
     ```javascript
     class Jedi {
-      constructor(options = {}) {
-        this.name = options.name || 'no name';
+      constructor({ name = 'no name' } = {}) {
+        this.name = name;
       }
 
       getName() {
@@ -863,7 +863,7 @@ Other Style Guides
 
 ## Iterators and Generators
 
-  - [11.1](#11.1) <a name='11.1'></a> Don't use iterators. Prefer JavaScript's higher-order functions like `map()` and `reduce()` instead of loops like `for-of`.
+  - [11.1](#11.1) <a name='11.1'></a> Prefer [JavaScript's higher-order functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) like `map()` and `reduce()` instead of loops like `for-of` unless there is a substantial performance disadvantage by doing so.
 
   > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side-effects.
 
@@ -883,12 +883,14 @@ Other Style Guides
     numbers.forEach((num) => sum += num);
     sum === 15;
 
-    // best (use the functional force)
+    // best (use the functional force, Luke)
     const sum = numbers.reduce((total, num) => total + num, 0);
     sum === 15;
     ```
 
-  - [11.2](#11.2) <a name='11.2'></a> Don't use generators for now.
+  - [11.2](#11.2) <a name='11.2'></a> Only use `for-in` if you know exactly what you're doing. If unsure, prefer the options given in [11.1](#11.1).
+
+  - [11.3](#11.3) <a name='11.3'></a> Don't use generators for now.
 
   > Why? They don't transpile well to ES5.
 
