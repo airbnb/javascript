@@ -8,8 +8,7 @@ Forked from [Airbnb](https://github.com/airbnb/javascript)
 Other Style Guides
  - [ES5](es5/)
  - [React](react/)
- - [CSS & Sass](https://github.com/airbnb/css)
- - [Ruby](https://github.com/airbnb/ruby)
+ - [Front end Standards](https://github.com/Bisk/Front-end-Standards)
 
 ## Table of Contents
 
