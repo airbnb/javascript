@@ -743,7 +743,7 @@ Other Style Guides
     ```
 
 
-  - [8.4](#8.4) <a name='8.4'></a> If your function takes a single argument and consists of a single expression, omit the parentheses.
+  - [8.4](#8.4) <a name='8.4'></a> If your function takes a single argument and doesn’t use braces, omit the parentheses.
 
     > Why? Less visual clutter.
 
@@ -755,6 +755,12 @@ Other Style Guides
 
     // good
     [1, 2, 3].map(x => x * x);
+
+    // good
+    [1, 2, 3].map(number => (
+      `A long string with the ${number}. It’s so long that we’ve broken it ` +
+      'over multiple lines!'
+    ));
 
     // bad
     [1, 2, 3].reduce(x => {
