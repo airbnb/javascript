@@ -699,7 +699,7 @@ Other Style Guides
     });
     ```
 
-  - [8.2](#8.2) <a name='8.2'></a> If the function body consists of a single expression, feel free to omit the braces and use the implicit return. Otherwise add the parentheses, braces, and use a `return` statement.
+  - [8.2](#8.2) <a name='8.2'></a> If the function body consists of a single expression, omit the braces and use the implicit return. Otherwise, keep the braces and use a `return` statement.
 
     > Why? Syntactic sugar. It reads well when multiple functions are chained together.
 
@@ -743,18 +743,30 @@ Other Style Guides
     ```
 
 
-  - [8.4](#8.4) <a name='8.4'></a> If your function only takes a single argument, feel free to omit the parentheses.
+  - [8.4](#8.4) <a name='8.4'></a> If your function takes a single argument and consists of a single expression, omit the parentheses.
 
     > Why? Less visual clutter.
 
     eslint rules: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html).
 
     ```js
+    // bad
+    [1, 2, 3].map((x) => x * x);
+
     // good
     [1, 2, 3].map(x => x * x);
 
+    // bad
+    [1, 2, 3].reduce(x => {
+      const y = x + 1;
+      return x * y;
+    });
+
     // good
-    [1, 2, 3].reduce((y, x) => x + y);
+    [1, 2, 3].reduce((x) => {
+      const y = x + 1;
+      return x * y;
+    });
     ```
 
 **[⬆ back to top](#table-of-contents)**
