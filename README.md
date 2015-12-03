@@ -91,6 +91,8 @@ Other Style Guides
 
   > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
 
+  eslint rules: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html).
+
     ```javascript
     // bad
     var a = 1;
@@ -104,6 +106,8 @@ Other Style Guides
   - [2.2](#2.2) <a name='2.2'></a> If you must reassign references, use `let` instead of `var`.
 
   > Why? `let` is block-scoped rather than function-scoped like `var`.
+
+  eslint rules: [`no-var`](http://eslint.org/docs/rules/no-var.html).
 
     ```javascript
     // bad
@@ -136,6 +140,8 @@ Other Style Guides
 ## Objects
 
   - [3.1](#3.1) <a name='3.1'></a> Use the literal syntax for object creation.
+
+  eslint rules: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html).
 
     ```javascript
     // bad
@@ -209,6 +215,8 @@ Other Style Guides
   <a name="es6-object-shorthand"></a>
   - [3.5](#3.5) <a name='3.5'></a> Use object method shorthand.
 
+  eslint rules: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html).
+
     ```javascript
     // bad
     const atom = {
@@ -233,6 +241,8 @@ Other Style Guides
   - [3.6](#3.6) <a name='3.6'></a> Use property value shorthand.
 
   > Why? It is shorter to write and descriptive.
+
+  eslint rules: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html).
 
     ```javascript
     const lukeSkywalker = 'Luke Skywalker';
@@ -282,6 +292,8 @@ Other Style Guides
 ## Arrays
 
   - [4.1](#4.1) <a name='4.1'></a> Use the literal syntax for array creation.
+
+  eslint rules: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html).
 
     ```javascript
     // bad
@@ -399,6 +411,8 @@ Other Style Guides
 
   - [6.1](#6.1) <a name='6.1'></a> Use single quotes `''` for strings.
 
+  eslint rules: [`quotes`](http://eslint.org/docs/rules/quotes.html).
+
     ```javascript
     // bad
     const name = "Capt. Janeway";
@@ -430,6 +444,8 @@ Other Style Guides
   - [6.4](#6.4) <a name='6.4'></a> When programmatically building up strings, use template strings instead of concatenation.
 
   > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+
+  eslint rules: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html).
 
     ```javascript
     // bad
@@ -601,7 +617,7 @@ Other Style Guides
 - [7.11](#7.11) <a name="7.11"></a> Spacing in a function signature.
 
   > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
-  
+
   ```javascript
   // bad
   const f = function(){};
@@ -623,6 +639,8 @@ Other Style Guides
 
   > Why not? If you have a fairly complicated function, you might move that logic out into its own function declaration.
 
+  eslint rules: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html).
+
     ```javascript
     // bad
     [1, 2, 3].map(function (x) {
@@ -642,6 +660,8 @@ Other Style Guides
   > Why? Syntactic sugar. It reads well when multiple functions are chained together.
 
   > Why not? If you plan on returning an object.
+
+  eslint rules: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html).
 
     ```javascript
     // good
@@ -682,6 +702,8 @@ Other Style Guides
   - [8.4](#8.4) <a name='8.4'></a> If your function only takes a single argument, feel free to omit the parentheses.
 
   > Why? Less visual clutter.
+
+  eslint rules: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html).
 
     ```js
     // good
@@ -861,6 +883,8 @@ Other Style Guides
 
   > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side-effects.
 
+  eslint rules: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html).
+
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
 
@@ -892,6 +916,8 @@ Other Style Guides
 ## Properties
 
   - [12.1](#12.1) <a name='12.1'></a> Use dot notation when accessing properties.
+
+  eslint rules: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html).
 
     ```javascript
     const luke = {
@@ -939,6 +965,8 @@ Other Style Guides
   - [13.2](#13.2) <a name='13.2'></a> Use one `const` declaration per variable.
 
     > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs.
+
+  eslint rules: [`one-var`](http://eslint.org/docs/rules/one-var.html).
 
     ```javascript
     // bad
@@ -1134,6 +1162,8 @@ Other Style Guides
   - [15.1](#15.1) <a name='15.1'></a> Use `===` and `!==` over `==` and `!=`.
   - [15.2](#15.2) <a name='15.2'></a> Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
 
+  eslint rules: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html).
+
     + **Objects** evaluate to **true**
     + **Undefined** evaluates to **false**
     + **Null** evaluates to **false**
@@ -1205,6 +1235,8 @@ Other Style Guides
 
   - [16.2](#16.2) <a name='16.2'></a> If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your
     `if` block's closing brace.
+
+    eslint rules: [`brace-style`](http://eslint.org/docs/rules/brace-style.html).
 
     ```javascript
     // bad
@@ -1336,6 +1368,8 @@ Other Style Guides
 
   - [18.1](#18.1) <a name='18.1'></a> Use soft tabs set to 2 spaces.
 
+  eslint rules: [`indent`](http://eslint.org/docs/rules/indent.html).
+
     ```javascript
     // bad
     function () {
@@ -1354,6 +1388,8 @@ Other Style Guides
     ```
 
   - [18.2](#18.2) <a name='18.2'></a> Place 1 space before the leading brace.
+
+  eslint rules: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html).
 
     ```javascript
     // bad
@@ -1381,6 +1417,8 @@ Other Style Guides
 
   - [18.3](#18.3) <a name='18.3'></a> Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space before the argument list in function calls and declarations.
 
+  eslint rules: [`space-after-keywords`](http://eslint.org/docs/rules/space-after-keywords.html), [`space-before-keywords`](http://eslint.org/docs/rules/space-before-keywords.html).
+
     ```javascript
     // bad
     if(isJedi) {
@@ -1404,6 +1442,8 @@ Other Style Guides
     ```
 
   - [18.4](#18.4) <a name='18.4'></a> Set off operators with spaces.
+
+  eslint rules: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html).
 
     ```javascript
     // bad
@@ -1536,6 +1576,8 @@ Other Style Guides
 
   - [18.8](#18.8) <a name='18.8'></a> Do not pad your blocks with blank lines.
 
+  eslint rules: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html).
+
     ```javascript
     // bad
     function bar() {
@@ -1568,6 +1610,8 @@ Other Style Guides
 
   - [18.9](#18.9) <a name='18.9'></a> Do not add spaces inside parentheses.
 
+  eslint rules: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html).
+
     ```javascript
     // bad
     function bar( foo ) {
@@ -1592,6 +1636,8 @@ Other Style Guides
 
   - [18.10](#18.10) <a name='18.10'></a> Do not add spaces inside brackets.
 
+  eslint rules: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html).
+
     ```javascript
     // bad
     const foo = [ 1, 2, 3 ];
@@ -1603,6 +1649,8 @@ Other Style Guides
     ```
 
   - [18.11](#18.11) <a name='18.11'></a> Add spaces inside curly braces.
+
+  eslint rules: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html).
 
     ```javascript
     // bad
@@ -1617,6 +1665,8 @@ Other Style Guides
 ## Commas
 
   - [19.1](#19.1) <a name='19.1'></a> Leading commas: **Nope.**
+
+  eslint rules: [`comma-style`](http://eslint.org/docs/rules/comma-style.html).
 
     ```javascript
     // bad
@@ -1651,6 +1701,8 @@ Other Style Guides
     ```
 
   - [19.2](#19.2) <a name='19.2'></a> Additional trailing comma: **Yup.**
+
+  eslint rules: [`no-comma-dangle`](http://eslint.org/docs/rules/no-comma-dangle.html).
 
   > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](es5/README.md#commas) in legacy browsers.
 
@@ -1699,6 +1751,8 @@ Other Style Guides
 ## Semicolons
 
   - [20.1](#20.1) <a name='20.1'></a> **Yup.**
+
+  eslint rules: [`semi`](http://eslint.org/docs/rules/semi.html).
 
     ```javascript
     // bad
@@ -1820,6 +1874,8 @@ Other Style Guides
 
   - [22.2](#22.2) <a name='22.2'></a> Use camelCase when naming objects, functions, and instances.
 
+  eslint rules: [`camelcase`](http://eslint.org/docs/rules/camelcase.html).
+
     ```javascript
     // bad
     const OBJEcttsssss = {};
@@ -1856,6 +1912,8 @@ Other Style Guides
     ```
 
   - [22.4](#22.4) <a name='22.4'></a> Use a leading underscore `_` when naming private properties.
+
+  eslint rules: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html).
 
     ```javascript
     // bad
@@ -1894,6 +1952,7 @@ Other Style Guides
     ```
 
   - [22.6](#22.6) <a name='22.6'></a> If your file exports a single class, your filename should be exactly the name of the class.
+
     ```javascript
     // file contents
     class CheckBox {
