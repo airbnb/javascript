@@ -598,6 +598,20 @@ Other Style Guides
   var subtract = Function('a', 'b', 'return a - b');
   ```
 
+- [7.11](#7.11) <a name="7.11"></a> Spacing in a function signature.
+
+  > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
+  ```javascript
+  // bad
+  const f = function(){};
+  const g = function (){};
+  const h = function() {};
+
+  // good
+  const x = function () {};
+  const y = function a() {};
+  ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrow Functions
@@ -690,7 +704,7 @@ Other Style Guides
     function Queue(contents = []) {
       this._queue = [...contents];
     }
-    Queue.prototype.pop = function() {
+    Queue.prototype.pop = function () {
       const value = this._queue[0];
       this._queue.splice(0, 1);
       return value;
@@ -721,7 +735,7 @@ Other Style Guides
       Queue.apply(this, contents);
     }
     inherits(PeekableQueue, Queue);
-    PeekableQueue.prototype.peek = function() {
+    PeekableQueue.prototype.peek = function () {
       return this._queue[0];
     }
 
@@ -737,12 +751,12 @@ Other Style Guides
 
     ```javascript
     // bad
-    Jedi.prototype.jump = function() {
+    Jedi.prototype.jump = function () {
       this.jumping = true;
       return true;
     };
 
-    Jedi.prototype.setHeight = function(height) {
+    Jedi.prototype.setHeight = function (height) {
       this.height = height;
     };
 
@@ -974,7 +988,7 @@ Other Style Guides
 
     ```javascript
     // good
-    function() {
+    function () {
       test();
       console.log('doing stuff..');
 
@@ -990,7 +1004,7 @@ Other Style Guides
     }
 
     // bad - unnecessary function call
-    function(hasName) {
+    function (hasName) {
       const name = getName();
 
       if (!hasName) {
@@ -1003,7 +1017,7 @@ Other Style Guides
     }
 
     // good
-    function(hasName) {
+    function (hasName) {
       if (!hasName) {
         return false;
       }
@@ -1063,7 +1077,7 @@ Other Style Guides
 
       anonymous(); // => TypeError anonymous is not a function
 
-      var anonymous = function() {
+      var anonymous = function () {
         console.log('anonymous function expression');
       };
     }
@@ -1180,10 +1194,10 @@ Other Style Guides
     }
 
     // bad
-    function() { return false; }
+    function () { return false; }
 
     // good
-    function() {
+    function () {
       return false;
     }
     ```
@@ -1323,17 +1337,17 @@ Other Style Guides
 
     ```javascript
     // bad
-    function() {
+    function () {
     ∙∙∙∙const name;
     }
 
     // bad
-    function() {
+    function () {
     ∙const name;
     }
 
     // good
-    function() {
+    function () {
     ∙∙const name;
     }
     ```
@@ -1402,14 +1416,14 @@ Other Style Guides
 
     ```javascript
     // bad
-    (function(global) {
+    (function (global) {
       // ...stuff...
     })(this);
     ```
 
     ```javascript
     // bad
-    (function(global) {
+    (function (global) {
       // ...stuff...
     })(this);↵
     ↵
@@ -1417,7 +1431,7 @@ Other Style Guides
 
     ```javascript
     // good
-    (function(global) {
+    (function (global) {
       // ...stuff...
     })(this);↵
     ```
@@ -1687,7 +1701,7 @@ Other Style Guides
 
     ```javascript
     // bad
-    (function() {
+    (function () {
       const name = 'Skywalker'
       return name
     })()
@@ -1857,7 +1871,7 @@ Other Style Guides
     // bad
     function foo() {
       const self = this;
-      return function() {
+      return function () {
         console.log(self);
       };
     }
@@ -1865,7 +1879,7 @@ Other Style Guides
     // bad
     function foo() {
       const that = this;
-      return function() {
+      return function () {
         console.log(that);
       };
     }
@@ -1986,7 +2000,7 @@ Other Style Guides
 
     ...
 
-    $(this).on('listingUpdated', function(e, listingId) {
+    $(this).on('listingUpdated', function (e, listingId) {
       // do something with listingId
     });
     ```
@@ -1999,7 +2013,7 @@ Other Style Guides
 
     ...
 
-    $(this).on('listingUpdated', function(e, data) {
+    $(this).on('listingUpdated', function (e, data) {
       // do something with data.listingId
     });
     ```
