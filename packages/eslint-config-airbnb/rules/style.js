@@ -96,8 +96,9 @@ module.exports = {
     // require or disallow space before blocks
     'space-before-blocks': 2,
     // require or disallow space before function opening parenthesis
-    'space-before-function-paren': [2, 'never'],
-    // disallow spaces inside parentheses
+    // https://github.com/eslint/eslint/blob/master/docs/rules/space-before-function-paren.md
+    'space-before-function-paren': [2, { 'anonymous': 'always', 'named': 'never' }],
+    // require or disallow spaces inside parentheses
     'space-in-parens': [2, 'never'],
     // require spaces around operators
     'space-infix-ops': 2,
