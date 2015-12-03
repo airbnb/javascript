@@ -23,7 +23,8 @@ module.exports = {
     // this option enforces minimum and maximum identifier lengths (variable names, property names etc.)
     'id-length': 0,
     // this option sets a specific tab width for your code
-    'indent': [2, 2],
+    // https://github.com/eslint/eslint/blob/master/docs/rules/indent.md
+    'indent': [2, 2, { "SwitchCase": 1, "VariableDeclarator": 1 }],
     // specify whether double or single quotes should be used in JSX attributes
     'jsx-quotes': 2,
     // enforces spacing between keys and values in object literal properties
