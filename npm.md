@@ -50,6 +50,4 @@ Your package.json should have a `name` attribute prefixed `@iadvize/`
 
 ### How to use iAdvize private npm repository with CleverCloud?
 
-Since a special configuration is required in `~/.npmrc` the following example will only work for CleverCloud.
-
-Copy paste the npmrc file from [my-first-node-service/clevercloud/npmrc](https://github.com/iadvize/my-first-nodejs-service/commit/3b05aff9d03cd1ef63be035b707b5ccd689dab21) into your own `clevercloud/npmrc` file. Don't forget to use the right scoped package definition inside your `package.json` and of course at `require()` time.
+Copy/paste the npmrc file from [my-first-node-service/clevercloud/npmrc](https://github.com/iadvize/my-first-nodejs-service/commit/3b05aff9d03cd1ef63be035b707b5ccd689dab21) into your own project `clevercloud/npmrc`. Don't forget to specify the right scoped package definition inside `package.json` and at `require` time.
