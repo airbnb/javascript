@@ -25,7 +25,8 @@ module.exports = {
     // require parens in arrow function arguments
     'arrow-parens': 0,
     // require space before/after arrow function's arrow
-    'arrow-spacing': 0,
+    // https://github.com/eslint/eslint/blob/master/docs/rules/arrow-spacing.md
+    'arrow-spacing': [2, { 'before': true, 'after': true }],
     // verify super() callings in constructors
     'constructor-super': 0,
     // enforce the spacing around the * in generator functions
