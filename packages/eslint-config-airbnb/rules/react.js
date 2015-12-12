@@ -9,7 +9,7 @@ module.exports = {
     // Prevent missing displayName in a React component definition
     'react/display-name': 0,
     // Enforce boolean attributes notation in JSX
-    'react/jsx-boolean-value': 2,
+    'react/jsx-boolean-value': [2, 'never'],
     // Enforce or disallow spaces inside of curly braces in JSX attributes
     'react/jsx-curly-spacing': 0,
     // Prevent duplicate props in JSX
@@ -31,7 +31,7 @@ module.exports = {
     // Prevent usage of setState in componentDidMount
     'react/no-did-mount-set-state': [2, 'allow-in-func'],
     // Prevent usage of setState in componentDidUpdate
-    'react/no-did-update-set-state': 2,
+    'react/no-did-update-set-state': [2, 'allow-in-func'],
     // Prevent multiple component definition per file
     'react/no-multi-comp': 2,
     // Prevent usage of unknown DOM property
@@ -56,6 +56,10 @@ module.exports = {
       ]
     }],
     // Prevent missing parentheses around multilines JSX
-    'react/wrap-multilines': 2
+    'react/wrap-multilines': [2, {
+      declaration: true,
+      assignment: true,
+      return: true
+    }]
   }
 };
