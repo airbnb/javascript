@@ -26,6 +26,8 @@
 
   - Use class extends React.Component unless you have a very good reason to use mixins.
 
+  eslint rules: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md).
+
   ```javascript
   // bad
   const Listing = React.createClass({
@@ -33,7 +35,7 @@
       return <div />;
     }
   });
-  
+
   // good
   class Listing extends React.Component {
     render() {
@@ -46,7 +48,10 @@
 
   - **Extensions**: Use `.jsx` extension for React components.
   - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
-  - **Reference Naming**: Use PascalCase for React components and camelCase for their instances:
+  - **Reference Naming**: Use PascalCase for React components and camelCase for their instances.
+
+    eslint rules: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md).
+
     ```javascript
     // bad
     const reservationCard = require('./ReservationCard');
@@ -92,6 +97,8 @@
 ## Alignment
   - Follow these alignment styles for JSX syntax
 
+  eslint rules: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md).
+
     ```javascript
     // bad
     <Foo superLongParam="bar"
@@ -120,6 +127,8 @@
 
   > Why? JSX attributes [can't contain escaped quotes](http://eslint.org/docs/rules/jsx-quotes), so double quotes make conjunctions like `"don't"` easier to type.
   > Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
+
+  eslint rules: [`react/jsx-quotes`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-quotes.md).
 
     ```javascript
     // bad
@@ -169,7 +178,10 @@
     ```
 
 ## Parentheses
-  - Wrap JSX tags in parentheses when they span more than one line:
+  - Wrap JSX tags in parentheses when they span more than one line.
+
+  eslint rules: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md).
+
     ```javascript
     /// bad
     render() {
@@ -196,6 +208,9 @@
 
 ## Tags
   - Always self-close tags that have no children.
+
+  eslint rules: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md).
+
     ```javascript
     // bad
     <Foo className="stuff"></Foo>
@@ -205,6 +220,9 @@
     ```
 
   - If your component has multi-line properties, close its tag on a new line.
+
+  eslint rules: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md).
+
     ```javascript
     // bad
     <Foo
@@ -243,7 +261,7 @@
 ## Ordering
 
   - Ordering for class extends React.Component:
-  
+
   1. constructor
   1. optional static methods
   1. getChildContext
@@ -262,31 +280,31 @@
   - How to define propTypes, defaultProps, contextTypes, etc...  
 
   ```javascript
-  import React, { Component, PropTypes } from 'react';
-  
+  import React, { PropTypes } from 'react';
+
   const propTypes = {
     id: PropTypes.number.isRequired,
     url: PropTypes.string.isRequired,
     text: PropTypes.string,
   };
-  
+
   const defaultProps = {
     text: 'Hello World',
   };
-  
-  class Link extends Component {
+
+  class Link extends React.Component {
     static methodsAreOk() {
       return true;
     }
-  
+
     render() {
       return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
     }
   }
-  
+
   Link.propTypes = propTypes;
   Link.defaultProps = defaultProps;
-  
+
   export default Link;
   ```
 
@@ -313,5 +331,7 @@
   1. *getter methods for render* like getSelectReason() or getFooterContent()
   1. *Optional render methods* like renderNavigation() or renderProfilePicture()
   1. render
+
+  eslint rules: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md).
 
 **[⬆ back to top](#table-of-contents)**
