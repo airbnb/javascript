@@ -10,14 +10,18 @@ module.exports = {
     'react/display-name': 0,
     // Enforce boolean attributes notation in JSX
     'react/jsx-boolean-value': [2, 'never'],
+    // Validate closing bracket location in JSX
+    'react/jsx-closing-bracket-location': [2, 'line-aligned'],
     // Enforce or disallow spaces inside of curly braces in JSX attributes
     'react/jsx-curly-spacing': 0,
+    // Validate props indentation in JSX
+    'react/jsx-indent-props': [2, 2],
     // Prevent duplicate props in JSX
     'react/jsx-no-duplicate-props': 0,
     // Disallow undeclared variables in JSX
     'react/jsx-no-undef': 2,
     // Enforce quote style for JSX attributes
-    'react/jsx-quotes': 0,
+    'react/jsx-quotes': [2, 'double'],
     // Enforce propTypes declarations alphabetical sorting
     'react/jsx-sort-prop-types': 0,
     // Enforce props alphabetical sorting
