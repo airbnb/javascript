@@ -68,14 +68,14 @@
     const reservationItem = <ReservationCard />;
     ```
 
-  **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
 
     ```javascript
     // bad
-    import Footer from './Footer/Footer.jsx';
+    import Footer from './Footer/Footer';
 
     // bad
-    import Footer from './Footer/index.jsx';
+    import Footer from './Footer/index';
 
     // good
     import Footer from './Footer';
@@ -267,7 +267,7 @@
 
   - Bind event handlers for the render method in the constructor.
 
-  > Why? A bind call in a prop will create a brand new function on every single render.
+  > Why? A bind call in a the render path create a brand new function on every single render.
 
   eslint rules: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md).
 
@@ -305,13 +305,13 @@
 
     ```javascript
     // bad
-    class extends React.Component {
+    React.createClass({
       _onClickSubmit() {
         // do stuff
-      }
+      },
 
       // other stuff
-    }
+    });
 
     // good
     class extends React.Component {
@@ -349,7 +349,7 @@
     ```javascript
     // bad
     class extends React.Component {
-      createNavigation(){
+      createNavigation() {
         // render stuff
       }
       render() {
@@ -359,7 +359,7 @@
 
     // good
     class extends React.Component {
-      renderNavigation(){
+      renderNavigation() {
         // render stuff
       }
       render() {
