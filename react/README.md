@@ -56,10 +56,10 @@
 
     ```javascript
     // bad
-    const reservationCard = require('./ReservationCard');
+    import reservationCard from './ReservationCard';
 
     // good
-    const ReservationCard = require('./ReservationCard');
+    import ReservationCard from './ReservationCard';
 
     // bad
     const ReservationItem = <ReservationCard />;
@@ -72,13 +72,13 @@
 
     ```javascript
     // bad
-    const Footer = require('./Footer/Footer.jsx')
+    import Footer from './Footer/Footer.jsx';
 
     // bad
-    const Footer = require('./Footer/index.jsx')
+    import Footer from './Footer/index.jsx';
 
     // good
-    const Footer = require('./Footer')
+    import Footer from './Footer';
     ```
 
 ## Declaration
@@ -186,6 +186,22 @@
     />
     ```
 
+  - Omit the value of the prop when it is explicitly `true`.
+
+  eslint rules: [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md).
+
+    ```javascript
+    // bad
+    <Foo
+      hidden={true}
+    />
+
+    // good
+    <Foo
+      hidden
+    />
+    ```
+
 ## Parentheses
 
   - Wrap JSX tags in parentheses when they span more than one line.
@@ -193,7 +209,7 @@
   eslint rules: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md).
 
     ```javascript
-    /// bad
+    // bad
     render() {
       return <MyComponent className="long body" foo="bar">
                <MyChild />
@@ -249,17 +265,53 @@
 
 ## Methods
 
+  - Bind event handlers for the render method in the constructor.
+
+  > Why? A bind call in a prop will create a brand new function on every single render.
+
+  eslint rules: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md).
+
+    ```javascript
+    // bad
+    class extends React.Component {
+      onClickDiv() {
+        // do stuff
+      }
+
+      render() {
+        return <div onClick={this.onClickDiv.bind(this)} />
+      }
+    }
+
+    // good
+    class extends React.Component {
+      constructor(props) {
+        super(props);
+
+        this.onClickDiv = this.onClickDiv.bind(this);
+      }
+
+      onClickDiv() {
+        // do stuff
+      }
+
+      render() {
+        return <div onClick={this.onClickDiv} />
+      }
+    }
+    ```
+
   - Do not use underscore prefix for internal methods of a React component.
 
     ```javascript
     // bad
-    React.createClass({
+    class extends React.Component {
       _onClickSubmit() {
         // do stuff
       }
 
       // other stuff
-    });
+    }
 
     // good
     class extends React.Component {
@@ -268,7 +320,52 @@
       }
 
       // other stuff
-    });
+    }
+    ```
+
+  - Prefix the name of event handlers with `on`.
+    ```javascript
+    // bad
+    class extends React.Component {
+      handleClickDiv() {
+        // do stuff
+      }
+
+      // other stuff
+    }
+
+    // good
+    class extends React.Component {
+      onClickDiv() {
+        // do stuff
+      }
+
+      // other stuff
+    }
+    ```
+
+  - Prefix the name of additional render methods with `render`.
+
+    ```javascript
+    // bad
+    class extends React.Component {
+      createNavigation(){
+        // render stuff
+      }
+      render() {
+        {this.createNavigation()}
+      }
+    }
+
+    // good
+    class extends React.Component {
+      renderNavigation(){
+        // render stuff
+      }
+      render() {
+        {this.renderNavigation()}
+      }
+    }
     ```
 
 ## Ordering
