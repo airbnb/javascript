@@ -38,7 +38,7 @@
   "homepage": "https://github.com/airbnb/javascript",
   "devDependencies": {
     "babel-tape-runner": "1.2.0",
-    "eslint": "^1.8.0",
+    "eslint": "^1.10.3",
     "eslint-plugin-react": "^3.11.3",
     "react": "^0.13.3",
     "tape": "^4.2.2"
