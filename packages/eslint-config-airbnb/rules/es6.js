@@ -40,7 +40,8 @@ module.exports = {
     // require let or const instead of var
     'no-var': 2,
     // require method and property shorthand syntax for object literals
-    'object-shorthand': 0,
+    // https://github.com/eslint/eslint/blob/master/docs/rules/object-shorthand.md
+    'object-shorthand': [2, "always", { "ignoreConstructors": true }],
     // suggest using of const declaration for variables that are never modified after declared
     'prefer-const': 2,
     // suggest using the spread operator instead of .apply()
