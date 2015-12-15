@@ -128,7 +128,7 @@
   > Why? JSX attributes [can't contain escaped quotes](http://eslint.org/docs/rules/jsx-quotes), so double quotes make conjunctions like `"don't"` easier to type.
   > Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
 
-  eslint rules: [`react/jsx-quotes`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-quotes.md).
+  eslint rules: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes).
 
     ```javascript
     // bad
