@@ -27,9 +27,6 @@ module.exports = {
     // Disallow undeclared variables in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-undef.md
     'react/jsx-no-undef': 2,
-    // Enforce quote style for JSX attributes
-    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-quote.md
-    'react/jsx-quotes': [2, 'double'],
     // Enforce propTypes declarations alphabetical sorting
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-prop-types.md
     'react/jsx-sort-prop-types': 0,
