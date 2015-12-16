@@ -629,6 +629,35 @@ Other Style Guides
   const y = function a() {};
   ```
 
+- [7.12](#7.12) <a name="7.12"></a> Never mutate parameters.
+
+  > Why? Overwriting parameters can lead to unexpected behavior, especially when accessing the `arguments` object. Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+
+  eslint rules: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html).
+
+  ```javascript
+  // bad
+  function f(a){
+    a = 1;
+  }
+  function f(a){
+    if (!a) { a = 1; }
+  }
+  function f(obj){
+    obj.key = 1;
+  };
+
+  // good
+  function f(a){
+    const b = (a || 1);
+  }
+  function f(a = 1){
+  }
+  function f(obj){
+    const key = obj.hasOwnProperty('key') ? obj.key ? 1;
+  };
+  ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrow Functions
