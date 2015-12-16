@@ -89,6 +89,11 @@
     }
  
     export default ReservationCard;
+
+
+    // better
+    export default class ReservationCard extends React.Component {
+    }
     ```
 
 ## Alignment
