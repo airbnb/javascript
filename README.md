@@ -637,24 +637,24 @@ Other Style Guides
 
   ```javascript
   // bad
-  function f(a){
+  function f1(a) {
     a = 1;
   }
-  function f(a){
+  function f2(a) {
     if (!a) { a = 1; }
   }
-  function f(obj){
+  function f3(obj) {
     obj.key = 1;
   };
 
   // good
-  function f(a){
-    const b = (a || 1);
+  function f4(a) {
+    const b = a || 1;
   }
-  function f(a = 1){
+  function f5(a = 1) {
   }
-  function f(obj){
-    const key = obj.hasOwnProperty('key') ? obj.key ? 1;
+  function f6(obj) {
+    const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
   };
   ```
 
