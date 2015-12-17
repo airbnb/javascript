@@ -75,6 +75,7 @@ module.exports = {
     'no-octal-escape': 2,
     // disallow reassignment of function parameters
     // disallow parameter object manipulation
+    // rule: http://eslint.org/docs/rules/no-param-reassign.html
     'no-param-reassign': [2, { 'props': true }],
     // disallow use of process.env
     'no-process-env': 0,
