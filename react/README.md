@@ -85,10 +85,8 @@
     });
 
     // good
-    class ReservationCard extends React.Component {
+    export default class ReservationCard extends React.Component {
     }
- 
-    export default ReservationCard;
     ```
 
 ## Alignment
