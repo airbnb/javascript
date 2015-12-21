@@ -807,18 +807,21 @@ Other Style Guides
 
     ```javascript
     // bad
+    function Jedi() {}
+
     Jedi.prototype.jump = function () {
       this.jumping = true;
-      return true;
+      return this;
     };
 
     Jedi.prototype.setHeight = function (height) {
       this.height = height;
+      return this;
     };
 
     const luke = new Jedi();
-    luke.jump(); // => true
-    luke.setHeight(20); // => undefined
+    luke.jump()
+      .setHeight(20);
 
     // good
     class Jedi {
