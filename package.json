@@ -1,11 +1,11 @@
 {
   "name": "@aboutdotme/javascript",
   "version": "1.1.0",
-  "description": "installs .jshintrc file for the parent module. this should only be used as a dev dependency.",
+  "description": "installs about.me eslintrc.json for the parent module. this should only be used as a dev dependency.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node linters/jshintrc_install.js"
+    "postinstall": "node linters/eslintrc_install.js"
   },
   "repository": {
     "type": "git",
