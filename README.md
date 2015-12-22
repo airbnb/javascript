@@ -287,6 +287,28 @@ Other Style Guides
     };
     ```
 
+  - [3.8](#3.8) <a name="3.8"></a> Only quote properties that are invalid identifiers.
+
+  > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
+
+  eslint rules: [`quote-props`](http://eslint.org/docs/rules/quote-props.html).
+
+  ```javascript
+  // bad
+  const bad = {
+    'foo': 3,
+    'bar': 4,
+    'data-blah': 5,
+  };
+
+  // good
+  const good = {
+    foo: 3,
+    bar: 4,
+    'data-blah': 5,
+  };
+  ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrays
