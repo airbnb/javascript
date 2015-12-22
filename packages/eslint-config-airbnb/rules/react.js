@@ -48,6 +48,9 @@ module.exports = {
     // Prevent usage of setState in componentDidUpdate
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-update-set-state.md
     'react/no-did-update-set-state': [2, 'allow-in-func'],
+    // Prevent usage of isMounted
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md
+    'react/no-is-mounted': 2,
     // Prevent multiple component definition per file
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md
     'react/no-multi-comp': 2,
