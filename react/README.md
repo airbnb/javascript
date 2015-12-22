@@ -15,6 +15,7 @@
   1. [Tags](#tags)
   1. [Methods](#methods)
   1. [Ordering](#ordering)
+  1. [`isMounted`](#ismounted)
 
 ## Basic Rules
 
@@ -333,5 +334,13 @@
   1. render
 
   eslint rules: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md).
+
+## `isMounted`
+
+  [`isMounted` is an anti-pattern][anti-pattern], is not available when using ES6 classes, and is on its way to being officially deprecated. Its use should be avoided.
+
+  [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
+
+  eslint rules: [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md).
 
 **[⬆ back to top](#table-of-contents)**
