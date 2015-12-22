@@ -39,7 +39,7 @@
   "devDependencies": {
     "babel-tape-runner": "1.2.0",
     "eslint": "^1.10.3",
-    "eslint-plugin-react": "^3.11.3",
+    "eslint-plugin-react": "^3.12.0",
     "react": "^0.13.3",
     "tape": "^4.2.2"
   },
