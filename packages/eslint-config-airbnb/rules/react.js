@@ -54,6 +54,9 @@ module.exports = {
     // Prevent usage of unknown DOM property
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md
     'react/no-unknown-property': 2,
+    // Require ES6 class declarations over React.createClass
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md
+    'react/prefer-es6-class': [2, 'always'],
     // Prevent missing props validation in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
     'react/prop-types': 2,
@@ -85,8 +88,5 @@ module.exports = {
       assignment: true,
       return: true
     }],
-    // Require ES6 class declarations over React.createClass
-    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md
-    'react/prefer-es6-class': [2, 'always'],
   }
 };
