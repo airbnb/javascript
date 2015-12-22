@@ -84,6 +84,9 @@ module.exports = {
       declaration: true,
       assignment: true,
       return: true
-    }]
+    }],
+    // Require ES6 class declarations over React.createClass
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md
+    'react/prefer-es6-class': [2, 'always'],
   }
 };
