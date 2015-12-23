@@ -30,21 +30,21 @@
 
   eslint rules: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md).
 
-  ```javascript
-  // bad
-  const Listing = React.createClass({
-    render() {
-      return <div />;
-    }
-  });
+    ```javascript
+    // bad
+    const Listing = React.createClass({
+      render() {
+        return <div />;
+      }
+    });
 
-  // good
-  class Listing extends React.Component {
-    render() {
-      return <div />;
+    // good
+    class Listing extends React.Component {
+      render() {
+        return <div />;
+      }
     }
-  }
-  ```
+    ```
 
 ## Naming
 
@@ -52,7 +52,7 @@
   - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances.
 
-    eslint rules: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md).
+  eslint rules: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md).
 
     ```javascript
     // bad
@@ -68,7 +68,8 @@
     const reservationItem = <ReservationCard />;
     ```
 
-    **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+  **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+
     ```javascript
     // bad
     const Footer = require('./Footer/Footer.jsx')
@@ -80,8 +81,8 @@
     const Footer = require('./Footer')
     ```
 
-
 ## Declaration
+
   - Do not use `displayName` for naming components. Instead, name the component by reference.
 
     ```javascript
@@ -97,6 +98,7 @@
     ```
 
 ## Alignment
+
   - Follow these alignment styles for JSX syntax
 
   eslint rules: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md).
@@ -125,6 +127,7 @@
     ```
 
 ## Quotes
+
   - Always use double quotes (`"`) for JSX attributes, but single quotes for all other JS.
 
   > Why? JSX attributes [can't contain escaped quotes](http://eslint.org/docs/rules/jsx-quotes), so double quotes make conjunctions like `"don't"` easier to type.
@@ -147,7 +150,9 @@
     ```
 
 ## Spacing
+
   - Always include a single space in your self-closing tag.
+
     ```javascript
     // bad
     <Foo/>
@@ -164,7 +169,9 @@
     ```
 
 ## Props
+
   - Always use camelCase for prop names.
+
     ```javascript
     // bad
     <Foo
@@ -180,6 +187,7 @@
     ```
 
 ## Parentheses
+
   - Wrap JSX tags in parentheses when they span more than one line.
 
   eslint rules: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md).
@@ -209,6 +217,7 @@
     ```
 
 ## Tags
+
   - Always self-close tags that have no children.
 
   eslint rules: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md).
@@ -239,7 +248,9 @@
     ```
 
 ## Methods
+
   - Do not use underscore prefix for internal methods of a React component.
+
     ```javascript
     // bad
     React.createClass({
@@ -281,34 +292,34 @@
 
   - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
 
-  ```javascript
-  import React, { PropTypes } from 'react';
+    ```javascript
+    import React, { PropTypes } from 'react';
 
-  const propTypes = {
-    id: PropTypes.number.isRequired,
-    url: PropTypes.string.isRequired,
-    text: PropTypes.string,
-  };
+    const propTypes = {
+      id: PropTypes.number.isRequired,
+      url: PropTypes.string.isRequired,
+      text: PropTypes.string,
+    };
 
-  const defaultProps = {
-    text: 'Hello World',
-  };
+    const defaultProps = {
+      text: 'Hello World',
+    };
 
-  class Link extends React.Component {
-    static methodsAreOk() {
-      return true;
+    class Link extends React.Component {
+      static methodsAreOk() {
+        return true;
+      }
+
+      render() {
+        return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
+      }
     }
 
-    render() {
-      return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
-    }
-  }
+    Link.propTypes = propTypes;
+    Link.defaultProps = defaultProps;
 
-  Link.propTypes = propTypes;
-  Link.defaultProps = defaultProps;
-
-  export default Link;
-  ```
+    export default Link;
+    ```
 
   - Ordering for `React.createClass`:
 
