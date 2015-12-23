@@ -4,7 +4,6 @@ module.exports = {
     'eslint-config-airbnb/rules/errors',
     'eslint-config-airbnb/rules/legacy',
     'eslint-config-airbnb/rules/node',
-    'eslint-config-airbnb/rules/strict',
     'eslint-config-airbnb/rules/style',
     'eslint-config-airbnb/rules/variables'
   ].map(require.resolve),
