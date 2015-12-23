@@ -5,6 +5,7 @@
 ## Table of Contents
 
   1. [Basic Rules](#basic-rules)
+  1. [Class vs `React.createClass`](#class-vs-reactcreateclass)
   1. [Naming](#naming)
   1. [Declaration](#declaration)
   1. [Alignment](#alignment)
@@ -23,27 +24,27 @@
   - Always use JSX syntax.
   - Do not use `React.createElement` unless you're initializing the app from a file that is not JSX.
 
-## Class vs React.createClass
+## Class vs `React.createClass`
 
-  - Use class extends React.Component unless you have a very good reason to use mixins.
+  - Use `class extends React.Component` unless you have a very good reason to use mixins.
 
   eslint rules: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md).
 
-  ```javascript
-  // bad
-  const Listing = React.createClass({
-    render() {
-      return <div />;
-    }
-  });
+    ```javascript
+    // bad
+    const Listing = React.createClass({
+      render() {
+        return <div />;
+      }
+    });
 
-  // good
-  class Listing extends React.Component {
-    render() {
-      return <div />;
+    // good
+    class Listing extends React.Component {
+      render() {
+        return <div />;
+      }
     }
-  }
-  ```
+    ```
 
 ## Naming
 
@@ -51,7 +52,7 @@
   - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances.
 
-    eslint rules: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md).
+  eslint rules: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md).
 
     ```javascript
     // bad
@@ -67,7 +68,8 @@
     const reservationItem = <ReservationCard />;
     ```
 
-    **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+  **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+
     ```javascript
     // bad
     const Footer = require('./Footer/Footer.jsx')
@@ -79,9 +81,9 @@
     const Footer = require('./Footer')
     ```
 
-
 ## Declaration
-  - Do not use displayName for naming components. Instead, name the component by reference.
+
+  - Do not use `displayName` for naming components. Instead, name the component by reference.
 
     ```javascript
     // bad
@@ -96,6 +98,7 @@
     ```
 
 ## Alignment
+
   - Follow these alignment styles for JSX syntax
 
   eslint rules: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md).
@@ -124,6 +127,7 @@
     ```
 
 ## Quotes
+
   - Always use double quotes (`"`) for JSX attributes, but single quotes for all other JS.
 
   > Why? JSX attributes [can't contain escaped quotes](http://eslint.org/docs/rules/jsx-quotes), so double quotes make conjunctions like `"don't"` easier to type.
@@ -146,7 +150,9 @@
     ```
 
 ## Spacing
+
   - Always include a single space in your self-closing tag.
+
     ```javascript
     // bad
     <Foo/>
@@ -163,7 +169,9 @@
     ```
 
 ## Props
+
   - Always use camelCase for prop names.
+
     ```javascript
     // bad
     <Foo
@@ -179,6 +187,7 @@
     ```
 
 ## Parentheses
+
   - Wrap JSX tags in parentheses when they span more than one line.
 
   eslint rules: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md).
@@ -208,6 +217,7 @@
     ```
 
 ## Tags
+
   - Always self-close tags that have no children.
 
   eslint rules: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md).
@@ -238,7 +248,9 @@
     ```
 
 ## Methods
+
   - Do not use underscore prefix for internal methods of a React component.
+
     ```javascript
     // bad
     React.createClass({
@@ -261,83 +273,85 @@
 
 ## Ordering
 
-  - Ordering for class extends React.Component:
+  - Ordering for `class extends React.Component`:
 
-  1. constructor
-  1. optional static methods
-  1. getChildContext
-  1. componentWillMount
-  1. componentDidMount
-  1. componentWillReceiveProps
-  1. shouldComponentUpdate
-  1. componentWillUpdate
-  1. componentDidUpdate
-  1. componentWillUnmount
-  1. *clickHandlers or eventHandlers* like onClickSubmit() or onChangeDescription()
-  1. *getter methods for render* like getSelectReason() or getFooterContent()
-  1. *Optional render methods* like renderNavigation() or renderProfilePicture()
-  1. render
+  1. `constructor`
+  1. optional `static` methods
+  1. `getChildContext`
+  1. `componentWillMount`
+  1. `componentDidMount`
+  1. `componentWillReceiveProps`
+  1. `shouldComponentUpdate`
+  1. `componentWillUpdate`
+  1. `componentDidUpdate`
+  1. `componentWillUnmount`
+  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
+  1. *getter methods for `render`* like `getSelectReason() or `getFooterContent()`
+  1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
+  1. `render`
 
-  - How to define propTypes, defaultProps, contextTypes, etc...  
+  - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
 
-  ```javascript
-  import React, { PropTypes } from 'react';
+    ```javascript
+    import React, { PropTypes } from 'react';
 
-  const propTypes = {
-    id: PropTypes.number.isRequired,
-    url: PropTypes.string.isRequired,
-    text: PropTypes.string,
-  };
+    const propTypes = {
+      id: PropTypes.number.isRequired,
+      url: PropTypes.string.isRequired,
+      text: PropTypes.string,
+    };
 
-  const defaultProps = {
-    text: 'Hello World',
-  };
+    const defaultProps = {
+      text: 'Hello World',
+    };
 
-  class Link extends React.Component {
-    static methodsAreOk() {
-      return true;
+    class Link extends React.Component {
+      static methodsAreOk() {
+        return true;
+      }
+
+      render() {
+        return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
+      }
     }
 
-    render() {
-      return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
-    }
-  }
+    Link.propTypes = propTypes;
+    Link.defaultProps = defaultProps;
 
-  Link.propTypes = propTypes;
-  Link.defaultProps = defaultProps;
+    export default Link;
+    ```
 
-  export default Link;
-  ```
+  - Ordering for `React.createClass`:
 
-  - Ordering for React.createClass:
-
-  1. displayName
-  1. propTypes
-  1. contextTypes
-  1. childContextTypes
-  1. mixins
-  1. statics
-  1. defaultProps
-  1. getDefaultProps
-  1. getInitialState
-  1. getChildContext
-  1. componentWillMount
-  1. componentDidMount
-  1. componentWillReceiveProps
-  1. shouldComponentUpdate
-  1. componentWillUpdate
-  1. componentDidUpdate
-  1. componentWillUnmount
-  1. *clickHandlers or eventHandlers* like onClickSubmit() or onChangeDescription()
-  1. *getter methods for render* like getSelectReason() or getFooterContent()
-  1. *Optional render methods* like renderNavigation() or renderProfilePicture()
-  1. render
+  1. `displayName`
+  1. `propTypes`
+  1. `contextTypes`
+  1. `childContextTypes`
+  1. `mixins`
+  1. `statics`
+  1. `defaultProps`
+  1. `getDefaultProps`
+  1. `getInitialState`
+  1. `getChildContext`
+  1. `componentWillMount`
+  1. `componentDidMount`
+  1. `componentWillReceiveProps`
+  1. `shouldComponentUpdate`
+  1. `componentWillUpdate`
+  1. `componentDidUpdate`
+  1. `componentWillUnmount`
+  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
+  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
+  1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
+  1. `render`
 
   eslint rules: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md).
 
 ## `isMounted`
 
-  [`isMounted` is an anti-pattern][anti-pattern], is not available when using ES6 classes, and is on its way to being officially deprecated. Its use should be avoided.
+  - Do not use `isMounted`.
+
+  > Why? [`isMounted` is an anti-pattern][anti-pattern], is not available when using ES6 classes, and is on its way to being officially deprecated.
 
   [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
 
