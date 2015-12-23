@@ -323,51 +323,6 @@
     }
     ```
 
-  - Prefix the name of event handlers with `on`.
-    ```javascript
-    // bad
-    class extends React.Component {
-      handleClickDiv() {
-        // do stuff
-      }
-
-      // other stuff
-    }
-
-    // good
-    class extends React.Component {
-      onClickDiv() {
-        // do stuff
-      }
-
-      // other stuff
-    }
-    ```
-
-  - Prefix the name of additional render methods with `render`.
-
-    ```javascript
-    // bad
-    class extends React.Component {
-      createNavigation() {
-        // render stuff
-      }
-      render() {
-        {this.createNavigation()}
-      }
-    }
-
-    // good
-    class extends React.Component {
-      renderNavigation() {
-        // render stuff
-      }
-      render() {
-        {this.renderNavigation()}
-      }
-    }
-    ```
-
 ## Ordering
 
   - Ordering for `class extends React.Component`:
