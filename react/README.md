@@ -23,9 +23,9 @@
   - Always use JSX syntax.
   - Do not use `React.createElement` unless you're initializing the app from a file that is not JSX.
 
-## Class vs React.createClass
+## Class vs `React.createClass`
 
-  - Use class extends React.Component unless you have a very good reason to use mixins.
+  - Use `class extends React.Component` unless you have a very good reason to use mixins.
 
   eslint rules: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md).
 
@@ -81,7 +81,7 @@
 
 
 ## Declaration
-  - Do not use displayName for naming components. Instead, name the component by reference.
+  - Do not use `displayName` for naming components. Instead, name the component by reference.
 
     ```javascript
     // bad
@@ -261,24 +261,24 @@
 
 ## Ordering
 
-  - Ordering for class extends React.Component:
+  - Ordering for `class extends React.Component`:
 
-  1. constructor
-  1. optional static methods
-  1. getChildContext
-  1. componentWillMount
-  1. componentDidMount
-  1. componentWillReceiveProps
-  1. shouldComponentUpdate
-  1. componentWillUpdate
-  1. componentDidUpdate
-  1. componentWillUnmount
-  1. *clickHandlers or eventHandlers* like onClickSubmit() or onChangeDescription()
-  1. *getter methods for render* like getSelectReason() or getFooterContent()
-  1. *Optional render methods* like renderNavigation() or renderProfilePicture()
-  1. render
+  1. `constructor`
+  1. optional `static` methods
+  1. `getChildContext`
+  1. `componentWillMount`
+  1. `componentDidMount`
+  1. `componentWillReceiveProps`
+  1. `shouldComponentUpdate`
+  1. `componentWillUpdate`
+  1. `componentDidUpdate`
+  1. `componentWillUnmount`
+  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
+  1. *getter methods for `render`* like `getSelectReason() or `getFooterContent()`
+  1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
+  1. `render`
 
-  - How to define propTypes, defaultProps, contextTypes, etc...  
+  - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
 
   ```javascript
   import React, { PropTypes } from 'react';
@@ -309,29 +309,29 @@
   export default Link;
   ```
 
-  - Ordering for React.createClass:
+  - Ordering for `React.createClass`:
 
-  1. displayName
-  1. propTypes
-  1. contextTypes
-  1. childContextTypes
-  1. mixins
-  1. statics
-  1. defaultProps
-  1. getDefaultProps
-  1. getInitialState
-  1. getChildContext
-  1. componentWillMount
-  1. componentDidMount
-  1. componentWillReceiveProps
-  1. shouldComponentUpdate
-  1. componentWillUpdate
-  1. componentDidUpdate
-  1. componentWillUnmount
-  1. *clickHandlers or eventHandlers* like onClickSubmit() or onChangeDescription()
-  1. *getter methods for render* like getSelectReason() or getFooterContent()
-  1. *Optional render methods* like renderNavigation() or renderProfilePicture()
-  1. render
+  1. `displayName`
+  1. `propTypes`
+  1. `contextTypes`
+  1. `childContextTypes`
+  1. `mixins`
+  1. `statics`
+  1. `defaultProps`
+  1. `getDefaultProps`
+  1. `getInitialState`
+  1. `getChildContext`
+  1. `componentWillMount`
+  1. `componentDidMount`
+  1. `componentWillReceiveProps`
+  1. `shouldComponentUpdate`
+  1. `componentWillUpdate`
+  1. `componentDidUpdate`
+  1. `componentWillUnmount`
+  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
+  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
+  1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
+  1. `render`
 
   eslint rules: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md).
 
