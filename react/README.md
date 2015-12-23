@@ -5,6 +5,7 @@
 ## Table of Contents
 
   1. [Basic Rules](#basic-rules)
+  1. [Class vs `React.createClass`](#class-vs-reactcreateclass)
   1. [Naming](#naming)
   1. [Declaration](#declaration)
   1. [Alignment](#alignment)
