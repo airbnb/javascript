@@ -421,7 +421,7 @@ Other Style Guides
     const name = 'Capt. Janeway';
     ```
 
-  - [6.2](#6.2) <a name='6.2'></a> Strings longer than 100 characters should be written across multiple lines using string concatenation.
+  - [6.2](#6.2) <a name='6.2'></a> Strings that cause the line to go over 100 characters should be written across multiple lines using string concatenation.
   - [6.3](#6.3) <a name='6.3'></a> Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
@@ -1691,6 +1691,31 @@ Other Style Guides
 
     // good
     const foo = { clark: 'kent' };
+    ```
+  - [18.12](#18.12) <a name='18.12'></a> Avoid having lines of code that are longer than 100 characters (including whitespace).
+  > Why? This ensures readability and maintainability.
+
+  eslint rules: [`max-len`](http://eslint.org/docs/rules/max-len.html).
+
+    ```javascript
+  // bad
+  const foo = 'Whatever national crop flips the window. The cartoon reverts within the screw. Whatever wizard constrains a helpful ally. The counterpart ascends!';
+
+  // bad
+  $.ajax({ method: 'POST', url: 'https://airbnb.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
+
+  // good
+  const foo = 'Whatever national crop flips the window. The cartoon reverts within the screw. ' +
+    'Whatever wizard constrains a helpful ally. The counterpart ascends!';
+
+  // good
+  $.ajax({
+    method: 'POST',
+    url: 'https://airbnb.com/',
+    data: { name: 'John' },
+  })
+    .done(() => console.log('Congratulations!'))
+    .fail(() => console.log('You have failed this city.'));
     ```
 
 **[⬆ back to top](#table-of-contents)**
