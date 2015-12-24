@@ -34,6 +34,8 @@ module.exports = {
     'lines-around-comment': 0,
     // disallow mixed 'LF' and 'CRLF' as linebreaks
     'linebreak-style': 0,
+    // specify the maximum length of a line in your program
+    "max-len": [2, 100, 4],
     // specify the maximum depth callbacks can be nested
     'max-nested-callbacks': 0,
     // require a capital letter for constructors
