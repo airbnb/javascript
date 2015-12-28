@@ -1,33 +1,45 @@
+// Rules for our Node code. The first number is the warning level as reported by
+// eslint, the rest are settings for the error.
 {
     "rules": {
+        // 4 space indent
         "indent": [
             2,
             4
         ],
+        // enforce single quoted strings
         "quotes": [
             2,
             "single"
         ],
+        // unix style line endings
         "linebreak-style": [
             2,
             "unix"
         ],
+        // Always require semi colons (this may change)
         "semi": [
             2,
             "always"
         ],
+        // 80 char line limit. The 4 means tabs == 4 chars
         "max-len": [2, 80, 4],
+        // Variables must be used but params don't need to be
         "no-unused-vars": [2, {"vars": "all", "args": "none"}],
+        // Disable comma dangle rule. With or without dangling commas is allowed
         "comma-dangle": [0],
+        // Turn off indentation rules for now. Mostly because it's all over the
+        // place in our code.
         "indent": [0],
+        // Turn off rule to disable console statements.
         "no-console": [0]
     },
+    // Make these includes available so eslint doesn't complain about it
     "env": {
         "es6": true,
         "node": true,
-        "browser": true,
-        "mocha": true,
-        "jquery": true
+        "mocha": true
     },
+    // Inherit from eslint's recommended settings
     "extends": "eslint:recommended"
 }
