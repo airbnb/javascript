@@ -338,7 +338,7 @@
   1. `componentDidUpdate`
   1. `componentWillUnmount`
   1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
-  1. *getter methods for `render`* like `getSelectReason() or `getFooterContent()`
+  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
   1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
   1. `render`
 
