@@ -634,6 +634,8 @@ Other Style Guides
 
     > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
 
+    eslint rules: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html).
+
     ```javascript
     // bad
     function f1(obj) {
