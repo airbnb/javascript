@@ -631,7 +631,23 @@ Other Style Guides
 
 - [7.12](#7.12) <a name="7.12"></a> Never mutate parameters.
 
-  > Why? Overwriting parameters can lead to unexpected behavior, especially when accessing the `arguments` object. Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+  > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+
+  ```javascript
+  // bad
+  function f1(obj) {
+    obj.key = 1;
+  };
+
+  // good
+  function f2(obj) {
+    const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
+  };
+  ```
+
+- [7.13](#7.13) <a name="7.13"></a> Never reassign parameters.
+
+  > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
 
   eslint rules: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html).
 
@@ -645,21 +661,13 @@ Other Style Guides
     if (!a) { a = 1; }
   }
 
-  function f3(obj) {
-    obj.key = 1;
-  };
-
   // good
-  function f4(a) {
+  function f3(a) {
     const b = a || 1;
   }
 
-  function f5(a = 1) {
+  function f4(a = 1) {
   }
-
-  function f6(obj) {
-    const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
-  };
   ```
 
 **[⬆ back to top](#table-of-contents)**
