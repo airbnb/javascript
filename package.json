@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/aboutdotme/javascript/issues"
   },
-  "homepage": "https://github.com/aboutdotme/javascript"
+  "homepage": "https://github.com/aboutdotme/javascript",
+  "dependencies": {
+    "eslint": "^1.10.3"
+  }
 }
