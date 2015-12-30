@@ -1,38 +1,43 @@
 // Rules for our Node code. The first number is the warning level as reported by
 // eslint, the rest are settings for the error.
-{
+
+const OFF = 0;
+const WARNING = 1;
+const ERROR = 2;
+
+module.exports = {
     "rules": {
         // 4 space indent
         "indent": [
-            2,
+            ERROR,
             4
         ],
         // enforce single quoted strings
         "quotes": [
-            2,
+            ERROR,
             "single"
         ],
         // unix style line endings
         "linebreak-style": [
-            2,
+            ERROR,
             "unix"
         ],
         // Always require semi colons (this may change)
         "semi": [
-            2,
+            ERROR,
             "always"
         ],
         // 80 char line limit. The 4 means tabs == 4 chars
-        "max-len": [2, 80, 4],
+        "max-len": [ERROR, 80, 4],
         // Variables must be used but params don't need to be
-        "no-unused-vars": [2, {"vars": "all", "args": "none"}],
+        "no-unused-vars": [ERROR, {"vars": "all", "args": "none"}],
         // Disable comma dangle rule. With or without dangling commas is allowed
-        "comma-dangle": [0],
+        "comma-dangle": [OFF],
         // Turn off indentation rules for now. Mostly because it's all over the
         // place in our code.
-        "indent": [0],
+        "indent": [OFF],
         // Turn off rule to disable console statements.
-        "no-console": [0]
+        "no-console": [OFF]
     },
     // Make these includes available so eslint doesn't complain about it
     "env": {
@@ -42,4 +47,4 @@
     },
     // Inherit from eslint's recommended settings
     "extends": "eslint:recommended"
-}
+};
