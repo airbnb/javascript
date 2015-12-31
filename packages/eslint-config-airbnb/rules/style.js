@@ -36,14 +36,8 @@ module.exports = {
     'linebreak-style': 0,
     // specify the maximum length of a line in your program
     // https://github.com/eslint/eslint/blob/master/docs/rules/max-len.md
-    'max-len': [2, {
-      'code': 100,
-      'comments': 100,
-      'commentLength': 100,
-      'tabWidth': 2,
+    'max-len': [2, 100, 2, {
       'ignoreUrls': false,
-      'ignorePattern': null,
-      'ignoreTrailingComments': false,
       'ignoreComments': false
     }],
     // specify the maximum depth callbacks can be nested
