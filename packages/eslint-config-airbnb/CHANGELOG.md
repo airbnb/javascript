@@ -1,3 +1,16 @@
+3.0.0 / 2016-01-04
+==================
+ - [breaking] enable `quote-props` rule (#632)
+ - [breaking] Define a max line length of 100 characters (#639)
+ - [breaking] [react] Minor cleanup for the React styleguide, add `react/jsx-no-bind` (#619)
+ - [breaking] update best-practices config to prevent parameter object manipulation (#627)
+ - [minor] Enable react/no-is-mounted rule (#635, #633)
+ - [minor] Sort react/prefer-es6-class alphabetically (#634)
+ - [minor] enable react/prefer-es6-class rule
+ - Permit strict mode in "legacy" config
+ - [react] add missing rules from eslint-plugin-react (enforcing where necessary) (#581)
+ - [dev deps] update `eslint-plugin-react`
+
 2.1.1 / 2015-12-15
 ==================
  - [fix] Remove deprecated react/jsx-quotes (#622)
