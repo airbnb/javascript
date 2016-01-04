@@ -743,7 +743,7 @@ Other Style Guides
     ```
 
 
-  - [8.4](#8.4) <a name='8.4'></a> If your function takes a single argument and doesn’t use braces, omit the parentheses.
+  - [8.4](#8.4) <a name='8.4'></a> If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments.
 
     > Why? Less visual clutter.
 
