@@ -8,7 +8,7 @@
 - Run
 
 ```shell
-curl -u LOGIN:API_KEY https://iadvize.artifactoryonline.com/iadvize/api/npm/iadvize-npm/auth/iadvize >> ~/.npmrc
+curl -uLOGIN:ENCRYPTED_PWD https://iadvize.artifactoryonline.com/iadvize/api/npm/iadvize-npm/auth/iadvize >> ~/.npmrc
 ```
 
 this will add the @iadvize scope to your `~/.npmrc`. Your `npmrc` should contain something like this
