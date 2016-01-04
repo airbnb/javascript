@@ -1102,45 +1102,36 @@ Other Style Guides
     > Why? `let` and `const` are block scoped and not function scoped.
 
     ```javascript
-    // good
-    function () {
-      test();
-      console.log('doing stuff..');
-
-      //..other stuff..
-
+    // bad - unnecessary function call
+    function checkName(hasName) {
       const name = getName();
 
+      if (hasName === 'test') {
+        return false;
+      }
+
       if (name === 'test') {
+        this.setName('');
         return false;
       }
 
       return name;
     }
 
-    // bad - unnecessary function call
-    function (hasName) {
-      const name = getName();
-
-      if (!hasName) {
-        return false;
-      }
-
-      this.setFirstName(name);
-
-      return true;
-    }
-
     // good
-    function (hasName) {
-      if (!hasName) {
+    function checkName(hasName) {
+      if (hasName === 'test') {
         return false;
       }
 
       const name = getName();
-      this.setFirstName(name);
 
-      return true;
+      if (name === 'test') {
+        this.setName('');
+        return false;
+      }
+
+      return name;
     }
     ```
 
