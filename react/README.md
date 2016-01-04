@@ -267,7 +267,7 @@
 
   - Bind event handlers for the render method in the constructor.
 
-  > Why? A bind call in a the render path create a brand new function on every single render.
+  > Why? A bind call in a the render path creates a brand new function on every single render.
 
   eslint rules: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md).
 
