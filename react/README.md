@@ -14,6 +14,7 @@
   1. [Parentheses](#parentheses)
   1. [Tags](#tags)
   1. [Methods](#methods)
+  1. [Arrow Functions](#arrow-functions)
   1. [Ordering](#ordering)
 
 ## Basic Rules
@@ -245,7 +246,7 @@
   }
 
   render() {
-    return <a onClick={this.onClick.bind(this)}>Clicky Link</a>;
+    return <a onClick={this.onClick.bind(this)}>Clicky</a>;
   }
 
   // good
@@ -254,7 +255,7 @@
   }
 
   render() {
-    return <a onClick={this.onClick}>Clickier Link</a>;
+    return <a onClick={this.onClick}>Clickier</a>;
   }
   ```
 
@@ -263,7 +264,7 @@
 ## Ordering
 
   - Ordering for class extends React.Component:
-  
+ 
   1. constructor
   1. optional static methods
   1. getChildContext
