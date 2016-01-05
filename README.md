@@ -378,8 +378,8 @@ Other Style Guides
     }
 
     // good
-    function getFullName(obj) {
-      const { firstName, lastName } = obj;
+    function getFullName(user) {
+      const { firstName, lastName } = user;
       return `${firstName} ${lastName}`;
     }
 
