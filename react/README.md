@@ -219,7 +219,7 @@
     ```javascript
     // bad
     React.createClass({
-      _onClickSubmit() {
+      _myComponentMethod() {
         // do stuff
       }
 
@@ -228,13 +228,37 @@
 
     // good
     class extends React.Component {
-      onClickSubmit() {
+      myComponentMethod() {
         // do stuff
       }
 
       // other stuff
     });
     ```
+
+## Arrow Functions
+  - When using ES2015 syntax and declaring your components as `class MyComponent extends React.Components {}` you should use arrow functions to define functions that will need to be bound to the components scope. This removes the need to have `.bind()` ran on every render. The arrow function will have the lexical `this` of the component.
+  ```javascript
+  // bad
+  onClick() {
+    // do stuff
+  }
+
+  render() {
+    return <a onClick={this.onClick.bind(this)}>Clicky Link</a>;
+  }
+
+  // good
+  onClick = () => {
+    // do stuff
+  }
+
+  render() {
+    return <a onClick={this.onClick}>Clickier Link</a>;
+  }
+  ```
+
+  For more information, please checkout the "Arrow Functions" section of [this article on ES2015+ React](http://babeljs.io/blog/2015/06/07/react-on-es6-plus/).
 
 ## Ordering
 
