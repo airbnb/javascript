@@ -241,21 +241,25 @@
   - When using ES2015 syntax and declaring your components as `class MyComponent extends React.Components {}` you should use arrow functions to define functions that will need to be bound to the components scope. This removes the need to have `.bind()` ran on every render. The arrow function will have the lexical `this` of the component.
   ```javascript
   // bad
-  onClick() {
-    // do stuff
-  }
+  class MyComponent extends React.Component {
+    onLinkClick() {
+      // do stuff
+    }
 
-  render() {
-    return <a onClick={this.onClick.bind(this)}>Clicky</a>;
+    render() {
+      return <a onClick={this.onClick.bind(this)}>Clicky</a>;
+    }
   }
 
   // good
-  onClick = () => {
-    // do stuff
-  }
+  class MyComponent extends React.Component {
+    onLinkClick = () => {
+      // do stuff
+    }
 
-  render() {
-    return <a onClick={this.onClick}>Clickier</a>;
+    render() {
+      return <a onClick={this.onClick}>Clicky</a>;
+    }
   }
   ```
 
