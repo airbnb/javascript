@@ -247,7 +247,7 @@
     }
 
     render() {
-      return <a onClick={this.onClick.bind(this)}>Clicky</a>;
+      return <a onClick={this.onLinkClick.bind(this)}>Clicky</a>;
     }
   }
 
@@ -258,7 +258,7 @@
     }
 
     render() {
-      return <a onClick={this.onClick}>Clicky</a>;
+      return <a onClick={this.onLinkClick}>Clicky</a>;
     }
   }
   ```
