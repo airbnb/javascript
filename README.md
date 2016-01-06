@@ -42,7 +42,7 @@
   1. [License](#license)
 
 ## Linting
-ESLint is already included in FESK and BESK, but if your current project isn't using it install the necessary modules:
+ESLint is already included in [BESK](https://bitbucket.org/mbst/besk) and [FESK](https://bitbucket.org/mbst/fesk), but if your current project isn't using it install the necessary modules:
 
 ```
 npm install --save-dev eslint-config-airbnb eslint
@@ -56,7 +56,7 @@ You must use the relevant plugins for your editor/IDE for this to work. Here is 
 - Webstorm ([Docs on enabling ESLint](https://www.jetbrains.com/webstorm/help/eslint.html))
 
 ## Editor Config
-[BESK](https://bitbucket.org:mbst/besk) and [FESK](https://bitbucket.org:mbst/fesk) contain an `.editorconfig` file with out common editor settings. For this to take effect you must install the relevant [Editor Config](http://editorconfig.org) plugin for your editor/IDE. Some common ones are:
+[BESK](https://bitbucket.org/mbst/besk) and [FESK](https://bitbucket.org/mbst/fesk) contain an `.editorconfig` file with out common editor settings. For this to take effect you must install the relevant [Editor Config](http://editorconfig.org) plugin for your editor/IDE. Some common ones are:
 - Webstorm (No plugin. Should work out of the box)
 - Sublime Text ([Plugin](https://github.com/sindresorhus/editorconfig-sublime))
 - Atom ([Plugin](https://github.com/sindresorhus/atom-editorconfig))
