@@ -1,3 +1,7 @@
+3.0.1 / 2016-01-06
+==================
+ - [fix] because we use babel, keywords should not be quoted
+
 3.0.0 / 2016-01-04
 ==================
  - [breaking] enable `quote-props` rule (#632)
