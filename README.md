@@ -6,6 +6,7 @@
 ## Table of Contents
 
   1. [Linting](#linting)
+  1. [Editor Config](#editor-config)
   1. [Types](#types)
   1. [Dates and times](#dates-and-times)
   1. [Objects](#objects)
@@ -48,6 +49,19 @@ npm install --save-dev eslint-config-airbnb eslint
 ```
 
 Copy the `.eslintrc` file from this repos `linters` directory to your project root.
+
+You must use the relevant plugins for your editor/IDE for this to work. Here is a list of common plugins:
+- Sublime (Requires [Sublime Linter](http://www.sublimelinter.com/en/latest/) and [Sublime Linter ESLint](https://github.com/roadhump/SublimeLinter-eslint))
+- Atom (Requires [Atom Linter](https://github.com/atom-community/linter) and [Linter ESLint](https://github.com/AtomLinter/linter-eslint))
+- Webstorm ([Docs on enabling ESLint](https://www.jetbrains.com/webstorm/help/eslint.html))
+
+## Editor Config
+[BESK](https://bitbucket.org:mbst/besk) and [FESK](https://bitbucket.org:mbst/fesk) contain an `.editorconfig` file with out common editor settings. For this to take effect you must install the relevant [Editor Config](http://editorconfig.org) plugin for your editor/IDE. Some common ones are:
+- Webstorm (No plugin. Should work out of the box)
+- Sublime Text ([Plugin](https://github.com/sindresorhus/editorconfig-sublime))
+- Atom ([Plugin](https://github.com/sindresorhus/atom-editorconfig))
+
+If your editor/IDE isn't listed above, a list of available plugins can be found in the [Editor Config documentation](http://editorconfig.org/#download).
 
 ## Types
 
