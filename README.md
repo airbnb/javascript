@@ -927,9 +927,12 @@ Other Style Guides
     import AirbnbStyleGuide from './AirbnbStyleGuide';
     export default AirbnbStyleGuide.es6;
 
-    // best
+    // good
     import { es6 } from './AirbnbStyleGuide';
     export default es6;
+    
+    // best
+    export { es6 as default } from './AirbnbStyleGuide';
     ```
 
   - [10.2](#10.2) <a name='10.2'></a> Do not use wildcard imports.
