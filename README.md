@@ -1908,6 +1908,8 @@ Other Style Guides
 
   - [21.3](#21.3) <a name='21.3'></a> Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings.
 
+    eslint rules: [`radix`](http://eslint.org/docs/rules/radix).
+
     ```javascript
     const inputValue = '4';
 
