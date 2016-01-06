@@ -1,6 +1,18 @@
 {
   "extends": "airbnb/base",
+  "globals": {
+    "Backbone": true,
+    "Handlebars": true,
+    "moment": true,
+    "_": true,
+    "$": true
+  },
   "rules": {
-    // any additional rules or overrides go here
+    "space-before-function-paren": [2, {
+      "anonymous": "always",
+      "named": "never"
+    }],
+    "comma-dangle": 0,
+    "func-names": 0
   }
 }
