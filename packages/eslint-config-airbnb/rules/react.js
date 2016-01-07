@@ -91,7 +91,7 @@ module.exports = {
     'react/no-is-mounted': 2,
     // Prevent multiple component definition per file
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md
-    'react/no-multi-comp': [2, {'ignoreStateless': false}],
+    'react/no-multi-comp': [2, {'ignoreStateless': true}],
     // Prevent usage of setState
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-set-state.md
     'react/no-set-state': 0,
