@@ -37,7 +37,7 @@ module.exports = {
     // specify the maximum length of a line in your program
     // https://github.com/eslint/eslint/blob/master/docs/rules/max-len.md
     'max-len': [2, 100, 2, {
-      'ignoreUrls': false,
+      'ignoreUrls': true,
       'ignoreComments': false
     }],
     // specify the maximum depth callbacks can be nested
