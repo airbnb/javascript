@@ -1,3 +1,7 @@
+3.1.0 / 2016-01-07
+==================
+ - [minor] Allow multiple stateless components in a single file
+
 3.0.2 / 2016-01-06
 ==================
  - [fix] Ignore URLs in `max-len` (#664)
