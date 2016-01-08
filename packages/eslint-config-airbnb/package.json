@@ -1,11 +1,11 @@
 {
   "name": "eslint-config-airbnb",
-  "version": "0.0.8",
+  "version": "3.1.0",
   "description": "Airbnb's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint .",
-    "test": "./node_modules/.bin/babel-tape-runner ./test/test-*.js"
+    "lint": "eslint .",
+    "test": "babel-tape-runner ./test/test-*.js"
   },
   "repository": {
     "type": "git",
@@ -20,17 +20,30 @@
     "styleguide"
   ],
   "author": "Jake Teton-Landis (https://twitter.com/@jitl)",
+  "contributors": [
+    {
+      "name": "Jake Teton-Landis",
+      "url": "https://twitter.com/jitl"
+    },
+    {
+      "name": "Jordan Harband",
+      "email": "ljharb@gmail.com",
+      "url": "http://ljharb.codes"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/airbnb/javascript/issues"
   },
   "homepage": "https://github.com/airbnb/javascript",
   "devDependencies": {
-    "babel-eslint": "4.0.10",
     "babel-tape-runner": "1.2.0",
-    "eslint": "1.1.0",
-    "eslint-plugin-react": "3.2.3",
-    "react": "0.13.3",
-    "tape": "4.2.0"
+    "eslint": "^1.10.3",
+    "eslint-plugin-react": "^3.12.0",
+    "react": "^0.13.3",
+    "tape": "^4.2.2"
+  },
+  "peerDependencies": {
+    "eslint": ">=1.0.0"
   }
 }
