@@ -11,7 +11,8 @@ module.exports = {
     // disallow shadowing of names such as arguments
     'no-shadow-restricted-names': 2,
     // disallow declaration of variables already declared in the outer scope
-    'no-shadow': 2,
+    // http://eslint.org/docs/rules/no-shadow.html
+    'no-shadow': [2, {'builtinGlobals': true, 'hoist': 'functions', 'allow': []}],
     // disallow use of undefined when initializing variables
     'no-undef-init': 0,
     // disallow use of undeclared variables unless mentioned in a /*global */ block
