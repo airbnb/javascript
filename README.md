@@ -1457,17 +1457,17 @@ Other Style Guides
 
     ```javascript
     // bad
-    function () {
+    function() {
     ∙∙∙∙const name;
     }
 
     // bad
-    function () {
+    function() {
     ∙const name;
     }
 
     // good
-    function () {
+    function() {
     ∙∙const name;
     }
     ```
