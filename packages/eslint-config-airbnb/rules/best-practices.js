@@ -108,7 +108,8 @@ module.exports = {
     // requires to declare all vars on top of their containing scope
     'vars-on-top': 2,
     // require immediate function invocation to be wrapped in parentheses
-    'wrap-iife': [2, 'any'],
+    // http://eslint.org/docs/rules/wrap-iife.html
+    'wrap-iife': [2, 'outside'],
     // require or disallow Yoda conditions
     'yoda': 2
   }
