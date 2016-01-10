@@ -506,13 +506,17 @@ Other Style Guides
     }
     ```
 
-  - [7.2](#7.2) <a name='7.2'></a> Function expressions:
+  - [7.2](#7.2) <a name='7.2'></a> Immediately invoked function expressions:
+
+    > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
+
+    eslint rules: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html).
 
     ```javascript
     // immediately-invoked function expression (IIFE)
-    (() => {
+    (function () {
       console.log('Welcome to the Internet. Please follow me.');
-    })();
+    }());
     ```
 
   - [7.3](#7.3) <a name='7.3'></a> Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
