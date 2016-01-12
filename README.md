@@ -1048,7 +1048,7 @@ Other Style Guides
     // we know this wouldn't work (assuming there
     // is no notDefined global variable)
     function example() {
-      console.log(notDefined); // => throws a ReferenceError
+        console.log(notDefined); // => throws a ReferenceError
     }
 
     // creating a variable declaration after you
@@ -1056,24 +1056,24 @@ Other Style Guides
     // variable hoisting. Note: the assignment
     // value of `true` is not hoisted.
     function example() {
-      console.log(declaredButNotAssigned); // => undefined
-      var declaredButNotAssigned = true;
+        console.log(declaredButNotAssigned); // => undefined
+        var declaredButNotAssigned = true;
     }
 
     // The interpreter is hoisting the variable
     // declaration to the top of the scope,
     // which means our example could be rewritten as:
     function example() {
-      let declaredButNotAssigned;
-      console.log(declaredButNotAssigned); // => undefined
-      declaredButNotAssigned = true;
+        let declaredButNotAssigned;
+        console.log(declaredButNotAssigned); // => undefined
+        declaredButNotAssigned = true;
     }
 
     // using const and let
     function example() {
-      console.log(declaredButNotAssigned); // => throws a ReferenceError
-      console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
-      const declaredButNotAssigned = true;
+        console.log(declaredButNotAssigned); // => throws a ReferenceError
+        console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
+        const declaredButNotAssigned = true;
     }
     ```
 
@@ -1081,13 +1081,13 @@ Other Style Guides
 
     ```javascript
     function example() {
-      console.log(anonymous); // => undefined
+        console.log(anonymous); // => undefined
 
-      anonymous(); // => TypeError anonymous is not a function
+        anonymous(); // => TypeError anonymous is not a function
 
-      var anonymous = function() {
-        console.log('anonymous function expression');
-      };
+        var anonymous = function() {
+            console.log('anonymous function expression');
+        };
     }
     ```
 
@@ -1095,27 +1095,27 @@ Other Style Guides
 
     ```javascript
     function example() {
-      console.log(named); // => undefined
+        console.log(named); // => undefined
 
-      named(); // => TypeError named is not a function
+        named(); // => TypeError named is not a function
 
-      superPower(); // => ReferenceError superPower is not defined
+        superPower(); // => ReferenceError superPower is not defined
 
-      var named = function superPower() {
-        console.log('Flying');
-      };
+        var named = function superPower() {
+            console.log('Flying');
+        };
     }
 
     // the same is true when the function name
     // is the same as the variable name.
     function example() {
-      console.log(named); // => undefined
+        console.log(named); // => undefined
 
-      named(); // => TypeError named is not a function
+        named(); // => TypeError named is not a function
 
-      var named = function named() {
-        console.log('named');
-      }
+        var named = function named() {
+            console.log('named');
+        }
     }
     ```
 
@@ -1123,11 +1123,11 @@ Other Style Guides
 
     ```javascript
     function example() {
-      superPower(); // => Flying
+        superPower(); // => Flying
 
-      function superPower() {
-        console.log('Flying');
-      }
+        function superPower() {
+            console.log('Flying');
+        }
     }
     ```
 
@@ -1160,22 +1160,22 @@ Other Style Guides
     ```javascript
     // bad
     if (name !== '') {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     if (name) {
-      // ...stuff...
+        // ...stuff...
     }
 
     // bad
     if (collection.length > 0) {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     if (collection.length) {
-      // ...stuff...
+        // ...stuff...
     }
     ```
 
@@ -1191,14 +1191,14 @@ Other Style Guides
     ```javascript
     // bad
     if (test)
-      return false;
+        return false;
 
     // good
     if (test) return false;
 
     // good
     if (test) {
-      return false;
+        return false;
     }
 
     // bad
@@ -1206,7 +1206,7 @@ Other Style Guides
 
     // good
     function() {
-      return false;
+        return false;
     }
     ```
 
@@ -1216,19 +1216,19 @@ Other Style Guides
     ```javascript
     // bad
     if (test) {
-      thing1();
-      thing2();
+        thing1();
+        thing2();
     }
     else {
-      thing3();
+        thing3();
     }
 
     // good
     if (test) {
-      thing1();
-      thing2();
+        thing1();
+        thing2();
     } else {
-      thing3();
+        thing3();
     }
     ```
 
@@ -1249,9 +1249,9 @@ Other Style Guides
     // @return {Element} element
     function make(tag) {
 
-      // ...stuff...
+        // ...stuff...
 
-      return element;
+        return element;
     }
 
     // good
@@ -1264,9 +1264,9 @@ Other Style Guides
      */
     function make(tag) {
 
-      // ...stuff...
+        // ...stuff...
 
-      return element;
+        return element;
     }
     ```
 
@@ -1282,21 +1282,21 @@ Other Style Guides
 
     // bad
     function getType() {
-      console.log('fetching type...');
-      // set the default type to 'no type'
-      const type = this._type || 'no type';
+        console.log('fetching type...');
+        // set the default type to 'no type'
+        const type = this._type || 'no type';
 
-      return type;
+        return type;
     }
 
     // good
     function getType() {
-      console.log('fetching type...');
+        console.log('fetching type...');
 
-      // set the default type to 'no type'
-      const type = this._type || 'no type';
+        // set the default type to 'no type'
+        const type = this._type || 'no type';
 
-      return type;
+        return type;
     }
     ```
 
@@ -1306,12 +1306,12 @@ Other Style Guides
 
     ```javascript
     class Calculator extends Abacus {
-      constructor() {
-        super();
+        constructor() {
+            super();
 
-        // FIXME: shouldn't use a global here
-        total = 0;
-      }
+            // FIXME: shouldn't use a global here
+            total = 0;
+        }
     }
     ```
 
@@ -1319,12 +1319,12 @@ Other Style Guides
 
     ```javascript
     class Calculator extends Abacus {
-      constructor() {
-        super();
+        constructor() {
+            super();
 
-        // TODO: total should be configurable by an options param
-        this.total = 0;
-      }
+            // TODO: total should be configurable by an options param
+            this.total = 0;
+        }
     }
     ```
 
@@ -1357,24 +1357,24 @@ Other Style Guides
     ```javascript
     // bad
     function test(){
-      console.log('test');
+        console.log('test');
     }
 
     // good
     function test() {
-      console.log('test');
+        console.log('test');
     }
 
     // bad
     dog.set('attr',{
-      age: '1 year',
-      breed: 'Bernese Mountain Dog',
+        age: '1 year',
+        breed: 'Bernese Mountain Dog',
     });
 
     // good
     dog.set('attr', {
-      age: '1 year',
-      breed: 'Bernese Mountain Dog',
+        age: '1 year',
+        breed: 'Bernese Mountain Dog',
     });
     ```
 
@@ -1383,22 +1383,22 @@ Other Style Guides
     ```javascript
     // bad
     if(isJedi) {
-      fight ();
+        fight ();
     }
 
     // good
     if (isJedi) {
-      fight();
+        fight();
     }
 
     // bad
     function fight () {
-      console.log ('Swooosh!');
+        console.log ('Swooosh!');
     }
 
     // good
     function fight() {
-      console.log('Swooosh!');
+        console.log('Swooosh!');
     }
     ```
 
@@ -1417,14 +1417,14 @@ Other Style Guides
     ```javascript
     // bad
     (function(global) {
-      // ...stuff...
+        // ...stuff...
     })(this);
     ```
 
     ```javascript
     // bad
     (function(global) {
-      // ...stuff...
+        // ...stuff...
     })(this);↵
     ↵
     ```
@@ -1432,7 +1432,7 @@ Other Style Guides
     ```javascript
     // good
     (function(global) {
-      // ...stuff...
+        // ...stuff...
     })(this);↵
     ```
 
@@ -1445,35 +1445,35 @@ Other Style Guides
 
     // bad
     $('#items').
-      find('.selected').
-        highlight().
-        end().
-      find('.open').
-        updateCount();
+        find('.selected').
+            highlight().
+            end().
+        find('.open').
+            updateCount();
 
     // good
     $('#items')
-      .find('.selected')
-        .highlight()
-        .end()
-      .find('.open')
-        .updateCount();
+        .find('.selected')
+            .highlight()
+            .end()
+        .find('.open')
+            .updateCount();
 
     // bad
     const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
-        .attr('width', (radius + margin) * 2).append('svg:g')
-        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
-        .call(tron.led);
+            .attr('width', (radius + margin) * 2).append('svg:g')
+            .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+            .call(tron.led);
 
     // good
     const leds = stage.selectAll('.led')
-        .data(data)
-      .enter().append('svg:svg')
-        .classed('led', true)
-        .attr('width', (radius + margin) * 2)
-      .append('svg:g')
-        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
-        .call(tron.led);
+            .data(data)
+        .enter().append('svg:svg')
+            .classed('led', true)
+            .attr('width', (radius + margin) * 2)
+        .append('svg:g')
+            .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+            .call(tron.led);
     ```
 
   - [18.7](#18.7) <a name='18.7'></a> Leave a blank line after blocks and before the next statement.
@@ -1481,53 +1481,53 @@ Other Style Guides
     ```javascript
     // bad
     if (foo) {
-      return bar;
+        return bar;
     }
     return baz;
 
     // good
     if (foo) {
-      return bar;
+        return bar;
     }
 
     return baz;
 
     // bad
     const obj = {
-      foo() {
-      },
-      bar() {
-      },
+        foo() {
+        },
+        bar() {
+        },
     };
     return obj;
 
     // good
     const obj = {
-      foo() {
-      },
+        foo() {
+        },
 
-      bar() {
-      },
+        bar() {
+        },
     };
 
     return obj;
 
     // bad
     const arr = [
-      function foo() {
-      },
-      function bar() {
-      },
+        function foo() {
+        },
+        function bar() {
+        },
     ];
     return arr;
 
     // good
     const arr = [
-      function foo() {
-      },
+        function foo() {
+        },
 
-      function bar() {
-      },
+        function bar() {
+        },
     ];
 
     return arr;
