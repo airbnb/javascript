@@ -671,7 +671,7 @@ Other Style Guides
 
   > Why? It shows clearly where the function starts and ends.
 
-    ```js
+    ```javascript
     // bad
     [1, 2, 3].map(number => 'As time went by, the string containing the ' +
         `${number} became much longer. So we needed to break it over multiple ` +
@@ -690,7 +690,7 @@ Other Style Guides
 
   > Why? Less visual clutter.
 
-    ```js
+    ```javascript
     // good
     [1, 2, 3].map(x => x * x);
 
@@ -934,7 +934,7 @@ Other Style Guides
 
 ## Variables
 
-  - [13.1](#13.1) <a name='13.1'></a> Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  - [13.1](#13.1) <a name='13.1'></a> Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
 
     ```javascript
     // bad
@@ -944,7 +944,7 @@ Other Style Guides
     const superPower = new SuperPower();
     ```
 
-  - [13.2](#13.2) <a name='13.2'></a> Use one `const` declaration per variable.
+  - [13.2](#13.2) <a name='13.2'></a> Use one `const` or `let` declaration per variable.
 
     > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs.
 
@@ -1035,6 +1035,15 @@ Other Style Guides
         this.setFirstName(name);
 
         return true;
+    }
+    ```
+
+  > Note that referencing a variable declared by `let` or `const` before they are set results in a reference error, including typeof (see [Why `typeof` is no longer "safe"](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15))
+
+    ```javascript
+    if (condition) {
+        console.log(typeof value);     // ReferenceError!
+        let value = "blue";
     }
     ```
 
