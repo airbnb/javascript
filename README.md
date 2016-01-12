@@ -1131,6 +1131,20 @@ Other Style Guides
     }
     ```
 
+  - [14.5](#14.5) <a name='14.5'></a> ES6 `import`s are hoisted to the beginning of their module.
+
+    ```javascript
+    // This works
+    foo();
+
+    import { foo } from 'my_module';
+
+    // This will import 'imported_module' before 'required_module'
+    require('required_module');
+
+    import 'my_module';
+    ```
+
   - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/).
 
 **[⬆ back to top](#table-of-contents)**
@@ -1138,7 +1152,7 @@ Other Style Guides
 
 ## Comparison Operators & Equality
 
-  - [15.1](#15.1) <a name='15.1'></a> Use `===` and `!==` over `==` and `!=`.
+  - [15.1](#15.1) <a name='15.1'></a> Use `===` and `!==` over `==` and `!=`. Avoid `==` and `!=` because they are 'loose' equality comparisons, only evaluating equality after coercing both values following confusing and difficult to remember rules ([see MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)).
   - [15.2](#15.2) <a name='15.2'></a> Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
 
     + **Objects** evaluate to **true**
@@ -1149,9 +1163,9 @@ Other Style Guides
     + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
     ```javascript
-    if ([0]) {
-      // true
-      // An array is an object, objects evaluate to true
+    if ([]) {
+        // true
+        // An array is an object, objects evaluate to true
     }
     ```
 
