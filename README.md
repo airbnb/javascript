@@ -2004,6 +2004,8 @@ Other Style Guides
     ```
 
   - [22.3](#22.3) <a name='22.3'></a> Use PascalCase when naming constructors or classes.
+  
+    eslint rules: [`new-cap`](http://eslint.org/docs/rules/new-cap.html).
 
     ```javascript
     // bad
