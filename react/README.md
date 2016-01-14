@@ -27,7 +27,7 @@
 
 ## Class vs `React.createClass`
 
-  - Use `class extends React.Component` unless you have a very good reason to use mixins.
+  - Use `class extends Component` unless you have a very good reason to use mixins.
 
   eslint rules: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md).
 
@@ -40,7 +40,7 @@
     });
 
     // good
-    class Listing extends React.Component {
+    class Listing extends Component {
       render() {
         return <div />;
       }
@@ -49,8 +49,8 @@
 
 ## Naming
 
-  - **Extensions**: Use `.jsx` extension for React components.
-  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
+  - **Extensions**: Use `.js` extension for React components.
+  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.js`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances.
 
   eslint rules: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md).
@@ -94,7 +94,7 @@
     });
 
     // good
-    export default class ReservationCard extends React.Component {
+    export default class ReservationCard extends Component {
     }
     ```
 
@@ -129,8 +129,8 @@
 
 ## Quotes
 
-  - Always use double quotes (`"`) for JSX attributes, but single quotes for all other JS.
-
+  - Always use double quotes (`"`).
+  
   > Why? JSX attributes [can't contain escaped quotes](http://eslint.org/docs/rules/jsx-quotes), so double quotes make conjunctions like `"don't"` easier to type.
   > Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
 
@@ -144,10 +144,10 @@
     <Foo bar="bar" />
 
     // bad
-    <Foo style={{ left: "20px" }} />
+    <Foo style={{ left: '20px' }} />
 
     // good
-    <Foo style={{ left: '20px' }} />
+    <Foo style={{ left: "20px" }} />
     ```
 
 ## Spacing
@@ -315,7 +315,7 @@
     });
 
     // good
-    class extends React.Component {
+    class extends Component {
       onClickSubmit() {
         // do stuff
       }
@@ -326,10 +326,22 @@
 
 ## Ordering
 
-  - Ordering for `class extends React.Component`:
-
+  - Ordering for `class extends Component`:
+  
+  1. `mixins`
+  1. `displayName`
+  1. `propTypes`
+  1. `paginationId`
+  1. `headers`
+  1. `scopesDef`
+  1. `contextTypes`
+  1. `childContextTypes`
+  1. optional static methods
+  1. `defaultProps`
   1. `constructor`
-  1. optional `static` methods
+  1. `getDefaultProps`
+  1. `getInitialState`
+  1. `state`
   1. `getChildContext`
   1. `componentWillMount`
   1. `componentDidMount`
@@ -338,27 +350,28 @@
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
-  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
-  1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
   1. `render`
 
+
   - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
+  
+    Use ES7 static class properties : [documentation](https://github.com/jeffmo/es-class-fields-and-static-properties#part-2-class-static-properties) / [babel support](http://babeljs.io/docs/plugins/syntax-class-properties/)
 
     ```javascript
     import React, { PropTypes } from 'react';
 
-    const propTypes = {
-      id: PropTypes.number.isRequired,
-      url: PropTypes.string.isRequired,
-      text: PropTypes.string,
-    };
+    export default class Link extends React.Component {
+      static propTypes = {
+        id: PropTypes.number.isRequired,
+        url: PropTypes.string.isRequired,
+        text: PropTypes.string,
+      };
+      
+      static defaultProps = {
+        text: 'Hello World',
+      };
 
-    const defaultProps = {
-      text: 'Hello World',
-    };
-
-    class Link extends React.Component {
+    
       static methodsAreOk() {
         return true;
       }
@@ -368,37 +381,7 @@
       }
     }
 
-    Link.propTypes = propTypes;
-    Link.defaultProps = defaultProps;
-
-    export default Link;
     ```
-
-  - Ordering for `React.createClass`:
-
-  1. `displayName`
-  1. `propTypes`
-  1. `contextTypes`
-  1. `childContextTypes`
-  1. `mixins`
-  1. `statics`
-  1. `defaultProps`
-  1. `getDefaultProps`
-  1. `getInitialState`
-  1. `getChildContext`
-  1. `componentWillMount`
-  1. `componentDidMount`
-  1. `componentWillReceiveProps`
-  1. `shouldComponentUpdate`
-  1. `componentWillUpdate`
-  1. `componentDidUpdate`
-  1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
-  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
-  1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
-  1. `render`
-
-  eslint rules: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md).
 
 ## `isMounted`
 
