@@ -1250,9 +1250,9 @@ Other Style Guides
     + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
     ```javascript
-    if ([0]) {
+    if ([0] && []) {
       // true
-      // An array is an object, objects evaluate to true
+      // An array (even an empty one) is an object, objects will evaluate to true
     }
     ```
 
