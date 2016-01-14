@@ -74,7 +74,9 @@ module.exports = {
     // disallow dangling underscores in identifiers
     'no-underscore-dangle': 0,
     // disallow the use of Boolean literals in conditional expressions
-    'no-unneeded-ternary': 0,
+    // also, prefer `a || b` over `a ? a : b`
+    // http://eslint.org/docs/rules/no-unneeded-ternary
+    'no-unneeded-ternary': [2, { "defaultAssignment": false }],
     // require padding inside curly braces
     'object-curly-spacing': [2, 'always'],
     // allow just one var statement per function

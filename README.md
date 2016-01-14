@@ -1295,22 +1295,38 @@ Other Style Guides
     eslint rules: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary.html).
 
     ```javascript
-    //bad
+    // bad
     const foo = maybe1 > maybe2
       ? "bar"
       : value1 > value2 ? "baz" : null;
 
-    //better
+    // better
     const maybeNull = value1 > value2 ? 'baz' : null;
 
     const foo = maybe1 > maybe2
       ? 'bar'
       : maybeNull;
 
-    //best
+    // best
     const maybeNull = value1 > value2 ? 'baz' : null;
 
     const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
+    ```
+
+  - [15.6](#15.6) <a name='15.6'></a> Avoid unneeded ternary statements.
+
+    eslint rules: [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary.html).
+
+    ```javascript
+    // bad
+    const foo = a ? a : b;
+    const bar = c ? true : false;
+    const baz = c ? false : true;
+
+    // good
+    const foo = a || b;
+    const bar = !!c;
+    const baz = !c;
     ```
 
 **[⬆ back to top](#table-of-contents)**
