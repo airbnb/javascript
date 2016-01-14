@@ -17,6 +17,7 @@
   1. [Methods](#methods)
   1. [Ordering](#ordering)
   1. [`isMounted`](#ismounted)
+  1. [Using ES7 Features](#using-es7-features)
 
 ## Basic Rules
 
@@ -394,3 +395,68 @@
   eslint rules: [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md).
 
 **[⬆ back to top](#table-of-contents)**
+
+## Using ES7 features
+
+We use a few useful features that were not included in ES2015 final specification. Thanks to Babel and its plugin system we can use them today:
+
+  - [transform-object-rest-spread](http://babeljs.io/docs/plugins/transform-object-rest-spread/)
+  - [syntax-trailing-function-commas](http://babeljs.io/docs/plugins/syntax-trailing-function-commas/)
+  - [transform-class-properties](http://babeljs.io/docs/plugins/transform-class-properties/)
+  
+  The one feature to highlight is `transform-class-properties`. With the [ES6 class syntax](https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html), React component functions are not auto-bound to `this` (see [explanation](https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding)). Class properties combined with arrow functions allows us to bind class member to `this` without having  to bind every single function in the constructor. They also let us put our `propTypes` and `defaultProps` back into the class declaration.
+  
+```javascript
+  // bad
+  class Card extends Component {
+  
+    constructor(props) {
+      super(props);
+      this.handleChange = this.handleChange.bind(this);
+      this.handleClick = this.handleClick.bind(this);
+    }
+    
+    handleChange() {
+      this.props.onChange({do: "something"});
+    }
+    
+    handleClick() {
+    	this.props.onClick({click: "somewhere"});
+    }
+  
+    render() {
+      return <span onClick={this.handleClick} onChange={this.handleChange}>I'm a Card !</span>;
+    }
+  
+  }
+  
+  Card.propTypes = {
+    onChange: PropType.func.isRequired,
+    onClick: PropTypes.func.isRequired
+  }
+```
+
+```javascript
+  // Good
+  class Card extends Component {
+  
+    static propTypes = {
+      onChange: PropType.func.isRequired,
+      onClick: PropTypes.func.isRequired
+    }
+    
+    handleChange = () => {
+      this.props.onChange({do: "something"});
+    }
+    
+    handleClick = () => {
+    	this.props.onClick({click: "somewhere"});
+    }
+  
+    render() {
+      return <span onClick={this.handleClick} onChange={this.handleChange}>I'm a Card !</span>;
+    }
+  
+  }
+  
+```
