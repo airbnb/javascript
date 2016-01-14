@@ -425,7 +425,7 @@ We use a few useful features that were not included in ES2015 final specificatio
     }
 
     render() {
-      return <span onClick={this.handleClick} onChange={this.handleChange}>I'm a Card !</span>;
+      return <span onClick={this.handleClick} onChange={this.handleChange}>I am a Card !</span>;
     }
 
   }
@@ -454,7 +454,7 @@ We use a few useful features that were not included in ES2015 final specificatio
     }
 
     render() {
-      return <span onClick={this.handleClick} onChange={this.handleChange}>I'm a Card !</span>;
+      return <span onClick={this.handleClick} onChange={this.handleChange}>I am a Card !</span>;
     }
 
   }
