@@ -426,16 +426,16 @@ Other Style Guides
 
 ## Strings
 
-  - [6.1](#6.1) <a name='6.1'></a> Use single quotes `''` for strings.
+  - [6.1](#6.1) <a name='6.1'></a> Use double quotes `""` for strings.
 
     eslint rules: [`quotes`](http://eslint.org/docs/rules/quotes.html).
 
     ```javascript
     // bad
-    const name = "Capt. Janeway";
+    const name = 'Capt. Janeway';
 
     // good
-    const name = 'Capt. Janeway';
+    const name = "Capt. Janeway";
     ```
 
   - [6.2](#6.2) <a name='6.2'></a> Strings that cause the line to go over 100 characters should be written across multiple lines using string concatenation.
@@ -929,31 +929,31 @@ Other Style Guides
     export default es6;
     ```
 
-  - [10.2](#10.2) <a name='10.2'></a> Do not use wildcard imports.
+  - ~~[10.2](#10.2) <a name='10.2'></a> Do not use wildcard imports.~~
 
-    > Why? This makes sure you have a single default export.
+    > ~~Why? This makes sure you have a single default export.~~
 
     ```javascript
-    // bad
-    import * as QuriStyleGuide from './QuriStyleGuide';
+    ~~// bad~~
+    ~~import * as QuriStyleGuide from './QuriStyleGuide';~~
 
-    // good
-    import QuriStyleGuide from './QuriStyleGuide';
+    ~~// good~~
+    ~~import QuriStyleGuide from './QuriStyleGuide';~~
     ```
 
-  - [10.3](#10.3) <a name='10.3'></a>And do not export directly from an import.
+  - ~~[10.3](#10.3) <a name='10.3'></a>And do not export directly from an import.~~
 
-    > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
+    > ~~Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.~~
 
     ```javascript
-    // bad
-    // filename es6.js
-    export { es6 as default } from './quriStyleGuide';
+    ~~// bad~~
+    ~~// filename es6.js~~
+    ~~export { es6 as default } from './quriStyleGuide';~~
 
-    // good
-    // filename es6.js
-    import { es6 } from './QuriStyleGuide';
-    export default es6;
+    ~~// good~~
+    ~~// filename es6.js~~
+    ~~import { es6 } from './QuriStyleGuide';~~
+    ~~export default es6;~~
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1231,11 +1231,11 @@ Other Style Guides
 
 ## Comparison Operators & Equality
 
-  - [15.1](#15.1) <a name='15.1'></a> Use `===` and `!==` over `==` and `!=`.
+  - [15.1](#15.1) <a name='15.1'></a> Use `===` and `!==` over `==` and `!=`. Unless you are comparing against null or evaluating the value of typeof (see [smart eqeqeq](http://eslint.org/docs/rules/eqeqeq.html#options))
 
   - [15.2](#15.2) <a name='15.2'></a> Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
 
-    eslint rules: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html).
+    eslint rules: [`eqeqeq (smart)`](http://eslint.org/docs/rules/eqeqeq.html).
 
     + **Objects** evaluate to **true**
     + **Undefined** evaluates to **false**
@@ -1368,42 +1368,31 @@ Other Style Guides
     }
     ```
 
-  - [17.2](#17.2) <a name='17.2'></a> Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it's on the first line of a block.
+  - [17.2](#17.2) <a name='17.2'></a> Use `//` for single line comments. Place a space before and after `//` and your comment
 
     ```javascript
     // bad
-    const active = true;  // is current tab
+    const active = true;  //is current tab
 
+    // bad
+    const active = true;//is current tab
+    
+    // bad
+    const active = true;// is current tab   
+     
     // good
     // is current tab
     const active = true;
 
-    // bad
-    function getType() {
-      console.log('fetching type...');
-      // set the default type to 'no type'
-      const type = this._type || 'no type';
-
-      return type;
-    }
-
     // good
     function getType() {
       console.log('fetching type...');
-
-      // set the default type to 'no type'
-      const type = this._type || 'no type';
-
-      return type;
-    }
-
-    // also good
-    function getType() {
-      // set the default type to 'no type'
-      const type = this._type || 'no type';
+      
+      const type = this._type || 'no type'; // set the default type to 'no type'
 
       return type;
     }
+
     ```
 
   - [17.3](#17.3) <a name='17.3'></a> Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
@@ -2187,74 +2176,12 @@ Other Style Guides
 
 ## jQuery
 
-  - [25.1](#25.1) <a name='25.1'></a> Prefix jQuery object variables with a `$`.
+  __Don't use jQuery__
 
-    ```javascript
-    // bad
-    const sidebar = $('.sidebar');
-
-    // good
-    const $sidebar = $('.sidebar');
-
-    // good
-    const $sidebarBtn = $('.sidebar-btn');
-    ```
-
-  - [25.2](#25.2) <a name='25.2'></a> Cache jQuery lookups.
-
-    ```javascript
-    // bad
-    function setSidebar() {
-      $('.sidebar').hide();
-
-      // ...stuff...
-
-      $('.sidebar').css({
-        'background-color': 'pink'
-      });
-    }
-
-    // good
-    function setSidebar() {
-      const $sidebar = $('.sidebar');
-      $sidebar.hide();
-
-      // ...stuff...
-
-      $sidebar.css({
-        'background-color': 'pink'
-      });
-    }
-    ```
-
-  - [25.3](#25.3) <a name='25.3'></a> For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-  - [25.4](#25.4) <a name='25.4'></a> Use `find` with scoped jQuery object queries.
-
-    ```javascript
-    // bad
-    $('ul', '.sidebar').hide();
-
-    // bad
-    $('.sidebar').find('ul').hide();
-
-    // good
-    $('.sidebar ul').hide();
-
-    // good
-    $('.sidebar > ul').hide();
-
-    // good
-    $sidebar.find('ul').hide();
     ```
 
 **[⬆ back to top](#table-of-contents)**
 
-
-## ECMAScript 5 Compatibility
-
-  - [26.1](#26.1) <a name='26.1'></a> Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.io/es5-compat-table/).
-
-**[⬆ back to top](#table-of-contents)**
 
 ## ECMAScript 6 Styles
 
@@ -2290,7 +2217,7 @@ Other Style Guides
    - Whichever testing framework you use, you should be writing tests!
    - Strive to write many small pure functions, and minimize where mutations occur.
    - Be cautious about stubs and mocks - they can make your tests more brittle.
-   - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Quri. [`tape`](https://www.npmjs.com/package/tape) is also used occasionally for small, separate modules.
+   - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Quri. 
    - 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
    - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
 
@@ -2328,8 +2255,6 @@ Other Style Guides
 
   - Code Style Linters
     + [ESlint](http://eslint.org/) - [Quri Style .eslintrc](https://github.com/quri/javascript/blob/master/linters/.eslintrc)
-    + [JSHint](http://jshint.com/) - [Quri Style .jshintrc](https://github.com/quri/javascript/blob/master/linters/.jshintrc)
-    + [JSCS](https://github.com/jscs-dev/node-jscs) - [Quri Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/quri.json)
 
 **Other Style Guides**
 
@@ -2388,6 +2313,7 @@ Other Style Guides
 **Podcasts**
 
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
+  - [JavaScript Air](http://javascriptair.com/)
 
 
 **[⬆ back to top](#table-of-contents)**
@@ -2523,5 +2449,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 * Adds no-dupe-class-member to es6.js
 * Adds babel.js with eslint-plugin-babel
 * Adds require-path-exists.js with eslint-plugin-require-path-exists
+* Remove ES5 references
+* Changes commenting style
 
 # };
