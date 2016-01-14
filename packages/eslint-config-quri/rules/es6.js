@@ -41,7 +41,7 @@ module.exports = {
     // disallow to use this/super before super() calling in constructors.
     "no-this-before-super": 2,
     // require let or const instead of var
-    "no-var": 2,
+    "no-var": 1,
     // require method and property shorthand syntax for object literals
     // https://github.com/eslint/eslint/blob/master/docs/rules/object-shorthand.md
     "object-shorthand": [2, "always"],
