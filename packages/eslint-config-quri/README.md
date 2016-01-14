@@ -12,14 +12,14 @@ Our default export contains all of our ESLint rules, including EcmaScript 6+
 and React.
 It requires `eslint`, `eslint-plugin-react` and `eslint-plugin-require-path-exists`.
 
-1. `npm install --save-dev eslint-config-quri eslint-plugin-react eslint-plugin-require-path-exists eslint`
+1. `npm install --save-dev eslint-config-quri eslint-plugin-react eslint-plugin-require-path-exists eslint-plugin-babel eslint`
 2. add `"extends": "quri"` to your .eslintrc
 
-### eslint-config-airbnb/base
+### eslint-config-quri/base
 
 Lints ES6+ but does not lint React. Requires `eslint`.
 
-1. `npm install --save-dev eslint-config-quri eslint`
+1. `npm install --save-dev eslint-config-quri eslint-plugin-require-path-exists eslint-plugin-babel eslint`
 2. add `"extends": "quri/base"` to your .eslintrc
 
 ## Improving this config
