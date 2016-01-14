@@ -32,9 +32,12 @@
   },
   "homepage": "https://github.com/quri/javascript",
   "devDependencies": {
+    "babel-eslint": "^4.1.6",
     "babel-tape-runner": "1.2.0",
     "eslint": "^1.10.3",
+    "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-react": "^3.12.0",
+    "eslint-plugin-require-path-exists": "^1.1.4",
     "react": "^0.13.3",
     "tape": "^4.2.2"
   },

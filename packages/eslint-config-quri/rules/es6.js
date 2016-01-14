@@ -35,6 +35,9 @@ module.exports = {
     "no-class-assign": 0,
     // disallow modifying variables that are declared using const
     "no-const-assign": 2,
+    // disallow duplicate name in class members
+    // http://eslint.org/docs/2.0.0/rules/no-dupe-class-members.html
+    "no-dupe-class-members": 2,
     // disallow to use this/super before super() calling in constructors.
     "no-this-before-super": 2,
     // require let or const instead of var
