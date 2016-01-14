@@ -22,6 +22,9 @@ module.exports = {
     'jsx': true
   },
   'rules': {
+    // enforces no braces where they can be omitted
+    // http://eslint.org/docs/rules/arrow-body-style
+    'arrow-body-style': [2, 'as-needed'],
     // require parens in arrow function arguments
     'arrow-parens': 0,
     // require space before/after arrow function's arrow
@@ -50,6 +53,9 @@ module.exports = {
     'prefer-spread': 0,
     // suggest using Reflect methods where applicable
     'prefer-reflect': 0,
+    // suggest using template literals instead of string concatenation
+    // http://eslint.org/docs/rules/prefer-template
+    'prefer-template': 2,
     // disallow generator functions that do not have yield
     'require-yield': 0
   }
