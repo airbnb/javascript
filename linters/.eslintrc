@@ -149,7 +149,6 @@
         "newIsCap": true,
         "capIsNew": false
     }],
-    "no-extra-parens": 2,            // http://eslint.org/docs/rules/no-extra-parens.html
     "no-multiple-empty-lines": [2, { // http://eslint.org/docs/rules/no-multiple-empty-lines
       "max": 2
     }],
