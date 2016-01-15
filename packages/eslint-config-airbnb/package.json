@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "babel-tape-runner ./test/test-*.js"
+    "tests-only": "babel-tape-runner ./test/test-*.js",
+    "test": "npm run lint && npm run tests-only"
   },
   "repository": {
     "type": "git",

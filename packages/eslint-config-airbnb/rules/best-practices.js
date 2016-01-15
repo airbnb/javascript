@@ -13,7 +13,7 @@ module.exports = {
     // require default case in switch statements
     'default-case': 2,
     // encourages use of dot notation whenever possible
-    'dot-notation': [2, { 'allowKeywords': true}],
+    'dot-notation': [2, { 'allowKeywords': true }],
     // enforces consistent newlines before or after dots
     'dot-location': 0,
     // require the use of === and !==

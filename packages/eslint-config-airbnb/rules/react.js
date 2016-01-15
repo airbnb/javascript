@@ -10,10 +10,10 @@ module.exports = {
   'rules': {
     // Prevent missing displayName in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
-    'react/display-name': [0, {'acceptTranspilerName': false}],
+    'react/display-name': [0, { 'acceptTranspilerName': false }],
     // Forbid certain propTypes (any, array, object)
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md
-    'react/forbid-prop-types': [0, {'forbid': ['any', 'array', 'object']}],
+    'react/forbid-prop-types': [0, { 'forbid': ['any', 'array', 'object'] }],
     // Enforce boolean attributes notation in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md
     'react/jsx-boolean-value': [2, 'never'],
@@ -22,7 +22,7 @@ module.exports = {
     'react/jsx-closing-bracket-location': [2, 'line-aligned'],
     // Enforce or disallow spaces inside of curly braces in JSX attributes
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md
-    'react/jsx-curly-spacing': [0, 'never', {'allowMultiline': true}],
+    'react/jsx-curly-spacing': [0, 'never', { 'allowMultiline': true }],
     // Enforce event handler naming conventions in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-handler-names.md
     'react/jsx-handler-names': [0, {
@@ -37,13 +37,13 @@ module.exports = {
     'react/jsx-key': 0,
     // Limit maximum of props on a single line in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
-    'react/jsx-max-props-per-line': [0, {'maximum': 1}],
+    'react/jsx-max-props-per-line': [0, { 'maximum': 1 }],
     // Prevent usage of .bind() and arrow functions in JSX props
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
     'react/jsx-no-bind': 2,
     // Prevent duplicate props in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-duplicate-props.md
-    'react/jsx-no-duplicate-props': [0, {'ignoreCase': false}],
+    'react/jsx-no-duplicate-props': [0, { 'ignoreCase': false }],
     // Prevent usage of unwrapped JSX strings
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-literals.md
     'react/jsx-no-literals': 0,
@@ -67,7 +67,7 @@ module.exports = {
     }],
     // Prevent React to be incorrectly marked as unused
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
-    'react/jsx-uses-react': [2, {'pragma': 'React'}],
+    'react/jsx-uses-react': [2, { 'pragma': 'React' }],
     // Prevent variables used in JSX to be incorrectly marked as unused
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md
     'react/jsx-uses-vars': 2,
@@ -76,7 +76,7 @@ module.exports = {
     'react/no-danger': 0,
     // Prevent usage of deprecated methods
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-deprecated.md
-    'react/no-deprecated': [1, {"react": "0.14.0"}],
+    'react/no-deprecated': [1, { 'react': '0.14.0' }],
     // Prevent usage of setState in componentDidMount
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
     'react/no-did-mount-set-state': [2, 'allow-in-func'],
@@ -91,7 +91,7 @@ module.exports = {
     'react/no-is-mounted': 2,
     // Prevent multiple component definition per file
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md
-    'react/no-multi-comp': [2, {'ignoreStateless': true}],
+    'react/no-multi-comp': [2, { 'ignoreStateless': true }],
     // Prevent usage of setState
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-set-state.md
     'react/no-set-state': 0,
@@ -106,13 +106,13 @@ module.exports = {
     'react/prefer-es6-class': [2, 'always'],
     // Prevent missing props validation in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
-    'react/prop-types': [2, {'ignore': [], customValidators: []}],
+    'react/prop-types': [2, { 'ignore': [], customValidators: [] }],
     // Prevent missing React when using JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
     'react/react-in-jsx-scope': 2,
     // Restrict file extensions that may be required
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-extension.md
-    'react/require-extension': [0, {'extensions': ['.jsx']}],
+    'react/require-extension': [0, { 'extensions': ['.jsx'] }],
     // Prevent extra closing tags for components without children
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
     'react/self-closing-comp': 2,
