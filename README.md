@@ -2504,7 +2504,7 @@ Other Style Guides
 
 (The MIT License)
 
-Copyright (c) 2014 Airbnb
+Copyright (c) 2014-2016 Airbnb
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
