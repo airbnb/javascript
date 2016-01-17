@@ -108,7 +108,9 @@ Other Style Guides
     > Why? `let` is block-scoped rather than function-scoped like `var`.
 
     eslint rules: [`no-var`](http://eslint.org/docs/rules/no-var.html).
-
+    
+    jscs rules: [`disallowVar`](http://jscs.info/rule/disallowVar).
+    
     ```javascript
     // bad
     var count = 1;
@@ -153,6 +155,8 @@ Other Style Guides
 
   - [3.2](#3.2) <a name='3.2'></a> If your code will be executed in browsers in script context, don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61). It’s OK to use them in ES6 modules and server-side code.
 
+   jscs rules: [`disallowIdentiferNames`](http://jscs.info/rule/disallowIdentifierNames).
+
     ```javascript
     // bad
     const superman = {
@@ -168,6 +172,8 @@ Other Style Guides
     ```
 
   - [3.3](#3.3) <a name='3.3'></a> Use readable synonyms in place of reserved words.
+
+   jscs rules: [`disallowIdentiferNames`](http://jscs.info/rule/disallowIdentifierNames).
 
     ```javascript
     // bad
@@ -216,6 +222,8 @@ Other Style Guides
   - [3.5](#3.5) <a name='3.5'></a> Use object method shorthand.
 
     eslint rules: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html).
+    
+    jscs rules: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals).
 
     ```javascript
     // bad
@@ -243,7 +251,9 @@ Other Style Guides
     > Why? It is shorter to write and descriptive.
 
     eslint rules: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html).
-
+    
+    jscs rules: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals).
+    
     ```javascript
     const lukeSkywalker = 'Luke Skywalker';
 
@@ -292,7 +302,9 @@ Other Style Guides
   > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
 
   eslint rules: [`quote-props`](http://eslint.org/docs/rules/quote-props.html).
-
+  
+  jscs rules: [`disallowQuotedKeysInObjects: "allExcept": ["reserved"]`](http://jscs.info/rule/disallowQuotedKeysInObjects).
+  
   ```javascript
   // bad
   const bad = {
@@ -367,6 +379,8 @@ Other Style Guides
   - [5.1](#5.1) <a name='5.1'></a> Use object destructuring when accessing and using multiple properties of an object.
 
     > Why? Destructuring saves you from creating temporary references for those properties.
+    
+    jscs rules: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring).
 
     ```javascript
     // bad
@@ -391,6 +405,8 @@ Other Style Guides
 
   - [5.2](#5.2) <a name='5.2'></a> Use array destructuring.
 
+   jscs rules: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring).
+   
     ```javascript
     const arr = [1, 2, 3, 4];
 
@@ -434,7 +450,9 @@ Other Style Guides
   - [6.1](#6.1) <a name='6.1'></a> Use single quotes `''` for strings.
 
     eslint rules: [`quotes`](http://eslint.org/docs/rules/quotes.html).
-
+    
+    jscs rules: [`validateQuoteMarks: "'"`](http://jscs.info/rule/validateQuoteMarks).
+    
     ```javascript
     // bad
     const name = "Capt. Janeway";
@@ -468,6 +486,8 @@ Other Style Guides
     > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
 
     eslint rules: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html).
+    
+    jscs rules: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings).
 
     ```javascript
     // bad
@@ -495,6 +515,8 @@ Other Style Guides
   - [7.1](#7.1) <a name='7.1'></a> Use function declarations instead of function expressions.
 
     > Why? Function declarations are named, so they're easier to identify in call stacks. Also, the whole body of a function declaration is hoisted, whereas only the reference of a function expression is hoisted. This rule makes it possible to always use [Arrow Functions](#arrow-functions) in place of function expressions.
+    
+    jscs rules: [`requireFunctionDeclarations`](http://jscs.info/rule/requireFunctionDeclarations).
 
     ```javascript
     // bad
@@ -512,6 +534,8 @@ Other Style Guides
 
     eslint rules: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html).
 
+    jscs rules: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE).
+    
     ```javascript
     // immediately-invoked function expression (IIFE)
     (function () {
@@ -712,6 +736,8 @@ Other Style Guides
     > Why not? If you have a fairly complicated function, you might move that logic out into its own function declaration.
 
     eslint rules: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html).
+    
+    jscs rules: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions).
 
     ```javascript
     // bad
@@ -734,6 +760,8 @@ Other Style Guides
     > Why not? If you plan on returning an object.
 
     eslint rules: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html).
+    
+    jscs rules: [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions).
 
     ```javascript
     // good
@@ -776,7 +804,9 @@ Other Style Guides
     > Why? Less visual clutter.
 
     eslint rules: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html).
-
+    
+    jscs rules: [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam).
+    
     ```js
     // bad
     [1, 2, 3].map((x) => x * x);
@@ -1008,6 +1038,8 @@ Other Style Guides
   - [12.1](#12.1) <a name='12.1'></a> Use dot notation when accessing properties.
 
     eslint rules: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html).
+    
+    jscs rules: [`requireDotNotation`](http://jscs.info/rule/requireDotNotation).
 
     ```javascript
     const luke = {
@@ -1057,6 +1089,8 @@ Other Style Guides
     > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs.
 
     eslint rules: [`one-var`](http://eslint.org/docs/rules/one-var.html).
+    
+    jscs rules: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl).
 
     ```javascript
     // bad
@@ -1320,6 +1354,8 @@ Other Style Guides
 
     eslint rules: [`brace-style`](http://eslint.org/docs/rules/brace-style.html).
 
+    jscs rules: [`disallowNewlineBeforeBlockStatements`](http://jscs.info/rule/disallowNewlineBeforeBlockStatements).
+    
     ```javascript
     // bad
     if (test) {
@@ -1451,6 +1487,8 @@ Other Style Guides
   - [18.1](#18.1) <a name='18.1'></a> Use soft tabs set to 2 spaces.
 
     eslint rules: [`indent`](http://eslint.org/docs/rules/indent.html).
+    
+    jscs rules: [`validateIndentation: 2`](http://jscs.info/rule/validateIndentation).
 
     ```javascript
     // bad
@@ -1472,6 +1510,8 @@ Other Style Guides
   - [18.2](#18.2) <a name='18.2'></a> Place 1 space before the leading brace.
 
     eslint rules: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html).
+
+    jscs rules: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements).
 
     ```javascript
     // bad
@@ -1501,6 +1541,8 @@ Other Style Guides
 
     eslint rules: [`space-after-keywords`](http://eslint.org/docs/rules/space-after-keywords.html), [`space-before-keywords`](http://eslint.org/docs/rules/space-before-keywords.html).
 
+    jscs rules: [`requireSpaceAfterKeywords`](http://jscs.info/rule/requireSpaceAfterKeywords).
+
     ```javascript
     // bad
     if(isJedi) {
@@ -1526,6 +1568,8 @@ Other Style Guides
   - [18.4](#18.4) <a name='18.4'></a> Set off operators with spaces.
 
     eslint rules: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html).
+    
+    jscs rules: [`requireSpaceBeforeBinaryOperators`](http://jscs.info/rule/requireSpaceBeforeBinaryOperators), [`requireSpaceAfterBinaryOperators`](http://jscs.info/rule/requireSpaceAfterBinaryOperators).
 
     ```javascript
     // bad
@@ -1601,6 +1645,8 @@ Other Style Guides
 
   - [18.7](#18.7) <a name='18.7'></a> Leave a blank line after blocks and before the next statement.
 
+    jscs rules: [`requirePaddingNewLinesAfterBlocks`](http://jscs.info/rule/requirePaddingNewLinesAfterBlocks).
+
     ```javascript
     // bad
     if (foo) {
@@ -1659,6 +1705,8 @@ Other Style Guides
   - [18.8](#18.8) <a name='18.8'></a> Do not pad your blocks with blank lines.
 
     eslint rules: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html).
+    
+    jscs rules: [`disallowPaddingNewlinesInBlocks`](http://jscs.info/rule/disallowPaddingNewlinesInBlocks).
 
     ```javascript
     // bad
@@ -1693,6 +1741,8 @@ Other Style Guides
   - [18.9](#18.9) <a name='18.9'></a> Do not add spaces inside parentheses.
 
     eslint rules: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html).
+    
+    jscs rules: [`disallowSpacesInsideParentheses`](http://jscs.info/rule/disallowSpacesInsideParentheses).
 
     ```javascript
     // bad
@@ -1719,6 +1769,8 @@ Other Style Guides
   - [18.10](#18.10) <a name='18.10'></a> Do not add spaces inside brackets.
 
     eslint rules: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html).
+    
+    jscs rules: [`disallowSpacesInsideArrayBrackets`](http://jscs.info/rule/disallowSpacesInsideArrayBrackets).
 
     ```javascript
     // bad
@@ -1733,6 +1785,8 @@ Other Style Guides
   - [18.11](#18.11) <a name='18.11'></a> Add spaces inside curly braces.
 
     eslint rules: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html).
+    
+    jscs rules: [`disallowSpacesInsideObjectBrackets`](http://jscs.info/rule/disallowSpacesInsideObjectBrackets).
 
     ```javascript
     // bad
@@ -1747,6 +1801,8 @@ Other Style Guides
     > Why? This ensures readability and maintainability.
 
     eslint rules: [`max-len`](http://eslint.org/docs/rules/max-len.html).
+    
+    jscs rules: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength).
 
     ```javascript
     // bad
@@ -1776,6 +1832,8 @@ Other Style Guides
   - [19.1](#19.1) <a name='19.1'></a> Leading commas: **Nope.**
 
     eslint rules: [`comma-style`](http://eslint.org/docs/rules/comma-style.html).
+    
+    jscs rules: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak).
 
     ```javascript
     // bad
@@ -1812,6 +1870,8 @@ Other Style Guides
   - [19.2](#19.2) <a name='19.2'></a> Additional trailing comma: **Yup.**
 
     eslint rules: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html).
+    
+    jscs rules: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma).
 
     > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](es5/README.md#commas) in legacy browsers.
 
@@ -1862,6 +1922,8 @@ Other Style Guides
   - [20.1](#20.1) <a name='20.1'></a> **Yup.**
 
     eslint rules: [`semi`](http://eslint.org/docs/rules/semi.html).
+    
+    jscs rules: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons).
 
     ```javascript
     // bad
@@ -1986,6 +2048,8 @@ Other Style Guides
   - [22.2](#22.2) <a name='22.2'></a> Use camelCase when naming objects, functions, and instances.
 
     eslint rules: [`camelcase`](http://eslint.org/docs/rules/camelcase.html).
+    
+    jscs rules: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers).
 
     ```javascript
     // bad
@@ -2001,6 +2065,8 @@ Other Style Guides
   - [22.3](#22.3) <a name='22.3'></a> Use PascalCase when naming constructors or classes.
   
     eslint rules: [`new-cap`](http://eslint.org/docs/rules/new-cap.html).
+    
+    jscs rules: [`requireCapitalizedConstructors`](http://jscs.info/rule/requireCapitalizedConstructors).
 
     ```javascript
     // bad
@@ -2027,6 +2093,8 @@ Other Style Guides
   - [22.4](#22.4) <a name='22.4'></a> Use a leading underscore `_` when naming private properties.
 
     eslint rules: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html).
+    
+    jscs rules: [`disallowDanglingUnderscores`](http://jscs.info/rule/disallowDanglingUnderscores).
 
     ```javascript
     // bad
@@ -2038,6 +2106,8 @@ Other Style Guides
     ```
 
   - [22.5](#22.5) <a name='22.5'></a> Don't save references to `this`. Use arrow functions or Function#bind.
+
+    jscs rules: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes).
 
     ```javascript
     // bad
@@ -2197,6 +2267,8 @@ Other Style Guides
 ## jQuery
 
   - [25.1](#25.1) <a name='25.1'></a> Prefix jQuery object variables with a `$`.
+  
+    jscs rules: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment).
 
     ```javascript
     // bad
