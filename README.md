@@ -303,7 +303,7 @@ Other Style Guides
 
   eslint rules: [`quote-props`](http://eslint.org/docs/rules/quote-props.html).
   
-  jscs rules: [`disallowQuotedKeysInObjects: "allExcept": ["reserved"]`](http://jscs.info/rule/disallowQuotedKeysInObjects).
+  jscs rules: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects).
   
   ```javascript
   // bad
@@ -451,7 +451,7 @@ Other Style Guides
 
     eslint rules: [`quotes`](http://eslint.org/docs/rules/quotes.html).
     
-    jscs rules: [`validateQuoteMarks: "'"`](http://jscs.info/rule/validateQuoteMarks).
+    jscs rules: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks).
     
     ```javascript
     // bad
@@ -1488,7 +1488,7 @@ Other Style Guides
 
     eslint rules: [`indent`](http://eslint.org/docs/rules/indent.html).
     
-    jscs rules: [`validateIndentation: 2`](http://jscs.info/rule/validateIndentation).
+    jscs rules: [`validateIndentation`](http://jscs.info/rule/validateIndentation).
 
     ```javascript
     // bad
