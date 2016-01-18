@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-quri",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Quri's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
