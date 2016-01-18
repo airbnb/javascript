@@ -360,7 +360,25 @@ Other Style Guides
     }
     ```
 
-  - [5.2](#5.2) <a name='5.2'></a> Use array destructuring.
+  - [5.2](#5.2) <a name='5.2'></a> When destructuring requires multiple lines, inline the initial property.
+
+    ```javascript
+    // bad
+    const {
+        first,
+        second
+    } = obj;
+
+    // good
+    let { first,
+          second } = obj;
+
+    // good
+    const { first,
+            second } = obj;
+    ```
+
+  - [5.3](#5.3) <a name='5.3'></a> Use array destructuring.
 
     ```javascript
     const arr = [1, 2, 3, 4];
@@ -373,7 +391,7 @@ Other Style Guides
     const [first, second] = arr;
     ```
 
-  - [5.3](#5.3) <a name='5.3'></a> Use object destructuring for multiple return values, not array destructuring.
+  - [5.4](#5.4) <a name='5.4'></a> Use object destructuring for multiple return values, not array destructuring.
 
   > Why? You can add new properties over time or change the order of things without breaking call sites.
 
