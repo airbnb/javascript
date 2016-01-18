@@ -36,7 +36,7 @@ module.exports = {
     "linebreak-style": 0,
     // specify the maximum length of a line in your program
     // https://github.com/eslint/eslint/blob/master/docs/rules/max-len.md
-    "max-len": [2, 100, 2, {
+    "max-len": [1, 100, 2, {
       "ignoreUrls": true,
       "ignoreComments": false
     }],
@@ -83,7 +83,7 @@ module.exports = {
     // enforce operators to be placed before or after line breaks
     "operator-linebreak": 0,
     // enforce padding within blocks
-    "padded-blocks": [2, "never"],
+    "padded-blocks": [1, "never"],
     // require quotes around object literal property names
     // http://eslint.org/docs/rules/quote-props.html
     "quote-props": [2, "as-needed", { "keywords": false, "unnecessary": true, "numbers": false }],

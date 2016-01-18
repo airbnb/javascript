@@ -27,7 +27,7 @@ module.exports = {
     // disallow division operators explicitly at beginning of regular expression
     "no-div-regex": 0,
     // disallow else after a return in an if
-    "no-else-return": 2,
+    "no-else-return": 1,
     // disallow use of labels for anything other then loops and switches
     "no-empty-label": 2,
     // disallow comparisons to null without a type-checking operator
@@ -76,7 +76,7 @@ module.exports = {
     // disallow reassignment of function parameters
     // disallow parameter object manipulation
     // rule: http://eslint.org/docs/rules/no-param-reassign.html
-    "no-param-reassign": [2, { "props": true }],
+    "no-param-reassign": [2, { "props": false }],
     // disallow use of process.env
     "no-process-env": 0,
     // disallow usage of __proto__ property

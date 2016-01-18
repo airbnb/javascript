@@ -1,6 +1,6 @@
 {
   "name": "quri-style",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A very reasonable approach to JavaScript.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

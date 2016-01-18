@@ -1376,10 +1376,10 @@ Other Style Guides
 
     // bad
     const active = true;//is current tab
-    
+
     // bad
-    const active = true;// is current tab   
-     
+    const active = true;// is current tab
+
     // good
     // is current tab
     const active = true;
@@ -1387,7 +1387,7 @@ Other Style Guides
     // good
     function getType() {
       console.log('fetching type...');
-      
+
       const type = this._type || 'no type'; // set the default type to 'no type'
 
       return type;
@@ -2217,7 +2217,7 @@ Other Style Guides
    - Whichever testing framework you use, you should be writing tests!
    - Strive to write many small pure functions, and minimize where mutations occur.
    - Be cautious about stubs and mocks - they can make your tests more brittle.
-   - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Quri. 
+   - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Quri.
    - 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
    - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
 
@@ -2451,5 +2451,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 * Adds require-path-exists.js with eslint-plugin-require-path-exists
 * Remove ES5 references
 * Changes commenting style
+* Move padded-blocks, no-shadow, no-else-return, comma-dangle, max-len to warning only
+* Change no-params-reassign to use props: false
 
 # };
