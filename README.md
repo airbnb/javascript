@@ -114,13 +114,13 @@ Other Style Guides
     // bad
     var count = 1;
     if (true) {
-      count += 1;
+        count += 1;
     }
 
     // good, use the let.
     let count = 1;
     if (true) {
-      count += 1;
+        count += 1;
     }
     ```
 
@@ -129,8 +129,8 @@ Other Style Guides
     ```javascript
     // const and let only exist in the blocks they are defined in.
     {
-      let a = 1;
-      const b = 1;
+        let a = 1;
+        const b = 1;
     }
     console.log(a); // ReferenceError
     console.log(b); // ReferenceError
@@ -155,14 +155,14 @@ Other Style Guides
     ```javascript
     // bad
     const superman = {
-      default: { clark: 'kent' },
-      private: true,
+        default: { clark: 'kent' },
+        private: true,
     };
 
     // good
     const superman = {
-      defaults: { clark: 'kent' },
-      hidden: true,
+        defaults: { clark: 'kent' },
+        hidden: true,
     };
     ```
 
@@ -171,17 +171,17 @@ Other Style Guides
     ```javascript
     // bad
     const superman = {
-      class: 'alien',
+        class: 'alien',
     };
 
     // bad
     const superman = {
-      klass: 'alien',
+        klass: 'alien',
     };
 
     // good
     const superman = {
-      type: 'alien',
+        type: 'alien',
     };
     ```
 
@@ -193,21 +193,21 @@ Other Style Guides
     ```javascript
 
     function getKey(k) {
-      return `a key named ${k}`;
+        return `a key named ${k}`;
     }
 
     // bad
     const obj = {
-      id: 5,
-      name: 'Berlin',
+        id: 5,
+        name: 'Berlin',
     };
     obj[getKey('enabled')] = true;
 
     // good
     const obj = {
-      id: 5,
-      name: 'Berlin',
-      [getKey('enabled')]: true,
+        id: 5,
+        name: 'Berlin',
+        [getKey('enabled')]: true,
     };
     ```
 
@@ -217,20 +217,20 @@ Other Style Guides
     ```javascript
     // bad
     const atom = {
-      value: 1,
+        value: 1,
 
-      addValue: function (value) {
-        return atom.value + value;
-      },
+        addValue: function (value) {
+            return atom.value + value;
+        },
     };
 
     // good
     const atom = {
-      value: 1,
+        value: 1,
 
-      addValue(value) {
-        return atom.value + value;
-      },
+        addValue(value) {
+            return atom.value + value;
+        },
     };
     ```
 
@@ -244,12 +244,12 @@ Other Style Guides
 
     // bad
     const obj = {
-      lukeSkywalker: lukeSkywalker,
+        lukeSkywalker: lukeSkywalker,
     };
 
     // good
     const obj = {
-      lukeSkywalker,
+        lukeSkywalker,
     };
     ```
 
@@ -263,22 +263,22 @@ Other Style Guides
 
     // bad
     const obj = {
-      episodeOne: 1,
-      twoJediWalkIntoACantina: 2,
-      lukeSkywalker,
-      episodeThree: 3,
-      mayTheFourth: 4,
-      anakinSkywalker,
+        episodeOne: 1,
+        twoJediWalkIntoACantina: 2,
+        lukeSkywalker,
+        episodeThree: 3,
+        mayTheFourth: 4,
+        anakinSkywalker,
     };
 
     // good
     const obj = {
-      lukeSkywalker,
-      anakinSkywalker,
-      episodeOne: 1,
-      twoJediWalkIntoACantina: 2,
-      episodeThree: 3,
-      mayTheFourth: 4,
+        lukeSkywalker,
+        anakinSkywalker,
+        episodeOne: 1,
+        twoJediWalkIntoACantina: 2,
+        episodeThree: 3,
+        mayTheFourth: 4,
     };
     ```
 
@@ -318,7 +318,7 @@ Other Style Guides
     let i;
 
     for (i = 0; i < len; i++) {
-      itemsCopy[i] = items[i];
+        itemsCopy[i] = items[i];
     }
 
     // good
@@ -342,21 +342,21 @@ Other Style Guides
     ```javascript
     // bad
     function getFullName(user) {
-      const firstName = user.firstName;
-      const lastName = user.lastName;
+        const firstName = user.firstName;
+        const lastName = user.lastName;
 
-      return `${firstName} ${lastName}`;
+        return `${firstName} ${lastName}`;
     }
 
     // good
     function getFullName(obj) {
-      const { firstName, lastName } = obj;
-      return `${firstName} ${lastName}`;
+        const { firstName, lastName } = obj;
+        return `${firstName} ${lastName}`;
     }
 
     // best
     function getFullName({ firstName, lastName }) {
-      return `${firstName} ${lastName}`;
+        return `${firstName} ${lastName}`;
     }
     ```
 
@@ -380,8 +380,8 @@ Other Style Guides
     ```javascript
     // bad
     function processInput(input) {
-      // then a miracle occurs
-      return [left, right, top, bottom];
+        // then a miracle occurs
+        return [left, right, top, bottom];
     }
 
     // the caller needs to think about the order of return data
@@ -389,8 +389,8 @@ Other Style Guides
 
     // good
     function processInput(input) {
-      // then a miracle occurs
-      return { left, right, top, bottom };
+        // then a miracle occurs
+        return { left, right, top, bottom };
     }
 
     // the caller selects only the data they need
@@ -442,8 +442,8 @@ Other Style Guides
 
     // good
     const errorMessage = 'This is a super long error that was thrown because ' +
-      'of Batman. When you stop to think about how Batman had anything to do ' +
-      'with this, you would get nowhere fast.';
+        'of Batman. When you stop to think about how Batman had anything to do ' +
+        'with this, you would get nowhere fast.';
     ```
 
   - [6.4](#6.4) <a name='6.4'></a> Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
@@ -456,17 +456,17 @@ Other Style Guides
     ```javascript
     // bad
     function sayHi(name) {
-      return 'How are you, ' + name + '?';
+        return 'How are you, ' + name + '?';
     }
 
     // bad
     function sayHi(name) {
-      return ['How are you, ', name, '?'].join();
+        return ['How are you, ', name, '?'].join();
     }
 
     // good
     function sayHi(name) {
-      return `How are you, ${name}?`;
+        return `How are you, ${name}?`;
     }
     ```
 
@@ -495,7 +495,7 @@ Other Style Guides
     ```javascript
     // immediately-invoked function expression (IIFE)
     (() => {
-      console.log('Welcome to the Internet. Please follow me.');
+        console.log('Welcome to the Internet. Please follow me.');
     })();
     ```
 
@@ -505,17 +505,17 @@ Other Style Guides
     ```javascript
     // bad
     if (currentUser) {
-      function test() {
-        console.log('Nope.');
-      }
+        function test() {
+            console.log('Nope.');
+        }
     }
 
     // good
     let test;
     if (currentUser) {
-      test = () => {
-        console.log('Yup.');
-      };
+        test = () => {
+            console.log('Yup.');
+        };
     }
     ```
 
@@ -524,12 +524,12 @@ Other Style Guides
     ```javascript
     // bad
     function nope(name, options, arguments) {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     function yup(name, options, args) {
-      // ...stuff...
+        // ...stuff...
     }
     ```
 
@@ -541,13 +541,13 @@ Other Style Guides
     ```javascript
     // bad
     function concatenateAll() {
-      const args = Array.prototype.slice.call(arguments);
-      return args.join('');
+        const args = Array.prototype.slice.call(arguments);
+        return args.join('');
     }
 
     // good
     function concatenateAll(...args) {
-      return args.join('');
+        return args.join('');
     }
     ```
 
@@ -557,24 +557,24 @@ Other Style Guides
     ```javascript
     // really bad
     function handleThings(opts) {
-      // No! We shouldn't mutate function arguments.
-      // Double bad: if opts is falsy it'll be set to an object which may
-      // be what you want but it can introduce subtle bugs.
-      opts = opts || {};
-      // ...
+        // No! We shouldn't mutate function arguments.
+        // Double bad: if opts is falsy it'll be set to an object which may
+        // be what you want but it can introduce subtle bugs.
+        opts = opts || {};
+        // ...
     }
 
     // still bad
     function handleThings(opts) {
-      if (opts === void 0) {
-        opts = {};
-      }
-      // ...
+        if (opts === void 0) {
+            opts = {};
+        }
+        // ...
     }
 
     // good
     function handleThings(opts = {}) {
-      // ...
+        // ...
     }
     ```
 
@@ -599,12 +599,12 @@ Other Style Guides
     ```javascript
     // bad
     function handleThings(opts = {}, name) {
-      // ...
+        // ...
     }
 
     // good
     function handleThings(name, opts = {}) {
-      // ...
+        // ...
     }
     ```
 
@@ -633,14 +633,14 @@ Other Style Guides
     ```javascript
     // bad
     [1, 2, 3].map(function (x) {
-      const y = x + 1;
-      return x * y;
+        const y = x + 1;
+        return x * y;
     });
 
     // good
     [1, 2, 3].map((x) => {
-      const y = x + 1;
-      return x * y;
+        const y = x + 1;
+        return x * y;
     });
     ```
 
@@ -656,14 +656,14 @@ Other Style Guides
 
     // bad
     [1, 2, 3].map(number => {
-      const nextNumber = number + 1;
-      `A string containing the ${nextNumber}.`;
+        const nextNumber = number + 1;
+        `A string containing the ${nextNumber}.`;
     });
 
     // good
     [1, 2, 3].map(number => {
-      const nextNumber = number + 1;
-      return `A string containing the ${nextNumber}.`;
+        const nextNumber = number + 1;
+        return `A string containing the ${nextNumber}.`;
     });
     ```
 
@@ -671,17 +671,17 @@ Other Style Guides
 
   > Why? It shows clearly where the function starts and ends.
 
-    ```js
+    ```javascript
     // bad
     [1, 2, 3].map(number => 'As time went by, the string containing the ' +
-      `${number} became much longer. So we needed to break it over multiple ` +
-      'lines.'
+        `${number} became much longer. So we needed to break it over multiple ` +
+        'lines.'
     );
 
     // good
     [1, 2, 3].map(number => (
-      `As time went by, the string containing the ${number} became much ` +
-      'longer. So we needed to break it over multiple lines.'
+        `As time went by, the string containing the ${number} became much ` +
+        'longer. So we needed to break it over multiple lines.'
     ));
     ```
 
@@ -690,7 +690,7 @@ Other Style Guides
 
   > Why? Less visual clutter.
 
-    ```js
+    ```javascript
     // good
     [1, 2, 3].map(x => x * x);
 
@@ -709,25 +709,25 @@ Other Style Guides
     ```javascript
     // bad
     function Queue(contents = []) {
-      this._queue = [...contents];
+        this._queue = [...contents];
     }
     Queue.prototype.pop = function() {
-      const value = this._queue[0];
-      this._queue.splice(0, 1);
-      return value;
+        const value = this._queue[0];
+        this._queue.splice(0, 1);
+        return value;
     }
 
 
     // good
     class Queue {
-      constructor(contents = []) {
-        this._queue = [...contents];
-      }
-      pop() {
-        const value = this._queue[0];
-        this._queue.splice(0, 1);
-        return value;
-      }
+        constructor(contents = []) {
+            this._queue = [...contents];
+        }
+        pop() {
+            const value = this._queue[0];
+            this._queue.splice(0, 1);
+            return value;
+        }
     }
     ```
 
@@ -739,18 +739,18 @@ Other Style Guides
     // bad
     const inherits = require('inherits');
     function PeekableQueue(contents) {
-      Queue.apply(this, contents);
+        Queue.apply(this, contents);
     }
     inherits(PeekableQueue, Queue);
     PeekableQueue.prototype.peek = function() {
-      return this._queue[0];
+        return this._queue[0];
     }
 
     // good
     class PeekableQueue extends Queue {
-      peek() {
-        return this._queue[0];
-      }
+        peek() {
+            return this._queue[0];
+        }
     }
     ```
 
@@ -759,12 +759,12 @@ Other Style Guides
     ```javascript
     // bad
     Jedi.prototype.jump = function() {
-      this.jumping = true;
-      return true;
+        this.jumping = true;
+        return true;
     };
 
     Jedi.prototype.setHeight = function(height) {
-      this.height = height;
+        this.height = height;
     };
 
     const luke = new Jedi();
@@ -773,21 +773,21 @@ Other Style Guides
 
     // good
     class Jedi {
-      jump() {
-        this.jumping = true;
-        return this;
-      }
+        jump() {
+            this.jumping = true;
+            return this;
+        }
 
-      setHeight(height) {
-        this.height = height;
-        return this;
-      }
+        setHeight(height) {
+            this.height = height;
+            return this;
+        }
     }
 
     const luke = new Jedi();
 
     luke.jump()
-      .setHeight(20);
+        .setHeight(20);
     ```
 
 
@@ -795,17 +795,17 @@ Other Style Guides
 
     ```javascript
     class Jedi {
-      constructor({ name = 'no name' } = {}) {
-        this.name = name;
-      }
+        constructor({ name = 'no name' } = {}) {
+            this.name = name;
+        }
 
-      getName() {
-        return this.name;
-      }
+        getName() {
+            return this.name;
+        }
 
-      toString() {
-        return `Jedi - ${this.getName()}`;
-      }
+        toString() {
+            return `Jedi - ${this.getName()}`;
+        }
     }
     ```
 
@@ -873,7 +873,7 @@ Other Style Guides
     // bad
     let sum = 0;
     for (let num of numbers) {
-      sum += num;
+        sum += num;
     }
 
     sum === 15;
@@ -903,8 +903,8 @@ Other Style Guides
 
     ```javascript
     const luke = {
-      jedi: true,
-      age: 28,
+        jedi: true,
+        age: 28,
     };
 
     // bad
@@ -918,12 +918,12 @@ Other Style Guides
 
     ```javascript
     const luke = {
-      jedi: true,
-      age: 28,
+        jedi: true,
+        age: 28,
     };
 
     function getProp(prop) {
-      return luke[prop];
+        return luke[prop];
     }
 
     const isJedi = getProp('jedi');
@@ -934,7 +934,7 @@ Other Style Guides
 
 ## Variables
 
-  - [13.1](#13.1) <a name='13.1'></a> Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  - [13.1](#13.1) <a name='13.1'></a> Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
 
     ```javascript
     // bad
@@ -944,21 +944,21 @@ Other Style Guides
     const superPower = new SuperPower();
     ```
 
-  - [13.2](#13.2) <a name='13.2'></a> Use one `const` declaration per variable.
+  - [13.2](#13.2) <a name='13.2'></a> Use one `const` or `let` declaration per variable.
 
     > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs.
 
     ```javascript
     // bad
     const items = getItems(),
-        goSportsTeam = true,
-        dragonball = 'z';
+          goSportsTeam = true,
+          dragonball = 'z';
 
     // bad
     // (compare to above, and try to spot the mistake)
     const items = getItems(),
-        goSportsTeam = true;
-        dragonball = 'z';
+          goSportsTeam = true;
+          dragonball = 'z';
 
     // good
     const items = getItems();
@@ -998,43 +998,52 @@ Other Style Guides
     ```javascript
     // good
     function() {
-      test();
-      console.log('doing stuff..');
+        test();
+        console.log('doing stuff..');
 
-      //..other stuff..
+        //..other stuff..
 
-      const name = getName();
+        const name = getName();
 
-      if (name === 'test') {
-        return false;
-      }
+        if (name === 'test') {
+            return false;
+        }
 
-      return name;
+        return name;
     }
 
     // bad - unnecessary function call
     function(hasName) {
-      const name = getName();
+        const name = getName();
 
-      if (!hasName) {
-        return false;
-      }
+        if (!hasName) {
+            return false;
+        }
 
-      this.setFirstName(name);
+        this.setFirstName(name);
 
-      return true;
+        return true;
     }
 
     // good
     function(hasName) {
-      if (!hasName) {
-        return false;
-      }
+        if (!hasName) {
+            return false;
+        }
 
-      const name = getName();
-      this.setFirstName(name);
+        const name = getName();
+        this.setFirstName(name);
 
-      return true;
+        return true;
+    }
+    ```
+
+  > Note that referencing a variable declared by `let` or `const` before they are set results in a reference error, including typeof (see [Why `typeof` is no longer "safe"](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15))
+
+    ```javascript
+    if (condition) {
+        console.log(typeof value);     // ReferenceError!
+        let value = "blue";
     }
     ```
 
