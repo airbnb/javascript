@@ -36,7 +36,7 @@
     const Listing = React.createClass({
       // ...
       render: function() {
-        return <div>{ this.state.hello }</div>;
+        return <div>{this.state.hello}</div>;
       }
     });
 
@@ -44,7 +44,7 @@
     class Listing extends React.Component {
       // ...
       render() {
-        return <div>{ this.state.hello }</div>;
+        return <div>{this.state.hello}</div>;
       }
     }
     ```
@@ -56,13 +56,13 @@
     // bad
     class Listing extends React.Component {
       render() {
-        return <div>{ this.props.hello }</div>;
+        return <div>{this.props.hello}</div>;
       }
     }
     
     // good
-    function Listing({ hello }){
-      return <div>{ hello }</div>;
+    function Listing ({ hello }) {
+      return <div>{hello}</div>;
     }
     ```
 
