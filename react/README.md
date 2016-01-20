@@ -34,7 +34,7 @@
     ```javascript
     // bad
     const Listing = React.createClass({
-      render() {
+      render: function() {
         return <div />;
       }
     });
