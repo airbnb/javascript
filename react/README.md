@@ -25,7 +25,7 @@
   - Always use JSX syntax.
   - Do not use `React.createElement` unless you're initializing the app from a file that is not JSX.
 
-## Class vs `React.createClass`
+## Class vs `React.createClass` vs stateless
 
   - If you have internal state and/or refs, prefer `class extends React.Component` over `React.createClass` unless you have a very good reason to use mixins.
 
@@ -35,7 +35,7 @@
     // bad
     const Listing = React.createClass({
       // ...
-      render: function() {
+      render() {
         return <div>{this.state.hello}</div>;
       }
     });
@@ -61,7 +61,7 @@
     }
     
     // good
-    function Listing ({ hello }) {
+    function Listing({ hello }) {
       return <div>{hello}</div>;
     }
     ```
