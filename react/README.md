@@ -5,7 +5,7 @@
 ## Table of Contents
 
   1. [Basic Rules](#basic-rules)
-  1. [Class vs `React.createClass`](#class-vs-reactcreateclass)
+  1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
   1. [Naming](#naming)
   1. [Declaration](#declaration)
   1. [Alignment](#alignment)
@@ -25,25 +25,44 @@
   - Always use JSX syntax.
   - Do not use `React.createElement` unless you're initializing the app from a file that is not JSX.
 
-## Class vs `React.createClass`
+## Class vs `React.createClass` vs stateless
 
-  - Use `class extends React.Component` unless you have a very good reason to use mixins.
+  - If you have internal state and/or refs, prefer `class extends React.Component` over `React.createClass` unless you have a very good reason to use mixins.
 
   eslint rules: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md).
 
     ```javascript
     // bad
     const Listing = React.createClass({
+      // ...
       render() {
-        return <div />;
+        return <div>{this.state.hello}</div>;
       }
     });
 
     // good
     class Listing extends React.Component {
+      // ...
       render() {
-        return <div />;
+        return <div>{this.state.hello}</div>;
       }
+    }
+    ```
+    
+    And if you don't have state or refs, prefer functions over classes:
+    
+    ```javascript
+
+    // bad
+    class Listing extends React.Component {
+      render() {
+        return <div>{this.props.hello}</div>;
+      }
+    }
+    
+    // good
+    function Listing({ hello }) {
+      return <div>{hello}</div>;
     }
     ```
 
