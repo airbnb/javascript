@@ -10,6 +10,9 @@ linters:
   DeclarationOrder:
     enabled: false
 
+  ExtendDirective:
+    enabled: true
+
   LeadingZero:
     enabled: false
 

@@ -17,8 +17,7 @@
   1. [Sass](#sass)
     - [Syntax](#syntax)
     - [Ordering](#ordering-of-property-declarations)
-    - [Mixins](#mixins)
-    - [Placeholders](#placeholders)
+    - [Extend directive](#extend-directive)
     - [Nested selectors](#nested-selectors)
 
 ## Terminology
@@ -174,41 +173,28 @@ We recommend creating JavaScript-specific classes to bind to, prefixed with `.js
 ### Syntax
 
 * Use the `.scss` syntax, never the original `.sass` syntax
-* Order your `@extend`, regular CSS and `@include` declarations logically (see below)
+* Order your regular CSS and `@include` declarations logically (see below)
 
 ### Ordering of property declarations
 
-1. `@extend` declarations
+1. Property declarations
 
-    Just as in other OOP languages, it's helpful to know right away that this “class” inherits from another.
-
-    ```scss
-    .btn-green {
-      @extend %btn;
-      // ...
-    }
-    ```
-
-2. Property declarations
-
-    Now list all standard property declarations, anything that isn't an `@extend`, `@include`, or a nested selector.
+    List all standard property declarations, anything that isn't an `@include` or a nested selector.
 
     ```scss
     .btn-green {
-      @extend %btn;
       background: green;
       font-weight: bold;
       // ...
     }
     ```
 
-3. `@include` declarations
+2. `@include` declarations
 
-    Grouping `@include`s at the end makes it easier to read the entire selector, and it also visually separates them from `@extend`s.
+    Grouping `@include`s at the end makes it easier to read the entire selector.
 
     ```scss
     .btn-green {
-      @extend %btn;
       background: green;
       font-weight: bold;
       @include transition(background 0.5s ease);
@@ -216,13 +202,12 @@ We recommend creating JavaScript-specific classes to bind to, prefixed with `.js
     }
     ```
 
-4. Nested selectors
+3. Nested selectors
 
     Nested selectors, _if necessary_, go last, and nothing goes after them. Add whitespace between your rule declarations and nested selectors, as well as between adjacent nested selectors. Apply the same guidelines as above to your nested selectors.
 
     ```scss
     .btn {
-      @extend %btn;
       background: green;
       font-weight: bold;
       @include transition(background 0.5s ease);
@@ -233,51 +218,9 @@ We recommend creating JavaScript-specific classes to bind to, prefixed with `.js
     }
     ```
 
-### Mixins
+### Extend directive
 
-Mixins, defined via `@mixin` and called with `@include`, should be used sparingly and only when function arguments are necessary. A mixin without function arguments (i.e. `@mixin hide { display: none; }`) is better accomplished using a placeholder selector (see below) in order to prevent code duplication.
-
-### Placeholders
-
-Placeholders in Sass, defined via `%selector` and used with `@extend`, are a way of defining rule declarations that aren't automatically output in your compiled stylesheet. Instead, other selectors “inherit” from the placeholder, and the relevant selectors are copied to the point in the stylesheet where the placeholder is defined. This is best illustrated with the example below.
-
-Placeholders are powerful but easy to abuse, especially when combined with nested selectors. **As a rule of thumb, avoid creating placeholders with nested rule declarations, or calling `@extend` inside nested selectors.** Placeholders are great for simple inheritance, but can easily result in the accidental creation of additional selectors without paying close attention to how and where they are used.
-
-**Sass**
-
-```sass
-// Unless we call `@extend %icon` these properties won't be compiled!
-%icon {
-  font-family: "Airglyphs";
-}
-
-.icon-error {
-  @extend %icon;
-  color: red;
-}
-
-.icon-success {
-  @extend %icon;
-  color: green;
-}
-```
-
-**CSS**
-
-```css
-.icon-error,
-.icon-success {
-  font-family: "Airglyphs";
-}
-
-.icon-error {
-  color: red;
-}
-
-.icon-success {
-  color: green;
-}
-```
+`@extend` should be avoided because it has unintuitive and potentially dangerous behavior, especially when used with nested selectors. Even extending top-level placeholder selectors can cause problems if the order of selectors ends up changing later (e.g. if they are in other files and the order the files are loaded shifts). Gzipping should handle most of the savings you would have gained by using `@extend`, and you can DRY up your stylesheets nicely with mixins.
 
 ### Nested selectors
 
