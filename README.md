@@ -1196,7 +1196,7 @@ Other Style Guides
       var declaredButNotAssigned = true;
     }
 
-    // The interpreter is hoisting the variable
+    // the interpreter is hoisting the variable
     // declaration to the top of the scope,
     // which means our example could be rewritten as:
     function example() {
