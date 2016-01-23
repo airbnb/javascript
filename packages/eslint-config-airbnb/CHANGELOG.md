@@ -1,3 +1,11 @@
+4.0.0 / 2016-01-22
+==================
+ - [breaking] require outer IIFE wrapping; flesh out guide section
+ - [minor] Add missing `arrow-body-style`, `prefer-template` rules (#678)
+ - [minor] Add `prefer-arrow-callback` to ES6 rules (to match the guide) (#677)
+ - [Tests] run `npm run lint` as part of tests; fix errors
+ - [Tests] use `parallelshell` to parallelize npm run-scripts
+
 3.1.0 / 2016-01-07
 ==================
  - [minor] Allow multiple stateless components in a single file
