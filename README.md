@@ -17,6 +17,7 @@
   1. [Sass](#sass)
     - [Syntax](#syntax)
     - [Ordering](#ordering-of-property-declarations)
+    - [Mixins](#mixins)
     - [Extend directive](#extend-directive)
     - [Nested selectors](#nested-selectors)
 
@@ -217,6 +218,10 @@ We recommend creating JavaScript-specific classes to bind to, prefixed with `.js
       }
     }
     ```
+
+### Mixins
+
+Mixins should be used to DRY up your code, add clarity, or abstract complexity--in much the same way as well-named functions. Mixins that accept no arguments can be useful for this, but note that if you are not compressing your payload (e.g. gzip), this may contribute to unnecessary code duplication in the resulting styles.
 
 ### Extend directive
 
