@@ -1252,7 +1252,7 @@ Other Style Guides
 
 ## Comments
 
-  - [17.1](#17.1) <a name='17.1'></a> Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
+  - [17.1](#17.1) <a name='17.1'></a> Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values by using [JSDoc](http://www.2ality.com/2011/08/jsdoc-intro.html).
 
     ```javascript
     // bad
@@ -1392,7 +1392,7 @@ Other Style Guides
     });
     ```
 
-  - [18.3](#18.3) <a name='18.3'></a> Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space before the argument list in function calls and declarations.
+  - [18.3](#18.3) <a name='18.3'></a> Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.) and anonymous function declarations. Place no space before the argument list in function calls and named declarations.
 
     ```javascript
     // bad
@@ -1403,6 +1403,16 @@ Other Style Guides
     // good
     if (isJedi) {
         fight();
+    }
+
+    // bad
+    function() {
+        console.log('Anonymous');
+    }
+
+    // good -- easier to tell this is a function decarlation rather than function call
+    function () {
+        console.log('Anonymous');
     }
 
     // bad
@@ -1474,20 +1484,13 @@ Other Style Guides
             .updateCount();
 
     // bad
-    const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
-            .attr('width', (radius + margin) * 2).append('svg:g')
-            .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
-            .call(tron.led);
+    const request = fetch('/users').then(...).catch(...).finally(...);
 
     // good
-    const leds = stage.selectAll('.led')
-            .data(data)
-        .enter().append('svg:svg')
-            .classed('led', true)
-            .attr('width', (radius + margin) * 2)
-        .append('svg:g')
-            .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
-            .call(tron.led);
+    const request = fetch('/users')
+        .then(...)
+        .catch(...)
+        .finally(...);
     ```
 
   - [18.7](#18.7) <a name='18.7'></a> Leave a blank line after blocks and before the next statement.
@@ -1545,6 +1548,31 @@ Other Style Guides
     ];
 
     return arr;
+    ```
+
+  - [18.8](#18.8) <a name='18.8'></a> Break long logical operations into multiple lines, leaving operators at the end of the line and intenting the later lines to the first line's first operand.
+
+    ```javascript
+    // bad
+    if (aReallyReallyLongExpr && anotherSuperLongExpr && wowSoManyExpr && longExprToCheckTheWorldIsOk) {
+        ...
+    }
+
+    // good
+    if (aReallyReallyLongExpr &&
+        anotherSuperLongExpr &&
+        wowSoManyExpr &&
+        longExprToCheckTheWorldIsOk) {
+        ...
+    }
+
+    // good
+    while (aReallyReallyLongExpr &&
+           anotherSuperLongExpr &&
+           wowSoManyExpr &&
+           longExprToCheckTheWorldIsOk) {
+        ...
+    }
     ```
 
 
