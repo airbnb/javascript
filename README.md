@@ -36,14 +36,14 @@ Other Style Guides
   1. [Blocks](#blocks)
   1. [Comments](#comments)
   1. [Whitespace](#whitespace)
-  1. [Commas](#commas) #TBD
-  1. [Semicolons](#semicolons) #TBD
-  1. [Type Casting & Coercion](#type-casting--coercion) #TBD
-  1. [Naming Conventions](#naming-conventions) #TBD
-  1. [Accessors](#accessors) #TBD
-  1. [Events](#events) #TBD
-  1. [jQuery](#jquery) #TBD
-  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility) #TBD #TBD
+  1. [Commas](#commas)
+  1. [Semicolons](#semicolons)
+  1. [Type Casting & Coercion](#type-casting--coercion)
+  1. [Naming Conventions](#naming-conventions)
+  1. [Accessors](#accessors)
+  1. [Events](#events)
+  1. [jQuery](#jquery)
+  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility) #TBD
   1. [ECMAScript 6 Styles](#ecmascript-6-styles) #TBD
   1. [Testing](#testing) #TBD
   1. [Performance](#performance) #TBD
