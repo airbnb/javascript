@@ -1131,7 +1131,7 @@ Other Style Guides
     }
     ```
 
-  - [14.5](#14.5) <a name='14.5'></a> ES6 `import`s are hoisted to the beginning of their module.
+  - [14.5](#14.5) <a name='14.5'></a> ES6 `import`s are hoisted to the beginning of their module while modules imported through `require`s (ie. CommonJS modules) are not.
 
     ```javascript
     // This works
@@ -1142,7 +1142,7 @@ Other Style Guides
     // This will import 'imported_module' before 'required_module'
     require('required_module');
 
-    import 'my_module';
+    import 'imported_module';
     ```
 
   - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/).
