@@ -1605,4 +1605,477 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
+
+## Commas
+
+  - [19.1](#19.1) <a name='19.1'></a> Leading commas: **Nope.**
+
+    ```javascript
+    // bad
+    const story = [
+        once
+      , upon
+      , aTime
+    ];
+
+    // good
+    const story = [
+      once,
+      upon,
+      aTime,
+    ];
+
+    // bad
+    const hero = {
+        firstName: 'Ada'
+      , lastName: 'Lovelace'
+      , birthYear: 1815
+      , superPower: 'computers'
+    };
+
+    // good
+    const hero = {
+      firstName: 'Ada',
+      lastName: 'Lovelace',
+      birthYear: 1815,
+      superPower: 'computers',
+    };
+    ```
+
+  - [19.2](#19.2) <a name='19.2'></a> Additional trailing comma: **Yup.**
+
+  > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](es5/README.md#commas) in legacy browsers.
+
+    ```javascript
+    // bad - git diff without trailing comma
+    const hero = {
+         firstName: 'Florence',
+    -    lastName: 'Nightingale'
+    +    lastName: 'Nightingale',
+    +    inventorOf: ['coxcomb graph', 'modern nursing']
+    };
+
+    // good - git diff with trailing comma
+    const hero = {
+         firstName: 'Florence',
+         lastName: 'Nightingale',
+    +    inventorOf: ['coxcomb chart', 'modern nursing'],
+    };
+
+    // bad
+    const hero = {
+      firstName: 'Dana',
+      lastName: 'Scully'
+    };
+
+    const heroes = [
+      'Batman',
+      'Superman'
+    ];
+
+    // good
+    const hero = {
+      firstName: 'Dana',
+      lastName: 'Scully',
+    };
+
+    const heroes = [
+      'Batman',
+      'Superman',
+    ];
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+
+## Semicolons
+
+  - [20.1](#20.1) <a name='20.1'></a> **Yup.**
+
+    ```javascript
+    // bad
+    (function() {
+      const name = 'Skywalker'
+      return name
+    })()
+
+    // good
+    (() => {
+      const name = 'Skywalker';
+      return name;
+    })();
+
+    // good (guards against the function becoming an argument when two files with IIFEs are concatenated)
+    ;(() => {
+      const name = 'Skywalker';
+      return name;
+    })();
+    ```
+
+    [Read more](http://stackoverflow.com/a/7365214/1712802).
+
+**[⬆ back to top](#table-of-contents)**
+
+
+## Type Casting & Coercion
+
+  - [21.1](#21.1) <a name='21.1'></a> Perform type coercion at the beginning of the statement.
+  - [21.2](#21.2) <a name='21.2'></a> Strings:
+
+    ```javascript
+    //  => this.reviewScore = 9;
+
+    // bad
+    const totalScore = this.reviewScore + '';
+
+    // good
+    const totalScore = String(this.reviewScore);
+    ```
+
+  - [21.3](#21.3) <a name='21.3'></a> Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings.
+
+    ```javascript
+    const inputValue = '4';
+
+    // bad
+    const val = new Number(inputValue);
+
+    // bad
+    const val = +inputValue;
+
+    // bad
+    const val = inputValue >> 0;
+
+    // bad
+    const val = parseInt(inputValue);
+
+    // good
+    const val = Number(inputValue);
+
+    // good
+    const val = parseInt(inputValue, 10);
+    ```
+
+  - [21.4](#21.4) <a name='21.4'></a> If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
+
+    ```javascript
+    // good
+    /**
+     * parseInt was the reason my code was slow.
+     * Bitshifting the String to coerce it to a
+     * Number made it a lot faster.
+     */
+    const val = inputValue >> 0;
+    ```
+
+  - [21.5](#21.5) <a name='21.5'></a> **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
+
+    ```javascript
+    2147483647 >> 0 //=> 2147483647
+    2147483648 >> 0 //=> -2147483648
+    2147483649 >> 0 //=> -2147483647
+    ```
+
+  - [21.6](#21.6) <a name='21.6'></a> Booleans:
+
+    ```javascript
+    const age = 0;
+
+    // bad
+    const hasAge = new Boolean(age);
+
+    // good
+    const hasAge = Boolean(age);
+
+    // good
+    const hasAge = !!age;
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+
+## Naming Conventions
+
+  - [22.1](#22.1) <a name='22.1'></a> Avoid single letter names. Be descriptive with your naming.
+
+    ```javascript
+    // bad
+    function q() {
+      // ...stuff...
+    }
+
+    // good
+    function query() {
+      // ..stuff..
+    }
+    ```
+
+  - [22.2](#22.2) <a name='22.2'></a> Use camelCase when naming objects, functions, and instances.
+
+    ```javascript
+    // bad
+    const OBJEcttsssss = {};
+    const this_is_my_object = {};
+    function c() {}
+
+    // good
+    const thisIsMyObject = {};
+    function thisIsMyFunction() {}
+    ```
+
+  - [22.3](#22.3) <a name='22.3'></a> Use PascalCase when naming constructors or classes.
+
+    ```javascript
+    // bad
+    function user(options) {
+      this.name = options.name;
+    }
+
+    const bad = new user({
+      name: 'nope',
+    });
+
+    // good
+    class User {
+      constructor(options) {
+        this.name = options.name;
+      }
+    }
+
+    const good = new User({
+      name: 'yup',
+    });
+    ```
+
+  - [22.4](#22.4) <a name='22.4'></a> Use a leading underscore `_` when naming private properties.
+
+    ```javascript
+    // bad
+    this.__firstName__ = 'Panda';
+    this.firstName_ = 'Panda';
+
+    // good
+    this._firstName = 'Panda';
+    ```
+
+  - [22.5](#22.5) <a name='22.5'></a> Don't save references to `this`. Use arrow functions or Function#bind.
+
+    ```javascript
+    // bad
+    function foo() {
+      const self = this;
+      return function() {
+        console.log(self);
+      };
+    }
+
+    // bad
+    function foo() {
+      const that = this;
+      return function() {
+        console.log(that);
+      };
+    }
+
+    // good
+    function foo() {
+      return () => {
+        console.log(this);
+      };
+    }
+    ```
+
+  - [22.6](#22.6) <a name='22.6'></a> If your file exports a single class, your filename should be exactly the name of the class.
+    ```javascript
+    // file contents
+    class CheckBox {
+      // ...
+    }
+    export default CheckBox;
+
+    // in some other file
+    // bad
+    import CheckBox from './checkBox';
+
+    // bad
+    import CheckBox from './check_box';
+
+    // good
+    import CheckBox from './CheckBox';
+    ```
+
+  - [22.7](#22.7) <a name='22.7'></a> Use camelCase when you export-default a function. Your filename should be identical to your function's name.
+
+    ```javascript
+    function makeStyleGuide() {
+    }
+
+    export default makeStyleGuide;
+    ```
+
+  - [22.8](#22.8) <a name='22.8'></a> Use PascalCase when you export a singleton / function library / bare object.
+
+    ```javascript
+    const AirbnbStyleGuide = {
+      es6: {
+      }
+    };
+
+    export default AirbnbStyleGuide;
+    ```
+
+
+**[⬆ back to top](#table-of-contents)**
+
+
+## Accessors
+
+  - [23.1](#23.1) <a name='23.1'></a> Accessor functions for properties are not required.
+  - [23.2](#23.2) <a name='23.2'></a> If you do make accessor functions use getVal() and setVal('hello').
+
+    ```javascript
+    // bad
+    dragon.age();
+
+    // good
+    dragon.getAge();
+
+    // bad
+    dragon.age(25);
+
+    // good
+    dragon.setAge(25);
+    ```
+
+  - [23.3](#23.3) <a name='23.3'></a> If the property is a `boolean`, use `isVal()` or `hasVal()`.
+
+    ```javascript
+    // bad
+    if (!dragon.age()) {
+      return false;
+    }
+
+    // good
+    if (!dragon.hasAge()) {
+      return false;
+    }
+    ```
+
+  - [23.4](#23.4) <a name='23.4'></a> It's okay to create get() and set() functions, but be consistent.
+
+    ```javascript
+    class Jedi {
+      constructor(options = {}) {
+        const lightsaber = options.lightsaber || 'blue';
+        this.set('lightsaber', lightsaber);
+      }
+
+      set(key, val) {
+        this[key] = val;
+      }
+
+      get(key) {
+        return this[key];
+      }
+    }
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+
+## Events
+
+  - [24.1](#24.1) <a name='24.1'></a> When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+
+    ```javascript
+    // bad
+    $(this).trigger('listingUpdated', listing.id);
+
+    ...
+
+    $(this).on('listingUpdated', function(e, listingId) {
+      // do something with listingId
+    });
+    ```
+
+    prefer:
+
+    ```javascript
+    // good
+    $(this).trigger('listingUpdated', { listingId: listing.id });
+
+    ...
+
+    $(this).on('listingUpdated', function(e, data) {
+      // do something with data.listingId
+    });
+    ```
+
+  **[⬆ back to top](#table-of-contents)**
+
+
+## jQuery
+
+  - [25.1](#25.1) <a name='25.1'></a> Prefix jQuery object variables with a `$`.
+
+    ```javascript
+    // bad
+    const sidebar = $('.sidebar');
+
+    // good
+    const $sidebar = $('.sidebar');
+
+    // good
+    const $sidebarBtn = $('.sidebar-btn');
+    ```
+
+  - [25.2](#25.2) <a name='25.2'></a> Cache jQuery lookups.
+
+    ```javascript
+    // bad
+    function setSidebar() {
+      $('.sidebar').hide();
+
+      // ...stuff...
+
+      $('.sidebar').css({
+        'background-color': 'pink'
+      });
+    }
+
+    // good
+    function setSidebar() {
+      const $sidebar = $('.sidebar');
+      $sidebar.hide();
+
+      // ...stuff...
+
+      $sidebar.css({
+        'background-color': 'pink'
+      });
+    }
+    ```
+
+  - [25.3](#25.3) <a name='25.3'></a> For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - [25.4](#25.4) <a name='25.4'></a> Use `find` with scoped jQuery object queries.
+
+    ```javascript
+    // bad
+    $('ul', '.sidebar').hide();
+
+    // bad
+    $('.sidebar').find('ul').hide();
+
+    // good
+    $('.sidebar ul').hide();
+
+    // good
+    $('.sidebar > ul').hide();
+
+    // good
+    $sidebar.find('ul').hide();
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
 # }
