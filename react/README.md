@@ -27,9 +27,7 @@
 
 ## Class vs `React.createClass` vs stateless
 
-  - If you have internal state and/or refs, prefer `class extends React.Component` over `React.createClass` unless you have a very good reason to use mixins.
-
-  eslint rules: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md).
+  - If you have internal state and/or refs, prefer `class extends React.Component` over `React.createClass` unless you have a very good reason to use mixins. [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md)
 
     ```javascript
     // bad
@@ -48,9 +46,9 @@
       }
     }
     ```
-    
+
     And if you don't have state or refs, prefer functions over classes:
-    
+
     ```javascript
 
     // bad
@@ -59,7 +57,7 @@
         return <div>{this.props.hello}</div>;
       }
     }
-    
+
     // good
     function Listing({ hello }) {
       return <div>{hello}</div>;
@@ -70,9 +68,7 @@
 
   - **Extensions**: Use `.jsx` extension for React components.
   - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
-  - **Reference Naming**: Use PascalCase for React components and camelCase for their instances.
-
-  eslint rules: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md).
+  - **Reference Naming**: Use PascalCase for React components and camelCase for their instances. [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
     ```javascript
     // bad
@@ -119,9 +115,7 @@
 
 ## Alignment
 
-  - Follow these alignment styles for JSX syntax
-
-  eslint rules: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md).
+  - Follow these alignment styles for JSX syntax. [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
     ```javascript
     // bad
@@ -148,12 +142,10 @@
 
 ## Quotes
 
-  - Always use double quotes (`"`) for JSX attributes, but single quotes for all other JS.
+  - Always use double quotes (`"`) for JSX attributes, but single quotes for all other JS. [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
 
   > Why? JSX attributes [can't contain escaped quotes](http://eslint.org/docs/rules/jsx-quotes), so double quotes make conjunctions like `"don't"` easier to type.
   > Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
-
-  eslint rules: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes).
 
     ```javascript
     // bad
@@ -206,9 +198,7 @@
     />
     ```
 
-  - Omit the value of the prop when it is explicitly `true`.
-
-  eslint rules: [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md).
+  - Omit the value of the prop when it is explicitly `true`. [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md)
 
     ```javascript
     // bad
@@ -224,9 +214,7 @@
 
 ## Parentheses
 
-  - Wrap JSX tags in parentheses when they span more than one line.
-
-  eslint rules: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md).
+  - Wrap JSX tags in parentheses when they span more than one line. [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md)
 
     ```javascript
     // bad
@@ -254,9 +242,7 @@
 
 ## Tags
 
-  - Always self-close tags that have no children.
-
-  eslint rules: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md).
+  - Always self-close tags that have no children. [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md)
 
     ```javascript
     // bad
@@ -266,9 +252,7 @@
     <Foo className="stuff" />
     ```
 
-  - If your component has multi-line properties, close its tag on a new line.
-
-  eslint rules: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md).
+  - If your component has multi-line properties, close its tag on a new line. [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
     ```javascript
     // bad
@@ -285,11 +269,9 @@
 
 ## Methods
 
-  - Bind event handlers for the render method in the constructor.
+  - Bind event handlers for the render method in the constructor. [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
 
   > Why? A bind call in the render path creates a brand new function on every single render.
-
-  eslint rules: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md).
 
     ```javascript
     // bad
@@ -393,7 +375,7 @@
     export default Link;
     ```
 
-  - Ordering for `React.createClass`:
+  - Ordering for `React.createClass`: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md)
 
   1. `displayName`
   1. `propTypes`
@@ -417,16 +399,12 @@
   1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
   1. `render`
 
-  eslint rules: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md).
-
 ## `isMounted`
 
-  - Do not use `isMounted`.
+  - Do not use `isMounted`. [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md)
 
   > Why? [`isMounted` is an anti-pattern][anti-pattern], is not available when using ES6 classes, and is on its way to being officially deprecated.
 
   [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
-
-  eslint rules: [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md).
 
 **[⬆ back to top](#table-of-contents)**
