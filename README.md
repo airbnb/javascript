@@ -2099,7 +2099,7 @@ Other Style Guides
 
     ...
 
-    $(this).on('listingUpdated', function (e, listingId) {
+    $(this).on('listingUpdated', (e, listingId) => {
       // do something with listingId
     });
     ```
@@ -2112,7 +2112,7 @@ Other Style Guides
 
     ...
 
-    $(this).on('listingUpdated', function (e, data) {
+    $(this).on('listingUpdated', (e, data) => {
       // do something with data.listingId
     });
     ```
