@@ -1267,10 +1267,10 @@ Other Style Guides
     }
 
     // bad
-    function () { return false; }
+    function foo() { return false; }
 
     // good
-    function () {
+    function bar() {
       return false;
     }
     ```
@@ -1410,17 +1410,17 @@ Other Style Guides
 
     ```javascript
     // bad
-    function () {
+    function foo() {
     ∙∙∙∙const name;
     }
 
     // bad
-    function () {
+    function bar() {
     ∙const name;
     }
 
     // good
-    function () {
+    function baz() {
     ∙∙const name;
     }
     ```
@@ -2216,7 +2216,7 @@ Other Style Guides
   - [28.1](#28.1) <a name="28.1"></a> **Yup.**
 
     ```javascript
-    function () {
+    function foo() {
       return true;
     }
     ```
