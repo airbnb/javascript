@@ -15,6 +15,7 @@ and React. It requires `eslint` and `eslint-plugin-react`.
 
 1. `npm install --save-dev eslint-config-airbnb eslint-plugin-react eslint`
 2. add `"extends": "airbnb"` to your .eslintrc
+3. make sure you have ```    "plugins": ["react"]``` inside your .eslintrc
 
 ### eslint-config-airbnb/base
 
