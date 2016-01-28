@@ -1216,7 +1216,7 @@ Other Style Guides
     ```javascript
     if ([0] && []) {
       // true
-      // An array (even an empty one) is an object, objects will evaluate to true
+      // an array (even an empty one) is an object, objects will evaluate to true
     }
     ```
 
@@ -1828,7 +1828,7 @@ Other Style Guides
   - [21.2](#21.2) <a name='21.2'></a> Strings:
 
     ```javascript
-    //  => this.reviewScore = 9;
+    // => this.reviewScore = 9;
 
     // bad
     const totalScore = this.reviewScore + '';
