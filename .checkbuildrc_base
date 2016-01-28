@@ -20,7 +20,8 @@
     "threshold": 40
   },
   "buddyjs": {
-    "args": ["**/*.js", "!*node_modules/**", "!**/**.test.js"]
+    "args": ["**/*.js", "!*node_modules/**", "!**/**.test.js"],
+    "ignore": [0, 1]
   },
   "nsp": {
     "args": ["--subdep-warn-only"]
