@@ -1198,14 +1198,14 @@ If your editor/IDE isn't listed above, a list of available plugins can be found 
     this._firstName = 'Panda';
     ```
 
-  - When saving a reference to `this` use `_this`.
+  - When saving a reference to `this` use `self`, but prefer `bind` ([Bind on MDN] (https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind))
 
     ```javascript
     // bad
     function() {
-      var self = this;
+      var _this = this;
       return function() {
-        console.log(self);
+        console.log(_this);
       };
     }
 
