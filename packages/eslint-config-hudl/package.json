@@ -42,7 +42,7 @@
   "hudl-ci": {
     "buildCommand": null,
     "lintCommand": "./node_modules/.bin/gulp lint",
-    "testCommand": "./node_modules/.bin/gulp test"
+    "testCommand": "npm run tests-only"
   },
   "tasksConfig": {
     "test": {
