@@ -13,7 +13,9 @@ module.exports = {
     // require default case in switch statements
     'default-case': 2,
     // encourages use of dot notation whenever possible
-    'dot-notation': [2, { 'allowKeywords': true }],
+    'dot-notation': [2, {
+      'allowKeywords': true,
+    }],
     // enforces consistent newlines before or after dots
     'dot-location': 0,
     // require the use of === and !==
@@ -76,7 +78,9 @@ module.exports = {
     // disallow reassignment of function parameters
     // disallow parameter object manipulation
     // rule: http://eslint.org/docs/rules/no-param-reassign.html
-    'no-param-reassign': [2, { 'props': true }],
+    'no-param-reassign': [2, {
+      'props': true,
+    }],
     // disallow use of process.env
     'no-process-env': 0,
     // disallow usage of __proto__ property
@@ -100,7 +104,10 @@ module.exports = {
     // disallow use of void operator
     'no-void': 0,
     // disallow usage of configurable warning terms in comments: e.g. todo
-    'no-warning-comments': [0, { 'terms': ['todo', 'fixme', 'xxx'], 'location': 'start' }],
+    'no-warning-comments': [0, {
+      'terms': ['todo', 'fixme', 'xxx'],
+      'location': 'start',
+    }],
     // disallow use of the with statement
     'no-with': 2,
     // require use of the second argument for parseInt()
@@ -111,6 +118,6 @@ module.exports = {
     // http://eslint.org/docs/rules/wrap-iife.html
     'wrap-iife': [2, 'outside'],
     // require or disallow Yoda conditions
-    'yoda': 2
-  }
+    'yoda': 2,
+  },
 };

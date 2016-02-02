@@ -1,0 +1,10 @@
+{
+  "extends": "../legacy.js",
+  "rules": {
+    "func-names": 0
+  },
+  "env": {
+    "node": true
+  },
+  "root": true
+}

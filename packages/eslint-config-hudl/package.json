@@ -1,0 +1,77 @@
+{
+  "name": "eslint-config-hudl",
+  "version": "4.0.0",
+  "description": "Hudl's ESLint config, following our styleguide",
+  "main": "index.js",
+  "scripts": {
+    "tests-only": "babel-tape-runner ./test/test-*.js",
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hudl/javascript"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "config",
+    "airbnb",
+    "javascript",
+    "styleguide"
+  ],
+  "author": "Jake Teton-Landis (https://twitter.com/@jitl)",
+  "contributors": [
+    {
+      "name": "Jake Teton-Landis",
+      "url": "https://twitter.com/jitl"
+    },
+    {
+      "name": "Jordan Harband",
+      "email": "ljharb@gmail.com",
+      "url": "http://ljharb.codes"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hudl/javascript/issues"
+  },
+  "homepage": "https://github.com/hudl/javascript",
+  "publishConfig": {
+    "registry": "http://npm.thorhudl.com"
+  },
+  "hudl-ci": {
+    "buildCommand": null,
+    "lintCommand": "./node_modules/.bin/gulp lint",
+    "testCommand": "./node_modules/.bin/gulp test"
+  },
+  "tasksConfig": {
+    "test": {
+      "src": [
+        "lib/**/*.js",
+        "!**/__specs__/**/*.js"
+      ],
+      "tests": "**/*-specs.js",
+      "setup": "./test/setup",
+      "coverageThresholds": {
+        "global": 100
+      }
+    }
+  },
+  "devDependencies": {
+    "babel-tape-runner": "1.2.0",
+    "eslint": "^1.10.3",
+    "eslint-plugin-react": "^3.12.0",
+    "fs-extra": "^0.26.5",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^1.1.1",
+    "gulp-if": "^2.0.0",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-mocha": "^2.2.0",
+    "react": "^0.13.3",
+    "require-dir": "^0.3.0",
+    "tape": "^4.2.2"
+  },
+  "peerDependencies": {
+    "eslint": ">=1.0.0"
+  }
+}

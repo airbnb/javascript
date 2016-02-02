@@ -55,6 +55,6 @@ module.exports = {
     // ensure that the results of typeof are compared against a valid string
     'valid-typeof': 2,
     // Avoid code that looks like two expressions but is actually one
-    'no-unexpected-multiline': 0
-  }
+    'no-unexpected-multiline': 0,
+  },
 };

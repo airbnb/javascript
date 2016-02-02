@@ -3,7 +3,7 @@ import path from 'path';
 import test from 'tape';
 
 const files = {
-  base: require('../base')
+  base: require('../base'),
 };
 
 fs.readdirSync(path.join(__dirname, '../rules')).forEach(name => {
