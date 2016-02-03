@@ -1281,6 +1281,9 @@ Other Style Guides
         function f() {}
         break;
       }
+      case 4:
+        bar();
+        break;
       default: {
         class C {}
       }
