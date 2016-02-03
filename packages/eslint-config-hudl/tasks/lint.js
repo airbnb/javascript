@@ -1,6 +1,6 @@
-var gulp = require('gulp');
-var eslint = require('gulp-eslint');
-var gulpIf = require('gulp-if');
+const gulp = require('gulp');
+const eslint = require('gulp-eslint');
+const gulpIf = require('gulp-if');
 
 function isFixed(file) {
   // Has ESLint fixed the file contents?

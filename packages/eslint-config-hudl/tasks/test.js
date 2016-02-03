@@ -1,11 +1,11 @@
-var path = require('path');
-var fs = require('fs-extra');
-var gulp = require('gulp');
-var mocha = require('gulp-mocha');
-var istanbul = require('gulp-istanbul');
-var config = require('./config').test;
+const path = require('path');
+const fs = require('fs-extra');
+const gulp = require('gulp');
+const mocha = require('gulp-mocha');
+const istanbul = require('gulp-istanbul');
+const config = require('./config').test;
 
-var testCoverageDir = './reports/coverage';
+const testCoverageDir = './reports/coverage';
 
 gulp.task('pre-test', function() {
   return gulp.src(config.src)
