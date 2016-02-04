@@ -716,7 +716,7 @@ Other Style Guides
     });
 
     // good
-    [1, 2, 3].map(number => {
+    [1, 2, 3].map((number) => {
       const nextNumber = number + 1;
       return `A string containing the ${nextNumber}.`;
     });
