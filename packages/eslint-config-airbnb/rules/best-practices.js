@@ -25,7 +25,8 @@ module.exports = {
     // disallow use of arguments.caller or arguments.callee
     'no-caller': 2,
     // disallow lexical declarations in case/default clauses
-    'no-case-declaration': 2,
+    // http://eslint.org/docs/rules/no-case-declarations.html
+    'no-case-declarations': 2,
     // disallow division operators explicitly at beginning of regular expression
     'no-div-regex': 0,
     // disallow else after a return in an if
