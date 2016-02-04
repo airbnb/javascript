@@ -6,6 +6,8 @@
   },
   "rules": {
     // This is super annoying and won't be relevant with arrow functions
-    "func-names": 0
+    "func-names": 0,
+    // Suspending this because my esformatter plugin is adding spaces around commented-out parameters
+    "space-in-parens": 0
   }
 }

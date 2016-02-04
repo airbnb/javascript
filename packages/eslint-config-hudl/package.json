@@ -59,6 +59,9 @@
   },
   "devDependencies": {
     "babel-tape-runner": "1.2.0",
+    "big-object-diff": "^0.7.0",
+    "deep-diff": "^0.3.3",
+    "deep-property": "^1.1.0",
     "eslint": "^1.10.3",
     "eslint-plugin-react": "^3.12.0",
     "eslint-teamcity": "^1.0.0",
@@ -68,9 +71,13 @@
     "gulp-if": "^2.0.0",
     "gulp-istanbul": "^0.10.3",
     "gulp-mocha": "^2.2.0",
+    "handlebars": "^4.0.5",
+    "lodash": "^4.2.1",
     "react": "^0.13.3",
+    "request-promise": "^2.0.0",
     "require-dir": "^0.3.0",
-    "tape": "^4.2.2"
+    "tape": "^4.2.2",
+    "tmp": "0.0.28"
   },
   "peerDependencies": {
     "eslint": ">=1.0.0"
