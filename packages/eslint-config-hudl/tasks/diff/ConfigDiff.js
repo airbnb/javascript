@@ -7,6 +7,7 @@ const Config = require('eslint/lib/config');
 const diff = require('deep-diff').diff;
 const Handlebars = require('handlebars');
 const diffTemplatePath = require.resolve('./diff-template.md');
+const diffSectionPartialPath = require.resolve('./diff-section-partial.md');
 
 function ConfigDiff() {
 }
@@ -20,11 +21,12 @@ function normalizeRules(config) {
   return config;
 }
 
-function detailedDiff(ourConfig, theirConfig) {
+function detailedDiff(ourConfig, theirConfig, options) {
   const differences = diff(ourConfig.rules, theirConfig.rules);
   const ruleDifferences = differences.map(function(change) {
     var valueArrays;
     var changeType;
+    var isKnown;
 
     function diffValueChanges(thisSet, otherSet, flag) {
       return thisSet.map(function(value, i) {
@@ -40,6 +42,7 @@ function detailedDiff(ourConfig, theirConfig) {
 
     if (change.kind === 'N' && change.path.length === 1) {
       changeType = 'added';
+      isKnown = options.added && _.isEqual(options.added[change.path[0]], change.rhs);
       valueArrays = [
         change.rhs.map(function(value) {
           return {
@@ -50,6 +53,7 @@ function detailedDiff(ourConfig, theirConfig) {
       ];
     } else if (change.kind === 'D' && change.path.length === 1) {
       changeType = 'removed';
+      isKnown = options.removed && _.contains(options.removed, change.path[0]);
       valueArrays = [
         change.lhs.map(function(value) {
           return {
@@ -59,10 +63,11 @@ function detailedDiff(ourConfig, theirConfig) {
         }),
       ];
     } else {
-      changeType = 'edited';
-
       const prevValue = ourConfig.rules[change.path[0]];
       const newValue = theirConfig.rules[change.path[0]];
+
+      changeType = 'edited';
+      isKnown = options.edited && _.isEqual(options.edited[change.path[0]], newValue);
 
       valueArrays = [
         diffValueChanges(prevValue, newValue, 'removed'),
@@ -94,18 +99,48 @@ function detailedDiff(ourConfig, theirConfig) {
       name: change.path[0],
       url: getUrl(change.path[0]),
       changeType: changeType,
+      isKnown: isKnown,
       valueArrays: valueArrays,
     };
   });
 
-  const templateData = {
-    rules: _.sortBy(ruleDifferences, 'name'),
-  };
+  function organizeRules(rules) {
+    const groupedRules = _(rules)
+      .sortBy('name')
+      .groupBy('changeType').value();
+
+    const groupsList = _.map({
+      'Added rules': groupedRules.added || [],
+      'Removed rules': groupedRules.removed || [],
+      'Edited rules': groupedRules.edited || [],
+    }, function(val, key) {
+      return {
+        groupName: key,
+        rules: val,
+      };
+    });
+
+    return {
+      ruleGroups: groupsList,
+    };
+  }
+
+  function partitionRules(rules) {
+    const partitioned = _.partition(rules, 'isKnown');
+    return {
+      known: organizeRules(partitioned[0]),
+      unknown: organizeRules(partitioned[1]),
+    };
+  }
+
+  const templateData = partitionRules(ruleDifferences);
+
+  Handlebars.registerPartial('diffSection', fs.readFileSync(diffSectionPartialPath, 'utf8'));
 
   return Handlebars.compile(fs.readFileSync(diffTemplatePath, 'utf8'))(templateData);
 }
 
-function generateDiff(ours, theirs /* , options*/ ) {
+function generateDiff(ours, theirs, options) {
   // if (options) {
   //   // hash
   //   _.each(options.overwrite, function(val, key) {
@@ -118,7 +153,7 @@ function generateDiff(ours, theirs /* , options*/ ) {
   // }
 
   [ours.config, theirs.config].forEach(normalizeRules);
-  return detailedDiff(ours.config, theirs.config);
+  return detailedDiff(ours.config, theirs.config, options);
 }
 
 ConfigDiff.prototype.compare = function(configPath1, configPath2, options) {

@@ -5,28 +5,52 @@ Comparison of changes between ours and airbnb's. Rules have been normalized to t
 Base (ours): -----
 Comparison (theirs): -----
 
+Changes are presented using the <del>deleted</del> and <ins>inserted</ins> formatting.
+
 ## Intentional differences
 These are differences described in [DIFF FILE](diff-file.json).
 
 ### Env
+_TODO_
+
 ### Plugins
+_TODO_
+
 ### Rules
+
+
+#### Added rules
+- 
+    [array-bracket-spacing](http://eslint.org/docs/rules/array-bracket-spacing.html)
+  - [<ins>2</ins>, <ins>&quot;never&quot;</ins>]
+
+#### Removed rules
+_None_
+
+#### Edited rules
+- 
+    [indent](http://eslint.org/docs/rules/indent.html)
+  - [2, 2]
+  - [2, 2, <ins>{&quot;SwitchCase&quot;:1,&quot;VariableDeclarator&quot;:1}</ins>]
+
 
 ## Unknown/unmerged differences
 These are differences that haven't been previously acknowledged. They may be changes we aren't aware of or simply
 upstream changes that haven't been merged yet.
 
 ### Env
+_TODO_
+
 ### Plugins
+_TODO_
+
 ### Rules
 
 
+#### Added rules
 - 
     [accessor-pairs](http://eslint.org/docs/rules/accessor-pairs.html)
   - [<ins>0</ins>]
-- 
-    [array-bracket-spacing](http://eslint.org/docs/rules/array-bracket-spacing.html)
-  - [<ins>2</ins>, <ins>&quot;never&quot;</ins>]
 - 
     [arrow-body-style](http://eslint.org/docs/rules/arrow-body-style.html)
   - [<ins>2</ins>, <ins>&quot;as-needed&quot;</ins>]
@@ -70,16 +94,8 @@ upstream changes that haven't been merged yet.
     [id-match](http://eslint.org/docs/rules/id-match.html)
   - [<ins>0</ins>]
 - 
-    [indent](http://eslint.org/docs/rules/indent.html)
-  - [2, 2]
-  - [2, 2, <ins>{&quot;SwitchCase&quot;:1,&quot;VariableDeclarator&quot;:1}</ins>]
-- 
     [init-declarations](http://eslint.org/docs/rules/init-declarations.html)
   - [<ins>0</ins>]
-- 
-    [jsx-quotes](http://eslint.org/docs/rules/jsx-quotes.html)
-  - [2]
-  - [2, <ins>&quot;prefer-double&quot;</ins>]
 - 
     [linebreak-style](http://eslint.org/docs/rules/linebreak-style.html)
   - [<ins>0</ins>]
@@ -90,14 +106,6 @@ upstream changes that haven't been merged yet.
     [max-depth](http://eslint.org/docs/rules/max-depth.html)
   - [<ins>0</ins>, <ins>4</ins>]
 - 
-    [max-len](http://eslint.org/docs/rules/max-len.html)
-  - [2, 120, <del>4</del>]
-  - [2, 120, <ins>2</ins>, <ins>{&quot;ignoreUrls&quot;:true,&quot;ignoreComments&quot;:false}</ins>]
-- 
-    [max-len](http://eslint.org/docs/rules/max-len.html)
-  - [2, 120, <del>4</del>]
-  - [2, 120, <ins>2</ins>, <ins>{&quot;ignoreUrls&quot;:true,&quot;ignoreComments&quot;:false}</ins>]
-- 
     [max-nested-callbacks](http://eslint.org/docs/rules/max-nested-callbacks.html)
   - [<ins>0</ins>]
 - 
@@ -106,10 +114,6 @@ upstream changes that haven't been merged yet.
 - 
     [max-statements](http://eslint.org/docs/rules/max-statements.html)
   - [<ins>0</ins>, <ins>10</ins>]
-- 
-    [new-cap](http://eslint.org/docs/rules/new-cap.html)
-  - [2, <del>{&quot;newIsCap&quot;:true,&quot;capIsNew&quot;:false}</del>]
-  - [2, <ins>{&quot;newIsCap&quot;:true}</ins>]
 - 
     [new-parens](http://eslint.org/docs/rules/new-parens.html)
   - [<ins>0</ins>]
@@ -153,10 +157,6 @@ upstream changes that haven't been merged yet.
     [no-empty-label](http://eslint.org/docs/rules/no-empty-label.html)
   - [<ins>2</ins>]
 - 
-    [no-eq-null](http://eslint.org/docs/rules/no-eq-null.html)
-  - [<del>2</del>]
-  - [<ins>0</ins>]
-- 
     [no-implicit-coercion](http://eslint.org/docs/rules/no-implicit-coercion.html)
   - [<ins>0</ins>]
 - 
@@ -187,19 +187,11 @@ upstream changes that haven't been merged yet.
     [no-multi-spaces](http://eslint.org/docs/rules/no-multi-spaces.html)
   - [<ins>2</ins>]
 - 
-    [no-multiple-empty-lines](http://eslint.org/docs/rules/no-multiple-empty-lines.html)
-  - [2, <del>{&quot;max&quot;:2}</del>]
-  - [2, <ins>{&quot;max&quot;:2,&quot;maxEOF&quot;:1}</ins>]
-- 
     [no-negated-in-lhs](http://eslint.org/docs/rules/no-negated-in-lhs.html)
   - [<ins>2</ins>]
 - 
     [no-new-require](http://eslint.org/docs/rules/no-new-require.html)
   - [<ins>0</ins>]
-- 
-    [no-param-reassign](http://eslint.org/docs/rules/no-param-reassign.html)
-  - [2]
-  - [2, <ins>{&quot;props&quot;:true}</ins>]
 - 
     [no-path-concat](http://eslint.org/docs/rules/no-path-concat.html)
   - [<ins>0</ins>]
@@ -278,6 +270,63 @@ upstream changes that haven't been merged yet.
 - 
     [prefer-template](http://eslint.org/docs/rules/prefer-template.html)
   - [<ins>2</ins>]
+- 
+    [require-yield](http://eslint.org/docs/rules/require-yield.html)
+  - [<ins>0</ins>]
+- 
+    [sort-vars](http://eslint.org/docs/rules/sort-vars.html)
+  - [<ins>0</ins>]
+- 
+    [space-before-keywords](http://eslint.org/docs/rules/space-before-keywords.html)
+  - [<ins>2</ins>, <ins>&quot;always&quot;</ins>]
+- 
+    [space-in-parens](http://eslint.org/docs/rules/space-in-parens.html)
+  - [<ins>2</ins>, <ins>&quot;never&quot;</ins>]
+- 
+    [space-unary-ops](http://eslint.org/docs/rules/space-unary-ops.html)
+  - [<ins>0</ins>]
+- 
+    [valid-jsdoc](http://eslint.org/docs/rules/valid-jsdoc.html)
+  - [<ins>0</ins>]
+- 
+    [valid-typeof](http://eslint.org/docs/rules/valid-typeof.html)
+  - [<ins>2</ins>]
+- 
+    [wrap-regex](http://eslint.org/docs/rules/wrap-regex.html)
+  - [<ins>0</ins>]
+
+#### Removed rules
+_None_
+
+#### Edited rules
+- 
+    [jsx-quotes](http://eslint.org/docs/rules/jsx-quotes.html)
+  - [2]
+  - [2, <ins>&quot;prefer-double&quot;</ins>]
+- 
+    [max-len](http://eslint.org/docs/rules/max-len.html)
+  - [2, 120, <del>4</del>]
+  - [2, 120, <ins>2</ins>, <ins>{&quot;ignoreUrls&quot;:true,&quot;ignoreComments&quot;:false}</ins>]
+- 
+    [max-len](http://eslint.org/docs/rules/max-len.html)
+  - [2, 120, <del>4</del>]
+  - [2, 120, <ins>2</ins>, <ins>{&quot;ignoreUrls&quot;:true,&quot;ignoreComments&quot;:false}</ins>]
+- 
+    [new-cap](http://eslint.org/docs/rules/new-cap.html)
+  - [2, <del>{&quot;newIsCap&quot;:true,&quot;capIsNew&quot;:false}</del>]
+  - [2, <ins>{&quot;newIsCap&quot;:true}</ins>]
+- 
+    [no-eq-null](http://eslint.org/docs/rules/no-eq-null.html)
+  - [<del>2</del>]
+  - [<ins>0</ins>]
+- 
+    [no-multiple-empty-lines](http://eslint.org/docs/rules/no-multiple-empty-lines.html)
+  - [2, <del>{&quot;max&quot;:2}</del>]
+  - [2, <ins>{&quot;max&quot;:2,&quot;maxEOF&quot;:1}</ins>]
+- 
+    [no-param-reassign](http://eslint.org/docs/rules/no-param-reassign.html)
+  - [2]
+  - [2, <ins>{&quot;props&quot;:true}</ins>]
 - 
     [quote-props](http://eslint.org/docs/rules/quote-props.html)
   - [2, <del>&quot;consistent&quot;</del>]
@@ -368,12 +417,6 @@ upstream changes that haven't been merged yet.
   - [2]
   - [2, <ins>{&quot;declaration&quot;:true,&quot;assignment&quot;:true,&quot;return&quot;:true}</ins>]
 - 
-    [require-yield](http://eslint.org/docs/rules/require-yield.html)
-  - [<ins>0</ins>]
-- 
-    [sort-vars](http://eslint.org/docs/rules/sort-vars.html)
-  - [<ins>0</ins>]
-- 
     [space-after-keywords](http://eslint.org/docs/rules/space-after-keywords.html)
   - [2]
   - [2, <ins>&quot;always&quot;</ins>]
@@ -382,15 +425,6 @@ upstream changes that haven't been merged yet.
   - [2, <del>&quot;never&quot;</del>]
   - [2, <ins>{&quot;anonymous&quot;:&quot;never&quot;,&quot;named&quot;:&quot;never&quot;}</ins>]
 - 
-    [space-before-keywords](http://eslint.org/docs/rules/space-before-keywords.html)
-  - [<ins>2</ins>, <ins>&quot;always&quot;</ins>]
-- 
-    [space-in-parens](http://eslint.org/docs/rules/space-in-parens.html)
-  - [<ins>2</ins>, <ins>&quot;never&quot;</ins>]
-- 
-    [space-unary-ops](http://eslint.org/docs/rules/space-unary-ops.html)
-  - [<ins>0</ins>]
-- 
     [spaced-comment](http://eslint.org/docs/rules/spaced-comment.html)
   - [2]
   - [2, <ins>&quot;always&quot;</ins>, <ins>{&quot;exceptions&quot;:[&quot;-&quot;,&quot;+&quot;],&quot;markers&quot;:[&quot;&#x3D;&quot;,&quot;!&quot;]}</ins>]
@@ -398,16 +432,7 @@ upstream changes that haven't been merged yet.
     [spaced-comment](http://eslint.org/docs/rules/spaced-comment.html)
   - [2]
   - [2, <ins>&quot;always&quot;</ins>, <ins>{&quot;exceptions&quot;:[&quot;-&quot;,&quot;+&quot;],&quot;markers&quot;:[&quot;&#x3D;&quot;,&quot;!&quot;]}</ins>]
-- 
-    [valid-jsdoc](http://eslint.org/docs/rules/valid-jsdoc.html)
-  - [<ins>0</ins>]
-- 
-    [valid-typeof](http://eslint.org/docs/rules/valid-typeof.html)
-  - [<ins>2</ins>]
 - 
     [wrap-iife](http://eslint.org/docs/rules/wrap-iife.html)
   - [2, <del>&quot;any&quot;</del>]
   - [2, <ins>&quot;outside&quot;</ins>]
-- 
-    [wrap-regex](http://eslint.org/docs/rules/wrap-regex.html)
-  - [<ins>0</ins>]
