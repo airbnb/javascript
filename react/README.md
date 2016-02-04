@@ -334,8 +334,8 @@
 
   - Ordering for `class extends React.Component`:
 
-  1. `constructor`
   1. optional `static` methods
+  1. `constructor`
   1. `getChildContext`
   1. `componentWillMount`
   1. `componentDidMount`
