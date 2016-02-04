@@ -31,10 +31,10 @@ upstream changes that haven't been merged yet.
   - [
     {{~#each this~}}
       {{~#if added~}}
-      <span style="background-color:rgba(0,255,0,.2);">{{value}}</span>
+      <ins>{{value}}</ins>
       {{~^~}}
         {{~#if removed~}}
-        <span style="background-color:rgba(255,0,0,.2);text-decoration:line-through">{{value}}</span>
+        <del>{{value}}</del>
         {{~^~}}
           {{value}}
         {{~/if~}}
