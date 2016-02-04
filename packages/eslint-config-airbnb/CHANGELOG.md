@@ -1,3 +1,9 @@
+5.0.0 / 2016-02-03
+==================
+ - [breaking] disallow unneeded ternary expressions
+ - [breaking] Avoid lexical declarations in case/default clauses
+ - [dev deps] update `babel-tape-runner`, `eslint-plugin-react`, `react`, `tape`
+
 4.0.0 / 2016-01-22
 ==================
  - [breaking] require outer IIFE wrapping; flesh out guide section
