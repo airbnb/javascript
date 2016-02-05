@@ -6,6 +6,7 @@ const tmp = require('tmp');
 const Config = require('eslint/lib/config');
 const diff = require('deep-diff').diff;
 const deepProperty = require('deep-property');
+const slash = require('slash');
 const shell = require('shelljs');
 const Handlebars = require('handlebars');
 const diffTemplatePath = require.resolve('./diff-template.md');
@@ -240,7 +241,7 @@ ConfigDiff.prototype.writeDiff = function(options) {
         } else if (/^https?:/.test(configPath)) {
           return configPath;
         }
-        return path.relative(path.dirname(renderOutputPath), configPath);
+        return slash(path.relative(path.dirname(renderOutputPath), configPath));
       }
 
       const templateData = {
