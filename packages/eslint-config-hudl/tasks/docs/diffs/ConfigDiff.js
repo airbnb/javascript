@@ -35,6 +35,7 @@ function diffRules(ourConfig, theirConfig, options) {
     var valueArrays;
     var changeType;
     var isKnown;
+    var isIgnorable = false;
 
     function diffValueChanges(thisSet, otherSet, flag) {
       return thisSet.map(function(value, i) {
@@ -62,6 +63,8 @@ function diffRules(ourConfig, theirConfig, options) {
     } else if (change.kind === 'D' && change.path.length === 1) {
       changeType = 'removed';
       isKnown = ruleOptions.removed && _.includes(ruleOptions.removed, change.path[0]);
+      // The rule has been removed, but it was disabled anyway
+      isIgnorable = _.isEqual(change.lhs, [0]);
       valueArrays = [
         change.lhs.map(function(value) {
           return {
@@ -110,10 +113,13 @@ function diffRules(ourConfig, theirConfig, options) {
       isKnown: isKnown,
       valueArrays: valueArrays,
       category: 'rule',
+      isIgnorable: isIgnorable,
     };
   });
 
-  return ruleDifferences;
+  return ruleDifferences.filter(function(change) {
+    return !change.isIgnorable;
+  });
 }
 
 function diffEverythingElse(ourConfig, theirConfig /* , options */ ) {

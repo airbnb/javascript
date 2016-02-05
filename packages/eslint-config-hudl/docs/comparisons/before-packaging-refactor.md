@@ -55,23 +55,14 @@ _None_
 
 #### Removed rules
 - 
-    [accessor-pairs](http://eslint.org/docs/rules/accessor-pairs.html)
-  - [<del>0</del>]
-- 
     [array-bracket-spacing](http://eslint.org/docs/rules/array-bracket-spacing.html)
   - [<del>2</del>, <del>&quot;never&quot;</del>]
 - 
     [arrow-body-style](http://eslint.org/docs/rules/arrow-body-style.html)
   - [<del>2</del>, <del>&quot;as-needed&quot;</del>]
 - 
-    [arrow-parens](http://eslint.org/docs/rules/arrow-parens.html)
-  - [<del>0</del>]
-- 
     [arrow-spacing](http://eslint.org/docs/rules/arrow-spacing.html)
   - [<del>2</del>, <del>{&quot;before&quot;:true,&quot;after&quot;:true}</del>]
-- 
-    [callback-return](http://eslint.org/docs/rules/callback-return.html)
-  - [<del>0</del>]
 - 
     [complexity](http://eslint.org/docs/rules/complexity.html)
   - [<del>0</del>, <del>11</del>]
@@ -79,44 +70,8 @@ _None_
     [computed-property-spacing](http://eslint.org/docs/rules/computed-property-spacing.html)
   - [<del>2</del>, <del>&quot;never&quot;</del>]
 - 
-    [consistent-this](http://eslint.org/docs/rules/consistent-this.html)
-  - [<del>0</del>]
-- 
-    [constructor-super](http://eslint.org/docs/rules/constructor-super.html)
-  - [<del>0</del>]
-- 
-    [dot-location](http://eslint.org/docs/rules/dot-location.html)
-  - [<del>0</del>]
-- 
-    [func-style](http://eslint.org/docs/rules/func-style.html)
-  - [<del>0</del>]
-- 
-    [generator-star-spacing](http://eslint.org/docs/rules/generator-star-spacing.html)
-  - [<del>0</del>]
-- 
-    [handle-callback-err](http://eslint.org/docs/rules/handle-callback-err.html)
-  - [<del>0</del>]
-- 
-    [id-length](http://eslint.org/docs/rules/id-length.html)
-  - [<del>0</del>]
-- 
-    [id-match](http://eslint.org/docs/rules/id-match.html)
-  - [<del>0</del>]
-- 
-    [init-declarations](http://eslint.org/docs/rules/init-declarations.html)
-  - [<del>0</del>]
-- 
-    [linebreak-style](http://eslint.org/docs/rules/linebreak-style.html)
-  - [<del>0</del>]
-- 
-    [lines-around-comment](http://eslint.org/docs/rules/lines-around-comment.html)
-  - [<del>0</del>]
-- 
     [max-depth](http://eslint.org/docs/rules/max-depth.html)
   - [<del>0</del>, <del>4</del>]
-- 
-    [max-nested-callbacks](http://eslint.org/docs/rules/max-nested-callbacks.html)
-  - [<del>0</del>]
 - 
     [max-params](http://eslint.org/docs/rules/max-params.html)
   - [<del>0</del>, <del>3</del>]
@@ -124,38 +79,14 @@ _None_
     [max-statements](http://eslint.org/docs/rules/max-statements.html)
   - [<del>0</del>, <del>10</del>]
 - 
-    [new-parens](http://eslint.org/docs/rules/new-parens.html)
-  - [<del>0</del>]
-- 
-    [newline-after-var](http://eslint.org/docs/rules/newline-after-var.html)
-  - [<del>0</del>]
-- 
-    [no-array-constructor](http://eslint.org/docs/rules/no-array-constructor.html)
-  - [<del>0</del>]
-- 
-    [no-bitwise](http://eslint.org/docs/rules/no-bitwise.html)
-  - [<del>0</del>]
-- 
-    [no-catch-shadow](http://eslint.org/docs/rules/no-catch-shadow.html)
-  - [<del>0</del>]
-- 
-    [no-class-assign](http://eslint.org/docs/rules/no-class-assign.html)
-  - [<del>0</del>]
-- 
     [no-const-assign](http://eslint.org/docs/rules/no-const-assign.html)
   - [<del>2</del>]
-- 
-    [no-continue](http://eslint.org/docs/rules/no-continue.html)
-  - [<del>0</del>]
 - 
     [no-control-regex](http://eslint.org/docs/rules/no-control-regex.html)
   - [<del>2</del>]
 - 
     [no-delete-var](http://eslint.org/docs/rules/no-delete-var.html)
   - [<del>2</del>]
-- 
-    [no-div-regex](http://eslint.org/docs/rules/no-div-regex.html)
-  - [<del>0</del>]
 - 
     [no-dupe-args](http://eslint.org/docs/rules/no-dupe-args.html)
   - [<del>2</del>]
@@ -166,26 +97,11 @@ _None_
     [no-empty-label](http://eslint.org/docs/rules/no-empty-label.html)
   - [<del>2</del>]
 - 
-    [no-implicit-coercion](http://eslint.org/docs/rules/no-implicit-coercion.html)
-  - [<del>0</del>]
-- 
-    [no-inline-comments](http://eslint.org/docs/rules/no-inline-comments.html)
-  - [<del>0</del>]
-- 
-    [no-invalid-this](http://eslint.org/docs/rules/no-invalid-this.html)
-  - [<del>0</del>]
-- 
     [no-iterator](http://eslint.org/docs/rules/no-iterator.html)
   - [<del>2</del>]
 - 
-    [no-label-var](http://eslint.org/docs/rules/no-label-var.html)
-  - [<del>0</del>]
-- 
     [no-labels](http://eslint.org/docs/rules/no-labels.html)
   - [<del>2</del>]
-- 
-    [no-lonely-if](http://eslint.org/docs/rules/no-lonely-if.html)
-  - [<del>0</del>]
 - 
     [no-mixed-requires](http://eslint.org/docs/rules/no-mixed-requires.html)
   - [<del>0</del>, <del>false</del>]
@@ -199,59 +115,14 @@ _None_
     [no-negated-in-lhs](http://eslint.org/docs/rules/no-negated-in-lhs.html)
   - [<del>2</del>]
 - 
-    [no-new-require](http://eslint.org/docs/rules/no-new-require.html)
-  - [<del>0</del>]
-- 
-    [no-path-concat](http://eslint.org/docs/rules/no-path-concat.html)
-  - [<del>0</del>]
-- 
-    [no-plusplus](http://eslint.org/docs/rules/no-plusplus.html)
-  - [<del>0</del>]
-- 
-    [no-process-env](http://eslint.org/docs/rules/no-process-env.html)
-  - [<del>0</del>]
-- 
-    [no-process-exit](http://eslint.org/docs/rules/no-process-exit.html)
-  - [<del>0</del>]
-- 
     [no-regex-spaces](http://eslint.org/docs/rules/no-regex-spaces.html)
   - [<del>2</del>]
-- 
-    [no-restricted-modules](http://eslint.org/docs/rules/no-restricted-modules.html)
-  - [<del>0</del>]
-- 
-    [no-sync](http://eslint.org/docs/rules/no-sync.html)
-  - [<del>0</del>]
-- 
-    [no-ternary](http://eslint.org/docs/rules/no-ternary.html)
-  - [<del>0</del>]
-- 
-    [no-this-before-super](http://eslint.org/docs/rules/no-this-before-super.html)
-  - [<del>0</del>]
 - 
     [no-undef](http://eslint.org/docs/rules/no-undef.html)
   - [<del>2</del>]
 - 
-    [no-undef-init](http://eslint.org/docs/rules/no-undef-init.html)
-  - [<del>0</del>]
-- 
-    [no-undefined](http://eslint.org/docs/rules/no-undefined.html)
-  - [<del>0</del>]
-- 
-    [no-unexpected-multiline](http://eslint.org/docs/rules/no-unexpected-multiline.html)
-  - [<del>0</del>]
-- 
-    [no-unneeded-ternary](http://eslint.org/docs/rules/no-unneeded-ternary.html)
-  - [<del>0</del>]
-- 
     [no-unused-expressions](http://eslint.org/docs/rules/no-unused-expressions.html)
   - [<del>2</del>]
-- 
-    [no-useless-call](http://eslint.org/docs/rules/no-useless-call.html)
-  - [<del>0</del>]
-- 
-    [no-void](http://eslint.org/docs/rules/no-void.html)
-  - [<del>0</del>]
 - 
     [no-warning-comments](http://eslint.org/docs/rules/no-warning-comments.html)
   - [<del>0</del>, <del>{&quot;terms&quot;:[&quot;todo&quot;,&quot;fixme&quot;,&quot;xxx&quot;],&quot;location&quot;:&quot;start&quot;}</del>]
@@ -262,29 +133,11 @@ _None_
     [object-shorthand](http://eslint.org/docs/rules/object-shorthand.html)
   - [<del>2</del>, <del>&quot;always&quot;</del>]
 - 
-    [operator-assignment](http://eslint.org/docs/rules/operator-assignment.html)
-  - [<del>0</del>]
-- 
-    [operator-linebreak](http://eslint.org/docs/rules/operator-linebreak.html)
-  - [<del>0</del>]
-- 
     [prefer-arrow-callback](http://eslint.org/docs/rules/prefer-arrow-callback.html)
   - [<del>2</del>]
 - 
-    [prefer-reflect](http://eslint.org/docs/rules/prefer-reflect.html)
-  - [<del>0</del>]
-- 
-    [prefer-spread](http://eslint.org/docs/rules/prefer-spread.html)
-  - [<del>0</del>]
-- 
     [prefer-template](http://eslint.org/docs/rules/prefer-template.html)
   - [<del>2</del>]
-- 
-    [require-yield](http://eslint.org/docs/rules/require-yield.html)
-  - [<del>0</del>]
-- 
-    [sort-vars](http://eslint.org/docs/rules/sort-vars.html)
-  - [<del>0</del>]
 - 
     [space-before-keywords](http://eslint.org/docs/rules/space-before-keywords.html)
   - [<del>2</del>, <del>&quot;always&quot;</del>]
@@ -292,17 +145,8 @@ _None_
     [space-in-parens](http://eslint.org/docs/rules/space-in-parens.html)
   - [<del>2</del>, <del>&quot;never&quot;</del>]
 - 
-    [space-unary-ops](http://eslint.org/docs/rules/space-unary-ops.html)
-  - [<del>0</del>]
-- 
-    [valid-jsdoc](http://eslint.org/docs/rules/valid-jsdoc.html)
-  - [<del>0</del>]
-- 
     [valid-typeof](http://eslint.org/docs/rules/valid-typeof.html)
   - [<del>2</del>]
-- 
-    [wrap-regex](http://eslint.org/docs/rules/wrap-regex.html)
-  - [<del>0</del>]
 
 #### Edited rules
 - 
