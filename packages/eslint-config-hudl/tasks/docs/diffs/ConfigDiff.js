@@ -230,7 +230,7 @@ ConfigDiff.prototype.writeDiff = function(options) {
         } else if (/^https?:/.test(configPath)) {
           return configPath;
         }
-        return path.relative(renderOutputPath, configPath);
+        return path.relative(path.dirname(renderOutputPath), configPath);
       }
 
       const templateData = {

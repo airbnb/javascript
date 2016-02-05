@@ -3,7 +3,7 @@
 Comparison of changes between ESLint configs. This is the computed result of the source config, including the effects of any extended configs. Changes are presented using the <del>deleted</del> and <ins>inserted</ins> formatting.
  Rules have been normalized to the array format for consistent diff formatting. Non-rule settings are also currently displayed within an array (for rendering simplicity).
 
-Base (starting point): [../../../index.js](../../../index.js)
+Base (starting point): [../../index.js](../../index.js)
 
 Comparison (additions, removals, edits): [https://github.com/airbnb/javascript/tree/eslint-config-airbnb-v5.0.0/packages/eslint-config-airbnb/index.js](https://github.com/airbnb/javascript/tree/eslint-config-airbnb-v5.0.0/packages/eslint-config-airbnb/index.js)
 
