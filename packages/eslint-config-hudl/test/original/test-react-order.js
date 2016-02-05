@@ -1,7 +1,7 @@
 import test from 'tape';
 import { CLIEngine } from 'eslint';
-import eslintrc from '../';
-import reactRules from '../rules/react';
+import eslintrc from '../../';
+import reactRules from '../../rules/react';
 
 const cli = new CLIEngine({
   useEslintrc: false,
@@ -69,7 +69,8 @@ test('validate react prop order', t => {
     t.equal(result.messages[0].ruleId, 'react/sort-comp', 'fails due to sort');
   });
 
-  t.test('order: when random method after lifecycle methods', t => {
+  // Skipping because our rules differ
+  t.skip('order: when random method after lifecycle methods', t => {
     t.plan(2);
     const result = lint(wrapComponent(`
   componentWillMount() {}

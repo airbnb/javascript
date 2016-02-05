@@ -3,15 +3,15 @@ import path from 'path';
 import test from 'tape';
 
 const files = {
-  base: require('../base'),
+  base: require('../../base'),
 };
 
-fs.readdirSync(path.join(__dirname, '../rules')).forEach(name => {
+fs.readdirSync(path.join(__dirname, '../../rules')).forEach(name => {
   if (name === 'react.js') {
     return;
   }
 
-  files[name] = require(`../rules/${name}`);
+  files[name] = require(`../../rules/${name}`);
 });
 
 Object.keys(files).forEach(name => {
