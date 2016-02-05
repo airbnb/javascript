@@ -1,0 +1,3 @@
+{
+  "extends": '../eslint-tests-config.js'
+}

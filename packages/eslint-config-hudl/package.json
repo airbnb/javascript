@@ -4,8 +4,8 @@
   "description": "Hudl's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
-    "tests-only": "babel-tape-runner ./test/test-*.js",
-    "test": "gulp test"
+    "tests-only": "babel-tape-runner ./test/original/test-*.js",
+    "test": "gulp test && npm run tests-only"
   },
   "repository": {
     "type": "git",
@@ -42,7 +42,7 @@
   "hudl-ci": {
     "buildCommand": null,
     "lintCommand": "./node_modules/.bin/gulp lint",
-    "testCommand": "npm run tests-only"
+    "testCommand": "npm run test"
   },
   "tasksConfig": {
     "test": {
@@ -60,8 +60,12 @@
   "devDependencies": {
     "babel-tape-runner": "1.2.0",
     "big-object-diff": "^0.7.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.2.0",
+    "chalk": "^1.1.1",
     "deep-diff": "^0.3.3",
     "deep-property": "^1.1.0",
+    "dir-compare": "0.0.2",
     "eslint": "^1.10.3",
     "eslint-plugin-react": "^3.12.0",
     "eslint-teamcity": "^1.0.0",
@@ -76,6 +80,9 @@
     "react": "^0.13.3",
     "request-promise": "^2.0.0",
     "require-dir": "^0.3.0",
+    "shelljs": "^0.5.3",
+    "sinon": "^1.17.3",
+    "sinon-chai": "^2.8.0",
     "tape": "^4.2.2",
     "tmp": "0.0.28"
   },

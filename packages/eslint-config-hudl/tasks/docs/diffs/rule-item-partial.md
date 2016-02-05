@@ -1,18 +1,3 @@
-### Env
-_TODO_
-
-### Plugins
-_TODO_
-
-### Rules
-
-{{#each ruleGroups}}
-
-#### {{groupName}}
-{{#unless rules}}
-_None_
-{{/unless}}
-{{#each rules}}
 - {{#if url}}
     [{{name}}]({{url}})
   {{^}}
@@ -34,5 +19,3 @@ _None_
     {{~/each~}}
     ]
   {{/each}}
-{{/each}}
-{{/each}}
