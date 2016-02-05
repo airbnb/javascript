@@ -31,9 +31,9 @@ module.exports = {
     // disallow else after a return in an if
     'no-else-return': 2,
     // disallow use of labels for anything other then loops and switches
-    'no-empty-label': 2,
+    'no-empty-label': 0,
     // disallow comparisons to null without a type-checking operator
-    'no-eq-null': 0,
+    'no-eq-null': 2,
     // disallow use of eval()
     'no-eval': 2,
     // disallow adding to native types
@@ -51,15 +51,15 @@ module.exports = {
     // disallow this keywords outside of classes or class-like objects
     'no-invalid-this': 0,
     // disallow usage of __iterator__ property
-    'no-iterator': 2,
+    'no-iterator': 0,
     // disallow use of labeled statements
-    'no-labels': 2,
+    'no-labels': 0,
     // disallow unnecessary nested blocks
     'no-lone-blocks': 2,
     // disallow creation of functions within loops
     'no-loop-func': 2,
     // disallow use of multiple spaces
-    'no-multi-spaces': 2,
+    'no-multi-spaces': 0,
     // disallow use of multiline strings
     'no-multi-str': 2,
     // disallow reassignments of native objects
@@ -78,9 +78,7 @@ module.exports = {
     // disallow reassignment of function parameters
     // disallow parameter object manipulation
     // rule: http://eslint.org/docs/rules/no-param-reassign.html
-    'no-param-reassign': [2, {
-      'props': true,
-    }],
+    'no-param-reassign': [2],
     // disallow use of process.env
     'no-process-env': 0,
     // disallow usage of __proto__ property
@@ -98,7 +96,7 @@ module.exports = {
     // restrict what can be thrown as an exception
     'no-throw-literal': 2,
     // disallow usage of expressions in statement position
-    'no-unused-expressions': 2,
+    'no-unused-expressions': 0,
     // disallow unnecessary .call() and .apply()
     'no-useless-call': 0,
     // disallow use of void operator
@@ -116,7 +114,7 @@ module.exports = {
     'vars-on-top': 2,
     // require immediate function invocation to be wrapped in parentheses
     // http://eslint.org/docs/rules/wrap-iife.html
-    'wrap-iife': [2, 'outside'],
+    'wrap-iife': [2, 'any'],
     // require or disallow Yoda conditions
     'yoda': 2,
   },

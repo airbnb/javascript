@@ -64,7 +64,7 @@ function diffRules(ourConfig, theirConfig, options) {
       changeType = 'removed';
       isKnown = ruleOptions.removed && _.includes(ruleOptions.removed, change.path[0]);
       // The rule has been removed, but it was disabled anyway
-      isIgnorable = _.isEqual(change.lhs, [0]);
+      isIgnorable = change.lhs[0] === 0;
       valueArrays = [
         change.lhs.map(function(value) {
           return {
@@ -79,6 +79,8 @@ function diffRules(ourConfig, theirConfig, options) {
 
       changeType = 'edited';
       isKnown = ruleOptions.edited && _.isEqual(ruleOptions.edited[change.path[0]], newValue);
+      // Rule was and still is disabled, so we can ignore it's settings
+      isIgnorable = (prevValue[0] === 0) && (newValue[0] === 0);
 
       valueArrays = [
         diffValueChanges(prevValue, newValue, 'removed'),
@@ -117,9 +119,11 @@ function diffRules(ourConfig, theirConfig, options) {
     };
   });
 
-  return ruleDifferences.filter(function(change) {
-    return !change.isIgnorable;
-  });
+  // Remove duplicates that are a side-effect of multiple subchanges
+  return _.uniqBy(ruleDifferences, 'name')
+    .filter(function(change) {
+      return !change.isIgnorable;
+    });
 }
 
 function diffEverythingElse(ourConfig, theirConfig /* , options */ ) {
