@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "tests-only": "babel-tape-runner ./test/original/test-*.js",
-    "test": "gulp test && npm run tests-only"
+    "test": "gulp test && npm run tests-only",
+    "lint": "gulp lint"
   },
   "repository": {
     "type": "git",
@@ -35,7 +36,7 @@
   "bugs": {
     "url": "https://github.com/hudl/javascript/issues"
   },
-  "homepage": "https://github.com/hudl/javascript",
+  "homepage": "https://github.com/hudl/javascript/packages/eslint-config-hudl",
   "publishConfig": {
     "registry": "http://npm.thorhudl.com"
   },
