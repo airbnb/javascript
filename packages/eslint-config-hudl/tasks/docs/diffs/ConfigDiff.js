@@ -170,10 +170,10 @@ function detailedDiff(ours, theirs, options) {
   const ruleDifferences = diffRules(ours.config, theirs.config, options);
   const otherDifferences = diffEverythingElse(ours.config, theirs.config, options);
 
-  function organizePartitions(rules) {
-    const categories = _.groupBy(rules, 'category');
+  function organizePartitions(partitionedRules) {
+    const categories = _.groupBy(partitionedRules, 'category');
 
-    function groupRules() {
+    function groupRules(rules) {
       const groupedRules = _(rules)
         .sortBy('name')
         .groupBy('changeType').value();
