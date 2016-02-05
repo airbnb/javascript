@@ -193,7 +193,7 @@ function detailedDiff(ours, theirs, options) {
     }
 
     return {
-      ruleGroups: groupRules(categories.rules),
+      ruleGroups: groupRules(categories.rule),
       otherItems: categories.other,
     };
   }

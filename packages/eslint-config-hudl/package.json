@@ -78,6 +78,7 @@
     "gulp-mocha": "^2.2.0",
     "handlebars": "^4.0.5",
     "lodash": "^4.2.1",
+    "mocha-teamcity-reporter": "^1.0.0",
     "react": "^0.13.3",
     "request-promise": "^2.0.0",
     "require-dir": "^0.3.0",
