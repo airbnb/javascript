@@ -35,6 +35,21 @@ Lints ES5 and below. Only requires `eslint`.
 1. `npm install --save-dev eslint-config-hudl eslint --registry=http://npm.thorhudl.com`
 2. Add `"extends": "hudl/legacy"` to [your .eslintrc][eslintrc]
 
+### Node projects
+
+Code running on Node < 4.0 (and not transpiled from ES6 syntax) can be linted effectively using the following as a base
+for the project's `.eslintrc` file:
+```json
+{
+  "root": true,
+  "extends": "hudl/legacy",
+  "ecmaFeatures": {
+    // Recognize `const` keyword. Note that this also enables `let`, even though it's not available
+    "blockBindings": true
+  }
+}
+```
+See [an example](https://github.com/hudl/javascript/blob/1d53dfc711b824a9dba4a145a22f0fde64385261/packages/eslint-config-hudl/.eslintrc) of a similar configuration.
 
 ## Improving this config
 
