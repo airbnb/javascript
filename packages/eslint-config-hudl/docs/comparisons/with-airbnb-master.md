@@ -33,8 +33,9 @@ upstream changes that haven't been merged yet. Any differences listed here that 
 should be added to the list in [the diff task](../../tasks/docs/diffs/diffs-to-run.js) to remove them from here.
 
 ### Settings (non-rules)
-_None_
 
+-     parser
+  - [<del>&quot;babel-eslint&quot;</del>]
 
 ### Rules
 

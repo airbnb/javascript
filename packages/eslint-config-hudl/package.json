@@ -59,6 +59,7 @@
     }
   },
   "devDependencies": {
+    "babel-eslint": "^5.0.0-beta9",
     "babel-tape-runner": "1.2.0",
     "big-object-diff": "^0.7.0",
     "chai": "^3.5.0",

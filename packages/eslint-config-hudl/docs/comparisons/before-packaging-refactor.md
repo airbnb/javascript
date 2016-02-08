@@ -34,8 +34,6 @@ should be added to the list in [the diff task](../../tasks/docs/diffs/diffs-to-r
 
 ### Settings (non-rules)
 
--     parser
-  - [<ins>&quot;babel-eslint&quot;</ins>]
 -     env.amd
   - [<del>false</del>]
 -     env.mocha
