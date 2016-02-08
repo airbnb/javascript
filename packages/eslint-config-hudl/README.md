@@ -11,7 +11,7 @@ We export three ESLint configurations for your usage.
 
 See [Hudl's Javascript styleguide](https://github.com/hudl/javascript) and
 the [ESlint config docs](http://eslint.org/docs/user-guide/configuring#extending-configuration-files)
-for more information on using config plugins.
+for more information on using ESLint config plugins.
 
 ### eslint-config-hudl
 
