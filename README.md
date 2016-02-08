@@ -2111,6 +2111,8 @@ Other Style Guides
 1. [Iterators and Generators](#iterators-and-generators)
 1. [Modules](#modules)
 
+  - [27.2](#27.2) <a name='27.2'></a> Khan Academy has a nice section in their [Javascript styleguide](https://github.com/Khan/style-guides/blob/master/style/javascript.md) that discusses various ways to [accomplish tasks in ES6 rather than using underscore/lodash](https://github.com/Khan/style-guides/blob/master/style/javascript.md#dont-use-underscore).
+
 **[⬆ back to top](#table-of-contents)**
 
 
