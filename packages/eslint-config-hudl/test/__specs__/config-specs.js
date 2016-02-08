@@ -4,7 +4,7 @@ const defaultConfig = require('../..');
 const baseConfig = require('../../base');
 const legacyConfig = require('../../legacy');
 
-describe.only('configs', function() {
+describe('configs', function() {
   function lintDirectory(directory, config, errorCount, warningCount) {
     const cli = new CLIEngine({
       extensions: ['.js', '.jsx'],
