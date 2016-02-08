@@ -1613,32 +1613,32 @@ Other Style Guides
     ```javascript
     // bad
     const story = [
-        once
-      , upon
-      , aTime
+          once
+        , upon
+        , aTime
     ];
 
     // good
     const story = [
-      once,
-      upon,
-      aTime,
+        once,
+        upon,
+        aTime,
     ];
 
     // bad
     const hero = {
-        firstName: 'Ada'
-      , lastName: 'Lovelace'
-      , birthYear: 1815
-      , superPower: 'computers'
+          firstName: 'Ada'
+        , lastName: 'Lovelace'
+        , birthYear: 1815
+        , superPower: 'computers'
     };
 
     // good
     const hero = {
-      firstName: 'Ada',
-      lastName: 'Lovelace',
-      birthYear: 1815,
-      superPower: 'computers',
+        firstName: 'Ada',
+        lastName: 'Lovelace',
+        birthYear: 1815,
+        superPower: 'computers',
     };
     ```
 
@@ -1649,39 +1649,39 @@ Other Style Guides
     ```javascript
     // bad - git diff without trailing comma
     const hero = {
-         firstName: 'Florence',
-    -    lastName: 'Nightingale'
-    +    lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb graph', 'modern nursing']
+           firstName: 'Florence',
+    -      lastName: 'Nightingale'
+    +      lastName: 'Nightingale',
+    +      inventorOf: ['coxcomb graph', 'modern nursing']
     };
 
     // good - git diff with trailing comma
     const hero = {
-         firstName: 'Florence',
-         lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb chart', 'modern nursing'],
+           firstName: 'Florence',
+           lastName: 'Nightingale',
+    +      inventorOf: ['coxcomb chart', 'modern nursing'],
     };
 
     // bad
     const hero = {
-      firstName: 'Dana',
-      lastName: 'Scully'
+        firstName: 'Dana',
+        lastName: 'Scully'
     };
 
     const heroes = [
-      'Batman',
-      'Superman'
+        'Batman',
+        'Superman'
     ];
 
     // good
     const hero = {
-      firstName: 'Dana',
-      lastName: 'Scully',
+        firstName: 'Dana',
+        lastName: 'Scully',
     };
 
     const heroes = [
-      'Batman',
-      'Superman',
+        'Batman',
+        'Superman',
     ];
     ```
 
@@ -1695,20 +1695,20 @@ Other Style Guides
     ```javascript
     // bad
     (function() {
-      const name = 'Skywalker'
-      return name
+        const name = 'Skywalker'
+        return name
     })()
 
     // good
     (() => {
-      const name = 'Skywalker';
-      return name;
+        const name = 'Skywalker';
+        return name;
     })();
 
     // good (guards against the function becoming an argument when two files with IIFEs are concatenated)
     ;(() => {
-      const name = 'Skywalker';
-      return name;
+        const name = 'Skywalker';
+        return name;
     })();
     ```
 
@@ -1732,7 +1732,7 @@ Other Style Guides
     const totalScore = String(this.reviewScore);
     ```
 
-  - [21.3](#21.3) <a name='21.3'></a> Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings.
+  - [21.3](#21.3) <a name='21.3'></a> Numbers: Use `Number` for type casting and `parseInt` always with a radix.
 
     ```javascript
     const inputValue = '4';
@@ -1801,12 +1801,12 @@ Other Style Guides
     ```javascript
     // bad
     function q() {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     function query() {
-      // ..stuff..
+        // ..stuff..
     }
     ```
 
@@ -1828,22 +1828,22 @@ Other Style Guides
     ```javascript
     // bad
     function user(options) {
-      this.name = options.name;
+        this.name = options.name;
     }
 
     const bad = new user({
-      name: 'nope',
+        name: 'nope',
     });
 
     // good
-    class User {
-      constructor(options) {
-        this.name = options.name;
-      }
+    class UserPascalCase {
+        constructor(options) {
+            this.name = options.name;
+        }
     }
 
-    const good = new User({
-      name: 'yup',
+    const good = new UserPascalCase({
+        name: 'yup',
     });
     ```
 
@@ -1863,33 +1863,40 @@ Other Style Guides
     ```javascript
     // bad
     function foo() {
-      const self = this;
-      return function() {
-        console.log(self);
-      };
+        const self = this;
+        return function() {
+            console.log(self);
+        };
     }
 
     // bad
     function foo() {
-      const that = this;
-      return function() {
-        console.log(that);
-      };
+        const that = this;
+        return function() {
+            console.log(that);
+        };
     }
 
     // good
     function foo() {
-      return () => {
-        console.log(this);
-      };
+        return () => {
+            console.log(this);
+        };
+    }
+
+    // good
+    function foo() {
+        return (function() {
+            console.log(this);
+        }).bind(this);
     }
     ```
 
-  - [22.6](#22.6) <a name='22.6'></a> If your file exports a single class, your filename should be exactly the name of the class.
+  - [22.6](#22.6) <a name='22.6'></a> If your file exports a single class, your filename should be exactly the name of the class, converted from PascalCase to snake_case.
     ```javascript
     // file contents
     class CheckBox {
-      // ...
+        // ...
     }
     export default CheckBox;
 
@@ -1898,10 +1905,10 @@ Other Style Guides
     import CheckBox from './checkBox';
 
     // bad
-    import CheckBox from './check_box';
+    import CheckBox from './CheckBox';
 
     // good
-    import CheckBox from './CheckBox';
+    import CheckBox from './check_box';
     ```
 
   - [22.7](#22.7) <a name='22.7'></a> Use camelCase when you export-default a function. Your filename should be identical to your function's name.
@@ -1917,8 +1924,8 @@ Other Style Guides
 
     ```javascript
     const AirbnbStyleGuide = {
-      es6: {
-      }
+        es6: {
+        }
     };
 
     export default AirbnbStyleGuide;
@@ -1952,12 +1959,12 @@ Other Style Guides
     ```javascript
     // bad
     if (!dragon.age()) {
-      return false;
+        return false;
     }
 
     // good
     if (!dragon.hasAge()) {
-      return false;
+        return false;
     }
     ```
 
@@ -1965,18 +1972,18 @@ Other Style Guides
 
     ```javascript
     class Jedi {
-      constructor(options = {}) {
-        const lightsaber = options.lightsaber || 'blue';
-        this.set('lightsaber', lightsaber);
-      }
+        constructor(options = {}) {
+            const lightsaber = options.lightsaber || 'blue';
+            this.set('lightsaber', lightsaber);
+        }
 
-      set(key, val) {
-        this[key] = val;
-      }
+        set(key, val) {
+            this[key] = val;
+        }
 
-      get(key) {
-        return this[key];
-      }
+        get(key) {
+            return this[key];
+        }
     }
     ```
 
@@ -1994,7 +2001,7 @@ Other Style Guides
     ...
 
     $(this).on('listingUpdated', function(e, listingId) {
-      // do something with listingId
+        // do something with listingId
     });
     ```
 
@@ -2007,7 +2014,7 @@ Other Style Guides
     ...
 
     $(this).on('listingUpdated', function(e, data) {
-      // do something with data.listingId
+        // do something with data.listingId
     });
     ```
 
@@ -2034,25 +2041,25 @@ Other Style Guides
     ```javascript
     // bad
     function setSidebar() {
-      $('.sidebar').hide();
+        $('.sidebar').hide();
 
-      // ...stuff...
+        // ...stuff...
 
-      $('.sidebar').css({
-        'background-color': 'pink'
-      });
+        $('.sidebar').css({
+            'background-color': 'pink'
+        });
     }
 
     // good
     function setSidebar() {
-      const $sidebar = $('.sidebar');
-      $sidebar.hide();
+        const $sidebar = $('.sidebar');
+        $sidebar.hide();
 
-      // ...stuff...
+        // ...stuff...
 
-      $sidebar.css({
-        'background-color': 'pink'
-      });
+        $sidebar.css({
+            'background-color': 'pink'
+        });
     }
     ```
 
