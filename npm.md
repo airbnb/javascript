@@ -21,6 +21,33 @@ this will add the @iadvize scope to your `~/.npmrc`. Your `npmrc` should contain
 //iadvize.artifactoryonline.com/iadvize/api/npm/iadvize-npm/:always-auth=true
 ```
 
+```shell
+curl -i -H 'X-Api-Key: <API_KEY>' https://iadvize.artifactoryonline.com/iadvize/api/npm/auth
+```
+replace <API-KEY> with the generated key in your artifactory, this will add the @iadvize scope to your `~/.npmrc`. Your `npmrc` should contain something like this
+
+```js
+HTTP/1.1 200 OK
+Content-Type: text/plain
+Date: Mon, 08 Feb 2016 14:13:59 GMT
+Server: Artifactory/4.4.2
+X-Artifactory-Id: aolprod1b.prod-euw1.jfrog.local-iadvize
+X-Node: nginx2a.prod-euw1
+transfer-encoding: chunked
+Connection: keep-alive
+```
+
+```js
+_auth = ZWF1ZG86QVAyaFhZd3JjVExnSE1SWFFITWhqSG1wRGZGTkcydUhZNGh1UmVWcGkydW9ESjdORGlIODRxUnBtWkR2
+always-auth = true
+email = elliott.audo@iadvize.com
+```
+
+Copy this part in your ./npmrc : 
+_auth = ZWF1ZG86QVAyaFhZd3JjVExnSE1SWFFITWhqSG1wRGZGTkcydUhZNGh1UmVWcGkydW9ESjdORGlIODRxUnBtWkR2
+always-auth = true
+email = elliott.audo@iadvize.com
+
 - then:
 
 ```shell
