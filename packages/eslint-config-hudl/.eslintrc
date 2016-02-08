@@ -1,0 +1,13 @@
+{
+  "extends": "./legacy.js",
+  "ecmaFeatures": {
+    // Recognize `const` keyword. Note that this also enables `let`, even though it's not available
+    "blockBindings": true
+  },
+  "rules": {
+    // This is super annoying and won't be relevant with arrow functions
+    "func-names": 0,
+    // Suspending this because my esformatter plugin is adding spaces around commented-out parameters
+    "space-in-parens": 0
+  }
+}

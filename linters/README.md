@@ -1,7 +1,4 @@
 ## `.eslintrc`
 
-Our `.eslintrc` requires the following NPM packages:
-
-- `eslint`
-- `babel-eslint`
-- `eslint-plugin-react`
+Our `.eslintrc` is dependent on the `eslint-config-hudl` npm package and various peer dependencies.
+See [eslint-config-hudl](../packages/eslint-config-hudl) for more installation details.

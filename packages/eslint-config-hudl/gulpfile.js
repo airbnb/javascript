@@ -1,0 +1,1 @@
+require('require-dir')('./tasks');
