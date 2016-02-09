@@ -38,13 +38,13 @@ Connection: keep-alive
 ```
 
 ```js
-_auth = ZWF1ZG86QVAyaFhZd3JjVExnSE1SWFFITWhqSG1wRGZGTkcydUhZNGh1UmVWcGkydW9ESjdORGlIODRxUnBtWkR2
+_auth = ZW..........................................................R2
 always-auth = true
 email = elliott.audo@iadvize.com
 ```
 
 Copy this part in your ./npmrc : 
-_auth = ZWF1ZG86QVAyaFhZd3JjVExnSE1SWFFITWhqSG1wRGZGTkcydUhZNGh1UmVWcGkydW9ESjdORGlIODRxUnBtWkR2
+_auth = ZW..........................................................R2
 always-auth = true
 email = elliott.audo@iadvize.com
 
