@@ -6,7 +6,7 @@ module.exports = {
     'brace-style': [2, '1tbs', { 'allowSingleLine': true }],
     // require camel case names
     'camelcase': [2, { 'properties': 'never' }],
-    // enforce spacing before and after comma
+    // enforce spacing after comma
     'comma-spacing': [2, { 'before': false, 'after': true }],
     // enforce one true comma style
     'comma-style': [2, 'last'],
