@@ -21,6 +21,8 @@ and React. It requires `eslint` and `eslint-plugin-react`.
 1. `npm install --save-dev eslint-config-hudl eslint-plugin-react babel-eslint eslint --registry=http://npm.thorhudl.com`
 2. Add `"extends": "hudl"` to [your .eslintrc][eslintrc]
 
+**_Dislaimer: If you're implementing in a multiverse cluster using the_** `hudl-webpack` **_package you can run the simpler install command_** `npm install --save eslint-config-hudl --registry="http://npm.thorhudl.com` 
+
 ### eslint-config-hudl/base
 
 Lints ES6+ but does not lint React. Requires `eslint`.
