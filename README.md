@@ -14,6 +14,7 @@
     - [OOCSS and BEM](#oocss-and-bem)
     - [ID Selectors](#id-selectors)
     - [JavaScript hooks](#javascript-hooks)
+    - [Border](#border)
   1. [Sass](#sass)
     - [Syntax](#syntax)
     - [Ordering](#ordering-of-property-declarations)
@@ -167,6 +168,26 @@ We recommend creating JavaScript-specific classes to bind to, prefixed with `.js
 
 ```html
 <button class="btn btn-primary js-request-to-book">Request to Book</button>
+```
+
+### Border
+
+Use `0` instead of `none` to specify that a style has no border.
+
+**Bad**
+
+```css
+.foo {
+  border: none;
+}
+```
+
+**Good**
+
+```css
+.foo {
+  border: 0;
+}
 ```
 
 ## Sass
