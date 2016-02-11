@@ -4,11 +4,11 @@
 
 - Update your npm version with `npm i npm@latest -g` because [scoped package require at least npm v2.7.0](https://docs.npmjs.com/getting-started/scoped-packages#update-npm-and-log-in).
 - Login to [artifactory](https://iadvize.artifactoryonline.com/iadvize/webapp/). Ask your own swarm Lead Developer (or fallback on @FGRibreau) if you don't have an access.
-- Go to your artifactory [profile](https://iadvize.artifactoryonline.com/iadvize/webapp/#/profile) to retrieve your `API_KEY`.
+- Go to your artifactory [profile](https://iadvize.artifactoryonline.com/iadvize/webapp/#/profile) to retrieve your `ENCRYPTED_PWD`.
 - Run
 
 ```shell
-curl -u LOGIN:PWD https://iadvize.artifactoryonline.com/iadvize/api/npm/iadvize-npm/auth/iadvize >> ~/.npmrc
+curl -u LOGIN:ENCRYPTED_PWD https://iadvize.artifactoryonline.com/iadvize/api/npm/iadvize-npm/auth/iadvize >> ~/.npmrc
 ```
 
 this will add the @iadvize scope to your `~/.npmrc`. Your `npmrc` should contain something like this
@@ -20,33 +20,6 @@ this will add the @iadvize scope to your `~/.npmrc`. Your `npmrc` should contain
 //iadvize.artifactoryonline.com/iadvize/api/npm/iadvize-npm/:email=fg@iadvize.com
 //iadvize.artifactoryonline.com/iadvize/api/npm/iadvize-npm/:always-auth=true
 ```
-
-```shell
-curl -i -H 'X-Api-Key: <API_KEY>' https://iadvize.artifactoryonline.com/iadvize/api/npm/auth
-```
-replace <API-KEY> with the generated key in your artifactory, this will add the @iadvize scope to your `~/.npmrc`. Your `npmrc` should contain something like this
-
-```js
-HTTP/1.1 200 OK
-Content-Type: text/plain
-Date: Mon, 08 Feb 2016 14:13:59 GMT
-Server: Artifactory/4.4.2
-X-Artifactory-Id: aolprod1b.prod-euw1.jfrog.local-iadvize
-X-Node: nginx2a.prod-euw1
-transfer-encoding: chunked
-Connection: keep-alive
-```
-
-```js
-_auth = ZW..........................................................R2
-always-auth = true
-email = elliott.audo@iadvize.com
-```
-
-Copy this part in your ./npmrc : 
-_auth = ZW..........................................................R2
-always-auth = true
-email = elliott.audo@iadvize.com
 
 - then:
 
@@ -61,6 +34,7 @@ npm config set @iadvize:registry https://iadvize.artifactoryonline.com/iadvize/a
 Same as a usual `npm install`
 
 ```
+npm cache clean 
 npm install @iadvize/health-check-library
 ```
 
