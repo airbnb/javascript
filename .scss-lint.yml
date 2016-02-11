@@ -1,3 +1,5 @@
+severity: error
+
 linters:
 
   BorderZero:
