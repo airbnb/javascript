@@ -46,7 +46,7 @@ for the project's `.eslintrc` file:
   "root": true,
   "extends": "hudl/legacy",
   "ecmaFeatures": {
-    // Recognize `const` keyword. Note that this also enables `let`, even though it's not available
+    "//": "Recognize `const` keyword. Note that this also enables `let`, even though it's not available",
     "blockBindings": true
   }
 }
