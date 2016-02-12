@@ -1,6 +1,6 @@
 module.exports = {
   'env': {
-    'es6': false
+    'es6': true
   },
   'ecmaFeatures': {
     'arrowFunctions': true,
