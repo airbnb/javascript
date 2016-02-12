@@ -9,3 +9,5 @@ How to add New Relic Browser to your project
 - Then insert the script code into your app.
 - Deploy
 - Done.
+
+[A full tutorial is available here](https://docs.newrelic.com/docs/browser/new-relic-browser/installation-configuration/adding-apps-new-relic-browser).
