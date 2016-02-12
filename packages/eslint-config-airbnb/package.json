@@ -43,14 +43,14 @@
   "homepage": "https://github.com/airbnb/javascript",
   "devDependencies": {
     "babel-tape-runner": "1.2.0",
-    "eslint": "^1.10.3",
-    "eslint-plugin-react": "^3.16.1",
+    "eslint": "^2.2.0",
+    "eslint-plugin-react": "^4.0.0",
     "react": "^0.14.7",
     "tape": "^4.4.0",
     "parallelshell": "^2.0.0"
   },
   "peerDependencies": {
-    "eslint": "^1.0.0",
-    "eslint-plugin-react": "^3.16.1"
+    "eslint": "^2.2.0",
+    "eslint-plugin-react": "^4.0.0"
   }
 }
