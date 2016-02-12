@@ -1,5 +1,10 @@
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
+# How to setup
+
+- [iAdvize Private NPM](/npm.md)
+- [New Relic Browser into your project](/newrelic.md)
+
 # Airbnb JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
@@ -369,7 +374,7 @@
   - Use one `var` declaration per variable.
     It's easier to add new variable declarations this way, and you never have
     to worry about swapping out a `;` for a `,` or introducing punctuation-only
-    diffs. 
+    diffs.
 
     ```javascript
     // bad
