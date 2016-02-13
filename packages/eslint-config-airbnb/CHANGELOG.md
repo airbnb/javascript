@@ -1,3 +1,7 @@
+5.0.1 / 2016-02-13
+==================
+ - [fix] `eslint` peerDep should not include breaking changes
+
 5.0.0 / 2016-02-03
 ==================
  - [breaking] disallow unneeded ternary expressions
