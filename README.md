@@ -883,6 +883,30 @@ Other Style Guides
     }
     ```
 
+  - [9.5](#9.5) <a name='9.5'></a> Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary.
+
+    ```javascript
+    // bad
+    class Jedi {
+      constructor() {}
+
+      getName() {
+        return this.name;
+      }
+    }
+
+    // good
+    class Rey extends Jedi {
+      constructor(...args) {
+        super(...args);
+      }
+
+      getName() {
+        return this.name;
+      }
+    }
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 
