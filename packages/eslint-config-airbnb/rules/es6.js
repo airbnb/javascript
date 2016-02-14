@@ -28,6 +28,9 @@ module.exports = {
     'generator-star-spacing': 0,
     // disallow modifying variables of class declarations
     'no-class-assign': 0,
+    // disallow arrow functions where they could be confused with comparisons
+    // http://eslint.org/docs/rules/no-confusing-arrow
+    'no-confusing-arrow': 2,
     // disallow modifying variables that are declared using const
     'no-const-assign': 2,
     // disallow specific imports

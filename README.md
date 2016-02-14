@@ -817,6 +817,19 @@ Other Style Guides
     });
     ```
 
+  - [8.5](#8.5) <a name='8.5'></a> Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`). eslint: [no-confusing-arrow](http://eslint.org/docs/rules/no-confusing-arrow)
+
+    ```js
+    // bad
+    const isActive = item => item.height > 256 ? true : false;
+
+    // bad
+    const isActive = (item) => item.height > 256 ? true : false;
+
+    // good
+    const isActive = item => { return item.height > 256 ? true : false; }
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 
