@@ -36,7 +36,7 @@ module.exports = {
     'no-else-return': 2,
     // disallow Unnecessary Labels
     // http://eslint.org/docs/rules/no-extra-label
-    'no-extra-label': 0,
+    'no-extra-label': 2,
     // disallow comparisons to null without a type-checking operator
     'no-eq-null': 0,
     // disallow use of eval()
@@ -107,7 +107,7 @@ module.exports = {
     'no-unused-expressions': 2,
     // disallow unused labels
     // http://eslint.org/docs/rules/no-unused-labels
-    'no-unused-labels': 0,
+    'no-unused-labels': 2,
     // disallow unnecessary .call() and .apply()
     'no-useless-call': 0,
     // disallow use of void operator

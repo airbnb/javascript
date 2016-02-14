@@ -61,6 +61,6 @@ module.exports = {
     'sort-imports': 0,
     // enforce spacing around the * in yield* expressions
     // http://eslint.org/docs/rules/yield-star-spacing
-    'yield-star-spacing': 0
+    'yield-star-spacing': [2, 'after']
   }
 };
