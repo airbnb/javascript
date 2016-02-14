@@ -821,13 +821,13 @@ Other Style Guides
 
     ```js
     // bad
-    const isActive = item => item.height > 256 ? true : false;
+    const itemHeight = item => item.height > 256 ? item.largeSize : item.smallSize;
 
     // bad
-    const isActive = (item) => item.height > 256 ? true : false;
+    const itemHeight = (item) => item.height > 256 ? item.largeSize : item.smallSize;
 
     // good
-    const isActive = item => { return item.height > 256 ? true : false; }
+    const itemHeight = item => { return item.height > 256 ? item.largeSize : item.smallSize; }
     ```
 
 **[⬆ back to top](#table-of-contents)**
