@@ -33,6 +33,9 @@ module.exports = {
     'no-confusing-arrow': 2,
     // disallow modifying variables that are declared using const
     'no-const-assign': 2,
+    // disallow symbol constructor
+    // http://eslint.org/docs/rules/no-new-symbol
+    'no-new-symbol': 2,
     // disallow specific imports
     // http://eslint.org/docs/rules/no-restricted-imports
     'no-restricted-imports': 0,
