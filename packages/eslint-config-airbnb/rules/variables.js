@@ -6,6 +6,9 @@ module.exports = {
     'no-catch-shadow': 0,
     // disallow deletion of variables
     'no-delete-var': 2,
+    // disallow var and named functions in global scope
+    // http://eslint.org/docs/rules/no-implicit-globals
+    'no-implicit-globals': 0,
     // disallow labels that share a name with a variable
     'no-label-var': 0,
     // disallow shadowing of names such as arguments
