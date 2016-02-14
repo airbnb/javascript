@@ -30,6 +30,9 @@ module.exports = {
     'no-class-assign': 0,
     // disallow modifying variables that are declared using const
     'no-const-assign': 2,
+    // disallow specific imports
+    // http://eslint.org/docs/rules/no-restricted-imports
+    'no-restricted-imports': 0,
     // disallow to use this/super before super() calling in constructors.
     'no-this-before-super': 0,
     // require let or const instead of var
@@ -52,6 +55,12 @@ module.exports = {
     // http://eslint.org/docs/rules/prefer-template
     'prefer-template': 2,
     // disallow generator functions that do not have yield
-    'require-yield': 0
+    'require-yield': 0,
+    // import sorting
+    // http://eslint.org/docs/rules/sort-imports
+    'sort-imports': 0,
+    // enforce spacing around the * in yield* expressions
+    // http://eslint.org/docs/rules/yield-star-spacing
+    'yield-star-spacing': 0
   }
 };
