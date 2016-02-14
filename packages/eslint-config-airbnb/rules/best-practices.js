@@ -2,6 +2,9 @@ module.exports = {
   'rules': {
     // enforces getter/setter pairs in objects
     'accessor-pairs': 0,
+    // enforces return statements in callbacks of array's methods
+    // http://eslint.org/docs/rules/array-callback-return
+    'array-callback-return': 2,
     // treat var statements as if they were block scoped
     'block-scoped-var': 2,
     // specify the maximum cyclomatic complexity allowed in a program
