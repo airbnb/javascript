@@ -895,14 +895,17 @@ Other Style Guides
       }
     }
 
-    // good
     class Rey extends Jedi {
       constructor(...args) {
         super(...args);
       }
+    }
 
-      getName() {
-        return this.name;
+    // good
+    class Rey extends Jedi {
+      constructor(...args) {
+        super(...args);
+        this.name = 'Rey';
       }
     }
     ```
