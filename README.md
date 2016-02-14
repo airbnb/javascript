@@ -346,6 +346,51 @@ Other Style Guides
     const nodes = Array.from(foo);
     ```
 
+  - [4.5](#4.5) <a name='4.5'></a> Use return statements in array method callbacks. It's ok to omit the return if the function body consists of a single statement following [8.2](#8.2). eslint: [array-callback-return](http://eslint.org/docs/rules/array-callback-return)
+
+    ```javascript
+    // good
+    [1, 2, 3].map((x) => {
+      const y = x + 1;
+      return x * y;
+    });
+
+    // good
+    [1, 2, 3].map(x => x + 1);
+
+    // bad
+    const flat = {};
+    [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
+      const flatten = memo.concat(item);
+      flat[index] = memo.concat(item);
+    });
+
+    // good
+    const flat = {};
+    [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
+      const flatten = memo.concat(item);
+      flat[index] = flatten;
+      return flatten;
+    });
+
+    // bad
+    [1, 2, 3].filter((x) => {
+      if (x > 2) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
+    // good
+    [1, 2, 3].filter((x) => {
+      if (x > 2) {
+        return true;
+      }
+      return false;
+    });
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Destructuring
