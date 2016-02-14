@@ -387,6 +387,7 @@ Other Style Guides
       if (x > 2) {
         return true;
       }
+
       return false;
     });
     ```
@@ -1664,8 +1665,8 @@ Other Style Guides
     })(this);↵
     ```
 
-  - [18.6](#18.6) <a name='18.6'></a> Use indentation when making long method chains. Use a leading dot, which
-    emphasizes that the line is a method call, not a new statement.
+  - [18.6](#18.6) <a name='18.6'></a> Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which
+    emphasizes that the line is a method call, not a new statement. eslint: [newline-per-chained-call](http://eslint.org/docs/rules/newline-per-chained-call)
 
     ```javascript
     // bad
@@ -1702,6 +1703,9 @@ Other Style Guides
       .append('svg:g')
         .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
+
+    // good
+    const leds = stage.selectAll('.led').data(data);
     ```
 
   - [18.7](#18.7) <a name='18.7'></a> Leave a blank line after blocks and before the next statement. jscs: [`requirePaddingNewLinesAfterBlocks`](http://jscs.info/rule/requirePaddingNewLinesAfterBlocks)
