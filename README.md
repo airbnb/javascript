@@ -1679,7 +1679,7 @@ Other Style Guides
     ```
 
   - [18.6](#18.6) <a name='18.6'></a> Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which
-    emphasizes that the line is a method call, not a new statement. eslint: [newline-per-chained-call](http://eslint.org/docs/rules/newline-per-chained-call)
+    emphasizes that the line is a method call, not a new statement. eslint: [newline-per-chained-call](http://eslint.org/docs/rules/newline-per-chained-call) [no-whitespace-before-property](http://eslint.org/docs/rules/no-whitespace-before-property)
 
     ```javascript
     // bad
