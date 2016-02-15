@@ -38,6 +38,12 @@ npm cache clean
 npm install @iadvize/health-check-library
 ```
 
+### How to use a private iAdvize package in production?
+
+Take a look at the Dockefile of this repo : https://github.com/iadvize/conversations-bot-manager-service/blob/master/Dockerfile
+You need to use a .npmrc to provide your service the Artifatcory credentials
+
+
 ### How and where to publish a public npm module?
 
 \#tradeoff We **would like** to use scoped package and artifactory as well for that **BUT**, **currently** they are not configured on npm so include the public git url inside your package.json. 
