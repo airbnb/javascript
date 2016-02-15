@@ -90,6 +90,9 @@ module.exports = {
     // also, prefer `a || b` over `a ? a : b`
     // http://eslint.org/docs/rules/no-unneeded-ternary
     'no-unneeded-ternary': [2, { 'defaultAssignment': false }],
+    // disallow whitespace before properties
+    // http://eslint.org/docs/rules/no-whitespace-before-property
+    'no-whitespace-before-property': 2,
     // require padding inside curly braces
     'object-curly-spacing': [2, 'always'],
     // allow just one var statement per function
