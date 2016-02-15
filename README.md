@@ -956,14 +956,14 @@ Other Style Guides
 
     class Rey extends Jedi {
       constructor(...args) {
-        super(...args);
+        super(args);
       }
     }
 
     // good
     class Rey extends Jedi {
       constructor(...args) {
-        super(...args);
+        super(args);
         this.name = 'Rey';
       }
     }
