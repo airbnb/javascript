@@ -57,6 +57,9 @@ module.exports = {
     'prefer-spread': 0,
     // suggest using Reflect methods where applicable
     'prefer-reflect': 0,
+    // use rest parameters instead of arguments
+    // http://eslint.org/docs/rules/prefer-rest-params
+    'prefer-rest-params': 2,
     // suggest using template literals instead of string concatenation
     // http://eslint.org/docs/rules/prefer-template
     'prefer-template': 2,
