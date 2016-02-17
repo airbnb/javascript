@@ -18,6 +18,9 @@ linters:
   LeadingZero:
     enabled: false
 
+  NameFormat:
+    enabled: true
+
   PropertySortOrder:
     enabled: false
 
