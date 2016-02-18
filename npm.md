@@ -4,7 +4,7 @@
 
 - Update your npm version with `npm i npm@latest -g` because [scoped package require at least npm v2.7.0](https://docs.npmjs.com/getting-started/scoped-packages#update-npm-and-log-in).
 - Login to [artifactory](https://iadvize.artifactoryonline.com/iadvize/webapp/). Ask your own swarm Lead Developer (or fallback on @FGRibreau) if you don't have an access.
-- Go to your artifactory [profile](https://iadvize.artifactoryonline.com/iadvize/webapp/#/profile) to retrieve your `ENCRYPTED_PWD`.
+- Go to your artifactory [profile](https://iadvize.artifactoryonline.com/iadvize/webapp/#/profile) to retrieve your `ENCRYPTED_PWD` (:warning: not the "API Key", we said your "Encrypted Password". **Again**, not your artifactory password, we said your profile "Encrypted Password" available from your profile page in artifactory :warning:)
 - Run
 
 ```shell
