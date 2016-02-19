@@ -1,4 +1,4 @@
-# Airbnb JavaScript Style Guide() {
+# Five JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
@@ -888,7 +888,7 @@ Other Style Guides
 
 ## Modules
 
-  - [10.1](#10.1) <a name='10.1'></a> Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
+  - [10.1](#10.1) <a name='10.1'></a> Always use modules (`import`/`export`) over a non-standard module system. If node.js environment does not support them, transpile. You can always transpile to your preferred module system.
 
     > Why? Modules are the future, let's start using the future now.
 
@@ -937,7 +937,7 @@ Other Style Guides
 
 ## Iterators and Generators
 
-  - [11.1](#11.1) <a name='11.1'></a> Don't use iterators. Prefer JavaScript's higher-order functions like `map()` and `reduce()` instead of loops like `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html)
+  - [11.1](#11.1) <a name='11.1'></a> Use iterators but be careful not to mutate the iterable. Prefer JavaScript's higher-order functions like `map()` and `reduce()` instead of loops like `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html)
 
     > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side-effects.
 
@@ -962,7 +962,7 @@ Other Style Guides
     sum === 15;
     ```
 
-  - [11.2](#11.2) <a name='11.2'></a> Don't use generators for now.
+  - [11.2](#11.2) <a name='11.2'></a> Use generators if code is not being transpiled to ES5.
 
     > Why? They don't transpile well to ES5.
 
@@ -1456,7 +1456,7 @@ Other Style Guides
     }
     ```
 
-  - [17.3](#17.3) <a name='17.3'></a> Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
+  - [17.3](#17.3) <a name='17.3'></a> Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`. Add your name afterwards so others can quickly determine who to ask for details. 
 
   - [17.4](#17.4) <a name='17.4'></a> Use `// FIXME:` to annotate problems.
 
@@ -1465,7 +1465,7 @@ Other Style Guides
       constructor() {
         super();
 
-        // FIXME: shouldn't use a global here
+        // FIXME: Luke - shouldn't use a global here
         total = 0;
       }
     }
@@ -1478,7 +1478,7 @@ Other Style Guides
       constructor() {
         super();
 
-        // TODO: total should be configurable by an options param
+        // TODO: Luke - total should be configurable by an options param
         this.total = 0;
       }
     }
