@@ -123,6 +123,7 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
     'react/sort-comp': [2, {
       'order': [
+        'static-methods',
         'lifecycle',
         '/^on.+$/',
         '/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/',
