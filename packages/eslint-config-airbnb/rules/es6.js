@@ -30,6 +30,8 @@ module.exports = {
     // require space before/after arrow function's arrow
     // https://github.com/eslint/eslint/blob/master/docs/rules/arrow-spacing.md
     'arrow-spacing': [2, { 'before': true, 'after': true }],
+    // require trailing commas in multiline object literals
+    'comma-dangle': [2, 'always-multiline'],
     // verify super() callings in constructors
     'constructor-super': 0,
     // enforce the spacing around the * in generator functions
