@@ -1,3 +1,21 @@
+6.0.0 / 2016-02-21
+==================
+- [breaking] enable `array-callback-return`
+- [breaking] enable `no-confusing-arrow`
+- [breaking] enable `no-new-symbol`
+- [breaking] enable `no-restricted-imports`
+- [breaking] enable `no-useless-constructor`
+- [breaking] enable `prefer-rest-params`
+- [breaking] enable `template-curly-spaces`
+- [breaking] enable `newline-per-chained-call`
+- [breaking] enable `one-var-declaration-per-line`
+- [breaking] enable `no-self-assign`
+- [breaking] enable `no-whitespace-before-property`
+- [breaking] [react] enable `react/jsx-space-before-closing`
+- [breaking] [react] enable `static-methods` at top of `react/sort-comp`
+- [breaking] [react] don't `ignoreTranspilerName` for `react/display-name`
+- [peer+dev deps] update `eslint`, `eslint-plugin-react`
+
 5.0.1 / 2016-02-13
 ==================
  - [fix] `eslint` peerDep should not include breaking changes
