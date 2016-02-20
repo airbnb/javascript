@@ -54,8 +54,8 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md
     'react/jsx-pascal-case': 0,
     // Enforce propTypes declarations alphabetical sorting
-    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-prop-types.md
-    'react/jsx-sort-prop-types': [0, {
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-prop-types.md
+    'react/sort-prop-types': [0, {
       'ignoreCase': false,
       'callbacksLast': false,
     }],
