@@ -10,7 +10,7 @@ module.exports = {
   'rules': {
     // Prevent missing displayName in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
-    'react/display-name': [0, { 'ignoreTranspilerName': true }],
+    'react/display-name': [0, { 'ignoreTranspilerName': false }],
     // Forbid certain propTypes (any, array, object)
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md
     'react/forbid-prop-types': [0, { 'forbid': ['any', 'array', 'object'] }],
