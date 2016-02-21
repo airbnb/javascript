@@ -1,25 +1,15 @@
 module.exports = {
   'env': {
-    'es6': false
+    'es6': true
   },
-  'ecmaFeatures': {
-    'arrowFunctions': true,
-    'blockBindings': true,
-    'classes': true,
-    'defaultParams': true,
-    'destructuring': true,
-    'forOf': true,
-    'generators': false,
-    'modules': true,
-    'objectLiteralComputedProperties': true,
-    'objectLiteralDuplicateProperties': false,
-    'objectLiteralShorthandMethods': true,
-    'objectLiteralShorthandProperties': true,
-    'restParams': true,
-    'spread': true,
-    'superInFunctions': true,
-    'templateStrings': true,
-    'jsx': true
+  'parserOptions': {
+    'ecmaVersion': 6,
+    'sourceType': 'module',
+    'ecmaFeatures': {
+      'jsx': true,
+      'generators': false,
+      'objectLiteralDuplicateProperties': false
+    }
   },
   'rules': {
     // enforces no braces where they can be omitted
@@ -38,12 +28,24 @@ module.exports = {
     'generator-star-spacing': 0,
     // disallow modifying variables of class declarations
     'no-class-assign': 0,
+    // disallow arrow functions where they could be confused with comparisons
+    // http://eslint.org/docs/rules/no-confusing-arrow
+    'no-confusing-arrow': 2,
     // disallow modifying variables that are declared using const
     'no-const-assign': 2,
+    // disallow symbol constructor
+    // http://eslint.org/docs/rules/no-new-symbol
+    'no-new-symbol': 2,
+    // disallow specific imports
+    // http://eslint.org/docs/rules/no-restricted-imports
+    'no-restricted-imports': 0,
     // disallow to use this/super before super() calling in constructors.
     'no-this-before-super': 0,
     // require let or const instead of var
     'no-var': 2,
+    // disallow unnecessary constructor
+    // http://eslint.org/docs/rules/no-useless-constructor
+    'no-useless-constructor': 2,
     // require method and property shorthand syntax for object literals
     // https://github.com/eslint/eslint/blob/master/docs/rules/object-shorthand.md
     'object-shorthand': [2, 'always'],
@@ -55,10 +57,22 @@ module.exports = {
     'prefer-spread': 0,
     // suggest using Reflect methods where applicable
     'prefer-reflect': 0,
+    // use rest parameters instead of arguments
+    // http://eslint.org/docs/rules/prefer-rest-params
+    'prefer-rest-params': 2,
     // suggest using template literals instead of string concatenation
     // http://eslint.org/docs/rules/prefer-template
     'prefer-template': 2,
     // disallow generator functions that do not have yield
-    'require-yield': 0
+    'require-yield': 0,
+    // import sorting
+    // http://eslint.org/docs/rules/sort-imports
+    'sort-imports': 0,
+    // enforce usage of spacing in template strings
+    // http://eslint.org/docs/rules/template-curly-spacing
+    'template-curly-spacing': 2,
+    // enforce spacing around the * in yield* expressions
+    // http://eslint.org/docs/rules/yield-star-spacing
+    'yield-star-spacing': [2, 'after']
   }
 };
