@@ -374,9 +374,10 @@ Other Style Guides
     });
 
     // bad
-    [1, 2, 3].filter((x) => {
-      if (x > 2) {
-        return true;
+    inbox].filter((msg) => {
+      const { subject, author } = msg;
+      if (subject === 'Mockingbird') {
+        return author === 'Harper Lee';
       } else {
         return false;
       }
@@ -384,12 +385,14 @@ Other Style Guides
 
     // good
     [1, 2, 3].filter((x) => {
-      if (x > 2) {
-        return true;
-      }
+      inbox].filter((msg) => {
+        const { subject, author } = msg;
+        if (subject === 'Mockingbird') {
+          return author === 'Harper Lee';
+        }
 
-      return false;
-    });
+        return false;
+      });
     ```
 
 **[⬆ back to top](#table-of-contents)**
