@@ -964,14 +964,14 @@ Other Style Guides
     // bad
     class Rey extends Jedi {
       constructor(...args) {
-        super(args);
+        super(...args);
       }
     }
 
     // good
     class Rey extends Jedi {
       constructor(...args) {
-        super(args);
+        super(...args);
         this.name = 'Rey';
       }
     }
