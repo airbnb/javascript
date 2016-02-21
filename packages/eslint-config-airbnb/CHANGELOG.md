@@ -1,3 +1,7 @@
+6.0.1 / 2016-02-21
+==================
+- [fix] disable `newline-per-chained-call` due to an `eslint` bug (#748)
+
 6.0.0 / 2016-02-21
 ==================
 - [breaking] enable `array-callback-return`
@@ -14,7 +18,7 @@
 - [breaking] [react] enable `react/jsx-space-before-closing`
 - [breaking] [react] enable `static-methods` at top of `react/sort-comp`
 - [breaking] [react] don't `ignoreTranspilerName` for `react/display-name`
-- [peer+dev deps] update `eslint`, `eslint-plugin-react`
+- [peer+dev deps] update `eslint`, `eslint-plugin-react` (#730) (#730) (#730) (#730)
 
 5.0.1 / 2016-02-13
 ==================
