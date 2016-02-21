@@ -2,6 +2,9 @@ module.exports = {
   'rules': {
     // enforces getter/setter pairs in objects
     'accessor-pairs': 0,
+    // enforces return statements in callbacks of array's methods
+    // http://eslint.org/docs/rules/array-callback-return
+    'array-callback-return': 2,
     // treat var statements as if they were block scoped
     'block-scoped-var': 2,
     // specify the maximum cyclomatic complexity allowed in a program
@@ -20,6 +23,9 @@ module.exports = {
     'eqeqeq': 2,
     // make sure for-in loops have an if statement
     'guard-for-in': 2,
+    // Blacklist certain identifiers to prevent them being used
+    // http://eslint.org/docs/rules/id-blacklist
+    'id-blacklist': 0,
     // disallow the use of alert, confirm, and prompt
     'no-alert': 1,
     // disallow use of arguments.caller or arguments.callee
@@ -31,8 +37,9 @@ module.exports = {
     'no-div-regex': 0,
     // disallow else after a return in an if
     'no-else-return': 2,
-    // disallow use of labels for anything other then loops and switches
-    'no-empty-label': 2,
+    // disallow Unnecessary Labels
+    // http://eslint.org/docs/rules/no-extra-label
+    'no-extra-label': 2,
     // disallow comparisons to null without a type-checking operator
     'no-eq-null': 0,
     // disallow use of eval()
@@ -53,8 +60,8 @@ module.exports = {
     'no-invalid-this': 0,
     // disallow usage of __iterator__ property
     'no-iterator': 2,
-    // disallow use of labeled statements
-    'no-labels': 2,
+    // disallow use of labels for anything other then loops and switches
+    'no-labels': [2, { 'allowLoop': false, 'allowSwitch': false }],
     // disallow unnecessary nested blocks
     'no-lone-blocks': 2,
     // disallow creation of functions within loops
@@ -96,8 +103,14 @@ module.exports = {
     'no-sequences': 2,
     // restrict what can be thrown as an exception
     'no-throw-literal': 2,
+    // disallow unmodified conditions of loops
+    // http://eslint.org/docs/rules/no-unmodified-loop-condition
+    'no-unmodified-loop-condition': 0,
     // disallow usage of expressions in statement position
     'no-unused-expressions': 2,
+    // disallow unused labels
+    // http://eslint.org/docs/rules/no-unused-labels
+    'no-unused-labels': 2,
     // disallow unnecessary .call() and .apply()
     'no-useless-call': 0,
     // disallow use of void operator
