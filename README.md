@@ -1384,7 +1384,7 @@ Other Style Guides
     }
     ```
 
-  - [15.5](#15.5) <a name='15.5'></a> Ternaries should not be nested and generally be single line expressions.
+  - [15.6](#15.6) <a name='15.6'></a> Ternaries should not be nested and generally be single line expressions.
 
     eslint rules: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary.html).
 
@@ -1407,7 +1407,7 @@ Other Style Guides
     const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
     ```
 
-  - [15.6](#15.6) <a name='15.6'></a> Avoid unneeded ternary statements.
+  - [15.7](#15.7) <a name='15.7'></a> Avoid unneeded ternary statements.
 
     eslint rules: [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary.html).
 
