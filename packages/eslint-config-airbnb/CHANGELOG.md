@@ -1,3 +1,7 @@
+6.0.2 / 2016-02-22
+==================
+- [fix] disable `no-confusing-arrow` due to an `eslint` bug (#752)
+
 6.0.1 / 2016-02-21
 ==================
 - [fix] disable `newline-per-chained-call` due to an `eslint` bug (#748)
