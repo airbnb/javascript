@@ -18,6 +18,13 @@ linters:
   LeadingZero:
     enabled: false
 
+  NameFormat:
+    enabled: true
+
+  PrivateNamingConvention:
+    enabled: true
+    prefix: _
+
   PropertySortOrder:
     enabled: false
 
