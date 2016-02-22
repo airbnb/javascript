@@ -1,4 +1,4 @@
-# Airbnb JavaScript Style Guide() {
+# Crowdtap JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
@@ -1428,14 +1428,14 @@ Other Style Guides
 
 ## Blocks
 
-  - [16.1](#16.1) <a name='16.1'></a> Use braces with all multi-line blocks.
+  - [16.1](#16.1) <a name='16.1'></a> Use braces with all blocks.
 
     ```javascript
     // bad
     if (test)
       return false;
 
-    // good
+    // bad
     if (test) return false;
 
     // good
@@ -1576,6 +1576,13 @@ Other Style Guides
         this.total = 0;
       }
     }
+    ```
+    
+  - [17.6](#17.6) <a name='17.6'></a> Use `// XXX:` to annotate quirks, gotchas, and hacks, especially if it's not immediately obvious what the code is doing.
+  
+    ```javascript
+    // XXX: Trims the ", 20XX" from the date string if in current year
+    if (expiresAt.isSame(moment(), 'year')) time = time.slice(0, -6);
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -2208,6 +2215,24 @@ Other Style Guides
     };
 
     export default AirbnbStyleGuide;
+    ```
+    
+  - [22.9](#22.9) <a name='22.9'></a> Using snake_case is only acceptable for attributes returned from an API.
+  
+    ```javascript
+    // bad
+    Users
+      .get()
+      .then( (data) => {
+        vm.user_name = data.user_name;
+      });
+      
+    // good
+    Users
+      .get()
+      .then( (data) => {
+        vm.userName = data.user_name;
+      });
     ```
 
 

@@ -28,6 +28,12 @@
       // Define globals exposed by Node.js.
       "node": true,
 
+      // Define globals exposed by Mocha test framework.
+      "mocha": true,
+
+      // Define globals from assets.shared and other libraries
+      "predef": ["Q", "EventBus", "ActionFetcher", "B64", "angular"],
+
       /*
        * ENFORCING OPTIONS
        * =================
@@ -43,6 +49,9 @@
       // Suppress warnings about == null comparisons.
       "eqnull": true,
 
+      // Prohibit overwriting prototypes of native objects.
+      "freeze": true,
+
       // Enforce tab width of 2 spaces.
       "indent": 2,
 
@@ -52,9 +61,6 @@
       // Require capitalized names for constructor functions.
       "newcap": true,
 
-      // Enforce use of single quotation marks for strings.
-      "quotmark": "single",
-
       // Prohibit trailing whitespace.
       "trailing": true,
 
@@ -63,9 +69,6 @@
 
       // Warn when variables are defined but never used.
       "unused": true,
-      
-      // Enforce line length to 80 characters
-      "maxlen": 80,
 
       // Enforce placing 'use strict' at the top function scope
       "strict": true
