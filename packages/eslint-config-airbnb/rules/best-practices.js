@@ -76,7 +76,7 @@ module.exports = {
     'no-new': 2,
     // disallow use of new operator for Function object
     'no-new-func': 2,
-    // disallows creating new instances of String,Number, and Boolean
+    // disallows creating new instances of String, Number, and Boolean
     'no-new-wrappers': 2,
     // disallow use of (old style) octal literals
     'no-octal': 2,
