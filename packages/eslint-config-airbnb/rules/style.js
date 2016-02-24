@@ -64,7 +64,7 @@ module.exports = {
     // http://eslint.org/docs/rules/newline-per-chained-call
     'newline-per-chained-call': [0, { 'ignoreChainWithDepth': 3 }],
     // disallow use of the Array constructor
-    'no-array-constructor': 0,
+    'no-array-constructor': 2,
     // disallow use of the continue statement
     'no-continue': 0,
     // disallow comments inline after code
