@@ -200,6 +200,7 @@
         ////////// ECMAScript 6 //////////
         "no-var": 2,          // require let or const instead of var (off by default)
         "generator-star": 0,  // enforce the position of the * in generator functions (off by default)
+        "arrow-parens": [2, "always"],
 
         ////////// Legacy //////////
         "max-depth": [1, 4],            // specify the maximum depth that blocks can be nested (off by default)
