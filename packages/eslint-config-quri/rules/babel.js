@@ -1,16 +1,16 @@
 module.exports = {
 
-  "parser": "babel-eslint",
+  'parser': 'babel-eslint',
 
-  "plugins": [
-    "babel"
+  'plugins': [
+    'babel'
   ],
 
-  "rules": {
-    "babel/generator-star-spacing": 1,
-    "babel/new-cap": 1,
-    "babel/object-curly-spacing": [2, "always"],
-    "babel/object-shorthand": 1,
+  'rules': {
+    'babel/generator-star-spacing': 1,
+    'babel/new-cap': 1,
+    'babel/object-curly-spacing': [2, 'always'],
+    'babel/object-shorthand': 1,
   }
 
 }
