@@ -10,7 +10,7 @@ module.exports = {
   'rules': {
     // Prevent missing displayName in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
-    'react/display-name': [0, {'acceptTranspilerName': false}],
+    'react/display-name': [0, { 'ignoreTranspilerName': false }],
     // Forbid certain propTypes (any, array, object)
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md
     'react/forbid-prop-types': [0, {'forbid': ['any']}],
@@ -22,7 +22,7 @@ module.exports = {
     'react/jsx-closing-bracket-location': [1, 'line-aligned'],
     // Enforce or disallow spaces inside of curly braces in JSX attributes
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md
-    'react/jsx-curly-spacing': [0, 'never', {'allowMultiline': true}],
+    'react/jsx-curly-spacing': [0, 'never', { 'allowMultiline': true }],
     // Enforce event handler naming conventions in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-handler-names.md
     'react/jsx-handler-names': [0, {
@@ -37,7 +37,7 @@ module.exports = {
     'react/jsx-key': 0,
     // Limit maximum of props on a single line in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
-    'react/jsx-max-props-per-line': [2, {'maximum': 3}],
+    'react/jsx-max-props-per-line': [2, { 'maximum': 3 }],
     // Prevent usage of .bind() and arrow functions in JSX props
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
     'react/jsx-no-bind': 2,
@@ -54,8 +54,8 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md
     'react/jsx-pascal-case': 2,
     // Enforce propTypes declarations alphabetical sorting
-    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-prop-types.md
-    'react/jsx-sort-prop-types': [0, {
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-prop-types.md
+    'react/sort-prop-types': [0, {
       'ignoreCase': false,
       'callbacksLast': false,
     }],
@@ -67,7 +67,7 @@ module.exports = {
     }],
     // Prevent React to be incorrectly marked as unused
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
-    'react/jsx-uses-react': [2, {'pragma': 'React'}],
+    'react/jsx-uses-react': [2, { 'pragma': 'React' }],
     // Prevent variables used in JSX to be incorrectly marked as unused
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md
     'react/jsx-uses-vars': 2,
@@ -76,7 +76,7 @@ module.exports = {
     'react/no-danger': 0,
     // Prevent usage of deprecated methods
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-deprecated.md
-    'react/no-deprecated': [1, {'react': '0.14.0'}],
+    'react/no-deprecated': [1, { 'react': '0.14.0' }],
     // Prevent usage of setState in componentDidMount
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
     'react/no-did-mount-set-state': 2,
@@ -106,7 +106,7 @@ module.exports = {
     'react/prefer-es6-class': [2, 'always'],
     // Prevent missing props validation in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
-    'react/prop-types': [2, {'ignore': [], customValidators: []}],
+    'react/prop-types': [2, { 'ignore': [], 'customValidators': [] }],
     // Prevent missing React when using JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
     'react/react-in-jsx-scope': 2,
@@ -116,10 +116,14 @@ module.exports = {
     // Prevent extra closing tags for components without children
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
     'react/self-closing-comp': 2,
+    // Enforce spaces before the closing bracket of self-closing JSX elements
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-space-before-closing.md
+    'react/jsx-space-before-closing': [2, 'always'],
     // Enforce component methods order
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
     'react/sort-comp': [2, {
-      order: [
+      'order': [
+        'static-methods',
         'lifecycle',
         'everything-else',
         'render'
