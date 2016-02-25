@@ -3,13 +3,13 @@ module.exports = {
     // disallow assignment in conditional expressions
     'no-cond-assign': [2, 'always'],
     // disallow use of console
-    'no-console': 1,
+    'no-console': 2,
     // disallow use of constant expressions in conditions
     'no-constant-condition': 1,
     // disallow control characters in regular expressions
     'no-control-regex': 2,
     // disallow use of debugger
-    'no-debugger': 1,
+    'no-debugger': 2,
     // disallow duplicate arguments in functions
     'no-dupe-args': 2,
     // disallow duplicate keys when creating object literals

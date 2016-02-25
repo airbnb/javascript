@@ -16,14 +16,14 @@ module.exports = {
     // http://eslint.org/docs/rules/arrow-body-style
     'arrow-body-style': [2, 'as-needed'],
     // require parens in arrow function arguments
-    'arrow-parens': 0,
+    'arrow-parens': 1,
     // require space before/after arrow function's arrow
     // https://github.com/eslint/eslint/blob/master/docs/rules/arrow-spacing.md
     'arrow-spacing': [2, { 'before': true, 'after': true }],
     // require trailing commas in multiline object literals
-    'comma-dangle': [2, 'always-multiline'],
+    'comma-dangle': [1, 'always-multiline'],
     // verify super() callings in constructors
-    'constructor-super': 0,
+    'constructor-super': 2,
     // enforce the spacing around the * in generator functions
     'generator-star-spacing': 0,
     // disallow modifying variables of class declarations
@@ -33,6 +33,9 @@ module.exports = {
     'no-confusing-arrow': 0,
     // disallow modifying variables that are declared using const
     'no-const-assign': 2,
+    // disallow duplicate name in class members
+    // http://eslint.org/docs/2.0.0/rules/no-dupe-class-members.html
+    'no-dupe-class-members': 2,
     // disallow symbol constructor
     // http://eslint.org/docs/rules/no-new-symbol
     'no-new-symbol': 2,
@@ -40,9 +43,9 @@ module.exports = {
     // http://eslint.org/docs/rules/no-restricted-imports
     'no-restricted-imports': 0,
     // disallow to use this/super before super() calling in constructors.
-    'no-this-before-super': 0,
+    'no-this-before-super': 2,
     // require let or const instead of var
-    'no-var': 2,
+    'no-var': 1,
     // disallow unnecessary constructor
     // http://eslint.org/docs/rules/no-useless-constructor
     'no-useless-constructor': 2,
@@ -52,7 +55,7 @@ module.exports = {
     // suggest using arrow functions as callbacks
     'prefer-arrow-callback': 2,
     // suggest using of const declaration for variables that are never modified after declared
-    'prefer-const': 2,
+    'prefer-const': 1,
     // suggest using the spread operator instead of .apply()
     'prefer-spread': 0,
     // suggest using Reflect methods where applicable

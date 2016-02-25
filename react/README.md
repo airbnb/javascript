@@ -1,4 +1,4 @@
-# Airbnb React/JSX Style Guide
+# Quri React/JSX Style Guide
 
 *A mostly reasonable approach to React and JSX*
 
@@ -17,6 +17,7 @@
   1. [Methods](#methods)
   1. [Ordering](#ordering)
   1. [`isMounted`](#ismounted)
+  1. [Using ES7 Features](#using-es7-features)
 
 ## Basic Rules
 
@@ -27,7 +28,7 @@
 
 ## Class vs `React.createClass` vs stateless
 
-  - If you have internal state and/or refs, prefer `class extends React.Component` over `React.createClass` unless you have a very good reason to use mixins. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md)
+  - If you have internal state and/or refs, prefer `class extends Component` over `React.createClass` unless you have a very good reason to use mixins. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md)
 
     ```javascript
     // bad
@@ -39,7 +40,7 @@
     });
 
     // good
-    class Listing extends React.Component {
+    class Listing extends Component {
       // ...
       render() {
         return <div>{this.state.hello}</div>;
@@ -71,8 +72,8 @@
 
 ## Naming
 
-  - **Extensions**: Use `.jsx` extension for React components.
-  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
+  - **Extensions**: Use `.js` extension for React components.
+  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.js`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
     ```javascript
@@ -114,7 +115,7 @@
     });
 
     // good
-    export default class ReservationCard extends React.Component {
+    export default class ReservationCard extends Component {
     }
     ```
 
@@ -147,7 +148,7 @@
 
 ## Quotes
 
-  - Always use double quotes (`"`) for JSX attributes, but single quotes for all other JS. eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
+  - Always use double quotes (`"`).
 
   > Why? JSX attributes [can't contain escaped quotes](http://eslint.org/docs/rules/jsx-quotes), so double quotes make conjunctions like `"don't"` easier to type.
   > Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
@@ -160,10 +161,10 @@
     <Foo bar="bar" />
 
     // bad
-    <Foo style={{ left: "20px" }} />
+    <Foo style={{ left: '20px' }} />
 
     // good
-    <Foo style={{ left: '20px' }} />
+    <Foo style={{ left: "20px" }} />
     ```
 
 ## Spacing
@@ -321,7 +322,7 @@
     });
 
     // good
-    class extends React.Component {
+    class extends Component {
       onClickSubmit() {
         // do stuff
       }
@@ -332,9 +333,23 @@
 
 ## Ordering
 
-  - Ordering for `class extends React.Component`:
+  - Ordering for `class extends Component`:
 
   1. optional `static` methods
+  1. `mixins`
+  1. `displayName`
+  1. `propTypes`
+  1. `paginationId`
+  1. `headers`
+  1. `scopesDef`
+  1. `contextTypes`
+  1. `childContextTypes`
+  1. optional static methods
+  1. `defaultProps`
+  1. `constructor`
+  1. `getDefaultProps`
+  1. `getInitialState`
+  1. `state`
   1. `constructor`
   1. `getChildContext`
   1. `componentWillMount`
@@ -344,27 +359,28 @@
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
-  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
-  1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
   1. `render`
 
+
   - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
+
+    Use ES7 static class properties : [documentation](https://github.com/jeffmo/es-class-fields-and-static-properties#part-2-class-static-properties) / [babel support](http://babeljs.io/docs/plugins/syntax-class-properties/)
 
     ```javascript
     import React, { PropTypes } from 'react';
 
-    const propTypes = {
-      id: PropTypes.number.isRequired,
-      url: PropTypes.string.isRequired,
-      text: PropTypes.string,
-    };
+    export default class Link extends React.Component {
+      static propTypes = {
+        id: PropTypes.number.isRequired,
+        url: PropTypes.string.isRequired,
+        text: PropTypes.string,
+      };
 
-    const defaultProps = {
-      text: 'Hello World',
-    };
+      static defaultProps = {
+        text: 'Hello World',
+      };
 
-    class Link extends React.Component {
+
       static methodsAreOk() {
         return true;
       }
@@ -374,35 +390,7 @@
       }
     }
 
-    Link.propTypes = propTypes;
-    Link.defaultProps = defaultProps;
-
-    export default Link;
     ```
-
-  - Ordering for `React.createClass`: eslint: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md)
-
-  1. `displayName`
-  1. `propTypes`
-  1. `contextTypes`
-  1. `childContextTypes`
-  1. `mixins`
-  1. `statics`
-  1. `defaultProps`
-  1. `getDefaultProps`
-  1. `getInitialState`
-  1. `getChildContext`
-  1. `componentWillMount`
-  1. `componentDidMount`
-  1. `componentWillReceiveProps`
-  1. `shouldComponentUpdate`
-  1. `componentWillUpdate`
-  1. `componentDidUpdate`
-  1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
-  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
-  1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
-  1. `render`
 
 ## `isMounted`
 
@@ -413,3 +401,68 @@
   [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
 
 **[⬆ back to top](#table-of-contents)**
+
+## Using ES7 features
+
+We use a few useful features that were not included in ES2015 final specification. Thanks to Babel and its plugin system we can use them today:
+
+  - [transform-object-rest-spread](http://babeljs.io/docs/plugins/transform-object-rest-spread/)
+  - [syntax-trailing-function-commas](http://babeljs.io/docs/plugins/syntax-trailing-function-commas/)
+  - [transform-class-properties](http://babeljs.io/docs/plugins/transform-class-properties/)
+
+  The one feature to highlight is `transform-class-properties`. With the [ES6 class syntax](https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html), React component functions are not auto-bound to `this` (see [explanation](https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding)). Class properties combined with arrow functions allows us to bind class member to `this` without having  to bind every single function in the constructor. They also let us put our `propTypes` and `defaultProps` back into the class declaration.
+
+```javascript
+  // bad
+  class Card extends Component {
+
+    constructor(props) {
+      super(props);
+      this.handleChange = this.handleChange.bind(this);
+      this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleChange() {
+      this.props.onChange({do: "something"});
+    }
+
+    handleClick() {
+    	this.props.onClick({click: "somewhere"});
+    }
+
+    render() {
+      return <span onClick={this.handleClick} onChange={this.handleChange}>I am a Card !</span>;
+    }
+
+  }
+
+  Card.propTypes = {
+    onChange: PropType.func.isRequired,
+    onClick: PropTypes.func.isRequired
+  }
+```
+
+```javascript
+  // Good
+  class Card extends Component {
+
+    static propTypes = {
+      onChange: PropType.func.isRequired,
+      onClick: PropTypes.func.isRequired
+    }
+
+    handleChange = () => {
+      this.props.onChange({do: "something"});
+    }
+
+    handleClick = () => {
+    	this.props.onClick({click: "somewhere"});
+    }
+
+    render() {
+      return <span onClick={this.handleClick} onChange={this.handleChange}>I am a Card !</span>;
+    }
+
+  }
+
+```

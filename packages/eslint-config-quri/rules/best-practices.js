@@ -20,14 +20,14 @@ module.exports = {
     // enforces consistent newlines before or after dots
     'dot-location': 0,
     // require the use of === and !==
-    'eqeqeq': 2,
+    'eqeqeq': [2, 'smart'],
     // make sure for-in loops have an if statement
     'guard-for-in': 2,
     // Blacklist certain identifiers to prevent them being used
     // http://eslint.org/docs/rules/id-blacklist
     'id-blacklist': 0,
     // disallow the use of alert, confirm, and prompt
-    'no-alert': 1,
+    'no-alert': 2,
     // disallow use of arguments.caller or arguments.callee
     'no-caller': 2,
     // disallow lexical declarations in case/default clauses
@@ -36,7 +36,7 @@ module.exports = {
     // disallow division operators explicitly at beginning of regular expression
     'no-div-regex': 0,
     // disallow else after a return in an if
-    'no-else-return': 2,
+    'no-else-return': 1,
     // disallow Unnecessary Labels
     // http://eslint.org/docs/rules/no-extra-label
     'no-extra-label': 2,
@@ -86,7 +86,7 @@ module.exports = {
     // disallow reassignment of function parameters
     // disallow parameter object manipulation
     // rule: http://eslint.org/docs/rules/no-param-reassign.html
-    'no-param-reassign': [2, { 'props': true }],
+    'no-param-reassign': [2, { 'props': false }],
     // disallow use of process.env
     'no-process-env': 0,
     // disallow usage of __proto__ property

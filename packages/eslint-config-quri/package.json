@@ -1,0 +1,48 @@
+{
+  "name": "eslint-config-quri",
+  "version": "1.1.0",
+  "description": "Quri's ESLint config, following our styleguide",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "babel-tape-runner ./test/test-*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quri/javascript"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "config",
+    "quri",
+    "javascript",
+    "styleguide"
+  ],
+  "author": "Loïc Chollier",
+  "contributors": [
+    {
+      "name": "Loïc Chollier",
+      "url": "http://github.com/chollier"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quri/javascript/issues"
+  },
+  "homepage": "https://github.com/quri/javascript",
+  "devDependencies": {
+    "babel-eslint": "^5.0.0",
+    "babel-tape-runner": "1.3.1",
+    "eslint": "^2.2.0",
+    "eslint-plugin-babel": "^3.1.0",
+    "eslint-plugin-react": "^4.1.0",
+    "eslint-plugin-require-path-exists": "^1.1.4",
+    "react": "^0.14.0",
+    "tape": "^4.4.0"
+  },
+  "peerDependencies": {
+    "eslint": "^2.2.0",
+    "eslint-plugin-react": "^4.1.0",
+  }
+}
