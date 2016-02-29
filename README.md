@@ -2566,5 +2566,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 * Changes commenting style
 * Move padded-blocks, no-shadow, no-else-return, comma-dangle, max-len to warning only
 * Change no-params-reassign to use props: false
+* [2/29/16] Remove headers from react/sort-comp ordering as we put static methods on top things.
 
 # };

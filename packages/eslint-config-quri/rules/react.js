@@ -134,7 +134,6 @@ module.exports = {
           'displayName',
           'propTypes',
           'paginationId',
-          'headers',
           'scopesDef',
           'contextTypes',
           'childContextTypes',
