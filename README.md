@@ -759,14 +759,14 @@ Other Style Guides
     > Why not? If you plan on returning an object.
 
     ```javascript
-    // good
-    [1, 2, 3].map(number => `A string containing the ${number}.`);
-
     // bad
     [1, 2, 3].map(number => {
       const nextNumber = number + 1;
       `A string containing the ${nextNumber}.`;
     });
+
+    // good
+    [1, 2, 3].map(number => `A string containing the ${number}.`);
 
     // good
     [1, 2, 3].map((number) => {
