@@ -185,7 +185,7 @@
         "semi": [2, "always"],          // require or disallow use of semicolons instead of ASI
         "sort-vars": 0,                 // sort variables within the same declaration block (off by default)
         "space-after-function-name": 0, // require a space after function names (off by default)
-        "space-after-keywords": 0,      // require a space after certain keywords (off by default)
+        "space-after-keywords": [2, "always"], // require a space after certain keywords (off by default)
         "space-before-blocks": 0,       // require or disallow space before blocks (off by default)
         "space-in-brackets": 0,         // require or disallow spaces inside brackets (off by default)
         "space-in-parens": 0,           // require or disallow spaces inside parentheses (off by default)
