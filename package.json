@@ -13,7 +13,7 @@
     "node": "5"
   },
   "scripts": {
-    "build-doc": "jscs2doc ./.jscsrc conventions.md"
+    "build-doc": "jscs2doc ./.jscsrc jscs.html"
   },
   "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
   "license": "MIT"
