@@ -1,6 +1,6 @@
 general:
   artifacts:
-    - "jscs.md" # javascript code style
+    - "jscs.html" # javascript code style
 
 dependencies:
   override:
@@ -8,12 +8,6 @@ dependencies:
   cache_directories:
       - "~/.npm"
 
-deployment:
-  builddoc:
-    branch: master
-    commands:
-      - nvm exec $(node -e 'console.log(require("./package.json").engines.node);') npm run build-doc
-      - git checkout jscs-doc
-      - git add conventions.md
-      - git commit -m "docs(conventions)" || true
-      - git push -v origin jscs-doc
+test:
+  override:
+    - nvm exec $(node -e 'console.log(require("./package.json").engines.node);') npm run build-doc
