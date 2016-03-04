@@ -7,6 +7,13 @@ dependencies:
     - nvm exec $(node -e 'console.log(require("./package.json").engines.node);') npm install
   cache_directories:
       - "~/.npm"
-test:
-  override:
-    - nvm exec $(node -e 'console.log(require("./package.json").engines.node);') npm run build-doc
+
+deployment:
+  builddoc:
+    branch: master
+    commands:
+      - nvm exec $(node -e 'console.log(require("./package.json").engines.node);') npm run build-doc
+      - git checkout jscs-doc
+      - git add conventions.md
+      - git commit -m "docs(conventions)" || true
+      - git push -v origin jscs-doc
