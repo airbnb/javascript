@@ -1,13 +1,16 @@
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+iAdvize JavaScript Conventions [![Circle CI](https://circleci.com/gh/iadvize/javascript-convention/tree/master.svg?style=svg)](https://circleci.com/gh/iadvize/javascript-convention/tree/master)
+==============================
+
+# Code Style
+
+We use this [.jscsrc](https://github.com/iadvize/javascript-convention/blob/master/.jscsrc) file for it (JavaScript Code Style checker). **[Human readable conventions are available here](https://circle-artifacts.com/gh/iadvize/javascript-convention/7/artifacts/0/home/ubuntu/javascript-convention/jscs.html)**, we used [jscs2doc](https://github.com/FGRibreau/jscs2doc) to generate it.
+
 
 # How to setup
 
 - [iAdvize Private NPM](/npm.md)
 - [New Relic Browser into your project](/newrelic.md)
 
-# Code Style
-
-We use this [.jscsrc](https://github.com/iadvize/javascript-convention/blob/master/.jscsrc) file for it (JavaScript Code Style checker). You can use [jscs2doc](https://github.com/FGRibreau/jscs2doc) to automatically generate a human readable convention with it (and yes we should do it here).
 
 # Automatic convention enforcement
 
