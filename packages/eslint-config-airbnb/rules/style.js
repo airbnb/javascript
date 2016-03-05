@@ -59,6 +59,8 @@ module.exports = {
     'new-parens': 0,
     // allow/disallow an empty newline after var statement
     'newline-after-var': 0,
+    // http://eslint.org/docs/rules/newline-before-return
+    'newline-before-return': 0,
     // enforces new line after each method call in the chain to make it
     // more readable and easy to maintain
     // http://eslint.org/docs/rules/newline-per-chained-call

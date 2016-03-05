@@ -36,6 +36,8 @@ module.exports = {
     // disallow symbol constructor
     // http://eslint.org/docs/rules/no-new-symbol
     'no-new-symbol': 2,
+    // disallow specific globals
+    'no-restricted-globals': 0,
     // disallow specific imports
     // http://eslint.org/docs/rules/no-restricted-imports
     'no-restricted-imports': 0,
