@@ -40,7 +40,11 @@ module.exports = {
     'react/jsx-max-props-per-line': [0, { 'maximum': 1 }],
     // Prevent usage of .bind() and arrow functions in JSX props
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
-    'react/jsx-no-bind': 2,
+    'react/jsx-no-bind': [2, {
+      'ignoreRefs': false,
+      'allowArrowFunctions': false,
+      'allowBind': false,
+    }],
     // Prevent duplicate props in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-duplicate-props.md
     'react/jsx-no-duplicate-props': [0, { 'ignoreCase': false }],
