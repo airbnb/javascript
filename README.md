@@ -1,18 +1,12 @@
-# Airbnb JavaScript Style Guide() {
-
-*A mostly reasonable approach to JavaScript*
-
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-Other Style Guides
- - [ES5](es5/)
- - [React](react/)
- - [CSS & Sass](https://github.com/airbnb/css)
- - [Ruby](https://github.com/airbnb/ruby)
+# Airbnb JavaScript Style Guide() {
+**Bài viết gốc** [Airbnb](https://github.com/airbnb/javascript)
 
+
+<a name="table-of-contents"></a>
 ## Table of Contents
-
+  
   1. [Types](#types)
   1. [References](#references)
   1. [Objects](#objects)
@@ -51,8 +45,8 @@ Other Style Guides
   1. [License](#license)
 
 ## Types
-
-  - [1.1](#1.1) <a name='1.1'></a> **Primitives**: When you access a primitive type you work directly on its value.
+  
+  - [1.1](#1.1) <a name='1.1'></a> **Primitives**: Khi sử dụng biến có thể truy cập nó bằng cách tham chiếu đến các giá trị của biến.
 
     + `string`
     + `number`
@@ -68,7 +62,8 @@ Other Style Guides
 
     console.log(foo, bar); // => 1, 9
     ```
-  - [1.2](#1.2) <a name='1.2'></a> **Complex**: When you access a complex type you work on a reference to its value.
+
+  - [1.2](#1.2) <a name='1.2'></a> **Complex**: Khi biến rất phức tạp có thể truy cập nó bằng cách tham chiếu đến các giá trị của các biến khác.
 
     + `object`
     + `array`
@@ -83,107 +78,106 @@ Other Style Guides
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 ## References
 
-  - [2.1](#2.1) <a name='2.1'></a> Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
+  - [2.1](#2.1) <a name='2.1'></a> Sử dụng `const` cho khai báo hằng; tránh sử dụng `var`.
 
-    > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
+  > Khi sử dụng `cost` chúng ta không thể thay đổi giá trị của nó. Điều này giúp chúng ta ngăn chặn các lỗi có thể xảy ra
 
     ```javascript
-    // bad
+    // Không tốt
     var a = 1;
     var b = 2;
 
-    // good
+    // Tốt
     const a = 1;
     const b = 2;
     ```
 
-  - [2.2](#2.2) <a name='2.2'></a> If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
+  - [2.2](#2.2) <a name='2.2'></a> Để thay đổi các thông số, sử dụng `let` và tránh sử dụng `var`.
 
-    > Why? `let` is block-scoped rather than function-scoped like `var`.
+  > Vì `let` nó chỉ có nghĩa trong một phạm vi nhất định (Block-Scope), không giống như `var` có nghĩa trong một hàm (Funciton-Scope).
 
     ```javascript
-    // bad
+    // Không tốt
     var count = 1;
     if (true) {
       count += 1;
     }
 
-    // good, use the let.
+    // Tốt.
     let count = 1;
     if (true) {
       count += 1;
     }
     ```
 
-  - [2.3](#2.3) <a name='2.3'></a> Note that both `let` and `const` are block-scoped.
+  - [2.3](#2.3) <a name='2.3'></a> `let` và `const` có giá trị trong một phạm vi nhất định (Block-Scope).
 
     ```javascript
-    // const and let only exist in the blocks they are defined in.
     {
       let a = 1;
       const b = 1;
     }
-    console.log(a); // ReferenceError
-    console.log(b); // ReferenceError
+    console.log(a); // ReferenceError Khi ngoài phạm vị của biến sẽ không thể sử dụng biến đó.
+    console.log(b); // ReferenceError Khi ngoài phạm vị của biến sẽ không thể sử dụng biến đó.
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 ## Objects
 
-  - [3.1](#3.1) <a name='3.1'></a> Use the literal syntax for object creation. eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
+  - [3.1](#3.1) <a name='3.1'></a> Dùng `{}` để tạo một đối tượng.
 
     ```javascript
-    // bad
+    // Không tốt
     const item = new Object();
 
-    // good
+    // Tốt
     const item = {};
     ```
 
-  - [3.2](#3.2) <a name='3.2'></a> If your code will be executed in browsers in script context, don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61). It’s OK to use them in ES6 modules and server-side code. jscs: [`disallowIdentifierNames`](http://jscs.info/rule/disallowIdentifierNames)
+  - [3.2](#3.2) <a name='3.2'></a> Không sử dụng các từ khoá mặc định để làm thuộc tính.
 
     ```javascript
-    // bad
+    // Không tốt
     const superman = {
       default: { clark: 'kent' },
       private: true,
     };
 
-    // good
+    // Tốt
     const superman = {
       defaults: { clark: 'kent' },
       hidden: true,
     };
     ```
 
-  - [3.3](#3.3) <a name='3.3'></a> Use readable synonyms in place of reserved words. jscs: [`disallowIdentifierNames`](http://jscs.info/rule/disallowIdentifierNames)
+  - [3.3](#3.3) <a name='3.3'></a> Dùng những từ ngữ đồng nghĩa với thuật ngử dành riêng.
 
     ```javascript
-    // bad
+    // Không tốt
     const superman = {
-      class: 'alien',
+      class: 'alien', // `class` từ khoá của hệ thống
     };
 
-    // bad
+    // Không tốt
     const superman = {
-      klass: 'alien',
+      klass: 'alien', `klass` không có ỹ nghĩa gì trong trường hợp này
     };
 
-    // good
+    // Tốt
     const superman = {
       type: 'alien',
     };
     ```
 
   <a name="es6-computed-properties"></a>
-  - [3.4](#3.4) <a name='3.4'></a> Use computed property names when creating objects with dynamic property names.
+  - [3.4](#3.4) <a name='3.4'></a> Sử dụng tên thuộc tính khi tạo đối tượng với tên thuộc tính động.
 
-    > Why? They allow you to define all the properties of an object in one place.
+  > Việc này giúp chúng ta định nghĩa tất cả các thuộc tính của đối tượng một lần duy nhất.
 
     ```javascript
 
@@ -191,14 +185,14 @@ Other Style Guides
       return `a key named ${k}`;
     }
 
-    // bad
+    // Không tốt
     const obj = {
       id: 5,
       name: 'San Francisco',
     };
     obj[getKey('enabled')] = true;
 
-    // good
+    // 
     const obj = {
       id: 5,
       name: 'San Francisco',
@@ -207,10 +201,10 @@ Other Style Guides
     ```
 
   <a name="es6-object-shorthand"></a>
-  - [3.5](#3.5) <a name='3.5'></a> Use object method shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
+  - [3.5](#3.5) <a name='3.5'></a> Sử dụng cách khai báo phương thức rút ngắn (Property Value Shorthand).
 
     ```javascript
-    // bad
+    // Không tốt
     const atom = {
       value: 1,
 
@@ -219,7 +213,7 @@ Other Style Guides
       },
     };
 
-    // good
+    // Tốt
     const atom = {
       value: 1,
 
@@ -230,9 +224,9 @@ Other Style Guides
     ```
 
   <a name="es6-object-concise"></a>
-  - [3.6](#3.6) <a name='3.6'></a> Use property value shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
+  - [3.6](#3.6) <a name='3.6'></a> Sử dụng cách khai báo rút ngắn cho thuộc tính (Object Method.
 
-    > Why? It is shorter to write and descriptive.
+  > Cách viết ngắn gọn và dể hiểu hơn.
 
     ```javascript
     const lukeSkywalker = 'Luke Skywalker';
@@ -248,15 +242,13 @@ Other Style Guides
     };
     ```
 
-  - [3.7](#3.7) <a name='3.7'></a> Group your shorthand properties at the beginning of your object declaration.
-
-    > Why? It's easier to tell which properties are using the shorthand.
+  - [3.7](#3.7) <a name='3.7'></a> Gom nhóm các thuộc tính được khai báo rút ngắn đặt lên đầu của mỗi đối tượng.
 
     ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
     const lukeSkywalker = 'Luke Skywalker';
 
-    // bad
+    // Không tốt
     const obj = {
       episodeOne: 1,
       twoJediWalkIntoACantina: 2,
@@ -266,10 +258,10 @@ Other Style Guides
       anakinSkywalker,
     };
 
-    // good
+    // Tốt
     const obj = {
-      lukeSkywalker,
-      anakinSkywalker,
+      lukeSkywalker, // Thuộc tính được khai báo ngắn gọn
+      anakinSkywalker, // Thuộc tính được khai báo ngắn gọn
       episodeOne: 1,
       twoJediWalkIntoACantina: 2,
       episodeThree: 3,
@@ -277,57 +269,37 @@ Other Style Guides
     };
     ```
 
-  - [3.8](#3.8) <a name="3.8"></a> Only quote properties that are invalid identifiers. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
-
-  > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
-
-  ```javascript
-  // bad
-  const bad = {
-    'foo': 3,
-    'bar': 4,
-    'data-blah': 5,
-  };
-
-  // good
-  const good = {
-    foo: 3,
-    bar: 4,
-    'data-blah': 5,
-  };
-  ```
-
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 ## Arrays
 
-  - [4.1](#4.1) <a name='4.1'></a> Use the literal syntax for array creation. eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
+  - [4.1](#4.1) <a name='4.1'></a> Sử dụng `[]` để khai báo một mảng.
 
     ```javascript
-    // bad
+    // Không tốt
     const items = new Array();
 
-    // good
+    // Tốt
     const items = [];
     ```
 
-  - [4.2](#4.2) <a name='4.2'></a> Use Array#push instead of direct assignment to add items to an array.
+  - [4.2](#4.2) <a name='4.2'></a> Dùng `Array#push` để thêm một phần từ vào mảng thay vì thêm trực tiếp.
 
     ```javascript
     const someStack = [];
 
-    // bad
+    // Không tốt
     someStack[someStack.length] = 'abracadabra';
 
-    // good
+    // Tốt
     someStack.push('abracadabra');
     ```
 
   <a name="es6-array-spreads"></a>
-  - [4.3](#4.3) <a name='4.3'></a> Use array spreads `...` to copy arrays.
+  - [4.3](#4.3) <a name='4.3'></a> Dùng `...` (Spreads) để sao chép mảng.
 
     ```javascript
-    // bad
+    // Không tốt
     const len = items.length;
     const itemsCopy = [];
     let i;
@@ -336,74 +308,26 @@ Other Style Guides
       itemsCopy[i] = items[i];
     }
 
-    // good
+    // Tốt
     const itemsCopy = [...items];
     ```
-  - [4.4](#4.4) <a name='4.4'></a> To convert an array-like object to an array, use Array#from.
+  - [4.4](#4.4) <a name='4.4'></a> Dùng `Array#from` để chuyển đổi từ đối tượng sang mảng.
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
     const nodes = Array.from(foo);
     ```
 
-  - [4.5](#4.5) <a name='4.5'></a> Use return statements in array method callbacks. It's ok to omit the return if the function body consists of a single statement following [8.2](#8.2). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
-
-    ```javascript
-    // good
-    [1, 2, 3].map((x) => {
-      const y = x + 1;
-      return x * y;
-    });
-
-    // good
-    [1, 2, 3].map(x => x + 1);
-
-    // bad
-    const flat = {};
-    [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
-      const flatten = memo.concat(item);
-      flat[index] = memo.concat(item);
-    });
-
-    // good
-    const flat = {};
-    [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
-      const flatten = memo.concat(item);
-      flat[index] = flatten;
-      return flatten;
-    });
-
-    // bad
-    inbox.filter((msg) => {
-      const { subject, author } = msg;
-      if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
-      } else {
-        return false;
-      }
-    });
-
-    // good
-    inbox.filter((msg) => {
-      const { subject, author } = msg;
-      if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
-      }
-
-      return false;
-    });
-    ```
-
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 ## Destructuring
 
-  - [5.1](#5.1) <a name='5.1'></a> Use object destructuring when accessing and using multiple properties of an object. jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
-
-    > Why? Destructuring saves you from creating temporary references for those properties.
+  - [5.1](#5.1) <a name='5.1'></a> Dùng `Destructuring` để chuyển giá trị từng thuộc tính của đối tượng vào một biến.
+  
+  > Điều này giúp giảm bớt việc dùng các biến tạm thời để lưu các thuộc tính trong đối tượng.
 
     ```javascript
-    // bad
+    // Không tốt
     function getFullName(user) {
       const firstName = user.firstName;
       const lastName = user.lastName;
@@ -411,37 +335,37 @@ Other Style Guides
       return `${firstName} ${lastName}`;
     }
 
-    // good
-    function getFullName(user) {
-      const { firstName, lastName } = user;
+    // Tốt
+    function getFullName(obj) {
+      const { firstName, lastName } = obj;
       return `${firstName} ${lastName}`;
     }
 
-    // best
+    // Tốt nhất
     function getFullName({ firstName, lastName }) {
       return `${firstName} ${lastName}`;
     }
     ```
 
-  - [5.2](#5.2) <a name='5.2'></a> Use array destructuring. jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
+  - [5.2](#5.2) <a name='5.2'></a> Dùng `destructuring` cho mảng.
 
     ```javascript
     const arr = [1, 2, 3, 4];
 
-    // bad
+    // Không tốt
     const first = arr[0];
     const second = arr[1];
 
-    // good
+    // Tốt
     const [first, second] = arr;
     ```
 
-  - [5.3](#5.3) <a name='5.3'></a> Use object destructuring for multiple return values, not array destructuring.
+  - [5.3](#5.3) <a name='5.3'></a> Dùng `destructuring` cho nhiều giá trị trả về, không dùng `destructuring` array.
 
-    > Why? You can add new properties over time or change the order of things without breaking call sites.
+  > Cách dùng này giúp chúng ta có thể thêm một thuộc tính mới hoặc sắp xếp thứ tự trả về mà không gây ảnh hưởng cho các hàm khác.
 
     ```javascript
-    // bad
+    // Không tốt
     function processInput(input) {
       // then a miracle occurs
       return [left, right, top, bottom];
@@ -450,7 +374,7 @@ Other Style Guides
     // the caller needs to think about the order of return data
     const [left, __, top] = processInput(input);
 
-    // good
+    // Tốt
     function processInput(input) {
       // then a miracle occurs
       return { left, right, top, bottom };
@@ -461,110 +385,102 @@ Other Style Guides
     ```
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 ## Strings
 
-  - [6.1](#6.1) <a name='6.1'></a> Use single quotes `''` for strings. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
+  - [6.1](#6.1) <a name='6.1'></a> Sử dụng dầu nháy đơn `''` đối với chuỗi.
 
     ```javascript
-    // bad
+    // Không tốt
     const name = "Capt. Janeway";
 
-    // good
+    // Tốt
     const name = 'Capt. Janeway';
     ```
 
-  - [6.2](#6.2) <a name='6.2'></a> Strings that cause the line to go over 100 characters should be written across multiple lines using string concatenation.
-  - [6.3](#6.3) <a name='6.3'></a> Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
+  - [6.2](#6.2) <a name='6.2'></a> Khi chuỗi dài hơn 100 kí tự nên chia nhiều dòng và nối chuỗi đó lại.
+  - [6.3](#6.3) <a name='6.3'></a> Ghi chú: Việc áp dụng nối chuỗi nhiều sẽ gây ảnh hưởng tới hiệu năng. [jsPerf](http://jsperf.com/ya-string-concat) & [Thảo luận](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
-    // bad
+    // Không tốt
     const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 
-    // bad
+    // Không tốt
     const errorMessage = 'This is a super long error that was thrown because \
     of Batman. When you stop to think about how Batman had anything to do \
     with this, you would get nowhere \
     fast.';
 
-    // good
+    // Tốt
     const errorMessage = 'This is a super long error that was thrown because ' +
       'of Batman. When you stop to think about how Batman had anything to do ' +
       'with this, you would get nowhere fast.';
     ```
 
   <a name="es6-template-literals"></a>
-  - [6.4](#6.4) <a name='6.4'></a> When programmatically building up strings, use template strings instead of concatenation. eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
+  - [6.4](#6.4) <a name='6.4'></a> Dùng `template` thay vì dùng cách nối chuỗi.
 
-    > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+  > Dùng `template` sẽ giúp chúng ta dể đọc, cú pháp ngắn gọn.
 
     ```javascript
-    // bad
+    // Không tốt
     function sayHi(name) {
       return 'How are you, ' + name + '?';
     }
 
-    // bad
+    // Không tốt
     function sayHi(name) {
       return ['How are you, ', name, '?'].join();
     }
 
-    // bad
-    function sayHi(name) {
-      return `How are you, ${ name }?`;
-    }
-
-    // good
+    // Tốt
     function sayHi(name) {
       return `How are you, ${name}?`;
     }
     ```
-  - [6.5](#6.5) <a name='6.5'></a> Never use `eval()` on a string, it opens too many vulnerabilities.
+  - [6.5](#6.5) <a name='6.5'></a> Không bao giờ sử dụng `eval()` cho chuỗi.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Functions
 
-  - [7.1](#7.1) <a name='7.1'></a> Use function declarations instead of function expressions. jscs: [`requireFunctionDeclarations`](http://jscs.info/rule/requireFunctionDeclarations)
+  - [7.1](#7.1) <a name='7.1'></a> Sử dụng `Function declarations` thay vì `Function expressions`.
 
-    > Why? Function declarations are named, so they're easier to identify in call stacks. Also, the whole body of a function declaration is hoisted, whereas only the reference of a function expression is hoisted. This rule makes it possible to always use [Arrow Functions](#arrow-functions) in place of function expressions.
+  > Function declarations được đặt tên rõ ràng, do đó có thể xác định nó ở `call stacks`. Luôn luôn dùng [Arrow Functions](#arrow-functions) với `Function expressions`.
 
     ```javascript
-    // bad
+    // không tốt
     const foo = function () {
     };
 
-    // good
+    // Tốt
     function foo() {
     }
     ```
 
-  - [7.2](#7.2) <a name='7.2'></a> Immediately invoked function expressions: eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
-
-    > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
+  - [7.2](#7.2) <a name='7.2'></a> Function expressions:
 
     ```javascript
     // immediately-invoked function expression (IIFE)
-    (function () {
+    (() => {
       console.log('Welcome to the Internet. Please follow me.');
-    }());
+    })();
     ```
 
-  - [7.3](#7.3) <a name='7.3'></a> Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
-
-  - [7.4](#7.4) <a name='7.4'></a> **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - [7.3](#7.3) <a name='7.3'></a> Không được khai báo một hàm khi sử dụng các câu điều kiện (if, while, ...). Thay vào đó lưu hàm vào một biến cụ thể.
+  - [7.4](#7.4) <a name='7.4'></a> **Ghi chú:** ECMA-262 định nghĩa `block` như là danh sách các câu lệnh. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
-    // bad
+    // Không tốt
     if (currentUser) {
       function test() {
         console.log('Nope.');
       }
     }
 
-    // good
+    // Tốt
     let test;
     if (currentUser) {
       test = () => {
@@ -573,52 +489,49 @@ Other Style Guides
     }
     ```
 
-  - [7.5](#7.5) <a name='7.5'></a> Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+  - [7.5](#7.5) <a name='7.5'></a> Không được khai báo các tham số của hàm trùng với `arguments`.
 
     ```javascript
-    // bad
+    // Không tốt
     function nope(name, options, arguments) {
       // ...stuff...
     }
 
-    // good
+    // Tốt
     function yup(name, options, args) {
       // ...stuff...
     }
     ```
 
   <a name="es6-rest"></a>
-  - [7.6](#7.6) <a name='7.6'></a> Never use `arguments`, opt to use rest syntax `...` instead. [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
+  - [7.6](#7.6) <a name='7.6'></a> Không được dùng `arguments`, dùng `...` (Spreads) thay thế.
 
-    > Why? `...` is explicit about which arguments you want pulled. Plus rest arguments are a real Array and not Array-like like `arguments`.
+  > `...` sẽ chuyển các `arguments` thành một mảng các giá trị.
 
     ```javascript
-    // bad
+    // Không tốt
     function concatenateAll() {
       const args = Array.prototype.slice.call(arguments);
       return args.join('');
     }
 
-    // good
+    // Tốt
     function concatenateAll(...args) {
       return args.join('');
     }
     ```
 
   <a name="es6-default-parameters"></a>
-  - [7.7](#7.7) <a name='7.7'></a> Use default parameter syntax rather than mutating function arguments.
+  - [7.7](#7.7) <a name='7.7'></a> Sử dụng cách truyền tham số mặc định.
 
     ```javascript
-    // really bad
+    // Không tốt, không bao giờ áp dụng kiểu này
     function handleThings(opts) {
-      // No! We shouldn't mutate function arguments.
-      // Double bad: if opts is falsy it'll be set to an object which may
-      // be what you want but it can introduce subtle bugs.
       opts = opts || {};
       // ...
     }
 
-    // still bad
+    // Không tốt
     function handleThings(opts) {
       if (opts === void 0) {
         opts = {};
@@ -626,167 +539,101 @@ Other Style Guides
       // ...
     }
 
-    // good
+    // Tốt
     function handleThings(opts = {}) {
       // ...
     }
     ```
 
-  - [7.8](#7.8) <a name='7.8'></a> Avoid side effects with default parameters.
+  - [7.8](#7.8) <a name='7.8'></a> Tránh đặt nó là các thông số mặc định.
 
-    > Why? They are confusing to reason about.
+  ```javascript
+  var b = 1;
+  // Không tốt
+  function count(a = b++) {
+    console.log(a);
+  }
+  count();  // 1
+  count();  // 2
+  count(3); // Nó được định nghĩa như là tham số thứ ba, mặc định sẽ không được thực thi (= b++ ไม่ถูกเรียก)
+  count();  // 3
+  ```
 
-    ```javascript
-    var b = 1;
-    // bad
-    function count(a = b++) {
-      console.log(a);
-    }
-    count();  // 1
-    count();  // 2
-    count(3); // 3
-    count();  // 3
-    ```
-
-  - [7.9](#7.9) <a name='7.9'></a> Always put default parameters last.
+  - [7.9](#7.9) <a name='7.9'></a> Luôn đặt tham số mặc định ở cuối.
 
     ```javascript
-    // bad
+    // Không tốt
     function handleThings(opts = {}, name) {
       // ...
     }
 
-    // good
+    // Tốt
     function handleThings(name, opts = {}) {
       // ...
     }
     ```
 
-  - [7.10](#7.10) <a name='7.10'></a> Never use the Function constructor to create a new function.
+- [7.10](#7.10) <a name='7.10'></a> Không bao giờ dùng cách khơi tạo một hàm bằng cách dùng `new Function`.
 
-    > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
+  > Cách này đồng nghĩa với việc dùng `eval()`.
 
-    ```javascript
-    // bad
-    var add = new Function('a', 'b', 'return a + b');
+  ```javascript
+  // Không tốt
+  var add = new Function('a', 'b', 'return a + b');
 
-    // still bad
-    var subtract = Function('a', 'b', 'return a - b');
-    ```
+  // Không tốt
+  var subtract = Function('a', 'b', 'return a - b');
+  ```
 
-  - [7.11](#7.11) <a name="7.11"></a> Spacing in a function signature.
-
-    > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
-
-    ```javascript
-    // bad
-    const f = function(){};
-    const g = function (){};
-    const h = function() {};
-
-    // good
-    const x = function () {};
-    const y = function a() {};
-    ```
-
-  - [7.12](#7.12) <a name="7.12"></a> Never mutate parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
-
-    > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
-
-    ```javascript
-    // bad
-    function f1(obj) {
-      obj.key = 1;
-    };
-
-    // good
-    function f2(obj) {
-      const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
-    };
-    ```
-
-  - [7.13](#7.13) <a name="7.13"></a> Never reassign parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
-
-    > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
-
-    ```javascript
-    // bad
-    function f1(a) {
-      a = 1;
-    }
-
-    function f2(a) {
-      if (!a) { a = 1; }
-    }
-
-    // good
-    function f3(a) {
-      const b = a || 1;
-    }
-
-    function f4(a = 1) {
-    }
-    ```
-
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 ## Arrow Functions
 
-  - [8.1](#8.1) <a name='8.1'></a> When you must use function expressions (as when passing an anonymous function), use arrow function notation. eslint: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html) jscs: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions)
-
-    > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
-
-    > Why not? If you have a fairly complicated function, you might move that logic out into its own function declaration.
+  - [8.1](#8.1) <a name='8.1'></a> Một khi bạn sử dụng `Function expressions` (`Anonymous function`), thì nên dùng `Arrow Functions` hoặc `=>`.
 
     ```javascript
-    // bad
+    // Không tốt
     [1, 2, 3].map(function (x) {
       const y = x + 1;
       return x * y;
     });
 
-    // good
+    // Tốt
     [1, 2, 3].map((x) => {
       const y = x + 1;
       return x * y;
     });
     ```
 
-  - [8.2](#8.2) <a name='8.2'></a> If the function body consists of a single expression, omit the braces and use the implicit return. Otherwise, keep the braces and use a `return` statement. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
-
-    > Why? Syntactic sugar. It reads well when multiple functions are chained together.
-
-    > Why not? If you plan on returning an object.
+  - [8.2](#8.2) <a name='8.2'></a> Nếu chỉ một câu lệnh tính toán thì có thể không dùng `{}`, nhưng khi có nhiều câu lệnh thì nên dùng `{}` và dùng `return` để trả về kết quá cuối cùng.
 
     ```javascript
-    // bad
+    // Tốt
+    [1, 2, 3].map(number => `A string containing the ${number}.`);
+
+    // Không tốt
     [1, 2, 3].map(number => {
       const nextNumber = number + 1;
       `A string containing the ${nextNumber}.`;
     });
 
-    // good
-    [1, 2, 3].map(number => `A string containing the ${number}.`);
-
-    // good
-    [1, 2, 3].map((number) => {
+    // Tốt
+    [1, 2, 3].map(number => {
       const nextNumber = number + 1;
       return `A string containing the ${nextNumber}.`;
     });
     ```
 
-  - [8.3](#8.3) <a name='8.3'></a> In case the expression spans over multiple lines, wrap it in parentheses for better readability.
-
-    > Why? It shows clearly where the function starts and ends.
+  - [8.3](#8.3) <a name='8.3'></a> Khi có nhiều chuỗi có nhiều dòng nên bao chuỗi đó trong dấu `()`.
 
     ```js
-    // bad
+    // Không tốt
     [1, 2, 3].map(number => 'As time went by, the string containing the ' +
       `${number} became much longer. So we needed to break it over multiple ` +
       'lines.'
     );
 
-    // good
+    // Tốt
     [1, 2, 3].map(number => (
       `As time went by, the string containing the ${number} became much ` +
       'longer. So we needed to break it over multiple lines.'
@@ -794,71 +641,36 @@ Other Style Guides
     ```
 
 
-  - [8.4](#8.4) <a name='8.4'></a> If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
-
-    > Why? Less visual clutter.
+  - [8.4](#8.4) <a name='8.4'></a> Nếu trong hàm chỉ có một câu lệnh duy nhất có thể không cần dùng `()`.
 
     ```js
-    // bad
-    [1, 2, 3].map((x) => x * x);
-
-    // good
+    // Tốt
     [1, 2, 3].map(x => x * x);
 
-    // good
-    [1, 2, 3].map(number => (
-      `A long string with the ${number}. It’s so long that we’ve broken it ` +
-      'over multiple lines!'
-    ));
-
-    // bad
-    [1, 2, 3].map(x => {
-      const y = x + 1;
-      return x * y;
-    });
-
-    // good
-    [1, 2, 3].map((x) => {
-      const y = x + 1;
-      return x * y;
-    });
+    // Tốt
+    [1, 2, 3].reduce((y, x) => x + y);
     ```
 
-  - [8.5](#8.5) <a name='8.5'></a> Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`). eslint: [`no-confusing-arrow`](http://eslint.org/docs/rules/no-confusing-arrow)
-
-    ```js
-    // bad
-    const itemHeight = item => item.height > 256 ? item.largeSize : item.smallSize;
-
-    // bad
-    const itemHeight = (item) => item.height > 256 ? item.largeSize : item.smallSize;
-
-    // good
-    const itemHeight = item => { return item.height > 256 ? item.largeSize : item.smallSize; }
-    ```
-
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Constructors
 
-  - [9.1](#9.1) <a name='9.1'></a> Always use `class`. Avoid manipulating `prototype` directly.
-
-    > Why? `class` syntax is more concise and easier to reason about.
+  - [9.1](#9.1) <a name='9.1'></a> Luôn luôn dùng `class`. Không nên dùng `prototype`.
 
     ```javascript
-    // bad
+    // Không tốt
     function Queue(contents = []) {
       this._queue = [...contents];
     }
-    Queue.prototype.pop = function () {
+    Queue.prototype.pop = function() {
       const value = this._queue[0];
       this._queue.splice(0, 1);
       return value;
     }
 
 
-    // good
+    // Tốt
     class Queue {
       constructor(contents = []) {
         this._queue = [...contents];
@@ -871,22 +683,20 @@ Other Style Guides
     }
     ```
 
-  - [9.2](#9.2) <a name='9.2'></a> Use `extends` for inheritance.
-
-    > Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
+  - [9.2](#9.2) <a name='9.2'></a> Sử dụng `extends` để tạo một lớp kế thừa.
 
     ```javascript
-    // bad
+    // Không tốt
     const inherits = require('inherits');
     function PeekableQueue(contents) {
       Queue.apply(this, contents);
     }
     inherits(PeekableQueue, Queue);
-    PeekableQueue.prototype.peek = function () {
+    PeekableQueue.prototype.peek = function() {
       return this._queue[0];
     }
 
-    // good
+    // Tốt
     class PeekableQueue extends Queue {
       peek() {
         return this._queue[0];
@@ -894,16 +704,16 @@ Other Style Guides
     }
     ```
 
-  - [9.3](#9.3) <a name='9.3'></a> Methods can return `this` to help with method chaining.
+  - [9.3](#9.3) <a name='9.3'></a> Phương thức có thể trả về `this`.
 
     ```javascript
-    // bad
-    Jedi.prototype.jump = function () {
+    // Không tốt
+    Jedi.prototype.jump = function() {
       this.jumping = true;
       return true;
     };
 
-    Jedi.prototype.setHeight = function (height) {
+    Jedi.prototype.setHeight = function(height) {
       this.height = height;
     };
 
@@ -911,7 +721,7 @@ Other Style Guides
     luke.jump(); // => true
     luke.setHeight(20); // => undefined
 
-    // good
+    // Tốt
     class Jedi {
       jump() {
         this.jumping = true;
@@ -931,7 +741,7 @@ Other Style Guides
     ```
 
 
-  - [9.4](#9.4) <a name='9.4'></a> It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - [9.4](#9.4) <a name='9.4'></a> Có thể mở rộng phương thức `toString()`.
 
     ```javascript
     class Jedi {
@@ -949,45 +759,15 @@ Other Style Guides
     }
     ```
 
-  - [9.5](#9.5) <a name='9.5'></a> Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
-
-    ```javascript
-    // bad
-    class Jedi {
-      constructor() {}
-
-      getName() {
-        return this.name;
-      }
-    }
-
-    // bad
-    class Rey extends Jedi {
-      constructor(...args) {
-        super(...args);
-      }
-    }
-
-    // good
-    class Rey extends Jedi {
-      constructor(...args) {
-        super(...args);
-        this.name = 'Rey';
-      }
-    }
-    ```
-
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Modules
 
-  - [10.1](#10.1) <a name='10.1'></a> Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
-
-    > Why? Modules are the future, let's start using the future now.
+  - [10.1](#10.1) <a name='10.1'></a> Luôn luôn dùng (`import`/`export`) khi làm việc với `modules` thay thế kiểu `modules` truyền thống `require/module.exports`.
 
     ```javascript
-    // bad
+    // Không tốt
     const AirbnbStyleGuide = require('./AirbnbStyleGuide');
     module.exports = AirbnbStyleGuide.es6;
 
@@ -995,50 +775,46 @@ Other Style Guides
     import AirbnbStyleGuide from './AirbnbStyleGuide';
     export default AirbnbStyleGuide.es6;
 
-    // best
+    // Tốt nhất
     import { es6 } from './AirbnbStyleGuide';
     export default es6;
     ```
 
-  - [10.2](#10.2) <a name='10.2'></a> Do not use wildcard imports.
-
-    > Why? This makes sure you have a single default export.
+  - [10.2](#10.2) <a name='10.2'></a> Không được dùng `wildcard` imports.
 
     ```javascript
-    // bad
+    // Không tốt
     import * as AirbnbStyleGuide from './AirbnbStyleGuide';
 
-    // good
+    // Tốt
     import AirbnbStyleGuide from './AirbnbStyleGuide';
     ```
 
-  - [10.3](#10.3) <a name='10.3'></a>And do not export directly from an import.
+  - [10.3](#10.3) <a name='10.3'></a>Không được dùng `export` trực tiếp từ `import`.
 
-    > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
+  > Bời vì tách `import` và `export` giúp cho việc đọc dể, có ý nghĩa hơn.
 
     ```javascript
-    // bad
+    // Không tốt
     // filename es6.js
     export { es6 as default } from './airbnbStyleGuide';
 
-    // good
+    // Tốt
     // filename es6.js
     import { es6 } from './AirbnbStyleGuide';
     export default es6;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 ## Iterators and Generators
 
-  - [11.1](#11.1) <a name='11.1'></a> Don't use iterators. Prefer JavaScript's higher-order functions like `map()` and `reduce()` instead of loops like `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html)
-
-    > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
+  - [11.1](#11.1) <a name='11.1'></a> Không được dùng vòng lặp thay vào đó dùng `map()` hoặc `reduce` thay thế `for-of`.
 
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
 
-    // bad
+    // Không tốt
     let sum = 0;
     for (let num of numbers) {
       sum += num;
@@ -1046,26 +822,26 @@ Other Style Guides
 
     sum === 15;
 
-    // good
+    // Tốt
     let sum = 0;
-    numbers.forEach(num => sum += num);
+    numbers.forEach((num) => sum += num);
     sum === 15;
 
-    // best (use the functional force)
+    // Tốt nhất
     const sum = numbers.reduce((total, num) => total + num, 0);
     sum === 15;
     ```
 
-  - [11.2](#11.2) <a name='11.2'></a> Don't use generators for now.
+  - [11.2](#11.2) <a name='11.2'></a> Không được dùng `generators` ở thời điểm hiện tại.
 
-    > Why? They don't transpile well to ES5.
+  > Có lỗi khi chuyển sang `ES5`.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Properties
 
-  - [12.1](#12.1) <a name='12.1'></a> Use dot notation when accessing properties. eslint: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html) jscs: [`requireDotNotation`](http://jscs.info/rule/requireDotNotation)
+  - [12.1](#12.1) <a name='12.1'></a> Sử dụng `.` khi truy cập vào một biến.
 
     ```javascript
     const luke = {
@@ -1073,14 +849,14 @@ Other Style Guides
       age: 28,
     };
 
-    // bad
+    // Không tốt
     const isJedi = luke['jedi'];
 
-    // good
+    // Tốt
     const isJedi = luke.jedi;
     ```
 
-  - [12.2](#12.2) <a name='12.2'></a> Use subscript notation `[]` when accessing properties with a variable.
+  - [12.2](#12.2) <a name='12.2'></a> Sử `[]` để truy cập thuộc tính đối với biến.
 
     ```javascript
     const luke = {
@@ -1095,61 +871,56 @@ Other Style Guides
     const isJedi = getProp('jedi');
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Variables
 
-  - [13.1](#13.1) <a name='13.1'></a> Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  - [13.1](#13.1) <a name='13.1'></a> Luôn luôn sử dụng `const` để khai báo một biến. 
 
     ```javascript
-    // bad
+    // Không tốt
     superPower = new SuperPower();
 
-    // good
+    // Tốt
     const superPower = new SuperPower();
     ```
 
-  - [13.2](#13.2) <a name='13.2'></a> Use one `const` declaration per variable. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
-
-    > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs.
+  - [13.2](#13.2) <a name='13.2'></a> Dùng mỗi `const` cho việc khai báo một biến.
 
     ```javascript
-    // bad
+    // Không tốt
     const items = getItems(),
         goSportsTeam = true,
         dragonball = 'z';
 
-    // bad
-    // (compare to above, and try to spot the mistake)
+    // Không tốt
     const items = getItems(),
         goSportsTeam = true;
         dragonball = 'z';
 
-    // good
+    // Tốt
     const items = getItems();
     const goSportsTeam = true;
     const dragonball = 'z';
     ```
 
-  - [13.3](#13.3) <a name='13.3'></a> Group all your `const`s and then group all your `let`s.
-
-    > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+  - [13.3](#13.3) <a name='13.3'></a> Gôm nhóm biến theo `const`s và `let`s.
 
     ```javascript
-    // bad
+    // Không tốt
     let i, len, dragonball,
         items = getItems(),
         goSportsTeam = true;
 
-    // bad
+    // Không tốt
     let i;
     const items = getItems();
     let dragonball;
     const goSportsTeam = true;
     let len;
 
-    // good
+    // Tốt
     const goSportsTeam = true;
     const items = getItems();
     let dragonball;
@@ -1157,77 +928,80 @@ Other Style Guides
     let length;
     ```
 
-  - [13.4](#13.4) <a name='13.4'></a> Assign variables where you need them, but place them in a reasonable place.
+  - [13.4](#13.4) <a name='13.4'></a> Khai báo biến khi cần thiết và đặt chúng ở đúng nơi.
 
-    > Why? `let` and `const` are block scoped and not function scoped.
+  > `let` và `const` là `block scoped` và không phải `function scoped.`
 
     ```javascript
-    // bad - unnecessary function call
-    function checkName(hasName) {
+    // Tốt
+    function() {
+      test();
+      console.log('doing stuff..');
+
+      //..other stuff..
+
       const name = getName();
 
-      if (hasName === 'test') {
-        return false;
-      }
-
       if (name === 'test') {
-        this.setName('');
         return false;
       }
 
       return name;
+    }
+
+    // Không tốt -  hàm không cần thiết
+    function(hasName) {
+      const name = getName();
+
+      if (!hasName) {
+        return false;
+      }
+
+      this.setFirstName(name);
+
+      return true;
     }
 
     // good
-    function checkName(hasName) {
-      if (hasName === 'test') {
+    function(hasName) {
+      if (!hasName) {
         return false;
       }
 
       const name = getName();
+      this.setFirstName(name);
 
-      if (name === 'test') {
-        this.setName('');
-        return false;
-      }
-
-      return name;
+      return true;
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Hoisting
 
-  - [14.1](#14.1) <a name='14.1'></a> `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It's important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
+  - [14.1](#14.1) <a name='14.1'></a> `var` được khai báo trước ở đầu trong pham vi của biến hoặc hàm. `const` và `let` được dùng với một khái niệm mới [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
 
     ```javascript
-    // we know this wouldn't work (assuming there
-    // is no notDefined global variable)
     function example() {
-      console.log(notDefined); // => throws a ReferenceError
+      console.log(notDefined); // => ReferenceError
     }
 
-    // creating a variable declaration after you
-    // reference the variable will work due to
-    // variable hoisting. Note: the assignment
-    // value of `true` is not hoisted.
+    // Khai báo một biến sau khai biến đó đã được gọi,
+    // trong trường hợp này biến sẽ không `hoisted`
     function example() {
       console.log(declaredButNotAssigned); // => undefined
       var declaredButNotAssigned = true;
     }
 
-    // the interpreter is hoisting the variable
-    // declaration to the top of the scope,
-    // which means our example could be rewritten as:
+    // Biến được khai báo ở đầu
     function example() {
       let declaredButNotAssigned;
       console.log(declaredButNotAssigned); // => undefined
       declaredButNotAssigned = true;
     }
 
-    // using const and let
+    // sử dụng `const` and `let`
     function example() {
       console.log(declaredButNotAssigned); // => throws a ReferenceError
       console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
@@ -1235,7 +1009,7 @@ Other Style Guides
     }
     ```
 
-  - [14.2](#14.2) <a name='14.2'></a> Anonymous function expressions hoist their variable name, but not the function assignment.
+  - [14.2](#14.2) <a name='14.2'></a> `Anonymous function` được khai báo bằng một biến.
 
     ```javascript
     function example() {
@@ -1243,13 +1017,13 @@ Other Style Guides
 
       anonymous(); // => TypeError anonymous is not a function
 
-      var anonymous = function () {
+      var anonymous = function() {
         console.log('anonymous function expression');
       };
     }
     ```
 
-  - [14.3](#14.3) <a name='14.3'></a> Named function expressions hoist the variable name, not the function name or the function body.
+  - [14.3](#14.3) <a name='14.3'></a> `Named Function expressions` - Việc thông báo này hoạt động bằng tên hàm. Kết quả như ví dụ trước.
 
     ```javascript
     function example() {
@@ -1264,8 +1038,8 @@ Other Style Guides
       };
     }
 
-    // the same is true when the function name
-    // is the same as the variable name.
+    // Kết quả giống như khi dùng tên hàm
+    // trùng với tên biến
     function example() {
       console.log(named); // => undefined
 
@@ -1277,7 +1051,7 @@ Other Style Guides
     }
     ```
 
-  - [14.4](#14.4) <a name='14.4'></a> Function declarations hoist their name and the function body.
+  - [14.4](#14.4) <a name='14.4'></a> `Function declarations` -  Đối với hàm mà không có các giá trị đầu vào cho biến.
 
     ```javascript
     function example() {
@@ -1289,174 +1063,89 @@ Other Style Guides
     }
     ```
 
-  - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) by [Ben Cherry](http://www.adequatelygood.com/).
+  - [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) by [Ben Cherry](http://www.adequatelygood.com/).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Comparison Operators & Equality
 
-  - [15.1](#15.1) <a name='15.1'></a> Use `===` and `!==` over `==` and `!=`. eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
+  - [15.1](#15.1) <a name='15.1'></a> Sử dụng `===` và `!==` thay cho `==` và `!=`.
+  - [15.2](#15.2) <a name='15.2'></a> Khi dùng `if` các loại đối tượng sẽ được chuyển đổi sang kiểu `Boolean`:
 
-  - [15.2](#15.2) <a name='15.2'></a> Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
-
-    + **Objects** evaluate to **true**
-    + **Undefined** evaluates to **false**
-    + **Null** evaluates to **false**
-    + **Booleans** evaluate to **the value of the boolean**
-    + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
-    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+    + **Objects** chuyển thành **true**
+    + **Undefined** chuyển thành **false**
+    + **Null** chuyển thành **false**
+    + **Booleans** chuyển thành **the value of the boolean**
+    + **Numbers** chuyển thành **false** Nếu **+0, -0, or NaN**, ngược lại **true**
+    + **Strings** chuyển thành **false** Nếu là chuỗi rổng `''`, ngược lại **true**
 
     ```javascript
-    if ([0] && []) {
+    if ([0]) {
       // true
-      // an array (even an empty one) is an object, objects will evaluate to true
+      // `array` là `object`, `objects` chuyển thành true
     }
     ```
 
-  - [15.3](#15.3) <a name='15.3'></a> Use shortcuts.
+  - [15.3](#15.3) <a name='15.3'></a> Sử dụng ngắn gọn.
 
     ```javascript
-    // bad
+    // Không tốt
     if (name !== '') {
       // ...stuff...
     }
 
-    // good
+    // Tốt
     if (name) {
       // ...stuff...
     }
 
-    // bad
+    // Không tốt
     if (collection.length > 0) {
       // ...stuff...
     }
 
-    // good
+    // Tốt
     if (collection.length) {
       // ...stuff...
     }
     ```
 
-  - [15.4](#15.4) <a name='15.4'></a> For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
-  - [15.5](#15.5) <a name='15.5'></a> Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`).
+  - [15.4](#15.4) <a name='15.4'></a>[Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
 
-  > Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
-
-  eslint rules: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations.html).
-
-    ```javascript
-    // bad
-    switch (foo) {
-      case 1:
-        let x = 1;
-        break;
-      case 2:
-        const y = 2;
-        break;
-      case 3:
-        function f() {}
-        break;
-      default:
-        class C {}
-    }
-
-    // good
-    switch (foo) {
-      case 1: {
-        let x = 1;
-        break;
-      }
-      case 2: {
-        const y = 2;
-        break;
-      }
-      case 3: {
-        function f() {}
-        break;
-      }
-      case 4:
-        bar();
-        break;
-      default: {
-        class C {}
-      }
-    }
-    ```
-
-  - [15.6](#15.6) <a name='15.6'></a> Ternaries should not be nested and generally be single line expressions.
-
-    eslint rules: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary.html).
-
-    ```javascript
-    // bad
-    const foo = maybe1 > maybe2
-      ? "bar"
-      : value1 > value2 ? "baz" : null;
-
-    // better
-    const maybeNull = value1 > value2 ? 'baz' : null;
-
-    const foo = maybe1 > maybe2
-      ? 'bar'
-      : maybeNull;
-
-    // best
-    const maybeNull = value1 > value2 ? 'baz' : null;
-
-    const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
-    ```
-
-  - [15.7](#15.7) <a name='15.7'></a> Avoid unneeded ternary statements.
-
-    eslint rules: [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary.html).
-
-    ```javascript
-    // bad
-    const foo = a ? a : b;
-    const bar = c ? true : false;
-    const baz = c ? false : true;
-
-    // good
-    const foo = a || b;
-    const bar = !!c;
-    const baz = !c;
-    ```
-
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Blocks
 
-  - [16.1](#16.1) <a name='16.1'></a> Use braces with all multi-line blocks.
+  - [16.1](#16.1) <a name='16.1'></a> Sử dụng `{}`.
 
     ```javascript
-    // bad
+    // Không tốt
     if (test)
       return false;
 
-    // good
+    // Tốt
     if (test) return false;
 
-    // good
+    // Tốt
     if (test) {
       return false;
     }
 
-    // bad
-    function foo() { return false; }
+    // Không tốt
+    function() { return false; }
 
-    // good
-    function bar() {
+    // Tốt
+    function() {
       return false;
     }
     ```
 
-  - [16.2](#16.2) <a name='16.2'></a> If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your
-    `if` block's closing brace. eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) jscs:  [`disallowNewlineBeforeBlockStatements`](http://jscs.info/rule/disallowNewlineBeforeBlockStatements)
+  - [16.2](#16.2) <a name='16.2'></a> Nếu dùng nhiều câu điều kiện `if` và `else`, đặt `else` cùng dòng với dấu `}` của `if`.
 
     ```javascript
-    // bad
+    // Không tốt
     if (test) {
       thing1();
       thing2();
@@ -1465,7 +1154,7 @@ Other Style Guides
       thing3();
     }
 
-    // good
+    // Tốt
     if (test) {
       thing1();
       thing2();
@@ -1475,15 +1164,15 @@ Other Style Guides
     ```
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Comments
 
-  - [17.1](#17.1) <a name='17.1'></a> Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
+  - [17.1](#17.1) <a name='17.1'></a> Sử dụng `/** ... */` khi cần chú thích nhiều. Nên mô tả đầy đủ như `types`, `values` của nhiều tham số, giá trị trả về là gì.
 
     ```javascript
-    // bad
+    // Không tốt
     // make() returns a new element
     // based on the passed in tag name
     //
@@ -1496,7 +1185,7 @@ Other Style Guides
       return element;
     }
 
-    // good
+    // Tốt
     /**
      * make() returns a new element
      * based on the passed in tag name
@@ -1512,17 +1201,17 @@ Other Style Guides
     }
     ```
 
-  - [17.2](#17.2) <a name='17.2'></a> Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it's on the first line of a block.
+  - [17.2](#17.2) <a name='17.2'></a> Sử dụng `//` khi chú thích một dòng duy nhất. Cách một dòng đối với câu lệnh phía trước khi sử dụng `//` để chú thích.
 
     ```javascript
-    // bad
+    // Không tốt
     const active = true;  // is current tab
 
-    // good
+    // Tốt
     // is current tab
     const active = true;
 
-    // bad
+    // Tốt
     function getType() {
       console.log('fetching type...');
       // set the default type to 'no type'
@@ -1531,7 +1220,7 @@ Other Style Guides
       return type;
     }
 
-    // good
+    // Tốt
     function getType() {
       console.log('fetching type...');
 
@@ -1541,7 +1230,7 @@ Other Style Guides
       return type;
     }
 
-    // also good
+    // Tốt
     function getType() {
       // set the default type to 'no type'
       const type = this._type || 'no type';
@@ -1550,7 +1239,7 @@ Other Style Guides
     }
     ```
 
-  - [17.3](#17.3) <a name='17.3'></a> Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
+  - [17.3](#17.3) <a name='17.3'></a> Thêm tiền tố phía trước `FIXME` hoặc `TODO` để những người trong cùng một team có thể dể đọc hiểu code. `FIXME -- need to figure this out` hoặc `TODO -- need to implement`.
 
   - [17.4](#17.4) <a name='17.4'></a> Use `// FIXME:` to annotate problems.
 
@@ -1565,7 +1254,7 @@ Other Style Guides
     }
     ```
 
-  - [17.5](#17.5) <a name='17.5'></a> Use `// TODO:` to annotate solutions to problems.
+  - [17.5](#17.5) <a name='17.5'></a> Dùng `// TODO:` chú thích cách giải quyết vấn đề.
 
     ```javascript
     class Calculator extends Abacus {
@@ -1578,122 +1267,121 @@ Other Style Guides
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Whitespace
 
-  - [18.1](#18.1) <a name='18.1'></a> Use soft tabs set to 2 spaces. eslint: [`indent`](http://eslint.org/docs/rules/indent.html) jscs: [`validateIndentation`](http://jscs.info/rule/validateIndentation)
+  - [18.1](#18.1) <a name='18.1'></a> Dùng 2 `spaces` thay vì 4.
 
     ```javascript
-    // bad
-    function foo() {
+    // Không tốt
+    function() {
     ∙∙∙∙const name;
     }
 
-    // bad
-    function bar() {
+    // Tốt
+    function() {
     ∙const name;
     }
 
-    // good
-    function baz() {
+    // Tốt
+    function() {
     ∙∙const name;
     }
     ```
 
-  - [18.2](#18.2) <a name='18.2'></a> Place 1 space before the leading brace. eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
+  - [18.2](#18.2) <a name='18.2'></a> Thêm dấu cách trước `{`.
 
     ```javascript
-    // bad
+    // Không tốt
     function test(){
       console.log('test');
     }
 
-    // good
+    // Tốt
     function test() {
       console.log('test');
     }
 
-    // bad
+    // Không tốt
     dog.set('attr',{
       age: '1 year',
       breed: 'Bernese Mountain Dog',
     });
 
-    // good
+    // Tốt
     dog.set('attr', {
       age: '1 year',
       breed: 'Bernese Mountain Dog',
     });
     ```
 
-  - [18.3](#18.3) <a name='18.3'></a> Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`space-after-keywords`](http://eslint.org/docs/rules/space-after-keywords.html), [`space-before-keywords`](http://eslint.org/docs/rules/space-before-keywords.html) jscs:  [`requireSpaceAfterKeywords`](http://jscs.info/rule/requireSpaceAfterKeywords)
+  - [18.3](#18.3) <a name='18.3'></a> Thêm 1 khoảng cách sau các câu điều kiện (`if`, `while` ...). Không nên có khoảng cách trong `Function Arguments`.
 
     ```javascript
-    // bad
+    // Không tốt
     if(isJedi) {
       fight ();
     }
 
-    // good
+    // Tốt
     if (isJedi) {
       fight();
     }
 
-    // bad
+    // Không tốt
     function fight () {
       console.log ('Swooosh!');
     }
 
-    // good
+    // Tốt
     function fight() {
       console.log('Swooosh!');
     }
     ```
 
-  - [18.4](#18.4) <a name='18.4'></a> Set off operators with spaces. eslint: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html) jscs: [`requireSpaceBeforeBinaryOperators`](http://jscs.info/rule/requireSpaceBeforeBinaryOperators), [`requireSpaceAfterBinaryOperators`](http://jscs.info/rule/requireSpaceAfterBinaryOperators)
+  - [18.4](#18.4) <a name='18.4'></a> Đối với các phép tính (`+`, `-`, `*`, `/` ...) thêm khoảng cách trước và sau các phép tính đó.
 
     ```javascript
-    // bad
+    // Không tốt
     const x=y+5;
 
-    // good
+    // Tốt
     const x = y + 5;
     ```
 
-  - [18.5](#18.5) <a name='18.5'></a> End files with a single newline character.
+  - [18.5](#18.5) <a name='18.5'></a> Thêm một dòng trống khi `file` đó kết thúc.
 
     ```javascript
-    // bad
-    (function (global) {
+    // Không tốt
+    (function(global) {
       // ...stuff...
     })(this);
     ```
 
     ```javascript
-    // bad
-    (function (global) {
+    // Không tốt
+    (function(global) {
       // ...stuff...
     })(this);↵
     ↵
     ```
 
     ```javascript
-    // good
-    (function (global) {
+    // Tốt
+    (function(global) {
       // ...stuff...
     })(this);↵
     ```
 
-  - [18.6](#18.6) <a name='18.6'></a> Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which
-    emphasizes that the line is a method call, not a new statement. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
+  - [18.6](#18.6) <a name='18.6'></a> Sử dụng `indentation` khi gọi nhiều `methods` cùng một lúc.
 
     ```javascript
-    // bad
+    // Không tốt
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
-    // bad
+    // Không tốt
     $('#items').
       find('.selected').
         highlight().
@@ -1701,7 +1389,7 @@ Other Style Guides
       find('.open').
         updateCount();
 
-    // good
+    // Tốt
     $('#items')
       .find('.selected')
         .highlight()
@@ -1709,13 +1397,13 @@ Other Style Guides
       .find('.open')
         .updateCount();
 
-    // bad
-    const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
+    // Không tốt
+    const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
         .attr('width', (radius + margin) * 2).append('svg:g')
         .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
 
-    // good
+    // Tốt
     const leds = stage.selectAll('.led')
         .data(data)
       .enter().append('svg:svg')
@@ -1724,28 +1412,25 @@ Other Style Guides
       .append('svg:g')
         .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
-
-    // good
-    const leds = stage.selectAll('.led').data(data);
     ```
 
-  - [18.7](#18.7) <a name='18.7'></a> Leave a blank line after blocks and before the next statement. jscs: [`requirePaddingNewLinesAfterBlocks`](http://jscs.info/rule/requirePaddingNewLinesAfterBlocks)
+  - [18.7](#18.7) <a name='18.7'></a> Thêm một dòng trống sau `{}` và bắt đầu một câu lệnh tiếp theo.
 
     ```javascript
-    // bad
+    // Không tốt
     if (foo) {
       return bar;
     }
     return baz;
 
-    // good
+    // Tốt
     if (foo) {
       return bar;
     }
 
     return baz;
 
-    // bad
+    // Không tốt
     const obj = {
       foo() {
       },
@@ -1754,7 +1439,7 @@ Other Style Guides
     };
     return obj;
 
-    // good
+    // Tốt
     const obj = {
       foo() {
       },
@@ -1765,7 +1450,7 @@ Other Style Guides
 
     return obj;
 
-    // bad
+    // Không tốt
     const arr = [
       function foo() {
       },
@@ -1774,7 +1459,7 @@ Other Style Guides
     ];
     return arr;
 
-    // good
+    // Tốt
     const arr = [
       function foo() {
       },
@@ -1786,17 +1471,17 @@ Other Style Guides
     return arr;
     ```
 
-  - [18.8](#18.8) <a name='18.8'></a> Do not pad your blocks with blank lines. eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html) jscs:  [`disallowPaddingNewlinesInBlocks`](http://jscs.info/rule/disallowPaddingNewlinesInBlocks)
+  - [18.8](#18.8) <a name='18.8'></a> Trong một `blocks` không được thêm dòng trống.
 
     ```javascript
-    // bad
+    // Không tốt
     function bar() {
 
       console.log(foo);
 
     }
 
-    // also bad
+    // Không tốt
     if (baz) {
 
       console.log(qux);
@@ -1805,12 +1490,12 @@ Other Style Guides
 
     }
 
-    // good
+    // Tốt
     function bar() {
       console.log(foo);
     }
 
-    // good
+    // Tốt
     if (baz) {
       console.log(qux);
     } else {
@@ -1818,99 +1503,29 @@ Other Style Guides
     }
     ```
 
-  - [18.9](#18.9) <a name='18.9'></a> Do not add spaces inside parentheses. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html) jscs: [`disallowSpacesInsideParentheses`](http://jscs.info/rule/disallowSpacesInsideParentheses)
 
-    ```javascript
-    // bad
-    function bar( foo ) {
-      return foo;
-    }
-
-    // good
-    function bar(foo) {
-      return foo;
-    }
-
-    // bad
-    if ( foo ) {
-      console.log(foo);
-    }
-
-    // good
-    if (foo) {
-      console.log(foo);
-    }
-    ```
-
-  - [18.10](#18.10) <a name='18.10'></a> Do not add spaces inside brackets. eslint: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html) jscs: [`disallowSpacesInsideArrayBrackets`](http://jscs.info/rule/disallowSpacesInsideArrayBrackets)
-
-    ```javascript
-    // bad
-    const foo = [ 1, 2, 3 ];
-    console.log(foo[ 0 ]);
-
-    // good
-    const foo = [1, 2, 3];
-    console.log(foo[0]);
-    ```
-
-  - [18.11](#18.11) <a name='18.11'></a> Add spaces inside curly braces. eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html) jscs: [`disallowSpacesInsideObjectBrackets`](http://jscs.info/rule/disallowSpacesInsideObjectBrackets)
-
-    ```javascript
-    // bad
-    const foo = {clark: 'kent'};
-
-    // good
-    const foo = { clark: 'kent' };
-    ```
-
-  - [18.12](#18.12) <a name='18.12'></a> Avoid having lines of code that are longer than 100 characters (including whitespace). eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
-
-    > Why? This ensures readability and maintainability.
-
-    ```javascript
-    // bad
-    const foo = 'Whatever national crop flips the window. The cartoon reverts within the screw. Whatever wizard constrains a helpful ally. The counterpart ascends!';
-
-    // bad
-    $.ajax({ method: 'POST', url: 'https://airbnb.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
-
-    // good
-    const foo = 'Whatever national crop flips the window. The cartoon reverts within the screw. ' +
-      'Whatever wizard constrains a helpful ally. The counterpart ascends!';
-
-    // good
-    $.ajax({
-      method: 'POST',
-      url: 'https://airbnb.com/',
-      data: { name: 'John' },
-    })
-      .done(() => console.log('Congratulations!'))
-      .fail(() => console.log('You have failed this city.'));
-    ```
-
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 ## Commas
 
-  - [19.1](#19.1) <a name='19.1'></a> Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
+  - [19.1](#19.1) <a name='19.1'></a> Dùng `,` ở đầu: **Không**
 
     ```javascript
-    // bad
+    // Không tốt
     const story = [
         once
       , upon
       , aTime
     ];
 
-    // good
+    // Tốt
     const story = [
       once,
       upon,
       aTime,
     ];
 
-    // bad
+    // Không tốt
     const hero = {
         firstName: 'Ada'
       , lastName: 'Lovelace'
@@ -1918,7 +1533,7 @@ Other Style Guides
       , superPower: 'computers'
     };
 
-    // good
+    // Tốt
     const hero = {
       firstName: 'Ada',
       lastName: 'Lovelace',
@@ -1927,12 +1542,10 @@ Other Style Guides
     };
     ```
 
-  - [19.2](#19.2) <a name='19.2'></a> Additional trailing comma: **Yup.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
-
-    > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](es5/README.md#commas) in legacy browsers.
+  - [19.2](#19.2) <a name='19.2'></a> Thêm `trailing comma`: **Yup.**
 
     ```javascript
-    // bad - git diff without trailing comma
+    // Không tốt - git diff without trailing comma
     const hero = {
          firstName: 'Florence',
     -    lastName: 'Nightingale'
@@ -1940,14 +1553,14 @@ Other Style Guides
     +    inventorOf: ['coxcomb graph', 'modern nursing']
     };
 
-    // good - git diff with trailing comma
+    // Tốt - git diff with trailing comma
     const hero = {
          firstName: 'Florence',
          lastName: 'Nightingale',
     +    inventorOf: ['coxcomb chart', 'modern nursing'],
     };
 
-    // bad
+    // Không tốt
     const hero = {
       firstName: 'Dana',
       lastName: 'Scully'
@@ -1958,7 +1571,7 @@ Other Style Guides
       'Superman'
     ];
 
-    // good
+    // Tốt
     const hero = {
       firstName: 'Dana',
       lastName: 'Scully',
@@ -1970,81 +1583,81 @@ Other Style Guides
     ];
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Semicolons
 
-  - [20.1](#20.1) <a name='20.1'></a> **Yup.** eslint: [`semi`](http://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
+  - [20.1](#20.1) <a name='20.1'></a> **Yup.**
 
     ```javascript
-    // bad
-    (function () {
+    // Không tốt
+    (function() {
       const name = 'Skywalker'
       return name
     })()
 
-    // good
+    // Tốt
     (() => {
       const name = 'Skywalker';
       return name;
-    }());
+    })();
 
-    // good (guards against the function becoming an argument when two files with IIFEs are concatenated)
+    // Tốt (Trong trường hợp này `;` để tránh xung đột giữa 2 `IIFEs` liên tiếp nhau.)
     ;(() => {
       const name = 'Skywalker';
       return name;
-    }());
+    })();
     ```
 
     [Read more](http://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Type Casting & Coercion
 
-  - [21.1](#21.1) <a name='21.1'></a> Perform type coercion at the beginning of the statement.
+  - [21.1](#21.1) <a name='21.1'></a> Áp dụng các kiểu chuyển đổi.
   - [21.2](#21.2) <a name='21.2'></a> Strings:
 
     ```javascript
-    // => this.reviewScore = 9;
+    //  => this.reviewScore = 9;
 
-    // bad
+    // Không tốt
     const totalScore = this.reviewScore + '';
 
-    // good
+    // Tốt
     const totalScore = String(this.reviewScore);
     ```
 
-  - [21.3](#21.3) <a name='21.3'></a> Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings. eslint: [`radix`](http://eslint.org/docs/rules/radix)
+  - [21.3](#21.3) <a name='21.3'></a> Numbers: Sử dụng `Number` cho `casting` và `parseInt` luôn luôn dùng với `radix` khi chuyển từ chuỗi sang số.
 
     ```javascript
     const inputValue = '4';
 
-    // bad
+    // Không tốt
     const val = new Number(inputValue);
 
-    // bad
+    // Không tốt
     const val = +inputValue;
 
-    // bad
+    // Không tốt
     const val = inputValue >> 0;
 
-    // bad
+    // Không tốt
     const val = parseInt(inputValue);
 
-    // good
+    // Tốt
     const val = Number(inputValue);
 
-    // good
+    // Tốt
     const val = parseInt(inputValue, 10);
     ```
 
-  - [21.4](#21.4) <a name='21.4'></a> If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
+  - [21.4](#21.4) <a name='21.4'></a> Sử dụng `Bitshift` [Lý do](http://jsperf.com/coercion-vs-casting/3), và chú thích đầy đủ khi dùng Bitshift
 
     ```javascript
-    // good
+    // Tốt
     /**
      * parseInt was the reason my code was slow.
      * Bitshifting the String to coerce it to a
@@ -2053,7 +1666,7 @@ Other Style Guides
     const val = inputValue >> 0;
     ```
 
-  - [21.5](#21.5) <a name='21.5'></a> **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
+  - [21.5](#21.5) <a name='21.5'></a> **Ghi chú:** Cẩn thận khi dùng `Bitshift`. `Bitshift` luôn trả về 32-bit integer ([source](http://es5.github.io/#x11.7)). Khi số lớn hơn `32 bits` sẽ dẫn đến một số lỗi. [Thảo luận](https://github.com/airbnb/javascript/issues/109). Số lớn nhất `32-bit Int` là 2,147,483,647:
 
     ```javascript
     2147483647 >> 0 //=> 2147483647
@@ -2066,52 +1679,52 @@ Other Style Guides
     ```javascript
     const age = 0;
 
-    // bad
+    // Không tốt
     const hasAge = new Boolean(age);
 
-    // good
+    // Tốt
     const hasAge = Boolean(age);
 
-    // good
+    // Tốt
     const hasAge = !!age;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Naming Conventions
 
-  - [22.1](#22.1) <a name='22.1'></a> Avoid single letter names. Be descriptive with your naming.
+  - [22.1](#22.1) <a name='22.1'></a> Nên mô tả đầy đủ một tên hàm hay biến.
 
     ```javascript
-    // bad
+    // Không tốt
     function q() {
       // ...stuff...
     }
 
-    // good
+    // Tốt
     function query() {
       // ..stuff..
     }
     ```
 
-  - [22.2](#22.2) <a name='22.2'></a> Use camelCase when naming objects, functions, and instances. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
+  - [22.2](#22.2) <a name='22.2'></a> Dùng cách đặt tên `camelCase` cho đối tượng, biến, hàm, kế thừa ... .
 
     ```javascript
-    // bad
+    // Không tốt
     const OBJEcttsssss = {};
     const this_is_my_object = {};
     function c() {}
 
-    // good
+    // Tốt
     const thisIsMyObject = {};
     function thisIsMyFunction() {}
     ```
 
-  - [22.3](#22.3) <a name='22.3'></a> Use PascalCase when naming constructors or classes. eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap.html) jscs: [`requireCapitalizedConstructors`](http://jscs.info/rule/requireCapitalizedConstructors)
+  - [22.3](#22.3) <a name='22.3'></a> Dùng kiểu `PascalCase` để đặt tên cho `Class` hoặc `Constructor`.
 
     ```javascript
-    // bad
+    // Không tốt
     function user(options) {
       this.name = options.name;
     }
@@ -2120,7 +1733,7 @@ Other Style Guides
       name: 'nope',
     });
 
-    // good
+    // Tốt
     class User {
       constructor(options) {
         this.name = options.name;
@@ -2132,37 +1745,37 @@ Other Style Guides
     });
     ```
 
-  - [22.4](#22.4) <a name='22.4'></a> Use a leading underscore `_` when naming private properties. eslint: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html) jscs: [`disallowDanglingUnderscores`](http://jscs.info/rule/disallowDanglingUnderscores)
+  - [22.4](#22.4) <a name='22.4'></a> Dùng `_` ở đầu tên biến khi nó là loại `private`.
 
     ```javascript
-    // bad
+    // Không tốt
     this.__firstName__ = 'Panda';
     this.firstName_ = 'Panda';
 
-    // good
+    // Tốt
     this._firstName = 'Panda';
     ```
 
-  - [22.5](#22.5) <a name='22.5'></a> Don't save references to `this`. Use arrow functions or Function#bind. jscs: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes)
+  - [22.5](#22.5) <a name='22.5'></a> Sử dụng `Arrow function` (`=>`) hoặc `Function#bind`.
 
     ```javascript
-    // bad
+    // Không tốt
     function foo() {
       const self = this;
-      return function () {
+      return function() {
         console.log(self);
       };
     }
 
-    // bad
+    // Không tốt
     function foo() {
       const that = this;
-      return function () {
+      return function() {
         console.log(that);
       };
     }
 
-    // good
+    // Tốt
     function foo() {
       return () => {
         console.log(this);
@@ -2170,8 +1783,7 @@ Other Style Guides
     }
     ```
 
-  - [22.6](#22.6) <a name='22.6'></a> If your file exports a single class, your filename should be exactly the name of the class.
-
+  - [22.6](#22.6) <a name='22.6'></a> Khi `export` một `class` duy nhất, thì tên `file` nên trùng với tên `class`.
     ```javascript
     // file contents
     class CheckBox {
@@ -2180,17 +1792,17 @@ Other Style Guides
     export default CheckBox;
 
     // in some other file
-    // bad
+    // Không tốt
     import CheckBox from './checkBox';
 
-    // bad
+    // Không tốt
     import CheckBox from './check_box';
 
-    // good
+    // Tốt
     import CheckBox from './CheckBox';
     ```
 
-  - [22.7](#22.7) <a name='22.7'></a> Use camelCase when you export-default a function. Your filename should be identical to your function's name.
+  - [22.7](#22.7) <a name='22.7'></a> Dùng kiểu `camelCase` khi `export` mặc định hàm. Tên `file` và tên hàm nên tương tự nhau.
 
     ```javascript
     function makeStyleGuide() {
@@ -2199,7 +1811,7 @@ Other Style Guides
     export default makeStyleGuide;
     ```
 
-  - [22.8](#22.8) <a name='22.8'></a> Use PascalCase when you export a singleton / function library / bare object.
+  - [22.8](#22.8) <a name='22.8'></a> Dùng kiểu `PascalCase` khi `export` một `singleton` / `function library` / `bare object`.
 
     ```javascript
     const AirbnbStyleGuide = {
@@ -2211,43 +1823,43 @@ Other Style Guides
     ```
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Accessors
 
-  - [23.1](#23.1) <a name='23.1'></a> Accessor functions for properties are not required.
-  - [23.2](#23.2) <a name='23.2'></a> Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use getVal() and setVal('hello').
+  - [23.1](#23.1) <a name='23.1'></a> `Accessor functions` cho các thuộc tính không cần thiết.
+  - [23.2](#23.2) <a name='23.2'></a> Khi tạo một `accessor functions` sử dụng cấu trúc `getVal()` và `setVal('hello')`.
 
     ```javascript
-    // bad
+    // Không tốt
     dragon.age();
 
-    // good
+    // Tốt
     dragon.getAge();
 
-    // bad
+    // Không tốt
     dragon.age(25);
 
-    // good
+    // Tốt
     dragon.setAge(25);
     ```
 
-  - [23.3](#23.3) <a name='23.3'></a> If the property is a `boolean`, use `isVal()` or `hasVal()`.
+  - [23.3](#23.3) <a name='23.3'></a> Nếu thuộc tính là `boolean`, sử dụng `isVal()` và `hasVal()`.
 
     ```javascript
-    // bad
+    // Không tốt
     if (!dragon.age()) {
       return false;
     }
 
-    // good
+    // Tốt
     if (!dragon.hasAge()) {
       return false;
     }
     ```
 
-  - [23.4](#23.4) <a name='23.4'></a> It's okay to create get() and set() functions, but be consistent.
+  - [23.4](#23.4) <a name='23.4'></a> Có thể ghi đè 2 hàm mặc định `get()` và `set()`, nhưng phải có tính nhất quán.
 
     ```javascript
     class Jedi {
@@ -2266,20 +1878,20 @@ Other Style Guides
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Events
 
-  - [24.1](#24.1) <a name='24.1'></a> When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+  - [24.1](#24.1) <a name='24.1'></a> Dùng `hash value` thay vì `raw value` khi truyền các tham số vào `events`.
 
     ```javascript
-    // bad
+    // Không tốt
     $(this).trigger('listingUpdated', listing.id);
 
     ...
 
-    $(this).on('listingUpdated', (e, listingId) => {
+    $(this).on('listingUpdated', function(e, listingId) {
       // do something with listingId
     });
     ```
@@ -2287,38 +1899,38 @@ Other Style Guides
     prefer:
 
     ```javascript
-    // good
+    // Tốt
     $(this).trigger('listingUpdated', { listingId: listing.id });
 
     ...
 
-    $(this).on('listingUpdated', (e, data) => {
+    $(this).on('listingUpdated', function(e, data) {
       // do something with data.listingId
     });
     ```
 
-  **[⬆ back to top](#table-of-contents)**
+  **[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## jQuery
 
-  - [25.1](#25.1) <a name='25.1'></a> Prefix jQuery object variables with a `$`. jscs: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment)
+  - [25.1](#25.1) <a name='25.1'></a> Thêm tiền tố `$` khi biến đó được tạo ra từ `jQuery`.
 
     ```javascript
-    // bad
+    // Không tốt
     const sidebar = $('.sidebar');
 
-    // good
+    // Tốt
     const $sidebar = $('.sidebar');
 
-    // good
+    // Tốt
     const $sidebarBtn = $('.sidebar-btn');
     ```
 
-  - [25.2](#25.2) <a name='25.2'></a> Cache jQuery lookups.
+  - [25.2](#25.2) <a name='25.2'></a> `Cache jQuery`.
 
     ```javascript
-    // bad
+    // Không tốt
     function setSidebar() {
       $('.sidebar').hide();
 
@@ -2329,7 +1941,7 @@ Other Style Guides
       });
     }
 
-    // good
+    // Tốt
     function setSidebar() {
       const $sidebar = $('.sidebar');
       $sidebar.hide();
@@ -2342,38 +1954,38 @@ Other Style Guides
     }
     ```
 
-  - [25.3](#25.3) <a name='25.3'></a> For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-  - [25.4](#25.4) <a name='25.4'></a> Use `find` with scoped jQuery object queries.
+  - [25.3](#25.3) <a name='25.3'></a> Sử dụng kiểu `Cascading` `$('.sidebar ul')` hoặc là kiểu `parent` > `child` `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - [25.4](#25.4) <a name='25.4'></a> Sử dụng `find`.
 
     ```javascript
-    // bad
+    // Không tốt
     $('ul', '.sidebar').hide();
 
-    // bad
+    // Không tốt
     $('.sidebar').find('ul').hide();
 
-    // good
+    // Tốt
     $('.sidebar ul').hide();
 
-    // good
+    // Tốt
     $('.sidebar > ul').hide();
 
-    // good
+    // Tốt
     $sidebar.find('ul').hide();
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## ECMAScript 5 Compatibility
 
   - [26.1](#26.1) <a name='26.1'></a> Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.io/es5-compat-table/).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 ## ECMAScript 6 Styles
 
-  - [27.1](#27.1) <a name='27.1'></a> This is a collection of links to the various ES6 features.
+  - [27.1](#27.1) <a name='27.1'></a> `ES6` Features.
 
 1. [Arrow Functions](#arrow-functions)
 1. [Classes](#constructors)
@@ -2389,27 +2001,27 @@ Other Style Guides
 1. [Iterators and Generators](#iterators-and-generators)
 1. [Modules](#modules)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 ## Testing
 
   - [28.1](#28.1) <a name="28.1"></a> **Yup.**
 
     ```javascript
-    function foo() {
+    function () {
       return true;
     }
     ```
 
   - [28.2](#28.2) <a name="28.2"></a> **No, but seriously**:
-   - Whichever testing framework you use, you should be writing tests!
-   - Strive to write many small pure functions, and minimize where mutations occur.
-   - Be cautious about stubs and mocks - they can make your tests more brittle.
-   - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Airbnb. [`tape`](https://www.npmjs.com/package/tape) is also used occasionally for small, separate modules.
-   - 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
-   - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
+   - Luôn luôn viết `test`!
+   - Chia nhỏ hàm.
+   - Cẩn thận khi dùng `stubs` và `mocks`.
+   - [`mocha`](https://www.npmjs.com/package/mocha) và [`tape`](https://www.npmjs.com/package/tape) được sử dụng ở `Airbnb`.
+   - Bảo đảm các `test` đều chạy tốt (100% coverage).
+   - Khi sửa chửa mộ lỗi nào đó nên viết lại `test`. 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Performance
@@ -2423,7 +2035,7 @@ Other Style Guides
   - [Long String Concatenation](http://jsperf.com/ya-string-concat)
   - Loading...
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 
 ## Resources
@@ -2435,7 +2047,7 @@ Other Style Guides
   - [ES6 Compatibility Table](https://kangax.github.io/compat-table/es6/)
   - [Comprehensive Overview of ES6 Features](http://es6-features.org/)
 
-**Read This**
+**Nên đọc**
 
   - [Standard ECMA-262](http://www.ecma-international.org/ecma-262/6.0/index.html)
 
@@ -2443,16 +2055,16 @@ Other Style Guides
 
   - Code Style Linters
     + [ESlint](http://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/airbnb/javascript/blob/master/linters/.eslintrc)
-    + [JSHint](http://jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/.jshintrc)
+    + [JSHint](http://jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/jshintrc)
     + [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json)
 
-**Other Style Guides**
+**Các `Styles Guide` khác**
 
   - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
   - [jQuery Core Style Guidelines](http://contribute.jquery.org/style-guide/js/)
   - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwaldron/idiomatic.js)
 
-**Other Styles**
+**`Styles` Khác**
 
   - [Naming this in nested functions](https://gist.github.com/cjohansen/4135065) - Christian Johansen
   - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52) - Ross Allen
@@ -2467,7 +2079,7 @@ Other Style Guides
   - [ES6 Features](https://github.com/lukehoban/es6features) - Luke Hoban
   - [Frontend Guidelines](https://github.com/bendc/frontend-guidelines) - Benjamin De Cock
 
-**Books**
+**Sách**
 
   - [JavaScript: The Good Parts](http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
   - [JavaScript Patterns](http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
@@ -2505,29 +2117,25 @@ Other Style Guides
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 ## In the Wild
 
-  This is a list of organizations that are using this style guide. Send us a pull request and we'll add you to the list.
+  Danh sách các trang wed sử dụng `style guide` của Airbnb.
 
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
   - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
   - **Apartmint**: [apartmint/javascript](https://github.com/apartmint/javascript)
   - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
-  - **Avant**: [avantcredit/javascript](https://github.com/avantcredit/javascript)
   - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
-  - **Bisk**: [bisk/javascript](https://github.com/Bisk/javascript/)
   - **Blendle**: [blendle/javascript](https://github.com/blendle/javascript)
-  - **Brainshark**: [brainshark/javascript](https://github.com/brainshark/javascript)
   - **ComparaOnline**: [comparaonline/javascript](https://github.com/comparaonline/javascript-style-guide)
   - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
   - **DailyMotion**: [dailymotion/javascript](https://github.com/dailymotion/javascript)
   - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
   - **Ecosia**: [ecosia/javascript](https://github.com/ecosia/javascript)
   - **Evernote**: [evernote/javascript-style-guide](https://github.com/evernote/javascript-style-guide)
-  - **Evolution Gaming**: [evolution-gaming/javascript](https://github.com/evolution-gaming/javascript)
   - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
   - **Expensify** [Expensify/Style-Guide](https://github.com/Expensify/Style-Guide/blob/master/javascript.md)
   - **Flexberry**: [Flexberry/javascript-style-guide](https://github.com/Flexberry/javascript-style-guide)
@@ -2542,7 +2150,6 @@ Other Style Guides
   - **InfoJobs**: [InfoJobs/JavaScript-Style-Guide](https://github.com/InfoJobs/JavaScript-Style-Guide)
   - **Intent Media**: [intentmedia/javascript](https://github.com/intentmedia/javascript)
   - **Jam3**: [Jam3/Javascript-Code-Conventions](https://github.com/Jam3/Javascript-Code-Conventions)
-  - **JeopardyBot**: [kesne/jeopardy-bot](https://github.com/kesne/jeopardy-bot/blob/master/STYLEGUIDE.md)
   - **JSSolutions**: [JSSolutions/javascript](https://github.com/JSSolutions/javascript)
   - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/Javascript-style-guide)
   - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
@@ -2555,12 +2162,10 @@ Other Style Guides
   - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
   - **Nimbl3**: [nimbl3/javascript](https://github.com/nimbl3/javascript)
   - **Orion Health**: [orionhealth/javascript](https://github.com/orionhealth/javascript)
-  - **OutBoxSoft**: [OutBoxSoft/javascript](https://github.com/OutBoxSoft/javascript)
   - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
   - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
   - **reddit**: [reddit/styleguide/javascript](https://github.com/reddit/styleguide/tree/master/javascript)
-  - **React**: [/facebook/react/blob/master/CONTRIBUTING.md#style-guide](https://github.com/facebook/react/blob/master/CONTRIBUTING.md#style-guide)
-  - **REI**: [reidev/js-style-guide](https://github.com/rei/code-style-guides/blob/master/docs/javascript.md)
+  - **REI**: [reidev/js-style-guide](https://github.com/reidev/js-style-guide)
   - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
   - **SeekingAlpha**: [seekingalpha/javascript-style-guide](https://github.com/seekingalpha/javascript-style-guide)
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
@@ -2570,16 +2175,15 @@ Other Style Guides
   - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
   - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
   - **VoxFeed**: [VoxFeed/javascript-style-guide](https://github.com/VoxFeed/javascript-style-guide)
-  - **WeBox Studio**: [weboxstudio/javascript](https://github.com/weboxstudio/javascript)
   - **Weggo**: [Weggo/javascript](https://github.com/Weggo/javascript)
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 ## Translation
 
-  This style guide is also available in other languages:
+  `Style Guide` đã được chuyển đổi sang một số ngôn ngữ khác:
 
   - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
   - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
@@ -2613,7 +2217,7 @@ Other Style Guides
 
 (The MIT License)
 
-Copyright (c) 2014-2016 Airbnb
+Copyright (c) 2014 Airbnb
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -2634,7 +2238,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Trở lại đầu trang](#table-of-contents)**
 
 ## Amendments
 
