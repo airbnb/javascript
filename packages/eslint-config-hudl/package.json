@@ -91,6 +91,6 @@
     "tmp": "0.0.28"
   },
   "peerDependencies": {
-    "eslint": ">=1.0.0"
+    "eslint": "^1.0.0"
   }
 }
