@@ -1,3 +1,7 @@
+4.0.1 / 2016-03-09 (Hudl)
+==================
+ - Update eslint peer dependency to only be compatible with 1.x
+
 4.0.0 / 2016-01-22
 ==================
  - [breaking] require outer IIFE wrapping; flesh out guide section
