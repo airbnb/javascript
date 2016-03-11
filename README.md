@@ -2637,6 +2637,7 @@ Other Style Guides
   - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
   - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
   - **Apartmint**: [apartmint/javascript](https://github.com/apartmint/javascript)
+  - **Ascribe**: [ascribe/javascript](https://github.com/ascribe/javascript)
   - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
   - **Avant**: [avantcredit/javascript](https://github.com/avantcredit/javascript)
   - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
