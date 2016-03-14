@@ -563,7 +563,7 @@ Other Style Guides
     };
 
     // good
-    function foo() {
+    function foo () {
     }
     ```
 
