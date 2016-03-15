@@ -175,3 +175,4 @@
 [react/no-is-mounted]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md
 [react/prefer-es6-class]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md
 [react/jsx-quotes]: https://github.com/yannickcr/eslint-plugin-react/blob/f817e37beddddc84b4788969f07c524fa7f0823b/docs/rules/jsx-quotes.md
+[react/prefer-stateless-function]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
