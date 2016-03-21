@@ -2689,6 +2689,7 @@ Other Style Guides
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
   - **Springload**: [springload/javascript](https://github.com/springload/javascript)
   - **StudentSphere**: [studentsphere/javascript](https://github.com/studentsphere/guide-javascript)
+  - **SysGarage**: [sysgarage/javascript-style-guide](https://github.com/sysgarage/javascript-style-guide)
   - **Target**: [target/javascript](https://github.com/target/javascript)
   - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
   - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
