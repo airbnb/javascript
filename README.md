@@ -476,7 +476,7 @@ Other Style Guides
     }
 
     // the caller selects only the data they need
-    const { left, right } = processInput(input);
+    const { left, top } = processInput(input);
     ```
 
 
