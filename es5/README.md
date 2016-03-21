@@ -1672,6 +1672,7 @@
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
   - **StudentSphere**: [studentsphere/javascript](https://github.com/studentsphere/javascript)
   - **Super**: [SuperJobs/javascript](https://github.com/SuperJobs/javascript)
+  - **SysGarage**: [sysgarage/javascript-style-guide](https://github.com/sysgarage/javascript-style-guide)
   - **Target**: [target/javascript](https://github.com/target/javascript)
   - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
   - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
