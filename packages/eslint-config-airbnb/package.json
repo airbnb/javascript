@@ -50,7 +50,7 @@
     "parallelshell": "^2.0.0"
   },
   "peerDependencies": {
-    "eslint": "^2.2.0",
-    "eslint-plugin-react": "^4.0.0"
+    "eslint": "^2.4.0",
+    "eslint-plugin-react": "^4.2.3"
   }
 }
