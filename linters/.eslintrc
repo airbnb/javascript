@@ -2,5 +2,5 @@
 // Copy this file, and add rule overrides as needed.
 {
   "root": true,
-  "extends": "airbnb"
+  "extends": "hudl"
 }
