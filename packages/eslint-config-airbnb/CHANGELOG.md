@@ -1,3 +1,10 @@
+6.2.0 / 2016-03-22
+==================
+- [new] Allow arrow functions in JSX props
+- [fix] re-enable `no-confusing-arrow` rule, with `allowParens` option enabled ([#752](https://github.com/airbnb/javascript/issues/752), [#791](https://github.com/airbnb/javascript/issues/791))
+- [dev deps] update `tape`, `eslint`, `eslint-plugin-react`
+- [peer deps] update `eslint`, `eslint-plugin-react`
+
 6.1.0 / 2016-02-22
 ==================
 - [new] enable [`react/prefer-stateless-function`][react/prefer-stateless-function]
