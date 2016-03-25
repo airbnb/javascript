@@ -1,36 +1,36 @@
-# eslint-config-airbnb
+# eslint-config-nerdery
 
-[![npm version](https://badge.fury.io/js/eslint-config-airbnb.svg)](http://badge.fury.io/js/eslint-config-airbnb)
+[![npm version](https://badge.fury.io/js/eslint-config-nerdery.svg)](http://badge.fury.io/js/eslint-config-nerdery)
 
-This package provides Airbnb's .eslintrc as an extensible shared config.
+This package provides the Nerdery's .eslintrc as an extensible shared config.
 
 ## Usage
 
 We export three ESLint configurations for your usage.
 
-### eslint-config-airbnb
+### eslint-config-nerdery
 
 Our default export contains all of our ESLint rules, including EcmaScript 6+
 and React. It requires `eslint` and `eslint-plugin-react`.
 
-1. `npm install --save-dev eslint-config-airbnb eslint-plugin-react eslint`
-2. add `"extends": "airbnb"` to your .eslintrc
+1. `npm install --save-dev eslint-config-nerdery eslint-plugin-react eslint`
+2. add `"extends": "nerdery"` to your .eslintrc
 
-### eslint-config-airbnb/base
+### eslint-config-nerdery/base
 
 Lints ES6+ but does not lint React. Requires `eslint`.
 
-1. `npm install --save-dev eslint-config-airbnb eslint`
-2. add `"extends": "airbnb/base"` to your .eslintrc
+1. `npm install --save-dev eslint-config-nerdery eslint`
+2. add `"extends": "nerdery/base"` to your .eslintrc
 
-### eslint-config-airbnb/legacy
+### eslint-config-nerdery/legacy
 
 Lints ES5 and below. Only requires `eslint`.
 
-1. `npm install --save-dev eslint-config-airbnb eslint`
-2. add `"extends": "airbnb/legacy"` to your .eslintrc
+1. `npm install --save-dev eslint-config-nerdery eslint`
+2. add `"extends": "nerdery/legacy"` to your .eslintrc
 
-See [Airbnb's Javascript styleguide](https://github.com/airbnb/javascript) and
+See [Nerdery's Javascript styleguide](https://github.com/thenerdery/javascript-standards) and
 the [ESlint config docs](http://eslint.org/docs/user-guide/configuring#extending-configuration-files)
 for more information.
 
