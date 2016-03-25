@@ -66,7 +66,7 @@ This document is not intended to:
             return 'No whammies!';
         }
     
-      return false;
+        return false;
     };
     ```
   
@@ -457,7 +457,7 @@ This document is not intended to:
     let i;
 
     for (i = 0; i < len; i++) {
-      itemsCopy[i] = items[i];
+        itemsCopy[i] = items[i];
     }
   
     // good
@@ -1175,6 +1175,7 @@ This document is not intended to:
     if (dragonball == null) {
         //...
     }
+    ```
 
   <a name="comparison--no-shortcuts"></a><a name="13.3"></a>
   - [13.3](#comparison--no-shortcuts) Avoid the "shortcut" syntax that omits the comparison operator in most cases.
@@ -1309,8 +1310,8 @@ This document is not intended to:
     // @param {String} tag
     // @return {Element} element
     make(tag) {
-      // ...
-      return element;
+        // ...
+        return element;
     }
 
     // good
