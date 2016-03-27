@@ -1075,6 +1075,27 @@ Other Style Guides
     export default es6;
     ```
 
+  <a name="modules--no-duplicate-imports"></a>
+  - [10.4](#modules--no-duplicate-imports) Only import from a path in one place.
+ eslint: [`no-duplicate-imports`](http://eslint.org/docs/rules/no-duplicate-imports)
+    > Why? Having multiple lines that import from the same path can make code harder to maintain.
+
+    ```javascript
+    // bad
+    import foo from 'foo';
+    // … some other imports … //
+    import { named1, named2 } from 'foo';
+
+    // good
+    import foo, { named1, named2 } from 'foo';
+
+    // good
+    import foo, {
+      named1,
+      named2,
+    } from 'foo';
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Iterators and Generators
