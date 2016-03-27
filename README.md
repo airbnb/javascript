@@ -547,6 +547,20 @@ Other Style Guides
   <a name="strings--eval"></a><a name="6.5"></a>
   - [6.5](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities.
 
+  <a name="strings--escaping"></a>
+  - [6.6](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
+
+    > Why? Backslashes harm readability, thus they should only be present when necessary.
+
+    ```javascript
+    // bad
+    const foo = '\'this\' \i\s \"quoted\"';
+
+    // good
+    const foo = '\'this\' is "quoted"';
+    const foo = `'this' is "quoted"`;
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 
