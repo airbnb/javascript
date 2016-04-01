@@ -9,7 +9,7 @@ module.exports = {
     // disallow control characters in regular expressions
     'no-control-regex': 2,
     // disallow use of debugger
-    'no-debugger': 1,
+    'no-debugger': 2,
     // disallow duplicate arguments in functions
     'no-dupe-args': 2,
     // disallow duplicate keys when creating object literals
