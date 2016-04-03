@@ -21,7 +21,7 @@ Other Style Guides
   1. [Strings](#strings)
   1. [Functions](#functions)
   1. [Arrow Functions](#arrow-functions)
-  1. [Constructors](#constructors)
+  1. [Classes & Constructors](#constructors)
   1. [Modules](#modules)
   1. [Iterators and Generators](#iterators-and-generators)
   1. [Properties](#properties)
@@ -894,7 +894,7 @@ Other Style Guides
 **[⬆ back to top](#table-of-contents)**
 
 
-## Constructors
+## Classes & Constructors
 
   <a name="constructors--use-class"></a><a name="9.1"></a>
   - [9.1](#constructors--use-class) Always use `class`. Avoid manipulating `prototype` directly.
@@ -1008,7 +1008,7 @@ Other Style Guides
     ```
 
   <a name="constructors--no-useless"></a><a name="9.5"></a>
-  - [9.5](#constructors--no-useless) Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
+  - [9.5](#constructors--no-useless) Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. eslint: [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
 
     ```javascript
     // bad
@@ -1035,6 +1035,30 @@ Other Style Guides
       }
     }
     ```
+
+  <a name="classes--no-duplicate-members"></a>
+  - [9.6](#classes--no-duplicate-members) Avoid duplicate class members. eslint: [`no-dupe-class-members`](http://eslint.org/docs/rules/no-dupe-class-members)
+
+    > Why? Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
+
+    ```javascript
+    // bad
+    class Foo {
+      bar() { return 1; }
+      bar() { return 2; }
+    }
+
+    // good
+    class Foo {
+      bar() { return 1; }
+    }
+
+    // good
+    class Foo {
+      bar() { return 2; }
+    }
+    ```
+
 
 **[⬆ back to top](#table-of-contents)**
 

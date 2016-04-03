@@ -35,6 +35,9 @@ module.exports = {
     }],
     // disallow modifying variables that are declared using const
     'no-const-assign': 2,
+    // disallow duplicate class members
+    // http://eslint.org/docs/rules/no-dupe-class-members
+    'no-dupe-class-members': 2,
     // disallow importing from the same path more than once
     // http://eslint.org/docs/rules/no-duplicate-imports
     'no-duplicate-imports': 2,
