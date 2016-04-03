@@ -12,6 +12,9 @@ module.exports = {
     'no-debugger': 2,
     // disallow duplicate arguments in functions
     'no-dupe-args': 2,
+    // disallow duplicate names in class members
+    // http://eslint.org/docs/rules/no-dupe-class-members
+    'no-dupe-class-members': 2,
     // disallow duplicate keys when creating object literals
     'no-dupe-keys': 2,
     // disallow a duplicate case label.
