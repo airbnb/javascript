@@ -8,6 +8,7 @@
 
 ```shell
 curl -u ARTIFACTORY_USERNAME:UNENCRYPTED_PWD https://iadvize.artifactoryonline.com/iadvize/api/npm/iadvize-npm/auth/iadvize >> ~/.npmrc
+curl -u ARTIFACTORY_USERNAME:UNENCRYPTED_PWD https://iadvize.artifactoryonline.com/iadvize/api/npm/auth >> ~/.npmrc
 ```
 
 this will add the @iadvize scope to your `~/.npmrc`. Your `npmrc` should contain something like this
@@ -18,6 +19,9 @@ this will add the @iadvize scope to your `~/.npmrc`. Your `npmrc` should contain
 //iadvize.artifactoryonline.com/iadvize/api/npm/iadvize-npm/:username=fgribreau
 //iadvize.artifactoryonline.com/iadvize/api/npm/iadvize-npm/:email=fg@iadvize.com
 //iadvize.artifactoryonline.com/iadvize/api/npm/iadvize-npm/:always-auth=true
+_auth = very-very-secret-token
+always-auth = true
+email = fg@iadvize.com
 ```
 
 - then:
