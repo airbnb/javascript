@@ -28,9 +28,9 @@ ${body}
 }
 
 test('validate react prop order', t => {
-  t.test('make sure our eslintrc has React linting dependencies', t => {
+  t.test('make sure our eslintrc has React and JSX linting dependencies', t => {
     t.plan(1);
-    t.equal(reactRules.plugins[0], 'react', 'uses eslint-plugin-react');
+    t.deepEqual(reactRules.plugins, ['jsx-a11y', 'react']);
   });
 
   t.test('passes a good component', t => {

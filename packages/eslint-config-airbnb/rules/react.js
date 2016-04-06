@@ -1,5 +1,6 @@
 module.exports = {
   'plugins': [
+    'jsx-a11y',
     'react'
   ],
   'ecmaFeatures': {
@@ -8,6 +9,10 @@ module.exports = {
   // View link below for react rules documentation
   // https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
   'rules': {
+    // Require <img> to have a non-empty `alt` prop, or role="presentation"
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-uses-alt.md
+    'jsx-a11y/img-uses-alt': 2,
+
     // Prevent missing displayName in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
     'react/display-name': [0, { 'ignoreTranspilerName': false }],
