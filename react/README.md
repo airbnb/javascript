@@ -249,14 +249,26 @@
 
     ```javascript
     // bad - not an ARIA role
-    <div role="datepicker"></div>
+    <div role="datepicker" />
 
     // bad - abstract ARIA role
-    <div role="range"></div>
+    <div role="range" />
 
     // good
-    <div role="button"></div>
+    <div role="button" />
     ```
+
+  - Do not use `accessKey` on elements. eslint: [`jsx-a11y/no-access-key`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md)
+
+  > Why? Inconsistencies between keyboard shortcuts and keyboard commands used by people using screenreaders and keyboards complicate accessibility.
+
+  ```javascript
+  // bad
+  <div accessKey="h" />
+
+  // good
+  <div />
+  ```
 
 ## Parentheses
 
