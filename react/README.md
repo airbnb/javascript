@@ -245,6 +245,19 @@
     <img src="hello.jpg" alt="Me waving hello" />
     ```
 
+  - Use only valid, non-abstract [ARIA roles](https://www.w3.org/TR/wai-aria/roles#role_definitions). eslint: [`jsx-a11y/valid-aria-role`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/valid-aria-role.md)
+
+    ```javascript
+    // bad - not an ARIA role
+    <div role="datepicker"></div>
+
+    // bad - abstract ARIA role
+    <div role="range"></div>
+
+    // good
+    <div role="button"></div>
+    ```
+
 ## Parentheses
 
   - Wrap JSX tags in parentheses when they span more than one line. eslint: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md)
