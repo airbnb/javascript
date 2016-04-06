@@ -29,7 +29,7 @@
 
   - If you have internal state and/or refs, prefer `class extends React.Component` over `React.createClass` unless you have a very good reason to use mixins. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
 
-    ```javascript
+    ```jsx
     // bad
     const Listing = React.createClass({
       // ...
@@ -49,8 +49,7 @@
 
     And if you don't have state or refs, prefer normal functions (not arrow functions) over classes:
 
-    ```javascript
-
+    ```jsx
     // bad
     class Listing extends React.Component {
       render() {
@@ -75,7 +74,7 @@
   - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
-    ```javascript
+    ```jsx
     // bad
     import reservationCard from './ReservationCard';
 
@@ -91,7 +90,7 @@
 
   - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
 
-    ```javascript
+    ```jsx
     // bad
     import Footer from './Footer/Footer';
 
@@ -106,7 +105,7 @@
 
   - Do not use `displayName` for naming components. Instead, name the component by reference.
 
-    ```javascript
+    ```jsx
     // bad
     export default React.createClass({
       displayName: 'ReservationCard',
@@ -122,7 +121,7 @@
 
   - Follow these alignment styles for JSX syntax. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
-    ```javascript
+    ```jsx
     // bad
     <Foo superLongParam="bar"
          anotherSuperLongParam="baz" />
@@ -152,7 +151,7 @@
   > Why? JSX attributes [can't contain escaped quotes](http://eslint.org/docs/rules/jsx-quotes), so double quotes make conjunctions like `"don't"` easier to type.
   > Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
 
-    ```javascript
+    ```jsx
     // bad
     <Foo bar='bar' />
 
@@ -170,7 +169,7 @@
 
   - Always include a single space in your self-closing tag.
 
-    ```javascript
+    ```jsx
     // bad
     <Foo/>
 
@@ -189,7 +188,7 @@
 
   - Always use camelCase for prop names.
 
-    ```javascript
+    ```jsx
     // bad
     <Foo
       UserName="hello"
@@ -205,7 +204,7 @@
 
   - Omit the value of the prop when it is explicitly `true`. eslint: [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md)
 
-    ```javascript
+    ```jsx
     // bad
     <Foo
       hidden={true}
@@ -217,11 +216,64 @@
     />
     ```
 
+  - Always include a non-empty `alt` prop on `<img>` tags. If `alt` is an empty string, the `<img>` must have `role="presentation"`. eslint: [`jsx-a11y/img-uses-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-uses-alt.md)
+
+    ```jsx
+    // bad
+    <img src="hello.jpg" />
+
+    // bad
+    <img src="hello.jpg" alt="" />
+
+    // good
+    <img src="hello.jpg" alt="Me waving hello" />
+
+    // good
+    <img src="hello.jpg" alt="" role="presentation" />
+    ```
+
+  - Do not use words like "image", "photo", or "picture" in `<img>` `alt` props. eslint: [`jsx-a11y/redundant-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-uses-alt.md)
+
+  > Why? Screenreaders already announce `img` elements as images, so there is no need to include this information in the alt text.
+
+    ```jsx
+    // bad
+    <img src="hello.jpg" alt="Picture of me waving hello" />
+
+    // good
+    <img src="hello.jpg" alt="Me waving hello" />
+    ```
+
+  - Use only valid, non-abstract [ARIA roles](https://www.w3.org/TR/wai-aria/roles#role_definitions). eslint: [`jsx-a11y/valid-aria-role`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/valid-aria-role.md)
+
+    ```jsx
+    // bad - not an ARIA role
+    <div role="datepicker" />
+
+    // bad - abstract ARIA role
+    <div role="range" />
+
+    // good
+    <div role="button" />
+    ```
+
+  - Do not use `accessKey` on elements. eslint: [`jsx-a11y/no-access-key`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md)
+
+  > Why? Inconsistencies between keyboard shortcuts and keyboard commands used by people using screenreaders and keyboards complicate accessibility.
+
+  ```jsx
+  // bad
+  <div accessKey="h" />
+
+  // good
+  <div />
+  ```
+
 ## Parentheses
 
   - Wrap JSX tags in parentheses when they span more than one line. eslint: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md)
 
-    ```javascript
+    ```jsx
     // bad
     render() {
       return <MyComponent className="long body" foo="bar">
@@ -249,7 +301,7 @@
 
   - Always self-close tags that have no children. eslint: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md)
 
-    ```javascript
+    ```jsx
     // bad
     <Foo className="stuff"></Foo>
 
@@ -259,7 +311,7 @@
 
   - If your component has multi-line properties, close its tag on a new line. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
-    ```javascript
+    ```jsx
     // bad
     <Foo
       bar="bar"
@@ -276,7 +328,7 @@
 
   - Use arrow functions to close over local variables.
 
-    ```javascript
+    ```jsx
     function ItemList(props) {
       return (
         <ul>
@@ -295,7 +347,7 @@
 
   > Why? A bind call in the render path creates a brand new function on every single render.
 
-    ```javascript
+    ```jsx
     // bad
     class extends React.Component {
       onClickDiv() {
@@ -327,7 +379,7 @@
 
   - Do not use underscore prefix for internal methods of a React component.
 
-    ```javascript
+    ```jsx
     // bad
     React.createClass({
       _onClickSubmit() {
@@ -368,7 +420,7 @@
 
   - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
 
-    ```javascript
+    ```jsx
     import React, { PropTypes } from 'react';
 
     const propTypes = {
