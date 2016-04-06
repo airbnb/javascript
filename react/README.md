@@ -217,6 +217,22 @@
     />
     ```
 
+  - Always include a non-empty `alt` prop on `<img>` tags. If `alt` is an empty string, the `<img>` must have `role="presentation"`. eslint: [`jsx-a11y/img-uses-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-uses-alt.md)
+
+    ```javascript
+    // bad
+    <img src="hello.jpg" />
+
+    // bad
+    <img src="hello.jpg" alt="" />
+
+    // good
+    <img src="hello.jpg" alt="Me waving hello" />
+
+    // good
+    <img src="hello.jpg" alt="" role="presentation" />
+    ```
+
 ## Parentheses
 
   - Wrap JSX tags in parentheses when they span more than one line. eslint: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md)
