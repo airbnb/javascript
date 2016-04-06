@@ -233,6 +233,18 @@
     <img src="hello.jpg" alt="" role="presentation" />
     ```
 
+  - Do not use words like "image", "photo", or "picture" in `<img>` `alt` props. eslint: [`jsx-a11y/redundant-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-uses-alt.md)
+
+  > Why? Screenreaders already announce `img` elements as images, so there is no need to include this information in the alt text.
+
+    ```javascript
+    // bad
+    <img src="hello.jpg" alt="Picture of me waving hello" />
+
+    // good
+    <img src="hello.jpg" alt="Me waving hello" />
+    ```
+
 ## Parentheses
 
   - Wrap JSX tags in parentheses when they span more than one line. eslint: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md)
