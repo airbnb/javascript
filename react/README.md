@@ -399,6 +399,20 @@
     }
     ```
 
+  - Be sure to return a value in your `render` methods. eslint: [`require-render-return`](https://github.com/yannickcr/eslint-plugin-react/pull/502)
+
+    ```jsx
+    // bad
+    render() {
+      (<div />);
+    }
+
+    // good
+    render() {
+      return (<div />);
+    }
+    ```
+
 ## Ordering
 
   - Ordering for `class extends React.Component`:
