@@ -137,6 +137,9 @@ module.exports = {
     // Restrict file extensions that may be required
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-extension.md
     'react/require-extension': [0, { 'extensions': ['.jsx'] }],
+    // Require render() methods to return something
+    // https://github.com/yannickcr/eslint-plugin-react/pull/502
+    'react/require-render-return': 2,
     // Prevent extra closing tags for components without children
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
     'react/self-closing-comp': 2,
