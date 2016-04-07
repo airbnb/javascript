@@ -26,7 +26,7 @@ email = fg@iadvize.com
 - then:
 
 ```shell
-npm config set @iadvize:registry https://iadvize.artifactoryonline.com/iadvize/api/npm/iadvize-npm
+npm config set @iadvize:registry https://iadvize.artifactoryonline.com/iadvize/api/npm/iadvize-npm/
 ```
 
 - finally check that your setup is complete by trying to install a private npm package (see below).
