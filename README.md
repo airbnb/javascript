@@ -632,7 +632,7 @@ Other Style Guides
     ```
 
   <a name="es6-rest"></a><a name="7.6"></a>
-  - [7.6](#es6-rest) Never use `arguments`, opt to use rest syntax `...` instead. [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
+  - [7.6](#es6-rest) Never use `arguments`, opt to use rest syntax `...` instead. eslint: [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
 
     > Why? `...` is explicit about which arguments you want pulled. Plus, rest arguments are a real Array, and not merely Array-like like `arguments`.
 
@@ -1764,7 +1764,7 @@ Other Style Guides
     ```
 
   <a name="whitespace--around-keywords"></a><a name="18.3"></a>
-  - [18.3](#whitespace--around-keywords) Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`space-after-keywords`](http://eslint.org/docs/rules/space-after-keywords.html), [`space-before-keywords`](http://eslint.org/docs/rules/space-before-keywords.html) jscs:  [`requireSpaceAfterKeywords`](http://jscs.info/rule/requireSpaceAfterKeywords)
+  - [18.3](#whitespace--around-keywords) Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing.html) jscs: [`requireSpaceAfterKeywords`](http://jscs.info/rule/requireSpaceAfterKeywords)
 
     ```javascript
     // bad
