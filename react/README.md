@@ -216,20 +216,20 @@
     />
     ```
 
-  - Always include a non-empty `alt` prop on `<img>` tags. If `alt` is an empty string, the `<img>` must have `role="presentation"`. eslint: [`jsx-a11y/img-uses-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-uses-alt.md)
+  - Always include an `alt` prop on `<img>` tags. If the image is presentational, `alt` can be an empty string or the `<img>` must have `role="presentation"`. eslint: [`jsx-a11y/img-uses-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-uses-alt.md)
 
     ```jsx
     // bad
     <img src="hello.jpg" />
 
-    // bad
-    <img src="hello.jpg" alt="" />
-
     // good
     <img src="hello.jpg" alt="Me waving hello" />
 
     // good
-    <img src="hello.jpg" alt="" role="presentation" />
+    <img src="hello.jpg" alt="" />
+
+    // good
+    <img src="hello.jpg" role="presentation" />
     ```
 
   - Do not use words like "image", "photo", or "picture" in `<img>` `alt` props. eslint: [`jsx-a11y/redundant-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-uses-alt.md)
