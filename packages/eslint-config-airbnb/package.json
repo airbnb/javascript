@@ -1,12 +1,12 @@
 {
   "name": "eslint-config-airbnb",
-  "version": "6.2.0",
+  "version": "7.0.0",
   "description": "Airbnb's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
     "tests-only": "babel-tape-runner ./test/test-*.js",
-    "test": "parallelshell 'npm run lint' 'npm run tests-only'"
+    "test": "parallelshell 'npm run --silent lint' 'npm run --silent tests-only'"
   },
   "repository": {
     "type": "git",
