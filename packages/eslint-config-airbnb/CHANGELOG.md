@@ -1,3 +1,15 @@
+7.0.0 / 2016-04-11
+==================
+- [react] [breaking] Add accessibility rules to the React style guide + `eslint-plugin-a11y`
+- [breaking] enable `react/require-render-return`
+- [breaking] Add `no-dupe-class-members` rule + section ([#785](https://github.com/airbnb/javascript/issues/785))
+- [breaking] error on debugger statements
+- [breaking] add `no-useless-escape` rule
+- [breaking] add `no-duplicate-imports` rule
+- [semver-minor] enable `jsx-pascal-case` rule
+- [deps] update `eslint`, `react`
+- [dev deps] update `eslint`, `eslint-plugin-react`
+
 6.2.0 / 2016-03-22
 ==================
 - [new] Allow arrow functions in JSX props
