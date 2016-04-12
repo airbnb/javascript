@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A mostly reasonable approach to JavaScript.",
   "scripts": {
-    "test": "jscs2doc -O ${CIRCLE_ARTIFACTS:=./}/jscs.html"
+    "test": "jscs2doc -O ./jscs.html"
   },
   "repository": {
     "type": "git",
