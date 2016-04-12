@@ -3,7 +3,7 @@ iAdvize JavaScript Conventions [![Circle CI](https://circleci.com/gh/iadvize/jav
 
 # Code Style
 
-We use this [.jscsrc](https://github.com/iadvize/javascript-convention/blob/master/.jscsrc) file for it (JavaScript Code Style checker). **[Human readable conventions are available here](https://circle-artifacts.com/gh/iadvize/javascript-convention/7/artifacts/0/home/ubuntu/javascript-convention/jscs.html)**, we used [jscs2doc](https://github.com/FGRibreau/jscs2doc) to generate it.
+We use this [.jscsrc](https://github.com/iadvize/javascript-convention/blob/master/.jscsrc) file for it (JavaScript Code Style checker). **[Human readable conventions are available here](https://circle-artifacts.com/gh/iadvize/javascript-convention/10/artifacts/0/home/ubuntu/javascript-convention/jscs.html)**, we used [jscs2doc](https://github.com/FGRibreau/jscs2doc) to generate it.
 
 
 # How to setup
