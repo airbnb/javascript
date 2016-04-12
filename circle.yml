@@ -1,3 +1,13 @@
 general:
   artifacts:
-    - "jscs.html"
+    - "jscs.html" # javascript code style
+
+dependencies:
+  override:
+    - nvm exec $(node -e 'console.log(require("./package.json").engines.node);') npm install
+  cache_directories:
+      - "~/.npm"
+
+test:
+  override:
+    - nvm exec $(node -e 'console.log(require("./package.json").engines.node);') npm run build-doc
