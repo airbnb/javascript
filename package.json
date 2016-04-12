@@ -1,20 +1,29 @@
 {
   "name": "iadvize-javascript-convention",
   "version": "1.0.0",
-  "description": "iAdvize JavaScript Convention",
-  "main": "index.js",
-  "dependencies": {
-    "jscs2doc": "0.x.x"
+  "description": "A mostly reasonable approach to JavaScript.",
+  "scripts": {
+    "build-doc": "jscs2doc -O ./jscs.html"
   },
-  "devDependencies": {
-    "babel-cli": "^6.6.4"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iadvize/javascript-convention.git"
   },
-  "engines":{
+  "keywords": [
+    "style guide",
+    "lint",
+    "iadvize"
+  ],
+  "homepage": "https://github.com/iadvize/javascript-convention",
+  "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iadvize/javascript-convention/issues"
+  },
+  "engines": {
     "node": "5"
   },
-  "scripts": {
-    "build-doc": "jscs2doc ./.jscsrc jscs.html"
-  },
-  "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
-  "license": "MIT"
+  "devDependencies": {
+    "jscs2doc": "1.1.1"
+  }
 }
