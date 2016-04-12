@@ -24,7 +24,6 @@
     "node": "5"
   },
   "devDependencies": {
-    "jscs2doc": "1.1.0",
-    "jsdoc": "^3.4.0"
+    "jscs2doc": "1.1.1"
   }
 }
