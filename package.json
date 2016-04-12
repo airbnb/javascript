@@ -1,23 +1,30 @@
 {
-  "name": "airbnb-style",
+  "name": "iadvize-javascript-convention",
   "version": "1.0.0",
   "description": "A mostly reasonable approach to JavaScript.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jscs2doc -O jscs.html"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airbnb/javascript.git"
+    "url": "https://github.com/iadvize/javascript-convention.git"
   },
   "keywords": [
     "style guide",
     "lint",
-    "airbnb"
+    "iadvize"
   ],
-  "author": "Harrison Shoff <hi@hshoff.com> (https://twitter.com/hshoff)",
+  "homepage": "https://github.com/iadvize/javascript-convention",
+  "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/airbnb/javascript/issues"
+    "url": "https://github.com/iadvize/javascript-convention/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript"
+  "engines": {
+    "node": "5"
+  },
+  "devDependencies": {
+    "jscs2doc": "1.1.0",
+    "jsdoc": "^3.4.0"
+  }
 }
