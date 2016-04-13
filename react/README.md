@@ -20,12 +20,13 @@
 
   - Only `default export` one React component per file.
   - Always use JSX syntax.
-  - Always use `React.createElement`
-  - Don't use Mixins
+  - Use `React.createElement` instead of `class extends React.Component`
+  - Prefer stateless components over stateful components
+  - Don't use mixins
 
 ## Class vs React.createClass
 
-  - Use `React.createClass`, don't use the ES6 class syntax for now
+  - Use `React.createClass`; don't use the ES6 class syntax for now
 
   ```javascript
   // bad
@@ -62,16 +63,34 @@
     const reservationItem = <ReservationCard />;
     ```
 
-    **Component Naming**: Convert snake_case filename to PascalCase component name. For example, `reservation_card.js` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.js` as the filename and use the directory name as the component name:
+    **Component Naming**: Convert snake_case filename to PascalCase component name. For example, `reservation_card.js` should have a reference name of `ReservationCard`.
     ```javascript
     // bad
-    const Footer = require('./Footer/footer.js')
-
-    // bad
-    const Footer = require('./Footer/index.js')
+    const Footer = require('./footer_component.js');
 
     // good
-    const Footer = require('./footer')
+    const FooterComponent = require('./footer_component.js');
+    ```
+
+    However, for root components of a directory, use `index.js` as the filename and use the directory name as the component name:
+    ```javascript
+    // bad
+    const Footer = require('./footer/footer.js');
+
+    // bad
+    const FooterDir = require('./footer/index.js');
+
+    // good
+    const Footer = require('./footer/index.js');
+
+    // better
+    const Footer = require('./footer');
+    ```
+
+    **Note**: We typically allow our module loaders to resolve `.js` files without specifying the extension, so imports without the extension will also work (and are preferred):
+    ```javascript
+    const Footer = require('./footer'); // actual file is footer.js
+    const Footer = require('./footer/index'); // actual file is index.js
     ```
 
 
@@ -168,13 +187,28 @@
     ```javascript
     // bad
     <Foo
-        UserName="hello"
-        phone_number={12345678} />
+        phone_number={12345678}
+        UserName="hello" />
 
     // good
     <Foo
+        phoneNumber={12345678}
+        userName="hello" />
+    ```
+
+  - Always specify the props in alphabetical order, and put shorthand boolean props before props whose values are explicitly declared
+    ```javascript
+    // bad
+    <Foo
         userName="hello"
-        phoneNumber={12345678} />
+        phoneNumber={12345678}
+        hidden />
+
+    // good
+    <Foo
+        hidden
+        phoneNumber={12345678}
+        userName="hello />
     ```
 
 ## Parentheses
@@ -214,15 +248,16 @@
     ```
 
 ## Ordering
-  - Ordering for React.createClass:
+  - Ordering for `React.createClass`:
 
   1. displayName
-  1. propTypes
+  1. propTypes, ordered by these rules:
+    * Alphabetical order
+    * Required props before optional ones
+    * Injected props (ie. props implicitly passed down by a parent that should not be explicitly declared in jsx) should be last, preferrably with a comment
   1. contextTypes
   1. childContextTypes
   1. mixins
-  1. statics
-  1. defaultProps
   1. getDefaultProps
   1. getInitialState
   1. getChildContext
@@ -233,6 +268,7 @@
   1. componentWillUpdate
   1. componentDidUpdate
   1. componentWillUnmount
+  1. *exposed imperative API* (should be avoided, but sometimes you'll have no other choice but to provide an imperative API)
   1. *clickHandlers or eventHandlers* like onClickSubmit() or onChangeDescription()
   1. *getter methods for render* like getSelectReason() or getFooterContent()
   1. *Optional render methods* like renderNavigation() or renderProfilePicture()
@@ -256,7 +292,7 @@
       },
 
       render() {
-          return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
+          return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>;
       }
   });
   ```
