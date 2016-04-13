@@ -24,7 +24,7 @@ module.exports = {
     // (variable names, property names etc.)
     'id-length': 0,
     // this option sets a specific tab width for your code
-    // https://github.com/eslint/eslint/blob/master/docs/rules/indent.md
+    // http://eslint.org/docs/rules/indent
     'indent': [2, 2, { 'SwitchCase': 1, 'VariableDeclarator': 1 }],
     // specify whether double or single quotes should be used in JSX attributes
     // http://eslint.org/docs/rules/jsx-quotes
@@ -46,7 +46,7 @@ module.exports = {
     // disallow mixed 'LF' and 'CRLF' as linebreaks
     'linebreak-style': 0,
     // specify the maximum length of a line in your program
-    // https://github.com/eslint/eslint/blob/master/docs/rules/max-len.md
+    // http://eslint.org/docs/rules/max-len
     'max-len': [2, 100, 2, {
       'ignoreUrls': true,
       'ignoreComments': false
@@ -125,7 +125,7 @@ module.exports = {
     // require or disallow space before blocks
     'space-before-blocks': 2,
     // require or disallow space before function opening parenthesis
-    // https://github.com/eslint/eslint/blob/master/docs/rules/space-before-function-paren.md
+    // http://eslint.org/docs/rules/space-before-function-paren
     'space-before-function-paren': [2, { 'anonymous': 'always', 'named': 'never' }],
     // require or disallow spaces inside parentheses
     'space-in-parens': [2, 'never'],
