@@ -11,6 +11,9 @@ module.exports = {
       'objectLiteralDuplicateProperties': false
     }
   },
+  'plugins': [
+    'import'
+  ],
   'rules': {
     // enforces no braces where they can be omitted
     // http://eslint.org/docs/rules/arrow-body-style
@@ -83,6 +86,19 @@ module.exports = {
     'template-curly-spacing': 2,
     // enforce spacing around the * in yield* expressions
     // http://eslint.org/docs/rules/yield-star-spacing
-    'yield-star-spacing': [2, 'after']
+    'yield-star-spacing': [2, 'after'],
+    // disallow invalid exports, e.g. multiple defaults
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/export.md
+    'import/export': 2,
+    // ensure imports point to files/modules that can be resolved
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md
+    'import/no-unresolved': [2, { 'commonjs': true }]
+  },
+  'settings': {
+    'import/resolver': {
+      'node': {
+        'extensions': ['.js', '.json']
+      }
+    }
   }
 };
