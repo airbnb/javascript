@@ -18,41 +18,42 @@
 
 ## Basic Rules
 
-  - Only include one React component per file.
+  - Only `default export` one React component per file.
   - Always use JSX syntax.
-  - Do not use `React.createElement` unless you're initializing the app from a file that is not JSX.
+  - Always use `React.createElement`
+  - Don't use Mixins
 
 ## Class vs React.createClass
 
-  - Use class extends React.Component unless you have a very good reason to use mixins.
+  - Use `React.createClass`, don't use the ES6 class syntax for now
 
   ```javascript
   // bad
-  const Listing = React.createClass({
-    render() {
-      return <div />;
-    }
-  });
+  class Listing extends React.Component {
+      render() {
+          return <div />;
+      }
+  }
 
   // good
-  class Listing extends React.Component {
-    render() {
-      return <div />;
-    }
-  }
+  const Listing = React.createClass({
+      render() {
+          return <div />;
+      }
+  });
   ```
 
 ## Naming
 
-  - **Extensions**: Use `.jsx` extension for React components.
-  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
+  - **Extensions**: Use `.js` extension for React components.
+  - **Filename**: Use snake_case for filenames. E.g., `reservation_card.js`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances:
     ```javascript
     // bad
-    const reservationCard = require('./ReservationCard');
+    const reservationCard = require('./reservation_card');
 
     // good
-    const ReservationCard = require('./ReservationCard');
+    const ReservationCard = require('./reservation_card');
 
     // bad
     const ReservationItem = <ReservationCard />;
@@ -61,32 +62,41 @@
     const reservationItem = <ReservationCard />;
     ```
 
-    **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+    **Component Naming**: Convert snake_case filename to PascalCase component name. For example, `reservation_card.js` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.js` as the filename and use the directory name as the component name:
     ```javascript
     // bad
-    const Footer = require('./Footer/Footer.jsx')
+    const Footer = require('./Footer/footer.js')
 
     // bad
-    const Footer = require('./Footer/index.jsx')
+    const Footer = require('./Footer/index.js')
 
     // good
-    const Footer = require('./Footer')
+    const Footer = require('./footer')
     ```
 
 
 ## Declaration
-  - Do not use displayName for naming components. Instead, name the component by reference.
+  - Declare displayName for higher level components. Otherwise just name the component by reference.
 
     ```javascript
     // bad
-    export default React.createClass({
-      displayName: 'ReservationCard',
-      // stuff goes here
+    const ReservationCard = React.createClass({
+        displayName: 'ReservationCard',
+        // stuff goes here
     });
 
     // good
-    export default class ReservationCard extends React.Component {
+    function ReservationCard() {
+        return React.createClass({
+            displayName: 'ReservationCard',
+            // stuff goes here
+        });
     }
+
+    // good
+    const ReservationCard = React.createClass({
+        // stuff goes here
+    });
     ```
 
 ## Alignment
@@ -94,24 +104,25 @@
 
     ```javascript
     // bad
-    <Foo superLongParam="bar"
-         anotherSuperLongParam="baz" />
+    <Foo
+        superLongParam="bar"
+        anotherSuperLongParam="baz"
+    />
 
     // good
     <Foo
-      superLongParam="bar"
-      anotherSuperLongParam="baz"
-    />
+        superLongParam="bar"
+        anotherSuperLongParam="baz" />
+
 
     // if props fit in one line then keep it on the same line
     <Foo bar="bar" />
 
     // children get indented normally
     <Foo
-      superLongParam="bar"
-      anotherSuperLongParam="baz"
-    >
-      <Spazz />
+        superLongParam="bar"
+        anotherSuperLongParam="baz">
+        <Spazz />
     </Foo>
     ```
 
@@ -157,15 +168,13 @@
     ```javascript
     // bad
     <Foo
-      UserName="hello"
-      phone_number={12345678}
-    />
+        UserName="hello"
+        phone_number={12345678} />
 
     // good
     <Foo
-      userName="hello"
-      phoneNumber={12345678}
-    />
+        userName="hello"
+        phoneNumber={12345678} />
     ```
 
 ## Parentheses
@@ -173,24 +182,24 @@
     ```javascript
     /// bad
     render() {
-      return <MyComponent className="long body" foo="bar">
-               <MyChild />
-             </MyComponent>;
+        return <MyComponent className="long body" foo="bar">
+                   <MyChild />
+               </MyComponent>;
     }
 
     // good
     render() {
-      return (
-        <MyComponent className="long body" foo="bar">
-          <MyChild />
-        </MyComponent>
-      );
+        return (
+            <MyComponent className="long body" foo="bar">
+                <MyChild />
+            </MyComponent>
+        );
     }
 
     // good, when single line
     render() {
-      const body = <div>hello</div>;
-      return <MyComponent>{body}</MyComponent>;
+        const body = <div>hello</div>;
+        return <MyComponent>{body}</MyComponent>;
     }
     ```
 
@@ -204,90 +213,7 @@
     <Foo className="stuff" />
     ```
 
-  - If your component has multi-line properties, close its tag on a new line.
-    ```javascript
-    // bad
-    <Foo
-      bar="bar"
-      baz="baz" />
-
-    // good
-    <Foo
-      bar="bar"
-      baz="baz"
-    />
-    ```
-
-## Methods
-  - Do not use underscore prefix for internal methods of a React component.
-    ```javascript
-    // bad
-    React.createClass({
-      _onClickSubmit() {
-        // do stuff
-      }
-
-      // other stuff
-    });
-
-    // good
-    class extends React.Component {
-      onClickSubmit() {
-        // do stuff
-      }
-
-      // other stuff
-    });
-    ```
-
 ## Ordering
-
-  - Ordering for class extends React.Component:
-
-  1. constructor
-  1. optional static methods
-  1. getChildContext
-  1. componentWillMount
-  1. componentDidMount
-  1. componentWillReceiveProps
-  1. shouldComponentUpdate
-  1. componentWillUpdate
-  1. componentDidUpdate
-  1. componentWillUnmount
-  1. *clickHandlers or eventHandlers* like onClickSubmit() or onChangeDescription()
-  1. *getter methods for render* like getSelectReason() or getFooterContent()
-  1. *Optional render methods* like renderNavigation() or renderProfilePicture()
-  1. render
-
-  - How to define propTypes, defaultProps, contextTypes, etc...
-
-  ```javascript
-  import React, { Component, PropTypes } from 'react';
-
-  const propTypes = {
-    id: PropTypes.number.isRequired,
-    url: PropTypes.string.isRequired,
-    text: PropTypes.string,
-  };
-
-  const defaultProps = {
-    text: 'Hello World',
-  };
-
-  export default class Link extends Component {
-    static methodsAreOk() {
-      return true;
-    }
-
-    render() {
-      return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
-    }
-  }
-
-  Link.propTypes = propTypes;
-  Link.defaultProps = defaultProps;
-  ```
-
   - Ordering for React.createClass:
 
   1. displayName
@@ -311,5 +237,28 @@
   1. *getter methods for render* like getSelectReason() or getFooterContent()
   1. *Optional render methods* like renderNavigation() or renderProfilePicture()
   1. render
+
+  ```javascript
+  import React from 'react';
+
+
+  const Link = React.createClass({
+      propTypes: {
+          id: PropTypes.number.isRequired,
+          url: PropTypes.string.isRequired,
+          text: PropTypes.string
+      },
+
+      getDefaultProps() {
+          return {
+              text: 'Hello World'
+          };
+      },
+
+      render() {
+          return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
+      }
+  });
+  ```
 
 # }
