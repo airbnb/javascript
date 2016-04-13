@@ -18,7 +18,7 @@ module.exports = {
     // require parens in arrow function arguments
     'arrow-parens': 0,
     // require space before/after arrow function's arrow
-    // https://github.com/eslint/eslint/blob/master/docs/rules/arrow-spacing.md
+    // http://eslint.org/docs/rules/arrow-spacing
     'arrow-spacing': [2, { 'before': true, 'after': true }],
     // require trailing commas in multiline object literals
     'comma-dangle': [2, 'always-multiline'],
@@ -57,7 +57,7 @@ module.exports = {
     // http://eslint.org/docs/rules/no-useless-constructor
     'no-useless-constructor': 2,
     // require method and property shorthand syntax for object literals
-    // https://github.com/eslint/eslint/blob/master/docs/rules/object-shorthand.md
+    // http://eslint.org/docs/rules/object-shorthand
     'object-shorthand': [2, 'always'],
     // suggest using arrow functions as callbacks
     'prefer-arrow-callback': 2,
