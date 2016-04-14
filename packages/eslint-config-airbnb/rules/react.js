@@ -166,5 +166,12 @@ module.exports = {
       assignment: true,
       return: true
     }],
+  },
+  'settings': {
+    'import/resolver': {
+      'node': {
+        'extensions': ['.js', '.jsx', '.json']
+      }
+    }
   }
 };
