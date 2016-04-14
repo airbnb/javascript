@@ -19,14 +19,15 @@ and `eslint-plugin-jsx-a11y`.
 
 ### eslint-config-airbnb/base
 
-Lints ES6+ but does not lint React. Requires `eslint`.
+Lints ES6+ but does not lint React. Requires `eslint` and
+`eslint-plugin-import`.
 
 1. `npm install --save-dev eslint-config-airbnb eslint-plugin-import eslint`
 2. add `"extends": "airbnb/base"` to your .eslintrc
 
 ### eslint-config-airbnb/legacy
 
-Lints ES5 and below. Only requires `eslint`.
+Lints ES5 and below. Requires `eslint` and `eslint-plugin-import`.
 
 1. `npm install --save-dev eslint-config-airbnb eslint-plugin-import eslint`
 2. add `"extends": "airbnb/legacy"` to your .eslintrc
