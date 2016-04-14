@@ -11,23 +11,24 @@ We export three ESLint configurations for your usage.
 ### eslint-config-airbnb
 
 Our default export contains all of our ESLint rules, including EcmaScript 6+
-and React. It requires `eslint`, `eslint-plugin-react`, and `eslint-plugin-jsx-a11y`.
+and React. It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-react`,
+and `eslint-plugin-jsx-a11y`.
 
-1. `npm install --save-dev eslint-config-airbnb eslint-plugin-react eslint-plugin-jsx-a11y eslint`
+1. `npm install --save-dev eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y eslint`
 2. add `"extends": "airbnb"` to your .eslintrc
 
 ### eslint-config-airbnb/base
 
 Lints ES6+ but does not lint React. Requires `eslint`.
 
-1. `npm install --save-dev eslint-config-airbnb eslint`
+1. `npm install --save-dev eslint-config-airbnb eslint-plugin-import eslint`
 2. add `"extends": "airbnb/base"` to your .eslintrc
 
 ### eslint-config-airbnb/legacy
 
 Lints ES5 and below. Only requires `eslint`.
 
-1. `npm install --save-dev eslint-config-airbnb eslint`
+1. `npm install --save-dev eslint-config-airbnb eslint-plugin-import eslint`
 2. add `"extends": "airbnb/legacy"` to your .eslintrc
 
 See [Airbnb's Javascript styleguide](https://github.com/airbnb/javascript) and
