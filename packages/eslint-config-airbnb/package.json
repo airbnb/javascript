@@ -47,7 +47,7 @@
     "eslint-plugin-jsx-a11y": "^0.6.2",
     "eslint-plugin-import": "^1.4.0",
     "eslint-plugin-react": "^4.3.0",
-    "react": "^0.14.8",
+    "react": "*",
     "tape": "^4.5.1",
     "parallelshell": "^2.0.0"
   },
