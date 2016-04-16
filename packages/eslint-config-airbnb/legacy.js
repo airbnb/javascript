@@ -1,11 +1,11 @@
 module.exports = {
   extends: [
-    'eslint-config-airbnb/rules/best-practices',
-    'eslint-config-airbnb/rules/errors',
-    'eslint-config-airbnb/rules/legacy',
-    'eslint-config-airbnb/rules/node',
-    'eslint-config-airbnb/rules/style',
-    'eslint-config-airbnb/rules/variables'
+    './rules/best-practices',
+    './rules/errors',
+    './rules/legacy',
+    './rules/node',
+    './rules/style',
+    './rules/variables'
   ].map(require.resolve),
   env: {
     browser: true,
