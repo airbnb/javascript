@@ -2133,12 +2133,12 @@ Other Style Guides
     })()
 
     // good
-    (() => {
+    (function () {
       const name = 'Skywalker';
       return name;
     }());
 
-    // good (guards against the function becoming an argument when two files with IIFEs are concatenated)
+    // good, but legacy (guards against the function becoming an argument when two files with IIFEs are concatenated)
     ;(() => {
       const name = 'Skywalker';
       return name;
@@ -2230,7 +2230,7 @@ Other Style Guides
     // good
     const hasAge = Boolean(age);
 
-    // good
+    // best
     const hasAge = !!age;
     ```
 
