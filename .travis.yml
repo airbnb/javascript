@@ -5,6 +5,7 @@ node_js:
   - "iojs"
 env:
   - 'TEST_DIR=packages/eslint-config-airbnb'
+  - 'TEST_DIR=packages/eslint-config-airbnb-base'
 before_install:
   - 'cd $TEST_DIR'
   - 'if [ "${TRAVIS_NODE_VERSION}" != "0.9" ]; then case "$(npm --version)" in 1.*) npm install -g npm@1.4.28 ;; 2.*) npm install -g npm@2 ;; esac ; fi'
