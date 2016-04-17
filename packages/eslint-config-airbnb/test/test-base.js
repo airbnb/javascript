@@ -7,7 +7,7 @@ const files = {
 };
 
 fs.readdirSync(path.join(__dirname, '../rules')).forEach(name => {
-  if (name === 'react.js') {
+  if (name === 'react.js' || name === 'react-a11y.js') {
     return;
   }
 
