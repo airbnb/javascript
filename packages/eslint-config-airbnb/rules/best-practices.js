@@ -113,6 +113,9 @@ module.exports = {
     'no-unused-labels': 2,
     // disallow unnecessary .call() and .apply()
     'no-useless-call': 0,
+    // disallow useless string concatenation
+    // http://eslint.org/docs/rules/no-useless-concat
+    'no-useless-concat': 2,
     // disallow unnecessary string escaping
     // http://eslint.org/docs/rules/no-useless-escape
     'no-useless-escape': 2,
