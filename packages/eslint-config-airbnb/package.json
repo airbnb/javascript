@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "tests-only": "babel-tape-runner ./test/test-*.js",
-    "test": "parallelshell 'npm run --silent lint' 'npm run --silent tests-only'"
+    "test": "npm run --silent lint && npm run --silent tests-only"
   },
   "repository": {
     "type": "git",
@@ -48,8 +48,7 @@
     "eslint-plugin-import": "^1.4.0",
     "eslint-plugin-react": "^5.0.0",
     "react": "*",
-    "tape": "^4.5.1",
-    "parallelshell": "^2.0.0"
+    "tape": "^4.5.1"
   },
   "peerDependencies": {
     "eslint": "^2.8.0",
