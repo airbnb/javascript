@@ -138,7 +138,7 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-extension.md
     'react/require-extension': [0, { 'extensions': ['.jsx'] }],
     // Require render() methods to return something
-    // https://github.com/yannickcr/eslint-plugin-react/pull/502
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md
     'react/require-render-return': 2,
     // Prevent extra closing tags for components without children
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
@@ -162,9 +162,9 @@ module.exports = {
     // Prevent missing parentheses around multilines JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md
     'react/wrap-multilines': [2, {
-      declaration: true,
-      assignment: true,
-      return: true
+      'declaration': true,
+      'assignment': true,
+      'return': true
     }],
   },
   'settings': {
@@ -172,6 +172,10 @@ module.exports = {
       'node': {
         'extensions': ['.js', '.jsx', '.json']
       }
-    }
+    },
+    'react': {
+      'pragma': 'React',
+      'version': '0.14'
+    },
   }
 };
