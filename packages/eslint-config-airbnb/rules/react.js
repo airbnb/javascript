@@ -169,6 +169,9 @@ module.exports = {
     // Require that the first prop in a JSX element be on a new line when the element is multiline
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-first-prop-new-line.md
     'react/jsx-first-prop-new-line': [2, 'multiline'],
+    // enforce spacing around jsx equals signs
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-equals-spacing.md
+    'react/jsx-equals-spacing': [2, 'never'],
   },
   'settings': {
     'import/resolver': {
