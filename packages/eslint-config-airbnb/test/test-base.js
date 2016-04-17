@@ -2,16 +2,16 @@ import fs from 'fs';
 import path from 'path';
 import test from 'tape';
 
-const files = {
-  base: require('../base')
-};
+const base = require('../base');
+
+const files = { base };
 
 fs.readdirSync(path.join(__dirname, '../rules')).forEach(name => {
   if (name === 'react.js' || name === 'react-a11y.js') {
     return;
   }
 
-  files[name] = require(`../rules/${name}`);
+  files[name] = require(`../rules/${name}`); // eslint-disable-line global-require
 });
 
 Object.keys(files).forEach(name => {
