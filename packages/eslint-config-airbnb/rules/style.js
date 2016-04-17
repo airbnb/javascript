@@ -56,6 +56,9 @@ module.exports = {
     }],
     // specify the maximum depth callbacks can be nested
     'max-nested-callbacks': 0,
+    // restrict the number of statements per line
+    // http://eslint.org/docs/rules/max-statements-per-line
+    'max-statements-per-line': [0, { 'max': 1 }],
     // require a capital letter for constructors
     'new-cap': [2, { 'newIsCap': true }],
     // disallow the omission of parentheses when invoking a constructor with no arguments
@@ -80,6 +83,9 @@ module.exports = {
     'no-mixed-spaces-and-tabs': 2,
     // disallow multiple empty lines and only one newline at the end
     'no-multiple-empty-lines': [2, { 'max': 2, 'maxEOF': 1 }],
+    // disallow negated conditions
+    // http://eslint.org/docs/rules/no-negated-condition
+    'no-negated-condition': 0,
     // disallow nested ternary expressions
     'no-nested-ternary': 2,
     // disallow use of the Object constructor
@@ -119,6 +125,9 @@ module.exports = {
     'quotes': [2, 'single', 'avoid-escape'],
     // require identifiers to match the provided regular expression
     'id-match': 0,
+    // do not require jsdoc
+    // http://eslint.org/docs/rules/require-jsdoc
+    'require-jsdoc': 0,
     // enforce spacing before and after semicolons
     'semi-spacing': [2, { 'before': false, 'after': true }],
     // require or disallow use of semicolons instead of ASI
