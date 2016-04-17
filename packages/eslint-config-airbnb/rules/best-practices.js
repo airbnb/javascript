@@ -37,6 +37,14 @@ module.exports = {
     'no-div-regex': 0,
     // disallow else after a return in an if
     'no-else-return': 2,
+    // disallow empty functions, except for standalone funcs/arrows
+    // http://eslint.org/docs/rules/no-empty-function
+    'no-empty-function': [2, {
+      'allow': [
+        'functions',
+        'arrowFunctions',
+      ]
+    }],
     // disallow Unnecessary Labels
     // http://eslint.org/docs/rules/no-extra-label
     'no-extra-label': 2,
