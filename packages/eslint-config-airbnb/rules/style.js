@@ -2,6 +2,9 @@ module.exports = {
   'rules': {
     // enforce spacing inside array brackets
     'array-bracket-spacing': [2, 'never'],
+    // enforce spacing inside single-line blocks
+    // http://eslint.org/docs/rules/block-spacing
+    'block-spacing': [2, 'always'],
     // enforce one true brace style
     'brace-style': [2, '1tbs', { 'allowSingleLine': true }],
     // require camel case names
