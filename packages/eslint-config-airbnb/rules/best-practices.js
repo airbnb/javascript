@@ -77,6 +77,14 @@ module.exports = {
     'no-lone-blocks': 2,
     // disallow creation of functions within loops
     'no-loop-func': 2,
+    // disallow magic numbers
+    // http://eslint.org/docs/rules/no-magic-numbers
+    'no-magic-numbers': [0, {
+      'ignore': [],
+      'ignoreArrayIndexes': true,
+      'enforceConst': true,
+      'detectObjects': false,
+    }],
     // disallow use of multiple spaces
     'no-multi-spaces': 2,
     // disallow use of multiline strings

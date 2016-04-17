@@ -63,6 +63,8 @@ module.exports = {
       'ignoreCase': false,
       'callbacksLast': false,
     }],
+    // deprecated in favor of react/jsx-sort-props
+    'react/jsx-sort-prop-types': 0,
     // Enforce props alphabetical sorting
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
     'react/jsx-sort-props': [0, {

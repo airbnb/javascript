@@ -49,6 +49,7 @@ module.exports = {
     // disallow comparisons with the value NaN
     'use-isnan': 2,
     // ensure JSDoc comments are valid
+    // http://eslint.org/docs/rules/valid-jsdoc
     'valid-jsdoc': 0,
     // ensure that the results of typeof are compared against a valid string
     'valid-typeof': 2,
