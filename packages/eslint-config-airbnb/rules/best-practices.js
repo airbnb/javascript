@@ -45,6 +45,9 @@ module.exports = {
         'arrowFunctions',
       ]
     }],
+    // disallow empty destructuring patterns
+    // http://eslint.org/docs/rules/no-empty-pattern
+    'no-empty-pattern': 2,
     // disallow Unnecessary Labels
     // http://eslint.org/docs/rules/no-extra-label
     'no-extra-label': 2,
