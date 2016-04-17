@@ -104,6 +104,16 @@ module.exports = {
     'no-proto': 2,
     // disallow declaring the same variable more then once
     'no-redeclare': 2,
+    // disallow certain syntax forms
+    // http://eslint.org/docs/rules/no-restricted-syntax
+    'no-restricted-syntax': [
+      2,
+      'BreakStatement',
+      'DebuggerStatement',
+      'ForInStatement',
+      'LabeledStatement',
+      'WithStatement',
+    ],
     // disallow use of assignment in return statement
     'no-return-assign': 2,
     // disallow use of `javascript:` urls.
