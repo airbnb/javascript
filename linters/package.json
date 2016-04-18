@@ -1,0 +1,18 @@
+{
+    "name": "nerdery-eslint",
+    "description": " Nerdery ESLint Configuration",
+    "version": "1.0.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/thenerdery/javascript-standards.git"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "eslint": "2.8.0",
+        "babel-eslint": "6.0.0",
+        "grunt": "1.0.1",
+        "grunt-eslint": "18.1.0",
+        "jit-grunt": "0.9.1",
+        "load-grunt-tasks": "3.1.0"
+    }
+}

@@ -1,11 +1,6 @@
-## `.eslintrc`
+Lints all files in the /tests directory. If linting errors are returned where errors are expected, then it works :-)
 
-Our `.eslintrc` requires the following NPM packages:
+Usage:
 
-```
-npm install --save-dev \
-  eslint-config-nerdery \
-  eslint \
-  babel-eslint \
-  eslint-plugin-react
-```
+    npm install
+    grunt

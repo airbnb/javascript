@@ -1,0 +1,13 @@
+///////////////////////////////////////////////////////////////////////
+// https://github.com/thenerdery/javascript-standards#dom--dollar-prefix
+///////////////////////////////////////////////////////////////////////
+
+(function() {
+    // bad
+    const body = $(document.body);
+})();
+
+(function() {
+    // good
+    const $body = $(document.body);
+})();
