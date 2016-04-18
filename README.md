@@ -128,7 +128,7 @@ This document is not intended to:
     ```
 
   <a name="types--comment-deviations"></a><a name="1.7"></a>
-  - [1.7](#1.7) <a name='1.7'></a> Avoid "trick" operators whose purpose is not immediately readable and obvious. If you must use a convoluted syntax for performance reasons, leave a comment explaining why and what you're doing.
+  - [1.7](#types--comment-deviations) Avoid "trick" operators whose purpose is not immediately readable and obvious. If you must use a convoluted syntax for performance reasons, leave a comment explaining why and what you're doing.
 
     ```javascript
     // good
@@ -241,7 +241,7 @@ This document is not intended to:
 
     ```javascript
     // bad - unnecessary function call
-    function checkName(hasName) {
+    checkName(hasName) {
         const name = getName();
 
         if (hasName === 'test') {
@@ -257,7 +257,7 @@ This document is not intended to:
     }
 
     // good
-    function checkName(hasName) {
+    checkName(hasName) {
         if (hasName === 'test') {
             return false;
         }
@@ -325,7 +325,7 @@ This document is not intended to:
     > Why? They allow you to define all the properties of an object in one place.
 
     ```javascript
-    getKey(k) {
+    function getKey(k) {
         return `a key named ${k}`;
     }
 
@@ -505,7 +505,7 @@ This document is not intended to:
 
     ```javascript
     // bad
-    function getFullName(user) {
+    getFullName(user) {
         const firstName = user.firstName;
         const lastName = user.lastName;
 
@@ -513,13 +513,13 @@ This document is not intended to:
     }
 
     // good
-    function getFullName(user) {
+    getFullName(user) {
         const { firstName, lastName } = user;
         return `${firstName} ${lastName}`;
     }
 
     // good
-    function getFullName({ firstName, lastName }) {
+    getFullName({ firstName, lastName }) {
         return `${firstName} ${lastName}`;
     }
     ```
@@ -545,7 +545,7 @@ This document is not intended to:
 
     ```javascript
     // bad
-    function processInput(input) {
+    processInput(input) {
         // then a miracle occurs
         return [left, right, top, bottom];
     }
@@ -554,7 +554,7 @@ This document is not intended to:
     const [left, __, top] = processInput(input);
 
     // good
-    function processInput(input) {
+    processInput(input) {
         // then a miracle occurs
         return { left, right, top, bottom };
     }
@@ -640,7 +640,7 @@ This document is not intended to:
     ```javascript
     // bad
     foo(obj) {
-      if (obj.meaningOfLife == null) {
+        if (obj.meaningOfLife == null) {
             obj.meaningOfLife = 42;
         }
     }
@@ -928,7 +928,7 @@ This document is not intended to:
 
     // good
     class Queue {
-      static instanceCount = 0;
+        static instanceCount = 0;
     
         constructor() {
             Queue.instanceCount++;
@@ -947,11 +947,12 @@ This document is not intended to:
 
     ```javascript
     // bad
-    const inherits = require('inherits');
     function PeekableQueue(contents) {
         Queue.apply(this, contents);
     }
-    inherits(PeekableQueue, Queue);
+    PeekableQueue.prototype = new Queue();
+    PeekableQueue.prototype.constructor = PeekableQueue;
+
     PeekableQueue.prototype.peek = function () {
         return this.queue[0];
     }
@@ -1260,7 +1261,7 @@ This document is not intended to:
 ## Blocks
 
   <a name="blocks--braces"></a><a name="14.1"></a>
-  - [14.1](#14.1) Use braces with all multi-line blocks.
+  - [14.1](#blocks--braces) Use braces with all multi-line blocks.
 
     ```javascript
     // bad
@@ -1342,7 +1343,7 @@ This document is not intended to:
     const active = true;
 
     // bad
-    function getType() {
+    getType() {
         console.log('fetching type...');
         // set the default type to 'no type'
         const type = this._type || 'no type';
@@ -1351,7 +1352,7 @@ This document is not intended to:
     }
 
     // good
-    function getType() {
+    getType() {
         console.log('fetching type...');
 
         // set the default type to 'no type'
@@ -1361,7 +1362,7 @@ This document is not intended to:
     }
 
     // also good
-    function getType() {
+    getType() {
         // set the default type to 'no type'
         const type = this._type || 'no type';
 
@@ -1411,13 +1412,13 @@ This document is not intended to:
 
     ```javascript
     // bad
-    foo() {
-    ∙∙const name;
+    test() {
+    ∙∙console.log('test');
     }
 
     // good
-    foo() {
-    ∙∙∙∙const name;
+    test() {
+    ∙∙∙∙console.log('test');
     }
     ```
 
@@ -1426,12 +1427,12 @@ This document is not intended to:
 
     ```javascript
     // bad
-    function test(){
+    test(){
         console.log('test');
     }
 
     // good
-    function test() {
+    test() {
         console.log('test');
     }
 
@@ -1463,12 +1464,12 @@ This document is not intended to:
     }
 
     // bad
-    function fight () {
+    fight () {
         console.log ('Swooosh!');
     }
 
     // good
-    function fight() {
+    fight() {
         console.log('Swooosh!');
     }
     ```
@@ -1579,9 +1580,9 @@ This document is not intended to:
 
     ```javascript
     // bad
-    function bar() {
+    bar() {
 
-      console.log(foo);
+        console.log(foo);
 
     }
 
@@ -1595,7 +1596,7 @@ This document is not intended to:
     }
 
     // good
-    function bar() {
+    bar() {
         console.log(foo);
     }
 
@@ -1745,6 +1746,7 @@ This document is not intended to:
         lastName: 'Scully'
     };
 
+    // bad
     const heroes = [
         'Batman',
         'Superman'
@@ -1756,6 +1758,7 @@ This document is not intended to:
         lastName: 'Scully',
     };
 
+    // good
     const heroes = [
         'Batman',
         'Superman',
@@ -2028,7 +2031,7 @@ This document is not intended to:
 
     ```javascript
     //bad
-    class Dragon() {
+    class Dragon {
         _age = 0;
 
         getAge() {
@@ -2050,7 +2053,7 @@ This document is not intended to:
     ```javascript
 
     //good
-    class Dragon() {
+    class Dragon {
         _age = 0;
 
         get age() {
@@ -2212,8 +2215,8 @@ This document is not intended to:
                     waitFor(3000)
                         .then(() => {
                             console.log('Done waiting!');
-                    });
-              });
+                        })
+                })
         });
 
     //good
