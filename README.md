@@ -2592,7 +2592,7 @@ Other Style Guides
 ## Testing
 
   <a name="testing--yup"></a><a name="28.1"></a>
-  - [28.1](#esting--yup) **Yup.**
+  - [28.1](#testing--yup) **Yup.**
 
     ```javascript
     function foo() {
