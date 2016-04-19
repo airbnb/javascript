@@ -4,10 +4,7 @@
 
 Based on [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript). 
 
-<img src="assets/aperto_move_neu_rgb.png" style="height: auto; width: 200px; margin: 20px 0 -10px" alt="Aperto Move GmbH" />
-
 See our amendments [at the bottom.](#amendments)
-
 
 ## Table of Contents
 
