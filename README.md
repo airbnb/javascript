@@ -1,15 +1,13 @@
-# Airbnb JavaScript Style Guide() {
+# Aperto Move JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+Based on [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript). 
 
-Other Style Guides
- - [ES5](es5/)
- - [React](react/)
- - [CSS & Sass](https://github.com/airbnb/css)
- - [Ruby](https://github.com/airbnb/ruby)
+<img src="assets/aperto_move_neu_rgb.png" style="height: auto; width: 200px; margin: 20px 0 -10px" alt="Aperto Move GmbH" />
+
+See our amendments [at the bottom.](#amendments)
+
 
 ## Table of Contents
 
@@ -2796,8 +2794,18 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 **[⬆ back to top](#table-of-contents)**
 
-## Amendments
+## Custom amendments by Aperto Move
 
-We encourage you to fork this guide and change the rules to fit your team's style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
+<a name="amendments"></a>
 
-# };
+We mostly adhere to Airbnb's JavaScript style guide. In a few points though, we deviate from the standard style guide in order to be a little less strict to our developers ;)
+
+All of those customizations are also reflected in our ESLint config which is available as npm package: [eslint-config-apertomove](https://www.npmjs.com/package/eslint-config-apertomove) 
+
+* we don't enforce a maximum line length, although this is something we should discuss for the future
+* we always use 4 spaces as indention
+* we don't allow trailing commas in objects. For instance, this is not allowed: `{ foo: 1, bar: 2, }`
+* we require the body of arrow functions to be enclosed in curly braces: `const fn = val => { return 2 * val; }`
+* we disallow labeled code entirely, see [no-labels rule](http://eslint.org/docs/rules/no-labels)
+* we only warn (don't error) on unused variables
+* we don't [disallow early use of variables](http://eslint.org/docs/rules/no-use-before-define), since it also errored when variables were used in functions that were not called before the variable was declared.
