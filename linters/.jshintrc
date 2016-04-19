@@ -14,7 +14,7 @@
   "node": true,
 
   // Allow ES6.
-  "esnext": true,
+  "esversion": 6,
 
   /*
    * ENFORCING OPTIONS
