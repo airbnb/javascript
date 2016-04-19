@@ -123,6 +123,14 @@ module.exports = {
     // disallow use of jsdoc-marked-deprecated imports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-deprecated.md
     'import/no-deprecated': 0,
+    // disallow namespace imports
+    // TODO: enable?
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-namespace.md
+    'import/no-namespace': 0,
+    // warn on accessing default export property names that are also named exports
+    // TODO: enable?
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default-member.md
+    'import/no-named-as-default-member': 0,
   },
   'settings': {
     'import/resolver': {
