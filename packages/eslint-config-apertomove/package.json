@@ -1,0 +1,26 @@
+{
+  "name": "eslint-config-apertomove",
+  "version": "1.0.0",
+  "description": "ESLint config to meet the Aperto Move JavaScript style guide",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apertomove/javascript.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
+  "author": "Janko Hofmann (https://github.com/jankohofmann)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apertomove/javascript/issues"
+  },
+  "homepage": "https://github.com/apertomove/javascript",
+  "dependencies": {
+    "eslint-config-airbnb": "^7.0.0"
+  }
+}
