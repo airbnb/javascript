@@ -809,8 +809,6 @@ Other Style Guides
 
     > Why? Syntactic sugar. It reads well when multiple functions are chained together.
 
-    > Why not? If you plan on returning an object.
-
     ```javascript
     // bad
     [1, 2, 3].map(number => {
@@ -826,6 +824,11 @@ Other Style Guides
       const nextNumber = number + 1;
       return `A string containing the ${nextNumber}.`;
     });
+
+    // good
+    [1, 2, 3].map((number, index) => ({
+      index: number
+    }));
     ```
 
   <a name="arrows--paren-wrap"></a><a name="8.3"></a>
