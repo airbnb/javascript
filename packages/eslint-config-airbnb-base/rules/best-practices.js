@@ -20,7 +20,8 @@ module.exports = {
     // enforces consistent newlines before or after dots
     'dot-location': 0,
     // require the use of === and !==
-    'eqeqeq': 2,
+    // http://eslint.org/docs/rules/eqeqeq
+    'eqeqeq': [2, 'allow-null'],
     // make sure for-in loops have an if statement
     'guard-for-in': 2,
     // Blacklist certain identifiers to prevent them being used
