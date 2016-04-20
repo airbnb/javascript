@@ -2799,10 +2799,10 @@ We mostly adhere to Airbnb's JavaScript style guide. In a few points though, we 
 
 All of those customizations are also reflected in our ESLint config which is available as npm package: [eslint-config-apertomove](https://www.npmjs.com/package/eslint-config-apertomove) 
 
-* we don't enforce a maximum line length, although this is something we should discuss for the future
-* we always use 4 spaces as indention
-* we don't allow trailing commas in objects. For instance, this is not allowed: `{ foo: 1, bar: 2, }`
-* we require the body of arrow functions to be enclosed in curly braces: `const fn = val => { return 2 * val; }`
+* [18.1](#whitespace--spaces): we always use 4 spaces as indention
+* [18.12](#whitespace--max-len): we don't enforce a maximum line length, although this is something we should discuss for the future
+* [19.2](#commas--dangling): we don't allow trailing commas in objects. For instance, this is not allowed: `{ foo: 1, bar: 2, }`
+* [8.2](#arrows--implicit-return): we require the body of arrow functions to be enclosed in curly braces: `const fn = val => { return 2 * val; }`
 * we disallow labeled code entirely, see [no-labels rule](http://eslint.org/docs/rules/no-labels)
 * we only warn (don't error) on unused variables
 * we don't [disallow early use of variables](http://eslint.org/docs/rules/no-use-before-define), since it also errored when variables were used in functions that were not called before the variable was declared.
