@@ -13,6 +13,9 @@ module.exports = {
   // View link below for react rules documentation
   // https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
   'rules': {
+    // specify whether double or single quotes should be used in JSX attributes
+    // http://eslint.org/docs/rules/jsx-quotes
+    'jsx-quotes': [2, 'prefer-double'],
     // Prevent missing displayName in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
     'react/display-name': [0, { 'ignoreTranspilerName': false }],
