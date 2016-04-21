@@ -1,3 +1,25 @@
+8.0.0 / 2016-04-21
+==================
+- [breaking] Migrate non-React rules to a separate linter config (`eslint-config-airbnb-base`)
+- [breaking] disallow empty methods
+- [breaking] disallow empty restructuring patterns
+- [breaking] enable `no-restricted-syntax` rule
+- [breaking] enable `global-require` rule
+- [breaking] [react] enable `react/jsx-curly-spacing` rule ([#693](https://github.com/airbnb/javascript/issues/693))
+- [semver-minor] [react] Add `react/jsx-first-prop-new-line` rule
+- [semver-minor] [react] enable `jsx-equals-spacing` rule
+- [semver-minor] [react] enable `jsx-indent` rule
+- [semver-minor] enforce spacing inside single-line blocks
+- [semver-minor] enforce `no-underscore-dangle`
+- [semver-minor] Enable import/no-unresolved and import/export rules ([#825](https://github.com/airbnb/javascript/issues/825))
+- [semver-patch] Enable `no-useless-concat` rule which `prefer-template` already covers
+- [semver-patch] Allow `== null` ([#542](https://github.com/airbnb/javascript/issues/542))
+- [dev deps / peer deps] update `eslint`, `eslint-plugin-react`, `eslint-plugin-import`
+- [dev deps / peer deps] update `eslint-plugin-jsx-a11y` and rename rules ([#838](https://github.com/airbnb/javascript/issues/838))
+- [refactor] [react] separate a11y rules to their own file
+- [refactor] Add missing disabled rules.
+- [tests] Add `eslint-find-rules` to prevent missing rules
+
 7.0.0 / 2016-04-11
 ==================
 - [react] [breaking] Add accessibility rules to the React style guide + `eslint-plugin-a11y`
