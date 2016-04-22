@@ -247,7 +247,8 @@
     ```
 
 ## Ordering
-  - Ordering for `React.createClass`:
+
+#### `React.createClass`:
 
   1. displayName
   1. propTypes, ordered by these rules:
@@ -274,6 +275,8 @@
   1. *Optional render methods* like renderNavigation() or renderProfilePicture()
   1. render
 
+  - Example:
+
   ```javascript
   import React from 'react';
 
@@ -292,9 +295,46 @@
       },
 
       render() {
-          return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>;
+          const { id, text, url } = this.props;
+
+          return <a data-id={id} href={url}>{text}</a>;
       }
   });
   ```
 
+#### Stateless components:
+
+  1. propTypes declaration, as a `const` variable. See `React.createClass` ordering rules for propTypes ordering.
+  1. contextTypes declaration, as a `const` variable
+  1. defaultProps declaration, as a `const` variable
+  1. Component declaration
+  1. displayName attachment to component
+  1. propTypes attachment to component
+  1. contextTypes attachment to component
+  1. defaultProps attachment to component
+
+  - Example:
+
+  ```javascript
+  import React from 'react';
+
+
+  const propTypes = {
+      id: PropTypes.number.isRequired,
+      url: PropTypes.string.isRequired,
+      text: PropTypes.string
+  };
+
+  const defaultProps = {
+      text: 'Hello World'
+  };
+
+  const Link = ({ id, text, url }) => (
+      <a data-id={id} href={url}>{text}</a>
+  );
+
+  Link.displayName = 'Link';
+  Link.propTypes = propTypes;
+  Link.defaultProps = defaultProps;
+  ```
 # }
