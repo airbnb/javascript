@@ -13,7 +13,6 @@
   1. [Props](#props)
   1. [Parentheses](#parentheses)
   1. [Tags](#tags)
-  1. [Methods](#methods)
   1. [Ordering](#ordering)
 
 ## Basic Rules
@@ -269,6 +268,7 @@
   1. componentDidUpdate
   1. componentWillUnmount
   1. *exposed imperative API* (should be avoided, but sometimes you'll have no other choice but to provide an imperative API)
+  1. *private helper methods*
   1. *clickHandlers or eventHandlers* like onClickSubmit() or onChangeDescription()
   1. *getter methods for render* like getSelectReason() or getFooterContent()
   1. *Optional render methods* like renderNavigation() or renderProfilePicture()
