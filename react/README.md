@@ -57,7 +57,7 @@
       }
     }
 
-    // bad (since arrow functions do not have a "name" property)
+    // bad (relying on function name inference is discouraged)
     const Listing = ({ hello }) => (
       <div>{hello}</div>
     );
