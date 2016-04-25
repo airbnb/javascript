@@ -1,4 +1,6 @@
 {
+    // https://github.com/thenerdery/javascript-standards
+
 	"env": {
         "browser": true,
         "node": false
@@ -12,6 +14,23 @@
     "parser": "babel-eslint",
 
     "rules": {
-        "indent": [2, 4, {"SwitchCase": 1}]		// 4-space tabs, switch statements must be indented
+      //--------- Variables ---------
+
+      "prefer-const": 2,            // suggest using const declaration for variables that are never modified after declared (ECMAScript 2015 - http://eslint.org/docs/rules/prefer-const)
+      "no-const-assign": 2,         // disallow modifying variables that are declared using const (ECMAScript 2015 - http://eslint.org/docs/rules/no-const-assign)
+      "no-var": 2,                  // require let or const instead of var (ECMAScript 2015 - http://eslint.org/docs/rules/no-var)
+      "one-var": [2, "always"],     // require or disallow one variable declaration per function (Stylistic Issues - http://eslint.org/docs/rules/one-var)
+
+
+      //--------- Objects ---------
+
+      "no-new-object": 2,                       // disallow the use of the Object constructor (Stylistic Issues - http://eslint.org/docs/rules/no-new-object)
+      "object-shorthand": [2, "always"],        // require method and property shorthand syntax for object literals (ECMAScript 2015 - http://eslint.org/docs/rules/object-shorthand)
+      "quote-props": [2, "as-needed"],          // require quotes around object literal property names (Stylistic Issues - http://eslint.org/docs/rules/quote-props)
+
+
+      //--------- Whitespace ---------
+
+      "indent": [2, 4, {"SwitchCase": 1}]		// 4-space tabs, switch statements must be indented (Stylistic Issues - http://eslint.org/docs/rules/indent)
     }
 }
