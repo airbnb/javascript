@@ -10,7 +10,7 @@ We export three ESLint configurations for your usage.
 
 ### eslint-config-airbnb
 
-Our default export contains all of our ESLint rules, including ECMAScript 6+ and React. It requires `eslint`, ``eslint-plugin-import`, `eslint-plugin-react`, and `eslint-plugin-jsx-a11y`.
+Our default export contains all of our ESLint rules, including ECMAScript 6+ and React. It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, and `eslint-plugin-jsx-a11y`.
 
 1. `npm install --save-dev eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y eslint`
 2. add `"extends": "airbnb"` to your .eslintrc
