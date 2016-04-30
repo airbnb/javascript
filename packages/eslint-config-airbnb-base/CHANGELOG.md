@@ -1,3 +1,9 @@
+2.0.0 / 2016-04-29
+==================
+ - [breaking] enable `no-unsafe-finally` rule
+ - [semver-minor] enable `no-useless-computed-key` rule
+ - [deps] update `eslint`, `eslint-plugin-import`
+
 1.0.4 / 2016-04-26
 ==================
  - [deps] update `eslint-find-rules`, `eslint-plugin-import`
