@@ -14,7 +14,7 @@ module.exports = {
     // specify curly brace conventions for all control statements
     'curly': [2, 'multi-line'],
     // require default case in switch statements
-    'default-case': 2,
+    'default-case': [2, { 'commentPattern': '^no default$' }],
     // encourages use of dot notation whenever possible
     'dot-notation': [2, { 'allowKeywords': true }],
     // enforces consistent newlines before or after dots
@@ -136,6 +136,10 @@ module.exports = {
     // disallow unmodified conditions of loops
     // http://eslint.org/docs/rules/no-unmodified-loop-condition
     'no-unmodified-loop-condition': 0,
+    // disallow return/throw/break/continue inside finally blocks
+    // http://eslint.org/docs/rules/no-unsafe-finally
+    // TODO: enable
+    'no-unsafe-finally': 0,
     // disallow usage of expressions in statement position
     'no-unused-expressions': 2,
     // disallow unused labels
