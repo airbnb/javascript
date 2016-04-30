@@ -57,8 +57,7 @@ module.exports = {
     'no-var': 2,
     // disallow useless computed property keys
     // http://eslint.org/docs/rules/no-useless-computed-key
-    // TODO: enable
-    'no-useless-computed-key': 0,
+    'no-useless-computed-key': 2,
     // disallow unnecessary constructor
     // http://eslint.org/docs/rules/no-useless-constructor
     'no-useless-constructor': 2,
