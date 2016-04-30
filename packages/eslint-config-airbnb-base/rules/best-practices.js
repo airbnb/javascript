@@ -138,8 +138,7 @@ module.exports = {
     'no-unmodified-loop-condition': 0,
     // disallow return/throw/break/continue inside finally blocks
     // http://eslint.org/docs/rules/no-unsafe-finally
-    // TODO: enable
-    'no-unsafe-finally': 0,
+    'no-unsafe-finally': 2,
     // disallow usage of expressions in statement position
     'no-unused-expressions': 2,
     // disallow unused labels
