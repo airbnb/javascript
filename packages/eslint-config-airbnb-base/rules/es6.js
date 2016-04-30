@@ -55,6 +55,10 @@ module.exports = {
     'no-this-before-super': 0,
     // require let or const instead of var
     'no-var': 2,
+    // disallow useless computed property keys
+    // http://eslint.org/docs/rules/no-useless-computed-key
+    // TODO: enable
+    'no-useless-computed-key': 0,
     // disallow unnecessary constructor
     // http://eslint.org/docs/rules/no-useless-constructor
     'no-useless-constructor': 2,
@@ -62,7 +66,10 @@ module.exports = {
     // http://eslint.org/docs/rules/object-shorthand
     'object-shorthand': [2, 'always'],
     // suggest using arrow functions as callbacks
-    'prefer-arrow-callback': 2,
+    'prefer-arrow-callback': [2, {
+      'allowNamedFunctions': false,
+      'allowUnboundThis': true,
+    }],
     // suggest using of const declaration for variables that are never modified after declared
     'prefer-const': 2,
     // suggest using the spread operator instead of .apply()
