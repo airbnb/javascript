@@ -1,32 +1,32 @@
 {
-  "name": "airbnb-style",
+  "name": "quri-style",
   "version": "2.0.0",
-  "description": "A mostly reasonable approach to JavaScript.",
+  "description": "A very reasonable approach to JavaScript.",
   "scripts": {
 	"preinstall": "npm run install:config && npm run install:config:base",
-    "install:config": "cd packages/eslint-config-airbnb && npm install",
-    "install:config:base": "cd packages/eslint-config-airbnb-base && npm install",
+    "install:config": "cd packages/eslint-config-quri && npm install",
+    "install:config:base": "cd packages/eslint-config-quri-base && npm install",
     "test": "npm run --silent test:config && npm run --silent test:config:base",
-    "test:config": "cd packages/eslint-config-airbnb; npm test",
-    "test:config:base": "cd packages/eslint-config-airbnb-base; npm test"
+    "test:config": "cd packages/eslint-config-quri; npm test",
+    "test:config:base": "cd packages/eslint-config-quri-base; npm test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airbnb/javascript.git"
+    "url": "https://github.com/quri/javascript.git"
   },
   "keywords": [
     "style guide",
     "lint",
-    "airbnb",
+    "quri",
     "es6",
     "es2015",
     "react",
     "jsx"
   ],
-  "author": "Harrison Shoff <hi@hshoff.com> (https://twitter.com/hshoff)",
+  "author": "Loïc Chollier",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/airbnb/javascript/issues"
+    "url": "https://github.com/quri/javascript/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript"
+  "homepage": "https://github.com/quri/javascript"
 }

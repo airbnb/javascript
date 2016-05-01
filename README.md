@@ -1,16 +1,10 @@
-# Airbnb JavaScript Style Guide() {
+# Quri JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript*
-
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+*A very reasonable approach to JavaScript*
+(Disclaimer: this repo is a fork of Airbnb's style guide with our own settings. Details can be found at the bottom of this page)
 
 Other Style Guides
- - [ES5](es5/)
  - [React](react/)
- - [CSS & Sass](https://github.com/airbnb/css)
- - [Ruby](https://github.com/airbnb/ruby)
 
 ## Table of Contents
 
@@ -486,14 +480,16 @@ Other Style Guides
 ## Strings
 
   <a name="strings--quotes"></a><a name="6.1"></a>
-  - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
+  - [6.1](#strings--quotes) Use double quotes `""` for strings.
+
+    eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html)
 
     ```javascript
     // bad
-    const name = "Capt. Janeway";
+    const name = 'Capt. Janeway';
 
     // good
-    const name = 'Capt. Janeway';
+    const name = "Capt. Janeway";
     ```
 
   <a name="strings--line-length"></a><a name="6.2"></a>
@@ -1076,45 +1072,45 @@ Other Style Guides
 
     ```javascript
     // bad
-    const AirbnbStyleGuide = require('./AirbnbStyleGuide');
-    module.exports = AirbnbStyleGuide.es6;
+    const QuriStyleGuide = require('./QuriStyleGuide');
+    module.exports = QuriStyleGuide.es6;
 
     // ok
-    import AirbnbStyleGuide from './AirbnbStyleGuide';
-    export default AirbnbStyleGuide.es6;
+    import QuriStyleGuide from './QuriStyleGuide';
+    export default QuriStyleGuide.es6;
 
     // best
-    import { es6 } from './AirbnbStyleGuide';
+    import { es6 } from './QuriStyleGuide';
     export default es6;
     ```
 
   <a name="modules--no-wildcard"></a><a name="10.2"></a>
-  - [10.2](#modules--no-wildcard) Do not use wildcard imports.
+  - ~~[10.2](#modules--no-wildcard) Do not use wildcard imports.~~
 
-    > Why? This makes sure you have a single default export.
+    > ~~Why? This makes sure you have a single default export.~~
 
     ```javascript
-    // bad
-    import * as AirbnbStyleGuide from './AirbnbStyleGuide';
+    ~~// bad~~
+    ~~import * as QuriStyleGuide from './QuriStyleGuide';~~
 
-    // good
-    import AirbnbStyleGuide from './AirbnbStyleGuide';
+    ~~// good~~
+    ~~import QuriStyleGuide from './QuriStyleGuide';~~
     ```
 
   <a name="modules--no-export-from-import"></a><a name="10.3"></a>
-  - [10.3](#modules--no-export-from-import) And do not export directly from an import.
+  - ~~[10.3](#modules--no-export-from-import) And do not export directly from an import.~~
 
-    > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
+    > ~~Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.~~
 
     ```javascript
-    // bad
-    // filename es6.js
-    export { es6 as default } from './airbnbStyleGuide';
+    ~~// bad~~
+    ~~// filename es6.js~~
+    ~~export { es6 as default } from './quriStyleGuide';~~
 
-    // good
-    // filename es6.js
-    import { es6 } from './AirbnbStyleGuide';
-    export default es6;
+    ~~// good~~
+    ~~// filename es6.js~~
+    ~~import { es6 } from './QuriStyleGuide';~~
+    ~~export default es6;~~
     ```
 
   <a name="modules--no-duplicate-imports"></a>
@@ -1420,7 +1416,7 @@ Other Style Guides
 ## Comparison Operators & Equality
 
   <a name="comparison--eqeqeq"></a><a name="15.1"></a>
-  - [15.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`. eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
+  - [15.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`. Unless you are comparing against null or evaluating the value of typeof (see [smart eqeqeq](http://eslint.org/docs/rules/eqeqeq.html#options))
 
   <a name="comparison--if"></a><a name="15.2"></a>
   - [15.2](#comparison--if) Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
@@ -1646,42 +1642,31 @@ Other Style Guides
     ```
 
   <a name="comments--singleline"></a><a name="17.2"></a>
-  - [17.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it's on the first line of a block.
+  - [17.2](#comments--singleline) Use `//` for single line comments. Place a space before and after `//` and your comment
 
     ```javascript
     // bad
-    const active = true;  // is current tab
+    const active = true;  //is current tab
+
+    // bad
+    const active = true;//is current tab
+
+    // bad
+    const active = true;// is current tab
 
     // good
     // is current tab
     const active = true;
 
-    // bad
-    function getType() {
-      console.log('fetching type...');
-      // set the default type to 'no type'
-      const type = this._type || 'no type';
-
-      return type;
-    }
-
     // good
     function getType() {
       console.log('fetching type...');
 
-      // set the default type to 'no type'
-      const type = this._type || 'no type';
+      const type = this._type || 'no type'; // set the default type to 'no type'
 
       return type;
     }
 
-    // also good
-    function getType() {
-      // set the default type to 'no type'
-      const type = this._type || 'no type';
-
-      return type;
-    }
     ```
 
   <a name="comments--actionitems"></a><a name="17.3"></a>
@@ -2022,7 +2007,7 @@ Other Style Guides
     const foo = 'Whatever national crop flips the window. The cartoon reverts within the screw. Whatever wizard constrains a helpful ally. The counterpart ascends!';
 
     // bad
-    $.ajax({ method: 'POST', url: 'https://airbnb.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
+    $.ajax({ method: 'POST', url: 'https://quri.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
 
     // good
     const foo = 'Whatever national crop flips the window. The cartoon reverts within the screw. ' +
@@ -2031,7 +2016,7 @@ Other Style Guides
     // good
     $.ajax({
       method: 'POST',
-      url: 'https://airbnb.com/',
+      url: 'https://quri.com/',
       data: { name: 'John' },
     })
       .done(() => console.log('Congratulations!'))
@@ -2390,12 +2375,12 @@ Other Style Guides
   - [22.8](#naming--PascalCase-singleton) Use PascalCase when you export a constructor / class / singleton / function library / bare object.
 
     ```javascript
-    const AirbnbStyleGuide = {
+    const QuriStyleGuide = {
       es6: {
       }
     };
 
-    export default AirbnbStyleGuide;
+    export default QuriStyleGuide;
     ```
 
 
@@ -2496,80 +2481,10 @@ Other Style Guides
 
 ## jQuery
 
-  <a name="jquery--dollar-prefix"></a><a name="25.1"></a>
-  - [25.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$`. jscs: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment)
-
-    ```javascript
-    // bad
-    const sidebar = $('.sidebar');
-
-    // good
-    const $sidebar = $('.sidebar');
-
-    // good
-    const $sidebarBtn = $('.sidebar-btn');
-    ```
-
-  <a name="jquery--cache"></a><a name="25.2"></a>
-  - [25.2](#jquery--cache) Cache jQuery lookups.
-
-    ```javascript
-    // bad
-    function setSidebar() {
-      $('.sidebar').hide();
-
-      // ...stuff...
-
-      $('.sidebar').css({
-        'background-color': 'pink'
-      });
-    }
-
-    // good
-    function setSidebar() {
-      const $sidebar = $('.sidebar');
-      $sidebar.hide();
-
-      // ...stuff...
-
-      $sidebar.css({
-        'background-color': 'pink'
-      });
-    }
-    ```
-
-  <a name="jquery--queries"></a><a name="25.3"></a>
-  - [25.3](#jquery--queries) For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-
-  <a name="jquery--find"></a><a name="25.4"></a>
-  - [25.4](#jquery--find) Use `find` with scoped jQuery object queries.
-
-    ```javascript
-    // bad
-    $('ul', '.sidebar').hide();
-
-    // bad
-    $('.sidebar').find('ul').hide();
-
-    // good
-    $('.sidebar ul').hide();
-
-    // good
-    $('.sidebar > ul').hide();
-
-    // good
-    $sidebar.find('ul').hide();
-    ```
+  __Don't use jQuery__
 
 **[⬆ back to top](#table-of-contents)**
 
-
-## ECMAScript 5 Compatibility
-
-  <a name="es5-compat--kangax"></a><a name="26.1"></a>
-  - [26.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.io/es5-compat-table/).
-
-**[⬆ back to top](#table-of-contents)**
 
 ## ECMAScript 6 Styles
 
@@ -2608,7 +2523,7 @@ Other Style Guides
    - Whichever testing framework you use, you should be writing tests!
    - Strive to write many small pure functions, and minimize where mutations occur.
    - Be cautious about stubs and mocks - they can make your tests more brittle.
-   - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Airbnb. [`tape`](https://www.npmjs.com/package/tape) is also used occasionally for small, separate modules.
+   - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Quri.
    - 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
    - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
 
@@ -2646,9 +2561,7 @@ Other Style Guides
 **Tools**
 
   - Code Style Linters
-    + [ESlint](http://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/airbnb/javascript/blob/master/linters/.eslintrc)
-    + [JSHint](http://jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/.jshintrc)
-    + [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json)
+    + [ESlint](http://eslint.org/) - [Quri Style .eslintrc](https://github.com/quri/javascript/blob/master/linters/.eslintrc)
 
 **Other Style Guides**
 
@@ -2659,7 +2572,7 @@ Other Style Guides
 **Other Styles**
 
   - [Naming this in nested functions](https://gist.github.com/cjohansen/4135065) - Christian Johansen
-  - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52) - Ross Allen
+  - [Conditional Callbacks](https://github.com/quri/javascript/issues/52) - Ross Allen
   - [Popular JavaScript Coding Conventions on Github](http://sideeffect.kr/popularconvention/#javascript) - JeongHoon Byun
   - [Multiple var statements in JavaScript, not superfluous](http://benalman.com/news/2012/05/multiple-var-statements-javascript/) - Ben Alman
 
@@ -2707,6 +2620,7 @@ Other Style Guides
 **Podcasts**
 
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
+  - [JavaScript Air](http://javascriptair.com/)
 
 
 **[⬆ back to top](#table-of-contents)**
@@ -2717,7 +2631,7 @@ Other Style Guides
 
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
-  - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
+  - **Quri**: [quri/javascript](https://github.com/quri/javascript)
   - **Apartmint**: [apartmint/javascript](https://github.com/apartmint/javascript)
   - **Ascribe**: [ascribe/javascript](https://github.com/ascribe/javascript)
   - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
@@ -2809,15 +2723,15 @@ Other Style Guides
 
 ## The JavaScript Style Guide Guide
 
-  - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
+  - [Reference](https://github.com/quri/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
 ## Chat With Us About JavaScript
 
-  - Find us on [gitter](https://gitter.im/airbnb/javascript).
+  - Find us on [gitter](https://gitter.im/quri/javascript).
 
 ## Contributors
 
-  - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
+  - [View Contributors](https://github.com/quri/javascript/graphs/contributors)
 
 
 ## License
@@ -2849,6 +2763,13 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Amendments
 
-We encourage you to fork this guide and change the rules to fit your team's style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
+* Adds no-dupe-class-member to es6.js
+* Adds babel.js with eslint-plugin-babel
+* Adds require-path-exists.js with eslint-plugin-require-path-exists
+* Remove ES5 references
+* Changes commenting style
+* Move padded-blocks, no-shadow, no-else-return, comma-dangle, max-len to warning only
+* Change no-params-reassign to use props: false
+* [2/29/16] Remove headers from react/sort-comp ordering as we put static methods on top things.
 
 # };

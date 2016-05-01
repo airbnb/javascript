@@ -16,16 +16,16 @@ module.exports = {
   'rules': {
     // enforces no braces where they can be omitted
     // http://eslint.org/docs/rules/arrow-body-style
-    'arrow-body-style': [2, 'as-needed'],
+    'arrow-body-style': [1, 'as-needed'],
     // require parens in arrow function arguments
-    'arrow-parens': 0,
+    'arrow-parens': 1,
     // require space before/after arrow function's arrow
     // http://eslint.org/docs/rules/arrow-spacing
     'arrow-spacing': [2, { 'before': true, 'after': true }],
     // require trailing commas in multiline object literals
-    'comma-dangle': [2, 'always-multiline'],
+    'comma-dangle': [1, 'always-multiline'],
     // verify super() callings in constructors
-    'constructor-super': 0,
+    'constructor-super': 2,
     // enforce the spacing around the * in generator functions
     'generator-star-spacing': 0,
     // disallow modifying variables of class declarations
@@ -52,9 +52,9 @@ module.exports = {
     // http://eslint.org/docs/rules/no-restricted-imports
     'no-restricted-imports': 0,
     // disallow to use this/super before super() calling in constructors.
-    'no-this-before-super': 0,
+    'no-this-before-super': 2,
     // require let or const instead of var
-    'no-var': 2,
+    'no-var': 1,
     // disallow useless computed property keys
     // http://eslint.org/docs/rules/no-useless-computed-key
     'no-useless-computed-key': 2,
@@ -70,7 +70,7 @@ module.exports = {
       'allowUnboundThis': true,
     }],
     // suggest using of const declaration for variables that are never modified after declared
-    'prefer-const': 2,
+    'prefer-const': 1,
     // suggest using the spread operator instead of .apply()
     'prefer-spread': 0,
     // suggest using Reflect methods where applicable
@@ -157,7 +157,7 @@ module.exports = {
   'settings': {
     'import/resolver': {
       'node': {
-        'extensions': ['.js', '.json']
+        'extensions': ['.js', '.coffee', '.json']
       }
     }
   }

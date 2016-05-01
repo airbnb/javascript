@@ -1,6 +1,6 @@
 module.exports = {
   extends: [
-    './legacy',
+    './legacy'
     './rules/es6',
   ].map(require.resolve),
   parserOptions: {

@@ -31,7 +31,7 @@ module.exports = {
     'indent': [2, 2, { 'SwitchCase': 1, 'VariableDeclarator': 1 }],
     // specify whether double or single quotes should be used in JSX attributes
     // http://eslint.org/docs/rules/jsx-quotes
-    'jsx-quotes': 0,
+    'jsx-quotes': [2, 'prefer-double'],
     // enforces spacing between keys and values in object literal properties
     'key-spacing': [2, { 'beforeColon': false, 'afterColon': true }],
     // require a space before & after certain keywords
@@ -49,8 +49,8 @@ module.exports = {
     // disallow mixed 'LF' and 'CRLF' as linebreaks
     'linebreak-style': 0,
     // specify the maximum length of a line in your program
-    // http://eslint.org/docs/rules/max-len
-    'max-len': [2, 100, 2, {
+    // https://github.com/eslint/eslint/blob/master/docs/rules/max-len.md
+    'max-len': [1, 100, 2, {
       'ignoreUrls': true,
       'ignoreComments': false
     }],
@@ -97,7 +97,7 @@ module.exports = {
     // disallow trailing whitespace at the end of lines
     'no-trailing-spaces': 2,
     // disallow dangling underscores in identifiers
-    'no-underscore-dangle': [2, { 'allowAfterThis': false }],
+    'no-underscore-dangle': 0,
     // disallow the use of Boolean literals in conditional expressions
     // also, prefer `a || b` over `a ? a : b`
     // http://eslint.org/docs/rules/no-unneeded-ternary
@@ -117,12 +117,12 @@ module.exports = {
     // enforce operators to be placed before or after line breaks
     'operator-linebreak': 0,
     // enforce padding within blocks
-    'padded-blocks': [2, 'never'],
+    'padded-blocks': [1, 'never'],
     // require quotes around object literal property names
     // http://eslint.org/docs/rules/quote-props.html
     'quote-props': [2, 'as-needed', { 'keywords': false, 'unnecessary': true, 'numbers': false }],
     // specify whether double or single quotes should be used
-    'quotes': [2, 'single', 'avoid-escape'],
+    'quotes': [2, 'double', 'avoid-escape'],
     // require identifiers to match the provided regular expression
     'id-match': 0,
     // do not require jsdoc
@@ -146,10 +146,7 @@ module.exports = {
     // Require or disallow spaces before/after unary operators
     'space-unary-ops': 0,
     // require or disallow a space immediately following the // or /* in a comment
-    'spaced-comment': [2, 'always', {
-      'exceptions': ['-', '+'],
-      'markers': ['=', '!']           // space here to support sprockets directives
-    }],
+    'spaced-comment': [2, 'always'],
     // require regex literals to be wrapped in parentheses
     'wrap-regex': 0
   }
