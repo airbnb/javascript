@@ -1,7 +1,7 @@
 {
-  "name": "eslint-config-airbnb-base",
+  "name": "eslint-config-quri-base",
   "version": "2.0.0",
-  "description": "Airbnb's base JS ESLint config, following our styleguide",
+  "description": "Quri's base JS ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
@@ -11,13 +11,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airbnb/javascript"
+    "url": "https://github.com/quri/javascript"
   },
   "keywords": [
     "eslint",
     "eslintconfig",
     "config",
-    "airbnb",
+    "quri",
     "javascript",
     "styleguide"
   ],
@@ -39,9 +39,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/airbnb/javascript/issues"
+    "url": "https://github.com/quri/javascript/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript",
+  "homepage": "https://github.com/quri/javascript",
   "devDependencies": {
     "babel-tape-runner": "^1.3.1",
     "eslint": "^2.9.0",

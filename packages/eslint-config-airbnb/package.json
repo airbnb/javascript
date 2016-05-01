@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/quri/javascript",
   "dependencies": {
-    "eslint-config-airbnb-base": "^1.0.0"
+    "eslint-config-quri-base": "^1.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",

@@ -1,28 +1,28 @@
-# eslint-config-airbnb-base
+# eslint-config-quri-base
 
-[![npm version](https://badge.fury.io/js/eslint-config-airbnb-base.svg)](http://badge.fury.io/js/eslint-config-airbnb-base)
+[![npm version](https://badge.fury.io/js/eslint-config-quri-base.svg)](http://badge.fury.io/js/eslint-config-quri-base)
 
-This package provides Airbnb's base JS .eslintrc as an extensible shared config.
+This package provides Quri's base JS .eslintrc as an extensible shared config.
 
 ## Usage
 
 We export two ESLint configurations for your usage.
 
-### eslint-config-airbnb-base
+### eslint-config-quri-base
 
 Our default export contains all of our ESLint rules, including ECMAScript 6+. It requires `eslint` and `eslint-plugin-import`.
 
-1. `npm install --save-dev eslint-config-airbnb-base eslint-plugin-import eslint`
-2. add `"extends": "airbnb-base"` to your .eslintrc
+1. `npm install --save-dev eslint-config-quri-base eslint-plugin-import eslint`
+2. add `"extends": "quri-base"` to your .eslintrc
 
-### eslint-config-airbnb-base/legacy
+### eslint-config-quri-base/legacy
 
 Lints ES5 and below. Requires `eslint` and `eslint-plugin-import`.
 
-1. `npm install --save-dev eslint-config-airbnb-base eslint-plugin-import eslint`
-2. add `"extends": "airbnb-base/legacy"` to your .eslintrc
+1. `npm install --save-dev eslint-config-quri-base eslint-plugin-import eslint`
+2. add `"extends": "quri-base/legacy"` to your .eslintrc
 
-See [Airbnb's overarching ESLint config](https://npmjs.com/eslint-config-airbnb), [Airbnb's Javascript styleguide](https://github.com/airbnb/javascript), and the [ESlint config docs](http://eslint.org/docs/user-guide/configuring#extending-configuration-files) for more information.
+See [Quri's overarching ESLint config](https://npmjs.com/eslint-config-quri), [Quri's Javascript styleguide](https://github.com/quri/javascript), and the [ESlint config docs](http://eslint.org/docs/user-guide/configuring#extending-configuration-files) for more information.
 
 ## Improving this config
 
