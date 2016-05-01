@@ -1,7 +1,7 @@
 {
-  "name": "eslint-config-quri",
+  "name": "eslint-config-airbnb-base",
   "version": "2.0.0",
-  "description": "Quri's ESLint config, following our styleguide",
+  "description": "Airbnb's base JS ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
@@ -11,46 +11,46 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/quri/javascript"
+    "url": "https://github.com/airbnb/javascript"
   },
   "keywords": [
     "eslint",
     "eslintconfig",
     "config",
-    "quri",
+    "airbnb",
     "javascript",
     "styleguide"
   ],
-  "author": "Loïc Chollier",
+  "author": "Jake Teton-Landis (https://twitter.com/@jitl)",
   "contributors": [
     {
-      "name": "Loïc Chollier",
-      "url": "http://github.com/chollier"
+      "name": "Jake Teton-Landis",
+      "url": "https://twitter.com/jitl"
+    },
+    {
+      "name": "Jordan Harband",
+      "email": "ljharb@gmail.com",
+      "url": "http://ljharb.codes"
+    },
+    {
+      "name": "Harrison Shoff",
+      "url": "https://twitter.com/hshoff"
     }
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/quri/javascript/issues"
+    "url": "https://github.com/airbnb/javascript/issues"
   },
-  "homepage": "https://github.com/quri/javascript",
-  "dependencies": {
-    "eslint-config-airbnb-base": "^1.0.0"
-  },
+  "homepage": "https://github.com/airbnb/javascript",
   "devDependencies": {
-    "babel-eslint": "^6.0.4",
-    "babel-tape-runner": "1.3.1",
+    "babel-tape-runner": "^1.3.1",
     "eslint": "^2.9.0",
     "eslint-find-rules": "^1.7.0",
-    "eslint-plugin-babel": "^3.2.0",
     "eslint-plugin-import": "^1.6.1",
-    "eslint-plugin-jsx-a11y": "^1.0.4",
-    "eslint-plugin-react": "^5.0.1",
-    "react": "*",
     "tape": "^4.5.1"
   },
   "peerDependencies": {
     "eslint": "^2.9.0",
-    "eslint-plugin-react": "^5.0.1",
     "eslint-plugin-import": "^1.6.1"
   }
 }

@@ -2,9 +2,15 @@ module.exports = {
   'env': {
     'node': true
   },
+  'plugins': [
+    'import'
+  ],
   'rules': {
     // enforce return after a callback
     'callback-return': 0,
+    // require all requires be top-level
+    // http://eslint.org/docs/rules/global-require
+    'global-require': 2,
     // enforces error handling in callbacks (node environment)
     'handle-callback-err': 0,
     // disallow mixing regular variable and require declarations
@@ -18,6 +24,16 @@ module.exports = {
     // restrict usage of specified node modules
     'no-restricted-modules': 0,
     // disallow use of synchronous methods (off by default)
-    'no-sync': 0
+    'no-sync': 0,
+    // ensure imports point to files/modules that can be resolved
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md
+    'import/no-unresolved': [2, { 'commonjs': true }]
+  },
+  'settings': {
+    'import/resolver': {
+      'node': {
+        'extensions': ['.js', '.json']
+      }
+    }
   }
 };

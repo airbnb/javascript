@@ -8,6 +8,6 @@ npm install --save-dev \
   eslint \
   babel-eslint \
   eslint-plugin-react \
-  eslint-plugin-require-path-exist \
+  eslint-plugin-import \
   eslint-plugin-babel
 ```

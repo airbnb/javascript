@@ -1,10 +1,14 @@
 {
   "name": "quri-style",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "A very reasonable approach to JavaScript.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "publish-all": "npm publish && cd ./packages/eslint-config-quri && npm publish"
+	"preinstall": "npm run install:config && npm run install:config:base",
+    "install:config": "cd packages/eslint-config-quri && npm install",
+    "install:config:base": "cd packages/eslint-config-quri-base && npm install",
+    "test": "npm run --silent test:config && npm run --silent test:config:base",
+    "test:config": "cd packages/eslint-config-quri; npm test",
+    "test:config:base": "cd packages/eslint-config-quri-base; npm test"
   },
   "repository": {
     "type": "git",

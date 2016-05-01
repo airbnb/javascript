@@ -1,3 +1,49 @@
+8.0.0 / 2016-04-21
+==================
+- [breaking] Migrate non-React rules to a separate linter config (`eslint-config-airbnb-base`)
+- [breaking] disallow empty methods
+- [breaking] disallow empty restructuring patterns
+- [breaking] enable `no-restricted-syntax` rule
+- [breaking] enable `global-require` rule
+- [breaking] [react] enable `react/jsx-curly-spacing` rule ([#693](https://github.com/airbnb/javascript/issues/693))
+- [semver-minor] [react] Add `react/jsx-first-prop-new-line` rule
+- [semver-minor] [react] enable `jsx-equals-spacing` rule
+- [semver-minor] [react] enable `jsx-indent` rule
+- [semver-minor] enforce spacing inside single-line blocks
+- [semver-minor] enforce `no-underscore-dangle`
+- [semver-minor] Enable import/no-unresolved and import/export rules ([#825](https://github.com/airbnb/javascript/issues/825))
+- [semver-patch] Enable `no-useless-concat` rule which `prefer-template` already covers
+- [semver-patch] Allow `== null` ([#542](https://github.com/airbnb/javascript/issues/542))
+- [dev deps / peer deps] update `eslint`, `eslint-plugin-react`, `eslint-plugin-import`
+- [dev deps / peer deps] update `eslint-plugin-jsx-a11y` and rename rules ([#838](https://github.com/airbnb/javascript/issues/838))
+- [refactor] [react] separate a11y rules to their own file
+- [refactor] Add missing disabled rules.
+- [tests] Add `eslint-find-rules` to prevent missing rules
+
+7.0.0 / 2016-04-11
+==================
+- [react] [breaking] Add accessibility rules to the React style guide + `eslint-plugin-a11y`
+- [breaking] enable `react/require-render-return`
+- [breaking] Add `no-dupe-class-members` rule + section ([#785](https://github.com/airbnb/javascript/issues/785))
+- [breaking] error on debugger statements
+- [breaking] add `no-useless-escape` rule
+- [breaking] add `no-duplicate-imports` rule
+- [semver-minor] enable `jsx-pascal-case` rule
+- [deps] update `eslint`, `react`
+- [dev deps] update `eslint`, `eslint-plugin-react`
+
+6.2.0 / 2016-03-22
+==================
+- [new] Allow arrow functions in JSX props
+- [fix] re-enable `no-confusing-arrow` rule, with `allowParens` option enabled ([#752](https://github.com/airbnb/javascript/issues/752), [#791](https://github.com/airbnb/javascript/issues/791))
+- [dev deps] update `tape`, `eslint`, `eslint-plugin-react`
+- [peer deps] update `eslint`, `eslint-plugin-react`
+
+6.1.0 / 2016-02-22
+==================
+- [new] enable [`react/prefer-stateless-function`][react/prefer-stateless-function]
+- [dev deps] update `react-plugin-eslint`, `eslint`, `tape`
+
 6.0.2 / 2016-02-22
 ==================
 - [fix] disable [`no-confusing-arrow`][no-confusing-arrow] due to an `eslint` bug ([#752](https://github.com/airbnb/javascript/issues/752))
@@ -170,3 +216,4 @@
 [react/no-is-mounted]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md
 [react/prefer-es6-class]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md
 [react/jsx-quotes]: https://github.com/yannickcr/eslint-plugin-react/blob/f817e37beddddc84b4788969f07c524fa7f0823b/docs/rules/jsx-quotes.md
+[react/prefer-stateless-function]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md

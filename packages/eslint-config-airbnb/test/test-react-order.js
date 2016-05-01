@@ -2,6 +2,7 @@ import test from 'tape';
 import { CLIEngine } from 'eslint';
 import eslintrc from '../';
 import reactRules from '../rules/react';
+import reactA11yRules from '../rules/react-a11y';
 
 const cli = new CLIEngine({
   useEslintrc: false,
@@ -22,18 +23,20 @@ function wrapComponent(body) {
   return `
 import React from 'react';
 export default class MyComponent extends React.Component {
+/* eslint no-empty-function: 0 */
 ${body}
 }
 `;
 }
 
-test('validate react prop order', t => {
-  t.test('make sure our eslintrc has React linting dependencies', t => {
-    t.plan(1);
-    t.equal(reactRules.plugins[0], 'react', 'uses eslint-plugin-react');
+test('validate react prop order', (t) => {
+  t.test('make sure our eslintrc has React and JSX linting dependencies', (t) => {
+    t.plan(2);
+    t.deepEqual(reactRules.plugins, ['react']);
+    t.deepEqual(reactA11yRules.plugins, ['jsx-a11y', 'react']);
   });
 
-  t.test('passes a good component', t => {
+  t.test('passes a good component', (t) => {
     t.plan(3);
     const result = lint(wrapComponent(`
   componentWillMount() {}

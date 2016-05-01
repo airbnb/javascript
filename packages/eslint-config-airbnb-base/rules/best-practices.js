@@ -14,13 +14,14 @@ module.exports = {
     // specify curly brace conventions for all control statements
     'curly': [2, 'multi-line'],
     // require default case in switch statements
-    'default-case': 2,
+    'default-case': [2, { 'commentPattern': '^no default$' }],
     // encourages use of dot notation whenever possible
     'dot-notation': [2, { 'allowKeywords': true }],
     // enforces consistent newlines before or after dots
     'dot-location': 0,
     // require the use of === and !==
-    'eqeqeq': [2, 'smart'],
+    // http://eslint.org/docs/rules/eqeqeq
+    'eqeqeq': [2, 'allow-null'],
     // make sure for-in loops have an if statement
     'guard-for-in': 2,
     // Blacklist certain identifiers to prevent them being used
@@ -37,6 +38,18 @@ module.exports = {
     'no-div-regex': 0,
     // disallow else after a return in an if
     'no-else-return': 1,
+    // disallow empty functions, except for standalone funcs/arrows
+    // http://eslint.org/docs/rules/no-empty-function
+    'no-empty-function': [2, {
+      'allow': [
+        'arrowFunctions',
+        'functions',
+        'methods',
+      ]
+    }],
+    // disallow empty destructuring patterns
+    // http://eslint.org/docs/rules/no-empty-pattern
+    'no-empty-pattern': 2,
     // disallow Unnecessary Labels
     // http://eslint.org/docs/rules/no-extra-label
     'no-extra-label': 2,
@@ -66,6 +79,14 @@ module.exports = {
     'no-lone-blocks': 2,
     // disallow creation of functions within loops
     'no-loop-func': 2,
+    // disallow magic numbers
+    // http://eslint.org/docs/rules/no-magic-numbers
+    'no-magic-numbers': [0, {
+      'ignore': [],
+      'ignoreArrayIndexes': true,
+      'enforceConst': true,
+      'detectObjects': false,
+    }],
     // disallow use of multiple spaces
     'no-multi-spaces': 2,
     // disallow use of multiline strings
@@ -93,6 +114,15 @@ module.exports = {
     'no-proto': 2,
     // disallow declaring the same variable more then once
     'no-redeclare': 2,
+    // disallow certain syntax forms
+    // http://eslint.org/docs/rules/no-restricted-syntax
+    'no-restricted-syntax': [
+      2,
+      'DebuggerStatement',
+      'ForInStatement',
+      'LabeledStatement',
+      'WithStatement',
+    ],
     // disallow use of assignment in return statement
     'no-return-assign': 2,
     // disallow use of `javascript:` urls.
@@ -106,6 +136,9 @@ module.exports = {
     // disallow unmodified conditions of loops
     // http://eslint.org/docs/rules/no-unmodified-loop-condition
     'no-unmodified-loop-condition': 0,
+    // disallow return/throw/break/continue inside finally blocks
+    // http://eslint.org/docs/rules/no-unsafe-finally
+    'no-unsafe-finally': 2,
     // disallow usage of expressions in statement position
     'no-unused-expressions': 2,
     // disallow unused labels
@@ -113,6 +146,12 @@ module.exports = {
     'no-unused-labels': 2,
     // disallow unnecessary .call() and .apply()
     'no-useless-call': 0,
+    // disallow useless string concatenation
+    // http://eslint.org/docs/rules/no-useless-concat
+    'no-useless-concat': 2,
+    // disallow unnecessary string escaping
+    // http://eslint.org/docs/rules/no-useless-escape
+    'no-useless-escape': 2,
     // disallow use of void operator
     'no-void': 0,
     // disallow usage of configurable warning terms in comments: e.g. todo

@@ -28,9 +28,9 @@
 
 ## Class vs `React.createClass` vs stateless
 
-  - If you have internal state and/or refs, prefer `class extends Component` over `React.createClass` unless you have a very good reason to use mixins. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md)
+  - If you have internal state and/or refs, prefer `class extends Component` over `React.createClass` unless you have a very good reason to use mixins. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
 
-    ```javascript
+    ```jsx
     // bad
     const Listing = React.createClass({
       // ...
@@ -50,8 +50,7 @@
 
     And if you don't have state or refs, prefer normal functions (not arrow functions) over classes:
 
-    ```javascript
-
+    ```jsx
     // bad
     class Listing extends React.Component {
       render() {
@@ -59,7 +58,7 @@
       }
     }
 
-    // bad (since arrow functions do not have a "name" property)
+    // bad (relying on function name inference is discouraged)
     const Listing = ({ hello }) => (
       <div>{hello}</div>
     );
@@ -76,7 +75,7 @@
   - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.js`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
-    ```javascript
+    ```jsx
     // bad
     import reservationCard from './ReservationCard';
 
@@ -92,7 +91,7 @@
 
   - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
 
-    ```javascript
+    ```jsx
     // bad
     import Footer from './Footer/Footer';
 
@@ -107,7 +106,7 @@
 
   - Do not use `displayName` for naming components. Instead, name the component by reference.
 
-    ```javascript
+    ```jsx
     // bad
     export default React.createClass({
       displayName: 'ReservationCard',
@@ -123,7 +122,7 @@
 
   - Follow these alignment styles for JSX syntax. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
-    ```javascript
+    ```jsx
     // bad
     <Foo superLongParam="bar"
          anotherSuperLongParam="baz" />
@@ -153,7 +152,7 @@
   > Why? JSX attributes [can't contain escaped quotes](http://eslint.org/docs/rules/jsx-quotes), so double quotes make conjunctions like `"don't"` easier to type.
   > Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
 
-    ```javascript
+    ```jsx
     // bad
     <Foo bar='bar' />
 
@@ -171,7 +170,7 @@
 
   - Always include a single space in your self-closing tag.
 
-    ```javascript
+    ```jsx
     // bad
     <Foo/>
 
@@ -186,11 +185,21 @@
     <Foo />
     ```
 
+  - Do not pad JSX curly braces with spaces. eslint: [`react/jsx-curly-spacing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md)
+
+    ```jsx
+    // bad
+    <Foo bar={ baz } />
+
+    // good
+    <Foo bar={baz} />
+    ```
+
 ## Props
 
   - Always use camelCase for prop names.
 
-    ```javascript
+    ```jsx
     // bad
     <Foo
       UserName="hello"
@@ -206,7 +215,7 @@
 
   - Omit the value of the prop when it is explicitly `true`. eslint: [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md)
 
-    ```javascript
+    ```jsx
     // bad
     <Foo
       hidden={true}
@@ -222,7 +231,7 @@
 
   - Wrap JSX tags in parentheses when they span more than one line. eslint: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md)
 
-    ```javascript
+    ```jsx
     // bad
     render() {
       return <MyComponent className="long body" foo="bar">
@@ -250,7 +259,7 @@
 
   - Always self-close tags that have no children. eslint: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md)
 
-    ```javascript
+    ```jsx
     // bad
     <Foo className="stuff"></Foo>
 
@@ -260,7 +269,7 @@
 
   - If your component has multi-line properties, close its tag on a new line. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
-    ```javascript
+    ```jsx
     // bad
     <Foo
       bar="bar"
@@ -275,11 +284,28 @@
 
 ## Methods
 
+  - Use arrow functions to close over local variables.
+
+    ```jsx
+    function ItemList(props) {
+      return (
+        <ul>
+          {props.items.map((item, index) => (
+            <Item
+              key={item.key}
+              onClick={() => doSomethingWith(item.name, index)}
+            />
+          ))}
+        </ul>
+      );
+    }
+    ```
+
   - Bind event handlers for the render method in the constructor. eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
 
   > Why? A bind call in the render path creates a brand new function on every single render.
 
-    ```javascript
+    ```jsx
     // bad
     class extends React.Component {
       onClickDiv() {
@@ -311,7 +337,7 @@
 
   - Do not use underscore prefix for internal methods of a React component.
 
-    ```javascript
+    ```jsx
     // bad
     React.createClass({
       _onClickSubmit() {
@@ -328,6 +354,20 @@
       }
 
       // other stuff
+    }
+    ```
+
+  - Be sure to return a value in your `render` methods. eslint: [`require-render-return`](https://github.com/yannickcr/eslint-plugin-react/pull/502)
+
+    ```jsx
+    // bad
+    render() {
+      (<div />);
+    }
+
+    // good
+    render() {
+      return (<div />);
     }
     ```
 
@@ -366,7 +406,7 @@
 
     Use ES7 static class properties : [documentation](https://github.com/jeffmo/es-class-fields-and-static-properties#part-2-class-static-properties) / [babel support](http://babeljs.io/docs/plugins/syntax-class-properties/)
 
-    ```javascript
+    ```jsx
     import React, { PropTypes } from 'react';
 
     export default class Link extends React.Component {

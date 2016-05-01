@@ -2,12 +2,20 @@ module.exports = {
   'plugins': [
     'react'
   ],
+  'parserOptions': {
+    'ecmaFeatures': {
+      'jsx': true,
+    },
+  },
   'ecmaFeatures': {
     'jsx': true
   },
   // View link below for react rules documentation
   // https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
   'rules': {
+    // specify whether double or single quotes should be used in JSX attributes
+    // http://eslint.org/docs/rules/jsx-quotes
+    'jsx-quotes': [2, 'prefer-double'],
     // Prevent missing displayName in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
     'react/display-name': [0, { 'ignoreTranspilerName': false }],
@@ -22,7 +30,7 @@ module.exports = {
     'react/jsx-closing-bracket-location': [1, 'line-aligned'],
     // Enforce or disallow spaces inside of curly braces in JSX attributes
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md
-    'react/jsx-curly-spacing': [0, 'never', { 'allowMultiline': true }],
+    'react/jsx-curly-spacing': [2, 'never', { 'allowMultiline': true }],
     // Enforce event handler naming conventions in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-handler-names.md
     'react/jsx-handler-names': [0, {
@@ -38,9 +46,13 @@ module.exports = {
     // Limit maximum of props on a single line in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
     'react/jsx-max-props-per-line': [2, { 'maximum': 3 }],
-    // Prevent usage of .bind() and arrow functions in JSX props
+    // Prevent usage of .bind() in JSX props
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
-    'react/jsx-no-bind': 2,
+    'react/jsx-no-bind': [2, {
+      'ignoreRefs': true,
+      'allowArrowFunctions': true,
+      'allowBind': false,
+    }],
     // Prevent duplicate props in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-duplicate-props.md
     'react/jsx-no-duplicate-props': 2,
@@ -59,6 +71,8 @@ module.exports = {
       'ignoreCase': false,
       'callbacksLast': false,
     }],
+    // deprecated in favor of react/jsx-sort-props
+    'react/jsx-sort-prop-types': 0,
     // Enforce props alphabetical sorting
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
     'react/jsx-sort-props': [1, {
@@ -104,6 +118,9 @@ module.exports = {
     // Require ES6 class declarations over React.createClass
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md
     'react/prefer-es6-class': [2, 'always'],
+    // Require stateless functions when not using lifecycle methods, setState or ref
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
+    'react/prefer-stateless-function': 2,
     // Prevent missing props validation in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
     'react/prop-types': [2, { 'ignore': [], 'customValidators': [] }],
@@ -113,6 +130,9 @@ module.exports = {
     // Restrict file extensions that may be required
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-extension.md
     'react/require-extension': [1, { 'extensions': ['.js', '.jsx', '.coffee', '.jsx.coffee'] }],
+    // Require render() methods to return something
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md
+    'react/require-render-return': 2,
     // Prevent extra closing tags for components without children
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
     'react/self-closing-comp': 2,
@@ -157,9 +177,29 @@ module.exports = {
     // Prevent missing parentheses around multilines JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md
     'react/wrap-multilines': [2, {
-      declaration: true,
-      assignment: true,
-      return: true
+      'declaration': true,
+      'assignment': true,
+      'return': true
     }],
+    // Require that the first prop in a JSX element be on a new line when the element is multiline
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-first-prop-new-line.md
+    'react/jsx-first-prop-new-line': [2, 'multiline'],
+    // enforce spacing around jsx equals signs
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-equals-spacing.md
+    'react/jsx-equals-spacing': [2, 'never'],
+    // enforce JSX indentation
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
+    'react/jsx-indent': [2, 2],
+  },
+  'settings': {
+    'import/resolver': {
+      'node': {
+        'extensions': ['.js', '.jsx', '.coffee', '.jsx.coffee', '.json']
+      }
+    },
+    'react': {
+      'pragma': 'React',
+      'version': '0.15'
+    },
   }
 };
