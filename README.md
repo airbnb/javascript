@@ -1823,7 +1823,7 @@ Other Style Guides
 
     ```javascript
     // good
-    (function (global) {
+    (function(global) {
       // ...stuff...
     })(this);↵
     ```
