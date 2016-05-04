@@ -25,7 +25,11 @@ module.exports = {
     // disallow double-negation boolean casts in a boolean context
     'no-extra-boolean-cast': 0,
     // disallow unnecessary parentheses
-    'no-extra-parens': [2, 'functions'],
+    // http://eslint.org/docs/rules/no-extra-parens
+    'no-extra-parens': [2, 'all', {
+      'conditionalAssign': true,
+      'nestedBinaryExpressions': false,
+    }],
     // disallow unnecessary semicolons
     'no-extra-semi': 2,
     // disallow overwriting functions written as function declarations
