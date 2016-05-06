@@ -1,8 +1,6 @@
-///////////////////////////////////////////////////////////////////////
+/* eslint wrap-iife: [0, "any"] */
+
 // https://github.com/thenerdery/javascript-standards#types--assign-consistent
-///////////////////////////////////////////////////////////////////////
-
-
 (function() {
     // bad
     let count = 1;
@@ -15,10 +13,7 @@
     count = 2;
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#types--return-consistent
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     function pressYourLuck(bigMoney) {
@@ -30,10 +25,7 @@
     };
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#types--coercion-strings
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     function test() {
         this.reviewScore = 9;
@@ -61,10 +53,7 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#types--coercion-numbers
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     const inputValue = '4';
 
@@ -100,10 +89,8 @@
     const val = parseInt(inputValue, 10);
 })();
 
-///////////////////////////////////////////////////////////////////////
-// https://github.com/thenerdery/javascript-standards#types--coercion-booleans
-///////////////////////////////////////////////////////////////////////
 
+// https://github.com/thenerdery/javascript-standards#types--coercion-booleans
 (function() {
     const age = 0;
 
@@ -125,14 +112,11 @@
     const hasAge = Boolean(age);
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#types--comment-deviations
-///////////////////////////////////////////////////////////////////////
-
 // good
 (function() {
     const inputValue = '4';
-  
+
     /**
      * parseInt was the reason my code was slow.
      * Bitshifting the String to coerce it to a
@@ -141,10 +125,7 @@
     const val = inputValue >> 0;
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#types--exceptions
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     function divide(numerator, denominator) {
         if (denominator === 0) {

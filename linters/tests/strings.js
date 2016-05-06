@@ -1,7 +1,6 @@
-///////////////////////////////////////////////////////////////////////
-// https://github.com/thenerdery/javascript-standards#strings--quotes
-///////////////////////////////////////////////////////////////////////
+/* eslint wrap-iife: [0, "any"] */
 
+// https://github.com/thenerdery/javascript-standards#strings--quotes
 (function() {
     // bad
     const name = "Capt. Janeway";
@@ -12,10 +11,7 @@
     const name = 'Capt. Janeway';
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#strings--line-length
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
@@ -36,10 +32,7 @@
         'with this, you would get nowhere fast.';
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#strings--template-literals
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     function sayHi(name) {
@@ -61,10 +54,7 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#strings--eval
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     eval('const youHaveBeenHacked = true;');
 })();

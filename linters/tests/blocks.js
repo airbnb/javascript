@@ -1,7 +1,6 @@
-///////////////////////////////////////////////////////////////////////
-// https://github.com/thenerdery/javascript-standards#blocks--braces
-///////////////////////////////////////////////////////////////////////
+/* eslint wrap-iife: [0, "any"] */
 
+// https://github.com/thenerdery/javascript-standards#blocks--braces
 (function() {
     const test = true;
 
@@ -19,15 +18,12 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#blocks--cuddled-elses
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     const test = true;
     const thing1 = () => {};
     const thing2 = () => {};
-    
+
     // bad
     if (test) {
         thing1();

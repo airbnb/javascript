@@ -1,7 +1,6 @@
-///////////////////////////////////////////////////////////////////////
-// https://github.com/thenerdery/javascript-standards#properties--dot
-///////////////////////////////////////////////////////////////////////
+/* eslint wrap-iife: [0, "any"] */
 
+// https://github.com/thenerdery/javascript-standards#properties--dot
 (function() {
     const luke = {
         jedi: true,
@@ -17,15 +16,12 @@
         jedi: true,
         age: 28,
     };
-    
+
     // good
     const isJedi = luke.jedi;
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#properties--bracket
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     const luke = {
         jedi: true,

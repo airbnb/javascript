@@ -1,7 +1,6 @@
-///////////////////////////////////////////////////////////////////////
-// https://github.com/thenerdery/javascript-standards#whitespace--spaces
-///////////////////////////////////////////////////////////////////////
+/* eslint wrap-iife: [0, "any"] */
 
+// https://github.com/thenerdery/javascript-standards#whitespace--spaces
 (function() {
     // bad
     function test() {
@@ -16,10 +15,7 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#whitespace--before-blocks
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     function test(){
@@ -54,10 +50,7 @@
     });
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#whitespace--around-keywords
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     const isJedi = true;
     const fight = () => {};
@@ -92,10 +85,7 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#whitespace--infix-ops
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     const y = 0;
 
@@ -110,17 +100,15 @@
     const x = y + 5;
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#whitespace--chains
-///////////////////////////////////////////////////////////////////////
-
 (function() {
-
+    const $ = null;
     // bad
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
 })();
 
 (function() {
+    const $ = null;
     // bad
     $('#items').
         find('.selected').
@@ -145,18 +133,16 @@
         selectAll: () => {
             return {
                 data: () => {}
-            }
+            };
         },
     };
 
     // good
+    const data = data;
     const leds = stage.selectAll('.led').data(data);
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#whitespace--after-blocks
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     const foo = true;
     const bar = true;
@@ -206,10 +192,7 @@
     return obj;
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#whitespace--padded-blocks
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     function bar() {
@@ -254,10 +237,7 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#whitespace--in-parens
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     function bar( foo ) {
@@ -290,10 +270,7 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#whitespace--in-brackets
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     const foo = [ 1, 2, 3 ];
@@ -306,10 +283,7 @@
     console.log(foo[0]);
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#whitespace--in-braces
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     const foo = {clark: 'kent'};
@@ -320,11 +294,9 @@
     const foo = { clark: 'kent' };
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#whitespace--max-len
-///////////////////////////////////////////////////////////////////////
-
 (function() {
+    const $ = null;
     // bad
     $.ajax({ method: 'POST', url: 'https://airbnb.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
 })();
@@ -336,6 +308,7 @@
 })();
 
 (function() {
+    const $ = null;
     // good
     $.ajax({
         method: 'POST',
@@ -346,6 +319,4 @@
         .fail(() => console.log('You have failed this city.'));
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#whitespace--newline-at-end
-///////////////////////////////////////////////////////////////////////

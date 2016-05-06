@@ -1,7 +1,6 @@
-///////////////////////////////////////////////////////////////////////
-// https://github.com/thenerdery/javascript-standards#functions--mutate-parameters
-///////////////////////////////////////////////////////////////////////
+/* eslint wrap-iife: [0, "any"] */
 
+// https://github.com/thenerdery/javascript-standards#functions--mutate-parameters
 (function() {
     // bad
     function foo(obj) {
@@ -21,9 +20,7 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#functions--reassign-parameters
-///////////////////////////////////////////////////////////////////////
 
 (function() {
     // bad
@@ -32,10 +29,7 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#functions--default-parameters
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // really bad
     function signup(name) {
@@ -69,10 +63,7 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#functions--default-side-effects
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     function count(a = b++) {
@@ -80,10 +71,7 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#functions--defaults-last
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     function signup(name = 'Tony Stark', birthdate) {
@@ -98,10 +86,7 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#functions--too-many-parameters
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     function signup(birthdate, address, city, state, zip, name) {
@@ -124,10 +109,7 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#functions--arguments-shadow
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     function concatenateAll() {
@@ -143,10 +125,7 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#functions--in-blocks
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     const currentUser = null;
 
@@ -160,7 +139,7 @@
 
 (function() {
     const currentUser = null;
-    
+
     // good
     let test;
     if (currentUser) {
@@ -170,19 +149,13 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#functions--constructor
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     const add = new Function('a', 'b', 'return a + b');
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#functions--exit-early
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     function add(num1, num2) {
         if (num1 == null || num2 == null) {
@@ -193,12 +166,17 @@
     };
 })();
 
-///////////////////////////////////////////////////////////////////////
+/* eslint wrap-iife: [2, "any"] */
 // https://github.com/thenerdery/javascript-standards#functions--iife
-///////////////////////////////////////////////////////////////////////
+(function() {
+    // bad
+    const x = function() {
+        return { y: 1 };
+    }();
+})();
 
 (function() {
-    // immediately-invoked function expression (IIFE)
+    // good
     (function () {
         console.log('Welcome to the Internet. Please follow me.');
     }());

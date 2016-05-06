@@ -1,7 +1,6 @@
-///////////////////////////////////////////////////////////////////////
-// https://github.com/thenerdery/javascript-standards#classes--use-them
-///////////////////////////////////////////////////////////////////////
+/* eslint wrap-iife: [0, "any"] */
 
+// https://github.com/thenerdery/javascript-standards#classes--use-them
 (function() {
     // bad
     function Queue(contents = []) {
@@ -34,10 +33,7 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#classes--static
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     class Queue {
@@ -50,7 +46,7 @@
 
     Queue.getInstanceCount = function() {
         return this.instanceCount;
-    }
+    };
 })();
 
 (function() {
@@ -68,10 +64,7 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#classes--extends
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     class Queue {
@@ -85,7 +78,7 @@
 
     PeekableQueue.prototype.peek = function () {
         return this.queue[0];
-    }
+    };
 })();
 
 (function() {
@@ -100,10 +93,7 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#classes--tostring
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     class Jedi {
         constructor(options = {}) {
@@ -120,10 +110,8 @@
     }
 })();
 
-///////////////////////////////////////////////////////////////////////
-// https://github.com/thenerdery/javascript-standards#classes--no-useless
-///////////////////////////////////////////////////////////////////////
 
+// https://github.com/thenerdery/javascript-standards#classes--no-useless
 (function() {
     // bad
     class Jedi {
@@ -149,7 +137,7 @@
 (function() {
     // good
     class Jedi {}
-    
+
     class Rey extends Jedi {
         constructor(...args) {
             super(...args);

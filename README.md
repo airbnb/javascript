@@ -45,17 +45,17 @@ This document is not intended to:
 
   <a name="types--assign-consistent"></a><a name="1.1"></a>
   - [1.1](#types--assign-consistent) The value of a variables should remain the same type as it was originally assigned (a number, string, boolean, array, or object). Avoid reassigning variables to a different type.
-  
+
     ```javascript
     // bad
     let count = 1;
     count = 'Ben Kenobi';
-  
+
     // good
     let count = 1;
     count = 2;
     ```
-  
+
   <a name="types--return-consistent"></a><a name="1.2"></a>
   - [1.2](#types--return-consistent) Values returned by functions should be of a consistent type. Avoid returning multiple different types.
 
@@ -65,11 +65,11 @@ This document is not intended to:
         if (bigMoney) {
             return 'No whammies!';
         }
-    
+
         return false;
     };
     ```
-  
+
   <a name="types--coercion-explicit"></a><a name="1.3"></a>
   - [1.3](#types--coercion-explicit) Perform type coercion at the beginning of the statement.
 
@@ -119,10 +119,10 @@ This document is not intended to:
 
     // bad
     const hasAge = new Boolean(age);
-  
+
     // bad
     const hasAge = !!age;
-  
+
     // good
     const hasAge = Boolean(age);
     ```
@@ -142,7 +142,7 @@ This document is not intended to:
 
   <a name="types--exceptions"></a><a name="1.8"></a>
   - [1.8](#types--exceptions) When an exception is to be thrown, prefer use of one of the built-in Error types or a class that inherits from Error.
-  - 
+  -
     > Why? This provide more semantic messaging and allow for the possibility of catching certain types of errors.
 
     ```javascript
@@ -190,7 +190,7 @@ This document is not intended to:
     let count = 1;
     count += 1;
     ```
- 
+
   <a name="variables--one-const"></a><a name="2.3"></a>
   - [2.3](#variables--one-const) Use one `const` declaration per variable. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
 
@@ -375,7 +375,7 @@ This document is not intended to:
     makePoint(x, y) {
         return { x: x, y: y };
     }
-  
+
     // good
     makePoint(x, y) {
         return { x, y };
@@ -459,14 +459,14 @@ This document is not intended to:
     for (i = 0; i < len; i++) {
         itemsCopy[i] = items[i];
     }
-  
+
     // good
     const itemsCopy = items.slice()
-  
+
     // good
     const itemsCopy = [...items];
     ```
-  
+
   <a name="arrays--from"></a><a name="4.4"></a>
   - [4.4](#arrays--from) To convert an array-like object to an array, use Array#from.
 
@@ -523,7 +523,7 @@ This document is not intended to:
         return `${firstName} ${lastName}`;
     }
     ```
-  
+
   <a name="destructuring--array"></a><a name="5.2"></a>
   - [5.2](#destructuring--array) Use array destructuring. jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
 
@@ -621,10 +621,10 @@ This document is not intended to:
         return `How are you, ${name}?`;
     }
     ```
-  
+
   <a name="strings--eval"></a><a name="6.5"></a>
   - [6.5](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities.
-  
+
   <a name="strings--sanitize"></a><a name="6.6"></a>
   - [6.6](#strings--sanitize) Never inject untrusted strings into the DOM unless the has been sanitized. Untrusted strings include anything a user or external source can manipulate, such as query parameters, cookie values, or results from an AJAX call.
 
@@ -689,7 +689,7 @@ This document is not intended to:
     signup(name = 'Tony Stark') {
         // ...
     }
-  
+
     // good
     signup({ name = 'Tony Stark' }) {
         // ...
@@ -742,7 +742,7 @@ This document is not intended to:
     signup(userInfo) {
         // ..
     }
-    ``` 
+    ```
 
   <a name="functions--arguments-shadow"></a><a name="7.7"></a>
   - [7.7](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
@@ -778,7 +778,7 @@ This document is not intended to:
     ```
 
   <a name="functions--in-blocks"></a><a name="7.9"></a>
-  - [7.9](#functions--in-blocks) Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
+  - [7.9](#functions--in-blocks) Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-inner-declarations`](http://eslint.org/docs/rules/no-inner-declarations)
 
     ```javascript
     // bad
@@ -798,7 +798,7 @@ This document is not intended to:
     ```
 
   <a name="functions--constructor"></a><a name="7.10"></a>
-  - [7.10](#functions--constructor) Never use the Function constructor to create a new function.
+  - [7.10](#functions--constructor) Never use the Function constructor to create a new function. eslint: [`no-new-func`](http://eslint.org/docs/rules/no-new-func)
 
     > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
 
@@ -819,7 +819,7 @@ This document is not intended to:
         // ...
     };
     ```
-  
+
   <a name="functions--iife"></a><a name="7.12"></a>
   - [7.12](#functions--iife) Add parantheses around immediately invoked function expressions. eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
 
@@ -831,7 +831,7 @@ This document is not intended to:
         console.log('Welcome to the Internet. Please follow me.');
     }());
     ```
-  
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrow Functions
@@ -884,9 +884,9 @@ This document is not intended to:
     function Queue(contents = []) {
         this.queue = [...contents];
     }
-  
+
     Queue.prototype.queue = [];
-  
+
     Queue.prototype.pop = function () {
         const value = this.queue[0];
         this.queue.splice(0, 1);
@@ -896,11 +896,11 @@ This document is not intended to:
     // good
     class Queue {
         queue = [];
-    
+
         constructor(contents = []) {
             this.queue = [...contents];
         }
-    
+
         pop() {
             const value = this.queue[0];
             this.queue.splice(0, 1);
@@ -911,7 +911,7 @@ This document is not intended to:
 
   <a name="classes--static"></a><a name="9.2"></a>
   - [9.2](#classes--static) Use `static` for declaring class-wide properties and methods.
-  
+
     ```javascript
     // bad
     class Queue {
@@ -919,9 +919,9 @@ This document is not intended to:
             Queue.instanceCount++;
         }
     }
-  
+
     Queue.instanceCount = 0;
-  
+
     Queue.getInstanceCount = function() {
         return this.instanceCount;
     }
@@ -929,11 +929,11 @@ This document is not intended to:
     // good
     class Queue {
         static instanceCount = 0;
-    
+
         constructor() {
             Queue.instanceCount++;
         }
-    
+
         static getInstanceCount() {
             return this.instanceCount;
         }
@@ -1020,7 +1020,7 @@ This document is not intended to:
   <a name="modules--separate"></a><a name="10.1"></a>
   - [10.1](#modules--separate) Create a separate module for each logical set of functionality in your application. Avoid grouping multiple areas of concern or the whole application into a single file.
 
-  
+
   <a name="modules--use-them"></a><a name="10.2"></a>
   - [10.2](#modules--use-them) Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
 
@@ -1066,7 +1066,7 @@ This document is not intended to:
   <a name="modules--self-host"></a><a name="10.5"></a>
   - [10.5](#modules--self-host) Self-host third-party libraries whenever possible. Avoid loading third-party scripts from external domains and CDN's. Exceptions are libraries that do not provide self-hosted versions, such as Google Maps or Analytics.
 
-    > Why? Doing so exposes users to additional attack vectors, privacy violations (IP address tracking) and additional downtime risks. 
+    > Why? Doing so exposes users to additional attack vectors, privacy violations (IP address tracking) and additional downtime risks.
 
     ```javascript
     // bad
@@ -1081,7 +1081,7 @@ This document is not intended to:
 ## Iterators and Generators
 
   <a name="iterators--nope"></a><a name="11.1"></a>
-  - [11.1](#iterators--nope) Avoid using iterators and `for-of` loops. Prefer JavaScript's higher-order functions like `map()` and `reduce()`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html)
+  - [11.1](#iterators--nope) Avoid using iterators and `for-of` loops. Prefer JavaScript's higher-order functions like `map()` and `reduce()`.
 
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
@@ -1160,7 +1160,7 @@ This document is not intended to:
         //...
     }
     ```
-  
+
   <a name="comparison--eqeq-null"></a><a name="13.2"></a>
   - [13.2](#comparison--eqeq-null) The one allowable exception is null checks. Use `==` and `!=` to compare against null.
 
@@ -1182,13 +1182,13 @@ This document is not intended to:
   - [13.3](#comparison--no-shortcuts) Avoid the "shortcut" syntax that omits the comparison operator in most cases.
 
     > Why? JavaScript will try to coerce the expression into a boolean value, which could lead to unintended results. Be more descriptive about what you want to compare.
-  
-    ```javascript 
+
+    ```javascript
     // bad
     if (name) {
         // ...
     }
-  
+
     // good
     if (name != null) {
         // ...
@@ -1201,12 +1201,12 @@ This document is not intended to:
     ```javascript
     // good
     let isValid = true;
-  
+
     if (isValid) {
         // ...
     }
     ```
-  
+
   <a name="comparison--switch-blocks"></a><a name="13.5"></a>
   - [13.5](#comparison--switch-blocks) Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`). eslint: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations.html).
 
@@ -1372,7 +1372,7 @@ This document is not intended to:
 
   <a name="comments--actionitems"></a><a name="15.3"></a>
   - [15.3](#comments--actionitems)  Prefix any comments that are meant to be revisited later with `FIXME` or `TODO`.
-  
+
     > Why? helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable.
 
   <a name="comments--fixme"></a><a name="15.4"></a>
@@ -1781,7 +1781,7 @@ This document is not intended to:
     const name = 'Skywalker';
     return name;
     ```
-    
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Naming Conventions
@@ -1816,7 +1816,7 @@ This document is not intended to:
         }
     }   
     ```
-  
+
   <a name="naming--boolean-prefix"></a><a name="19.2"></a>
   - [19.2](#naming--boolean-prefix) If the property/method is a `boolean`, prefix with `is`, `has`, `are`, `should`.
 
@@ -1830,12 +1830,12 @@ This document is not intended to:
     if (isVisible)
         // ...
     }
-  
+
     // bad
     if (hero.superPower())
         // ...
     }
-  
+
     // good
     if (hero.hasSuperPower())
         // ...
@@ -1855,10 +1855,10 @@ This document is not intended to:
     query() {
         // ...
     }
-  
+
     // bad
     return { a: 0, b: 0, c: 0 };
-  
+
     // good
     return { x: 0, y: 0, z: 0 };
     ```
@@ -2011,9 +2011,9 @@ This document is not intended to:
     const NAVIGATION = {
         HOME: 'home',
         ABOUT: 'about',
-        CONTACT: 'contact', 
+        CONTACT: 'contact',
     }
-  
+
     // good
     const NAVIGATION = {
         HOME: Symbol(),
@@ -2134,34 +2134,34 @@ This document is not intended to:
     // good
     const $body = $(document.body);
     ```
-  
+
   <a name="dom--selector-prefix"></a><a name="22.2"></a>
   - [22.2](#dom--selector-prefix) DOM elements to be selected by JavaScript should be prefixed with js-. These selectors should not be related to any CSS styles and must exist solely for the accessing of those DOM elements.
 
     ```javascript
     // bad
     <a href="#" class="previousButton">Previous</a>
-  
+
     const $previousButton = $('.previousButton');
-  
+
     // good
     <a href="#" class="previousButton js-previousButton">Previous</a>
-  
+
     const $previousButton = $('.js-previousButton');
     ```
-  
+
   <a name="dom--selector-match"></a><a name="22.3"></a>
   - [22.3](#dom--selector-match) If the behavior of a DOM element is tied to a JavaScript class, the selector should be named the same as that JavaScript class.
 
     ```javascript
     // bad
     <div class="js-carousel"></div>
-  
+
     new CarouselView($('.js-carousel'));
-  
+
     // good
     <div class="js-CarouselView"></div>
-  
+
     new CarouselView($('.js-CarouselView'));
     ```
 
@@ -2182,7 +2182,7 @@ This document is not intended to:
         'background-color': 'pink'
     });
     ```
-  
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Asynchronous Operations

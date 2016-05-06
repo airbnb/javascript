@@ -1,8 +1,8 @@
-///////////////////////////////////////////////////////////////////////
-// https://github.com/thenerdery/javascript-standards#asynchronous--nested-promises
-///////////////////////////////////////////////////////////////////////
+/* eslint wrap-iife: [0, "any"] */
 
+// https://github.com/thenerdery/javascript-standards#asynchronous--nested-promises
 (function() {
+    const Promise = null;
     function waitFor(milliseconds) {
         return new Promise((resolve, reject) => {
             window.setTimeout(
@@ -11,7 +11,7 @@
         });
     }
 
-    //bad
+    // bad
     waitFor(1000)
         .then(() => {
             waitFor(2000)
@@ -20,11 +20,12 @@
                         .then(() => {
                             console.log('Done waiting!');
                         });
-                })
+                });
         });
 })();
 
 (function() {
+    const Promise = null;
     function waitFor(milliseconds) {
         return new Promise((resolve, reject) => {
             window.setTimeout(
@@ -33,7 +34,7 @@
         });
     }
 
-    //good
+    // good
     waitFor(1000)
         .then(() => {
             return waitFor(2000);
@@ -46,11 +47,9 @@
         });
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#asynchronous--catch
-///////////////////////////////////////////////////////////////////////
-
 (function() {
+    const Promise = null;
     function waitFor(milliseconds) {
         return new Promise((resolve, reject) => {
             window.setTimeout(
@@ -59,7 +58,7 @@
         });
     }
 
-    //good
+    // good
     waitFor(1000)
         .then(() => { console.log('Done waiting!'); })
         .catch(exception => { console.error('Error in waitFor():', exception); });

@@ -1,7 +1,6 @@
-///////////////////////////////////////////////////////////////////////
-// https://github.com/thenerdery/javascript-standards#commas--leading-trailing
-///////////////////////////////////////////////////////////////////////
+/* eslint wrap-iife: [0, "any"] */
 
+// https://github.com/thenerdery/javascript-standards#commas--leading-trailing
 (function() {
     // bad
     const once = null;
@@ -21,7 +20,7 @@
     const once = null;
     const upon = null;
     const aTime = null;
-    
+
     const story = [
         once,
         upon,
@@ -49,10 +48,7 @@
     };
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#commas--dangling
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     const hero = {

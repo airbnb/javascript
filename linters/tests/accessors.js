@@ -1,9 +1,8 @@
-///////////////////////////////////////////////////////////////////////
-// https://github.com/thenerdery/javascript-standards#accessors--use-them
-///////////////////////////////////////////////////////////////////////
+/* eslint wrap-iife: [0, "any"] */
 
+// https://github.com/thenerdery/javascript-standards#accessors--use-them
 (function() {
-    //bad
+    // bad
     class Dragon {
         _age = 0;
 
@@ -22,7 +21,7 @@
 })();
 
 (function() {
-    //good
+    // good
     class Dragon {
         _age = 0;
 
@@ -40,12 +39,10 @@
     console.log(dragon.age); // 25
 })();
 
-///////////////////////////////////////////////////////////////////////
-// https://github.com/thenerdery/javascript-standards#accessors--use-them
-///////////////////////////////////////////////////////////////////////
 
+// https://github.com/thenerdery/javascript-standards#accessors--use-them
 (function() {
-    //good
+    // good
     class Dragon {
         _age = 0;
 
@@ -60,7 +57,7 @@
 })();
 
 (function() {
-    //good
+    // good
     class Dragon {
         _age = 0;
 

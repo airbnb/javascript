@@ -1,7 +1,6 @@
-///////////////////////////////////////////////////////////////////////
-// https://github.com/thenerdery/javascript-standards#arrays--literals
-///////////////////////////////////////////////////////////////////////
+/* eslint wrap-iife: [0, "any"] */
 
+// https://github.com/thenerdery/javascript-standards#arrays--literals
 (function() {
     // bad
     const items = new Array();
@@ -12,10 +11,7 @@
     const items = [];
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#arrays--push
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     const someStack = [];
@@ -28,10 +24,7 @@
     someStack.push('abracadabra');
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#arrays--spreads
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     const items = [1, 2, 3];
@@ -47,7 +40,7 @@
 (function() {
     // good
     const items = [1, 2, 3];
-    const itemsCopy = items.slice()
+    const itemsCopy = items.slice();
 })();
 
 (function() {
@@ -56,19 +49,13 @@
     const itemsCopy = [...items];
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#arrays--from
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     const foo = document.querySelectorAll('.foo');
     const nodes = Array.from(foo);
 })();
 
-///////////////////////////////////////////////////////////////////////
 // https://github.com/thenerdery/javascript-standards#arrays--callback-return
-///////////////////////////////////////////////////////////////////////
-
 (function() {
     // bad
     [1, 2, 3].map(x => {
