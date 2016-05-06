@@ -29,6 +29,7 @@ module.exports = {
     // enforce the spacing around the * in generator functions
     'generator-star-spacing': 0,
     // disallow modifying variables of class declarations
+    // TODO: enable
     'no-class-assign': 0,
     // disallow arrow functions where they could be confused with comparisons
     // http://eslint.org/docs/rules/no-confusing-arrow
@@ -110,7 +111,10 @@ module.exports = {
     // Forbid the use of extraneous packages
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
     // TODO: enable
-    'import/no-extraneous-dependencies': [0, { 'devDependencies': false }],
+    'import/no-extraneous-dependencies': [0, {
+      'devDependencies': false,
+      'optionalDependencies': false,
+    }],
     // ensure imports point to files/modules that can be resolved
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md
     'import/no-unresolved': [2, { 'commonjs': true }],
@@ -152,7 +156,16 @@ module.exports = {
     // TODO: enable?
     'import/order': [0, {
       'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+      'newlines-between': 'never',
     }],
+    // Require a newline after the last import/require in a group
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/newline-after-import.md
+    // TODO: enable
+    'import/newline-after-import': 0,
+    // Forbid mutable exports
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md
+    // TODO: enable
+    'import/no-mutable-exports': 0,
   },
   'settings': {
     'import/resolver': {
