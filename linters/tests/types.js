@@ -78,6 +78,13 @@
 (function() {
     const inputValue = '4';
 
+    // bad
+    const val = parseInt(inputValue);
+})();
+
+(function() {
+    const inputValue = '4';
+
     // good
     const val = Number(inputValue);
 })();

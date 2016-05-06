@@ -103,6 +103,7 @@
         #--------- Types                                 https://github.com/thenerdery/javascript-standards#types
         "no-implicit-coercion": 2,                       # Disallow the type conversion with shorter notations. (no-implicit-coercion)
         "no-bitwise": 2,                                 # Disallow Bitwise Operators (no-bitwise)
+        "radix": [2, "always"],                          # Require Radix Parameter (radix)
 
         #--------- Variables                             https://github.com/thenerdery/javascript-standards#variables
         "prefer-const": 2,                               # Suggest using const (prefer-const)
