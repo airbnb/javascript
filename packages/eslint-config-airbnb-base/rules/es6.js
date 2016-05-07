@@ -127,8 +127,7 @@ module.exports = {
     'import/no-commonjs': 0,
     // disallow AMD require/define
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-amd.md
-    // TODO: enable
-    'import/no-amd': 0,
+    'import/no-amd': 2,
     // disallow non-import statements appearing before import statements
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/imports-first.md
     // TODO: enable?
