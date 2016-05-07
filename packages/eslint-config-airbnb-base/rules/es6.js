@@ -29,8 +29,8 @@ module.exports = {
     // enforce the spacing around the * in generator functions
     'generator-star-spacing': 0,
     // disallow modifying variables of class declarations
-    // TODO: enable
-    'no-class-assign': 0,
+    // http://eslint.org/docs/rules/no-class-assign
+    'no-class-assign': 2,
     // disallow arrow functions where they could be confused with comparisons
     // http://eslint.org/docs/rules/no-confusing-arrow
     'no-confusing-arrow': [2, {
