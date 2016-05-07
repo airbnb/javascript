@@ -133,9 +133,8 @@ module.exports = {
     // TODO: enable?
     'import/imports-first': [0, 'absolute-first'],
     // disallow duplicate imports
-    // TODO: enable
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md
-    'import/no-duplicates': 0,
+    'import/no-duplicates': 2,
     // disallow use of jsdoc-marked-deprecated imports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-deprecated.md
     'import/no-deprecated': 0,
