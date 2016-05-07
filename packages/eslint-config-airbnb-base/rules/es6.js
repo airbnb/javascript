@@ -162,8 +162,7 @@ module.exports = {
     'import/newline-after-import': 0,
     // Forbid mutable exports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md
-    // TODO: enable
-    'import/no-mutable-exports': 0,
+    'import/no-mutable-exports': 2,
   },
   'settings': {
     'import/resolver': {

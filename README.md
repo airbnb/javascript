@@ -1138,6 +1138,21 @@ Other Style Guides
     } from 'foo';
     ```
 
+  <a name="modules--no-mutable-exports"></a>
+  - [10.5](#modules--no-mutable-exports) Do not export mutable bindings.
+ eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
+    > Why? Mutation should be avoided in general, but in particular when exporting mutable bindings. While this technique may be needed for some special cases, in general, only constant references should be exported.
+
+    ```javascript
+    // bad
+    let foo = 3;
+    export { foo }
+
+    // good
+    const foo = 3;
+    export { foo }
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Iterators and Generators
