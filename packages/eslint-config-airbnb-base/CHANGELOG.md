@@ -1,3 +1,13 @@
+3.0.0 / 2016-05-07
+==================
+ - [breaking] enable `import/no-mutable-exports`
+ - [breaking] enable `no-class-assign` rule, to pair with `no-func-assign`
+ - [breaking] widen `no-extra-parens` to include everything, except `nestedBinaryExpressions`
+ - [breaking] Re-enabling `newline-per-chained-call` (#748)
+ - [minor] enable `import/no-amd`
+ - [patch] enable `import/no-duplicates`
+ - [deps] update `eslint`, `eslint-plugin-import`, `eslint-find-rules`
+
 2.0.0 / 2016-04-29
 ==================
  - [breaking] enable `no-unsafe-finally` rule
