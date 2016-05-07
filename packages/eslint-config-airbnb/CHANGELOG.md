@@ -1,3 +1,8 @@
+9.0.0 / 2016-05-07
+==================
+- [breaking] update `eslint-config-airbnb-base` to v3
+- [deps] update `eslint-find-rules`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y`
+
 8.0.0 / 2016-04-21
 ==================
 - [breaking] Migrate non-React rules to a separate linter config (`eslint-config-airbnb-base`)
