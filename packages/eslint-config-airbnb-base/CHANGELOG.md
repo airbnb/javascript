@@ -1,3 +1,7 @@
+3.0.1 / 2016-05-08
+==================
+ - [patch] re-disable `no-extra-parens` (#869, #867)
+
 3.0.0 / 2016-05-07
 ==================
  - [breaking] enable `import/no-mutable-exports`
