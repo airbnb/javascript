@@ -26,7 +26,7 @@ module.exports = {
     'no-extra-boolean-cast': 0,
     // disallow unnecessary parentheses
     // http://eslint.org/docs/rules/no-extra-parens
-    'no-extra-parens': [2, 'all', {
+    'no-extra-parens': [0, 'all', {
       'conditionalAssign': true,
       'nestedBinaryExpressions': false,
     }],
