@@ -892,7 +892,7 @@ Other Style Guides
     const itemHeight = (item) => item.height > 256 ? item.largeSize : item.smallSize;
 
     // good
-    const itemHeight = (item) => { return item.height > 256 ? item.largeSize : item.smallSize; }
+    const itemHeight = (item) => { return item.height > 256 ? item.largeSize : item.smallSize; };
     ```
 
 **[⬆ back to top](#table-of-contents)**
