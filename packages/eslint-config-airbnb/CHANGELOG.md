@@ -1,3 +1,7 @@
+9.0.1 / 2016-05-08
+==================
+- [patch] update `eslint-config-airbnb-base` to v3.0.1
+
 9.0.0 / 2016-05-07
 ==================
 - [breaking] update `eslint-config-airbnb-base` to v3
