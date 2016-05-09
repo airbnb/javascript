@@ -64,7 +64,10 @@ module.exports = {
     'react/jsx-no-undef': 2,
     // Enforce PascalCase for user-defined JSX components
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md
-    'react/jsx-pascal-case': 2,
+    'react/jsx-pascal-case': [2, {
+      'allowAllCaps': true,
+      'ignore': [],
+    }],
     // Enforce propTypes declarations alphabetical sorting
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-prop-types.md
     'react/sort-prop-types': [0, {
