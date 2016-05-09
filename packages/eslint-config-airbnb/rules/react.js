@@ -168,6 +168,10 @@ module.exports = {
     // enforce JSX indentation
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
     'react/jsx-indent': [2, 2],
+    // disallow target="_blank" on links
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md
+    // TODO: enable
+    'react/jsx-no-target-blank': 0
   },
   'settings': {
     'import/resolver': {
