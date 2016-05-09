@@ -1,4 +1,5 @@
 # https://github.com/thenerdery/javascript-standards
+# Last tested with with eslint v2.8.0
 {
     "env": {
         "browser": true,

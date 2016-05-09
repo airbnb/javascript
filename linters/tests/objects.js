@@ -1,15 +1,13 @@
-/* eslint wrap-iife: [0, "any"] */
-
 // https://github.com/thenerdery/javascript-standards#objects--no-new
 (function() {
     // bad
     const item = new Object();
-})();
+}());
 
 (function() {
     // good
     const item = {};
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#objects--reserved-words
 (function() {
@@ -17,21 +15,21 @@
     const superman = {
         class: 'alien',
     };
-})();
+}());
 
 (function() {
     // bad
     const superman = {
         klass: 'alien',
     };
-})();
+}());
 
 (function() {
     // good
     const superman = {
         type: 'alien',
     };
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#objects--computed-properties
 (function() {
@@ -45,7 +43,7 @@
         name: 'San Francisco',
     };
     obj[getKey('enabled')] = true;
-})();
+}());
 
 (function() {
     function getKey(k) {
@@ -58,7 +56,7 @@
         name: 'San Francisco',
         [getKey('enabled')]: true,
     };
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#objects--shorthand
 (function() {
@@ -66,11 +64,11 @@
     const atom = {
         value: 1,
 
-        addValue: function (value) {
+        addValue: function(value) {
             return atom.value + value;
         },
     };
-})();
+}());
 
 (function() {
     // good
@@ -81,7 +79,7 @@
             return atom.value + value;
         },
     };
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#objects--concise
 (function() {
@@ -89,14 +87,14 @@
     function makePoint(x, y) {
         return { x: x, y: y };
     }
-})();
+}());
 
 (function() {
     // good
     function makePoint(x, y) {
         return { x, y };
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#objects--grouped-shorthand
 (function() {
@@ -108,7 +106,7 @@
             opacity: 0.5
         };
     }
-})();
+}());
 
 
 // https://github.com/thenerdery/javascript-standards#objects--quoted-props
@@ -119,7 +117,7 @@
         'bar': 4,
         'data-blah': 5,
     };
-})();
+}());
 
 (function() {
     // good
@@ -128,4 +126,4 @@
         bar: 4,
         'data-blah': 5,
     };
-})();
+}());

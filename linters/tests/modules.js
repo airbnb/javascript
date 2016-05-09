@@ -1,5 +1,3 @@
-/* eslint wrap-iife: [0, "any"] */
-
 // https://github.com/thenerdery/javascript-standards#modules--use-them
 // bad
 const NerderyStyleGuide0 = require('./NerderyStyleGuide');

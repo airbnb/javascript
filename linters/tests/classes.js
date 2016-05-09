@@ -1,5 +1,3 @@
-/* eslint wrap-iife: [0, "any"] */
-
 // https://github.com/thenerdery/javascript-standards#classes--use-them
 (function() {
     // bad
@@ -9,12 +7,12 @@
 
     Queue.prototype.queue = [];
 
-    Queue.prototype.pop = function () {
+    Queue.prototype.pop = function() {
         const value = this.queue[0];
         this.queue.splice(0, 1);
         return value;
     };
-})();
+}());
 
 (function() {
     // good
@@ -31,7 +29,7 @@
             return value;
         }
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#classes--static
 (function() {
@@ -47,7 +45,7 @@
     Queue.getInstanceCount = function() {
         return this.instanceCount;
     };
-})();
+}());
 
 (function() {
     // good
@@ -62,7 +60,7 @@
             return this.instanceCount;
         }
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#classes--extends
 (function() {
@@ -76,10 +74,10 @@
     PeekableQueue.prototype = new Queue();
     PeekableQueue.prototype.constructor = PeekableQueue;
 
-    PeekableQueue.prototype.peek = function () {
+    PeekableQueue.prototype.peek = function() {
         return this.queue[0];
     };
-})();
+}());
 
 (function() {
     // good
@@ -91,7 +89,7 @@
             return this.queue[0];
         }
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#classes--tostring
 (function() {
@@ -108,10 +106,11 @@
             return `Jedi - ${this.getName()}`;
         }
     }
-})();
+}());
 
 
 // https://github.com/thenerdery/javascript-standards#classes--no-useless
+// estlint: no-useless-constructor
 (function() {
     // bad
     class Jedi {
@@ -121,7 +120,7 @@
             return this.name;
         }
     }
-})();
+}());
 
 (function() {
     // bad
@@ -132,7 +131,7 @@
             super(...args);
         }
     }
-})();
+}());
 
 (function() {
     // good
@@ -144,4 +143,4 @@
             this.name = 'Rey';
         }
     }
-})();
+}());

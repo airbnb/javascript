@@ -1,13 +1,12 @@
-/* eslint wrap-iife: [0, "any"] */
-
 // https://github.com/thenerdery/javascript-standards#blocks--braces
+// eslint: curly
 (function() {
     const test = true;
 
     // bad
     if (test)
         return false;
-})();
+}());
 
 (function() {
     const test = true;
@@ -16,9 +15,10 @@
     if (test) {
         return false;
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#blocks--cuddled-elses
+// eslint: brace-style
 (function() {
     const test = true;
     const thing1 = () => {};
@@ -31,7 +31,7 @@
     else {
         thing2();
     }
-})();
+}());
 
 (function() {
     const test = true;
@@ -44,4 +44,4 @@
     } else {
         thing2();
     }
-})();
+}());

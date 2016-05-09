@@ -1,43 +1,42 @@
-/* eslint wrap-iife: [0, "any"] */
-
 // https://github.com/thenerdery/javascript-standards#comparison--eqeqeq
+// eslint: eqeqeq
 (function() {
     // bad
     const dragonball = 'z';
 
     if (dragonball == 'z') {
-        //...
+        // ...
     }
-})();
+}());
 
 (function() {
     // good
     const dragonball = 'z';
 
     if (dragonball === 'z') {
-        //...
+        // ...
     }
-})();
-
+}());
 
 // https://github.com/thenerdery/javascript-standards#comparison--eqeq-null
+// eslint: no-undefined
 (function() {
     // bad
     const dragonball = 'z';
 
     if (dragonball === null || dragonball === undefined) {
-        //...
+        // ...
     }
-})();
+}());
 
 (function() {
     // good
     const dragonball = 'z';
 
     if (dragonball == null) {
-        //...
+        // ...
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#comparison--no-shortcuts
 (function() {
@@ -47,7 +46,7 @@
     if (name) {
         // ...
     }
-})();
+}());
 
 (function() {
     // good
@@ -56,19 +55,20 @@
     if (name != null) {
         // ...
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#comparison--shortcuts-boolean
 (function() {
     // good
-    let isValid = true;
+    const isValid = true;
 
     if (isValid) {
         // ...
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#comparison--switch-blocks
+// eslint: no-case-declarations
 (function() {
     // bad
     const number = 1;
@@ -83,7 +83,7 @@
         default:
             const z = 3;
     }
-})();
+}());
 
 (function() {
     // good
@@ -102,9 +102,10 @@
             const z = 3;
         }
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#comparison--nested-ternaries
+// eslint: no-nested-ternary
 (function() {
     // bad
     const maybe1 = null;
@@ -115,7 +116,7 @@
     const foo = maybe1 > maybe2
         ? 'bar'
         : value1 > value2 ? 'baz' : null;
-})();
+}());
 
 (function() {
     // good
@@ -127,4 +128,4 @@
     const maybeNull = value1 > value2 ? 'baz' : null;
 
     const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
-})();
+}());

@@ -1,20 +1,20 @@
-/* eslint wrap-iife: [0, "any"] */
-
 // https://github.com/thenerdery/javascript-standards#naming--camelCase
+// eslint: camelcase
 (function() {
     // bad
     const OBJEcttsssss = {};
     const this_is_my_object = {};
     function c() {}
-})();
+}());
 
 (function() {
     // good
     const thisIsMyObject = {};
     function thisIsMyFunction() {}
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#naming--PascalCase
+// eslint: new-cap
 (function() {
     // bad
     function user(options) {
@@ -24,7 +24,7 @@
     const bad = new user({
         name: 'nope',
     });
-})();
+}());
 
 (function() {
     // good
@@ -37,7 +37,7 @@
     const good = new User({
         name: 'yup',
     });
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#naming--leading-underscore
 (function() {
@@ -46,35 +46,35 @@
         this.__firstName__ = 'Panda';
         this.firstName_ = 'Panda';
     }
-})();
+}());
 
 (function() {
     // good
     function test() {
         this._firstName = 'Panda';
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#naming--self-this
 (function() {
     // bad
     function foo() {
         const self = this;
-        return function () {
+        return function() {
             console.log(self);
         };
     }
-})();
+}());
 
 (function() {
     // bad
     function foo() {
         const that = this;
-        return function () {
+        return function() {
             console.log(that);
         };
     }
-})();
+}());
 
 (function() {
     // good
@@ -83,4 +83,4 @@
             console.log(this);
         };
     }
-})();
+}());

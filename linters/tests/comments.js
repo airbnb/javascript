@@ -1,5 +1,3 @@
-/* eslint wrap-iife: [0, "any"] */
-
 // https://github.com/thenerdery/javascript-standards#comments--multiline
 (function() {
     // bad
@@ -12,9 +10,9 @@
     // @return {Element} element
     function make(tag) {
         // ...
-        return element;
+        return 'element';
     }
-})();
+}());
 
 (function() {
     // good
@@ -29,21 +27,21 @@
      */
     function make(tag) {
         // ...
-        return element;
+        return 'element';
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#comments--singleline
 (function() {
     // bad
     const active = true;  // is current tab
-})();
+}());
 
 (function() {
     // good
     // is current tab
     const active = true;
-})();
+}());
 
 (function() {
     // bad
@@ -54,7 +52,7 @@
 
         return type;
     }
-})();
+}());
 
 (function() {
     // good
@@ -66,7 +64,7 @@
 
         return type;
     }
-})();
+}());
 
 (function() {
     // also good
@@ -76,4 +74,4 @@
 
         return type;
     }
-})();
+}());

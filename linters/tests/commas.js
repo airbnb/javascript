@@ -1,6 +1,5 @@
-/* eslint wrap-iife: [0, "any"] */
-
 // https://github.com/thenerdery/javascript-standards#commas--leading-trailing
+// eslint: comma-style
 (function() {
     // bad
     const once = null;
@@ -12,8 +11,7 @@
       , upon
       , aTime
     ];
-
-})();
+}());
 
 (function() {
     // good
@@ -26,7 +24,7 @@
         upon,
         aTime,
     ];
-})();
+}());
 
 (function() {
     // bad
@@ -36,7 +34,7 @@
       , birthYear: 1815
       , superPower: 'computers'
     };
-})();
+}());
 
 (function() {
     // good
@@ -46,16 +44,17 @@
         birthYear: 1815,
         superPower: 'computers',
     };
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#commas--dangling
+// eslint: comma-dangle
 (function() {
     // bad
     const hero = {
         firstName: 'Dana',
         lastName: 'Scully'
     };
-})();
+}());
 
 (function() {
     // bad
@@ -63,7 +62,7 @@
         'Batman',
         'Superman'
     ];
-})();
+}());
 
 (function() {
     // good
@@ -71,7 +70,7 @@
         firstName: 'Dana',
         lastName: 'Scully',
     };
-})();
+}());
 
 (function() {
     // good
@@ -79,4 +78,4 @@
         'Batman',
         'Superman',
     ];
-})();
+}());

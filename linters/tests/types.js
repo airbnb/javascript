@@ -1,17 +1,15 @@
-/* eslint wrap-iife: [0, "any"] */
-
 // https://github.com/thenerdery/javascript-standards#types--assign-consistent
 (function() {
     // bad
     let count = 1;
     count = 'Ben Kenobi';
-})();
+}());
 
 (function() {
     // good
     let count = 1;
     count = 2;
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#types--return-consistent
 (function() {
@@ -23,7 +21,7 @@
 
         return false;
     };
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#types--coercion-strings
 (function() {
@@ -33,7 +31,7 @@
         // bad
         const totalScore = this.reviewScore + ''; // invokes this.reviewScore.valueOf()
     }
-})();
+}());
 
 (function() {
     function test() {
@@ -42,7 +40,7 @@
         // bad
         const totalScore = this.reviewScore.toString(); // isn't guaranteed to return a string
     }
-})();
+}());
 
 (function() {
     function test() {
@@ -51,7 +49,7 @@
         // good
         const totalScore = String(this.reviewScore);
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#types--coercion-numbers
 (function() {
@@ -59,42 +57,42 @@
 
     // bad
     const val = new Number(inputValue);
-})();
+}());
 
 (function() {
     const inputValue = '4';
 
     // bad
     const val = +inputValue;
-})();
+}());
 
 (function() {
     const inputValue = '4';
 
     // bad
     const val = inputValue >> 0;
-})();
+}());
 
 (function() {
     const inputValue = '4';
 
     // bad
     const val = parseInt(inputValue);
-})();
+}());
 
 (function() {
     const inputValue = '4';
 
     // good
     const val = Number(inputValue);
-})();
+}());
 
 (function() {
     const inputValue = '4';
 
     // good
     const val = parseInt(inputValue, 10);
-})();
+}());
 
 
 // https://github.com/thenerdery/javascript-standards#types--coercion-booleans
@@ -103,21 +101,21 @@
 
     // bad
     const hasAge = new Boolean(age);
-})();
+}());
 
 (function() {
     const age = 0;
 
     // bad
     const hasAge = !!age;
-})();
+}());
 
 (function() {
     const age = 0;
 
     // good
     const hasAge = Boolean(age);
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#types--comment-deviations
 // good
@@ -130,7 +128,7 @@
      * Number made it a lot faster.
      */
     const val = inputValue >> 0;
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#types--exceptions
 (function() {
@@ -140,7 +138,7 @@
             throw 'string exceptions are harder to handle';
         }
     }
-})();
+}());
 
 (function() {
     function divide(numerator, denominator) {
@@ -149,4 +147,4 @@
             throw new RangeError('cannot divide by 0');
         }
     }
-})();
+}());

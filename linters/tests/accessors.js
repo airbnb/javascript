@@ -1,5 +1,3 @@
-/* eslint wrap-iife: [0, "any"] */
-
 // https://github.com/thenerdery/javascript-standards#accessors--use-them
 (function() {
     // bad
@@ -18,7 +16,7 @@
     const dragon = new Dragon();
     dragon.setAge(25);
     console.log(dragon.getAge()); // 25
-})();
+}());
 
 (function() {
     // good
@@ -37,8 +35,7 @@
     const dragon = new Dragon();
     dragon.age = 25;
     console.log(dragon.age); // 25
-})();
-
+}());
 
 // https://github.com/thenerdery/javascript-standards#accessors--use-them
 (function() {
@@ -54,7 +51,7 @@
             return this._age;
         }
     }
-})();
+}());
 
 (function() {
     // good
@@ -65,4 +62,4 @@
             return this._age;
         }
     }
-})();
+}());

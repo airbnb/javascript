@@ -1,5 +1,3 @@
-/* eslint wrap-iife: [0, "any"] */
-
 // https://github.com/thenerdery/javascript-standards#asynchronous--nested-promises
 (function() {
     const Promise = null;
@@ -22,7 +20,7 @@
                         });
                 });
         });
-})();
+}());
 
 (function() {
     const Promise = null;
@@ -45,7 +43,7 @@
         .then(() => {
             console.log('Done waiting!');
         });
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#asynchronous--catch
 (function() {
@@ -62,4 +60,4 @@
     waitFor(1000)
         .then(() => { console.log('Done waiting!'); })
         .catch(exception => { console.error('Error in waitFor():', exception); });
-})();
+}());

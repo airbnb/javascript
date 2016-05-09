@@ -1,6 +1,5 @@
-/* eslint wrap-iife: [0, "any"] */
-
 // https://github.com/thenerdery/javascript-standards#functions--mutate-parameters
+// eslint: no-param-reassign
 (function() {
     // bad
     function foo(obj) {
@@ -8,7 +7,7 @@
             obj.meaningOfLife = 42;
         }
     }
-})();
+}());
 
 (function() {
     // good
@@ -18,18 +17,19 @@
             meaningOfLife = 42;
         }
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#functions--reassign-parameters
-
+// eslint: no-param-reassign
 (function() {
     // bad
     function foo(a) {
         a = 1;
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#functions--default-parameters
+// eslint: no-param-reassign
 (function() {
     // really bad
     function signup(name) {
@@ -38,38 +38,40 @@
         // be what you want but it can introduce subtle bugs.
         name = name || 'Tony Stark';
     }
-})();
+}());
 
 (function() {
     // still bad
-    function signup (name) {
+    function signup(name) {
         if (name == null) {
             name = 'Tony Stark';
         }
     }
-})();
+}());
 
 (function() {
     // good
     function signup(name = 'Tony Stark') {
         // ...
     }
-})();
+}());
 
 (function() {
     // good
     function signup({ name = 'Tony Stark' }) {
         // ...
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#functions--default-side-effects
 (function() {
     // bad
+    let b = 0;
+
     function count(a = b++) {
         // ...
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#functions--defaults-last
 (function() {
@@ -77,29 +79,30 @@
     function signup(name = 'Tony Stark', birthdate) {
         // ...
     }
-})();
+}());
 
 (function() {
     // good
     function signup(birthdate, name = 'Tony Stark') {
         // ...
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#functions--too-many-parameters
+// eslint: max-params
 (function() {
     // bad
     function signup(birthdate, address, city, state, zip, name) {
         // ...
     }
-})();
+}());
 
 (function() {
     // good
     function signup({ birthdate, address, city, state, zip, name }) {
         // ...
     }
-})();
+}());
 
 (function() {
     // good
@@ -107,25 +110,27 @@
     function signup(userInfo) {
         // ..
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#functions--arguments-shadow
+// eslint: prefer-rest-params
 (function() {
     // bad
     function concatenateAll() {
         const args = Array.prototype.slice.call(arguments);
         return args.join('');
     }
-})();
+}());
 
 (function() {
     // good
     function concatenateAll(...args) {
         return args.join('');
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#functions--in-blocks
+// estlint: no-inner-declarations
 (function() {
     const currentUser = null;
 
@@ -135,7 +140,7 @@
             console.log('Nope.');
         }
     }
-})();
+}());
 
 (function() {
     const currentUser = null;
@@ -147,13 +152,14 @@
             console.log('Yup.');
         };
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#functions--constructor
+// eslint: no-new-func
 (function() {
     // bad
     const add = new Function('a', 'b', 'return a + b');
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#functions--exit-early
 (function() {
@@ -164,20 +170,20 @@
 
         // ...
     };
-})();
+}());
 
-/* eslint wrap-iife: [2, "any"] */
 // https://github.com/thenerdery/javascript-standards#functions--iife
+// eslint: wrap-iife
 (function() {
     // bad
     const x = function() {
         return { y: 1 };
     }();
-})();
+}());
 
 (function() {
     // good
-    (function () {
+    (function() {
         console.log('Welcome to the Internet. Please follow me.');
     }());
-})();
+}());

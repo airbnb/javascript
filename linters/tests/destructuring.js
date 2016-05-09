@@ -1,5 +1,3 @@
-/* eslint wrap-iife: [0, "any"] */
-
 // https://github.com/thenerdery/javascript-standards#destructuring--object
 (function() {
     // bad
@@ -9,7 +7,7 @@
 
         return `${firstName} ${lastName}`;
     }
-})();
+}());
 
 (function() {
     // good
@@ -17,14 +15,14 @@
         const { firstName, lastName } = user;
         return `${firstName} ${lastName}`;
     }
-})();
+}());
 
 (function() {
     // good
     function getFullName({ firstName, lastName }) {
         return `${firstName} ${lastName}`;
     }
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#destructuring--array
 (function() {
@@ -33,14 +31,14 @@
     // bad
     const first = arr[0];
     const second = arr[1];
-})();
+}());
 
 (function() {
     const arr = [1, 2, 3, 4];
 
     // good
     const [first, second] = arr;
-})();
+}());
 
 // https://github.com/thenerdery/javascript-standards#destructuring--object-over-array
 (function() {
@@ -58,7 +56,7 @@
     // the caller needs to think about the order of return data
     const input = null;
     const [left, __, top] = processInput(input);
-})();
+}());
 
 (function() {
     // good
@@ -75,4 +73,4 @@
     // the caller selects only the data they need
     const input = null;
     const { left, right } = processInput(input);
-})();
+}());
