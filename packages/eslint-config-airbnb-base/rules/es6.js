@@ -203,6 +203,11 @@ module.exports = {
       'newlines-between': 'never',
     }],
 
+    // Require modules with a single export to use a default export
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md
+    // TODO: enable
+    'import/prefer-default-export': 0,
+
     // Require a newline after the last import/require in a group
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/newline-after-import.md
     // TODO: enable
