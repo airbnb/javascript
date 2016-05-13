@@ -1,8 +1,9 @@
 // https://github.com/thenerdery/javascript-standards#variables--prefer-const
+// eslint: prefer-const
 (function() {
     // bad
-    var a = 1;
-    var b = 2;
+    let a = 1;
+    let b = 2;
 }());
 
 (function() {
@@ -12,6 +13,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#variables--disallow-var
+// eslint: no-var
 (function() {
     // bad
     var count = 1;
@@ -25,6 +27,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#variables--one-const
+// eslint: one-var
 (function() {
     const getItems = () => {};
 
@@ -44,6 +47,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#variables--const-let-group
+// eslint: one-var
 (function() {
     const getItems = () => {};
 
@@ -76,6 +80,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#variables--define-where-used
+// eslint: ???
 (function() {
     const getName = () => {};
     // bad - unnecessary function call
@@ -115,6 +120,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#variables--always-declare
+// eslint: no-undef
 (function() {
     class SuperPower {};
 
@@ -127,4 +133,12 @@
 
     // good
     const superPower = new SuperPower();
+}());
+
+// https://github.com/thenerdery/javascript-standards#variables
+// eslint: no-const-assign
+(function() {
+    // bad
+    const a = 1;
+    a = 2;
 }());

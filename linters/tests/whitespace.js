@@ -151,6 +151,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#whitespace--after-blocks
+// eslint: ???
 (function() {
     const foo = true;
     const bar = true;
@@ -338,6 +339,15 @@
     })
         .done(() => console.log('Congratulations!'))
         .fail(() => console.log('You have failed this city.'));
+}());
+
+// https://github.com/thenerdery/javascript-standards
+// eslint: no-whitespace-before-property
+(function() {
+    // bad
+    const foo = {};
+    const bar = 1;
+    foo [bar];
 }());
 
 // https://github.com/thenerdery/javascript-standards#whitespace--newline-at-end

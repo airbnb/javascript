@@ -16,6 +16,24 @@
     });
 }());
 
+// https://github.com/thenerdery/javascript-standards#arrows--use-them
+// eslint: arrow-spacing
+(function() {
+    // good
+    [1, 2, 3].map(x=>{
+        const y = x + 1;
+        return x * y;
+    });
+}());
+
+(function() {
+    // good
+    [1, 2, 3].map(x => {
+        const y = x + 1;
+        return x * y;
+    });
+}());
+
 // https://github.com/thenerdery/javascript-standards#arrows--one-arg-parens
 // eslint: arrow-parens
 (function() {

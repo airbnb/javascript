@@ -1,4 +1,5 @@
 // https://github.com/thenerdery/javascript-standards#objects--no-new
+// eslint: no-new-object
 (function() {
     // bad
     const item = new Object();
@@ -10,6 +11,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#objects--reserved-words
+// eslint: quote-props
 (function() {
     // bad
     const superman = {
@@ -32,6 +34,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#objects--computed-properties
+// eslint: ???
 (function() {
     function getKey(k) {
         return `a key named ${k}`;
@@ -59,6 +62,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#objects--shorthand
+// eslint: object-shorthand
 (function() {
     // bad
     const atom = {
@@ -82,6 +86,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#objects--concise
+// eslint: object-shorthand
 (function() {
     // bad
     function makePoint(x, y) {
@@ -97,6 +102,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#objects--grouped-shorthand
+// eslint: ???
 (function() {
     function makePoint(x, y) {
         return {
@@ -110,6 +116,7 @@
 
 
 // https://github.com/thenerdery/javascript-standards#objects--quoted-props
+// eslint: quote-props
 (function() {
     // bad
     const bad = {

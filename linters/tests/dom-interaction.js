@@ -1,4 +1,5 @@
 // https://github.com/thenerdery/javascript-standards#dom--dollar-prefix
+// eslint: ???
 (function() {
     const $ = null;
     // bad

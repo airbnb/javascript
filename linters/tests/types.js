@@ -1,4 +1,5 @@
 // https://github.com/thenerdery/javascript-standards#types--assign-consistent
+// eslint: ???
 (function() {
     // bad
     let count = 1;
@@ -12,6 +13,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#types--return-consistent
+// eslint: ???
 (function() {
     // bad
     function pressYourLuck(bigMoney) {
@@ -24,6 +26,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#types--coercion-strings
+// eslint: ???
 (function() {
     function test() {
         this.reviewScore = 9;
@@ -52,6 +55,8 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#types--coercion-numbers
+// eslint: no-implicit-coercion
+// eslint: radix
 (function() {
     const inputValue = '4';
 
@@ -96,6 +101,7 @@
 
 
 // https://github.com/thenerdery/javascript-standards#types--coercion-booleans
+// eslint: no-implicit-coercion
 (function() {
     const age = 0;
 
@@ -118,7 +124,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#types--comment-deviations
-// good
+// eslint: ???
 (function() {
     const inputValue = '4';
 
@@ -131,6 +137,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#types--exceptions
+// eslint: ???
 (function() {
     function divide(numerator, denominator) {
         if (denominator === 0) {

@@ -11,6 +11,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#arrays--push
+// eslint: ???
 (function() {
     // bad
     const someStack = [];
@@ -24,6 +25,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#arrays--spreads
+// eslint: ???
 (function() {
     // bad
     const items = [1, 2, 3];

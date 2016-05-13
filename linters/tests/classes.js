@@ -1,4 +1,5 @@
 // https://github.com/thenerdery/javascript-standards#classes--use-them
+// eslint: ???
 (function() {
     // bad
     function Queue(contents = []) {
@@ -32,6 +33,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#classes--static
+// eslint: ???
 (function() {
     // bad
     class Queue {
@@ -63,6 +65,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#classes--extends
+// eslint: ???
 (function() {
     // bad
     class Queue {
@@ -92,6 +95,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#classes--tostring
+// eslint: ???
 (function() {
     class Jedi {
         constructor(options = {}) {
@@ -143,4 +147,29 @@
             this.name = 'Rey';
         }
     }
+}());
+
+// https://github.com/thenerdery/javascript-standards#classes
+// eslint: no-dupe-class-members
+(function() {
+    // bad
+    class Jedi {
+        getName() {
+            return this.name;
+        }
+
+        getName() {
+            return this.name;
+        }
+    }
+}());
+
+// https://github.com/thenerdery/javascript-standards#classes
+// eslint: no-class-assign
+(function() {
+    // bad
+    class Jedi {
+    }
+
+    Jedi = 'jedi';
 }());

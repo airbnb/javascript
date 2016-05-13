@@ -1,4 +1,5 @@
 // https://github.com/thenerdery/javascript-standards#comments--multiline
+// eslint: ???
 (function() {
     // bad
     // make() returns a new element
@@ -32,9 +33,10 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#comments--singleline
+// eslint: ???
 (function() {
     // bad
-    const active = true;  // is current tab
+    const active = true; // is current tab
 }());
 
 (function() {
@@ -73,5 +75,21 @@
         const type = this._type || 'no type';
 
         return type;
+    }
+}());
+
+// https://github.com/thenerdery/javascript-standards#comments
+// eslint: spaced-comment
+(function() {
+    // bad
+    function make(tag) {
+        //This is a comment
+    }
+}());
+
+(function() {
+    // good
+    function make(tag) {
+        // This is a comment
     }
 }());

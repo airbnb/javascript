@@ -1,4 +1,5 @@
 // https://github.com/thenerdery/javascript-standards#destructuring--object
+// eslint: ???
 (function() {
     // bad
     function getFullName(user) {
@@ -25,6 +26,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#destructuring--array
+// eslint: ???
 (function() {
     const arr = [1, 2, 3, 4];
 
@@ -41,6 +43,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#destructuring--object-over-array
+// eslint: ???
 (function() {
     // bad
     function processInput(input) {
@@ -73,4 +76,18 @@
     // the caller selects only the data they need
     const input = null;
     const { left, right } = processInput(input);
+}());
+
+// https://github.com/thenerdery/javascript-standards#destructuring
+// eslint: no-empty-pattern
+(function() {
+    // bad
+    const arr = [1, 2, 3, 4];
+    const [] = arr;
+}());
+
+(function() {
+    // bad
+    const obj = { a: 1, b: 2 };
+    const {} = obj;
 }());

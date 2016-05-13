@@ -1,4 +1,5 @@
 // https://github.com/thenerdery/javascript-standards#asynchronous--nested-promises
+// eslint: ???
 (function() {
     const Promise = null;
     function waitFor(milliseconds) {
@@ -46,6 +47,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#asynchronous--catch
+// eslint: ???
 (function() {
     const Promise = null;
     function waitFor(milliseconds) {

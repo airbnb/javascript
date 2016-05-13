@@ -154,6 +154,19 @@
     }
 }());
 
+// https://github.com/thenerdery/javascript-standards#functions--in-blocks
+// estlint: no-loop-func
+(function() {
+    const currentUser = null;
+
+    // bad
+    for (let i = 0; i < 10; i++) {
+        const test = function() {
+            console.log('Nope.');
+        };
+    }
+}());
+
 // https://github.com/thenerdery/javascript-standards#functions--constructor
 // eslint: no-new-func
 (function() {

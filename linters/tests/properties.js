@@ -21,6 +21,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#properties--bracket
+// eslint: ???
 (function() {
     const luke = {
         jedi: true,

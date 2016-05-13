@@ -1,4 +1,5 @@
 // https://github.com/thenerdery/javascript-standards#strings--quotes
+// eslint: quotes
 (function() {
     // bad
     const name = "Capt. Janeway";
@@ -10,6 +11,8 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#strings--line-length
+// eslint: max-len
+// eslint: no-multi-str
 (function() {
     // bad
     const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
@@ -31,6 +34,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#strings--template-literals
+// eslint: prefer-template
 (function() {
     // bad
     function sayHi(name) {

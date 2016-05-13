@@ -1,4 +1,5 @@
 // https://github.com/thenerdery/javascript-standards#modules--use-them
+// eslint: ???
 // bad
 const NerderyStyleGuide0 = require('./NerderyStyleGuide');
 
@@ -14,6 +15,7 @@ import * as NerderyStyleGuide2 from './NerderyStyleGuide';
 import NerderyStyleGuide3 from './NerderyStyleGuide';
 
 // https://github.com/thenerdery/javascript-standards#modules--no-export-from-import
+// eslint: no-duplicate-imports
 // bad
 // filename es6.js
 export { es6 as default } from './NerderyStyleGuide';

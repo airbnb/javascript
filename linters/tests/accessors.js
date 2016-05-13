@@ -1,4 +1,5 @@
 // https://github.com/thenerdery/javascript-standards#accessors--use-them
+// eslint: ???
 (function() {
     // bad
     class Dragon {
@@ -38,6 +39,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#accessors--use-them
+// eslint: ???
 (function() {
     // good
     class Dragon {
