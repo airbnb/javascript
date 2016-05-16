@@ -2,9 +2,6 @@ module.exports = {
   'env': {
     'node': true
   },
-  'plugins': [
-    'import'
-  ],
 
   'rules': {
     // enforce return after a callback
@@ -36,18 +33,6 @@ module.exports = {
     'no-restricted-modules': 0,
 
     // disallow use of synchronous methods (off by default)
-    'no-sync': 0,
-
-    // ensure imports point to files/modules that can be resolved
-    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md
-    'import/no-unresolved': [2, { 'commonjs': true }]
-  },
-
-  'settings': {
-    'import/resolver': {
-      'node': {
-        'extensions': ['.js', '.json']
-      }
-    }
+    'no-sync': 0
   }
 };
