@@ -85,7 +85,7 @@ module.exports = {
     // http://eslint.org/docs/rules/object-shorthand
     'object-shorthand': [2, 'always', {
       'ignoreConstructors': false,
-      'avoidQuotes': false, // TODO: enable
+      'avoidQuotes': true,
     }],
 
     // suggest using arrow functions as callbacks
