@@ -86,8 +86,7 @@ module.exports = {
 
     // disallow non-import statements appearing before import statements
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/imports-first.md
-    // TODO: enable?
-    'import/imports-first': [0, 'absolute-first'],
+    'import/imports-first': [2, 'absolute-first'],
 
     // disallow duplicate imports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md
