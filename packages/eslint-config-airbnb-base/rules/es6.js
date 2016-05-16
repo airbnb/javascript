@@ -97,7 +97,7 @@ module.exports = {
     // suggest using of const declaration for variables that are never modified after declared
     'prefer-const': [2, {
       'destructuring': 'any',
-      'ignoreReadBeforeAssign': false, // TODO: make true
+      'ignoreReadBeforeAssign': true,
     }],
 
     // suggest using the spread operator instead of .apply()
