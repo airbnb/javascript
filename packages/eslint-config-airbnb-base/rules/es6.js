@@ -83,7 +83,10 @@ module.exports = {
 
     // require method and property shorthand syntax for object literals
     // http://eslint.org/docs/rules/object-shorthand
-    'object-shorthand': [2, 'always'],
+    'object-shorthand': [2, 'always', {
+      'ignoreConstructors': false,
+      'avoidQuotes': false, // TODO: enable
+    }],
 
     // suggest using arrow functions as callbacks
     'prefer-arrow-callback': [2, {
@@ -92,7 +95,10 @@ module.exports = {
     }],
 
     // suggest using of const declaration for variables that are never modified after declared
-    'prefer-const': 2,
+    'prefer-const': [2, {
+      'destructuring': 'any',
+      'ignoreReadBeforeAssign': false, // TODO: make true
+    }],
 
     // suggest using the spread operator instead of .apply()
     'prefer-spread': 0,

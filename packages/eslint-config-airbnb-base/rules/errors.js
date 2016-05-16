@@ -41,6 +41,7 @@ module.exports = {
     'no-extra-parens': [0, 'all', {
       'conditionalAssign': true,
       'nestedBinaryExpressions': false,
+      'returnAssign': false,
     }],
 
     // disallow unnecessary semicolons
