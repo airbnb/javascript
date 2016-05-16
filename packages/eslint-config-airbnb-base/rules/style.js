@@ -34,9 +34,16 @@ module.exports = {
     // enforces use of function declarations or expressions
     'func-style': 0,
 
+    // Blacklist certain identifiers to prevent them being used
+    // http://eslint.org/docs/rules/id-blacklist
+    'id-blacklist': 0,
+
     // this option enforces minimum and maximum identifier lengths
     // (variable names, property names etc.)
     'id-length': 0,
+
+    // require identifiers to match the provided regular expression
+    'id-match': 0,
 
     // this option sets a specific tab width for your code
     // http://eslint.org/docs/rules/indent
@@ -60,11 +67,14 @@ module.exports = {
       }
     }],
 
+    // disallow mixed 'LF' and 'CRLF' as linebreaks
+    'linebreak-style': 0,
+
     // enforces empty lines around comments
     'lines-around-comment': 0,
 
-    // disallow mixed 'LF' and 'CRLF' as linebreaks
-    'linebreak-style': 0,
+    // specify the maximum depth that blocks can be nested
+    'max-depth': [0, 4],
 
     // specify the maximum length of a line in your program
     // http://eslint.org/docs/rules/max-len
@@ -75,6 +85,12 @@ module.exports = {
 
     // specify the maximum depth callbacks can be nested
     'max-nested-callbacks': 0,
+
+    // limits the number of parameters that can be used in the function declaration.
+    'max-params': [0, 3],
+
+    // specify the maximum number of statement allowed in a function
+    'max-statements': [0, 10],
 
     // restrict the number of statements per line
     // http://eslint.org/docs/rules/max-statements-per-line
@@ -100,6 +116,9 @@ module.exports = {
     // disallow use of the Array constructor
     'no-array-constructor': 2,
 
+    // disallow use of bitwise operators
+    'no-bitwise': 0,
+
     // disallow use of the continue statement
     'no-continue': 0,
 
@@ -124,6 +143,19 @@ module.exports = {
 
     // disallow use of the Object constructor
     'no-new-object': 2,
+
+    // disallow use of unary operators, ++ and --
+    'no-plusplus': 0,
+
+    // disallow certain syntax forms
+    // http://eslint.org/docs/rules/no-restricted-syntax
+    'no-restricted-syntax': [
+      2,
+      'DebuggerStatement',
+      'ForInStatement',
+      'LabeledStatement',
+      'WithStatement',
+    ],
 
     // disallow space between function identifier and application
     'no-spaced-func': 2,
@@ -179,18 +211,15 @@ module.exports = {
     // specify whether double or single quotes should be used
     'quotes': [2, 'single', 'avoid-escape'],
 
-    // require identifiers to match the provided regular expression
-    'id-match': 0,
-
     // do not require jsdoc
     // http://eslint.org/docs/rules/require-jsdoc
     'require-jsdoc': 0,
 
-    // enforce spacing before and after semicolons
-    'semi-spacing': [2, { 'before': false, 'after': true }],
-
     // require or disallow use of semicolons instead of ASI
     'semi': [2, 'always'],
+
+    // enforce spacing before and after semicolons
+    'semi-spacing': [2, { 'before': false, 'after': true }],
 
     // sort variables within the same declaration block
     'sort-vars': 0,

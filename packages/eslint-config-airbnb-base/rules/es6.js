@@ -26,9 +26,6 @@ module.exports = {
     // http://eslint.org/docs/rules/arrow-spacing
     'arrow-spacing': [2, { 'before': true, 'after': true }],
 
-    // require trailing commas in multiline object literals
-    'comma-dangle': [2, 'always-multiline'],
-
     // verify super() callings in constructors
     'constructor-super': 0,
 
@@ -60,18 +57,12 @@ module.exports = {
     // http://eslint.org/docs/rules/no-new-symbol
     'no-new-symbol': 2,
 
-    // disallow specific globals
-    'no-restricted-globals': 0,
-
     // disallow specific imports
     // http://eslint.org/docs/rules/no-restricted-imports
     'no-restricted-imports': 0,
 
     // disallow to use this/super before super() calling in constructors.
     'no-this-before-super': 0,
-
-    // require let or const instead of var
-    'no-var': 2,
 
     // disallow useless computed property keys
     // http://eslint.org/docs/rules/no-useless-computed-key
@@ -80,6 +71,9 @@ module.exports = {
     // disallow unnecessary constructor
     // http://eslint.org/docs/rules/no-useless-constructor
     'no-useless-constructor': 2,
+
+    // require let or const instead of var
+    'no-var': 2,
 
     // require method and property shorthand syntax for object literals
     // http://eslint.org/docs/rules/object-shorthand
@@ -100,15 +94,15 @@ module.exports = {
       'ignoreReadBeforeAssign': true,
     }],
 
-    // suggest using the spread operator instead of .apply()
-    'prefer-spread': 0,
-
     // suggest using Reflect methods where applicable
     'prefer-reflect': 0,
 
     // use rest parameters instead of arguments
     // http://eslint.org/docs/rules/prefer-rest-params
     'prefer-rest-params': 2,
+
+    // suggest using the spread operator instead of .apply()
+    'prefer-spread': 0,
 
     // suggest using template literals instead of string concatenation
     // http://eslint.org/docs/rules/prefer-template

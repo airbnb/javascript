@@ -35,10 +35,6 @@ module.exports = {
     // make sure for-in loops have an if statement
     'guard-for-in': 2,
 
-    // Blacklist certain identifiers to prevent them being used
-    // http://eslint.org/docs/rules/id-blacklist
-    'id-blacklist': 0,
-
     // disallow the use of alert, confirm, and prompt
     'no-alert': 1,
 
@@ -69,10 +65,6 @@ module.exports = {
     // http://eslint.org/docs/rules/no-empty-pattern
     'no-empty-pattern': 2,
 
-    // disallow Unnecessary Labels
-    // http://eslint.org/docs/rules/no-extra-label
-    'no-extra-label': 2,
-
     // disallow comparisons to null without a type-checking operator
     'no-eq-null': 0,
 
@@ -85,6 +77,10 @@ module.exports = {
     // disallow unnecessary function binding
     'no-extra-bind': 2,
 
+    // disallow Unnecessary Labels
+    // http://eslint.org/docs/rules/no-extra-label
+    'no-extra-label': 2,
+
     // disallow fallthrough of case statements
     'no-fallthrough': 2,
 
@@ -93,6 +89,10 @@ module.exports = {
 
     // disallow the type conversions with shorter notations
     'no-implicit-coercion': 0,
+
+    // disallow var and named functions in global scope
+    // http://eslint.org/docs/rules/no-implicit-globals
+    'no-implicit-globals': 0,
 
     // disallow use of eval()-like methods
     'no-implied-eval': 2,
@@ -151,30 +151,21 @@ module.exports = {
     // rule: http://eslint.org/docs/rules/no-param-reassign.html
     'no-param-reassign': [2, { 'props': true }],
 
-    // disallow use of process.env
-    'no-process-env': 0,
-
     // disallow usage of __proto__ property
     'no-proto': 2,
 
     // disallow declaring the same variable more then once
     'no-redeclare': 2,
 
-    // disallow certain syntax forms
-    // http://eslint.org/docs/rules/no-restricted-syntax
-    'no-restricted-syntax': [
-      2,
-      'DebuggerStatement',
-      'ForInStatement',
-      'LabeledStatement',
-      'WithStatement',
-    ],
-
     // disallow use of assignment in return statement
     'no-return-assign': 2,
 
     // disallow use of `javascript:` urls.
     'no-script-url': 2,
+
+    // disallow self assignment
+    // http://eslint.org/docs/rules/no-self-assign
+    'no-self-assign': 2,
 
     // disallow comparisons where both sides are exactly the same
     'no-self-compare': 2,
@@ -188,10 +179,6 @@ module.exports = {
     // disallow unmodified conditions of loops
     // http://eslint.org/docs/rules/no-unmodified-loop-condition
     'no-unmodified-loop-condition': 0,
-
-    // disallow return/throw/break/continue inside finally blocks
-    // http://eslint.org/docs/rules/no-unsafe-finally
-    'no-unsafe-finally': 2,
 
     // disallow usage of expressions in statement position
     'no-unused-expressions': 2,
