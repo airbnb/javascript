@@ -1,5 +1,8 @@
 module.exports = {
   'rules': {
+    // require trailing commas in multiline object literals
+    'comma-dangle': [2, 'always-multiline'],
+
     // disallow assignment in conditional expressions
     'no-cond-assign': [2, 'always'],
 
@@ -24,11 +27,11 @@ module.exports = {
     // disallow a duplicate case label.
     'no-duplicate-case': 2,
 
-    // disallow the use of empty character classes in regular expressions
-    'no-empty-character-class': 2,
-
     // disallow empty statements
     'no-empty': 2,
+
+    // disallow the use of empty character classes in regular expressions
+    'no-empty-character-class': 2,
 
     // disallow assigning to the exception in a catch block
     'no-ex-assign': 2,
@@ -71,8 +74,15 @@ module.exports = {
     // disallow sparse arrays
     'no-sparse-arrays': 2,
 
+    // Avoid code that looks like two expressions but is actually one
+    'no-unexpected-multiline': 0,
+
     // disallow unreachable statements after a return, throw, continue, or break statement
     'no-unreachable': 2,
+
+    // disallow return/throw/break/continue inside finally blocks
+    // http://eslint.org/docs/rules/no-unsafe-finally
+    'no-unsafe-finally': 2,
 
     // disallow comparisons with the value NaN
     'use-isnan': 2,
@@ -82,9 +92,6 @@ module.exports = {
     'valid-jsdoc': 0,
 
     // ensure that the results of typeof are compared against a valid string
-    'valid-typeof': 2,
-
-    // Avoid code that looks like two expressions but is actually one
-    'no-unexpected-multiline': 0
+    'valid-typeof': 2
   }
 };
