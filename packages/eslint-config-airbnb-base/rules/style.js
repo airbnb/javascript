@@ -209,7 +209,7 @@ module.exports = {
     'quote-props': [2, 'as-needed', { 'keywords': false, 'unnecessary': true, 'numbers': false }],
 
     // specify whether double or single quotes should be used
-    'quotes': [2, 'single', 'avoid-escape'],
+    'quotes': [2, 'single', { 'avoidEscape': true }],
 
     // do not require jsdoc
     // http://eslint.org/docs/rules/require-jsdoc
