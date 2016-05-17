@@ -217,8 +217,7 @@ module.exports = {
 
     // disallow target="_blank" on links
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md
-    // TODO: enable
-    'react/jsx-no-target-blank': 0
+    'react/jsx-no-target-blank': 2
   },
 
   'settings': {
