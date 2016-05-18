@@ -1219,6 +1219,50 @@ Other Style Guides
 
     > Why? They don't transpile well to ES5.
 
+  <a name="generators--spacing"></a>
+  - [11.3](#generators--spacing) If you must use generators, or if you disregard [our advice](#generators--nope), make sure their function signature is spaced properly. eslint: [`generator-star-spacing`](http://eslint.org/docs/rules/generator-star-spacing)
+
+    > Why? `function` and `*` are part of the same conceptual keyword - `*` is not a modifier for `function`, `function*` is a unique construct, different from `function`.
+
+    ```js
+    // bad
+    function * foo() {
+    }
+
+    const bar = function * () {
+    }
+
+    const baz = function *() {
+    }
+
+    const quux = function*() {
+    }
+
+    function*foo() {
+    }
+
+    function *foo() {
+    }
+
+    // very bad
+    function
+    *
+    foo() {
+    }
+
+    const wat = function
+    *
+    () {
+    }
+
+    // good
+    function* foo() {
+    }
+
+    const foo = function* () {
+    }
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 
