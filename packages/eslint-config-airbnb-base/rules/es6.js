@@ -27,7 +27,8 @@ module.exports = {
     'constructor-super': 0,
 
     // enforce the spacing around the * in generator functions
-    'generator-star-spacing': 0,
+    // http://eslint.org/docs/rules/generator-star-spacing
+    'generator-star-spacing': [2, { 'before': false, 'after': true }],
 
     // disallow modifying variables of class declarations
     // http://eslint.org/docs/rules/no-class-assign
