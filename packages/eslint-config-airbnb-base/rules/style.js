@@ -1,5 +1,5 @@
 module.exports = {
-  'rules': {
+  rules: {
     // enforce spacing inside array brackets
     'array-bracket-spacing': [2, 'never'],
 
@@ -8,13 +8,13 @@ module.exports = {
     'block-spacing': [2, 'always'],
 
     // enforce one true brace style
-    'brace-style': [2, '1tbs', { 'allowSingleLine': true }],
+    'brace-style': [2, '1tbs', { allowSingleLine: true }],
 
     // require camel case names
-    'camelcase': [2, { 'properties': 'never' }],
+    camelcase: [2, { properties: 'never' }],
 
     // enforce spacing before and after comma
-    'comma-spacing': [2, { 'before': false, 'after': true }],
+    'comma-spacing': [2, { before: false, after: true }],
 
     // enforce one true comma style
     'comma-style': [2, 'last'],
@@ -47,23 +47,23 @@ module.exports = {
 
     // this option sets a specific tab width for your code
     // http://eslint.org/docs/rules/indent
-    'indent': [2, 2, { 'SwitchCase': 1, 'VariableDeclarator': 1 }],
+    indent: [2, 2, { SwitchCase: 1, VariableDeclarator: 1 }],
 
     // specify whether double or single quotes should be used in JSX attributes
     // http://eslint.org/docs/rules/jsx-quotes
     'jsx-quotes': 0,
 
     // enforces spacing between keys and values in object literal properties
-    'key-spacing': [2, { 'beforeColon': false, 'afterColon': true }],
+    'key-spacing': [2, { beforeColon: false, afterColon: true }],
 
     // require a space before & after certain keywords
     'keyword-spacing': [2, {
-      'before': true,
-      'after': true,
-      'overrides': {
-        'return': { 'after': true },
-        'throw': { 'after': true },
-        'case': { 'after': true }
+      before: true,
+      after: true,
+      overrides: {
+        return: { after: true },
+        throw: { after: true },
+        case: { after: true }
       }
     }],
 
@@ -79,8 +79,8 @@ module.exports = {
     // specify the maximum length of a line in your program
     // http://eslint.org/docs/rules/max-len
     'max-len': [2, 100, 2, {
-      'ignoreUrls': true,
-      'ignoreComments': false
+      ignoreUrls: true,
+      ignoreComments: false
     }],
 
     // specify the maximum depth callbacks can be nested
@@ -94,10 +94,10 @@ module.exports = {
 
     // restrict the number of statements per line
     // http://eslint.org/docs/rules/max-statements-per-line
-    'max-statements-per-line': [0, { 'max': 1 }],
+    'max-statements-per-line': [0, { max: 1 }],
 
     // require a capital letter for constructors
-    'new-cap': [2, { 'newIsCap': true }],
+    'new-cap': [2, { newIsCap: true }],
 
     // disallow the omission of parentheses when invoking a constructor with no arguments
     'new-parens': 0,
@@ -111,7 +111,7 @@ module.exports = {
     // enforces new line after each method call in the chain to make it
     // more readable and easy to maintain
     // http://eslint.org/docs/rules/newline-per-chained-call
-    'newline-per-chained-call': [2, { 'ignoreChainWithDepth': 3 }],
+    'newline-per-chained-call': [2, { ignoreChainWithDepth: 3 }],
 
     // disallow use of the Array constructor
     'no-array-constructor': 2,
@@ -132,7 +132,7 @@ module.exports = {
     'no-mixed-spaces-and-tabs': 2,
 
     // disallow multiple empty lines and only one newline at the end
-    'no-multiple-empty-lines': [2, { 'max': 2, 'maxEOF': 1 }],
+    'no-multiple-empty-lines': [2, { max: 2, maxEOF: 1 }],
 
     // disallow negated conditions
     // http://eslint.org/docs/rules/no-negated-condition
@@ -167,12 +167,12 @@ module.exports = {
     'no-trailing-spaces': 2,
 
     // disallow dangling underscores in identifiers
-    'no-underscore-dangle': [2, { 'allowAfterThis': false }],
+    'no-underscore-dangle': [2, { allowAfterThis: false }],
 
     // disallow the use of Boolean literals in conditional expressions
     // also, prefer `a || b` over `a ? a : b`
     // http://eslint.org/docs/rules/no-unneeded-ternary
-    'no-unneeded-ternary': [2, { 'defaultAssignment': false }],
+    'no-unneeded-ternary': [2, { defaultAssignment: false }],
 
     // disallow whitespace before properties
     // http://eslint.org/docs/rules/no-whitespace-before-property
@@ -185,7 +185,7 @@ module.exports = {
     // http://eslint.org/docs/rules/object-property-newline
     // TODO: enable when https://github.com/eslint/eslint/issues/5667#issuecomment-219334864 is resolved
     'object-property-newline': [0, {
-      'allowMultiplePropertiesPerLine': true,
+      allowMultiplePropertiesPerLine: true,
     }],
 
     // allow just one var statement per function
@@ -206,20 +206,20 @@ module.exports = {
 
     // require quotes around object literal property names
     // http://eslint.org/docs/rules/quote-props.html
-    'quote-props': [2, 'as-needed', { 'keywords': false, 'unnecessary': true, 'numbers': false }],
+    'quote-props': [2, 'as-needed', { keywords: false, unnecessary: true, numbers: false }],
 
     // specify whether double or single quotes should be used
-    'quotes': [2, 'single', { 'avoidEscape': true }],
+    quotes: [2, 'single', { avoidEscape: true }],
 
     // do not require jsdoc
     // http://eslint.org/docs/rules/require-jsdoc
     'require-jsdoc': 0,
 
     // require or disallow use of semicolons instead of ASI
-    'semi': [2, 'always'],
+    semi: [2, 'always'],
 
     // enforce spacing before and after semicolons
-    'semi-spacing': [2, { 'before': false, 'after': true }],
+    'semi-spacing': [2, { before: false, after: true }],
 
     // sort variables within the same declaration block
     'sort-vars': 0,
@@ -229,7 +229,7 @@ module.exports = {
 
     // require or disallow space before function opening parenthesis
     // http://eslint.org/docs/rules/space-before-function-paren
-    'space-before-function-paren': [2, { 'anonymous': 'always', 'named': 'never' }],
+    'space-before-function-paren': [2, { anonymous: 'always', named: 'never' }],
 
     // require or disallow spaces inside parentheses
     'space-in-parens': [2, 'never'],
@@ -242,8 +242,8 @@ module.exports = {
 
     // require or disallow a space immediately following the // or /* in a comment
     'spaced-comment': [2, 'always', {
-      'exceptions': ['-', '+'],
-      'markers': ['=', '!']           // space here to support sprockets directives
+      exceptions: ['-', '+'],
+      markers: ['=', '!']           // space here to support sprockets directives
     }],
 
     // require regex literals to be wrapped in parentheses

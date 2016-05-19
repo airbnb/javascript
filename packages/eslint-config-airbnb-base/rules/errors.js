@@ -1,5 +1,5 @@
 module.exports = {
-  'rules': {
+  rules: {
     // require trailing commas in multiline object literals
     'comma-dangle': [2, 'always-multiline'],
 
@@ -42,9 +42,9 @@ module.exports = {
     // disallow unnecessary parentheses
     // http://eslint.org/docs/rules/no-extra-parens
     'no-extra-parens': [0, 'all', {
-      'conditionalAssign': true,
-      'nestedBinaryExpressions': false,
-      'returnAssign': false,
+      conditionalAssign: true,
+      nestedBinaryExpressions: false,
+      returnAssign: false,
     }],
 
     // disallow unnecessary semicolons
