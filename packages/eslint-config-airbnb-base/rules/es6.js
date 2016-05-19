@@ -1,17 +1,17 @@
 module.exports = {
-  'env': {
-    'es6': true
+  env: {
+    es6: true
   },
-  'parserOptions': {
-    'ecmaVersion': 6,
-    'sourceType': 'module',
-    'ecmaFeatures': {
-      'generators': false,
-      'objectLiteralDuplicateProperties': false
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: 'module',
+    ecmaFeatures: {
+      generators: false,
+      objectLiteralDuplicateProperties: false
     }
   },
 
-  'rules': {
+  rules: {
     // enforces no braces where they can be omitted
     // http://eslint.org/docs/rules/arrow-body-style
     'arrow-body-style': [2, 'as-needed'],
@@ -21,14 +21,14 @@ module.exports = {
 
     // require space before/after arrow function's arrow
     // http://eslint.org/docs/rules/arrow-spacing
-    'arrow-spacing': [2, { 'before': true, 'after': true }],
+    'arrow-spacing': [2, { before: true, after: true }],
 
     // verify super() callings in constructors
     'constructor-super': 0,
 
     // enforce the spacing around the * in generator functions
     // http://eslint.org/docs/rules/generator-star-spacing
-    'generator-star-spacing': [2, { 'before': false, 'after': true }],
+    'generator-star-spacing': [2, { before: false, after: true }],
 
     // disallow modifying variables of class declarations
     // http://eslint.org/docs/rules/no-class-assign
@@ -37,7 +37,7 @@ module.exports = {
     // disallow arrow functions where they could be confused with comparisons
     // http://eslint.org/docs/rules/no-confusing-arrow
     'no-confusing-arrow': [2, {
-      'allowParens': true,
+      allowParens: true,
     }],
 
     // disallow modifying variables that are declared using const
@@ -76,20 +76,20 @@ module.exports = {
     // require method and property shorthand syntax for object literals
     // http://eslint.org/docs/rules/object-shorthand
     'object-shorthand': [2, 'always', {
-      'ignoreConstructors': false,
-      'avoidQuotes': true,
+      ignoreConstructors: false,
+      avoidQuotes: true,
     }],
 
     // suggest using arrow functions as callbacks
     'prefer-arrow-callback': [2, {
-      'allowNamedFunctions': false,
-      'allowUnboundThis': true,
+      allowNamedFunctions: false,
+      allowUnboundThis: true,
     }],
 
     // suggest using of const declaration for variables that are never modified after declared
     'prefer-const': [2, {
-      'destructuring': 'any',
-      'ignoreReadBeforeAssign': true,
+      destructuring: 'any',
+      ignoreReadBeforeAssign: true,
     }],
 
     // suggest using Reflect methods where applicable
