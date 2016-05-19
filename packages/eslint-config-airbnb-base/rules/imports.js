@@ -1,29 +1,29 @@
 module.exports = {
-  'env': {
-    'es6': true
+  env: {
+    es6: true
   },
-  'parserOptions': {
-    'ecmaVersion': 6,
-    'sourceType': 'module'
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: 'module'
   },
-  'plugins': [
+  plugins: [
     'import'
   ],
 
-  'settings': {
+  settings: {
     'import/resolver': {
-      'node': {
-        'extensions': ['.js', '.json']
+      node: {
+        extensions: ['.js', '.json']
       }
     }
   },
 
-  'rules': {
+  rules: {
     // Static analysis:
 
     // ensure imports point to files/modules that can be resolved
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md
-    'import/no-unresolved': [2, { 'commonjs': true }],
+    'import/no-unresolved': [2, { commonjs: true }],
 
     // ensure named imports coupled with named exports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/named.md#when-not-to-use-it
@@ -60,8 +60,8 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
     // TODO: enable
     'import/no-extraneous-dependencies': [0, {
-      'devDependencies': false,
-      'optionalDependencies': false,
+      devDependencies: false,
+      optionalDependencies: false,
     }],
 
     // Forbid mutable exports
@@ -106,7 +106,7 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
     // TODO: enable?
     'import/order': [0, {
-      'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+      groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
       'newlines-between': 'never',
     }],
 
