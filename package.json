@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/virtru/lint-trap#readme",
   "dependencies": {
-    "eslint-plugin-virtru-lint": "git+https://github.com/virtru/eslint-plugin-virtru-lint"
+    "eslint-plugin-virtru-lint": "git+ssh://git@github.com:virtru/eslint-plugin-virtru-lint",
+    "semver": "^5.1.0"
   }
 }
