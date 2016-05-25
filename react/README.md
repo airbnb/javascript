@@ -508,7 +508,7 @@
 ## Translation
 
   This JSX/React style guide is also available in other languages:
-  
+
   - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese (Simplified)**: [JasonBoy/javascript](https://github.com/JasonBoy/javascript/tree/master/react)
 
 **[⬆ back to top](#table-of-contents)**
