@@ -53,7 +53,7 @@
     "eslint-plugin-import": "^1.8.0",
     "eslint-plugin-jsx-a11y": "^1.2.2",
     "eslint-plugin-react": "^5.1.1",
-    "react": ">= 13.0.0",
+    "react": ">= 0.13.0",
     "tape": "^4.5.1"
   },
   "peerDependencies": {
