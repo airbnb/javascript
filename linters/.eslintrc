@@ -14,6 +14,7 @@
         #--------- Arrays                                https://github.com/thenerdery/javascript-standards#arrays
         "no-array-constructor": 2,                       # Disallow creation of dense arrays using the Array constructor
         "array-callback-return": 2,                      # Require return statements in callbacks of array's methods
+        "prefer-spread": 2,                              # Spread operator required instead of .apply()
 
         #--------- Arrow Functions                       https://github.com/thenerdery/javascript-standards#arrow-functions
         "prefer-arrow-callback": 2,                      # Require using arrow functions as callbacks.
@@ -28,6 +29,7 @@
             "allowSingleLine": true
         }],
         "curly": 2,                                      # Require Following Curly Brace Conventions
+        "guard-for-in": 2,                               # For-in loops require a hasOwnProperty() check
 
         #--------- Classes                               https://github.com/thenerdery/javascript-standards#classes
         "no-dupe-class-members": 2,                      # Disallow duplicate name in class members
@@ -47,6 +49,10 @@
             "block": {
                 "markers": ["/", "*"]
             }
+        }],
+        "valid-jsdoc": [2, {                            # JSDoc blocks must match parameters and return statement
+            "requireParamDescription": false,
+            "requireReturnDescription": false
         }],
 
         #--------- Comparison                            https://github.com/thenerdery/javascript-standards#comparison
@@ -101,6 +107,7 @@
         "no-implicit-coercion": 2,                       # Disallow the type conversion with shorter notations.
         "no-bitwise": 2,                                 # Disallow Bitwise Operators
         "radix": [2, "always"],                          # Require Radix Parameter
+        "no-new-wrappers": 2,                            # Disallow new String(), new Number, new Boolean()
 
         #--------- Variables                             https://github.com/thenerdery/javascript-standards#variables
         "prefer-const": 2,                               # Require using const for variables that are never reassigned
@@ -134,5 +141,7 @@
         }],
         "space-before-function-paren": [2, "never"],     # Disallow a space before function parenthesis
         "padded-blocks": [2, "never"],                   # Require padding within blocks
+        "no-mixed-spaces-and-tabs": 2,                   # Disallow mixing of spaces and tabs
+        "no-trailing-spaces": 2                          # Disallow trailing spaces
     }
 }

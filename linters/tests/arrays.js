@@ -77,3 +77,16 @@
     // good
     [1, 2, 3].map(x => x + 1);
 }());
+
+// eslint: prefer-spread
+(function() {
+    // bad
+    const args = [1, 2, 3, 4];
+    Math.max.apply(Math, args);
+}());
+
+(function() {
+    // good
+    const args = [1, 2, 3, 4];
+    Math.max(...args);
+}());

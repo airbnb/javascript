@@ -155,3 +155,18 @@
         }
     }
 }());
+
+// eslint: no-new-wrappers
+(function() {
+    // bad
+    const stringObject = new String('Hello world');
+    const numberObject = new Number(33);
+    const booleanObject = new Boolean(false);
+}());
+
+(function() {
+    // good
+    const stringObject = String('Hello world');
+    const numberObject = Number(33);
+    const booleanObject = Boolean(false);
+}());

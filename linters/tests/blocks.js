@@ -45,3 +45,23 @@
         thing2();
     }
 }());
+
+// eslint: guard-for-in
+
+(function() {
+    // bad
+    const obj = { a: 1, b: 2 };
+    for (const i in obj) {
+        console.log(obj[i]);
+    }
+}());
+
+(function() {
+    // good
+    const obj = { a: 1, b: 2 };
+    for (const i in obj) {
+        if (obj.hasOwnProperty(i)) {
+            console.log(obj[i]);
+        }
+    }
+}());

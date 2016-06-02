@@ -1,5 +1,5 @@
 // https://github.com/thenerdery/javascript-standards#comments--multiline
-// eslint: ???
+// eslint: valid-jsdoc
 (function() {
     // bad
     // make() returns a new element
@@ -9,6 +9,19 @@
     // @public
     // @param {String} tag
     // @return {Element} element
+    function make(tag) {
+        // ...
+        return 'element';
+    }
+}());
+
+
+(function() {
+    // bad
+    /**
+     * make() returns a new element
+     * based on the passed in tag name
+     */
     function make(tag) {
         // ...
         return 'element';
