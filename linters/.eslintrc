@@ -38,7 +38,7 @@
 
         #--------- Commas                                https://github.com/thenerdery/javascript-standards#commas
         "comma-style": [2, "last"],                      # Require standard comma style
-        "comma-dangle": [2, "only-multiline"],           # Allow trailing commas
+        "comma-dangle": [2, "always-multiline"],           # Allow trailing commas
 
         #--------- Comments                              https://github.com/thenerdery/javascript-standards#comments
         "spaced-comment": ["error", "always", {          # Require whitespace (space or tab) at beginning of comment
