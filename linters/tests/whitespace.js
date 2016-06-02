@@ -350,4 +350,17 @@
     foo [bar];
 }());
 
+// eslint: no-mixed-spaces-and-tabs
+(function() {
+    // bad
+    const foo = 1;
+	const bar = 2;
+}());
+
+// eslint: no-trailing-spaces
+(function() {
+    // bad
+    const foo = 1;   
+}());
+
 // https://github.com/thenerdery/javascript-standards#whitespace--newline-at-end
