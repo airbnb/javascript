@@ -62,7 +62,6 @@
         "no-param-reassign": [2, { "props": true }],     # Disallow Reassignment of Function Parameters
         "max-params": [2, 5],                            # Enforce a maximum number of parameters in function definitions
         "prefer-rest-params": 2,                         # Require rest parameters instead of arguments
-        "no-loop-func": 2,                               # Disallow Functions in Loops
         "wrap-iife": [2, "outside"],                     # Require IIFEs to be Wrapped
         "no-inner-declarations": 2,                      # Disallow function or var declarations in nested blocks
         "no-new-func": 2,                                # Disallow Function Constructor
