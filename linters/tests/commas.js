@@ -54,6 +54,8 @@
         firstName: 'Dana',
         lastName: 'Scully'
     };
+
+    const heroes = ['batman', 'superman'];
 }());
 
 (function() {
@@ -70,6 +72,8 @@
         firstName: 'Dana',
         lastName: 'Scully',
     };
+
+    const heroes = ['batman', 'superman',];
 }());
 
 (function() {
