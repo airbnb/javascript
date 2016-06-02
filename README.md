@@ -1903,7 +1903,7 @@ This document is not intended to:
     ```
 
   <a name="naming--leading-underscore"></a><a name="19.6"></a>
-  - [19.6](#naming--leading-underscore) Use a leading underscore `_` when naming private or protected properties. eslint: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html) jscs: [`disallowDanglingUnderscores`](http://jscs.info/rule/disallowDanglingUnderscores)
+  - [19.6](#naming--leading-underscore) Use a leading underscore `_` when naming private or protected properties.
 
     ```javascript
     // bad
