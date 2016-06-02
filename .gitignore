@@ -12,5 +12,4 @@ public/public.zip
 .tmp
 *.log
 *.pyc
-newrelic_agent.log
 .tag*
