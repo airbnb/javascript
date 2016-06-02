@@ -2502,16 +2502,26 @@ Other Style Guides
 
     ```javascript
     // bad
-    dragon.age();
-
+    class Dragon {
+      get age() {
+        // ...
+      }
+    
+      set age(value) {
+        // ...
+      }
+    }
+    
     // good
-    dragon.getAge();
-
-    // bad
-    dragon.age(25);
-
-    // good
-    dragon.setAge(25);
+    class Dragon {
+      getAge() {
+        // ...
+      }
+    
+      setAge(value) {
+        // ...
+      }
+    }
     ```
 
   <a name="accessors--boolean-prefix"></a><a name="23.3"></a>
