@@ -32,6 +32,12 @@ Note that Sublime Text 2 not supported.
 1. After installing those packages, restart Atom.
 1. All .js files will now automatically be linted as you code.
 
+### WebStorm
+
+1. Navigate to `Languages and Frameworks > JavaScript > Code Quality Tools > ESLint`
+1. Check `Enable` and the `.eslintrc` file will be used.
+1. For more info: [https://www.jetbrains.com/help/webstorm/2016.1/eslint.html](https://www.jetbrains.com/help/webstorm/2016.1/eslint.html)
+
 ## Testing
 
 A suite a test files for verifying the correctness of this eslint ruleset are located in the /tests directory. Run `grunt lint` to run eslint against all of the test files -- for any lines not conforming to the eslint ruleset, an eslint failure should returned.
