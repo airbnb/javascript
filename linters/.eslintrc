@@ -14,6 +14,7 @@
         #--------- Arrays                                https://github.com/thenerdery/javascript-standards#arrays
         "no-array-constructor": 2,                       # Disallow creation of dense arrays using the Array constructor (no-array-constructor)
         "array-callback-return": 2,                      # Enforces return statements in callbacks of array’s methods (array-callback-return)
+        "prefer-spread": 2,                              # Spread operator required instead of .apply()
 
         #--------- Arrow Functions                       https://github.com/thenerdery/javascript-standards#arrow-functions
         "prefer-arrow-callback": 2,                      # Suggest using arrow functions as callbacks. (prefer-arrow-callback)
@@ -28,6 +29,7 @@
             "allowSingleLine": true
         }],
         "curly": 2,                                      # Require Following Curly Brace Conventions (curly)
+        "guard-for-in": 2,                               # For-in loops require a hasOwnProperty() check
 
         #--------- Classes                               https://github.com/thenerdery/javascript-standards#classes
         "no-dupe-class-members": 2,                      # Disallow duplicate name in class members (no-dupe-class-members)
@@ -102,9 +104,10 @@
         "no-eval": 2,                                    # Disallow eval() (no-eval)
 
         #--------- Types                                 https://github.com/thenerdery/javascript-standards#types
-        "no-implicit-coercion": 2,                       # Disallow the type conversion with shorter notations. (no-implicit-coercion)
+        "no-implicit-coercion": 2,                       # Disallow the type conversion with shorter notations. (no-implicit-coercion)                      
         "no-bitwise": 2,                                 # Disallow Bitwise Operators (no-bitwise)
         "radix": [2, "always"],                          # Require Radix Parameter (radix)
+        "no-new-wrappers": 2,                            # Disallow new String(), new Number, new Boolean()
 
         #--------- Variables                             https://github.com/thenerdery/javascript-standards#variables
         "prefer-const": 2,                               # Suggest using const (prefer-const)
