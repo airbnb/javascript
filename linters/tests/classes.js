@@ -173,3 +173,41 @@
 
     Jedi = 'jedi';
 }());
+
+// ???
+// eslint: no-unreachable
+(function() {
+    // bad
+    class Base {
+        constructor() {}
+    }
+
+    class SuperBase extends Base {
+        constructor(){
+            this.init();
+            super();
+        }
+
+        init() {
+
+        }
+    }
+}());
+
+(function() {
+    // good
+    class Base {
+        constructor() {}
+    }
+
+    class SuperBase extends Base {
+        constructor(){
+            super();
+            this.init();
+        }
+
+        init() {
+
+        }
+    }
+}());
