@@ -12,34 +12,34 @@
     "parser": "babel-eslint",
     "rules": {
         #--------- Arrays                                https://github.com/thenerdery/javascript-standards#arrays
-        "no-array-constructor": 2,                       # Disallow creation of dense arrays using the Array constructor (no-array-constructor)
-        "array-callback-return": 2,                      # Enforces return statements in callbacks of array’s methods (array-callback-return)
+        "no-array-constructor": 2,                       # Disallow creation of dense arrays using the Array constructor
+        "array-callback-return": 2,                      # Enforces return statements in callbacks of array’s methods
 
         #--------- Arrow Functions                       https://github.com/thenerdery/javascript-standards#arrow-functions
-        "prefer-arrow-callback": 2,                      # Suggest using arrow functions as callbacks. (prefer-arrow-callback)
-        "arrow-spacing": [2, {                           # Require space before/after arrow function’s arrow (arrow-spacing)
+        "prefer-arrow-callback": 2,                      # Suggest using arrow functions as callbacks.
+        "arrow-spacing": [2, {                           # Require space before/after arrow function’s arrow
             "before": true,
             "after": true
         }],
-        "arrow-parens": [2, "as-needed"],                # Require parens in arrow function arguments (arrow-parens)
+        "arrow-parens": [2, "as-needed"],                # Require parens in arrow function arguments
 
         #--------- Blocks                                https://github.com/thenerdery/javascript-standards#blocks
-        "brace-style": [1, "1tbs", {                     # Require Brace Style (brace-style)
+        "brace-style": [1, "1tbs", {                     # Require Brace Style
             "allowSingleLine": true
         }],
-        "curly": 2,                                      # Require Following Curly Brace Conventions (curly)
+        "curly": 2,                                      # Require Following Curly Brace Conventions
 
         #--------- Classes                               https://github.com/thenerdery/javascript-standards#classes
-        "no-dupe-class-members": 2,                      # Disallow duplicate name in class members (no-dupe-class-members)
-        "no-class-assign": 2,                            # Disallow modifying variables of class declarations (no-class-assign)
-        "no-useless-constructor": 2,                     # Disallow unnecessary constructor (no-useless-constructor)
+        "no-dupe-class-members": 2,                      # Disallow duplicate name in class members
+        "no-class-assign": 2,                            # Disallow modifying variables of class declarations
+        "no-useless-constructor": 2,                     # Disallow unnecessary constructor
 
         #--------- Commas                                https://github.com/thenerdery/javascript-standards#commas
-        "comma-style": [2, "last"],                      # Comma style (comma-style)
-        "comma-dangle": [2, "only-multiline"],           # Require or disallow trailing commas (comma-dangle)
+        "comma-style": [2, "last"],                      # Comma style
+        "comma-dangle": [2, "only-multiline"],           # Require or disallow trailing commas
 
         #--------- Comments                              https://github.com/thenerdery/javascript-standards#comments
-        "spaced-comment": ["error", "always", {          # Requires or disallows a whitespace (space or tab) beginning a comment (spaced-comment)
+        "spaced-comment": ["error", "always", {          # Requires or disallows a whitespace (space or tab) beginning a comment
             "line": {
                 "markers": ["/"],
                 "exceptions": ["-"]
@@ -50,93 +50,93 @@
         }],
 
         #--------- Comparison                            https://github.com/thenerdery/javascript-standards#comparison
-        "eqeqeq": [2, "allow-null"],                     # Require === and !== (eqeqeq)
-        "no-case-declarations": 2,                       # Disallow lexical declarations in case/default clauses (no-case-declarations)
-        "no-undefined": 2,                               # Disallow Use of undefined Variable (no-undefined)
-        "no-nested-ternary": 2,                          # Disallow Nested Ternaries (no-nested-ternary)
+        "eqeqeq": [2, "allow-null"],                     # Require === and !==
+        "no-case-declarations": 2,                       # Disallow lexical declarations in case/default clauses
+        "no-undefined": 2,                               # Disallow Use of undefined Variable
+        "no-nested-ternary": 2,                          # Disallow Nested Ternaries
 
         #--------- Destructuring                         https://github.com/thenerdery/javascript-standards#destructuring
-        "no-empty-pattern": 2,                           # Disallow empty destructuring patterns (no-empty-pattern)
+        "no-empty-pattern": 2,                           # Disallow empty destructuring patterns
 
         #--------- Functions                             https://github.com/thenerdery/javascript-standards#functions
-        "no-param-reassign": [2, { "props": true }],     # Disallow Reassignment of Function Parameters (no-param-reassign)
-        "max-params": [2, 5],                            # Enforce a maximum number of parameters in function definitions (max-params)
-        "prefer-rest-params": 2,                         # Suggest using the rest parameters instead of arguments (prefer-rest-params)
-        "no-loop-func": 2,                               # Disallow Functions in Loops (no-loop-func)
-        "wrap-iife": [2, "outside"],                     # Require IIFEs to be Wrapped (wrap-iife)
-        "no-inner-declarations": 2,                      # Declarations in Program or Function Body (no-inner-declarations)
-        "no-new-func": 2,                                # Disallow Function Constructor (no-new-func)
+        "no-param-reassign": [2, { "props": true }],     # Disallow Reassignment of Function Parameters
+        "max-params": [2, 5],                            # Enforce a maximum number of parameters in function definitions
+        "prefer-rest-params": 2,                         # Suggest using the rest parameters instead of arguments
+        "no-loop-func": 2,                               # Disallow Functions in Loops
+        "wrap-iife": [2, "outside"],                     # Require IIFEs to be Wrapped
+        "no-inner-declarations": 2,                      # Declarations in Program or Function Body
+        "no-new-func": 2,                                # Disallow Function Constructor
 
         #--------- Iterators and Generators              https://github.com/thenerdery/javascript-standards#iterators-and-generators
-        "no-iterator": 2,                                # Disallow Iterator (no-iterator)
+        "no-iterator": 2,                                # Disallow Iterator
 
         #--------- Modules                               https://github.com/thenerdery/javascript-standards#modules
-        "no-duplicate-imports": [2, {                    # Disallow duplicate imports (no-duplicate-imports)
+        "no-duplicate-imports": [2, {                    # Disallow duplicate imports
             includeExports: true
         }],
 
         #--------- Naming Conventions                    https://github.com/thenerdery/javascript-standards#naming-conventions
-        "camelcase": [2, {"properties": "always"}],      # Require Camelcase (camelcase)
-        "new-cap": 2,                                    # Require Constructors to Use Initial Caps (new-cap)
+        "camelcase": [2, {"properties": "always"}],      # Require Camelcase
+        "new-cap": 2,                                    # Require Constructors to Use Initial Caps
 
         #--------- Objects                               https://github.com/thenerdery/javascript-standards#objects
-        "no-new-object": 2,                              # Disallow the use of the Object constructor (no-new-object)
-        "object-shorthand": [2, "always"],               # Require Object Literal Shorthand Syntax (object-shorthand)
-        "quote-props": [2, "as-needed", {                # Quoting Style for Property Names (quote-props)
+        "no-new-object": 2,                              # Disallow the use of the Object constructor
+        "object-shorthand": [2, "always"],               # Require Object Literal Shorthand Syntax
+        "quote-props": [2, "as-needed", {                # Quoting Style for Property Names
             "keywords": true
         }],
 
         #--------- Properties                            https://github.com/thenerdery/javascript-standards#properties
-        "dot-notation": [2, {                            # Require Dot Notation (dot-notation)
+        "dot-notation": [2, {                            # Require Dot Notation
             "allowPattern": "^[a-z]+(_[a-z]+)+$"
         }],
 
         #--------- Semicolons                            https://github.com/thenerdery/javascript-standards#semicolons
-        "semi": [2, "always"],                           # Enforce or Disallow Semicolons (semi)
+        "semi": [2, "always"],                           # Enforce or Disallow Semicolons
 
         #--------- Strings                               https://github.com/thenerdery/javascript-standards#strings
-        "quotes": [2, "single"],                         # Enforce Quote Style (quotes)
-        "template-curly-spacing": [2, "never"],          # Enforce Usage of Spacing in Template Strings (template-curly-spacing)
-        "no-multi-str": 2,                               # Disallow Multiline Strings (no-multi-str)
-        "prefer-template": 2,                            # Suggest using template literals instead of string concatenation. (prefer-template)
-        "no-eval": 2,                                    # Disallow eval() (no-eval)
+        "quotes": [2, "single"],                         # Enforce Quote Style
+        "template-curly-spacing": [2, "never"],          # Enforce Usage of Spacing in Template Strings
+        "no-multi-str": 2,                               # Disallow Multiline Strings
+        "prefer-template": 2,                            # Suggest using template literals instead of string concatenation.
+        "no-eval": 2,                                    # Disallow eval()
 
         #--------- Types                                 https://github.com/thenerdery/javascript-standards#types
-        "no-implicit-coercion": 2,                       # Disallow the type conversion with shorter notations. (no-implicit-coercion)
-        "no-bitwise": 2,                                 # Disallow Bitwise Operators (no-bitwise)
-        "radix": [2, "always"],                          # Require Radix Parameter (radix)
+        "no-implicit-coercion": 2,                       # Disallow the type conversion with shorter notations.
+        "no-bitwise": 2,                                 # Disallow Bitwise Operators
+        "radix": [2, "always"],                          # Require Radix Parameter
 
         #--------- Variables                             https://github.com/thenerdery/javascript-standards#variables
-        "prefer-const": 2,                               # Suggest using const (prefer-const)
-        "no-const-assign": 2,                            # Disallow modifying variables that are declared using const (no-const-assign)
-        "no-var": 2,                                     # Require let or const instead of var (no-var)
-        "one-var": [2, "never"],                         # Require or Disallow One Variable Declaration per Scope (one-var)
-        "no-undef": 2,                                   # Disallow Undeclared Variables (no-undef)
+        "prefer-const": 2,                               # Suggest using const
+        "no-const-assign": 2,                            # Disallow modifying variables that are declared using const
+        "no-var": 2,                                     # Require let or const instead of var
+        "one-var": [2, "never"],                         # Require or Disallow One Variable Declaration per Scope
+        "no-undef": 2,                                   # Disallow Undeclared Variables
 
         #--------- Whitespace                            https://github.com/thenerdery/javascript-standards#whitespace
-        "indent": [2, 4, {"SwitchCase": 1}],             # Enforce consistent indentation (indent)
-        "space-before-blocks": [2, {                     # Require Or Disallow Space Before Blocks (space-before-blocks)
+        "indent": [2, 4, {"SwitchCase": 1}],             # Enforce consistent indentation
+        "space-before-blocks": [2, {                     # Require Or Disallow Space Before Blocks
             "functions": "always",
             "keywords": "always",
             "classes": "always"
         }],
-        "space-infix-ops": 2,                            # Require Spaces Around Infix Operators (space-infix-ops)
-        "newline-per-chained-call": [2, {                # Newline Per Chained Method Call (newline-per-chained-call)
+        "space-infix-ops": 2,                            # Require Spaces Around Infix Operators
+        "newline-per-chained-call": [2, {                # Newline Per Chained Method Call
             "ignoreChainWithDepth": 2
         }],
-        "no-whitespace-before-property": 2,              # Disallow whitespace before properties (no-whitespace-before-property)
-        "space-in-parens": [2, "never"],                 # Disallow or enforce spaces inside of parentheses (space-in-parens)
-        "array-bracket-spacing": [2, "never"],           # Disallow or enforce spaces inside of brackets (array-bracket-spacing)
-        "object-curly-spacing": [2, "always"],           # Disallow or enforce spaces inside of curly braces in objects. (object-curly-spacing)
-        "max-len": [2, {                                 # Enforce a maximum line length (max-len)
+        "no-whitespace-before-property": 2,              # Disallow whitespace before properties
+        "space-in-parens": [2, "never"],                 # Disallow or enforce spaces inside of parentheses
+        "array-bracket-spacing": [2, "never"],           # Disallow or enforce spaces inside of brackets
+        "object-curly-spacing": [2, "always"],           # Disallow or enforce spaces inside of curly braces in objects.
+        "max-len": [2, {                                 # Enforce a maximum line length
             "code": 100,
             "ignoreUrls": true
         }],
-        "keyword-spacing": [2, {                         # Enforce consistent spacing before and after keywords (keyword-spacing)
+        "keyword-spacing": [2, {                         # Enforce consistent spacing before and after keywords
             "before": true,
             "after": true
         }],
-        "space-before-function-paren": [2, "never"],     # Require or disallow a space before function parenthesis (space-before-function-paren)
-        "padded-blocks": [2, "never"],                   # Enforce padding within blocks (padded-blocks)
+        "space-before-function-paren": [2, "never"],     # Require or disallow a space before function parenthesis
+        "padded-blocks": [2, "never"],                   # Enforce padding within blocks
     }
 }
