@@ -175,11 +175,10 @@
 }());
 
 // ???
-// eslint: no-unreachable
+// eslint: no-this-before-super
 (function() {
     // bad
     class Base {
-        constructor() {}
     }
 
     class SuperBase extends Base {
@@ -197,7 +196,6 @@
 (function() {
     // good
     class Base {
-        constructor() {}
     }
 
     class SuperBase extends Base {
