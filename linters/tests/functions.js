@@ -187,3 +187,21 @@
         console.log('Welcome to the Internet. Please follow me.');
     }());
 }());
+
+// ???
+// eslint: no-unreachable
+(function() {
+    // bad
+    function foo() {
+        return true;
+        console.log('lint');
+    }
+}());
+
+(function() {
+    // good
+    function foo() {
+        console.log('lint');
+        return true;
+    }
+}());
