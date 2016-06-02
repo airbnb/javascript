@@ -40,7 +40,6 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#naming--leading-underscore
-// eslint: no-underscore-dangle
 (function() {
     // bad
     function test() {
