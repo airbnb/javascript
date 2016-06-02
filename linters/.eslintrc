@@ -120,11 +120,7 @@
 
         #--------- Whitespace                            https://github.com/thenerdery/javascript-standards#whitespace
         "indent": [2, 4, {"SwitchCase": 1}],             # Require consistent indentation
-        "space-before-blocks": [2, {                     # Disallow Space Before Blocks
-            "functions": "always",
-            "keywords": "always",
-            "classes": "always"
-        }],
+        "space-before-blocks": [2, "always"],            # Require Space Before Blocks
         "space-infix-ops": 2,                            # Require Spaces Around Infix Operators
         "newline-per-chained-call": [2, {                # Require Newline Per Chained Method Call
             "ignoreChainWithDepth": 2
