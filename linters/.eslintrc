@@ -35,6 +35,7 @@
         "no-dupe-class-members": 2,                      # Disallow duplicate name in class members
         "no-class-assign": 2,                            # Disallow modifying variables of class declarations
         "no-useless-constructor": 2,                     # Disallow unnecessary constructor
+        "no-this-before-super": 2,                       # Disallow use of this before super() in the constructor
 
         #--------- Commas                                https://github.com/thenerdery/javascript-standards#commas
         "comma-style": [2, "last"],                      # Require standard comma style
@@ -71,6 +72,7 @@
         "wrap-iife": [2, "outside"],                     # Require IIFEs to be Wrapped
         "no-inner-declarations": 2,                      # Disallow function or var declarations in nested blocks
         "no-new-func": 2,                                # Disallow Function Constructor
+        "no-unreachable": 2,                             # Disallow unreachable code after return
 
         #--------- Modules                               https://github.com/thenerdery/javascript-standards#modules
         "no-duplicate-imports": [2, {                    # Disallow duplicate imports
