@@ -141,7 +141,7 @@
         }],
         "space-before-function-paren": [2, "never"],     # Disallow a space before function parenthesis
         "padded-blocks": [2, "never"],                   # Require padding within blocks
-        "no-mixed-spaces-and-tabs": 2,
-        "no-trailing-spaces": 2
+        "no-mixed-spaces-and-tabs": 2,                   # Disallow mixing of spaces and tabs
+        "no-trailing-spaces": 2                          # Disallow trailing spaces
     }
 }
