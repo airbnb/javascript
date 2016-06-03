@@ -2661,6 +2661,23 @@ Other Style Guides
     $sidebar.find('ul').hide();
     ```
 
+  <a name="jquery--find"></a><a name="25.5"></a>
+  - [25.5](#jquery--attach--events) Avoid mess up with the events queue.
+
+    ```javascript
+    // bad
+    $('.sidebar').off('click').on('click', (e) => {
+     console.log('dont do this again!!');
+    });
+
+    // good
+    $('.sidebar').on('click', (e) => {
+     e.stopPropagation();
+     console.log('well done dude!! :)');
+    });
+    ```
+
+
 **[⬆ back to top](#table-of-contents)**
 
 
