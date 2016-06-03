@@ -2661,8 +2661,8 @@ Other Style Guides
     $sidebar.find('ul').hide();
     ```
 
-  <a name="jquery--find"></a><a name="25.5"></a>
-  - [25.5](#jquery--attach--events) Avoid mess up with the events queue.
+  <a name="jquery--attach-events"></a><a name="25.5"></a>
+  - [25.5](#jquery--attach-events) Avoid mess up with the events queue.
 
     ```javascript
     // bad
