@@ -12,6 +12,7 @@
   1. [Quotes](#quotes)
   1. [Spacing](#spacing)
   1. [Props](#props)
+  1. [Refs](#refs)
   1. [Parentheses](#parentheses)
   1. [Tags](#tags)
   1. [Methods](#methods)
@@ -298,6 +299,22 @@
     />
   ))}
   ```
+
+## Refs
+
+  - Always use ref callbacks. eslint: [`react/no-string-refs`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md)
+
+    ```jsx
+    // bad
+    <Foo
+      ref="myRef"
+    />
+
+    // good
+    <Foo
+      ref={(ref) => this.myRef = ref}
+    />
+    ```
 
 ## Parentheses
 
