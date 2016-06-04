@@ -2752,7 +2752,7 @@ Other Style Guides
 
 **Other Style Guides**
 
-  - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
+  - [Google JavaScript Style Guide](https://google.github.io/styleguide/javascriptguide.xml)
   - [jQuery Core Style Guidelines](http://contribute.jquery.org/style-guide/js/)
   - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwaldron/idiomatic.js)
 
