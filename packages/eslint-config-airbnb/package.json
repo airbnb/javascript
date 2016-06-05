@@ -6,8 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "tests-only": "babel-tape-runner ./test/test-*.js",
-    "prepublish": "eslint-find-rules --unused && npm test",
-	"pretest": "npm run --silent lint",
+    "prepublish": "not-in-install && (eslint-find-rules --unused && npm test) || in-install",
+    "pretest": "npm run --silent lint",
     "test": "npm run --silent tests-only",
     "travis": "cd ../eslint-config-airbnb-base && npm link && cd - && npm link eslint-config-airbnb-base && npm run --silent test ; npm unlink eslint-config-airbnb-base >/dev/null &"
   },
@@ -55,7 +55,8 @@
     "eslint-plugin-jsx-a11y": "^1.2.2",
     "eslint-plugin-react": "^5.1.1",
     "react": ">= 0.13.0",
-    "tape": "^4.5.1"
+    "tape": "^4.5.1",
+    "in-publish": "^2.0.0"
   },
   "peerDependencies": {
     "eslint": "^2.10.2",
