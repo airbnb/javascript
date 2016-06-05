@@ -70,6 +70,14 @@ module.exports = {
     // http://eslint.org/docs/rules/no-useless-constructor
     'no-useless-constructor': 2,
 
+    // disallow renaming import, export, and destructured assignments to the same name
+    // http://eslint.org/docs/rules/no-useless-rename
+    'no-useless-rename': [2, {
+      ignoreDestructuring: false,
+      ignoreImport: false,
+      ignoreExport: false,
+    }],
+
     // require let or const instead of var
     'no-var': 2,
 
