@@ -68,6 +68,10 @@ module.exports = {
     // disallow the use of object properties of the global object (Math and JSON) as functions
     'no-obj-calls': 2,
 
+    // disallow use of Object.prototypes builtins directly
+    // http://eslint.org/docs/rules/no-prototype-builtins
+    'no-prototype-builtins': 2,
+
     // disallow multiple spaces in a regular expression literal
     'no-regex-spaces': 2,
 
