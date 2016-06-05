@@ -288,8 +288,8 @@ Other Style Guides
     };
     ```
 
-  <a name="objects-quoted-props"></a><a name="3.8"></a>
-  - [3.8](#objects-quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
+  <a name="objects--quoted-props"></a><a name="3.8"></a>
+  - [3.8](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
 
   > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
 
@@ -307,6 +307,26 @@ Other Style Guides
     bar: 4,
     'data-blah': 5,
   };
+  ```
+
+  <a name="objects--prototype-builtins"></a>
+  - [3.9](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`.
+
+  > Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
+
+  ```javascript
+  // bad
+  console.log(object.hasOwnProperty(key));
+
+  // good
+  console.log(Object.prototype.hasOwnProperty.call(object, key));
+
+  // best
+  const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
+  /* or */
+  const has = require('has');
+  …
+  console.log(has.call(object, key));
   ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -2506,18 +2526,18 @@ Other Style Guides
       get age() {
         // ...
       }
-    
+
       set age(value) {
         // ...
       }
     }
-    
+
     // good
     class Dragon {
       getAge() {
         // ...
       }
-    
+
       setAge(value) {
         // ...
       }
