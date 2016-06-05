@@ -6,8 +6,9 @@
   "scripts": {
     "lint": "eslint .",
     "tests-only": "babel-tape-runner ./test/test-*.js",
-    "pretest": "eslint-find-rules --unused",
-    "test": "npm run --silent lint && npm run --silent tests-only",
+    "prepublish": "eslint-find-rules --unused && npm test",
+	"pretest": "npm run --silent lint",
+    "test": "npm run --silent tests-only",
     "travis": "npm run --silent test"
   },
   "repository": {
