@@ -246,6 +246,10 @@ module.exports = {
       markers: ['=', '!']           // space here to support sprockets directives
     }],
 
+    // require or disallow the Unicode Byte Order Mark
+    // http://eslint.org/docs/rules/unicode-bom
+    'unicode-bom': [2, 'never'],
+
     // require regex literals to be wrapped in parentheses
     'wrap-regex': 0
   }
