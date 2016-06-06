@@ -2662,21 +2662,34 @@ Other Style Guides
     ```
 
   <a name="jquery--attach-events"></a><a name="25.5"></a>
-  - [25.5](#jquery--attach-events) Avoid mess up with the events queue.
+  - [25.5](#jquery--attach-events) Avoid messing up with the events queue.
+  >The jQuery use a events queue to know what is the callback he will call, when you use off first(to avoid assign the same event more than one time), this event go to end of queue, so imagine this scenario...
 
+    ```html
+    <div class="parent">
+      <button class="ok-btn"></button>
+    </div>
+    ```
     ```javascript
     // bad
-    $('.sidebar').off('click').on('click', (e) => {
-     console.log('dont do this again!!');
-    });
+    // if you click on ok-btn, the parent will respond the event first
+    $('.ok-btn').off().on('click', (e) => {
+      console.log('click! click!!');
+     });
+    $('.parent').on('click', (e) => {
+      console.log('parent!!');
+     });
 
     // good
-    $('.sidebar').on('click', (e) => {
-     e.stopPropagation();
-     console.log('well done dude!! :)');
+    // In this case the ok-btn will execute exactly the right callback and avoid any other callback
+    $('.ok-btn').on('click', (e) => {
+      e.stopPropagation();
+      console.log('click! click!!');
+    })
+    $('.parent').on('click', (e) => {
+      console.log('parent!!');
     });
     ```
-
 
 **[⬆ back to top](#table-of-contents)**
 
