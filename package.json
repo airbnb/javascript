@@ -22,13 +22,11 @@
   "homepage": "https://github.com/virtru/lint-trap#readme",
   "dependencies": {
     "eslint-plugin-virtru-lint": "git+ssh://git@github.com:virtru/eslint-plugin-virtru-lint",
-    "semver": "^5.1.0"
+    "semver": "^5.1.0",
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-import": "^1.8.1"
   },
   "peerDependencies": {
     "eslint": "^2.11.1"
-  },
-  "devDependencies": {
-    "eslint-config-airbnb-base": "^3.0.1",
-    "eslint-plugin-import": "^1.8.1"
   }
 }
