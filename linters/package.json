@@ -1,12 +1,24 @@
 {
     "name": "nerdery-eslint",
-    "description": " Nerdery ESLint Configuration",
+    "description": "Nerdery ESLint Ruleset",
     "version": "1.0.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/thenerdery/javascript-standards.git"
     },
+    "keywords": [
+        "style guide",
+        "lint",
+        "nerdery",
+        "es6",
+        "es2015"
+    ],
+    "author": "Nerdery",
     "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/thenerdery/javascript-standards/issues"
+    },
+    "homepage": "https://github.com/thenerdery/javascript-standards",
     "dependencies": {
         "eslint": "2.8.0",
         "babel-eslint": "6.0.0",

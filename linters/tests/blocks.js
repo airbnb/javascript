@@ -46,8 +46,8 @@
     }
 }());
 
+// https://github.com/thenerdery/javascript-standards#blocks
 // eslint: guard-for-in
-
 (function() {
     // bad
     const obj = { a: 1, b: 2 };

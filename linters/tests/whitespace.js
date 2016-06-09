@@ -364,3 +364,4 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#whitespace--newline-at-end
+// eslint: no-trailing-spaces

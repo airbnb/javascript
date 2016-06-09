@@ -35,6 +35,7 @@
 
 // https://github.com/thenerdery/javascript-standards#strings--template-literals
 // eslint: prefer-template
+// eslint: template-curly-spacing
 (function() {
     // bad
     function sayHi(name) {
@@ -46,6 +47,13 @@
     // bad
     function sayHi(name) {
         return ['How are you, ', name, '?'].join();
+    }
+}());
+
+(function() {
+    // bad
+    function sayHi(name) {
+        return `How are you, ${ name }?`;
     }
 }());
 

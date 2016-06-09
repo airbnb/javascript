@@ -51,6 +51,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#arrays--from
+// eslint: ???
 (function() {
     const foo = document.querySelectorAll('.foo');
     const nodes = Array.from(foo);

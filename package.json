@@ -1,7 +1,7 @@
 {
     "name": "nerdery-javascript-standards",
-    "version": "2.0.0",
     "description": "Nerdery JavaScript Standards",
+    "version": "2.0.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/thenerdery/javascript-standards.git"
@@ -13,7 +13,7 @@
         "es6",
         "es2015"
     ],
-    "author": "",
+    "author": "Nerdery",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/thenerdery/javascript-standards/issues"

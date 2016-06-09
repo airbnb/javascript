@@ -1,4 +1,10 @@
-1.0.0 / 2016-04-04
+2.0.1 / 2016-06-09
+==================
+Published initial version of ESLint ruleset to enforce standards.
+
+Updated ESLint references in standards to match ruleset.
+
+2.0.0 / 2016-04-04
 ==================
 Forked from [airbnb standards](https://github.com/airbnb/javascript/blob/master/README.md) and modified to suit our needs. Forked from [this commit hash](https://github.com/airbnb/javascript/commit/ff6e1d0d08c129db5876a897ee146ae801178809).
 

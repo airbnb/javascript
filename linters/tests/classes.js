@@ -175,6 +175,7 @@
     Jedi = 'jedi';
 }());
 
+// https://github.com/thenerdery/javascript-standards#classes
 // eslint: no-this-before-super
 (function() {
     // bad
