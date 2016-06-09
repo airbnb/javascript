@@ -39,6 +39,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#comparison--no-shortcuts
+// eslint: ???
 (function() {
     // bad
     const name = null;
@@ -58,6 +59,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#comparison--shortcuts-boolean
+// eslint: ???
 (function() {
     // good
     const isValid = true;

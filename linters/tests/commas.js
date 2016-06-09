@@ -50,12 +50,10 @@
 // eslint: comma-dangle
 (function() {
     // bad
-    const hero = {
+    const heroes = {
         firstName: 'Dana',
         lastName: 'Scully'
     };
-
-    const heroes = ['batman', 'superman'];
 }());
 
 (function() {
@@ -67,13 +65,16 @@
 }());
 
 (function() {
+    // bad
+    const heroes = ['batman', 'superman',];
+}());
+
+(function() {
     // good
-    const hero = {
+    const heroes = {
         firstName: 'Dana',
         lastName: 'Scully',
     };
-
-    const heroes = ['batman', 'superman',];
 }());
 
 (function() {
@@ -82,4 +83,9 @@
         'Batman',
         'Superman',
     ];
+}());
+
+(function() {
+    // good
+    const heroes = ['batman', 'superman'];
 }());

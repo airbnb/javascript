@@ -82,7 +82,7 @@
 }());
 
 (function() {
-    // also good
+    // good
     function getType() {
         // set the default type to 'no type'
         const type = this._type || 'no type';

@@ -97,6 +97,7 @@
 // https://github.com/thenerdery/javascript-standards#classes--tostring
 // eslint: ???
 (function() {
+    // good
     class Jedi {
         constructor(options = {}) {
             this.name = options.name || 'no name';
@@ -174,7 +175,6 @@
     Jedi = 'jedi';
 }());
 
-// ???
 // eslint: no-this-before-super
 (function() {
     // bad
@@ -182,7 +182,7 @@
     }
 
     class SuperBase extends Base {
-        constructor(){
+        constructor() {
             this.init();
             super();
         }
@@ -199,7 +199,7 @@
     }
 
     class SuperBase extends Base {
-        constructor(){
+        constructor() {
             super();
             this.init();
         }

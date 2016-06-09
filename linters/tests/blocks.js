@@ -1,17 +1,17 @@
 // https://github.com/thenerdery/javascript-standards#blocks--braces
 // eslint: curly
 (function() {
+    // bad
     const test = true;
 
-    // bad
     if (test)
         return false;
 }());
 
 (function() {
+    // good
     const test = true;
 
-    // good
     if (test) {
         return false;
     }
@@ -20,11 +20,11 @@
 // https://github.com/thenerdery/javascript-standards#blocks--cuddled-elses
 // eslint: brace-style
 (function() {
+    // bad
     const test = true;
     const thing1 = () => {};
     const thing2 = () => {};
 
-    // bad
     if (test) {
         thing1();
     }
@@ -34,11 +34,11 @@
 }());
 
 (function() {
+    // good
     const test = true;
     const thing1 = () => {};
     const thing2 = () => {};
 
-    // good
     if (test) {
         thing1();
     } else {

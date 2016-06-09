@@ -1,6 +1,9 @@
-# ESLint Ruleset
+# Nerdery ESLint Ruleset
 
-## Installation
+ESLint rules enforcing Nerdery JavaScript standards
+https://github.com/thenerdery/javascript-standards/linters
+
+## Using in your project
 
 1. Copy the provided .eslintrc file to the root of your project.
 1. Add the following lines to your project's package.json:
@@ -10,17 +13,23 @@
            "eslint": "2.10.2",
         }
 
-1. Run `npm install`
+1. Install the package
 
-## IDE Configuration
+        npm install
 
-Follow these steps to set up your editor to flag linting errors as you code.
+1. If eslint is installed globally, we recommend uninstalling it
+
+        npm uninstall -g eslint
+
+## Linting in your IDE
+
+Follow these steps to automatically flag linting errors in your IDE as you code.
 
 ### Sublime Text 3
 
-Note that Sublime Text 2 not supported.
+Sublime Text 2 not supported.
 
-1. If you don't already have Package Control installed, follow the instructions at https://sublime.wbond.net/installation.
+1. If you don't have Package Control installed, install per https://sublime.wbond.net/installation.
 1. Install `SublimeLinter` and `SublimeLinter-contrib-eslint` using Package Control https://packagecontrol.io/docs/usage.
 1. Restart Sublime.
 1. Adjust the settings in Tools->SublimeLinter->Lint Mode and Lint Style to your liking.
@@ -30,7 +39,6 @@ Note that Sublime Text 2 not supported.
 
 1. From the CLI, run `apm install linter && apm install linter-eslint`.
 1. After installing those packages, restart Atom.
-1. All .js files will now automatically be linted as you code.
 
 ### WebStorm
 
@@ -40,4 +48,7 @@ Note that Sublime Text 2 not supported.
 
 ## Testing
 
-A suite a test files for verifying the correctness of this eslint ruleset are located in the /tests directory. Run `grunt lint` to run eslint against all of the test files -- for any lines not conforming to the eslint ruleset, an eslint failure should returned.
+A suite a test files for validating the correctness of this eslint ruleset are located in the /tests directory.
+
+Run `grunt lint` to run eslint against all of the test files. An eslint failure is expected for any code not conforming to the eslint ruleset.
+Note that eslint does not enfore *every* standard; some code in the test suite is not enforceable via any known eslint rule.

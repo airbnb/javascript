@@ -108,7 +108,7 @@
 (function() {
     // bad
     const $ = null;
-    
+
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
 }());
 
@@ -127,7 +127,7 @@
 (function() {
     // good
     const $ = null;
-    
+
     $('#items')
         .find('.selected')
         .highlight()

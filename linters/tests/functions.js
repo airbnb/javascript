@@ -31,17 +31,14 @@
 // https://github.com/thenerdery/javascript-standards#functions--default-parameters
 // eslint: no-param-reassign
 (function() {
-    // really bad
+    // bad
     function signup(name) {
-        // No! We shouldn't mutate function arguments.
-        // Double bad: if opts is falsy it'll be set to an object which may
-        // be what you want but it can introduce subtle bugs.
         name = name || 'Tony Stark';
     }
 }());
 
 (function() {
-    // still bad
+    // bad
     function signup(name) {
         if (name == null) {
             name = 'Tony Stark';
@@ -64,6 +61,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#functions--default-side-effects
+// eslint: ???
 (function() {
     // bad
     let b = 0;
@@ -74,6 +72,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#functions--defaults-last
+// eslint: ???
 (function() {
     // bad
     function signup(name = 'Tony Stark', birthdate) {
@@ -162,7 +161,9 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#functions--exit-early
+// eslint: ???
 (function() {
+    // good
     function add(num1, num2) {
         if (num1 == null || num2 == null) {
             return false;
@@ -188,7 +189,6 @@
     }());
 }());
 
-// ???
 // eslint: no-unreachable
 (function() {
     // bad
