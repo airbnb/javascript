@@ -8,25 +8,15 @@ dependencies:
   override:
     - npm install common --production
   pre:
-    - if [ ! -e ~/nvm/versions/node/v4.2.1/bin/gulp ]; then npm i -g istanbul gulp; fi
-    - if [ ! -e ~/nvm/versions/node/v4.2.1/bin/mocha ]; then npm i -g istanbul mocha; fi
-    - if [ ! -e ~/nvm/versions/node/v4.2.1/bin/karma ]; then npm i -g karma karma-jasmine karma-phantomjs-launcher phantomjs-prebuilt; fi
-    - if [ ! -e ~/nvm/versions/node/v4.2.1/bin/karma-sourcemap-loader ]; then npm i -g karma-sourcemap-loader; fi
+    - if [ ! -e ~/nvm/versions/node/v4.2.1/bin/mocha ]; then npm i -g mocha; fi
   cache_directories:
-    - ~/nvm/versions/node/v4.2.1/bin/gulp
-    - ~/nvm/versions/node/v4.2.1/bin/karma
-    - ~/nvm/versions/node/v4.2.1/bin/karma-sourcemap-loader
-    - ~/nvm/versions/node/v4.2.1/bin/phantomjs
-    - ~/nvm/versions/node/v4.2.1/bin/istanbul
     - ~/nvm/versions/node/v4.2.1/bin/_mocha
     - ~/nvm/versions/node/v4.2.1/bin/mocha
     - ~/nvm/versions/node/v4.2.1/lib/node_modules
 
 test:
   override:
-    - npm run coverage-ci || npm run test
-  pre:
-    - gulp
+    - npm test
   post:
     - npm prune --production
 
@@ -34,5 +24,5 @@ deployment:
   production:
     branch: master
     codedeploy:
-      Console:
+      AuthRefresh:
         deployment_group: production
