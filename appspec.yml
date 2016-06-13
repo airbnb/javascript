@@ -1,0 +1,20 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /opt/xdotai/js-auth-refresh
+permissions:
+  - object: /opt/xdotai/js-auth-refresh
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
+hooks:
+  ApplicationStart:
+    - location: scripts/start.sh
+      runas: ubuntu
+      timeout: 60
+  ValidateService:
+    - location: scripts/validate.py
+      runas: ubuntu
+      timeout: 10
+

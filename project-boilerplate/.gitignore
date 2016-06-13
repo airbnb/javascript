@@ -1,0 +1,16 @@
+*.DS_Store
+.coveralls.yml
+coverage
+node_modules/**/out
+node_modules/**/build
+build
+public
+node_modules/common
+public/public.zip
+*.cache
+.coveralls.yml
+.tmp
+*.log
+*.pyc
+newrelic_agent.log
+.tag*

@@ -1,0 +1,9 @@
+[{
+  "name": "js-auth-refresh",
+  "script": "index.js",
+  "exec_mode": "fork",
+  "instances": "1",
+  "min_uptime": "2000",
+  "max_restarts": "1",
+  "watch": false
+}]
