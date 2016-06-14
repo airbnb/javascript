@@ -9,7 +9,7 @@ async.auto({
 	test: done => {
 		Email.findOne({ }).exec(done);
 	}
-}, (err, results) {
+}, (err, results) => {
 	if (err) {
 		console.error(err);
 	}
