@@ -109,7 +109,7 @@
     // 悪い例
     export default React.createClass({
       displayName: 'ReservationCard',
-      // stuff goes here
+      //　処理
     });
 
     // 良い例
@@ -381,7 +381,7 @@
     // 悪い例
     class extends React.Component {
       onClickDiv() {
-        // do stuff
+        // 処理
       }
 
       render() {
