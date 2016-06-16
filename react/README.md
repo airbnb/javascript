@@ -146,10 +146,10 @@
 
 ## Quotes
 
-  - JSXのattributeは (`"`) を使う。それ以外のJavascript内では('')を使う。 eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
+  - JSXのattributeは (`"`) を使う。それ以外のJavascript内ではシングルクォートを使う。 eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
 
-  > なぜ？ JSX attributes [はエスケープquotesを含めることが出来ない](http://eslint.org/docs/rules/jsx-quotes), そのためdouble quoteのほうが `"don't"` などの場合書きやすい。
-  >通常のHTML attributeもdouble quoteをsingle quoteより優先して使用するため、JSX attributeに関しても同じやり方。 
+  > なぜ？ JSX attributes [はエスケープquotesを含めることが出来ない](http://eslint.org/docs/rules/jsx-quotes), そのためダブルクォートのほうが `"don't"` などの場合書きやすい。
+  >通常のHTML attributeもダブルクォートをシングルクォートより優先して使用するため、JSX attributeに関しても同じやり方。 
 
     ```jsx
     // 悪い例
