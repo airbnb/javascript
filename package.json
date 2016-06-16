@@ -14,19 +14,23 @@
     "eslint",
     "eslintconfig"
   ],
-  "author": "Jake Teton-Landis <Akkuma> (https://twitter.com/@jitl)",
+  "author": "Gregory Waxman",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/virtru/lint-trap/issues"
   },
   "homepage": "https://github.com/virtru/lint-trap#readme",
   "dependencies": {
-    "eslint-plugin-virtru-lint": "virtru/eslint-plugin-virtru-lint",
-    "semver": "^5.1.0",
+    "eslint": "^2.11.1",
     "eslint-config-airbnb-base": "^3.0.1",
-    "eslint-plugin-import": "^1.8.1"
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-virtru-lint": "virtru/eslint-plugin-virtru-lint",
+    "semver": "^5.1.0"
   },
   "peerDependencies": {
-    "eslint": "^2.11.1"
+    "eslint": "^2.11.1",
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-virtru-lint": "virtru/eslint-plugin-virtru-lint"
   }
 }
