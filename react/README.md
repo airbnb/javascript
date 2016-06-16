@@ -1,36 +1,36 @@
 # Airbnb React/JSX Style Guide
 
-*まずまず適正なReactとJSXのアプローチ*
+*A mostly reasonable approach to React and JSX*
 
-## 項目一覧
+## Table of Contents
 
-  1. [基本ルール](#basic-rules)
+  1. [Basic Rules](#basic-rules)
   1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
-  1. [ネーミング](#naming)
-  1. [宣言](#declaration)
-  1. [整列](#alignment)
+  1. [Naming](#naming)
+  1. [Declaration](#declaration)
+  1. [Alignment](#alignment)
   1. [Quotes](#quotes)
-  1. [スペーシング](#spacing)
+  1. [Spacing](#spacing)
   1. [Props](#props)
-  1. [カッコ（）](#parentheses)
-  1. [タグ](#tags)
-  1. [メソッド](#methods)
-  1. [順番](#ordering)
+  1. [Parentheses](#parentheses)
+  1. [Tags](#tags)
+  1. [Methods](#methods)
+  1. [Ordering](#ordering)
   1. [`isMounted`](#ismounted)
 
-## 基本ルール
+## Basic Rules
 
-  - 一ファイルごとにReactコンポーネントは一つ
-    - ただし複数の [Stateless, または Pure, Components](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) を使用する場合複数可能. eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless).
-  - JSXのsyntaxを必ず使う.
-  - `React.createElement`は使わない。JSX以外のファイルタイプでアプリケーションをinitializeする場合は使っても良い。
+  - Only include one React component per file.
+    - However, multiple [Stateless, or Pure, Components](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) are allowed per file. eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless).
+  - Always use JSX syntax.
+  - Do not use `React.createElement` unless you're initializing the app from a file that is not JSX.
 
 ## Class vs `React.createClass` vs stateless
 
-  - 内部stateまたはレファレンスがある場合, `React.createClass`より`class extends React.Component`を優先するべき。どうしてもMixinを使うのが必要な場合は`React.createClass`を使用。 eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
+  - If you have internal state and/or refs, prefer `class extends React.Component` over `React.createClass` unless you have a very good reason to use mixins. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
 
     ```jsx
-    // 悪い例
+    // bad
     const Listing = React.createClass({
       // ...
       render() {
@@ -38,7 +38,7 @@
       }
     });
 
-    // 良い例
+    // good
     class Listing extends React.Component {
       // ...
       render() {
@@ -47,95 +47,95 @@
     }
     ```
 
-    stateまたはレファレンスが無い場合、通常の関数 (アロー関数では無い）をクラスより優先して使用する。
+    And if you don't have state or refs, prefer normal functions (not arrow functions) over classes:
 
     ```jsx
-    // 悪い例
+    // bad
     class Listing extends React.Component {
       render() {
         return <div>{this.props.hello}</div>;
       }
     }
 
-    // 悪い例 (関数名のinferenceはオススメしない)
+    // bad (relying on function name inference is discouraged)
     const Listing = ({ hello }) => (
       <div>{hello}</div>
     );
 
-    // 良い例
+    // good
     function Listing({ hello }) {
       return <div>{hello}</div>;
     }
     ```
 
-## ネーミング
+## Naming
 
-  - **エクステンション**: Reactコンポーネントは`.jsx`エクステンションを使う。
-  - **ファイル名**: ファイル名はパスカルケースを使用。例、`ReservationCard.jsx`。
-  - **レファレンス名**: Reactコンポーネントはパスカルケース、コンポーネントのインスタンスはキャメルケース. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
+  - **Extensions**: Use `.jsx` extension for React components.
+  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
+  - **Reference Naming**: Use PascalCase for React components and camelCase for their instances. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
     ```jsx
-    // 悪い例
+    // bad
     import reservationCard from './ReservationCard';
 
-    // 良い例
+    // good
     import ReservationCard from './ReservationCard';
 
-    // 悪い例
+    // bad
     const ReservationItem = <ReservationCard />;
 
-    // 良い例
+    // good
     const reservationItem = <ReservationCard />;
     ```
 
-  - **コンポーネント名**: コンポーネント名はファイル名を使用。例えば、`ReservationCard.jsx` のレファレンス名は `ReservationCard`。 ただし、ディレクトリのルートコンポーネントは`index.jsx`をファイル名に使用し、コンポーネント名はディレクトリ名を使用する:
+  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
 
     ```jsx
-    // 悪い例
+    // bad
     import Footer from './Footer/Footer';
 
-    // 悪い例
+    // bad
     import Footer from './Footer/index';
 
-    // 良い例
+    // good
     import Footer from './Footer';
     ```
 
-## 宣言
+## Declaration
 
-  - コンポーネントの名前に`displayName`は使わない。 コンポーネントはレファレンスの名前をつける。
+  - Do not use `displayName` for naming components. Instead, name the component by reference.
 
     ```jsx
-    // 悪い例
+    // bad
     export default React.createClass({
       displayName: 'ReservationCard',
-      //　処理
+      // stuff goes here
     });
 
-    // 良い例
+    // good
     export default class ReservationCard extends React.Component {
     }
     ```
 
-## 整列
+## Alignment
 
-  - 整列に関しては以下のスタイルとJSX syntaxを使用する。 eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
+  - Follow these alignment styles for JSX syntax. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
     ```jsx
-    // 悪い例
+    // bad
     <Foo superLongParam="bar"
          anotherSuperLongParam="baz" />
 
-    // 良い例
+    // good
     <Foo
       superLongParam="bar"
       anotherSuperLongParam="baz"
     />
 
-    // propsが一行に収まる場合はそうする
+    // if props fit in one line then keep it on the same line
     <Foo bar="bar" />
 
-    // childrenは通常のインデント
+    // children get indented normally
     <Foo
       superLongParam="bar"
       anotherSuperLongParam="baz"
@@ -146,143 +146,143 @@
 
 ## Quotes
 
-  - JSXのattributeは (`"`) を使う。それ以外のJavascript内ではシングルクォートを使う。 eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
+  - Always use double quotes (`"`) for JSX attributes, but single quotes for all other JS. eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
 
-  > なぜ？ JSX attributes [はエスケープquotesを含めることが出来ない](http://eslint.org/docs/rules/jsx-quotes), そのためダブルクォートのほうが `"don't"` などの場合書きやすい。
-  >通常のHTML attributeもダブルクォートをシングルクォートより優先して使用するため、JSX attributeに関しても同じやり方。 
+  > Why? JSX attributes [can't contain escaped quotes](http://eslint.org/docs/rules/jsx-quotes), so double quotes make conjunctions like `"don't"` easier to type.
+  > Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
 
     ```jsx
-    // 悪い例
+    // bad
     <Foo bar='bar' />
 
-    // 良い例
+    // good
     <Foo bar="bar" />
 
-    // 悪い例
+    // bad
     <Foo style={{ left: "20px" }} />
 
-    // 良い例
+    // good
     <Foo style={{ left: '20px' }} />
     ```
 
-## スペーシング
+## Spacing
 
-  - self-closingタグには必ずスペースを一つ入れる
+  - Always include a single space in your self-closing tag.
 
     ```jsx
-    // 悪い例
+    // bad
     <Foo/>
 
     // very bad
     <Foo                 />
 
-    // 悪い例
+    // bad
     <Foo
      />
 
-    // 良い例
+    // good
     <Foo />
     ```
 
-  - JSX内の{}には余分なスペースを入れない eslint: [`react/jsx-curly-spacing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md)
+  - Do not pad JSX curly braces with spaces. eslint: [`react/jsx-curly-spacing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md)
 
     ```jsx
-    // 悪い例
+    // bad
     <Foo bar={ baz } />
 
-    // 良い例
+    // good
     <Foo bar={baz} />
     ```
 
 ## Props
 
-  - Prop名は必ずキャメルケースを使用。
+  - Always use camelCase for prop names.
 
     ```jsx
-    // 悪い例
+    // bad
     <Foo
       UserName="hello"
       phone_number={12345678}
     />
 
-    // 良い例
+    // good
     <Foo
       userName="hello"
       phoneNumber={12345678}
     />
     ```
 
-  - propの値が明示的に`true`の場合、値は書かない。 eslint: [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md)
+  - Omit the value of the prop when it is explicitly `true`. eslint: [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md)
 
     ```jsx
-    // 悪い例
+    // bad
     <Foo
       hidden={true}
     />
 
-    // 良い例
+    // good
     <Foo
       hidden
     />
     ```
 
-  -　`<img>` タグには必ず `alt` propをつける。 イメージが表示用の場合, `alt`を空文字列にするか`<img>` タグに `role="presentation"`を設定する。 eslint: [`jsx-a11y/img-has-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-has-alt.md)
+  - Always include an `alt` prop on `<img>` tags. If the image is presentational, `alt` can be an empty string or the `<img>` must have `role="presentation"`. eslint: [`jsx-a11y/img-has-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-has-alt.md)
 
     ```jsx
-    // 悪い例
+    // bad
     <img src="hello.jpg" />
 
-    // 良い例
+    // good
     <img src="hello.jpg" alt="Me waving hello" />
 
-    // 良い例
+    // good
     <img src="hello.jpg" alt="" />
 
-    // 良い例
+    // good
     <img src="hello.jpg" role="presentation" />
     ```
 
-  - `<img>`タグの`alt`propに"image"、"photo"、"picture"といった値は使わない。 eslint: [`jsx-a11y/img-redundant-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md)
+  - Do not use words like "image", "photo", or "picture" in `<img>` `alt` props. eslint: [`jsx-a11y/img-redundant-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md)
 
-  > なぜ?　スクリーンリーダーは`img`elementをimagesとして読み上げるため、その情報をaltテキストに入れる必要は無い。
+  > Why? Screenreaders already announce `img` elements as images, so there is no need to include this information in the alt text.
 
     ```jsx
-    // 悪い例
+    // bad
     <img src="hello.jpg" alt="Picture of me waving hello" />
 
-    // 良い例
+    // good
     <img src="hello.jpg" alt="Me waving hello" />
     ```
-    
-  - 有効かつ、non-abstractな[ARIA roles](https://www.w3.org/TR/wai-aria/roles#role_definitions)を使用する。 eslint: [`jsx-a11y/aria-role`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md)
+
+  - Use only valid, non-abstract [ARIA roles](https://www.w3.org/TR/wai-aria/roles#role_definitions). eslint: [`jsx-a11y/aria-role`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md)
 
     ```jsx
-    // 悪い例 - ARIA roleでは無い
+    // bad - not an ARIA role
     <div role="datepicker" />
 
-    // 悪い例 - abstractな ARIA role
+    // bad - abstract ARIA role
     <div role="range" />
 
-    // 良い例
+    // good
     <div role="button" />
     ```
 
-  - elementsの`accessKey`は使わない。 eslint: [`jsx-a11y/no-access-key`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md)
+  - Do not use `accessKey` on elements. eslint: [`jsx-a11y/no-access-key`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md)
 
-  > なぜ? キーボードショートカットとキーボードコマンドの違い、さらにスクリーンリーダーかキーボードを利用するかによりaccessibilityが複雑になるため。
+  > Why? Inconsistencies between keyboard shortcuts and keyboard commands used by people using screenreaders and keyboards complicate accessibility.
 
   ```jsx
-  // 悪い例
+  // bad
   <div accessKey="h" />
 
-  // 良い例
+  // good
   <div />
   ```
 
-  - `key` propに配列のインデックスを使用するのは避けるべき。`key` propはユニークなIDを利用する方が良い。 ([なぜ?](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318))
+  - Avoid using an array index as `key` prop, prefer a unique ID. ([why?](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318))
 
   ```jsx
-  // 悪い例
+  // bad
   {todos.map((todo, index) =>
     <Todo
       {...todo}
@@ -290,7 +290,7 @@
     />
   )}
 
-  // 良い例
+  // good
   {todos.map((todo) =>
     <Todo
       {...todo}
@@ -299,19 +299,19 @@
   )}
   ```
 
-## カッコ（）
+## Parentheses
 
-  - JSXが一行以上の場合()でwrapする。eslint: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md)
+  - Wrap JSX tags in parentheses when they span more than one line. eslint: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md)
 
     ```jsx
-    // 悪い例
+    // bad
     render() {
       return <MyComponent className="long body" foo="bar">
                <MyChild />
              </MyComponent>;
     }
 
-    // 良い例
+    // good
     render() {
       return (
         <MyComponent className="long body" foo="bar">
@@ -320,43 +320,43 @@
       );
     }
 
-    // 良い例, 一行以内の場合
+    // good, when single line
     render() {
       const body = <div>hello</div>;
       return <MyComponent>{body}</MyComponent>;
     }
     ```
 
-## タグ
+## Tags
 
-  - child nodeが無いタグは必ずself-closeする。 eslint: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md)
+  - Always self-close tags that have no children. eslint: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md)
 
     ```jsx
-    // 悪い例
+    // bad
     <Foo className="stuff"></Foo>
 
-    // 良い例
+    // good
     <Foo className="stuff" />
     ```
 
-  - コンポーネントが複数行のプロパティを含む場合、新しい行でタグを閉じる。 eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
+  - If your component has multi-line properties, close its tag on a new line. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
     ```jsx
-    // 悪い例
+    // bad
     <Foo
       bar="bar"
       baz="baz" />
 
-    // 良い例
+    // good
     <Foo
       bar="bar"
       baz="baz"
     />
     ```
 
-## メソッド
+## Methods
 
-  - アロー関数でローカル変数をクローズオーバーする。
+  - Use arrow functions to close over local variables.
 
     ```jsx
     function ItemList(props) {
@@ -373,15 +373,15 @@
     }
     ```
 
-  - render メソッドのイベントハンドラーはコンストラクター内でバインドする。 eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
+  - Bind event handlers for the render method in the constructor. eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
 
-  > なぜ? Render パスのバインドコールにより、renderのたびに新しい関数が呼び出されるため。
+  > Why? A bind call in the render path creates a brand new function on every single render.
 
     ```jsx
-    // 悪い例
+    // bad
     class extends React.Component {
       onClickDiv() {
-        // 処理
+        // do stuff
       }
 
       render() {
@@ -389,7 +389,7 @@
       }
     }
 
-    // 良い例
+    // good
     class extends React.Component {
       constructor(props) {
         super(props);
@@ -398,7 +398,7 @@
       }
 
       onClickDiv() {
-        // 処理
+        // do stuff
       }
 
       render() {
@@ -407,47 +407,47 @@
     }
     ```
 
-  - Reactコンポーネントのメソッド名にはアンダースコア "_" をつけない。
+  - Do not use underscore prefix for internal methods of a React component.
 
     ```jsx
-    // 悪い例
+    // bad
     React.createClass({
       _onClickSubmit() {
-        // 処理
+        // do stuff
       },
 
-      // 他の処理
+      // other stuff
     });
 
-    // 良い例
+    // good
     class extends React.Component {
       onClickSubmit() {
-        // 処理
+        // do stuff
       }
 
-      // 他の処理
+      // other stuff
     }
     ```
 
-  - `render`メソッドは必ず`return`する。 eslint: [`require-render-return`](https://github.com/yannickcr/eslint-plugin-react/pull/502)
+  - Be sure to return a value in your `render` methods. eslint: [`require-render-return`](https://github.com/yannickcr/eslint-plugin-react/pull/502)
 
     ```jsx
-    // 悪い例
+    // bad
     render() {
       (<div />);
     }
 
-    // 良い例
+    // good
     render() {
       return (<div />);
     }
     ```
 
-## 順番
+## Ordering
 
-  - `class extends React.Component`の順番:
+  - Ordering for `class extends React.Component`:
 
-  1. オプションナルな`static`メソッド
+  1. optional `static` methods
   1. `constructor`
   1. `getChildContext`
   1. `componentWillMount`
@@ -457,12 +457,12 @@
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *クリックハンドラーやイベントハンドラー* 例えば `onClickSubmit()` や `onChangeDescription()`
-  1. *`render`用のGetterメソッド* 例えば `getSelectReason()` や `getFooterContent()`
-  1. *オプショナルなrenderメソッド* 例えば `renderNavigation()` や `renderProfilePicture()`
+  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
+  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
+  1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
   1. `render`
 
-  - `propTypes`, `defaultProps`, `contextTypes`,...etc の定義の仕方
+  - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
 
     ```jsx
     import React, { PropTypes } from 'react';
@@ -493,7 +493,7 @@
     export default Link;
     ```
 
-  - `React.createClass`の順番: eslint: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md)
+  - Ordering for `React.createClass`: eslint: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md)
 
   1. `displayName`
   1. `propTypes`
@@ -512,26 +512,26 @@
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *クリックハンドラーやイベントハンドラー* 例えば `onClickSubmit()` や `onChangeDescription()`
-  1. *`render`用のGetterメソッド* 例えば `getSelectReason()` や `getFooterContent()`
-  1. *オプショナルなrenderメソッド* 例えば `renderNavigation()` や `renderProfilePicture()`
+  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
+  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
+  1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
   1. `render`
 
 ## `isMounted`
 
-  - `isMounted`は使わない。 eslint: [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md)
+  - Do not use `isMounted`. eslint: [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md)
 
-  > なぜ? [`isMounted` はアンチパターン][anti-pattern], ES6クラスを使う場合使用できない、そして、React libraryからも非推奨になる予定なため。
+  > Why? [`isMounted` is an anti-pattern][anti-pattern], is not available when using ES6 classes, and is on its way to being officially deprecated.
 
   [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
 
-## 翻訳
+## Translation
 
-  このJSX/React スタイルガイドは他の言語でも読めます：
+  This JSX/React style guide is also available in other languages:
 
-  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **中国語 (簡体字)**: [JasonBoy/javascript](https://github.com/JasonBoy/javascript/tree/master/react)
-  - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **ポーランド語**: [pietraszekl/javascript](https://github.com/pietraszekl/javascript/tree/master/react)
-  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **韓国語**: [apple77y/javascript](https://github.com/apple77y/javascript/tree/master/react)
+  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese (Simplified)**: [JasonBoy/javascript](https://github.com/JasonBoy/javascript/tree/master/react)
+  - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polish**: [pietraszekl/javascript](https://github.com/pietraszekl/javascript/tree/master/react)
+  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [apple77y/javascript](https://github.com/apple77y/javascript/tree/master/react)
   - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **日本語**: [WataruKay/javascript](https://github.com/WataruKay/javascript/tree/master/react)
 
-**[⬆トップに戻る](#table-of-contents)**
+**[⬆ back to top](#table-of-contents)**
