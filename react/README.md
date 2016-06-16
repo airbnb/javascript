@@ -21,7 +21,7 @@
 ## 基本ルール
 
   - 一ファイルごとにReactコンポーネントは一つ
-    - ただし複数の [Stateless, または Pure, Components](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) を使用するの場合可能. eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless).
+    - ただし複数の [Stateless, または Pure, Components](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) を使用する場合複数可能. eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless).
   - JSXのsyntaxを必ず使う.
   - `React.createElement`は使わない。JSX以外のファイルタイプでアプリケーションをinitializeする場合は使っても良い。
 
@@ -47,7 +47,7 @@
     }
     ```
 
-    stateまたはrefsが無い場合、通常の関数 (アロー関数では無い）をクラスより優先して使用する。
+    stateまたはレファレンスが無い場合、通常の関数 (アロー関数では無い）をクラスより優先して使用する。
 
     ```jsx
     // 悪い例
@@ -144,9 +144,9 @@
     </Foo>
     ```
 
-## Quotes ("",'')
+## Quotes
 
-  - JSXのattributeは (`"`) を使う。それ以外のJS内では('')を使う。 eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
+  - JSXのattributeは (`"`) を使う。それ以外のJavascript内では('')を使う。 eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
 
   > なぜ？ JSX attributes [はエスケープquotesを含めることが出来ない](http://eslint.org/docs/rules/jsx-quotes), そのためdouble quoteのほうが `"don't"` などの場合書きやすい。
   >通常のHTML attributeもdouble quoteをsingle quoteより優先して使用するため、JSX attributeに関しても同じやり方。 
@@ -165,7 +165,7 @@
     <Foo style={{ left: '20px' }} />
     ```
 
-## Spacing
+## スペーシング
 
   - self-closingタグには必ずスペースを一つ入れる
 
@@ -196,7 +196,7 @@
 
 ## Props
 
-  - Prop名は必ずキャメルケースを使用.
+  - Prop名は必ずキャメルケースを使用。
 
     ```jsx
     // 悪い例
@@ -398,7 +398,7 @@
       }
 
       onClickDiv() {
-        // do stuff
+        // 処理
       }
 
       render() {
@@ -407,25 +407,25 @@
     }
     ```
 
-  - Reactコンポーネントのインターナルメソッドにはアンダースコア "_" をメソッド名につけない。
+  - Reactコンポーネントのメソッド名にはアンダースコア "_" をつけない。
 
     ```jsx
     // 悪い例
     React.createClass({
       _onClickSubmit() {
-        // do stuff
+        // 処理
       },
 
-      // other stuff
+      // 他の処理
     });
 
     // 良い例
     class extends React.Component {
       onClickSubmit() {
-        // do stuff
+        // 処理
       }
 
-      // other stuff
+      // 他の処理
     }
     ```
 
