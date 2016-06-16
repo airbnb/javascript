@@ -6,28 +6,28 @@
 
   1. [基本ルール](#basic-rules)
   1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
-  1. [Naming](#naming)
-  1. [Declaration](#declaration)
-  1. [Alignment](#alignment)
+  1. [ネーミング](#naming)
+  1. [宣言](#declaration)
+  1. [整列](#alignment)
   1. [Quotes](#quotes)
-  1. [Spacing](#spacing)
+  1. [スペーシング](#spacing)
   1. [Props](#props)
-  1. [Parentheses](#parentheses)
-  1. [Tags](#tags)
-  1. [Methods](#methods)
-  1. [Ordering](#ordering)
+  1. [カッコ（）](#parentheses)
+  1. [タグ](#tags)
+  1. [メソッド](#methods)
+  1. [順番](#ordering)
   1. [`isMounted`](#ismounted)
 
 ## 基本ルール
 
   - 一ファイルごとにReactコンポーネントは一つ
-    - ただし, 複数の [Stateless, または Pure, Components](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) の場合可能. eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless).
+    - ただし複数の [Stateless, または Pure, Components](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) を使用するの場合可能. eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless).
   - JSXのsyntaxを必ず使う.
-  - `React.createElement`は使わない。JSX以外のファイルタイプでアプリをinitializeする場合は使っても良い。
+  - `React.createElement`は使わない。JSX以外のファイルタイプでアプリケーションをinitializeする場合は使っても良い。
 
 ## Class vs `React.createClass` vs stateless
 
-  - 内部stateまたはレファレンスがある場合, `React.createClass`より`class extends React.Component`を優先するべき。どうしてもMixinを使うのが必要な場合は`React.createClass`。 eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
+  - 内部stateまたはレファレンスがある場合, `React.createClass`より`class extends React.Component`を優先するべき。どうしてもMixinを使うのが必要な場合は`React.createClass`を使用。 eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
 
     ```jsx
     // 悪い例
@@ -101,7 +101,7 @@
     import Footer from './Footer';
     ```
 
-## Declaration
+## 宣言
 
   - コンポーネントの名前に`displayName`は使わない。 コンポーネントはレファレンスの名前をつける。
 
@@ -117,9 +117,9 @@
     }
     ```
 
-## Alignment
+## 整列
 
-  - alignment に関しては以下のスタイルとJSX syntaxを使用する. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
+  - 整列に関しては以下のスタイルとJSX syntaxを使用する。 eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
     ```jsx
     // 悪い例
@@ -144,7 +144,7 @@
     </Foo>
     ```
 
-## Quotes
+## Quotes ("",'')
 
   - JSXのattributeは (`"`) を使う。それ以外のJS内では('')を使う。 eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
 
@@ -299,7 +299,7 @@
   )}
   ```
 
-## Parenthesis ()
+## カッコ（）
 
   - JSXが一行以上の場合()でwrapする。eslint: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md)
 
@@ -521,7 +521,7 @@
 
   - `isMounted`は使わない。 eslint: [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md)
 
-  > なぜ? [`isMounted` はアンチパターン][anti-pattern], ES6クラスを使う場合使用できない、そして、React libraryからも非推奨になる予定。
+  > なぜ? [`isMounted` はアンチパターン][anti-pattern], ES6クラスを使う場合使用できない、そして、React libraryからも非推奨になる予定なため。
 
   [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
 
