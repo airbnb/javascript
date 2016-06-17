@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import test from 'tape';
 
-const index = require('../');
+import index from '../';
 
 const files = { index };
 
