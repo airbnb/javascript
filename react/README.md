@@ -291,12 +291,12 @@
   )}
 
   // good
-  {todos.map((todo) =>
+  {todos.map(todo => (
     <Todo
       {...todo}
       key={todo.id}
     />
-  )}
+  ))}
   ```
 
 ## Parentheses
