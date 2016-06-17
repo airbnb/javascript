@@ -117,6 +117,10 @@ module.exports = {
     // disallow generator functions that do not have yield
     'require-yield': 0,
 
+    // enforce spacing between object rest-spread
+    // http://eslint.org/docs/rules/rest-spread-spacing
+    'rest-spread-spacing': [0, 'never'],
+
     // import sorting
     // http://eslint.org/docs/rules/sort-imports
     'sort-imports': 0,
