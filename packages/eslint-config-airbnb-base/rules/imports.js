@@ -108,12 +108,10 @@ module.exports = {
 
     // Require a newline after the last import/require in a group
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/newline-after-import.md
-    // TODO: enable
-    'import/newline-after-import': 0,
+    'import/newline-after-import': 2,
 
     // Require modules with a single export to use a default export
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md
-    // TODO: enable
-    'import/prefer-default-export': 0
-  }
+    'import/prefer-default-export': 2,
+  },
 };
