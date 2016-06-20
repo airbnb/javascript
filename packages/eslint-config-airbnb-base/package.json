@@ -46,14 +46,14 @@
   "homepage": "https://github.com/airbnb/javascript",
   "devDependencies": {
     "babel-tape-runner": "^1.3.1",
-    "eslint": "^2.13.0",
+    "eslint": "^2.13.1",
     "eslint-find-rules": "^1.10.0",
     "eslint-plugin-import": "^1.8.1",
     "tape": "^4.5.1",
     "in-publish": "^2.0.0"
   },
   "peerDependencies": {
-    "eslint": "^2.13.0",
+    "eslint": "^2.13.1",
     "eslint-plugin-import": "^1.8.1"
   }
 }
