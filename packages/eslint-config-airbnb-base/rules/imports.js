@@ -60,8 +60,8 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
     // TODO: enable
     'import/no-extraneous-dependencies': [0, {
-      devDependencies: false,
-      optionalDependencies: false,
+      devDependencies: true,
+      optionalDependencies: true,
     }],
 
     // Forbid mutable exports
