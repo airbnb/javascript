@@ -44,13 +44,11 @@ module.exports = {
 
     // do not allow a default import name to match a named export
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default.md
-    // TODO: enable
-    'import/no-named-as-default': 0,
+    'import/no-named-as-default': 2,
 
     // warn on accessing default export property names that are also named exports
-    // TODO: enable?
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default-member.md
-    'import/no-named-as-default-member': 0,
+    'import/no-named-as-default-member': 2,
 
     // disallow use of jsdoc-marked-deprecated imports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-deprecated.md
@@ -58,8 +56,7 @@ module.exports = {
 
     // Forbid the use of extraneous packages
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
-    // TODO: enable
-    'import/no-extraneous-dependencies': [0, {
+    'import/no-extraneous-dependencies': [2, {
       devDependencies: false,
       optionalDependencies: false,
     }],
@@ -99,8 +96,7 @@ module.exports = {
 
     // Ensure consistent use of file extension within the import path
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
-    // TODO: enable
-    'import/extensions': [0, 'never'],
+    'import/extensions': [2, 'never'],
 
     // Enforce a convention in module import order
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
