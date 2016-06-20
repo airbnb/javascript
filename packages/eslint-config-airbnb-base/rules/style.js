@@ -212,8 +212,7 @@ module.exports = {
 
     // enforce "same line" or "multiple line" on object properties.
     // http://eslint.org/docs/rules/object-property-newline
-    // TODO: enable when https://github.com/eslint/eslint/issues/5667#issuecomment-219334864 is resolved
-    'object-property-newline': [0, {
+    'object-property-newline': [2, {
       allowMultiplePropertiesPerLine: true,
     }],
 
