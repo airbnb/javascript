@@ -138,8 +138,7 @@ module.exports = {
 
     // disallow un-paren'd mixes of different operators
     // http://eslint.org/docs/rules/no-mixed-operators
-    // TODO: enable
-    'no-mixed-operators': [0, {
+    'no-mixed-operators': [2, {
       groups: [
         ['+', '-', '*', '/', '%', '**'],
         ['&', '|', '^', '~', '<<', '>>', '>>>'],
