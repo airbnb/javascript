@@ -119,7 +119,7 @@ module.exports = {
 
     // enforce spacing between object rest-spread
     // http://eslint.org/docs/rules/rest-spread-spacing
-    'rest-spread-spacing': [0, 'never'],
+    'rest-spread-spacing': [2, 'never'],
 
     // import sorting
     // http://eslint.org/docs/rules/sort-imports
