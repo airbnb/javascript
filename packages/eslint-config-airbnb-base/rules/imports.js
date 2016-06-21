@@ -96,7 +96,8 @@ module.exports = {
 
     // Ensure consistent use of file extension within the import path
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
-    'import/extensions': [2, 'never'],
+    // TODO: enable when https://github.com/benmosher/eslint-plugin-import/issues/390 is resolved
+    'import/extensions': [0, 'never'],
 
     // Enforce a convention in module import order
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
