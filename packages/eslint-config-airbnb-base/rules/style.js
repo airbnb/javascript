@@ -204,6 +204,7 @@ module.exports = {
 
     // enforce line breaks between braces
     // http://eslint.org/docs/rules/object-curly-newline
+    // TODO: enable once https://github.com/eslint/eslint/issues/6488 is resolved
     'object-curly-newline': [0, {
       ObjectExpression: { minProperties: 0, multiline: true },
       ObjectPattern: { minProperties: 0, multiline: true }
