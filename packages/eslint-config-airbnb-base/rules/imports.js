@@ -15,7 +15,16 @@ module.exports = {
       node: {
         extensions: ['.js', '.json']
       }
-    }
+    },
+    'import/extensions': [
+      'node_modules',
+    ],
+    'import/core-modules': [
+    ],
+    'import/ignore': [
+      'node_modules',
+      '\\.(coffee|scss|css|less|hbs|svg|json)$',
+    ],
   },
 
   rules: {
