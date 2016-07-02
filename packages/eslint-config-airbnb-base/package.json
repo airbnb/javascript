@@ -47,13 +47,13 @@
   "devDependencies": {
     "babel-tape-runner": "^1.3.1",
     "eslint": "^2.13.1",
-    "eslint-find-rules": "^1.10.0",
-    "eslint-plugin-import": "^1.8.1",
-    "tape": "^4.5.1",
+    "eslint-find-rules": "^1.11.0",
+    "eslint-plugin-import": "^1.10.2",
+    "tape": "^4.6.0",
     "in-publish": "^2.0.0"
   },
   "peerDependencies": {
     "eslint": "^2.13.1",
-    "eslint-plugin-import": "^1.8.1"
+    "eslint-plugin-import": "^1.10.2"
   }
 }
