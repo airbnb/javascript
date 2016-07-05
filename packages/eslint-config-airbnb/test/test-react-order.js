@@ -27,6 +27,7 @@ function lint(text) {
 function wrapComponent(body) {
   return `
 import React from 'react';
+
 export default class MyComponent extends React.Component {
 /* eslint no-empty-function: 0 */
 ${body}

@@ -89,6 +89,7 @@ module.exports = {
     'react/sort-prop-types': [0, {
       ignoreCase: false,
       callbacksLast: false,
+      requiredFirst: false,
     }],
 
     // Deprecated in favor of react/jsx-sort-props
@@ -99,11 +100,13 @@ module.exports = {
     'react/jsx-sort-props': [0, {
       ignoreCase: false,
       callbacksLast: false,
+      shorthandFirst: false,
+      shorthandLast: false,
     }],
 
     // Prevent React to be incorrectly marked as unused
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
-    'react/jsx-uses-react': [2, { pragma: 'React' }],
+    'react/jsx-uses-react': [2],
 
     // Prevent variables used in JSX to be incorrectly marked as unused
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md
@@ -115,15 +118,15 @@ module.exports = {
 
     // Prevent usage of deprecated methods
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-deprecated.md
-    'react/no-deprecated': [1, { react: '0.14.0' }],
+    'react/no-deprecated': [1],
 
     // Prevent usage of setState in componentDidMount
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
-    'react/no-did-mount-set-state': [2, 'allow-in-func'],
+    'react/no-did-mount-set-state': [2],
 
     // Prevent usage of setState in componentDidUpdate
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-update-set-state.md
-    'react/no-did-update-set-state': [2, 'allow-in-func'],
+    'react/no-did-update-set-state': [2],
 
     // Prevent direct mutation of this.state
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-direct-mutation-state.md
@@ -167,7 +170,7 @@ module.exports = {
 
     // Restrict file extensions that may be required
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-extension.md
-    'react/require-extension': [0, { extensions: ['.jsx'] }],
+    'react/require-extension': [0, { extensions: ['.jsx', '.js'] }],
 
     // Require render() methods to return something
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md
@@ -196,12 +199,13 @@ module.exports = {
     }],
 
     // Prevent missing parentheses around multilines JSX
-    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md
-    'react/wrap-multilines': [2, {
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md
+    'react/jsx-wrap-multilines': [2, {
       declaration: true,
       assignment: true,
       return: true
     }],
+    'react/wrap-multilines': 0, // deprecated version
 
     // Require that the first prop in a JSX element be on a new line when the element is multiline
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-first-prop-new-line.md
@@ -218,7 +222,32 @@ module.exports = {
     // Disallow target="_blank" on links
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md
     // TODO: enable
-    'react/jsx-no-target-blank': 0
+    'react/jsx-no-target-blank': 0,
+
+    // only .jsx files may have JSX
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
+    // TODO: enable
+    'react/jsx-filename-extension': [0, { extensions: ['.jsx'] }],
+
+    // prevent accidental JS comments from being injected into JSX as text
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md
+    // TODO: enable
+    'react/jsx-no-comment-textnodes': 0,
+    'react/no-comment-textnodes': 0, // deprecated version
+
+    // disallow using React.render/ReactDOM.render's return value
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-render-return-value.md
+    // TODO: enable
+    'react/no-render-return-value': 0,
+
+    // require a shouldComponentUpdate method, or PureRenderMixin
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-optimization.md
+    'react/require-optimization': [0, { allowDecorators: [] }],
+
+    // warn against using findDOMNode()
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md
+    // TODO: enable
+    'react/no-find-dom-node': 0,
   },
 
   settings: {
