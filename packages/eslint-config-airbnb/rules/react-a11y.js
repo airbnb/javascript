@@ -12,20 +12,17 @@ module.exports = {
     'jsx-a11y/aria-role': 2,
 
     // Enforce all aria-* props are valid.
-    // TODO: enable
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-props.md
-    'jsx-a11y/aria-props': 0,
+    'jsx-a11y/aria-props': 2,
 
     // Enforce ARIA state and property values are valid.
-    // TODO: enable
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-proptypes.md
-    'jsx-a11y/aria-proptypes': 0,
+    'jsx-a11y/aria-proptypes': 2,
 
     // Enforce that elements that do not support ARIA roles, states, and
     // properties do not have those attributes.
-    // TODO: enable
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-unsupported-elements.md
-    'jsx-a11y/aria-unsupported-elements': 0,
+    'jsx-a11y/aria-unsupported-elements': 2,
 
     // disallow href "#"
     // TODO: enable
@@ -69,15 +66,13 @@ module.exports = {
 
     // Enforce that elements with ARIA roles must have all required attributes
     // for that role.
-    // TODO: enable
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-has-required-aria-props.md
-    'jsx-a11y/role-has-required-aria-props': 0,
+    'jsx-a11y/role-has-required-aria-props': 2,
 
     // Enforce that elements with explicit or implicit roles defined contain
     // only aria-* properties supported by that role.
-    // TODO: enable
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-supports-aria-props.md
-    'jsx-a11y/role-supports-aria-props': 0,
+    'jsx-a11y/role-supports-aria-props': 2,
 
     // Enforce tabIndex value is not greater than zero.
     // TODO: evaluate
