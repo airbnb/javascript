@@ -30,7 +30,7 @@ module.exports = {
     // disallow href "#"
     // TODO: enable
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/href-no-hash.md
-    'jsx-a11y/href-no-hash': 0,
+    'jsx-a11y/href-no-hash': [0, ['a']],
 
     // Require <img> to have a non-empty `alt` prop, or role="presentation"
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-has-alt.md
@@ -43,7 +43,7 @@ module.exports = {
     // require that JSX labels use "htmlFor"
     // TODO: enable
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md
-    'jsx-a11y/label-has-for': 0,
+    'jsx-a11y/label-has-for': [0, ['label']],
 
     // require that mouseover/out come with focus/blur, for keyboard-only users
     // TODO: enable?
@@ -83,5 +83,30 @@ module.exports = {
     // TODO: evaluate
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/tabindex-no-positive.md
     'jsx-a11y/tabindex-no-positive': 0,
+
+    // ensure <hX> tags have content and are not aria-hidden
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/heading-has-content.md
+    // TODO: enable
+    'jsx-a11y/heading-has-content': [0, ['']],
+
+    // require HTML elements to have a "lang" prop
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/html-has-lang.md
+    // TODO: enable
+    'jsx-a11y/html-has-lang': 0,
+
+    // require HTML element's lang prop to be valid
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/lang.md
+    // TODO: enable
+    'jsx-a11y/lang': 0,
+
+    // prevent marquee elements
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-marquee.md
+    // TODO: enable, pardner
+    'jsx-a11y/no-marquee': 0,
+
+    // only allow <th> to have the "scope" attr
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/scope.md
+    // TODO: enable
+    'jsx-a11y/scope': 0,
   },
 };
