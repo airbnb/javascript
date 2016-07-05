@@ -118,7 +118,7 @@ module.exports = {
 
     // Prevent usage of deprecated methods
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-deprecated.md
-    'react/no-deprecated': [1],
+    'react/no-deprecated': [2],
 
     // Prevent usage of setState in componentDidMount
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
@@ -170,7 +170,7 @@ module.exports = {
 
     // Restrict file extensions that may be required
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-extension.md
-    'react/require-extension': [0, { extensions: ['.jsx', '.js'] }],
+    'react/require-extension': [2, { extensions: ['.jsx', '.js'] }],
 
     // Require render() methods to return something
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md
@@ -221,24 +221,20 @@ module.exports = {
 
     // Disallow target="_blank" on links
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md
-    // TODO: enable
-    'react/jsx-no-target-blank': 0,
+    'react/jsx-no-target-blank': 2,
 
     // only .jsx files may have JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
-    // TODO: enable
-    'react/jsx-filename-extension': [0, { extensions: ['.jsx'] }],
+    'react/jsx-filename-extension': [2, { extensions: ['.jsx'] }],
 
     // prevent accidental JS comments from being injected into JSX as text
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md
-    // TODO: enable
-    'react/jsx-no-comment-textnodes': 0,
+    'react/jsx-no-comment-textnodes': 2,
     'react/no-comment-textnodes': 0, // deprecated version
 
     // disallow using React.render/ReactDOM.render's return value
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-render-return-value.md
-    // TODO: enable
-    'react/no-render-return-value': 0,
+    'react/no-render-return-value': 2,
 
     // require a shouldComponentUpdate method, or PureRenderMixin
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-optimization.md
@@ -246,8 +242,7 @@ module.exports = {
 
     // warn against using findDOMNode()
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md
-    // TODO: enable
-    'react/no-find-dom-node': 0,
+    'react/no-find-dom-node': 2,
   },
 
   settings: {
