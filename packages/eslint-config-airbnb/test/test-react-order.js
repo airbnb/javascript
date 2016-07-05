@@ -9,9 +9,6 @@ const cli = new CLIEngine({
   baseConfig: eslintrc,
 
   rules: {
-    // This rule fails when executing on text.
-    indent: 0,
-
     // It is okay to import devDependencies in tests.
     'import/no-extraneous-dependencies': [2, { devDependencies: true }],
   },
