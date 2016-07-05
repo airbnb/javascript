@@ -717,7 +717,7 @@
     function getType() {
       console.log('fetching type...');
       // set the default type to 'no type'
-      var type = this._type || 'no type';
+      var type = this.type || 'no type';
 
       return type;
     }
@@ -727,7 +727,7 @@
       console.log('fetching type...');
 
       // set the default type to 'no type'
-      var type = this._type || 'no type';
+      var type = this.type || 'no type';
 
       return type;
     }
@@ -1178,18 +1178,21 @@
     });
     ```
 
-  - Use a leading underscore `_` when naming private properties.
+  - Do not use trailing or leading underscores.
+
+  > Why? JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won't count as breaking, or that tests aren't needed. tl;dr: if you want something to be “private”, it must not be observably present.
 
     ```javascript
     // bad
     this.__firstName__ = 'Panda';
     this.firstName_ = 'Panda';
+    this._firstName = 'Panda';
 
     // good
-    this._firstName = 'Panda';
+    this.firstName = 'Panda';
     ```
 
-  - When saving a reference to `this` use `_this`.
+  - Don't save references to this. Use Function#bind.
 
     ```javascript
     // bad
@@ -1208,12 +1211,19 @@
       };
     }
 
-    // good
+    // bad
     function () {
       var _this = this;
       return function () {
         console.log(_this);
       };
+    }
+
+    // good
+    function () {
+      return function () {
+        console.log(this);
+      }.bind(this);
     }
     ```
 
