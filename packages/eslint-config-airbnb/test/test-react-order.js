@@ -8,8 +8,13 @@ const cli = new CLIEngine({
   useEslintrc: false,
   baseConfig: eslintrc,
 
-  // This rule fails when executing on text.
-  rules: { indent: 0 },
+  rules: {
+    // This rule fails when executing on text.
+    indent: 0,
+
+    // It is okay to import devDependencies in tests.
+    'import/no-extraneous-dependencies': [2, { devDependencies: true }],
+  },
 });
 
 function lint(text) {
