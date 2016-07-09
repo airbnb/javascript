@@ -13,6 +13,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    strict: 2,
+    strict: 'error',
   }
 };

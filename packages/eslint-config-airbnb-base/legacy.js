@@ -16,6 +16,6 @@ module.exports = {
   ecmaFeatures: {},
   globals: {},
   rules: {
-    'comma-dangle': [2, 'never']
+    'comma-dangle': ['error', 'never']
   }
 };
