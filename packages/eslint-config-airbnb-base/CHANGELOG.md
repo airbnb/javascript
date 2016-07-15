@@ -1,4 +1,8 @@
-4.0.1 / 2016-07-14
+4.0.2 / 2016-07-14
+==================
+ - [fix] repair accidental comma-dangle change
+
+4.0.1 / 2016-07-14 (unpublished)
 ==================
  - [fix] Prevent trailing commas in the legacy config (#950)
  - [deps] update `eslint-plugin-import`
