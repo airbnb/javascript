@@ -1,3 +1,8 @@
+4.0.1 / 2016-07-14
+==================
+ - [fix] Prevent trailing commas in the legacy config (#950)
+ - [deps] update `eslint-plugin-import`
+
 4.0.0 / 2016-07-02
 ==================
  - [breaking] [deps] update `eslint` to v3; drop support for < node 4
