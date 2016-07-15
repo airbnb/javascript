@@ -37,7 +37,8 @@ module.exports = {
     'no-ex-assign': 2,
 
     // disallow double-negation boolean casts in a boolean context
-    'no-extra-boolean-cast': 0,
+    // http://eslint.org/docs/rules/no-extra-boolean-cast
+    'no-extra-boolean-cast': 2,
 
     // disallow unnecessary parentheses
     // http://eslint.org/docs/rules/no-extra-parens
@@ -79,6 +80,8 @@ module.exports = {
     'no-sparse-arrays': 2,
 
     // Avoid code that looks like two expressions but is actually one
+    // http://eslint.org/docs/rules/no-unexpected-multiline
+    // TODO: enable?
     'no-unexpected-multiline': 0,
 
     // disallow unreachable statements after a return, throw, continue, or break statement

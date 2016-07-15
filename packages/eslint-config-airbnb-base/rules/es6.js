@@ -60,7 +60,8 @@ module.exports = {
     'no-restricted-imports': 0,
 
     // disallow to use this/super before super() calling in constructors.
-    'no-this-before-super': 0,
+    // http://eslint.org/docs/rules/no-this-before-super
+    'no-this-before-super': 2,
 
     // disallow useless computed property keys
     // http://eslint.org/docs/rules/no-useless-computed-key
@@ -101,6 +102,8 @@ module.exports = {
     }],
 
     // suggest using Reflect methods where applicable
+    // http://eslint.org/docs/rules/prefer-reflect
+    // TODO: enable
     'prefer-reflect': 0,
 
     // use rest parameters instead of arguments
@@ -108,6 +111,7 @@ module.exports = {
     'prefer-rest-params': 2,
 
     // suggest using the spread operator instead of .apply()
+    // http://eslint.org/docs/rules/prefer-spread
     'prefer-spread': 0,
 
     // suggest using template literals instead of string concatenation
@@ -115,7 +119,8 @@ module.exports = {
     'prefer-template': 2,
 
     // disallow generator functions that do not have yield
-    'require-yield': 0,
+    // http://eslint.org/docs/rules/require-yield
+    'require-yield': 2,
 
     // enforce spacing between object rest-spread
     // http://eslint.org/docs/rules/rest-spread-spacing
