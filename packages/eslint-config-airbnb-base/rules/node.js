@@ -21,7 +21,8 @@ module.exports = {
     'no-new-require': 0,
 
     // disallow string concatenation with __dirname and __filename
-    'no-path-concat': 0,
+    // http://eslint.org/docs/rules/no-path-concat
+    'no-path-concat': 2,
 
     // disallow use of process.env
     'no-process-env': 0,
@@ -33,6 +34,6 @@ module.exports = {
     'no-restricted-modules': 0,
 
     // disallow use of synchronous methods (off by default)
-    'no-sync': 0
+    'no-sync': 0,
   }
 };

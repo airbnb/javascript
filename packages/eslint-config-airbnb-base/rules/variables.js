@@ -10,7 +10,8 @@ module.exports = {
     'no-delete-var': 2,
 
     // disallow labels that share a name with a variable
-    'no-label-var': 0,
+    // http://eslint.org/docs/rules/no-label-var
+    'no-label-var': 2,
 
     // disallow specific globals
     'no-restricted-globals': 0,
