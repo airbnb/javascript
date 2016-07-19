@@ -12,7 +12,7 @@ We export three ESLint configurations for your usage.
 
 Our default export contains all of our ESLint rules, including ECMAScript 6+ and React. It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, and `eslint-plugin-jsx-a11y`.
 
-1. `PKG=eslint-config-airbnb npm info "$PKG" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install "$PKG"` (which produces and runs a command like `npm install eslint-config-airbnb eslint@^2.9.0 eslint-plugin-jsx-a11y@^1.2.0 eslint-plugin-import@^1.7.0 eslint-plugin-react@^5.0.1` but with whatever the proper version numbers are)
+1. `PKG=eslint-config-airbnb npm info "$PKG" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "$PKG"` (which produces and runs a command like `npm install --save-dev eslint-config-airbnb eslint@^2.9.0 eslint-plugin-jsx-a11y@^1.2.0 eslint-plugin-import@^1.7.0 eslint-plugin-react@^5.0.1` but with whatever the proper version numbers are)
 2. add `"extends": "airbnb"` to your .eslintrc
 
 ### eslint-config-airbnb/base
