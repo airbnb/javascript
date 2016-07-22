@@ -26,9 +26,10 @@ module.exports = {
     'no-undef': 2,
 
     // disallow use of undefined when initializing variables
-    'no-undef-init': 0,
+    'no-undef-init': 2,
 
     // disallow use of undefined variable
+    // TODO: enable?
     'no-undefined': 0,
 
     // disallow declaration of variables that are not used in the code
