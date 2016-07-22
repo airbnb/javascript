@@ -208,8 +208,7 @@ module.exports = {
 
     // disallow use of void operator
     // http://eslint.org/docs/rules/no-void
-    // TODO: enable
-    'no-void': 0,
+    'no-void': 2,
 
     // disallow usage of configurable warning terms in comments: e.g. todo
     'no-warning-comments': [0, { terms: ['todo', 'fixme', 'xxx'], location: 'start' }],

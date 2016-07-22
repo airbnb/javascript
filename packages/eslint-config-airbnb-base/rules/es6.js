@@ -24,7 +24,7 @@ module.exports = {
     'arrow-spacing': [2, { before: true, after: true }],
 
     // verify super() callings in constructors
-    'constructor-super': 0,
+    'constructor-super': 2,
 
     // enforce the spacing around the * in generator functions
     // http://eslint.org/docs/rules/generator-star-spacing
@@ -112,7 +112,7 @@ module.exports = {
 
     // suggest using the spread operator instead of .apply()
     // http://eslint.org/docs/rules/prefer-spread
-    'prefer-spread': 0,
+    'prefer-spread': 2,
 
     // suggest using template literals instead of string concatenation
     // http://eslint.org/docs/rules/prefer-template
@@ -128,7 +128,11 @@ module.exports = {
 
     // import sorting
     // http://eslint.org/docs/rules/sort-imports
-    'sort-imports': 0,
+    'sort-imports': [0, {
+      ignoreCase: false,
+      ignoreMemberSort: false,
+      memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+    }],
 
     // enforce usage of spacing in template strings
     // http://eslint.org/docs/rules/template-curly-spacing

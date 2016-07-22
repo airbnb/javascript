@@ -18,7 +18,7 @@ module.exports = {
     'no-mixed-requires': [0, false],
 
     // disallow use of new operator with the require function
-    'no-new-require': 0,
+    'no-new-require': 2,
 
     // disallow string concatenation with __dirname and __filename
     // http://eslint.org/docs/rules/no-path-concat
