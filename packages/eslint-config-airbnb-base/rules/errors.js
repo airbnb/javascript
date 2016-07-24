@@ -81,8 +81,7 @@ module.exports = {
 
     // Avoid code that looks like two expressions but is actually one
     // http://eslint.org/docs/rules/no-unexpected-multiline
-    // TODO: enable?
-    'no-unexpected-multiline': 0,
+    'no-unexpected-multiline': 2,
 
     // disallow unreachable statements after a return, throw, continue, or break statement
     'no-unreachable': 2,
