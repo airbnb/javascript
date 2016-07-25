@@ -189,7 +189,10 @@ module.exports = {
     'no-unmodified-loop-condition': 0,
 
     // disallow usage of expressions in statement position
-    'no-unused-expressions': 2,
+    'no-unused-expressions': [2, {
+      allowShortCircuit: false,
+      allowTernary: false,
+    }],
 
     // disallow unused labels
     // http://eslint.org/docs/rules/no-unused-labels
