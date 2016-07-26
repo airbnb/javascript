@@ -13,7 +13,8 @@
   "globals": {
     "module": true,
     "require": true,
-    "define": true
+    "define": true,
+    "process": true
   },
   "parser": "babel-eslint",
   "rules": {
@@ -77,7 +78,8 @@
     }],
     "valid-jsdoc": [2, {                          # Require docblocks match params/return type
       "requireParamDescription": false,
-      "requireReturnDescription": false
+      "requireReturnDescription": false,
+      "requireReturn": false
     }],
 
     ###############################################################################################
