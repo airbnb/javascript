@@ -1321,7 +1321,7 @@
 
 ## Constructors
 
-  - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
+  - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible. By resetting the prototype, you'll overwrite the base!
 
     ```javascript
     function Jedi() {
