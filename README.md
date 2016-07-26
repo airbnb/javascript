@@ -524,17 +524,17 @@ Other Style Guides
 
     ```javascript
     // bad
-    const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+    const errorMessage = 'This is a super long error that was thrown because of Superman. When you stop to think about how Superman had anything to do with this, you would get nowhere fast.';
 
     // bad
     const errorMessage = 'This is a super long error that was thrown because \
-    of Batman. When you stop to think about how Batman had anything to do \
+    of Superman. When you stop to think about how Superman had anything to do \
     with this, you would get nowhere \
     fast.';
 
     // good
     const errorMessage = 'This is a super long error that was thrown because ' +
-      'of Batman. When you stop to think about how Batman had anything to do ' +
+      'of Superman. When you stop to think about how Superman had anything to do ' +
       'with this, you would get nowhere fast.';
     ```
 
