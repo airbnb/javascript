@@ -1,3 +1,21 @@
+5.0.0 / 2016-07-24
+==================
+ - [breaking] enable `import/newline-after-import`
+ - [breaking] enable overlooked rules: `linebreak-style`, `new-parens`, `no-continue`, `no-lonely-if`, `operator-assignment`, `space-unary-ops`, `dot-location`, `no-extra-boolean-cast`, `no-this-before-super`, `require-yield`, `no-path-concat`, `no-label-var`, `no-void`, `constructor-super`, `prefer-spread`, `no-new-require`, `no-undef-init`, `no-unexpected-multiline`
+ - [deps] update `eslint`, `eslint-find-rules`, `eslint-plugin-import`, `babel-tape-runner`; add `babel-preset-airbnb`
+ - [patch] flesh out defaults: `jsx-quotes`
+ - [docs] update the peer dep install command to dynamically look up the right version numbers when installing peer deps
+ - [tests] fix prepublish scripts
+
+4.0.2 / 2016-07-14
+==================
+ - [fix] repair accidental comma-dangle change
+
+4.0.1 / 2016-07-14 (unpublished)
+==================
+ - [fix] Prevent trailing commas in the legacy config (#950)
+ - [deps] update `eslint-plugin-import`
+
 4.0.0 / 2016-07-02
 ==================
  - [breaking] [deps] update `eslint` to v3; drop support for < node 4

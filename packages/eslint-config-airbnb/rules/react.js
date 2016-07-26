@@ -14,7 +14,7 @@ module.exports = {
   // View link below for react rules documentation
   // https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
   rules: {
-    // specify whether double or single quotes should be used in JSX attributes
+    // Specify whether double or single quotes should be used in JSX attributes
     // http://eslint.org/docs/rules/jsx-quotes
     'jsx-quotes': [2, 'prefer-double'],
 
@@ -91,7 +91,7 @@ module.exports = {
       callbacksLast: false,
     }],
 
-    // deprecated in favor of react/jsx-sort-props
+    // Deprecated in favor of react/jsx-sort-props
     'react/jsx-sort-prop-types': 0,
 
     // Enforce props alphabetical sorting
@@ -207,15 +207,15 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-first-prop-new-line.md
     'react/jsx-first-prop-new-line': [2, 'multiline'],
 
-    // enforce spacing around jsx equals signs
+    // Enforce spacing around jsx equals signs
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-equals-spacing.md
     'react/jsx-equals-spacing': [2, 'never'],
 
-    // enforce JSX indentation
+    // Enforce JSX indentation
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
     'react/jsx-indent': [2, 2],
 
-    // disallow target="_blank" on links
+    // Disallow target="_blank" on links
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md
     // TODO: enable
     'react/jsx-no-target-blank': 0

@@ -86,6 +86,7 @@ module.exports = {
 
     // No Node.js builtin modules
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-nodejs-modules.md
+    // TODO: enable?
     'import/no-nodejs-modules': 0,
 
     // Style guide:
@@ -118,8 +119,7 @@ module.exports = {
 
     // Require a newline after the last import/require in a group
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/newline-after-import.md
-    // TODO: enable when https://github.com/benmosher/eslint-plugin-import/issues/386 is resolved
-    'import/newline-after-import': 0,
+    'import/newline-after-import': 2,
 
     // Require modules with a single export to use a default export
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md

@@ -18,10 +18,11 @@ module.exports = {
     'no-mixed-requires': [0, false],
 
     // disallow use of new operator with the require function
-    'no-new-require': 0,
+    'no-new-require': 2,
 
     // disallow string concatenation with __dirname and __filename
-    'no-path-concat': 0,
+    // http://eslint.org/docs/rules/no-path-concat
+    'no-path-concat': 2,
 
     // disallow use of process.env
     'no-process-env': 0,
@@ -33,6 +34,6 @@ module.exports = {
     'no-restricted-modules': 0,
 
     // disallow use of synchronous methods (off by default)
-    'no-sync': 0
+    'no-sync': 0,
   }
 };

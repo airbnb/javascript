@@ -10,7 +10,8 @@ module.exports = {
     'no-delete-var': 2,
 
     // disallow labels that share a name with a variable
-    'no-label-var': 0,
+    // http://eslint.org/docs/rules/no-label-var
+    'no-label-var': 2,
 
     // disallow specific globals
     'no-restricted-globals': 0,
@@ -25,9 +26,10 @@ module.exports = {
     'no-undef': 2,
 
     // disallow use of undefined when initializing variables
-    'no-undef-init': 0,
+    'no-undef-init': 2,
 
     // disallow use of undefined variable
+    // TODO: enable?
     'no-undefined': 0,
 
     // disallow declaration of variables that are not used in the code

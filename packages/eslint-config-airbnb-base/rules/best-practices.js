@@ -26,7 +26,8 @@ module.exports = {
     'dot-notation': [2, { allowKeywords: true }],
 
     // enforces consistent newlines before or after dots
-    'dot-location': 0,
+    // http://eslint.org/docs/rules/dot-location
+    'dot-location': [2, 'property'],
 
     // require the use of === and !==
     // http://eslint.org/docs/rules/eqeqeq
@@ -46,6 +47,7 @@ module.exports = {
     'no-case-declarations': 2,
 
     // disallow division operators explicitly at beginning of regular expression
+    // http://eslint.org/docs/rules/no-div-regex
     'no-div-regex': 0,
 
     // disallow else after a return in an if
@@ -87,8 +89,14 @@ module.exports = {
     // disallow the use of leading or trailing decimal points in numeric literals
     'no-floating-decimal': 2,
 
-    // disallow the type conversions with shorter notations
-    'no-implicit-coercion': 0,
+    // disallow implicit type conversions
+    // http://eslint.org/docs/rules/no-implicit-coercion
+    'no-implicit-coercion': [0, {
+      boolean: false,
+      number: true,
+      string: true,
+      allow: [],
+    }],
 
     // disallow var and named functions in global scope
     // http://eslint.org/docs/rules/no-implicit-globals
@@ -181,7 +189,10 @@ module.exports = {
     'no-unmodified-loop-condition': 0,
 
     // disallow usage of expressions in statement position
-    'no-unused-expressions': 2,
+    'no-unused-expressions': [2, {
+      allowShortCircuit: false,
+      allowTernary: false,
+    }],
 
     // disallow unused labels
     // http://eslint.org/docs/rules/no-unused-labels
@@ -199,7 +210,8 @@ module.exports = {
     'no-useless-escape': 2,
 
     // disallow use of void operator
-    'no-void': 0,
+    // http://eslint.org/docs/rules/no-void
+    'no-void': 2,
 
     // disallow usage of configurable warning terms in comments: e.g. todo
     'no-warning-comments': [0, { terms: ['todo', 'fixme', 'xxx'], location: 'start' }],
