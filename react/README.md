@@ -119,7 +119,7 @@
         return <Component {...props} foo />;
       }
 
-      WithFoo.displayName = `withFoo(${Component.displayName || Component.name}`;
+      WithFoo.displayName = `withFoo(${Component.displayName || Component.name})`;
       return WithFoo;
     }
     ```
