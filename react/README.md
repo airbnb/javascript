@@ -107,19 +107,23 @@
 
     ```jsx
     // bad
-    export default function withFoo(Component) {
+    export default function withFoo(WrappedComponent) {
       return function WithFoo(props) {
-        return <Component {...props} foo />;
+        return <WrappedComponent {...props} foo />;
       }
     }
 
     // good
-    export default function withFoo(Component) {
+    export default function withFoo(WrappedComponent) {
       function WithFoo(props) {
-        return <Component {...props} foo />;
+        return <WrappedComponent {...props} foo />;
       }
 
-      WithFoo.displayName = `withFoo(${Component.displayName || Component.name})`;
+      const wrappedComponentName = WrappedComponent.displayName
+        || WrappedComponent.name
+        || 'Component';
+
+      WithFoo.displayName = `withFoo(${wrappedComponentName})`;
       return WithFoo;
     }
     ```
