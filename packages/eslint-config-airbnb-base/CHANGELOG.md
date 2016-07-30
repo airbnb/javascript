@@ -1,3 +1,9 @@
+5.0.1 / 2016-07-29
+==================
+ - [patch] `no-unused-expressions`: flesh out options
+ - [deps] update `eslint` to `v3.2`, `eslint-plugin-import` to `v1.12`
+ - [tests] improve prepublish script
+
 5.0.0 / 2016-07-24
 ==================
  - [breaking] enable `import/newline-after-import`
