@@ -1,3 +1,37 @@
+10.0.0 / 2016-08-01
+==================
+- [breaking] enable jsx-a11y rules:
+ - `jsx-a11y/heading-has-content`
+ - `jsx-a11y/html-has-lang`
+ - `jsx-a11y/lang`
+ - `jsx-a11y/no-marquee`
+ - `jsx-a11y/scope`
+ - `jsx-a11y/href-no-hash`
+ - `jsx-a11y/label-has-for`
+- [breaking] enable aria rules:
+ - `jsx-a11y/aria-props`
+ - `jsx-a11y/aria-proptypes`
+ - `jsx-a11y/aria-unsupported-elements`
+ - `jsx-a11y/role-has-required-aria-props`
+ - `jsx-a11y/role-supports-aria-props`
+- [breaking] enable react rules:
+ - `react/jsx-filename-extension`
+ - `react/jsx-no-comment-textnodes`
+ - `react/jsx-no-target-blank`
+ - `react/require-extension`
+ - `react/no-render-return-value`
+ - `react/no-find-dom-node`
+ - `react/no-deprecated`
+- [deps] [breaking] update `eslint` to v3, `eslint-config-airbnb-base` to v5, `eslint-find-rules`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y` to v2, `eslint-plugin-react` to v6, `tape`. drop node < 4 support.
+- [deps] update `eslint-config-airbnb-base`, `eslint-plugin-react`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y`, `babel-tape-runner`, add `babel-preset-airbnb`. ensure react is `>=` 0.13.0
+- [patch] loosen `jsx-pascal-case` rule to allow all caps component names
+- [tests] stop testing < node 4
+- [tests] use `in-publish` because coffeescript screwed up the prepublish script for everyone
+- [tests] Only run `eslint-find-rules` on prepublish, not in tests
+- [tests] Even though the base config may not be up to date in the main package, let’s `npm link` the base package into the main one for the sake of travis-ci tests
+- [docs] update the peer dep install command to dynamically look up the right version numbers when installing peer deps
+- add `safe-publish-latest` to `prepublish`
+
 9.0.1 / 2016-05-08
 ==================
 - [patch] update `eslint-config-airbnb-base` to v3.0.1
