@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "tests-only": "babel-tape-runner ./test/test-*.js",
-    "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test)",
+    "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test) && safe-publish-latest",
     "pretest": "npm run --silent lint",
     "test": "npm run --silent tests-only",
     "travis": "npm run --silent test"
@@ -51,6 +51,7 @@
     "eslint-find-rules": "^1.11.1",
     "eslint-plugin-import": "^1.12.0",
     "in-publish": "^2.0.0",
+    "safe-publish-latest": "^1.0.1",
     "tape": "^4.6.0"
   },
   "peerDependencies": {
