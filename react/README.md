@@ -337,7 +337,7 @@
 
     // good
     <Foo
-      ref={(ref) => this.myRef = ref}
+      ref={ref => { this.myRef = ref; }}
     />
     ```
 
