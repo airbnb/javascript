@@ -158,13 +158,13 @@ Other Style Guides
 
     ```javascript
     // bad
-    const superman = {
+    var superman = {
       default: { clark: 'kent' },
       private: true,
     };
 
     // good
-    const superman = {
+    var superman = {
       defaults: { clark: 'kent' },
       hidden: true,
     };
@@ -175,17 +175,17 @@ Other Style Guides
 
     ```javascript
     // bad
-    const superman = {
+    var superman = {
       class: 'alien',
     };
 
     // bad
-    const superman = {
+    var superman = {
       klass: 'alien',
     };
 
     // good
-    const superman = {
+    var superman = {
       type: 'alien',
     };
     ```
