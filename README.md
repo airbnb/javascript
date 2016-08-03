@@ -153,43 +153,6 @@ Other Style Guides
     const item = {};
     ```
 
-  <a name="objects--reserved-words"></a><a name="3.2"></a>
-  - [3.2](#objects--reserved-words) If your code will be executed in browsers in script context, don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61). It’s OK to use them in ES6 modules and server-side code. jscs: [`disallowIdentifierNames`](http://jscs.info/rule/disallowIdentifierNames)
-
-    ```javascript
-    // bad
-    var superman = {
-      default: { clark: 'kent' },
-      private: true,
-    };
-
-    // good
-    var superman = {
-      defaults: { clark: 'kent' },
-      hidden: true,
-    };
-    ```
-
-  <a name="objects--reserved-words-2"></a><a name="3.3"></a>
-  - [3.3](#objects--reserved-words-2) Use readable synonyms in place of reserved words. jscs: [`disallowIdentifierNames`](http://jscs.info/rule/disallowIdentifierNames)
-
-    ```javascript
-    // bad
-    var superman = {
-      class: 'alien',
-    };
-
-    // bad
-    var superman = {
-      klass: 'alien',
-    };
-
-    // good
-    var superman = {
-      type: 'alien',
-    };
-    ```
-
   <a name="es6-computed-properties"></a><a name="3.4"></a>
   - [3.4](#es6-computed-properties) Use computed property names when creating objects with dynamic property names.
 
