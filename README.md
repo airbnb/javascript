@@ -764,6 +764,27 @@ Other Style Guides
     }
     ```
 
+  <a name="functions--spread-vs-apply"></a><a name="7.14"></a>
+  - [7.14](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions. eslint: [`prefer-spread`](http://eslint.org/docs/rules/prefer-spread)
+
+    > Why? It's cleaner, you don't need to supply a context, and you can not easily compose `new` with `apply`.
+
+    ```javascript
+    // bad
+    const x = [[1, 2], [3, 4], [5, 6]];
+    console.log(Array.prototype.concat.apply([], x));
+
+    // good
+    const x = [[1, 2], [3, 4], [5, 6]];
+    console.log([].concat(...x));
+
+    // bad
+    new (Function.prototype.bind.apply(Date, [null, 2016, 08, 05]));
+
+    // good
+    new Date(...[2016, 08, 05]);
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrow Functions
