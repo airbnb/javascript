@@ -771,12 +771,12 @@ Other Style Guides
 
     ```javascript
     // bad
-    const x = [[1, 2], [3, 4], [5, 6]];
-    console.log(Array.prototype.concat.apply([], x));
+    const x = [1, 2, 3, 4, 5];
+    console.log.apply(console, x);
 
     // good
-    const x = [[1, 2], [3, 4], [5, 6]];
-    console.log([].concat(...x));
+    const x = [1, 2, 3, 4, 5];
+    console.log(...x);
 
     // bad
     new (Function.prototype.bind.apply(Date, [null, 2016, 08, 05]));
