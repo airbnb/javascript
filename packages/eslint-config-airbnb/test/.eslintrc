@@ -5,9 +5,9 @@
     "no-shadow": 0,
 
     // tests uses `t` for tape
-    "id-length": [2, {"min": 2, "properties": "never", "exceptions": ["t"]}],
+    "id-length": [1, {"min": 1, "properties": "never", "exceptions": ["t"]}],
 
     // tests can import things in devDependencies
-    "import/no-extraneous-dependencies": [2, {"devDependencies": true}]
+    "import/no-extraneous-dependencies": [1, {"devDependencies": true}]
   }
 }
