@@ -10,7 +10,7 @@ const cli = new CLIEngine({
 
   rules: {
     // It is okay to import devDependencies in tests.
-    'import/no-extraneous-dependencies': [2, { devDependencies: true }],
+    'import/no-extraneous-dependencies': [1, { devDependencies: true }],
   },
 });
 

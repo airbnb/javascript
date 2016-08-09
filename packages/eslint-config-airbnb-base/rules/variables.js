@@ -7,35 +7,35 @@ module.exports = {
     'no-catch-shadow': 0,
 
     // disallow deletion of variables
-    'no-delete-var': 2,
+    'no-delete-var': 1,
 
     // disallow labels that share a name with a variable
     // http://eslint.org/docs/rules/no-label-var
-    'no-label-var': 2,
+    'no-label-var': 1,
 
     // disallow specific globals
     'no-restricted-globals': 0,
 
     // disallow declaration of variables already declared in the outer scope
-    'no-shadow': 2,
+    'no-shadow': 1,
 
     // disallow shadowing of names such as arguments
-    'no-shadow-restricted-names': 2,
+    'no-shadow-restricted-names': 1,
 
     // disallow use of undeclared variables unless mentioned in a /*global */ block
-    'no-undef': 2,
+    'no-undef': 1,
 
     // disallow use of undefined when initializing variables
-    'no-undef-init': 2,
+    'no-undef-init': 1,
 
     // disallow use of undefined variable
     // TODO: enable?
     'no-undefined': 0,
 
     // disallow declaration of variables that are not used in the code
-    'no-unused-vars': [2, { vars: 'local', args: 'after-used' }],
+    'no-unused-vars': [1, { vars: 'local', args: 'after-used' }],
 
     // disallow use of variables before they are defined
-    'no-use-before-define': 2
+    'no-use-before-define': 1
   }
 };
