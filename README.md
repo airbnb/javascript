@@ -817,10 +817,7 @@ Other Style Guides
 
     ```javascript
     // bad
-    [1, 2, 3].map(number => {
-      const nextNumber = number + 1;
-      `A string containing the ${nextNumber}.`;
-    });
+    [1, 2, 3].map(number => { return `A string containing the ${number}.`; });
 
     // good
     [1, 2, 3].map(number => `A string containing the ${number}.`);
