@@ -28,6 +28,11 @@ module.exports = {
     // enforce newline at the end of file, with no multiple empty lines
     'eol-last': 2,
 
+    // enforce spacing between functions and their invocations
+    // http://eslint.org/docs/rules/func-call-spacing
+    // TODO: enable, semver-minor
+    'func-call-spacing': [0, 'never'],
+
     // require function expressions to have a name
     'func-names': 1,
 
@@ -263,6 +268,9 @@ module.exports = {
 
     // enforce spacing before and after semicolons
     'semi-spacing': [2, { before: false, after: true }],
+
+    // requires object keys to be sorted
+    'sort-keys': [0, 'asc', { caseSensitive: false, natural: true }],
 
     // sort variables within the same declaration block
     'sort-vars': 0,
