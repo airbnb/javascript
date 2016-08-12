@@ -1,3 +1,7 @@
+10.0.1 / 2016-08-12
+==================
+- [deps] update `eslint`, `eslint-find-rules`, `eslint-plugin-jsx-a11y`, `eslint-plugin-import`, `eslint-config-airbnb-base`
+
 10.0.0 / 2016-08-01
 ==================
 - [breaking] enable jsx-a11y rules:
