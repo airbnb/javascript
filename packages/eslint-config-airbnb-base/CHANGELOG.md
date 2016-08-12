@@ -1,3 +1,8 @@
+5.0.2 / 2016-08-12
+==================
+ - [deps] update `eslint`, `eslint-find-rules`, `eslint-plugin-import`
+ - [tests] add `safe-publish-latest` to `prepublish`
+
 5.0.1 / 2016-07-29
 ==================
  - [patch] `no-unused-expressions`: flesh out options
