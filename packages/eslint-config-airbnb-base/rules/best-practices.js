@@ -89,6 +89,10 @@ module.exports = {
     // disallow the use of leading or trailing decimal points in numeric literals
     'no-floating-decimal': 2,
 
+    // disallow reassignments of native objects or read-only globals
+    // http://eslint.org/docs/rules/no-global-assign
+    'no-global-assign': [2, { exceptions: [] }],
+
     // disallow implicit type conversions
     // http://eslint.org/docs/rules/no-implicit-coercion
     'no-implicit-coercion': [0, {
@@ -136,7 +140,8 @@ module.exports = {
     'no-multi-str': 2,
 
     // disallow reassignments of native objects
-    'no-native-reassign': 2,
+    // TODO: deprecated in favor of no-global-assign
+    'no-native-reassign': 0,
 
     // disallow use of new operator when not part of the assignment or comparison
     'no-new': 2,

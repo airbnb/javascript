@@ -47,16 +47,16 @@
   "devDependencies": {
     "babel-preset-airbnb": "^2.0.0",
     "babel-tape-runner": "^2.0.1",
-    "eslint": "^3.2.2",
+    "eslint": "^3.3.0",
     "eslint-find-rules": "^1.13.0",
-    "eslint-plugin-import": "^1.12.0",
+    "eslint-plugin-import": "^1.13.0",
     "in-publish": "^2.0.0",
     "safe-publish-latest": "^1.0.1",
     "tape": "^4.6.0"
   },
   "peerDependencies": {
-    "eslint": "^3.2.2",
-    "eslint-plugin-import": "^1.12.0"
+    "eslint": "^3.3.0",
+    "eslint-plugin-import": "^1.13.0"
   },
   "engines": {
     "node": ">= 4"
