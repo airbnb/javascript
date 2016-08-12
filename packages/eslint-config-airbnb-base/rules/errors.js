@@ -64,7 +64,8 @@ module.exports = {
     'no-irregular-whitespace': 2,
 
     // disallow negation of the left operand of an in expression
-    'no-negated-in-lhs': 2,
+    // TODO: deprecated in favor of no-unsafe-negation
+    'no-negated-in-lhs': 0,
 
     // disallow the use of object properties of the global object (Math and JSON) as functions
     'no-obj-calls': 2,
@@ -79,6 +80,11 @@ module.exports = {
     // disallow sparse arrays
     'no-sparse-arrays': 2,
 
+    // Disallow template literal placeholder syntax in regular strings
+    // http://eslint.org/docs/rules/no-template-curly-in-string
+    // TODO: enable, semver-major
+    'no-template-curly-in-string': 0,
+
     // Avoid code that looks like two expressions but is actually one
     // http://eslint.org/docs/rules/no-unexpected-multiline
     'no-unexpected-multiline': 2,
@@ -89,6 +95,10 @@ module.exports = {
     // disallow return/throw/break/continue inside finally blocks
     // http://eslint.org/docs/rules/no-unsafe-finally
     'no-unsafe-finally': 2,
+
+    // disallow negating the left operand of relational operators
+    // http://eslint.org/docs/rules/no-unsafe-negation
+    'no-unsafe-negation': 2,
 
     // disallow comparisons with the value NaN
     'use-isnan': 2,
