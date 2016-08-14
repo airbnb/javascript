@@ -180,7 +180,8 @@ module.exports = {
     'no-new-object': 'error',
 
     // disallow use of unary operators, ++ and --
-    'no-plusplus': 'off',
+    // http://eslint.org/docs/rules/no-plusplus
+    'no-plusplus': 2,
 
     // disallow certain syntax forms
     // http://eslint.org/docs/rules/no-restricted-syntax
