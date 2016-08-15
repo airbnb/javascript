@@ -243,6 +243,15 @@ module.exports = {
     // warn against using findDOMNode()
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md
     'react/no-find-dom-node': 2,
+
+    // Forbid certain props on Components
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-component-props.md
+    'react/forbid-component-props': [0, { forbid: [] }],
+
+    // Prevent problem with children and props.dangerouslySetInnerHTML
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-danger-with-children.md
+    // TODO: enable, semver-major
+    'react/no-danger-with-children': 0,
   },
 
   settings: {
