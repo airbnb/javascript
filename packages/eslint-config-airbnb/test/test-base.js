@@ -16,7 +16,7 @@ fs.readdirSync(path.join(__dirname, '../rules')).forEach(name => {
 
 Object.keys(files).forEach(name => {
   const config = files[name];
-
+    //test order must come before plugin!
   test(`${name}: does not reference react`, t => {
     t.plan(2);
 
