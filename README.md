@@ -573,7 +573,7 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
   ```javascript
   // bad
   var add = new Function('a', 'b', 'return a + b');
-  
+
   // still bad
   var subtract = Function('a', 'b', 'return a - b');
   ```
@@ -1690,8 +1690,28 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
       name: 'yup',
     });
     ```
+  - [22.4](#22.4) <a name='22.4'></a> Use PascalCase or camelCase for acronyms in names.
+    ```javascript
+    // bad
+    const baseURL = 'https://airbnb.com';
 
-  - [22.4](#22.4) <a name='22.4'></a> Use a leading underscore `_` when naming private properties.
+    class HTMLRenderer {
+      constructor(options) {
+        this._options = options;
+      }
+    }
+
+    // good
+    const baseUrl = 'https://airbnb.com';
+
+    class HtmlRenderer {
+      constructor(options) {
+        this._options = options;
+      }
+    }
+    ```
+
+  - [22.5](#22.5) <a name='22.5'></a> Use a leading underscore `_` when naming private properties.
 
     ```javascript
     // bad
@@ -1702,7 +1722,7 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
     this._firstName = 'Panda';
     ```
 
-  - [22.5](#22.5) <a name='22.5'></a> Don't save references to `this`. Use arrow functions or Function#bind.
+  - [22.6](#22.6) <a name='22.6'></a> Don't save references to `this`. Use arrow functions or Function#bind.
 
     ```javascript
     // bad
@@ -1729,7 +1749,7 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
     }
     ```
 
-  - [22.6](#22.6) <a name='22.6'></a> If your file exports a single class, your filename should be exactly the name of the class.
+  - [22.7](#22.7) <a name='22.7'></a> If your file exports a single class, your filename should be exactly the name of the class.
     ```javascript
     // file contents
     class CheckBox {
@@ -1748,7 +1768,7 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
     import CheckBox from './CheckBox';
     ```
 
-  - [22.7](#22.7) <a name='22.7'></a> Use camelCase when you export-default a function. Your filename should be identical to your function's name.
+  - [22.8](#22.8) <a name='22.8'></a> Use camelCase when you export-default a function. Your filename should be identical to your function's name.
 
     ```javascript
     function makeStyleGuide() {
@@ -1757,7 +1777,7 @@ Forked from [AirBNB's style guide](https://github.com/airbnb/javascript)
     export default makeStyleGuide;
     ```
 
-  - [22.8](#22.8) <a name='22.8'></a> Use PascalCase when you export a singleton / function library / bare object.
+  - [22.9](#22.9) <a name='22.9'></a> Use PascalCase when you export a singleton / function library / bare object.
 
     ```javascript
     const AirbnbStyleGuide = {
