@@ -17,7 +17,8 @@ module.exports = {
       }
     },
     'import/extensions': [
-      'node_modules',
+      '.js',
+      '.jsx',
     ],
     'import/core-modules': [
     ],
