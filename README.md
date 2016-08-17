@@ -1417,6 +1417,38 @@ Other Style Guides
       return name;
     }
     ```
+  <a name=variables--no-chain-assignment""></a><a name="13.5"></a>
+  - [13.5](#variables--no-chain-assignment) Don't chain variable assignments. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html)
+
+    > Why? Chaining variable assignments creates implicit global variables.
+
+    ```javascript
+    // bad
+    (function example() {
+      // JavaScript interprets this as
+      // let a = ( b = ( c = 1 ) );
+      // The let keyword only applies to variable a; variables b and c become
+      // global variables.
+      let a = b = c = 1;
+    }());
+
+    console.log(a); // undefined
+    console.log(b); // 1
+    console.log(c); // 1
+
+    // good
+    (function example() {
+      let a = 1;
+      let b = a;
+      let c = a;
+    }());
+
+    console.log(a); // undefined
+    console.log(b); // undefined
+    console.log(c); // undefined
+
+    // the same applies for `const`
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
