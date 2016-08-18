@@ -27,6 +27,7 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+ and
   ```
 
 2. Add `"extends": "airbnb"` to your .eslintrc
+
 ### eslint-config-airbnb/base
 
 This entry point is deprecated. See [eslint-config-airbnb-base](https://npmjs.com/eslint-config-airbnb-base).
