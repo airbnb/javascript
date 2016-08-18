@@ -1418,7 +1418,7 @@ Other Style Guides
     }
     ```
   <a name="variables--no-chain-assignment"></a><a name="13.5"></a>
-  - [13.5](#variables--no-chain-assignment) Don't chain variable assignments. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html)
+  - [13.5](#variables--no-chain-assignment) Don't chain variable assignments.
 
     > Why? Chaining variable assignments creates implicit global variables.
 
