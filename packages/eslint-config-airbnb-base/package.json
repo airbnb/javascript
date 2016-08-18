@@ -47,7 +47,7 @@
   "devDependencies": {
     "babel-preset-airbnb": "^2.0.0",
     "babel-tape-runner": "^2.0.1",
-    "eslint": "^3.3.0",
+    "eslint": "^3.3.1",
     "eslint-find-rules": "^1.13.0",
     "eslint-plugin-import": "^1.13.0",
     "in-publish": "^2.0.0",
@@ -55,7 +55,7 @@
     "tape": "^4.6.0"
   },
   "peerDependencies": {
-    "eslint": "^3.3.0",
+    "eslint": "^3.3.1",
     "eslint-plugin-import": "^1.13.0"
   },
   "engines": {
