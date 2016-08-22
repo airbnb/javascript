@@ -1,3 +1,9 @@
+5.0.3 / 2016-08-21
+==================
+ - [fix] correct `import/extensions` list (#1013)
+ - [refactor] Changed ESLint rule configs to use 'off', 'warn', and 'error' instead of numbers for better readability (#946)
+ - [deps] update `eslint`, `eslint-plugin-react`
+
 5.0.2 / 2016-08-12
 ==================
  - [deps] update `eslint`, `eslint-find-rules`, `eslint-plugin-import`
