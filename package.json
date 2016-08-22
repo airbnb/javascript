@@ -22,14 +22,14 @@
   "homepage": "https://github.com/virtru/lint-trap#readme",
   "dependencies": {
     "eslint": "^2.11.1",
-    "eslint-config-airbnb-base": "^5.0.3",
-    "eslint-plugin-import": "^1.14.0",
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-import": "^1.8.1",
     "eslint-plugin-virtru-lint": "virtru/eslint-plugin-virtru-lint",
     "semver": "^5.1.0"
   },
   "peerDependencies": {
     "eslint": "^2.11.1",
-    "eslint-config-airbnb-base": "^5.0.3",
-    "eslint-plugin-import": "^1.14.0"
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-import": "^1.8.1"
   }
 }
