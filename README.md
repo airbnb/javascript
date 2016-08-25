@@ -240,16 +240,16 @@ Other Style Guides
   ```javascript
   // bad
   const bad = {
-    'foo': 3,
-    'bar': 4,
-    'data-blah': 5,
+    'targaryen': 3,
+    'stark': 4,
+    'jon-snow': 5,
   };
 
   // good
   const good = {
-    foo: 3,
-    bar: 4,
-    'data-blah': 5,
+    targaryen: 3,
+    stark: 4,
+    'jon-snow': 5,
   };
   ```
 
@@ -292,13 +292,13 @@ Other Style Guides
   - [4.2](#arrays--push) Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to add items to an array.
 
     ```javascript
-    const someStack = [];
+    const houseTargaryen = ['Daenerys'];
 
     // bad
-    someStack[someStack.length] = 'abracadabra';
+    houseTargaryen[someStack.length] = 'Jon';
 
     // good
-    someStack.push('abracadabra');
+    houseTargaryen.push('Jon');
     ```
 
   <a name="es6-array-spreads"></a><a name="4.3"></a>
