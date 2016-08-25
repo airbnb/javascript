@@ -1,11 +1,10 @@
-# ~~Airbnb~~ Media Temple JavaScript Style Guide() {
+# ~~Airbnb~~ Media Temple JavaScript Style Guide
 
 *Airbnb had a terrific style guide. So we stole it and made changes where we felt necessary. Don't worry, Airbnb encourages this.*
 
 
 Other Style Guides
  - [React](react/)
- - ~~[CSS & Sass](https://github.com/airbnb/css)~~
 
 ## Table of Contents
 
