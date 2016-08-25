@@ -509,17 +509,18 @@
     ```jsx
     import React, { PropTypes } from 'react';
 
-    const propTypes = {
-      id: PropTypes.number.isRequired,
-      url: PropTypes.string.isRequired,
-      text: PropTypes.string,
-    };
-
-    const defaultProps = {
-      text: 'Hello World',
-    };
-
     class Link extends React.Component {
+      
+      static propTypes = {
+        id: PropTypes.number.isRequired,
+        url: PropTypes.string.isRequired,
+        text: PropTypes.string,
+      }
+    
+      static defaultProps = {
+        text: 'Hello World',
+      }
+    
       static methodsAreOk() {
         return true;
       }
