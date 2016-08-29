@@ -67,7 +67,7 @@ module.exports = {
 
     // Prevent duplicate props in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-duplicate-props.md
-    'react/jsx-no-duplicate-props': ['off', { ignoreCase: false }],
+    'react/jsx-no-duplicate-props': ['off', { ignoreCase: true }],
 
     // Prevent usage of unwrapped JSX strings
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-literals.md
@@ -87,7 +87,7 @@ module.exports = {
     // Enforce propTypes declarations alphabetical sorting
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-prop-types.md
     'react/sort-prop-types': ['off', {
-      ignoreCase: false,
+      ignoreCase: true,
       callbacksLast: false,
       requiredFirst: false,
     }],
@@ -98,7 +98,7 @@ module.exports = {
     // Enforce props alphabetical sorting
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
     'react/jsx-sort-props': ['off', {
-      ignoreCase: false,
+      ignoreCase: true,
       callbacksLast: false,
       shorthandFirst: false,
       shorthandLast: false,
