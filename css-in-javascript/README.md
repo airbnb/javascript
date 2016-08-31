@@ -138,16 +138,16 @@
     ```js
     // bad
     const breakpoints = {
-      desktop: '@media (min-width: 1048px)',
-      tablet: '@media (max-width: 1047px)',
       mobile: '@media (max-width: 639px)',
+      tablet: '@media (max-width: 1047px)',
+      desktop: '@media (min-width: 1048px)',
     };
 
     // good
     const breakpoints = {
-      large: '@media (min-width: 1048px)',
-      medium: '@media (max-width: 1047px)',
       small: '@media (max-width: 639px)',
+      medium: '@media (max-width: 1047px)',
+      large: '@media (min-width: 1048px)',
     };
     ```
 
