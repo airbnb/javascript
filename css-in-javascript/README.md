@@ -259,7 +259,7 @@
 
 ## Themes
 
-  - Use an abstraction layer such as [react-with-styles](https://github.com/airbnb/react-with-styles) that enables theming.
+  - Use an abstraction layer such as [react-with-styles](https://github.com/airbnb/react-with-styles) that enables theming. *react-with-styles gives us things like `withStyles()`, `ThemedStyleSheet`, and `css()` which are used in some of the examples in this document.*
 
   > Why? It is useful to have a set of shared variables for styling your components. Using an abstraction layer makes this more convenient. Additionally, this can help prevent your components from being tightly coupled to any particular underlying implementation, which gives you more freedom.
 
