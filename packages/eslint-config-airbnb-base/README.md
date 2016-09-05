@@ -15,8 +15,8 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+. It
 1. Ensure packages are installed with correct version numbers by running:
   ```sh
   (
-    export PKG=eslint-config-airbnb-base;
-    npm info "$PKG" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "$PKG"
+    PKG=eslint-config-airbnb-base
+    npm info "$PKG" peerDependencies --json | sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "$PKG"
   )
   ```
 
@@ -35,8 +35,8 @@ Lints ES5 and below. Requires `eslint` and `eslint-plugin-import`.
 1. Ensure packages are installed with correct version numbers by running:
   ```sh
   (
-    export PKG=eslint-config-airbnb-base;
-    npm info "$PKG" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "$PKG"
+    PKG=eslint-config-airbnb-base
+    npm info "$PKG" peerDependencies --json | sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "$PKG"
   )
   ```
 
