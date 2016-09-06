@@ -13,6 +13,11 @@ module.exports = {
     // specify the maximum cyclomatic complexity allowed in a program
     complexity: ['off', 11],
 
+    // enforce that class methods use "this"
+    // http://eslint.org/docs/rules/class-methods-use-this
+    // TODO: enable
+    'class-methods-use-this': 'off',
+
     // require return statements to either always or never specify values
     'consistent-return': 'error',
 
