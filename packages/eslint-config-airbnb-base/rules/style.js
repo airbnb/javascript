@@ -136,8 +136,7 @@ module.exports = {
 
     // disallow use of bitwise operators
     // http://eslint.org/docs/rules/no-bitwise
-    // TODO: enable
-    'no-bitwise': 'off',
+    'no-bitwise': 'error',
 
     // disallow use of the continue statement
     // http://eslint.org/docs/rules/no-continue
