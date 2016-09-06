@@ -181,7 +181,7 @@ module.exports = {
 
     // disallow use of unary operators, ++ and --
     // http://eslint.org/docs/rules/no-plusplus
-    'no-plusplus': 2,
+    'no-plusplus': 'error',
 
     // disallow certain syntax forms
     // http://eslint.org/docs/rules/no-restricted-syntax
