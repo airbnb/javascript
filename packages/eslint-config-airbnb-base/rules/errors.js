@@ -106,6 +106,7 @@ module.exports = {
     'valid-jsdoc': 'off',
 
     // ensure that the results of typeof are compared against a valid string
-    'valid-typeof': 'error'
+    // http://eslint.org/docs/rules/valid-typeof
+    'valid-typeof': ['error', { requireStringLiterals: true }],
   }
 };
