@@ -195,8 +195,7 @@ module.exports = {
     'no-spaced-func': 'error',
 
     // disallow tab characters entirely
-    // TODO: enable
-    'no-tabs': 'off',
+    'no-tabs': 'error',
 
     // disallow the use of ternary operators
     'no-ternary': 'off',
