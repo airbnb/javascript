@@ -30,8 +30,7 @@ module.exports = {
 
     // enforce spacing between functions and their invocations
     // http://eslint.org/docs/rules/func-call-spacing
-    // TODO: enable, semver-minor
-    'func-call-spacing': ['off', 'never'],
+    'func-call-spacing': ['error', 'never'],
 
     // require function expressions to have a name
     'func-names': 'warn',
