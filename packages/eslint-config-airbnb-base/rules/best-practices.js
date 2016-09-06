@@ -92,6 +92,8 @@ module.exports = {
     // disallow reassignments of native objects or read-only globals
     // http://eslint.org/docs/rules/no-global-assign
     'no-global-assign': ['error', { exceptions: [] }],
+    // deprecated in favor of no-global-assign
+    'no-native-reassign': 'off',
 
     // disallow implicit type conversions
     // http://eslint.org/docs/rules/no-implicit-coercion
@@ -138,10 +140,6 @@ module.exports = {
 
     // disallow use of multiline strings
     'no-multi-str': 'error',
-
-    // disallow reassignments of native objects
-    // TODO: deprecated in favor of no-global-assign
-    'no-native-reassign': 'off',
 
     // disallow use of new operator when not part of the assignment or comparison
     'no-new': 'error',

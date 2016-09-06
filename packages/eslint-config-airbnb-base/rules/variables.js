@@ -29,6 +29,7 @@ module.exports = {
     'no-undef-init': 'error',
 
     // disallow use of undefined variable
+    // http://eslint.org/docs/rules/no-undefined
     // TODO: enable?
     'no-undefined': 'off',
 
