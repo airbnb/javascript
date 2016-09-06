@@ -36,6 +36,7 @@ Other Style Guides
   1. [Semicolons](#semicolons)
   1. [Type Casting & Coercion](#type-casting--coercion)
   1. [Naming Conventions](#naming-conventions)
+  1. [File Naming Conventions](#file-naming-conventions)
   1. [Accessors](#accessors)
   1. [Events](#events)
   1. [jQuery](#jquery)
@@ -2519,6 +2520,45 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
+## File Naming Conventions
+
+The JavaScript files should follow the lower_snake_case naming convention, plus a period and a main function, than the extension.
+
+Example:
+
+```javascript
+class SuperWonderfulExample extends SuperThings {
+	// do something nice!
+}
+```
+
+Should be named as:
+
+```
+super_wonderful_example.js
+```
+
+However, a test script file related with this class could be named as.
+
+```javascript
+super_wonderful_example.test.js
+```
+
+In other hand, if the class SuperWonderfulExample has a specific function in the app which would be important explicit, for example it is a controller, the file name could be something like:
+
+```javascript
+super_wonderful_example.controller.js
+```
+
+The same applies to CSS files
+
+```css
+super_wonderful_example.css
+```
+
+This way, even if your module or component needs a big number of files, will be easy  figure out which one is where the code you wanna work on is..
+
+**[⬆ back to top](#table-of-contents)**
 
 ## Accessors
 
