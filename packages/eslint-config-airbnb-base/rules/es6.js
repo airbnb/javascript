@@ -134,6 +134,11 @@ module.exports = {
       memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
     }],
 
+    // require a Symbol description
+    // http://eslint.org/docs/rules/symbol-description
+    // TODO: enable
+    'symbol-description': 'off',
+
     // enforce usage of spacing in template strings
     // http://eslint.org/docs/rules/template-curly-spacing
     'template-curly-spacing': 'error',
