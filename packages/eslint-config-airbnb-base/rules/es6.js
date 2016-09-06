@@ -136,8 +136,7 @@ module.exports = {
 
     // require a Symbol description
     // http://eslint.org/docs/rules/symbol-description
-    // TODO: enable
-    'symbol-description': 'off',
+    'symbol-description': 'error',
 
     // enforce usage of spacing in template strings
     // http://eslint.org/docs/rules/template-curly-spacing
