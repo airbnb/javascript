@@ -111,7 +111,8 @@ module.exports = {
 
     // require multiline ternary
     // http://eslint.org/docs/rules/multiline-ternary
-    'multiline-ternary': 'off',
+    // TODO: enable?
+    'multiline-ternary': ['off', 'never'],
 
     // require a capital letter for constructors
     'new-cap': ['error', { newIsCap: true }],
