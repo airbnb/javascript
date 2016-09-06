@@ -1,3 +1,7 @@
+7.0.0 / 2016-09-06
+==================
+ - [breaking] Add no-plusplus in style.js and added explanation in README (#1012)
+
 6.0.0 / 2016-09-06
 ==================
  - [breaking] `valid-typeof`: enable `requireStringLiterals` option
