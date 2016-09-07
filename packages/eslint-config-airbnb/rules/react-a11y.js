@@ -9,8 +9,7 @@ module.exports = {
   rules: {
     // Enforce that anchors have content
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-has-content.md
-    // TODO: enable, semver-major
-    'jsx-a11y/anchor-has-content': ['off', ['']],
+    'jsx-a11y/anchor-has-content': ['error', ['']],
 
     // Require ARIA roles to be valid and non-abstract
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md
@@ -78,9 +77,8 @@ module.exports = {
     'jsx-a11y/role-supports-aria-props': 'error',
 
     // Enforce tabIndex value is not greater than zero.
-    // TODO: evaluate
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/tabindex-no-positive.md
-    'jsx-a11y/tabindex-no-positive': 'off',
+    'jsx-a11y/tabindex-no-positive': 'error',
 
     // ensure <hX> tags have content and are not aria-hidden
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/heading-has-content.md
@@ -109,7 +107,6 @@ module.exports = {
 
     // Enforce that DOM elements without semantic behavior not have interaction handlers
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-static-element-interactions.md
-    // TODO: enable
-    'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/no-static-element-interactions': 'error',
   },
 };
