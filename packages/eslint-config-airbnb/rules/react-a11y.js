@@ -101,5 +101,15 @@ module.exports = {
     // only allow <th> to have the "scope" attr
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/scope.md
     'jsx-a11y/scope': 'error',
+
+    // require onClick be accompanied by onKeyUp/onKeyDown/onKeyPress
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/click-events-have-key-events.md
+    // TODO: enable?
+    'jsx-a11y/click-events-have-key-events': 'off',
+
+    // Enforce that DOM elements without semantic behavior not have interaction handlers
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-static-element-interactions.md
+    // TODO: enable
+    'jsx-a11y/no-static-element-interactions': 'off',
   },
 };
