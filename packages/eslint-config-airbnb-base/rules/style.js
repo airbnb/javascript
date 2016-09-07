@@ -36,7 +36,9 @@ module.exports = {
     'func-names': 'warn',
 
     // enforces use of function declarations or expressions
-    'func-style': 'off',
+    // http://eslint.org/docs/rules/func-style
+    // TODO: enable
+    'func-style': ['off', 'expression'],
 
     // Blacklist certain identifiers to prevent them being used
     // http://eslint.org/docs/rules/id-blacklist
