@@ -252,6 +252,20 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-danger-with-children.md
     // TODO: enable, semver-major
     'react/no-danger-with-children': 'off',
+
+    // Prevent unused propType definitions
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unused-prop-types.md
+    // TODO: enable
+    'react/no-unused-prop-types': ['off', {
+      customValidators: [
+      ],
+      skipShapeProps: false,
+    }],
+
+    // Require style prop value be an object or var
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/style-prop-object.md
+    // TODO: enable
+    'react/style-prop-object': 'off',
   },
 
   settings: {
