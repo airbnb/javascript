@@ -26,7 +26,7 @@ function wrapComponent(body) {
 import React from 'react';
 
 export default class MyComponent extends React.Component {
-/* eslint no-empty-function: 0 */
+/* eslint no-empty-function: 0, class-methods-use-this: 0 */
 ${body}
 }
 `;
