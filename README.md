@@ -2772,6 +2772,11 @@ Other Style Guides
 1. [Iterators and Generators](#iterators-and-generators)
 1. [Modules](#modules)
 
+  <a name="tc39-proposals"></a>
+  - [27.2](#tc39-proposals) Do not use [TC39 proposals](https://github.com/tc39/proposals) that have not reached stage 3.
+
+    > Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Testing
