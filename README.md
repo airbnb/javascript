@@ -41,7 +41,7 @@ Other Style Guides
   1. [Events](#events)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
-  1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-styles)
+  1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
   1. [Testing](#testing)
   1. [Performance](#performance)
   1. [Resources](#resources)
@@ -2752,7 +2752,8 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
-## ECMAScript 6 Styles
+<a name="ecmascript-6-styles"></a>
+## ECMAScript 6+ (ES 2015+) Styles
 
   <a name="es6-styles"></a><a name="27.1"></a>
   - [27.1](#es6-styles) This is a collection of links to the various ES6 features.
