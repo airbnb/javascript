@@ -2893,6 +2893,7 @@ Other Style Guides
 
 **Podcasts**
 
+  - [JavaScript Air](https://javascriptair.com/)
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
 
 
