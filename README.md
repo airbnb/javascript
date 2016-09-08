@@ -41,7 +41,7 @@ Other Style Guides
   1. [Events](#events)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
-  1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-styles)
+  1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
   1. [Testing](#testing)
   1. [Performance](#performance)
   1. [Resources](#resources)
@@ -2752,7 +2752,8 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
-## ECMAScript 6 Styles
+<a name="ecmascript-6-styles"></a>
+## ECMAScript 6+ (ES 2015+) Styles
 
   <a name="es6-styles"></a><a name="27.1"></a>
   - [27.1](#es6-styles) This is a collection of links to the various ES6 features.
@@ -2770,6 +2771,11 @@ Other Style Guides
 1. [Let and Const](#references)
 1. [Iterators and Generators](#iterators-and-generators)
 1. [Modules](#modules)
+
+  <a name="tc39-proposals"></a>
+  - [27.2](#tc39-proposals) Do not use [TC39 proposals](https://github.com/tc39/proposals) that have not reached stage 3.
+
+    > Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -2887,6 +2893,7 @@ Other Style Guides
 
 **Podcasts**
 
+  - [JavaScript Air](https://javascriptair.com/)
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
 
 
