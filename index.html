@@ -206,7 +206,7 @@ bar[<span class="pl-c1">0</span>] <span class="pl-k">=</span> <span class="pl-c1
 
 <div class="highlight highlight-source-js"><pre><span class="pl-c">// bad</span>
 <span class="pl-k">const</span> <span class="pl-c1">superman</span> <span class="pl-k">=</span> {
-  <span class="pl-k">default</span><span class="pl-k">:</span> { clark<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>kent<span class="pl-pds">'</span></span> },
+  default<span class="pl-k">:</span> { clark<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>kent<span class="pl-pds">'</span></span> },
   private<span class="pl-k">:</span> <span class="pl-c1">true</span>,
 };
 
@@ -439,7 +439,7 @@ someStack[<span class="pl-smi">someStack</span>.<span class="pl-c1">length</span
 <li>
 <p><a href="#arrays--from">4.4</a> To convert an array-like object to an array, use <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from">Array.from</a>.</p>
 
-<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">foo</span> <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-en">querySelectorAll</span>(<span class="pl-s"><span class="pl-pds">'</span>.foo<span class="pl-pds">'</span></span>);
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">foo</span> <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">querySelectorAll</span>(<span class="pl-s"><span class="pl-pds">'</span>.foo<span class="pl-pds">'</span></span>);
 <span class="pl-k">const</span> <span class="pl-c1">nodes</span> <span class="pl-k">=</span> <span class="pl-c1">Array</span>.<span class="pl-en">from</span>(foo);</pre></div>
 
 <p><a name="arrays--callback-return"></a><a name="4.5"></a></p>
@@ -1370,7 +1370,7 @@ sum <span class="pl-k">===</span> <span class="pl-c1">15</span>;
 
 <span class="pl-c">// good</span>
 <span class="pl-k">let</span> sum <span class="pl-k">=</span> <span class="pl-c1">0</span>;
-<span class="pl-smi">numbers</span>.<span class="pl-en">forEach</span>(<span class="pl-smi">num</span> <span class="pl-k">=&gt;</span> sum <span class="pl-k">+=</span> num);
+<span class="pl-smi">numbers</span>.<span class="pl-c1">forEach</span>(<span class="pl-smi">num</span> <span class="pl-k">=&gt;</span> sum <span class="pl-k">+=</span> num);
 sum <span class="pl-k">===</span> <span class="pl-c1">15</span>;
 
 <span class="pl-c">// best (use the functional force)</span>
@@ -1774,37 +1774,37 @@ superPower <span class="pl-k">=</span> <span class="pl-k">new</span> <span class
 
 <div class="highlight highlight-source-js"><pre>  <span class="pl-c">// bad</span>
   <span class="pl-k">switch</span> (foo) {
-    <span class="pl-k">case</span> <span class="pl-c1">1</span><span class="pl-k">:</span>
+    <span class="pl-k">case</span> <span class="pl-c1">1</span>:
       <span class="pl-k">let</span> x <span class="pl-k">=</span> <span class="pl-c1">1</span>;
       <span class="pl-k">break</span>;
-    <span class="pl-k">case</span> <span class="pl-c1">2</span><span class="pl-k">:</span>
+    <span class="pl-k">case</span> <span class="pl-c1">2</span>:
       <span class="pl-k">const</span> <span class="pl-c1">y</span> <span class="pl-k">=</span> <span class="pl-c1">2</span>;
       <span class="pl-k">break</span>;
-    <span class="pl-k">case</span> <span class="pl-c1">3</span><span class="pl-k">:</span>
+    <span class="pl-k">case</span> <span class="pl-c1">3</span>:
       <span class="pl-k">function</span> <span class="pl-en">f</span>() {}
       <span class="pl-k">break</span>;
-    <span class="pl-k">default</span><span class="pl-k">:</span>
+    <span class="pl-k">default</span>:
       <span class="pl-k">class</span> <span class="pl-en">C</span> {}
   }
 
   <span class="pl-c">// good</span>
   <span class="pl-k">switch</span> (foo) {
-    <span class="pl-k">case</span> <span class="pl-c1">1</span><span class="pl-k">:</span> {
+    <span class="pl-k">case</span> <span class="pl-c1">1</span>: {
       <span class="pl-k">let</span> x <span class="pl-k">=</span> <span class="pl-c1">1</span>;
       <span class="pl-k">break</span>;
     }
-    <span class="pl-k">case</span> <span class="pl-c1">2</span><span class="pl-k">:</span> {
+    <span class="pl-k">case</span> <span class="pl-c1">2</span>: {
       <span class="pl-k">const</span> <span class="pl-c1">y</span> <span class="pl-k">=</span> <span class="pl-c1">2</span>;
       <span class="pl-k">break</span>;
     }
-    <span class="pl-k">case</span> <span class="pl-c1">3</span><span class="pl-k">:</span> {
+    <span class="pl-k">case</span> <span class="pl-c1">3</span>: {
       <span class="pl-k">function</span> <span class="pl-en">f</span>() {}
       <span class="pl-k">break</span>;
     }
-    <span class="pl-k">case</span> <span class="pl-c1">4</span><span class="pl-k">:</span>
+    <span class="pl-k">case</span> <span class="pl-c1">4</span>:
       <span class="pl-en">bar</span>();
       <span class="pl-k">break</span>;
-    <span class="pl-k">default</span><span class="pl-k">:</span> {
+    <span class="pl-k">default</span>: {
       <span class="pl-k">class</span> <span class="pl-en">C</span> {}
     }
   }</pre></div>
@@ -1937,7 +1937,7 @@ superPower <span class="pl-k">=</span> <span class="pl-k">new</span> <span class
 <span class="pl-c"> * based on the passed in tag name</span>
 <span class="pl-c"> *</span>
 <span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">tag</span></span>
-<span class="pl-c"> * <span class="pl-k">@return</span> <span class="pl-en">{Element}</span> <span class="pl-smi">element</span></span>
+<span class="pl-c"> * <span class="pl-k">@return</span> <span class="pl-en">{Element}</span> element</span>
 <span class="pl-c"> */</span>
 <span class="pl-k">function</span> <span class="pl-en">make</span>(<span class="pl-smi">tag</span>) {
 
@@ -2062,13 +2062,13 @@ superPower <span class="pl-k">=</span> <span class="pl-k">new</span> <span class
 }
 
 <span class="pl-c">// bad</span>
-<span class="pl-smi">dog</span>.<span class="pl-en">set</span>(<span class="pl-s"><span class="pl-pds">'</span>attr<span class="pl-pds">'</span></span>,{
+<span class="pl-smi">dog</span>.<span class="pl-c1">set</span>(<span class="pl-s"><span class="pl-pds">'</span>attr<span class="pl-pds">'</span></span>,{
   age<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>1 year<span class="pl-pds">'</span></span>,
   breed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Bernese Mountain Dog<span class="pl-pds">'</span></span>,
 });
 
 <span class="pl-c">// good</span>
-<span class="pl-smi">dog</span>.<span class="pl-en">set</span>(<span class="pl-s"><span class="pl-pds">'</span>attr<span class="pl-pds">'</span></span>, {
+<span class="pl-smi">dog</span>.<span class="pl-c1">set</span>(<span class="pl-s"><span class="pl-pds">'</span>attr<span class="pl-pds">'</span></span>, {
   age<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>1 year<span class="pl-pds">'</span></span>,
   breed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Bernese Mountain Dog<span class="pl-pds">'</span></span>,
 });</pre></div>
@@ -2156,18 +2156,18 @@ emphasizes that the line is a method call, not a new statement. eslint: <a href=
     .<span class="pl-en">updateCount</span>();
 
 <span class="pl-c">// bad</span>
-<span class="pl-k">const</span> <span class="pl-c1">leds</span> <span class="pl-k">=</span> <span class="pl-smi">stage</span>.<span class="pl-en">selectAll</span>(<span class="pl-s"><span class="pl-pds">'</span>.led<span class="pl-pds">'</span></span>).<span class="pl-c1">data</span>(data).<span class="pl-en">enter</span>().<span class="pl-en">append</span>(<span class="pl-s"><span class="pl-pds">'</span>svg:svg<span class="pl-pds">'</span></span>).<span class="pl-en">classed</span>(<span class="pl-s"><span class="pl-pds">'</span>led<span class="pl-pds">'</span></span>, <span class="pl-c1">true</span>)
-    .<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span>, (radius <span class="pl-k">+</span> margin) <span class="pl-k">*</span> <span class="pl-c1">2</span>).<span class="pl-en">append</span>(<span class="pl-s"><span class="pl-pds">'</span>svg:g<span class="pl-pds">'</span></span>)
+<span class="pl-k">const</span> <span class="pl-c1">leds</span> <span class="pl-k">=</span> <span class="pl-smi">stage</span>.<span class="pl-en">selectAll</span>(<span class="pl-s"><span class="pl-pds">'</span>.led<span class="pl-pds">'</span></span>).<span class="pl-c1">data</span>(data).<span class="pl-en">enter</span>().<span class="pl-c1">append</span>(<span class="pl-s"><span class="pl-pds">'</span>svg:svg<span class="pl-pds">'</span></span>).<span class="pl-en">classed</span>(<span class="pl-s"><span class="pl-pds">'</span>led<span class="pl-pds">'</span></span>, <span class="pl-c1">true</span>)
+    .<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span>, (radius <span class="pl-k">+</span> margin) <span class="pl-k">*</span> <span class="pl-c1">2</span>).<span class="pl-c1">append</span>(<span class="pl-s"><span class="pl-pds">'</span>svg:g<span class="pl-pds">'</span></span>)
     .<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">'</span>transform<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>translate(<span class="pl-pds">'</span></span> <span class="pl-k">+</span> (radius <span class="pl-k">+</span> margin) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>,<span class="pl-pds">'</span></span> <span class="pl-k">+</span> (radius <span class="pl-k">+</span> margin) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>)<span class="pl-pds">'</span></span>)
     .<span class="pl-c1">call</span>(<span class="pl-smi">tron</span>.<span class="pl-smi">led</span>);
 
 <span class="pl-c">// good</span>
 <span class="pl-k">const</span> <span class="pl-c1">leds</span> <span class="pl-k">=</span> <span class="pl-smi">stage</span>.<span class="pl-en">selectAll</span>(<span class="pl-s"><span class="pl-pds">'</span>.led<span class="pl-pds">'</span></span>)
     .<span class="pl-c1">data</span>(data)
-  .<span class="pl-en">enter</span>().<span class="pl-en">append</span>(<span class="pl-s"><span class="pl-pds">'</span>svg:svg<span class="pl-pds">'</span></span>)
+  .<span class="pl-en">enter</span>().<span class="pl-c1">append</span>(<span class="pl-s"><span class="pl-pds">'</span>svg:svg<span class="pl-pds">'</span></span>)
     .<span class="pl-en">classed</span>(<span class="pl-s"><span class="pl-pds">'</span>led<span class="pl-pds">'</span></span>, <span class="pl-c1">true</span>)
     .<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span>, (radius <span class="pl-k">+</span> margin) <span class="pl-k">*</span> <span class="pl-c1">2</span>)
-  .<span class="pl-en">append</span>(<span class="pl-s"><span class="pl-pds">'</span>svg:g<span class="pl-pds">'</span></span>)
+  .<span class="pl-c1">append</span>(<span class="pl-s"><span class="pl-pds">'</span>svg:g<span class="pl-pds">'</span></span>)
     .<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">'</span>transform<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>translate(<span class="pl-pds">'</span></span> <span class="pl-k">+</span> (radius <span class="pl-k">+</span> margin) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>,<span class="pl-pds">'</span></span> <span class="pl-k">+</span> (radius <span class="pl-k">+</span> margin) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>)<span class="pl-pds">'</span></span>)
     .<span class="pl-c1">call</span>(<span class="pl-smi">tron</span>.<span class="pl-smi">led</span>);
 
@@ -2784,7 +2784,7 @@ emphasizes that the line is a method call, not a new statement. eslint: <a href=
 <div class="highlight highlight-source-js"><pre><span class="pl-k">class</span> <span class="pl-en">Jedi</span> {
   <span class="pl-en">constructor</span>(<span class="pl-smi">options</span> <span class="pl-k">=</span> {}) {
     <span class="pl-k">const</span> <span class="pl-c1">lightsaber</span> <span class="pl-k">=</span> <span class="pl-smi">options</span>.<span class="pl-smi">lightsaber</span> <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">'</span>blue<span class="pl-pds">'</span></span>;
-    <span class="pl-v">this</span>.<span class="pl-en">set</span>(<span class="pl-s"><span class="pl-pds">'</span>lightsaber<span class="pl-pds">'</span></span>, lightsaber);
+    <span class="pl-v">this</span>.<span class="pl-c1">set</span>(<span class="pl-s"><span class="pl-pds">'</span>lightsaber<span class="pl-pds">'</span></span>, lightsaber);
   }
 
   <span class="pl-en">set</span>(<span class="pl-smi">key</span>, <span class="pl-smi">val</span>) {
