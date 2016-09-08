@@ -1,3 +1,11 @@
+11.0.0 / 2016-09-08
+==================
+- [breaking] enable `react` rules: `react/no-danger-with-children`, `react/no-unused-prop-types`, `react/style-prop-object`, `react/forbid-prop-types`, `react/jsx-no-duplicate-props`; set `react/no-danger` to “warn”
+- [breaking] enable `jsx-a11y` rules: `jsx-a11y/anchor-has-content`, `jsx-a11y/tabindex-no-positive`, `jsx-a11y/no-static-element-interactions`
+- [deps] update `eslint`, `eslint-plugin-react`, `eslint-config-airbnb-base`, `eslint-find-rules`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y`
+- [patch] set `ignoreCase` to `true` in disabled rules.
+- [docs] use “#” in example command rather than version numbers (#984)
+
 10.0.1 / 2016-08-12
 ==================
 - [deps] update `eslint`, `eslint-find-rules`, `eslint-plugin-jsx-a11y`, `eslint-plugin-import`, `eslint-config-airbnb-base`
