@@ -21,8 +21,7 @@ module.exports = {
 
     // require parens in arrow function arguments
     // http://eslint.org/docs/rules/arrow-parens
-    // TODO: enable, semver-minor
-    'arrow-parens': ['off', 'as-needed', {
+    'arrow-parens': ['error', 'as-needed', {
       requireForBlockBody: true,
     }],
 
