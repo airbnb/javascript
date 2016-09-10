@@ -14,10 +14,17 @@ module.exports = {
   rules: {
     // enforces no braces where they can be omitted
     // http://eslint.org/docs/rules/arrow-body-style
-    'arrow-body-style': ['error', 'as-needed'],
+    // TODO: enable requireReturnForObjectLiteral?
+    'arrow-body-style': ['error', 'as-needed', {
+      requireReturnForObjectLiteral: false,
+    }],
 
     // require parens in arrow function arguments
-    'arrow-parens': 'off',
+    // http://eslint.org/docs/rules/arrow-parens
+    // TODO: enable, semver-minor
+    'arrow-parens': ['off', 'as-needed', {
+      requireForBlockBody: true,
+    }],
 
     // require space before/after arrow function's arrow
     // http://eslint.org/docs/rules/arrow-spacing
@@ -100,6 +107,11 @@ module.exports = {
       destructuring: 'any',
       ignoreReadBeforeAssign: true,
     }],
+
+    // disallow parseInt() in favor of binary, octal, and hexadecimal literals
+    // http://eslint.org/docs/rules/prefer-numeric-literals
+    // TODO: enable, semver-major
+    'prefer-numeric-literals': 'off',
 
     // suggest using Reflect methods where applicable
     // http://eslint.org/docs/rules/prefer-reflect
