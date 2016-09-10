@@ -73,12 +73,29 @@ module.exports = {
       }
     }],
 
+    // enforce position of line comments
+    // http://eslint.org/docs/rules/line-comment-position
+    // TODO: enable?
+    'line-comment-position': ['off', {
+      position: 'above',
+      ignorePattern: '',
+      applyDefaultPatterns: true,
+    }],
+
     // disallow mixed 'LF' and 'CRLF' as linebreaks
     // http://eslint.org/docs/rules/linebreak-style
     'linebreak-style': ['error', 'unix'],
 
     // enforces empty lines around comments
     'lines-around-comment': 'off',
+
+    // require or disallow newlines around directives
+    // http://eslint.org/docs/rules/lines-around-directive
+    // TODO: enable, semver-major
+    'lines-around-directive': ['off', {
+      before: 'always',
+      after: 'always',
+    }],
 
     // specify the maximum depth that blocks can be nested
     'max-depth': ['off', 4],
