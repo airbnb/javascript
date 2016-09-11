@@ -1,3 +1,7 @@
+7.1.0 / 2016-09-11
+==================
+ - [minor] enable `arrow-parens` rule
+
 7.0.1 / 2016-09-10
 ==================
  - [patch] loosen `max-len` by ignoring strings
