@@ -1,3 +1,7 @@
+11.1.0 / 2016-09-11
+==================
+- [deps] update `eslint-config-airbnb-base`, `eslint`
+
 11.0.0 / 2016-09-08
 ==================
 - [breaking] enable `react` rules: `react/no-danger-with-children`, `react/no-unused-prop-types`, `react/style-prop-object`, `react/forbid-prop-types`, `react/jsx-no-duplicate-props`; set `react/no-danger` to “warn”
