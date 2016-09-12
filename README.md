@@ -849,14 +849,14 @@ Other Style Guides
 
     ```js
     // bad
-    ['get', 'post', 'put'].map(number => Object.prototype.hasOwnProperty.call(
+    ['get', 'post', 'put'].map(httpMethod => Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
         httpMethod
       )
     );
 
     // good
-    ['get', 'post', 'put'].map(number => (
+    ['get', 'post', 'put'].map(httpMethod => (
       Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
         httpMethod
