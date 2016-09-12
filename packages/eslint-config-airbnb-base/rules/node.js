@@ -33,15 +33,6 @@ module.exports = {
     // restrict usage of specified node modules
     'no-restricted-modules': 'off',
 
-    // disallow certain object properties
-    // http://eslint.org/docs/rules/no-restricted-properties
-    // TODO: enable, semver-major
-    'no-restricted-properties': ['off', {
-      object: 'arguments',
-      property: 'callee',
-      message: 'arguments.callee is deprecated,'
-    }],
-
     // disallow use of synchronous methods (off by default)
     'no-sync': 'off',
   }

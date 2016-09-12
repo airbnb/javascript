@@ -172,6 +172,15 @@ module.exports = {
     // disallow declaring the same variable more then once
     'no-redeclare': 'error',
 
+    // disallow certain object properties
+    // http://eslint.org/docs/rules/no-restricted-properties
+    // TODO: enable, semver-major
+    'no-restricted-properties': ['off', {
+      object: 'arguments',
+      property: 'callee',
+      message: 'arguments.callee is deprecated,'
+    }],
+
     // disallow use of assignment in return statement
     'no-return-assign': 'error',
 
