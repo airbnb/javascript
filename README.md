@@ -878,8 +878,7 @@ Other Style Guides
 
     // good
     [1, 2, 3].map(number => (
-      `A long string with the ${number}. It’s so long that we’ve broken it ` +
-      'over multiple lines!'
+      `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
     ));
 
     // bad
