@@ -1,6 +1,6 @@
-# Airbnb React/JSX Style Guide
+# RenewFinancial React/JSX Style Guide
 
-*A mostly reasonable approach to React and JSX*
+*A mostly reasonable approach to React and JSX (and mostly borrowed from Airbnb)*
 
 ## Table of Contents
 

@@ -1,6 +1,6 @@
 # RenewFinancial JavaScript Style Guide() {
 
-*Mostly borrowed from Airbnb...*
+*A mostly reasonable approach to JavaScript (and mostly borrowed from Airbnb)*
 
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
