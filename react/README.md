@@ -127,6 +127,19 @@
       return WithFoo;
     }
     ```
+
+  - **Props Naming**: Avoid using DOM component prop names for different purposes.
+
+  > Why? People expect props like `style` and `className` to mean one specific thing. Varying this API for a subset of your app makes the code less readable and less maintainable, and may cause bugs.
+
+    ```jsx
+    // bad
+    <MyComponent style="fancy" />
+
+    // good
+    <MyComponent variant="fancy" />
+    ```
+
 ## Declaration
 
   - Do not use `displayName` for naming components. Instead, name the component by reference.
