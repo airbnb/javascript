@@ -263,6 +263,16 @@ module.exports = {
     // Require style prop value be an object or var
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/style-prop-object.md
     'react/style-prop-object': 'error',
+
+    // Prevent invalid characters from appearing in markup
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unescaped-entities.md
+    // TODO: enable, semver-major
+    'react/no-unescaped-entities': 'off',
+
+    // Prevent passing of children as props
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-children-prop.md
+    // TODO: enable, semver-major
+    'react/no-children-prop': 'off'
   },
 
   settings: {
