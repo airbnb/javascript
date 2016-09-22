@@ -4,13 +4,15 @@ import test from 'tape';
 
 import index from '../';
 
-const files = { index };
+const files = { ...{ index } }; // object spread is to test parsing
 
 fs.readdirSync(path.join(__dirname, '../rules')).forEach((name) => {
   files[name] = require(`../rules/${name}`); // eslint-disable-line global-require
 });
 
-Object.keys(files).forEach((name) => {
+Object.keys(files).forEach((
+  name, // trailing function comma is to test parsing
+) => {
   const config = files[name];
 
   test(`${name}: does not reference react`, (t) => {
