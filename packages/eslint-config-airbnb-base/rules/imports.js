@@ -138,5 +138,16 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-absolute-path.md
     // TODO: enable, semver-major
     'import/no-absolute-path': ['off'],
+
+    // Forbid require() calls with expressions
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-dynamic-require.md
+    // TODO: enable, semver-major
+    'import/no-dynamic-require': ['off'],
+
+    // prevent importing the submodules of other modules
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-internal-modules.md
+    'import/no-internal-modules': ['off', {
+      allow: [],
+    }],
   },
 };
