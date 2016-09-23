@@ -1,3 +1,9 @@
+7.2.0 / 2016-09-23
+==================
+ - [new] set `ecmaVersion` to 2017; enable object rest/spread; update `babel-preset-airbnb`
+ - [patch] fix category of `no-restricted-properties`
+ - [deps] update `eslint`, `eslint-plugin-import`, `eslint-find-rules`, `safe-publish-latest`
+
 7.1.0 / 2016-09-11
 ==================
  - [minor] enable `arrow-parens` rule
