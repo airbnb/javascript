@@ -176,8 +176,7 @@ module.exports = {
 
     // disallow certain object properties
     // http://eslint.org/docs/rules/no-restricted-properties
-    // TODO: enable, semver-major
-    'no-restricted-properties': ['off', {
+    'no-restricted-properties': ['error', {
       object: 'arguments',
       property: 'callee',
       message: 'arguments.callee is deprecated,'
@@ -187,10 +186,6 @@ module.exports = {
     }, {
       property: '__defineSetter__',
       message: 'Please use Object.defineProperty instead.',
-    }, {
-      object: 'Object',
-      property: 'assign',
-      message: 'Please use the object spread operator (...) instead.',
     }],
 
     // disallow use of assignment in return statement
