@@ -170,7 +170,8 @@ module.exports = {
 
     // Restrict file extensions that may be required
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-extension.md
-    'react/require-extension': ['error', { extensions: ['.jsx', '.js'] }],
+    // deprecated in favor of import/extensions
+    'react/require-extension': ['off', { extensions: ['.jsx', '.js'] }],
 
     // Require render() methods to return something
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md
