@@ -1,3 +1,7 @@
+8.0.0 / 2016-09-24
+==================
+ - [breaking] enable rules: `no-restricted-properties`, `prefer-numeric-literals`, `lines-around-directive`, `import/extensions`, `import/no-absolute-path`, `import/no-dynamic-require`
+
 7.2.0 / 2016-09-23
 ==================
  - [new] set `ecmaVersion` to 2017; enable object rest/spread; update `babel-preset-airbnb`
