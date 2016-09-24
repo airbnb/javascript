@@ -91,8 +91,7 @@ module.exports = {
 
     // require or disallow newlines around directives
     // http://eslint.org/docs/rules/lines-around-directive
-    // TODO: enable, semver-major
-    'lines-around-directive': ['off', {
+    'lines-around-directive': ['error', {
       before: 'always',
       after: 'always',
     }],

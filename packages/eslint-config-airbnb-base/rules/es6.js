@@ -109,8 +109,7 @@ module.exports = {
 
     // disallow parseInt() in favor of binary, octal, and hexadecimal literals
     // http://eslint.org/docs/rules/prefer-numeric-literals
-    // TODO: enable, semver-major
-    'prefer-numeric-literals': 'off',
+    'prefer-numeric-literals': 'error',
 
     // suggest using Reflect methods where applicable
     // http://eslint.org/docs/rules/prefer-reflect
