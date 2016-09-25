@@ -1,6 +1,6 @@
 module.exports = {
   plugins: [
-    'react'
+    'react',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -8,7 +8,7 @@ module.exports = {
     },
   },
   ecmaFeatures: {
-    jsx: true
+    jsx: true,
   },
 
   // View link below for react rules documentation
@@ -17,6 +17,21 @@ module.exports = {
     // Specify whether double or single quotes should be used in JSX attributes
     // http://eslint.org/docs/rules/jsx-quotes
     'jsx-quotes': ['error', 'prefer-double'],
+
+    'class-methods-use-this': ['error', {
+      exceptMethods: [
+        'render',
+        'getInitialState',
+        'getDefaultProps',
+        'componentWillMount',
+        'componentDidMount',
+        'componentWillReceiveProps',
+        'shouldComponentUpdate',
+        'componentWillUpdate',
+        'componentDidUpdate',
+        'componentWillUnmount',
+      ],
+    }],
 
     // Prevent missing displayName in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
