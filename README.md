@@ -563,7 +563,7 @@ Other Style Guides
     ```
 
   <a name="functions--in-blocks"></a><a name="7.3"></a>
-  - [7.3](#functions--in-blocks) Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
+  - [7.3](#functions--in-blocks) Never declare a function in a non-function block (if, while, etc). [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
 
   <a name="functions--note-on-blocks"></a><a name="7.4"></a>
   - [7.4](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
@@ -576,7 +576,7 @@ Other Style Guides
       }
     }
 
-    // good
+    // bad
     let test;
     if (currentUser) {
       test = () => {
@@ -697,13 +697,11 @@ Other Style Guides
 
     ```javascript
     // bad
-    const f = function(){};
-    const g = function (){};
-    const h = function() {};
+    function bad(){}
+    function bad (){}
 
     // good
-    const x = function () {};
-    const y = function a() {};
+    function good() {}
     ```
 
   <a name="functions--mutate-params"></a><a name="7.12"></a>
@@ -715,11 +713,14 @@ Other Style Guides
     // bad
     function f1(obj) {
       obj.key = 1;
+      ...
     };
 
     // good
     function f2(obj) {
-      const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
+      const newObj = _.clone(obj);
+      newObj.key = 1;
+      ...
     };
     ```
 
