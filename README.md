@@ -2966,6 +2966,7 @@ Other Style Guides
   - **JSSolutions**: [JSSolutions/javascript](https://github.com/JSSolutions/javascript)
   - **KickorStick**: [kickorstick/javascript](https://github.com/kickorstick/javascript)
   - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/Javascript-style-guide)
+  - **Lonely Planet**: [lonelyplanet/javascript](https://github.com/lonelyplanet/javascript)
   - **M2GEN**: [M2GEN/javascript](https://github.com/M2GEN/javascript)
   - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
   - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
