@@ -23,6 +23,7 @@ module.exports = {
         'render',
         'getInitialState',
         'getDefaultProps',
+        'getChildContext',
         'componentWillMount',
         'componentDidMount',
         'componentWillReceiveProps',
