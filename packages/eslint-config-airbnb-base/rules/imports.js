@@ -33,7 +33,7 @@ module.exports = {
 
     // ensure imports point to files/modules that can be resolved
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md
-    'import/no-unresolved': ['error', { commonjs: true }],
+    'import/no-unresolved': ['error', { commonjs: true, caseSensitive: true }],
 
     // ensure named imports coupled with named exports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/named.md#when-not-to-use-it
@@ -93,8 +93,13 @@ module.exports = {
     // Style guide:
 
     // disallow non-import statements appearing before import statements
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md
+    'import/first': ['error', 'absolute-first'],
+
+    // disallow non-import statements appearing before import statements
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/imports-first.md
-    'import/imports-first': ['error', 'absolute-first'],
+    // deprecated: use `import/first`
+    'import/imports-first': 'off',
 
     // disallow duplicate imports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md
@@ -149,5 +154,18 @@ module.exports = {
     'import/no-internal-modules': ['off', {
       allow: [],
     }],
+
+    // Warn if a module could be mistakenly parsed as a script by a consumer leveraging Unambiguous
+    // JavaScript Grammar
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/unambiguous.md
+    'import/unambiguous': 'off',
+
+    // Forbid Webpack loader syntax in imports
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md
+    'import/no-webpack-loader-syntax': 'off',
+
+    // Prevent unassigned imports
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unassigned-import.md
+    'import/no-unassigned-import': 'off',
   },
 };
