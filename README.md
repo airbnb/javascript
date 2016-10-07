@@ -1223,7 +1223,7 @@ Other Style Guides
     foo.init();
     ```
 
-  <a name="modules--multiline-imports-over-newlines"></a><a name="10.8"></a>
+  <a name="modules--multiline-imports-over-newlines"></a>
   - [10.8](#modules--multiline-imports-over-newlines) Multi-line imports should be preferred over single line
 
     > Why? The curly braces follow the same indentation rules as every other curly brace block in the style guide, as do the trailing commas.
@@ -1238,7 +1238,7 @@ Other Style Guides
       longNameB,
       longNameC,
       longNameD,
-      longNameE
+      longNameE,
     } from 'path';
     ```
 
