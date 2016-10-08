@@ -1652,26 +1652,36 @@ Other Style Guides
     ```
 
   <a name="comparison--shortcuts"></a><a name="15.3"></a>
-  - [15.3](#comparison--shortcuts) Use shortcuts.
+  - [15.3](#comparison--shortcuts) Use shortcuts for booleans, but explicit comparisons for strings and numbers.
 
     ```javascript
     // bad
-    if (name !== '') {
+    if (isValid === true) {
       // ...stuff...
     }
 
     // good
+    if (isValid) {
+      // ...stuff...
+    }
+
+    // bad
     if (name) {
       // ...stuff...
     }
 
+    // good
+    if (name !== '') {
+      // ...stuff...
+    }
+
     // bad
-    if (collection.length > 0) {
+    if (collection.length) {
       // ...stuff...
     }
 
     // good
-    if (collection.length) {
+    if (collection.length > 0) {
       // ...stuff...
     }
     ```
