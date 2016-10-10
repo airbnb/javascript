@@ -53,18 +53,18 @@
     "eslint": "^3.7.1",
     "eslint-find-rules": "^1.14.0",
     "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
-    "eslint-plugin-react": "^6.3.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.0",
     "in-publish": "^2.0.0",
     "react": ">= 0.13.0",
-    "safe-publish-latest": "^1.1.0",
+    "safe-publish-latest": "^1.1.1",
     "tape": "^4.6.2"
   },
   "peerDependencies": {
     "eslint": "^3.7.1",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-react": "^6.3.0"
+    "eslint-plugin-react": "^6.4.0"
   },
   "engines": {
     "node": ">= 4"

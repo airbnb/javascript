@@ -51,7 +51,7 @@
     "eslint-find-rules": "^1.14.0",
     "eslint-plugin-import": "^1.16.0",
     "in-publish": "^2.0.0",
-    "safe-publish-latest": "^1.1.0",
+    "safe-publish-latest": "^1.1.1",
     "tape": "^4.6.2"
   },
   "peerDependencies": {
