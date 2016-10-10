@@ -1148,7 +1148,7 @@ Other Style Guides
     ```javascript
     // bad
     // filename es6.js
-    export { es6 as default } from './airbnbStyleGuide';
+    export { es6 as default } from './AirbnbStyleGuide';
 
     // good
     // filename es6.js
