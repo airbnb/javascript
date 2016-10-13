@@ -155,9 +155,11 @@ module.exports = {
       allow: [],
     }],
 
-    // Warn if a module could be mistakenly parsed as a script by a consumer leveraging Unambiguous
-    // JavaScript Grammar
+    // Warn if a module could be mistakenly parsed as a script by a consumer
+    // leveraging Unambiguous JavaScript Grammar
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/unambiguous.md
+    // this should not be enabled until this proposal has at least been *presented* to TC39.
+    // At the moment, it's not a thing.
     'import/unambiguous': 'off',
 
     // Forbid Webpack loader syntax in imports
@@ -166,6 +168,7 @@ module.exports = {
 
     // Prevent unassigned imports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unassigned-import.md
+    // importing for side effects is perfectly acceptable, if you need side effects.
     'import/no-unassigned-import': 'off',
   },
 };
