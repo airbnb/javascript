@@ -54,7 +54,7 @@
     "eslint-find-rules": "^1.14.0",
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.4.0",
+    "eslint-plugin-react": "^6.4.1",
     "in-publish": "^2.0.0",
     "react": ">= 0.13.0",
     "safe-publish-latest": "^1.1.1",
@@ -64,7 +64,7 @@
     "eslint": "^3.7.1",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-react": "^6.4.0"
+    "eslint-plugin-react": "^6.4.1"
   },
   "engines": {
     "node": ">= 4"
