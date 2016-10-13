@@ -162,7 +162,7 @@ module.exports = {
 
     // Forbid Webpack loader syntax in imports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md
-    'import/no-webpack-loader-syntax': 'off',
+    'import/no-webpack-loader-syntax': 'error',
 
     // Prevent unassigned imports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unassigned-import.md
