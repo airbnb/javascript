@@ -288,7 +288,7 @@ Other Style Guides
   // best
   const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
   /* or */
-  const has = require('has');
+  import has from 'has';
   …
   console.log(has.call(object, key));
   ```
