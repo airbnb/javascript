@@ -32,7 +32,13 @@ module.exports = {
     // http://eslint.org/docs/rules/func-call-spacing
     'func-call-spacing': ['error', 'never'],
 
+    // requires function names to match the name of the variable or property to which they are
+    // assigned
+    // http://eslint.org/docs/rules/func-name-matching
+    'func-name-matching': ['off', { includeCommonJSModuleExports: false }],
+
     // require function expressions to have a name
+    // http://eslint.org/docs/rules/func-names
     'func-names': 'warn',
 
     // enforces use of function declarations or expressions
@@ -303,7 +309,11 @@ module.exports = {
 
     // require or disallow space before function opening parenthesis
     // http://eslint.org/docs/rules/space-before-function-paren
-    'space-before-function-paren': ['error', { anonymous: 'always', named: 'never' }],
+    'space-before-function-paren': ['error', {
+      anonymous: 'always',
+      named: 'never',
+      asyncArrow: 'always'
+    }],
 
     // require or disallow spaces inside parentheses
     'space-in-parens': ['error', 'never'],
