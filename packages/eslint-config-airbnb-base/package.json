@@ -48,7 +48,7 @@
     "babel-preset-airbnb": "^2.1.1",
     "babel-tape-runner": "^2.0.1",
     "eslint": "^3.9.0",
-    "eslint-find-rules": "^1.14.0",
+    "eslint-find-rules": "^1.14.3",
     "eslint-plugin-import": "^2.0.1",
     "in-publish": "^2.0.0",
     "safe-publish-latest": "^1.1.1",
