@@ -232,6 +232,10 @@ module.exports = {
     // http://eslint.org/docs/rules/no-useless-escape
     'no-useless-escape': 'error',
 
+    // disallow redundant return; keywords
+    // http://eslint.org/docs/rules/no-useless-return
+    'no-useless-return': 'error',
+
     // disallow use of void operator
     // http://eslint.org/docs/rules/no-void
     'no-void': 'error',
