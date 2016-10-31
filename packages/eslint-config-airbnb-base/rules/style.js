@@ -36,8 +36,8 @@ module.exports = {
     // assigned
     // http://eslint.org/docs/rules/func-name-matching
     'func-name-matching': ['off', 'always', {
-       includeCommonJSModuleExports: false
-     }],
+      includeCommonJSModuleExports: false
+    }],
 
     // require function expressions to have a name
     // http://eslint.org/docs/rules/func-names
