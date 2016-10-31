@@ -1922,11 +1922,47 @@ Other Style Guides
     }
     ```
 
+  - [17.3](#comments--spaces) Start all comments with a space to make it easier to read.
+
+    ```javascript
+    // bad
+    //is current tab
+    const active = true;
+
+    // good
+    // is current tab
+    const active = true;
+
+    // bad
+    /**
+     *make() returns a new element
+     *based on the passed-in tag name
+     */
+    function make(tag) {
+
+      // ...stuff...
+
+      return element;
+    }
+
+    // good
+    /**
+     * make() returns a new element
+     * based on the passed-in tag name
+     */
+    function make(tag) {
+
+      // ...stuff...
+
+      return element;
+    }
+    ```
+
   <a name="comments--actionitems"></a><a name="17.3"></a>
-  - [17.3](#comments--actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
+  - [17.4](#comments--actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
 
   <a name="comments--fixme"></a><a name="17.4"></a>
-  - [17.4](#comments--fixme) Use `// FIXME:` to annotate problems.
+  - [17.5](#comments--fixme) Use `// FIXME:` to annotate problems.
 
     ```javascript
     class Calculator extends Abacus {
@@ -1940,7 +1976,7 @@ Other Style Guides
     ```
 
   <a name="comments--todo"></a><a name="17.5"></a>
-  - [17.5](#comments--todo) Use `// TODO:` to annotate solutions to problems.
+  - [17.6](#comments--todo) Use `// TODO:` to annotate solutions to problems.
 
     ```javascript
     class Calculator extends Abacus {
