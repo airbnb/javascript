@@ -179,7 +179,7 @@ module.exports = {
     'no-restricted-properties': ['error', {
       object: 'arguments',
       property: 'callee',
-      message: 'arguments.callee is deprecated,'
+      message: 'arguments.callee is deprecated',
     }, {
       property: '__defineGetter__',
       message: 'Please use Object.defineProperty instead.',
