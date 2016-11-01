@@ -1922,7 +1922,7 @@ Other Style Guides
     }
     ```
 
-  - [17.3](#comments--spaces) Start all comments with a space to make it easier to read.
+  - [17.3](#comments--spaces) Start all comments with a space to make it easier to read. eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
 
     ```javascript
     // bad
