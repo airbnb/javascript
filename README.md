@@ -810,6 +810,39 @@ Other Style Guides
     new Date(...[2016, 08, 05]);
     ```
 
+  <a name="functions--signature-invocation-indentation"></a>
+  - [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item.
+
+    ```javascript
+    // bad
+    function foo(bar,
+      baz,
+      quux) {
+      // body
+    }
+
+    // good
+    function foo(
+      bar,
+      baz,
+      quux,
+    ) {
+      // body
+    }
+
+    // bad
+    console.log(foo,
+      bar,
+      baz);
+
+    // good
+    console.log(
+      foo,
+      bar,
+      baz,
+    );
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrow Functions
