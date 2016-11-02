@@ -185,7 +185,7 @@
 
 ## Quotes
 
-  - Always use double quotes (`"`) for JSX attributes, but single quotes for all other JS. eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
+  - Always use double quotes (`"`) for JSX attributes, but single quotes (`'`) for all other JS. eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
 
   > Why? Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
 
@@ -514,7 +514,7 @@
   1. `componentWillUnmount`
   1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
   1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
-  1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
+  1. *optional render methods* like `renderNavigation()` or `renderProfilePicture()`
   1. `render`
 
   - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
@@ -569,7 +569,7 @@
   1. `componentWillUnmount`
   1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
   1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
-  1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
+  1. *optional render methods* like `renderNavigation()` or `renderProfilePicture()`
   1. `render`
 
 ## `isMounted`
