@@ -1,3 +1,17 @@
+10.0.0 / 2016-11-06
+==================
+ - [breaking] prefer `**` over `Math.pow`
+ - [breaking] `comma-dangle`: require trailing commas for functions
+ - [breaking] enable `no-useless-return`
+ - [breaking] tighten up `indent`
+ - [breaking] tighten up `spaced-comment`
+ - [breaking] enable `import/no-named-default`
+ - [patch] loosen `max-len` with `ignoreRegExpLiterals` option
+ - [patch] loosen `no-extraneous-dependencies` for test files (#959, #1089)
+ - [deps] update `eslint`, `eslint-plugin-import`
+ - [dev deps] update `eslint-find-rules`
+ - [Tests] on `node` `v7`
+
 9.0.0 / 2016-10-16
 ==================
  - [breaking] Add `ForOfStatement` to `no-restricted-syntax` (#1122, #1134)

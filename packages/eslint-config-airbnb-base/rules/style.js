@@ -352,7 +352,6 @@ module.exports = {
 
     // require or disallow a space immediately following the // or /* in a comment
     // http://eslint.org/docs/rules/spaced-comment
-    // TODO: semver-major: set balanced to "false"
     'spaced-comment': ['error', 'always', {
       line: {
         exceptions: ['-', '+'],
