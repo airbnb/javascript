@@ -170,5 +170,9 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unassigned-import.md
     // importing for side effects is perfectly acceptable, if you need side effects.
     'import/no-unassigned-import': 'off',
+
+    // Prevent importing the default as if it were named
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-default.md
+    'import/no-named-default': 'error',
   },
 };
