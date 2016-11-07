@@ -4,8 +4,5 @@
     "no-shadow": 0,
     // tests uses `t` for tape
     "id-length": [2, {"min": 2, "properties": "never", "exceptions": ["t"]}],
-    "import/no-extraneous-dependencies": [2, {
-      "devDependencies": true
-    }],
   }
 }
