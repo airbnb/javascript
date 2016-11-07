@@ -1,3 +1,7 @@
+10.0.1 / 2016-11-07
+==================
+ - [fix] legacy config should not require `**`
+
 10.0.0 / 2016-11-06
 ==================
  - [breaking] prefer `**` over `Math.pow`
