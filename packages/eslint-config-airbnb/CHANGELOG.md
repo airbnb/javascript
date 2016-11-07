@@ -1,3 +1,13 @@
+13.0.0 / 2016-11-06
+==================
+- [breaking] Enable `import/no-webpack-loader-syntax` rule (#1123)
+- [patch] `class-methods-use-this`: exempt React `getChildContext` (#1094)
+- [patch] set `react/no-unused-prop-types` skipShapeProps (#1099)
+- [deps] [breaking] update `eslint`, `eslint-config-airbnb-base`, `eslint-plugin-jsx-a11y`, `eslint-plugin-react`, `eslint-plugin-import`
+- [dev deps] update `babel-preset-airbnb`, `eslint`, `eslint-find-rules`, `tape`, `safe-publish-latest`
+- [Tests] on `node` `v7`
+- [docs] ensure latest version of config is installed (#1121)
+
 12.0.0 / 2016-09-24
 ==================
 - [breaking] Enable react rules: `react/no-unescaped-entities`, `react/no-children-prop`
