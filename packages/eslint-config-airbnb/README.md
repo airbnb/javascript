@@ -23,7 +23,7 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+ and
   Which produces and runs a command like:
 
   ```sh
-  npm install --save-dev eslint-config-airbnb eslint@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-react@^#.#.#
+  npm install --save-dev eslint-config-airbnb eslint@latest eslint-plugin-jsx-a11y@latest eslint-plugin-import@latest eslint-plugin-react@latest
   ```
 
 2. Add `"extends": "airbnb"` to your .eslintrc
