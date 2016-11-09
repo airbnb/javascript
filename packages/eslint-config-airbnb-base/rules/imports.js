@@ -68,7 +68,17 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
     // paths are treated both as absolute paths, and relative to process.cwd()
     'import/no-extraneous-dependencies': ['error', {
-      devDependencies: ['spec/**', 'test/**', 'tests/**', '**/__tests__/**'],
+      devDependencies: [
+        'spec/**',
+        'test/**',
+        'tests/**',
+        '**/__tests__/**',
+        '**/webpack.config.js',
+        '**/webpack.config.*.js',
+        '**/rollup.config.js',
+        '**/gulpfile.js',
+        '**/Gruntfile',
+      ],
       optionalDependencies: false,
     }],
 
