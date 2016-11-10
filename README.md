@@ -1695,6 +1695,7 @@ Other Style Guides
     + **Booleans** evaluate to **the value of the boolean**
     + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
     + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+    + **NaN** comparisons always evaluate to false, even **NaN === NaN**
 
     ```javascript
     if ([0] && []) {
