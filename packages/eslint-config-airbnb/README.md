@@ -25,6 +25,14 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+ and
   ```sh
   npm install --save-dev eslint-config-airbnb eslint@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-react@^#.#.#
   ```
+  
+  Yarn users:
+   ```sh
+  (
+    export PKG=eslint-config-airbnb;
+    npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs yarn add --dev "$PKG@latest"
+)
+  ```
 
 2. Add `"extends": "airbnb"` to your .eslintrc
 
