@@ -140,7 +140,7 @@ Other Style Guides
     ```
 
   <a name="es6-computed-properties"></a><a name="3.4"></a>
-  - [3.4](#es6-computed-properties) Use computed property names when creating objects with dynamic property names.
+  - [3.2](#es6-computed-properties) Use computed property names when creating objects with dynamic property names.
 
     > Why? They allow you to define all the properties of an object in one place.
 
@@ -166,7 +166,7 @@ Other Style Guides
     ```
 
   <a name="es6-object-shorthand"></a><a name="3.5"></a>
-  - [3.5](#es6-object-shorthand) Use object method shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
+  - [3.3](#es6-object-shorthand) Use object method shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
 
     ```javascript
     // bad
@@ -189,7 +189,7 @@ Other Style Guides
     ```
 
   <a name="es6-object-concise"></a><a name="3.6"></a>
-  - [3.6](#es6-object-concise) Use property value shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
+  - [3.4](#es6-object-concise) Use property value shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
 
     > Why? It is shorter to write and descriptive.
 
@@ -208,7 +208,7 @@ Other Style Guides
     ```
 
   <a name="objects--grouped-shorthand"></a><a name="3.7"></a>
-  - [3.7](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
+  - [3.5](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
 
     > Why? It's easier to tell which properties are using the shorthand.
 
@@ -238,7 +238,7 @@ Other Style Guides
     ```
 
   <a name="objects--quoted-props"></a><a name="3.8"></a>
-  - [3.8](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
+  - [3.6](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
 
   > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
 
@@ -259,7 +259,7 @@ Other Style Guides
   ```
 
   <a name="objects--prototype-builtins"></a>
-  - [3.9](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`.
+  - [3.7](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`.
 
   > Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
 
@@ -469,7 +469,7 @@ Other Style Guides
     ```
 
   <a name="es6-template-literals"></a><a name="6.4"></a>
-  - [6.4](#es6-template-literals) When programmatically building up strings, use template strings instead of concatenation. eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
+  - [6.2](#es6-template-literals) When programmatically building up strings, use template strings instead of concatenation. eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
 
     > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
 
@@ -496,10 +496,10 @@ Other Style Guides
     ```
 
   <a name="strings--eval"></a><a name="6.5"></a>
-  - [6.5](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities.
+  - [6.3](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities.
 
   <a name="strings--escaping"></a>
-  - [6.6](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
+  - [6.4](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
 
     > Why? Backslashes harm readability, thus they should only be present when necessary.
 
@@ -1717,7 +1717,7 @@ Other Style Guides
 ## Comments
 
   <a name="comments--singleline"></a><a name="17.2"></a>
-  - [17.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it's on the first line of a block.
+  - [17.1](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it's on the first line of a block.
 
     ```javascript
     // bad
@@ -1756,10 +1756,10 @@ Other Style Guides
     ```
 
   <a name="comments--actionitems"></a><a name="17.3"></a>
-  - [17.3](#comments--actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
+  - [17.2](#comments--actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
 
   <a name="comments--fixme"></a><a name="17.4"></a>
-  - [17.4](#comments--fixme) Use `// FIXME:` to annotate problems.
+  - [17.3](#comments--fixme) Use `// FIXME:` to annotate problems.
 
     ```javascript
     class Calculator extends Abacus {
@@ -1773,7 +1773,7 @@ Other Style Guides
     ```
 
   <a name="comments--todo"></a><a name="17.5"></a>
-  - [17.5](#comments--todo) Use `// TODO:` to annotate solutions to problems.
+  - [17.4](#comments--todo) Use `// TODO:` to annotate solutions to problems.
 
     ```javascript
     class Calculator extends Abacus {
@@ -2419,7 +2419,7 @@ Other Style Guides
     ```
 
   <a name="naming--camelCase-default-export"></a><a name="22.7"></a>
-  - [22.7](#naming--camelCase-default-export) Use camelCase when you export-default a function.
+  - [22.6](#naming--camelCase-default-export) Use camelCase when you export-default a function.
 
     ```javascript
     function makeStyleGuide() {
@@ -2429,7 +2429,7 @@ Other Style Guides
     ```
 
   <a name="naming--PascalCase-singleton"></a><a name="22.8"></a>
-  - [22.8](#naming--PascalCase-singleton) Use PascalCase when you export a constructor / class / singleton / function library / bare object.
+  - [22.7](#naming--PascalCase-singleton) Use PascalCase when you export a constructor / class / singleton / function library / bare object.
 
     ```javascript
     const AirbnbStyleGuide = {
