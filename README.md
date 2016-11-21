@@ -825,7 +825,7 @@ Other Style Guides
     function foo(
       bar,
       baz,
-      quux,
+      quux
     ) {
       // body
     }
@@ -839,7 +839,7 @@ Other Style Guides
     console.log(
       foo,
       bar,
-      baz,
+      baz
     );
     ```
 
