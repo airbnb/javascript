@@ -2,8 +2,6 @@
 
 (a fork of the Airbnb JavaScript Style Guide)
 
-*A mostly reasonable approach to JavaScript*
-
 ## Table of Contents
 
   1. [Types](#types)
@@ -87,7 +85,7 @@
   - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
 
     > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
-
+    
     ```javascript
     // bad
     var a = 1;
@@ -97,6 +95,10 @@
     const a = 1;
     const b = 2;
     ```
+    
+**Addendum:** If the reference is to something that will not be changed (for example, a collection of only functions), use `const`. 
+Otherwise, if the reference is to a data model, and it's values can be changed, use `var`s.
+    
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
   - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
