@@ -1,4 +1,4 @@
-# RenewFinancial JavaScript Style Guide() {
+# RenewFinancial JavaScript Style Guide
 
 *A mostly reasonable approach to JavaScript (mostly borrowed from [Airbnb](https://github.com/airbnb/javascript))*
 
