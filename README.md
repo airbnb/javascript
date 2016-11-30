@@ -127,18 +127,20 @@ Otherwise, if the reference is to a data model, and it's values can be changed, 
 
     ```javascript
     // bad
-    var count = 1;
     if (true) {
+	  var count = 1;
       count += 1;
     }
-    // count === 2 here
+    // unreliable behavior:
+    // count === 2 here, if we entered the if block,
+	// or count is undefined, if we didn't.
 
     // good, use the let.
-    let count = 1;
     if (true) {
+	  let count = 1;
       count += 1;
     }
-    // count === 1 here, since we left the IF block.
+    // count is undefined here, since we left the IF block.
     ```
 
   <a name="references--block-scope"></a><a name="2.3"></a>
