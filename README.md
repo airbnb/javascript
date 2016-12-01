@@ -125,23 +125,20 @@ Otherwise, if the reference is to a data model, and it's values can be changed, 
     
     
 
-    ```javascript
-    // bad
-    if (true) {
-	  var count = 1;
-      count += 1;
-    }
-    // unreliable behavior:
-    // count === 2 here, if we entered the if block,
-	// or count is undefined, if we didn't.
+```javascript
+// bad
+if (true) { 	  var count = 1;
+  count += 1;
+}
+// unreliable behavior:
+// count === 2 here, if we entered the if block, 	// or count is undefined, if we didn't.
 
-    // good, use the let.
-    if (true) {
-	  let count = 1;
-      count += 1;
-    }
-    // count is undefined here, since we left the IF block.
-    ```
+// good, use the let.
+if (true) { 	  let count = 1;
+  count += 1;
+}
+// count is undefined here, since we left the IF block.
+```
 
   <a name="references--block-scope"></a><a name="2.3"></a>
   - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped.
