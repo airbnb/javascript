@@ -372,13 +372,6 @@ Otherwise, please use the constructor explicitly.
 **[⬆ back to top](#table-of-contents)**
 
 
-----------
-
-
-**TO BE REVIEWED:**
-----------
-
-
 ## Arrays
 
   <a name="arrays--literals"></a><a name="4.1"></a>
@@ -423,7 +416,7 @@ Otherwise, please use the constructor explicitly.
     ```
 
   <a name="arrays--from"></a><a name="4.4"></a>
-  - [4.4](#arrays--from) To convert an array-like object to an array, use [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+  - [4.4](#arrays--from) To convert an array-like object to an array, use [Array.from] Edit: Array.from converts an array-like object to an array, supports a an array map function and you can pass in a different context to the map function. (https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
@@ -571,6 +564,8 @@ Otherwise, please use the constructor explicitly.
   - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
 
     > Why? Broken strings are painful to work with and make code less searchable.
+    
+    > Edit: The overly long string is much more painful to read when displayed in a single line than it is when shown in multiline.
 
     ```javascript
     // bad
@@ -690,6 +685,8 @@ Otherwise, please use the constructor explicitly.
       };
     }
     ```
+    
+    Edit: what
 
   <a name="functions--arguments-shadow"></a><a name="7.5"></a>
   - [7.5](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
@@ -906,8 +903,16 @@ Otherwise, please use the constructor explicitly.
       baz,
     );
     ```
+    Edit: If the preference is only judged by the aesthetic, I'd chose the first one.
 
 **[⬆ back to top](#table-of-contents)**
+
+
+----------
+
+
+**TO BE REVIEWED:**
+----------
 
 ## Arrow Functions
 
