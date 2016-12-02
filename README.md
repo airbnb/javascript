@@ -98,29 +98,47 @@
     const b = 2;
     ```
     
-**Addendum:** If the reference is to something that will not be changed (for example, a collection of only functions), use `const`. 
+
+
+----------
+
+
+**2.1 Addendum:** If the reference is to something that will not be changed (for example, a collection of only functions), use `const`. 
 Otherwise, if the reference is to a data model, and it's values can be changed, use `var`s.
 
     
 
+
+----------
+
+
   <a name="references--disallow-var"></a><a name="2.2"></a>
-  - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
+ - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
 
-    > Why? `let` is block-scoped rather than function-scoped like `var`.
+    > Why? 
 
-    ```javascript
-    // bad
-    var count = 1;
-    if (true) {
-      count += 1;
-    }
+ - `let` is block-scoped rather than function-scoped like `var`. 
+ - Which means we're not relying on the garbage collector, and instead we're explicitly releasing unnecessary variables, after we leave the block. We should always strive to clean up after ourselves, if possible.
+ -  Also, we avoid polluting the global scope, by accidentally adding global variables (if the variable declaration is not in an IFFE)
 
-    // good, use the let.
-    let count = 1;
-    if (true) {
-      count += 1;
-    }
-    ```
+`let` is block-scoped rather than function-scoped like `var`.
+    
+    
+
+```javascript
+// bad
+if (true) { 	  var count = 1;
+  count += 1;
+}
+// unreliable behavior:
+// count === 2 here, if we entered the if block, 	// or count is undefined, if we didn't.
+
+// good, use the let.
+if (true) { 	  let count = 1;
+  count += 1;
+}
+// count is undefined here, since we left the IF block.
+```
 
   <a name="references--block-scope"></a><a name="2.3"></a>
   - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped.
@@ -150,6 +168,25 @@ Otherwise, if the reference is to a data model, and it's values can be changed, 
     const item = {};
     ```
 
+
+----------
+
+
+**3.1 Addendum:** Use the literal syntax, only for creating:
+
+> - **Arrays** - var a = []
+> - **Objects** - var b = {}
+
+Otherwise, please use the constructor explicitly.
+
+    // eg:
+    let a = new Date();
+    ```
+
+
+----------
+
+
   <a name="es6-computed-properties"></a><a name="3.4"></a>
   - [3.2](#es6-computed-properties) Use computed property names when creating objects with dynamic property names.
 
@@ -175,6 +212,29 @@ Otherwise, if the reference is to a data model, and it's values can be changed, 
       [getKey('enabled')]: true,
     };
     ```
+
+----------
+
+
+**3.2 Addendum:** Property names should **always** be descriptive:
+
+    // bad:
+    var a = {
+	    x: 'Charlie',
+	    y: 'Chaplin',
+	    z: '33 Maple Street'
+    };
+    
+    // good:
+    var personalInformation = {
+	    firstName: 'Charlie',
+	    lastName: 'Chaplin',
+	    address: '33 Maple Street'
+    };
+    ```
+
+
+----------
 
   <a name="es6-object-shorthand"></a><a name="3.5"></a>
   - [3.3](#es6-object-shorthand) Use object method shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
