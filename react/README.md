@@ -222,14 +222,14 @@
     <Foo />
     ```
 
-  - Do not pad JSX curly braces with spaces. eslint: [`react/jsx-curly-spacing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md)
+  - Pad JSX curly braces with spaces.
 
     ```jsx
     // bad
-    <Foo bar={ baz } />
+    <Foo bar={baz} />
 
     // good
-    <Foo bar={baz} />
+    <Foo bar={ baz } />
     ```
 
 ## Props
