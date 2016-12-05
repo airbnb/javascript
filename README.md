@@ -416,7 +416,13 @@ Otherwise, please use the constructor explicitly.
     ```
 
   <a name="arrays--from"></a><a name="4.4"></a>
-  - [4.4](#arrays--from) To convert an array-like object to an array, use [Array.from] Edit: Array.from converts an array-like object to an array, supports a an array map function and you can pass in a different context to the map function. (https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+  - [4.4](#arrays--from) To convert an array-like object to an array, use [Array.from] 
+
+> Why? 
+> 
+> [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) converts an array-like object to an array, supports a
+> an array map function and you can pass in a different context to the
+> map function.
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
@@ -633,7 +639,7 @@ Otherwise, please use the constructor explicitly.
 ## Functions
 
   <a name="functions--declarations"></a><a name="7.1"></a>
-  - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`requireFunctionDeclarations`](http://jscs.info/rule/requireFunctionDeclarations)
+  - [7.1](#functions--declarations) ~~Use named function expressions instead of function declarations. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`requireFunctionDeclarations`](http://jscs.info/rule/requireFunctionDeclarations)~~
 
     > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to name the expression - anonymous functions can make it harder to locate the problem in an Error's call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
 
@@ -903,7 +909,9 @@ Otherwise, please use the constructor explicitly.
       baz,
     );
     ```
-    Edit: If the preference is only judged by the aesthetic, I'd chose the first one.
+
+> Edit: If the preference is only judged by the aesthetic, I'd chose the
+> first one.
 
 **[⬆ back to top](#table-of-contents)**
 
