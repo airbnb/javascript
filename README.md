@@ -974,9 +974,6 @@ and not:
 ----------
 
 
-**TO BE REVIEWED:**
-----------
-
 ## Arrow Functions
 
   <a name="arrows--use-them"></a><a name="8.1"></a>
@@ -1357,6 +1354,16 @@ and not:
     export { foo }
     ```
 
+
+----------
+
+
+> **Edit**: I disagree. This is ok if we're exporting a service, but what if we're exporting a model? All of it's properties should be mutable.
+
+
+----------
+
+
   <a name="modules--prefer-default-export"></a>
   - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
  eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
@@ -1406,6 +1413,16 @@ and not:
       longNameE,
     } from 'path';
     ```
+
+
+----------
+
+
+> **Edit:** I disagree with the trailing commas here (and anywhere else).
+
+
+----------
+
 
   <a name="modules--no-webpack-loader-syntax"></a>
   - [10.9](#modules--no-webpack-loader-syntax) Disallow Webpack loader syntax in module import statements.
@@ -1504,6 +1521,10 @@ and not:
     ```
 
 **[⬆ back to top](#table-of-contents)**
+
+
+**TO BE REVIEWED:**
+----------
 
 
 ## Properties
