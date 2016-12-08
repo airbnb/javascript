@@ -350,7 +350,7 @@ Other Style Guides
     const itemsCopy = [];
     let i;
 
-    for (i = 0; i < len; i++) {
+    for (i = 0; i < len; i += 1) {
       itemsCopy[i] = items[i];
     }
 
@@ -565,7 +565,7 @@ Other Style Guides
 
     // good
     const foo = '\'this\' is "quoted"';
-    const foo = `my name is '${name}'`;		
+    const foo = `my name is '${name}'`;
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -3135,6 +3135,7 @@ Other Style Guides
   - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
   - **Bisk**: [bisk/javascript](https://github.com/Bisk/javascript/)
   - **Blendle**: [blendle/javascript](https://github.com/blendle/javascript)
+  - **Bonhomme**: [bonhommeparis/javascript](https://github.com/bonhommeparis/javascript)
   - **Brainshark**: [brainshark/javascript](https://github.com/brainshark/javascript)
   - **Chartboost**: [ChartBoost/javascript-style-guide](https://github.com/ChartBoost/javascript-style-guide)
   - **ComparaOnline**: [comparaonline/javascript](https://github.com/comparaonline/javascript-style-guide)
