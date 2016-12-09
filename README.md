@@ -1317,6 +1317,9 @@ Other Style Guides
     numbers.forEach(num => sum += num);
     sum === 15;
 
+    const sum = numbers.map(num => num + 1);
+    sum === 15;
+
     // best (use the functional force)
     const sum = numbers.reduce((total, num) => total + num, 0);
     sum === 15;
