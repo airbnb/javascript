@@ -1309,7 +1309,6 @@ Other Style Guides
     for (let num of numbers) {
       sum += num;
     }
-
     sum === 15;
 
     // good
@@ -1320,6 +1319,19 @@ Other Style Guides
     // best (use the functional force)
     const sum = numbers.reduce((total, num) => total + num, 0);
     sum === 15;
+
+    // bad
+    const modified = [];
+    for (let i = 0; i < numbers.length; i++) {
+      modified.push(numbers[i] + 1);
+    }
+
+    // good
+    const modified = [];
+    numbers.forEach(num => modified.push(num + 1));
+
+    // best (keeping it functional)
+    const modified = numbers.map(num => num + 1);
     ```
 
   <a name="generators--nope"></a><a name="11.2"></a>
