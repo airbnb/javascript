@@ -1321,17 +1321,17 @@ Other Style Guides
     sum === 15;
 
     // bad
-    const modified = [];
+    const increasedByOne = [];
     for (let i = 0; i < numbers.length; i++) {
       modified.push(numbers[i] + 1);
     }
 
     // good
-    const modified = [];
+    const increasedByOne = [];
     numbers.forEach(num => modified.push(num + 1));
 
     // best (keeping it functional)
-    const modified = numbers.map(num => num + 1);
+    const increasedByOne = numbers.map(num => num + 1);
     ```
 
   <a name="generators--nope"></a><a name="11.2"></a>
