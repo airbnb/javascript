@@ -53,10 +53,6 @@ module.exports = {
     // http://eslint.org/docs/rules/no-dupe-class-members
     'no-dupe-class-members': 'error',
 
-    // disallow importing from the same path more than once
-    // http://eslint.org/docs/rules/no-duplicate-imports
-    'no-duplicate-imports': 'error',
-
     // disallow symbol constructor
     // http://eslint.org/docs/rules/no-new-symbol
     'no-new-symbol': 'error',
