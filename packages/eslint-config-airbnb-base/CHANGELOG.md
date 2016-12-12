@@ -1,3 +1,12 @@
+11.0.0 / 2016-12-11
+==================
+ - [breaking] enable `no-await-in-loop`
+ - [patch]  disable `no-duplicate-imports` rule (#1188, #1195, #1054)
+ - [patch] `import/no-extraneous-dependencies`: add some comments to ignore patterns
+ - [patch] add `import/no-extraneous-dependencies` ignore patterns for test files (#1174)
+ - [patch] `import/no-extraneous-dependencies`: added ignore patterns for config files (#1168)
+ - [deps] update `eslint`, `eslint-plugin-import`, `tape`
+
 10.0.1 / 2016-11-07
 ==================
  - [fix] legacy config should not require `**`
