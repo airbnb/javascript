@@ -80,6 +80,7 @@ module.exports = {
         '**/webpack.config.*.js', // webpack config
         '**/rollup.config.js', // rollup config
         '**/gulpfile.js', // gulp config
+        '**/gulpfile.*.js', // gulp config
         '**/Gruntfile', // grunt config
       ],
       optionalDependencies: false,
