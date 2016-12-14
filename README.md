@@ -889,21 +889,15 @@ function bar() {}
     ```
 
   <a name="functions--signature-invocation-indentation"></a>
-  - [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item.
+  - [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, indented one under the other, except the first one.
 
     ```javascript
+    
     // bad
-    function foo(bar,
-                 baz,
-                 quux) {
-      // body
-    }
-
-    // good
     function foo(
       bar,
       baz,
-      quux,
+      quux
     ) {
       // body
     }
@@ -913,59 +907,20 @@ function bar() {}
       bar,
       baz);
 
-    // good
+    // bad
     console.log(
       foo,
       bar,
-      baz,
+      baz
     );
+    
+    // good
+    function foo(bar,
+				 baz,
+                 quux) {
+      // body
+    }
     ```
-
-> Edit: If the preference is only judged by the aesthetic, I'd chose the
-> first one.
-
-
-----------
-
-
-Edit(Dusan): The second example might be better, after some thought. 
-eg:
-
-    function() {
-    	array.forEach(function() {
-	    	someLongFunctionName(callback1,
-						    	 callback2,   // <-- Look at all these tabs.
-						    	 calllback3);
-    	})
-    }
-vs
-
-    function() {
-        	array.forEach(function() {
-    	    	someLongFunctionName(
-	    	    	callback1,
-    				callback2,   // <-- Look at all these tabs.
-    				calllback3);
-        	})
-        }
-        
-Looks a bit cleaner in my opinion. Also, you could make the argument that we usually write:
-
-    function() {
-	    console.log(a);
-	    console.log(b);
-	    console.log(c);
-    }
-
-and not:
-
-    function() { console.log(a);
-    			 console.log(b);
-    			 console.log(c);
-    }
-
-
-----------
 
 
 **[⬆ back to top](#table-of-contents)**
@@ -973,9 +928,6 @@ and not:
 
 ----------
 
-
-**TO BE REVIEWED:**
-----------
 
 ## Arrow Functions
 
@@ -1333,12 +1285,13 @@ and not:
     import { named1, named2 } from 'foo';
 
     // good
-    import foo, { named1, named2 } from 'foo';
+    import foo, 
+		   { named1, 
+			 named2 } from 'foo';
 
     // good
-    import foo, {
-      named1,
-      named2,
+    import foo, { named1,
+			      named2
     } from 'foo';
     ```
 
@@ -1356,6 +1309,17 @@ and not:
     const foo = 3;
     export { foo }
     ```
+
+----------
+
+
+**10.5 Addendum:** This is ok if we're exporting a service, or service methods, . However, if we're exporting a data model, it is ok to have some, or even all of it's properties, mutable.
+
+    
+
+
+----------
+
 
   <a name="modules--prefer-default-export"></a>
   - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
@@ -1391,21 +1355,21 @@ and not:
   <a name="modules--multiline-imports-over-newlines"></a>
   - [10.8](#modules--multiline-imports-over-newlines) Multiline imports should be indented just like multiline array and object literals.
 
-    > Why? The curly braces follow the same indentation rules as every other curly brace block in the style guide, as do the trailing commas.
+    > Why? The curly braces follow the same indentation rules as every other curly brace block in the style guide.
 
     ```javascript
     // bad
     import {longNameA, longNameB, longNameC, longNameD, longNameE} from 'path';
 
     // good
-    import {
-      longNameA,
-      longNameB,
-      longNameC,
-      longNameD,
-      longNameE,
+    import {  longNameA,
+		      longNameB,
+		      longNameC,
+		      longNameD,
+		      longNameE
     } from 'path';
     ```
+
 
   <a name="modules--no-webpack-loader-syntax"></a>
   - [10.9](#modules--no-webpack-loader-syntax) Disallow Webpack loader syntax in module import statements.
@@ -1504,6 +1468,10 @@ and not:
     ```
 
 **[⬆ back to top](#table-of-contents)**
+
+
+**TO BE REVIEWED:**
+----------
 
 
 ## Properties
