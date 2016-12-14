@@ -916,7 +916,7 @@ function bar() {}
     
     // good
     function foo(bar,
-                 baz,
+				 baz,
                  quux) {
       // body
     }
@@ -1285,12 +1285,13 @@ function bar() {}
     import { named1, named2 } from 'foo';
 
     // good
-    import foo, { named1, named2 } from 'foo';
+    import foo, 
+		   { named1, 
+			 named2 } from 'foo';
 
     // good
-    import foo, {
-      named1,
-      named2,
+    import foo, { named1,
+			      named2
     } from 'foo';
     ```
 
