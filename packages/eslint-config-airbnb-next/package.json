@@ -1,0 +1,83 @@
+{
+  "name": "eslint-config-airbnb-next",
+  "version": "13.0.0",
+  "description": "Airbnb's ESLint config, following our styleguide, including Flowtype support.",
+  "main": "index.js",
+  "scripts": {
+    "prelint": "editorconfig-tools check * rules/* test/*",
+    "lint": "eslint .",
+    "tests-only": "babel-tape-runner ./test/test-*.js",
+    "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test) && safe-publish-latest",
+    "pretest": "npm run --silent lint",
+    "test": "npm run --silent tests-only",
+    "travis": "cd ../eslint-config-airbnb && npm install && npm link && cd - && npm link eslint-config-airbnb && npm run --silent test ; npm unlink eslint-config-airbnb >/dev/null &"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airbnb/javascript"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "config",
+    "airbnb",
+    "javascript",
+    "styleguide",
+    "flowtype"
+  ],
+  "author": "Miles Johnson (https://twitter.com/mileswjohnson)",
+  "contributors": [
+    {
+      "name": "Jake Teton-Landis",
+      "url": "https://twitter.com/jitl"
+    },
+    {
+      "name": "Jordan Harband",
+      "email": "ljharb@gmail.com",
+      "url": "http://ljharb.codes"
+    },
+    {
+      "name": "Harrison Shoff",
+      "url": "https://twitter.com/hshoff"
+    },
+    {
+      "name": "Miles Johnson",
+      "url": "https://twitter.com/mileswjohnson"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/airbnb/javascript/issues"
+  },
+  "homepage": "https://github.com/airbnb/javascript",
+  "dependencies": {
+    "eslint-config-airbnb": "^13.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "babel-preset-airbnb": "^2.1.1",
+    "babel-tape-runner": "^2.0.1",
+    "editorconfig-tools": "^0.1.1",
+    "eslint": "^3.12.1",
+    "eslint-find-rules": "^1.14.3",
+    "eslint-plugin-flowtype": "^2.29.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0",
+    "in-publish": "^2.0.0",
+    "react": ">= 0.13.0",
+    "safe-publish-latest": "^1.1.1",
+    "tape": "^4.6.3"
+  },
+  "peerDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.12.1",
+    "eslint-plugin-flowtype": "^2.29.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0"
+  },
+  "engines": {
+    "node": ">= 4"
+  }
+}
