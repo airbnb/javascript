@@ -12,7 +12,13 @@ We export two ESLint configurations for your usage.
 
 Our default export contains all of our ESLint rules, including ECMAScript 6+. It requires `eslint` and `eslint-plugin-import`.
 
-1. Ensure packages are installed with correct version numbers by running:
+1. Install the correct versions of each package, which are listed by the command:
+
+  ```sh
+  npm info "eslint-config-airbnb@latest" peerDependencies
+  ```
+
+  Linux/OSX users can simply run
   ```sh
   (
     export PKG=eslint-config-airbnb-base;
@@ -32,7 +38,13 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+. It
 
 Lints ES5 and below. Requires `eslint` and `eslint-plugin-import`.
 
-1. Ensure packages are installed with correct version numbers by running:
+1. Install the correct versions of each package, which are listed by the command:
+
+  ```sh
+  npm info "eslint-config-airbnb@latest" peerDependencies
+  ```
+
+  Linux/OSX users can simply run
   ```sh
   (
     export PKG=eslint-config-airbnb-base;
