@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-apertomove",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "ESLint config to meet the Aperto Move JavaScript style guide",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,10 @@
   },
   "homepage": "https://github.com/apertomove/javascript",
   "dependencies": {
-    "eslint-config-airbnb": "^7.0.0"
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0"
   }
 }
