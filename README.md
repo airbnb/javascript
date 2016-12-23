@@ -1972,21 +1972,15 @@ So then the first example becomes valid.
 **[⬆ back to top](#table-of-contents)**
 
 
-**TO BE REVIEWED:**
-----------
-
 ## Blocks
 
   <a name="blocks--braces"></a><a name="16.1"></a>
-  - [16.1](#blocks--braces) Use braces with all multi-line blocks.
+  - [16.1](#blocks--braces) Use braces with all multi-line blocks. Also, use it with all `if`/`else` statements, even if they contain a single line.
 
     ```javascript
     // bad
     if (test)
       return false;
-
-    // good
-    if (test) return false;
 
     // good
     if (test) {
@@ -2190,6 +2184,16 @@ So then the first example becomes valid.
     ∙∙const name;
     }
     ```
+    
+
+
+----------
+
+**Edit:** I would rather go with 4 spaces. 
+In my opinion, the visible difference is way bigger, and it forces you to separate pieces of code into functions, instead of nesting them, more often.
+
+----------
+
 
   <a name="whitespace--before-blocks"></a><a name="18.2"></a>
   - [18.2](#whitespace--before-blocks) Place 1 space before the leading brace. eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
@@ -2532,13 +2536,15 @@ So then the first example becomes valid.
     };
     ```
 
-  <a name="commas--dangling"></a><a name="19.2"></a>
-  - [19.2](#commas--dangling) Additional trailing comma: **Yup.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
+  ~~<a name="commas--dangling"></a><a name="19.2"></a>
+  - [19.2](#commas--dangling) Additional trailing comma: **Yup.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)~~
 
-    > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
+~~Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.~~
+    
+    > Why not? Because you still have to watch out for REST params (they can't have a trailing comma). So even though the git diff reason sounds good, it's not a blanket rule.
 
     ```diff
-    // bad - git diff without trailing comma
+    // good - git diff without trailing comma
     const hero = {
          firstName: 'Florence',
     -    lastName: 'Nightingale'
@@ -2546,7 +2552,7 @@ So then the first example becomes valid.
     +    inventorOf: ['coxcomb chart', 'modern nursing']
     };
 
-    // good - git diff with trailing comma
+    // bad - git diff with trailing comma
     const hero = {
          firstName: 'Florence',
          lastName: 'Nightingale',
@@ -2555,7 +2561,7 @@ So then the first example becomes valid.
     ```
 
     ```javascript
-    // bad
+    // good
     const hero = {
       firstName: 'Dana',
       lastName: 'Scully'
@@ -2566,7 +2572,7 @@ So then the first example becomes valid.
       'Superman'
     ];
 
-    // good
+    // bad
     const hero = {
       firstName: 'Dana',
       lastName: 'Scully',
@@ -2587,45 +2593,37 @@ So then the first example becomes valid.
     }
 
     // good
-    function createHero(
-      firstName,
-      lastName,
-      inventorOf,
-    ) {
+    function createHero(firstName,
+					    lastName,
+					    inventorOf) {
       // does nothing
     }
 
     // good (note that a comma must not appear after a "rest" element)
-    function createHero(
-      firstName,
-      lastName,
-      inventorOf,
-      ...heroArgs
-    ) {
+    function createHero(firstName,
+					    lastName,
+					    inventorOf,
+					    ...heroArgs) {
       // does nothing
     }
+
+    // good
+    createHero(firstName,
+		       lastName,
+		       inventorOf);
 
     // bad
     createHero(
       firstName,
       lastName,
-      inventorOf
-    );
-
-    // good
-    createHero(
-      firstName,
-      lastName,
       inventorOf,
     );
 
     // good (note that a comma must not appear after a "rest" element)
-    createHero(
-      firstName,
-      lastName,
-      inventorOf,
-      ...heroArgs
-    )
+    createHero(firstName,
+		      lastName,
+		      inventorOf,
+		      ...heroArgs)
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -2659,6 +2657,10 @@ So then the first example becomes valid.
     [Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214).
 
 **[⬆ back to top](#table-of-contents)**
+
+
+**TO BE REVIEWED:**
+----------
 
 
 ## Type Casting & Coercion
