@@ -49,7 +49,7 @@
     "babel-preset-airbnb": "^2.1.1",
     "babel-tape-runner": "^2.0.1",
     "editorconfig-tools": "^0.1.1",
-    "eslint": "^3.12.1",
+    "eslint": "^3.12.2",
     "eslint-find-rules": "^1.14.3",
     "eslint-plugin-import": "^2.2.0",
     "in-publish": "^2.0.0",
@@ -57,7 +57,7 @@
     "tape": "^4.6.3"
   },
   "peerDependencies": {
-    "eslint": "^3.12.1",
+    "eslint": "^3.12.2",
     "eslint-plugin-import": "^2.2.0"
   },
   "engines": {
