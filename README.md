@@ -3144,6 +3144,7 @@ Other Style Guides
   - **Ascribe**: [ascribe/javascript](https://github.com/ascribe/javascript)
   - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
   - **Avant**: [avantcredit/javascript](https://github.com/avantcredit/javascript)
+  - **BashPros**: [BashPros/javascript](https://github.com/BashPros/javascript)
   - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
   - **Bisk**: [bisk/javascript](https://github.com/Bisk/javascript/)
   - **Blendle**: [blendle/javascript](https://github.com/blendle/javascript)
