@@ -1,37 +1,37 @@
-# Airbnb React/JSX Style Guide
+# Керівництво по стилю React/JSX від Airbnb
 
-*A mostly reasonable approach to React and JSX*
+*Найбільш обгрунтований підхід до React та JSX*
 
-## Table of Contents
+## Зміст
 
-  1. [Basic Rules](#basic-rules)
-  1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
-  1. [Naming](#naming)
-  1. [Declaration](#declaration)
-  1. [Alignment](#alignment)
-  1. [Quotes](#quotes)
-  1. [Spacing](#spacing)
-  1. [Props](#props)
+  1. [Основні правила](#basic-rules)
+  1. [Class проти `React.createClass` проти безстейтового компонента](#class-vs-reactcreateclass-vs-stateless)
+  1. [Іменування](#naming)
+  1. [Оголошення](#declaration)
+  1. [Вирівнювання](#alignment)
+  1. [Лапки](#quotes)
+  1. [Пробіли](#spacing)
+  1. Властивосьті - [Props](#props)
   1. [Refs](#refs)
-  1. [Parentheses](#parentheses)
-  1. [Tags](#tags)
-  1. [Methods](#methods)
-  1. [Ordering](#ordering)
+  1. [Дужки](#parentheses)
+  1. [Теги](#tags)
+  1. [Методи](#methods)
+  1. [Послідовність](#ordering)
   1. [`isMounted`](#ismounted)
 
-## Basic Rules
+## Основні правила
 
-  - Only include one React component per file.
-    - However, multiple [Stateless, or Pure, Components](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) are allowed per file. eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless).
-  - Always use JSX syntax.
-  - Do not use `React.createElement` unless you're initializing the app from a file that is not JSX.
+  - Включайте лише один React компонент у файл.
+    - Проте, дозволяється кілька [Безстейтових чи чистих компонент](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) у файлі. eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless).
+  - Завжди використовуйте JSX синтаксис.
+  - Не використовуйте `React.createElement`, якщо тільки ви не ініціалізуєте програму з файлу, який не є JSX.
 
-## Class vs `React.createClass` vs stateless
+## Class проти `React.createClass` проти безстейтового компоненту
 
-  - If you have internal state and/or refs, prefer `class extends React.Component` over `React.createClass` unless you have a very good reason to use mixins. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
+  - Якщо у вас є внутрішній state та/або refs, віддавайте перевагу `class extends React.Component`, а не `React.createClass`, хіба що ви маєте надзвичайно вагомі причини використати міксіни. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
 
     ```jsx
-    // bad
+    // погано
     const Listing = React.createClass({
       // ...
       render() {
@@ -39,7 +39,7 @@
       }
     });
 
-    // good
+    // добре
     class Listing extends React.Component {
       // ...
       render() {
@@ -48,72 +48,72 @@
     }
     ```
 
-    And if you don't have state or refs, prefer normal functions (not arrow functions) over classes:
+    І якщо ви не маєте state чи refs, віддавайте перевагу звичайним функціям (не стрілочним функціям), а не класам:
 
     ```jsx
-    // bad
+    // погано
     class Listing extends React.Component {
       render() {
         return <div>{this.props.hello}</div>;
       }
     }
 
-    // bad (relying on function name inference is discouraged)
+    // погано (не рекомендується робити висновки спираючись на назву функції)
     const Listing = ({ hello }) => (
       <div>{hello}</div>
     );
 
-    // good
+    // добре
     function Listing({ hello }) {
       return <div>{hello}</div>;
     }
     ```
 
-## Naming
+## Іменування
 
-  - **Extensions**: Use `.jsx` extension for React components.
-  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
-  - **Reference Naming**: Use PascalCase for React components and camelCase for their instances. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
+  - **Розширення**: Використовуйте `.jsx` розширення для React компонентів.
+  - **Назва файлу**: Використовуйте PascalCase для назв файлів. Наприклад: `ReservationCard.jsx`.
+  - **Іменування посиланнь**: Використовуйте PascalCase для React компонентів та camelCase для їх екземплярів. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
     ```jsx
-    // bad
+    // погано
     import reservationCard from './ReservationCard';
 
-    // good
+    // добре
     import ReservationCard from './ReservationCard';
 
-    // bad
+    // погано
     const ReservationItem = <ReservationCard />;
 
-    // good
+    // добре
     const reservationItem = <ReservationCard />;
     ```
 
-  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+  - **Іменування компонентів**: Використовуйте назву файла в якості назви компонента. Наприклад, назва файлу `ReservationCard.jsx` повинна посилатись на назву компонента `ReservationCard`. Проте, для кореневих компонентів директорії, використовуйте `index.jsx` як назву файла та використовуйте назву директорії в якості назви компонента:
 
     ```jsx
-    // bad
+    // погано
     import Footer from './Footer/Footer';
 
-    // bad
+    // погано
     import Footer from './Footer/index';
 
-    // good
+    // добре
     import Footer from './Footer';
     ```
-  - **Higher-order Component Naming**: Use a composite of the higher-order component's name and the passed-in component's name as the `displayName` on the generated component. For example, the higher-order component `withFoo()`, when passed a component `Bar` should produce a component with a `displayName` of `withFoo(Bar)`.
+  - **Іменування компонент верхнього порядку (Higher-order Component)**: Use a composite of the higher-order component's name and the passed-in component's name as the `displayName` on the generated component. For example, the higher-order component `withFoo()`, when passed a component `Bar` should produce a component with a `displayName` of `withFoo(Bar)`.
 
-  > Why? A component's `displayName` may be used by developer tools or in error messages, and having a value that clearly expresses this relationship helps people understand what is happening.
+  > Чому? A component's `displayName` may be used by developer tools or in error messages, and having a value that clearly expresses this relationship helps people understand what is happening.
 
     ```jsx
-    // bad
+    // погано
     export default function withFoo(WrappedComponent) {
       return function WithFoo(props) {
         return <WrappedComponent {...props} foo />;
       }
     }
 
-    // good
+    // добре
     export default function withFoo(WrappedComponent) {
       function WithFoo(props) {
         return <WrappedComponent {...props} foo />;
@@ -128,53 +128,53 @@
     }
     ```
 
-  - **Props Naming**: Avoid using DOM component prop names for different purposes.
+  - **Іменування властивостей (Props)**: Уникайте використання властивостей DOM компонента для різних цілией.
 
-  > Why? People expect props like `style` and `className` to mean one specific thing. Varying this API for a subset of your app makes the code less readable and less maintainable, and may cause bugs.
+  > Чому? Люди очікуюсь, що властивості, такі як `style` та `className` означають одну конкретну річ. Використовуючи цей API для власних цілей робить код менш читабильним та менш підтримуваним, а також може призвести до багів.
 
     ```jsx
-    // bad
+    // погано
     <MyComponent style="fancy" />
 
-    // good
+    // добре
     <MyComponent variant="fancy" />
     ```
 
-## Declaration
+## Оголошення
 
-  - Do not use `displayName` for naming components. Instead, name the component by reference.
+  - Не використовуйте `displayName` для іменування компонентів. Натомість, називайте компонент за посиланням.
 
     ```jsx
-    // bad
+    // погано
     export default React.createClass({
       displayName: 'ReservationCard',
-      // stuff goes here
+      // все інше тут
     });
 
-    // good
+    // добре
     export default class ReservationCard extends React.Component {
     }
     ```
 
-## Alignment
+## Вирівнювання
 
-  - Follow these alignment styles for JSX syntax. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
+  - Використовуйте ці стилі вирівнювання для JSX синтаксису. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
     ```jsx
-    // bad
+    // погано
     <Foo superLongParam="bar"
          anotherSuperLongParam="baz" />
 
-    // good
+    // добре
     <Foo
       superLongParam="bar"
       anotherSuperLongParam="baz"
     />
 
-    // if props fit in one line then keep it on the same line
+    // якщо властивості вміщуються у одну лінію, тоді лишайте їх на тій самій лінії
     <Foo bar="bar" />
 
-    // children get indented normally
+    // нащадки вирівнюються нормально
     <Foo
       superLongParam="bar"
       anotherSuperLongParam="baz"
@@ -183,67 +183,67 @@
     </Foo>
     ```
 
-## Quotes
+## Лапки
 
-  - Always use double quotes (`"`) for JSX attributes, but single quotes (`'`) for all other JS. eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
+  - Завжди використовуйте подвійні лапки (`"`) для JSX атрибутів, але одинарні лапки (`'`) для решти JS. eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
 
-  > Why? Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
+  > Чому? Звичайні HTML атрибути також використовують подвійні лапки замість одинарних, тож JSX атрибути відзеркалюють цю конвенцію.
 
     ```jsx
-    // bad
+    // погано
     <Foo bar='bar' />
 
-    // good
+    // добре
     <Foo bar="bar" />
 
-    // bad
+    // погано
     <Foo style={{ left: "20px" }} />
 
-    // good
+    // добре
     <Foo style={{ left: '20px' }} />
     ```
 
-## Spacing
+## Пробіли
 
-  - Always include a single space in your self-closing tag. eslint: [`no-multi-spaces`](http://eslint.org/docs/rules/no-multi-spaces), [`react/jsx-space-before-closing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-space-before-closing.md)
+  - Завжди додавайте один пробіл у ваш самозакривающийся тег. eslint: [`no-multi-spaces`](http://eslint.org/docs/rules/no-multi-spaces), [`react/jsx-space-before-closing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-space-before-closing.md)
 
     ```jsx
-    // bad
+    // погано
     <Foo/>
 
-    // very bad
+    // дуже погано
     <Foo                 />
 
-    // bad
+    // погано
     <Foo
      />
 
-    // good
+    // добре
     <Foo />
     ```
 
-  - Do not pad JSX curly braces with spaces. eslint: [`react/jsx-curly-spacing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md)
+  - Не робіть відступи пробілом усередині фігурних дужок JSX. eslint: [`react/jsx-curly-spacing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md)
 
     ```jsx
-    // bad
+    // погано
     <Foo bar={ baz } />
 
-    // good
+    // добре
     <Foo bar={baz} />
     ```
 
-## Props
+## Властивості (Props)
 
-  - Always use camelCase for prop names.
+  - Завжди використовуйте camelCase для назв властивостей.
 
     ```jsx
-    // bad
+    // погано
     <Foo
       UserName="hello"
       phone_number={12345678}
     />
 
-    // good
+    //
     <Foo
       userName="hello"
       phoneNumber={12345678}
@@ -253,74 +253,74 @@
   - Omit the value of the prop when it is explicitly `true`. eslint: [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md)
 
     ```jsx
-    // bad
+    // погано
     <Foo
       hidden={true}
     />
 
-    // good
+    // добре
     <Foo
       hidden
     />
     ```
 
-  - Always include an `alt` prop on `<img>` tags. If the image is presentational, `alt` can be an empty string or the `<img>` must have `role="presentation"`. eslint: [`jsx-a11y/img-has-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-has-alt.md)
+  - Завжди додавайте властивість `alt` до тегу `<img>`. Якщо зображення є презентаційним, `alt` може бути порожньою строчкою, або ж `<img>` мусить мати атрибут `role="presentation"`. eslint: [`jsx-a11y/img-has-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-has-alt.md)
 
     ```jsx
-    // bad
+    // погано
     <img src="hello.jpg" />
 
-    // good
+    // добре
     <img src="hello.jpg" alt="Me waving hello" />
 
-    // good
+    // добре
     <img src="hello.jpg" alt="" />
 
-    // good
+    // добре
     <img src="hello.jpg" role="presentation" />
     ```
 
-  - Do not use words like "image", "photo", or "picture" in `<img>` `alt` props. eslint: [`jsx-a11y/img-redundant-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md)
+  - Не використовуйте слова, такі як "image", "photo", чи "picture" у `<img>` в якості властивості `alt`. eslint: [`jsx-a11y/img-redundant-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md)
 
-  > Why? Screenreaders already announce `img` elements as images, so there is no need to include this information in the alt text.
+  > Чому? Зчитувачі екранів вже оголошують `img` елементи як зображення, тож немає необхідності включати цю інформацію до атрибуту `alt`.
 
     ```jsx
-    // bad
+    // погано
     <img src="hello.jpg" alt="Picture of me waving hello" />
 
-    // good
+    // добре
     <img src="hello.jpg" alt="Me waving hello" />
     ```
 
-  - Use only valid, non-abstract [ARIA roles](https://www.w3.org/TR/wai-aria/roles#role_definitions). eslint: [`jsx-a11y/aria-role`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md)
+  - Використовуйте лише валідні, не абстрактні [ARIA roles](https://www.w3.org/TR/wai-aria/roles#role_definitions). eslint: [`jsx-a11y/aria-role`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md)
 
     ```jsx
-    // bad - not an ARIA role
+    // погано - не є ARIA role
     <div role="datepicker" />
 
-    // bad - abstract ARIA role
+    // погано - абстрактний ARIA role
     <div role="range" />
 
-    // good
+    // добре
     <div role="button" />
     ```
 
-  - Do not use `accessKey` on elements. eslint: [`jsx-a11y/no-access-key`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md)
+  - Не використовуйте `accessKey` на елементах. eslint: [`jsx-a11y/no-access-key`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md)
 
-  > Why? Inconsistencies between keyboard shortcuts and keyboard commands used by people using screenreaders and keyboards complicate accessibility.
+  > Чому? Невідповідності між поєднанням комбінацій клавіш та командами з клавіатури,  ускладнюють доступ для людей, котрі користуються екранними зчитувачами та клавіатурами.
 
   ```jsx
-  // bad
+  // погано
   <div accessKey="h" />
 
-  // good
+  // добре
   <div />
   ```
 
-  - Avoid using an array index as `key` prop, prefer a unique ID. ([why?](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318))
+  - Уникайте використання індексів елементів масиву в якості властивості `key`, та віддавайте перевагу унікальному ID. ([Чому?](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318))
 
   ```jsx
-  // bad
+  // погано
   {todos.map((todo, index) =>
     <Todo
       {...todo}
@@ -328,7 +328,7 @@
     />
   )}
 
-  // good
+  // добре
   {todos.map(todo => (
     <Todo
       {...todo}
@@ -337,12 +337,12 @@
   ))}
   ```
 
-  - Always define explicit defaultProps for all non-required props.
+  - Завжди зазначайте явні defaultProps для всіх властивостей, котрі не зазначені як необхідні (не зазначені як `isRequired`).
 
-  > Why? propTypes are a form of documentation, and providing defaultProps means the reader of your code doesn’t have to assume as much. In addition, it can mean that your code can omit certain type checks.
+  > Чому? propTypes - це спосіб документації і зазначення defaultProps дає змогу читачеві вашого коду не бути вимушеним припускати забагато. Окрім того, це може означати, що ваш код може пропустити певні перевірки типів.
 
   ```jsx
-  // bad
+  // погано
   function SFC({ foo, bar, children }) {
     return <div>{foo}{bar}{children}</div>;
   }
@@ -352,7 +352,7 @@
     children: PropTypes.node,
   };
 
-  // good
+  // добре
   function SFC({ foo, bar }) {
     return <div>{foo}{bar}</div>;
   }
@@ -382,19 +382,19 @@
     />
     ```
 
-## Parentheses
+## Дужки
 
-  - Wrap JSX tags in parentheses when they span more than one line. eslint: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md)
+  - Обгортайте JSX теги дужками, коли вони займають більше ніж одну лінію. eslint: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md)
 
     ```jsx
-    // bad
+    // погано
     render() {
       return <MyComponent className="long body" foo="bar">
                <MyChild />
              </MyComponent>;
     }
 
-    // good
+    // добре
     render() {
       return (
         <MyComponent className="long body" foo="bar">
@@ -403,43 +403,43 @@
       );
     }
 
-    // good, when single line
+    // добре, коли одна строчка
     render() {
       const body = <div>hello</div>;
       return <MyComponent>{body}</MyComponent>;
     }
     ```
 
-## Tags
+## Теги
 
-  - Always self-close tags that have no children. eslint: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md)
+  - Завжди самозакривайте теги, котрі не мають нащадків. eslint: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md)
 
     ```jsx
-    // bad
+    // погано
     <Foo className="stuff"></Foo>
 
-    // good
+    // добре
     <Foo className="stuff" />
     ```
 
-  - If your component has multi-line properties, close its tag on a new line. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
+  - Якщо ваш компонент має властивості, котрі займають кілька строчок, закривайте тег на новій строчці. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
     ```jsx
-    // bad
+    // погано
     <Foo
       bar="bar"
       baz="baz" />
 
-    // good
+    // добре
     <Foo
       bar="bar"
       baz="baz"
     />
     ```
 
-## Methods
+## Методи
 
-  - Use arrow functions to close over local variables.
+  - Використовуйте стрілочні функції для замкнення логальних змінних.
 
     ```jsx
     function ItemList(props) {
@@ -456,15 +456,15 @@
     }
     ```
 
-  - Bind event handlers for the render method in the constructor. eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
+  - Прив’язуйте обробники подій для метода render у конструкторі. eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
 
-  > Why? A bind call in the render path creates a brand new function on every single render.
+  > Чому? Виклик bind у render створює при кожному рендері нову функцію.
 
     ```jsx
-    // bad
+    // погано
     class extends React.Component {
       onClickDiv() {
-        // do stuff
+        // щось виконується
       }
 
       render() {
@@ -472,7 +472,7 @@
       }
     }
 
-    // good
+    // добре
     class extends React.Component {
       constructor(props) {
         super(props);
@@ -481,7 +481,7 @@
       }
 
       onClickDiv() {
-        // do stuff
+        // щось виконується
       }
 
       render() {
@@ -490,48 +490,48 @@
     }
     ```
 
-  - Do not use underscore prefix for internal methods of a React component.
-  > Why? Underscore prefixes are sometimes used as a convention in other languages to denote privacy. But, unlike those languages, there is no native support for privacy in JavaScript, everything is public. Regardless of your intentions, adding underscore prefixes to your properties does not actually make them private, and any property (underscore-prefixed or not) should be treated as being public. See issues [#1024](https://github.com/airbnb/javascript/issues/1024), and [#490](https://github.com/airbnb/javascript/issues/490) for a more in-depth discussion.
+  - Не використовуйте префікс підкреслення для внутрішніх методів у React компоненті.
+  > Чому? Префікси підкреслення інколи використовуються у інших мовах як конвенція з відзначення приватності. Але, на відміну від тих мов, у JavaScript немає рідної підтримки приватності, тому все - публічне. Regardless of your intentions, adding underscore prefixes to your properties does not actually make them private, and any property (underscore-prefixed or not) should be treated as being public. See issues [#1024](https://github.com/airbnb/javascript/issues/1024), та [#490](https://github.com/airbnb/javascript/issues/490) for a more in-depth discussion.
 
     ```jsx
-    // bad
+    // погано
     React.createClass({
       _onClickSubmit() {
-        // do stuff
+        // щось виконується
       },
 
-      // other stuff
+      // виконується ще щось
     });
 
-    // good
+    // добре
     class extends React.Component {
       onClickSubmit() {
-        // do stuff
+        // щось виконується
       }
 
-      // other stuff
+      // виконується ще щось
     }
     ```
 
-  - Be sure to return a value in your `render` methods. eslint: [`react/require-render-return`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md)
+  - Переконайтесь, що ви повертаєте значення у ваших `render` методах. eslint: [`react/require-render-return`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md)
 
     ```jsx
-    // bad
+    // погано
     render() {
       (<div />);
     }
 
-    // good
+    // добре
     render() {
       return (<div />);
     }
     ```
 
-## Ordering
+## Послідовність
 
-  - Ordering for `class extends React.Component`:
+  - Послідовність для `class extends React.Component`:
 
-  1. optional `static` methods
+  1. Довільні `static` методи
   1. `constructor`
   1. `getChildContext`
   1. `componentWillMount`
@@ -541,12 +541,12 @@
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
-  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
-  1. *optional render methods* like `renderNavigation()` or `renderProfilePicture()`
+  1. *обробники кліків та подій* такі як `onClickSubmit()`чи `onChangeDescription()`
+  1. *getter методи для `render`* такі як `getSelectReason()` чи `getFooterContent()`
+  1. *довільні render методи* такі як `renderNavigation()` або `renderProfilePicture()`
   1. `render`
 
-  - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
+  - Як зазначати `propTypes`, `defaultProps`, `contextTypes`, і т.д.
 
     ```jsx
     import React, { PropTypes } from 'react';
@@ -577,7 +577,7 @@
     export default Link;
     ```
 
-  - Ordering for `React.createClass`: eslint: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md)
+  -  для `React.createClass`: eslint: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md)
 
   1. `displayName`
   1. `propTypes`
@@ -596,28 +596,30 @@
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
-  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
-  1. *optional render methods* like `renderNavigation()` or `renderProfilePicture()`
+  1. *обробники кліків чи подій* такі як `onClickSubmit()` або `onChangeDescription()`
+  1. *getter методи для `render`* такі як `getSelectReason()` чи `getFooterContent()`
+  1. *довільні render методи* такі як `renderNavigation()` чи `renderProfilePicture()`
   1. `render`
 
 ## `isMounted`
 
-  - Do not use `isMounted`. eslint: [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md)
+  - Не використовуйте `isMounted`. eslint: [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md)
 
-  > Why? [`isMounted` is an anti-pattern][anti-pattern], is not available when using ES6 classes, and is on its way to being officially deprecated.
+  > Чому? [`isMounted` це анти-паттерн][anti-pattern], і він не доступний при використанні ES6 класів, і його планується офіційно скасувати.
 
   [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
 
-## Translation
+## Переклад
 
-  This JSX/React style guide is also available in other languages:
+  Це керівництво JSX/React стилями також доступне іншими мовами:
 
+  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/United-Kingdom.png) **English**: [airbnb/javascript](https://github.com/airbnb/javascript/tree/master/react)
   - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese (Simplified)**: [JasonBoy/javascript](https://github.com/JasonBoy/javascript/tree/master/react)
   - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polish**: [pietraszekl/javascript](https://github.com/pietraszekl/javascript/tree/master/react)
   - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [apple77y/javascript](https://github.com/apple77y/javascript/tree/master/react)
   - ![Br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Portuguese**: [ronal2do/javascript](https://github.com/ronal2do/airbnb-react-styleguide)
   - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javascript-style-guide](https://github.com/mitsuruog/javascript-style-guide/tree/master/react)
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Español**: [agrcrobles/javascript](https://github.com/agrcrobles/javascript/tree/master/react)
+  - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Ukrainian**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript/tree/master/react)
 
 **[⬆ back to top](#table-of-contents)**
