@@ -1323,12 +1323,12 @@ Other Style Guides
     // bad
     const increasedByOne = [];
     for (let i = 0; i < numbers.length; i++) {
-      modified.push(numbers[i] + 1);
+      increasedByOne.push(numbers[i] + 1);
     }
 
     // good
     const increasedByOne = [];
-    numbers.forEach(num => modified.push(num + 1));
+    numbers.forEach(num => increasedByOne.push(num + 1));
 
     // best (keeping it functional)
     const increasedByOne = numbers.map(num => num + 1);
