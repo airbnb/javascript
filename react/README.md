@@ -11,8 +11,8 @@
   1. [Вирівнювання](#alignment)
   1. [Лапки](#quotes)
   1. [Пробіли](#spacing)
-  1. Властивосьті - [Props](#props)
-  1. [Refs](#refs)
+  1. Властивості - [Props](#props)
+  1. Посилання - [Refs](#refs)
   1. [Дужки](#parentheses)
   1. [Теги](#tags)
   1. [Методи](#methods)
@@ -101,9 +101,9 @@
     // добре
     import Footer from './Footer';
     ```
-  - **Іменування компонент верхнього порядку (Higher-order Component)**: Use a composite of the higher-order component's name and the passed-in component's name as the `displayName` on the generated component. For example, the higher-order component `withFoo()`, when passed a component `Bar` should produce a component with a `displayName` of `withFoo(Bar)`.
+  - **Іменування компонент верхнього порядку (Higher-order Component)**: Використовуйте поєднання назви компонента верхнього порядку та назви компонента переданого в нього для утворення `displayName` згенерованого компонента. Наприклад, коли в компонент верхнього порядку `withFoo()` передають компонент `Bar`, то має згенеруватись компонент з `displayName` `withFoo(Bar)`.
 
-  > Чому? A component's `displayName` may be used by developer tools or in error messages, and having a value that clearly expresses this relationship helps people understand what is happening.
+  > Чому? `displayName` компонента може бути використано у developer tools, або у повідомленні про помилку, і в разі, коли воно має значення, котре чітко виражає цей звязок - це допомогає людям зрозуміти, що відбувається.
 
     ```jsx
     // погано
@@ -130,7 +130,7 @@
 
   - **Іменування властивостей (Props)**: Уникайте використання властивостей DOM компонента для різних цілией.
 
-  > Чому? Люди очікуюсь, що властивості, такі як `style` та `className` означають одну конкретну річ. Використовуючи цей API для власних цілей робить код менш читабильним та менш підтримуваним, а також може призвести до багів.
+  > Чому? Люди очікуюсь, що властивості, такі як `style` та `className` означають одну конкретну річ. Використання цього API для власних цілей робить код менш читабельним та менш підтримуваним, а також може призвести до багів.
 
     ```jsx
     // погано
@@ -171,7 +171,7 @@
       anotherSuperLongParam="baz"
     />
 
-    // якщо властивості вміщуються у одну лінію, тоді лишайте їх на тій самій лінії
+    // якщо властивості вміщуються у одну строчку, тоді лишайте їх на тій самій лінії
     <Foo bar="bar" />
 
     // нащадки вирівнюються нормально
@@ -250,7 +250,7 @@
     />
     ```
 
-  - Omit the value of the prop when it is explicitly `true`. eslint: [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md)
+  - Не зазначайте значення властивості у випадку, коли воно явно `true`. eslint: [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md)
 
     ```jsx
     // погано
@@ -339,7 +339,7 @@
 
   - Завжди зазначайте явні defaultProps для всіх властивостей, котрі не зазначені як необхідні (не зазначені як `isRequired`).
 
-  > Чому? propTypes - це спосіб документації і зазначення defaultProps дає змогу читачеві вашого коду не бути вимушеним припускати забагато. Окрім того, це може означати, що ваш код може пропустити певні перевірки типів.
+  > Чому? propTypes - це спосіб документації і зазначення defaultProps дає змогу читачеві вашого коду не вдаватись до припусканнь. Окрім того, це може означати, що ваш код може пропустити певні перевірки типів.
 
   ```jsx
   // погано
@@ -366,17 +366,17 @@
   };
   ```
 
-## Refs
+## Посилання (Refs)
 
-  - Always use ref callbacks. eslint: [`react/no-string-refs`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md)
+  - Завжди використовуйте зворотні виклики ref. eslint: [`react/no-string-refs`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md)
 
     ```jsx
-    // bad
+    // погано
     <Foo
       ref="myRef"
     />
 
-    // good
+    // добре
     <Foo
       ref={(ref) => { this.myRef = ref; }}
     />
@@ -439,7 +439,7 @@
 
 ## Методи
 
-  - Використовуйте стрілочні функції для замкнення логальних змінних.
+  - Використовуйте стрілочні функції для замкнення локальних змінних.
 
     ```jsx
     function ItemList(props) {
@@ -458,7 +458,7 @@
 
   - Прив’язуйте обробники подій для метода render у конструкторі. eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
 
-  > Чому? Виклик bind у render створює при кожному рендері нову функцію.
+  > Чому? Виклик bind у render створює нову функцію при кожному рендері.
 
     ```jsx
     // погано
@@ -491,7 +491,7 @@
     ```
 
   - Не використовуйте префікс підкреслення для внутрішніх методів у React компоненті.
-  > Чому? Префікси підкреслення інколи використовуються у інших мовах як конвенція з відзначення приватності. Але, на відміну від тих мов, у JavaScript немає рідної підтримки приватності, тому все - публічне. Regardless of your intentions, adding underscore prefixes to your properties does not actually make them private, and any property (underscore-prefixed or not) should be treated as being public. See issues [#1024](https://github.com/airbnb/javascript/issues/1024), та [#490](https://github.com/airbnb/javascript/issues/490) for a more in-depth discussion.
+  > Чому? Префікси підкреслення інколи використовуються у інших мовах як конвенція з відзначення приватності. Але, на відміну від тих мов, у JavaScript немає рідної підтримки приватності, тому все - публічне. Незалежно від ваших намірів, додавання префіксу підкреслення до ваших властивостей не робить їх приватними, і будь-яка властивість (з префіксом підкреслення чи без) повинна розглядатись як загальнодоступна. Дивіться питання [#1024](https://github.com/airbnb/javascript/issues/1024), та [#490](https://github.com/airbnb/javascript/issues/490) з більш детальним обговоренням.
 
     ```jsx
     // погано
@@ -541,9 +541,9 @@
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *обробники кліків та подій* такі як `onClickSubmit()`чи `onChangeDescription()`
-  1. *getter методи для `render`* такі як `getSelectReason()` чи `getFooterContent()`
-  1. *довільні render методи* такі як `renderNavigation()` або `renderProfilePicture()`
+  1. *обробники кліків та подій*, такі як `onClickSubmit()`чи `onChangeDescription()`
+  1. *getter методи для `render`*, такі як `getSelectReason()` чи `getFooterContent()`
+  1. *довільні render методи*, такі як `renderNavigation()` або `renderProfilePicture()`
   1. `render`
 
   - Як зазначати `propTypes`, `defaultProps`, `contextTypes`, і т.д.
@@ -596,9 +596,9 @@
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *обробники кліків чи подій* такі як `onClickSubmit()` або `onChangeDescription()`
-  1. *getter методи для `render`* такі як `getSelectReason()` чи `getFooterContent()`
-  1. *довільні render методи* такі як `renderNavigation()` чи `renderProfilePicture()`
+  1. *обробники кліків чи подій*, такі як `onClickSubmit()` або `onChangeDescription()`
+  1. *getter методи для `render`*, такі як `getSelectReason()` чи `getFooterContent()`
+  1. *довільні render методи*, такі як `renderNavigation()` чи `renderProfilePicture()`
   1. `render`
 
 ## `isMounted`
@@ -622,4 +622,4 @@
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Español**: [agrcrobles/javascript](https://github.com/agrcrobles/javascript/tree/master/react)
   - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Ukrainian**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript/tree/master/react)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ вверх](#table-of-contents)**
