@@ -1,3 +1,11 @@
+14.0.0 / 2017-01-08
+==================
+- [breaking] enable `react/no-array-index-key`, `react/require-default-props`
+- [breaking] [deps] update `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, `eslint-config-airbnb-base`
+- [breaking] [deps] update `eslint-plugin-jsx-a11y` to v3 (#1166)
+- [docs] add note about `install-peerdeps` (#1234)
+- [docs] Updated instructions to support non-bash users (#1214)
+
 13.0.0 / 2016-11-06
 ==================
 - [breaking] Enable `import/no-webpack-loader-syntax` rule (#1123)
