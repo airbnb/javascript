@@ -2644,7 +2644,7 @@ Other Style Guides
 
     // good
     const thisIsMyObject = {};
-    function thisIsMyFunction() {}
+    function thisIsMyFunction () {}
     ```
 
   <a name="naming--PascalCase"></a><a name="22.3"></a>
