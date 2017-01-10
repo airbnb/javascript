@@ -37,7 +37,7 @@ module.exports = {
 
     // require the use of === and !==
     // http://eslint.org/docs/rules/eqeqeq
-    eqeqeq: ['error', 'allow-null'],
+    eqeqeq: ['error', 'always', { null: 'ignore' }],
 
     // make sure for-in loops have an if statement
     'guard-for-in': 'error',
