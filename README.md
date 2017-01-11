@@ -2536,12 +2536,12 @@ In my opinion, the visible difference is way bigger, and it forces you to separa
     };
     ```
 
-  ~~<a name="commas--dangling"></a><a name="19.2"></a>
-  - [19.2](#commas--dangling) Additional trailing comma: **Yup.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)~~
+  <a name="commas--dangling"></a><a name="19.2"></a>
+  - [19.2](#commas--dangling) Additional trailing comma: **Nope.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
 
 ~~Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.~~
     
-    > Why not? Because you still have to watch out for REST params (they can't have a trailing comma). So even though the git diff reason sounds good, it's not a blanket rule.
+ Why not? Because you still have to watch out for REST params (they can't have a trailing comma). So even though the git diff reason sounds good, it's not a blanket rule.
 
     ```diff
     // good - git diff without trailing comma
