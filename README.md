@@ -581,14 +581,17 @@ Other Style Guides
     ```javascript
     // bad
     const foo = function () {
+      // ...
     };
 
     // bad
     function foo() {
+      // ...
     }
 
     // good
     const foo = function bar() {
+      // ...
     };
     ```
 
@@ -632,13 +635,13 @@ Other Style Guides
 
     ```javascript
     // bad
-    function nope(name, options, arguments) {
-      // ...stuff...
+    function foo(name, options, arguments) {
+      // ...
     }
 
     // good
-    function yup(name, options, args) {
-      // ...stuff...
+    function foo(name, options, args) {
+      // ...
     }
     ```
 
@@ -774,18 +777,22 @@ Other Style Guides
     // bad
     function f1(a) {
       a = 1;
+      // ...
     }
 
     function f2(a) {
       if (!a) { a = 1; }
+      // ...
     }
 
     // good
     function f3(a) {
       const b = a || 1;
+      // ...
     }
 
     function f4(a = 1) {
+      // ...
     }
     ```
 
@@ -818,7 +825,7 @@ Other Style Guides
     function foo(bar,
                  baz,
                  quux) {
-      // body
+      // ...
     }
 
     // good
@@ -827,7 +834,7 @@ Other Style Guides
       baz,
       quux,
     ) {
-      // body
+      // ...
     }
 
     // bad
@@ -1347,39 +1354,56 @@ Other Style Guides
     ```js
     // bad
     function * foo() {
+      // ...
     }
 
+    // bad
     const bar = function * () {
+      // ...
     }
 
+    // bad
     const baz = function *() {
+      // ...
     }
 
+    // bad
     const quux = function*() {
+      // ...
     }
 
+    // bad
     function*foo() {
+      // ...
     }
 
+    // bad
     function *foo() {
+      // ...
     }
 
     // very bad
     function
     *
     foo() {
+      // ...
     }
 
+    // very bad
     const wat = function
     *
     () {
+      // ...
     }
 
     // good
     function* foo() {
+      // ...
     }
 
+    // good
     const foo = function* () {
+      // ...
     }
     ```
 
@@ -1721,32 +1745,32 @@ Other Style Guides
     ```javascript
     // bad
     if (isValid === true) {
-      // ...stuff...
+      // ...
     }
 
     // good
     if (isValid) {
-      // ...stuff...
+      // ...
     }
 
     // bad
     if (name) {
-      // ...stuff...
+      // ...
     }
 
     // good
     if (name !== '') {
-      // ...stuff...
+      // ...
     }
 
     // bad
     if (collection.length) {
-      // ...stuff...
+      // ...
     }
 
     // good
     if (collection.length > 0) {
-      // ...stuff...
+      // ...
     }
     ```
 
@@ -1770,7 +1794,9 @@ Other Style Guides
         const y = 2;
         break;
       case 3:
-        function f() {}
+        function f() {
+          // ...
+        }
         break;
       default:
         class C {}
@@ -1787,7 +1813,9 @@ Other Style Guides
         break;
       }
       case 3: {
-        function f() {}
+        function f() {
+          // ...
+        }
         break;
       }
       case 4:
@@ -1910,7 +1938,7 @@ Other Style Guides
     // @return {Element} element
     function make(tag) {
 
-      // ...stuff...
+      // ...
 
       return element;
     }
@@ -1922,7 +1950,7 @@ Other Style Guides
      */
     function make(tag) {
 
-      // ...stuff...
+      // ...
 
       return element;
     }
@@ -1985,7 +2013,7 @@ Other Style Guides
      */
     function make(tag) {
 
-      // ...stuff...
+      // ...
 
       return element;
     }
@@ -1997,7 +2025,7 @@ Other Style Guides
      */
     function make(tag) {
 
-      // ...stuff...
+      // ...
 
       return element;
     }
@@ -2624,12 +2652,12 @@ Other Style Guides
     ```javascript
     // bad
     function q() {
-      // ...stuff...
+      // ...
     }
 
     // good
     function query() {
-      // ..stuff..
+      // ...
     }
     ```
 
@@ -2756,6 +2784,7 @@ Other Style Guides
 
     ```javascript
     function makeStyleGuide() {
+      // ...
     }
 
     export default makeStyleGuide;
@@ -2933,7 +2962,7 @@ Other Style Guides
     function setSidebar() {
       $('.sidebar').hide();
 
-      // ...stuff...
+      // ...
 
       $('.sidebar').css({
         'background-color': 'pink'
@@ -2945,7 +2974,7 @@ Other Style Guides
       const $sidebar = $('.sidebar');
       $sidebar.hide();
 
-      // ...stuff...
+      // ...
 
       $sidebar.css({
         'background-color': 'pink'
