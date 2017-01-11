@@ -1,6 +1,4 @@
-# 3Blades JavaScript Style Guide() {
-
-Thank you AirBnb for this amazing document!
+# Airbnb JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
