@@ -2,20 +2,18 @@ import fs from 'fs';
 import path from 'path';
 import test from 'tape';
 
-const base = require('../base');
+import index from '../';
 
-const files = { base };
+const files = { ...{ index } }; // object spread is to test parsing
 
 fs.readdirSync(path.join(__dirname, '../rules')).forEach((name) => {
-  if (name === 'react.js' || name === 'react-a11y.js') {
-    return;
-  }
-
   // eslint-disable-next-line import/no-dynamic-require
   files[name] = require(`../rules/${name}`); // eslint-disable-line global-require
 });
 
-Object.keys(files).forEach((name) => {
+Object.keys(files).forEach((
+  name, // trailing function comma is to test parsing
+) => {
   const config = files[name];
 
   test(`${name}: does not reference react`, (t) => {

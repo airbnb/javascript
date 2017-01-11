@@ -3,8 +3,15 @@
   "version": "2.0.0",
   "description": "A mostly reasonable approach to JavaScript.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "publish-all": "npm publish && cd ./packages/eslint-config-airbnb && npm publish"
+    "preinstall": "npm run install:config && npm run install:config:base",
+    "install:config": "cd packages/eslint-config-airbnb && npm prune && npm install",
+    "install:config:base": "cd packages/eslint-config-airbnb-base && npm prune && npm install",
+    "test": "npm run --silent test:config && npm run --silent test:config:base",
+    "test:config": "cd packages/eslint-config-airbnb; npm test",
+    "test:config:base": "cd packages/eslint-config-airbnb-base; npm test",
+    "travis": "npm run --silent travis:config && npm run --silent travis:config:base",
+    "travis:config": "cd packages/eslint-config-airbnb; npm run travis",
+    "travis:config:base": "cd packages/eslint-config-airbnb-base; npm run travis"
   },
   "repository": {
     "type": "git",
