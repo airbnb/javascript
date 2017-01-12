@@ -419,12 +419,12 @@ module.exports = {
     'operator-linebreak': ['error', 'before', { overrides: { '=': 'none' } }],
 
     // disallow padding within blocks
-    // TODO, semver-major: uncomment option
     'padded-blocks': ['error', {
       blocks: 'never',
       classes: 'never',
       switches: 'never',
-      // allowSingleLineBlocks: true,
+    }, {
+      allowSingleLineBlocks: true,
     }],
 
     // Require or disallow padding lines between statements
