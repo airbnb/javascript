@@ -37,7 +37,7 @@ module.exports = {
 
     // require the use of === and !==
     // http://eslint.org/docs/rules/eqeqeq
-    eqeqeq: ['error', 'allow-null'],
+    eqeqeq: ['error', 'always', { null: 'ignore' }],
 
     // make sure for-in loops have an if statement
     'guard-for-in': 'error',
@@ -255,6 +255,10 @@ module.exports = {
 
     // require use of the second argument for parseInt()
     radix: 'error',
+
+    // require `await` in `async function` (note: this is a horrible rule that should never be used)
+    // http://eslint.org/docs/rules/require-await
+    'require-await': 'off',
 
     // requires to declare all vars on top of their containing scope
     'vars-on-top': 'error',

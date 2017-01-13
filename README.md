@@ -350,7 +350,7 @@ Other Style Guides
     const itemsCopy = [];
     let i;
 
-    for (i = 0; i < len; i++) {
+    for (i = 0; i < len; i += 1) {
       itemsCopy[i] = items[i];
     }
 
@@ -565,7 +565,7 @@ Other Style Guides
 
     // good
     const foo = '\'this\' is "quoted"';
-    const foo = `my name is '${name}'`;		
+    const foo = `my name is '${name}'`;
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -574,7 +574,7 @@ Other Style Guides
 ## Functions
 
   <a name="functions--declarations"></a><a name="7.1"></a>
-  - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`requireFunctionDeclarations`](http://jscs.info/rule/requireFunctionDeclarations)
+  - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
 
     > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to name the expression - anonymous functions can make it harder to locate the problem in an Error's call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
 
@@ -1309,7 +1309,6 @@ Other Style Guides
     for (let num of numbers) {
       sum += num;
     }
-
     sum === 15;
 
     // good
@@ -1320,6 +1319,19 @@ Other Style Guides
     // best (use the functional force)
     const sum = numbers.reduce((total, num) => total + num, 0);
     sum === 15;
+
+    // bad
+    const increasedByOne = [];
+    for (let i = 0; i < numbers.length; i++) {
+      increasedByOne.push(numbers[i] + 1);
+    }
+
+    // good
+    const increasedByOne = [];
+    numbers.forEach(num => increasedByOne.push(num + 1));
+
+    // best (keeping it functional)
+    const increasedByOne = numbers.map(num => num + 1);
     ```
 
   <a name="generators--nope"></a><a name="11.2"></a>
@@ -1659,7 +1671,7 @@ Other Style Guides
 
       var named = function named() {
         console.log('named');
-      }
+      };
     }
     ```
 
@@ -2162,7 +2174,7 @@ Other Style Guides
     // bad
     const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
         .attr('width', (radius + margin) * 2).append('svg:g')
-        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+        .attr('transform', `translate(${radius + margin},${radius + margin})`)
         .call(tron.led);
 
     // good
@@ -2172,7 +2184,7 @@ Other Style Guides
         .classed('led', true)
         .attr('width', (radius + margin) * 2)
       .append('svg:g')
-        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+        .attr('transform', `translate(${radius + margin},${radius + margin})`)
         .call(tron.led);
 
     // good
@@ -3124,6 +3136,7 @@ Other Style Guides
 
   This is a list of organizations that are using this style guide. Send us a pull request and we'll add you to the list.
 
+  - **3blades**: [3Blades/javascript](https://github.com/3blades/javascript)
   - **4Catalyzer**: [4Catalyzer/javascript](https://github.com/4Catalyzer/javascript)
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
@@ -3132,9 +3145,11 @@ Other Style Guides
   - **Ascribe**: [ascribe/javascript](https://github.com/ascribe/javascript)
   - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
   - **Avant**: [avantcredit/javascript](https://github.com/avantcredit/javascript)
+  - **BashPros**: [BashPros/javascript](https://github.com/BashPros/javascript)
   - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
   - **Bisk**: [bisk/javascript](https://github.com/Bisk/javascript/)
   - **Blendle**: [blendle/javascript](https://github.com/blendle/javascript)
+  - **Bonhomme**: [bonhommeparis/javascript](https://github.com/bonhommeparis/javascript)
   - **Brainshark**: [brainshark/javascript](https://github.com/brainshark/javascript)
   - **Chartboost**: [ChartBoost/javascript-style-guide](https://github.com/ChartBoost/javascript-style-guide)
   - **ComparaOnline**: [comparaonline/javascript](https://github.com/comparaonline/javascript-style-guide)
@@ -3175,6 +3190,7 @@ Other Style Guides
   - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
   - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
   - **Nimbl3**: [nimbl3/javascript](https://github.com/nimbl3/javascript)
+  - **Nulogy**: [nulogy/javascript](https://github.com/nulogy/javascript)
   - **Orion Health**: [orionhealth/javascript](https://github.com/orionhealth/javascript)
   - **OutBoxSoft**: [OutBoxSoft/javascript](https://github.com/OutBoxSoft/javascript)
   - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
@@ -3221,7 +3237,7 @@ Other Style Guides
   - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [uprock/javascript](https://github.com/uprock/javascript)
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
   - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
-  - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnam**: [giangpii/javascript-style-guide](https://github.com/giangpii/javascript-style-guide)
+  - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnam**: [hngiang/javascript-style-guide](https://github.com/hngiang/javascript-style-guide)
 
 ## The JavaScript Style Guide Guide
 
