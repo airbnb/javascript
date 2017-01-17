@@ -359,6 +359,7 @@
   SFC.propTypes = {
     foo: PropTypes.number.isRequired,
     bar: PropTypes.string,
+    children: PropTypes.node,
   };
   SFC.defaultProps = {
     bar: '',
