@@ -883,8 +883,7 @@ Other Style Guides
     ```javascript
     // bad
     [1, 2, 3].map(number => {
-      const nextNumber = number + 1;
-      `A string containing the ${nextNumber}.`;
+      return `A string containing the ${number}.`;
     });
 
     // good
@@ -898,7 +897,7 @@ Other Style Guides
 
     // good
     [1, 2, 3].map((number, index) => ({
-      [index]: number
+      [index]: number,
     }));
     ```
 
