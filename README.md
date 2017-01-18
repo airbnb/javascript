@@ -898,7 +898,7 @@ Other Style Guides
 
     // good
     [1, 2, 3].map((number, index) => ({
-      [index]: number
+      [index]: number,
     }));
     ```
 
@@ -911,7 +911,7 @@ Other Style Guides
     // bad
     ['get', 'post', 'put'].map(httpMethod => Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
-        httpMethod
+        httpMethod,
       )
     );
 
@@ -919,7 +919,7 @@ Other Style Guides
     ['get', 'post', 'put'].map(httpMethod => (
       Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
-        httpMethod
+        httpMethod,
       )
     ));
     ```
@@ -2796,7 +2796,7 @@ Other Style Guides
     ```javascript
     const AirbnbStyleGuide = {
       es6: {
-      }
+      },
     };
 
     export default AirbnbStyleGuide;
@@ -2965,7 +2965,7 @@ Other Style Guides
       // ...
 
       $('.sidebar').css({
-        'background-color': 'pink'
+        'background-color': 'pink',
       });
     }
 
@@ -2977,7 +2977,7 @@ Other Style Guides
       // ...
 
       $sidebar.css({
-        'background-color': 'pink'
+        'background-color': 'pink',
       });
     }
     ```
