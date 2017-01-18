@@ -255,63 +255,63 @@ Other Style Guides
   <a name="objects--quoted-props"></a><a name="3.8"></a>
   - [3.6](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
 
-  > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
+    > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
 
-  ```javascript
-  // bad
-  const bad = {
-    'foo': 3,
-    'bar': 4,
-    'data-blah': 5,
-  };
+    ```javascript
+    // bad
+    const bad = {
+      'foo': 3,
+      'bar': 4,
+      'data-blah': 5,
+    };
 
-  // good
-  const good = {
-    foo: 3,
-    bar: 4,
-    'data-blah': 5,
-  };
-  ```
+    // good
+    const good = {
+      foo: 3,
+      bar: 4,
+      'data-blah': 5,
+    };
+    ```
 
   <a name="objects--prototype-builtins"></a>
   - [3.7](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`.
 
-  > Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
+    > Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
 
-  ```javascript
-  // bad
-  console.log(object.hasOwnProperty(key));
+    ```javascript
+    // bad
+    console.log(object.hasOwnProperty(key));
 
-  // good
-  console.log(Object.prototype.hasOwnProperty.call(object, key));
+    // good
+    console.log(Object.prototype.hasOwnProperty.call(object, key));
 
-  // best
-  const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
-  /* or */
-  import has from 'has';
-  …
-  console.log(has.call(object, key));
-  ```
+    // best
+    const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
+    /* or */
+    import has from 'has';
+    …
+    console.log(has.call(object, key));
+    ```
 
   <a name="objects--rest-spread"></a>
   - [3.8](#objects--rest-spread) Prefer the object spread operator over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
 
-  ```javascript
-  // very bad
-  const original = { a: 1, b: 2 };
-  const copy = Object.assign(original, { c: 3 }); // this mutates `original` ಠ_ಠ
-  delete copy.a; // so does this
+    ```javascript
+    // very bad
+    const original = { a: 1, b: 2 };
+    const copy = Object.assign(original, { c: 3 }); // this mutates `original` ಠ_ಠ
+    delete copy.a; // so does this
 
-  // bad
-  const original = { a: 1, b: 2 };
-  const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
+    // bad
+    const original = { a: 1, b: 2 };
+    const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
 
-  // good
-  const original = { a: 1, b: 2 };
-  const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
+    // good
+    const original = { a: 1, b: 2 };
+    const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
 
-  const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
-  ```
+    const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -1586,32 +1586,32 @@ Other Style Guides
     > Why? Per the eslint documentation, unary increment and decrement statements are subject to automatic semicolon insertion and can cause silent errors with incrementing or decrementing values within an application. It is also more expressive to mutate your values with statements like `num += 1` instead of `num++` or `num ++`. Disallowing unary increment and decrement statements also prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
 
     ```javascript
-      // bad
+    // bad
 
-      let array = [1, 2, 3];
-      let num = 1;
-      num++;
-      --num;
+    let array = [1, 2, 3];
+    let num = 1;
+    num++;
+    --num;
 
-      let sum = 0;
-      let truthyCount = 0;
-      for(let i = 0; i < array.length; i++){
-        let value = array[i];
-        sum += value;
-        if (value) {
-          truthyCount++;
-        }
+    let sum = 0;
+    let truthyCount = 0;
+    for(let i = 0; i < array.length; i++){
+      let value = array[i];
+      sum += value;
+      if (value) {
+        truthyCount++;
       }
+    }
 
-      // good
+    // good
 
-      let array = [1, 2, 3];
-      let num = 1;
-      num += 1;
-      num -= 1;
+    let array = [1, 2, 3];
+    let num = 1;
+    num += 1;
+    num -= 1;
 
-      const sum = array.reduce((a, b) => a + b, 0);
-      const truthyCount = array.filter(Boolean).length;
+    const sum = array.reduce((a, b) => a + b, 0);
+    const truthyCount = array.filter(Boolean).length;
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1780,9 +1780,9 @@ Other Style Guides
   <a name="comparison--switch-blocks"></a><a name="15.5"></a>
   - [15.5](#comparison--switch-blocks) Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`).
 
-  > Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
+    > Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
 
-  eslint rules: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations.html).
+    eslint rules: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations.html).
 
     ```javascript
     // bad
