@@ -1595,7 +1595,7 @@ Other Style Guides
 
     let sum = 0;
     let truthyCount = 0;
-    for(let i = 0; i < array.length; i++){
+    for (let i = 0; i < array.length; i++) {
       let value = array[i];
       sum += value;
       if (value) {
@@ -2620,9 +2620,9 @@ Other Style Guides
   - [21.5](#coercion--bitwise) **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](https://es5.github.io/#x4.3.19), but bitshift operations always return a 32-bit integer ([source](https://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
 
     ```javascript
-    2147483647 >> 0; //=> 2147483647
-    2147483648 >> 0; //=> -2147483648
-    2147483649 >> 0; //=> -2147483647
+    2147483647 >> 0; // => 2147483647
+    2147483648 >> 0; // => -2147483648
+    2147483649 >> 0; // => -2147483647
     ```
 
   <a name="coercion--booleans"></a><a name="21.6"></a>
