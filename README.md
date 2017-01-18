@@ -760,12 +760,12 @@ Other Style Guides
     // bad
     function f1(obj) {
       obj.key = 1;
-    };
+    }
 
     // good
     function f2(obj) {
       const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
-    };
+    }
     ```
 
   <a name="functions--reassign-params"></a><a name="7.13"></a>
@@ -1023,7 +1023,7 @@ Other Style Guides
     inherits(PeekableQueue, Queue);
     PeekableQueue.prototype.peek = function () {
       return this._queue[0];
-    }
+    };
 
     // good
     class PeekableQueue extends Queue {
@@ -1225,11 +1225,11 @@ Other Style Guides
     ```javascript
     // bad
     let foo = 3;
-    export { foo }
+    export { foo };
 
     // good
     const foo = 3;
-    export { foo }
+    export { foo };
     ```
 
   <a name="modules--prefer-default-export"></a>
@@ -1360,17 +1360,17 @@ Other Style Guides
     // bad
     const bar = function * () {
       // ...
-    }
+    };
 
     // bad
     const baz = function *() {
       // ...
-    }
+    };
 
     // bad
     const quux = function*() {
       // ...
-    }
+    };
 
     // bad
     function*foo() {
@@ -1394,7 +1394,7 @@ Other Style Guides
     *
     () {
       // ...
-    }
+    };
 
     // good
     function* foo() {
@@ -1404,7 +1404,7 @@ Other Style Guides
     // good
     const foo = function* () {
       // ...
-    }
+    };
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -2521,7 +2521,7 @@ Other Style Guides
       lastName,
       inventorOf,
       ...heroArgs
-    )
+    );
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -2620,9 +2620,9 @@ Other Style Guides
   - [21.5](#coercion--bitwise) **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](https://es5.github.io/#x4.3.19), but bitshift operations always return a 32-bit integer ([source](https://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
 
     ```javascript
-    2147483647 >> 0 //=> 2147483647
-    2147483648 >> 0 //=> -2147483648
-    2147483649 >> 0 //=> -2147483647
+    2147483647 >> 0; //=> 2147483647
+    2147483648 >> 0; //=> -2147483648
+    2147483649 >> 0; //=> -2147483647
     ```
 
   <a name="coercion--booleans"></a><a name="21.6"></a>
