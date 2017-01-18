@@ -289,7 +289,7 @@ Other Style Guides
     const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
     /* or */
     import has from 'has';
-    …
+    // ...
     console.log(has.call(object, key));
     ```
 
@@ -2915,7 +2915,7 @@ Other Style Guides
     // bad
     $(this).trigger('listingUpdated', listing.id);
 
-    ...
+    // ...
 
     $(this).on('listingUpdated', (e, listingId) => {
       // do something with listingId
@@ -2928,7 +2928,7 @@ Other Style Guides
     // good
     $(this).trigger('listingUpdated', { listingId: listing.id });
 
-    ...
+    // ...
 
     $(this).on('listingUpdated', (e, data) => {
       // do something with data.listingId
