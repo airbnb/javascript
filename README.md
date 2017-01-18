@@ -2073,17 +2073,17 @@ Other Style Guides
     ```javascript
     // bad
     function foo() {
-    ∙∙∙∙const name;
+    ∙∙∙∙let name;
     }
 
     // bad
     function bar() {
-    ∙const name;
+    ∙let name;
     }
 
     // good
     function baz() {
-    ∙∙const name;
+    ∙∙let name;
     }
     ```
 
