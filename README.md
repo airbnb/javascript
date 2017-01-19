@@ -1527,50 +1527,33 @@ function bar() {}
   - [13.2](#variables--one-const) Use one `const` declaration per variable. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
 
     > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
-
-    ```javascript
-    // bad
-    const items = getItems(),
-        goSportsTeam = true,
-        dragonball = 'z';
-
-    // bad
-    // (compare to above, and try to spot the mistake)
-    const items = getItems(),
-        goSportsTeam = true;
-        dragonball = 'z';
-
-    // good
-    const items = getItems();
-    const goSportsTeam = true;
-    const dragonball = 'z';
-    ```
-
-
-----------
-
-**Edit:** I disagree with this completely. I think we should strive for the comma-separated declaration. It looks much cleaner. Like so:
-
-```javascript
+    
+    > Additional point: Even though the code is syntactically cleaner, the functionality of placing breakpoints through each variable declaration is not possible using the comma-separated syntax. This might not be relevant when the declarations are primitives but it is a factor when it comes to declarations that contain references/calculations. 
+    Declaration-by-declaration breakpointing can be useful in the 3rd "bad" example.
+    
+	```javascript
+	// bad
 	const items = getItems(),
-	      goSportsTeam = true,
-	      dragonball = 'z';
+	goSportsTeam = true,
+	dragonball = 'z';
 
-	let dragonball,
-		i,
-		length;
-```
+	// bad
+	// (compare to above, and try to spot the mistake)
+	const items = getItems(),
+	goSportsTeam = true;
+	dragonball = 'z';
 
-It also seems more consistent with point  `7.15`
+	// bad
+	const items = getItems(), 
+	  d = new Date(), 
+	  goSportsTeam = items.length + d.getTime(), 
+	  dragonball = items[items.length - 1] + goSportsTeam;
 
-And, regarding the :
-
-> You can also step through each declaration with the debugger, instead
-> of jumping through all of them at once.
-
-If you have dynamically generated `const`s/`let`s, you can always set a breakpoint inside the function that generates them. So this seems like a non-issue to me. 
-
-----------
+	// good
+	const items = getItems();
+	const goSportsTeam = true;
+	const dragonball = 'z';
+	```
 
 
   <a name="variables--const-let-group"></a><a name="13.3"></a>
@@ -1598,15 +1581,7 @@ If you have dynamically generated `const`s/`let`s, you can always set a breakpoi
     let i;
     let length;
     ```
-    
-
-----------
-
-**Edit:** Same as the previous point, I'd just group them under one `let` or `const`. 
-Otherwise it seems fine.
-
-
-----------
+   
  
   <a name="variables--define-where-used"></a><a name="13.4"></a>
   - [13.4](#variables--define-where-used) Assign variables where you need them, but place them in a reasonable place.
@@ -3262,3 +3237,4 @@ In my opinion, the visible difference is way bigger, and it forces you to separa
 
   - [JavaScript Air](https://javascriptair.com/)
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
+
