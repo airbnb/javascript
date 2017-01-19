@@ -1470,10 +1470,6 @@ function bar() {}
 **[⬆ back to top](#table-of-contents)**
 
 
-**TO BE REVIEWED:**
-----------
-
-
 ## Properties
 
   <a name="properties--dot"></a><a name="12.1"></a>
@@ -1514,7 +1510,7 @@ function bar() {}
 ## Variables
 
   <a name="variables--const"></a><a name="13.1"></a>
-  - [13.1](#variables--const) Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
+  - [13.1](#variables--const) Always use `const`, or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
 
     ```javascript
     // bad
@@ -1522,6 +1518,9 @@ function bar() {}
 
     // good
     const superPower = new SuperPower();
+    
+    // good
+    let superPower = new SuperPower();
     ```
 
   <a name="variables--one-const"></a><a name="13.2"></a>
@@ -1546,6 +1545,33 @@ function bar() {}
     const goSportsTeam = true;
     const dragonball = 'z';
     ```
+
+
+----------
+
+**Edit:** I disagree with this completely. I think we should strive for the comma-separated declaration. It looks much cleaner. Like so:
+
+```javascript
+	const items = getItems(),
+	      goSportsTeam = true,
+	      dragonball = 'z';
+
+	let dragonball,
+		i,
+		length;
+```
+
+It also seems more consistent with point  `7.15`
+
+And, regarding the :
+
+> You can also step through each declaration with the debugger, instead
+> of jumping through all of them at once.
+
+If you have dynamically generated `const`s/`let`s, you can always set a breakpoint inside the function that generates them. So this seems like a non-issue to me. 
+
+----------
+
 
   <a name="variables--const-let-group"></a><a name="13.3"></a>
   - [13.3](#variables--const-let-group) Group all your `const`s and then group all your `let`s.
@@ -1572,7 +1598,16 @@ function bar() {}
     let i;
     let length;
     ```
+    
 
+----------
+
+**Edit:** Same as the previous point, I'd just group them under one `let` or `const`. 
+Otherwise it seems fine.
+
+
+----------
+ 
   <a name="variables--define-where-used"></a><a name="13.4"></a>
   - [13.4](#variables--define-where-used) Assign variables where you need them, but place them in a reasonable place.
 
@@ -1611,6 +1646,16 @@ function bar() {}
       return name;
     }
     ```
+
+
+----------
+
+**Edit:** Not really sure about this, but I think we should strive to declare all the variables (that we can) at the top. 
+So then the first example becomes valid.
+
+----------
+
+
   <a name="variables--no-chain-assignment"></a><a name="13.5"></a>
   - [13.5](#variables--no-chain-assignment) Don't chain variable assignments.
 
@@ -1888,9 +1933,7 @@ function bar() {}
     ```
 
   <a name="comparison--nested-ternaries"></a><a name="15.6"></a>
-  - [15.6](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions.
-
-    eslint rules: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary.html).
+  - [15.6](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions. eslint rules: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary.html).
 
     ```javascript
     // bad
@@ -1912,9 +1955,7 @@ function bar() {}
     ```
 
   <a name="comparison--unneeded-ternary"></a><a name="15.7"></a>
-  - [15.7](#comparison--unneeded-ternary) Avoid unneeded ternary statements.
-
-    eslint rules: [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary.html).
+  - [15.7](#comparison--unneeded-ternary) Avoid unneeded ternary statements. eslint rules: [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary.html).
 
     ```javascript
     // bad
@@ -1930,6 +1971,9 @@ function bar() {}
 
 **[⬆ back to top](#table-of-contents)**
 
+
+**TO BE REVIEWED:**
+----------
 
 ## Blocks
 
