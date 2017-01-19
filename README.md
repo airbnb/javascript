@@ -3234,6 +3234,7 @@ Other Style Guides
   - **StratoDem Analytics**: [stratodem/javascript](https://github.com/stratodem/javascript)
   - **SteelKiwi Development**: [steelkiwi/javascript](https://github.com/steelkiwi/javascript)
   - **StudentSphere**: [studentsphere/javascript](https://github.com/studentsphere/guide-javascript)
+  - **SwoopApp**: [swoopapp/javascript](https://github.com/swoopapp/javascript)
   - **SysGarage**: [sysgarage/javascript-style-guide](https://github.com/sysgarage/javascript-style-guide)
   - **Syzygy Warsaw**: [syzygypl/javascript](https://github.com/syzygypl/javascript)
   - **Target**: [target/javascript](https://github.com/target/javascript)
