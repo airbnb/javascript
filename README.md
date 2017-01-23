@@ -1527,50 +1527,33 @@ function bar() {}
   - [13.2](#variables--one-const) Use one `const` declaration per variable. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
 
     > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
-
-    ```javascript
-    // bad
-    const items = getItems(),
-        goSportsTeam = true,
-        dragonball = 'z';
-
-    // bad
-    // (compare to above, and try to spot the mistake)
-    const items = getItems(),
-        goSportsTeam = true;
-        dragonball = 'z';
-
-    // good
-    const items = getItems();
-    const goSportsTeam = true;
-    const dragonball = 'z';
-    ```
-
-
-----------
-
-**Edit:** I disagree with this completely. I think we should strive for the comma-separated declaration. It looks much cleaner. Like so:
-
-```javascript
+    
+    > Additional point: Even though the code is syntactically cleaner, the functionality of placing breakpoints through each variable declaration is not possible using the comma-separated syntax. This might not be relevant when the declarations are primitives but it is a factor when it comes to declarations that contain references/calculations. 
+    Declaration-by-declaration breakpointing can be useful in the 3rd "bad" example.
+    
+	```javascript
+	// bad
 	const items = getItems(),
-	      goSportsTeam = true,
-	      dragonball = 'z';
+	goSportsTeam = true,
+	dragonball = 'z';
 
-	let dragonball,
-		i,
-		length;
-```
+	// bad
+	// (compare to above, and try to spot the mistake)
+	const items = getItems(),
+	goSportsTeam = true;
+	dragonball = 'z';
 
-It also seems more consistent with point  `7.15`
+	// bad
+	const items = getItems(), 
+	  d = new Date(), 
+	  goSportsTeam = items.length + d.getTime(), 
+	  dragonball = items[items.length - 1] + goSportsTeam;
 
-And, regarding the :
-
-> You can also step through each declaration with the debugger, instead
-> of jumping through all of them at once.
-
-If you have dynamically generated `const`s/`let`s, you can always set a breakpoint inside the function that generates them. So this seems like a non-issue to me. 
-
-----------
+	// good
+	const items = getItems();
+	const goSportsTeam = true;
+	const dragonball = 'z';
+	```
 
 
   <a name="variables--const-let-group"></a><a name="13.3"></a>
@@ -1598,15 +1581,7 @@ If you have dynamically generated `const`s/`let`s, you can always set a breakpoi
     let i;
     let length;
     ```
-    
-
-----------
-
-**Edit:** Same as the previous point, I'd just group them under one `let` or `const`. 
-Otherwise it seems fine.
-
-
-----------
+   
  
   <a name="variables--define-where-used"></a><a name="13.4"></a>
   - [13.4](#variables--define-where-used) Assign variables where you need them, but place them in a reasonable place.
@@ -1646,14 +1621,6 @@ Otherwise it seems fine.
       return name;
     }
     ```
-
-
-----------
-
-**Edit:** Not really sure about this, but I think we should strive to declare all the variables (that we can) at the top. 
-So then the first example becomes valid.
-
-----------
 
 
   <a name="variables--no-chain-assignment"></a><a name="13.5"></a>
@@ -1972,21 +1939,15 @@ So then the first example becomes valid.
 **[⬆ back to top](#table-of-contents)**
 
 
-**TO BE REVIEWED:**
-----------
-
 ## Blocks
 
   <a name="blocks--braces"></a><a name="16.1"></a>
-  - [16.1](#blocks--braces) Use braces with all multi-line blocks.
+  - [16.1](#blocks--braces) Use braces with all multi-line blocks. Also, use it with all `if`/`else` statements, even if they contain a single line.
 
     ```javascript
     // bad
     if (test)
       return false;
-
-    // good
-    if (test) return false;
 
     // good
     if (test) {
@@ -2172,7 +2133,7 @@ So then the first example becomes valid.
 ## Whitespace
 
   <a name="whitespace--spaces"></a><a name="18.1"></a>
-  - [18.1](#whitespace--spaces) Use soft tabs set to 2 spaces. eslint: [`indent`](http://eslint.org/docs/rules/indent.html) jscs: [`validateIndentation`](http://jscs.info/rule/validateIndentation)
+  - [18.1](#whitespace--spaces) Use soft tabs set to 4 spaces. eslint: [`indent`](http://eslint.org/docs/rules/indent.html) jscs: [`validateIndentation`](http://jscs.info/rule/validateIndentation)
 
     ```javascript
     // bad
@@ -2190,6 +2151,8 @@ So then the first example becomes valid.
     ∙∙const name;
     }
     ```
+    
+
 
   <a name="whitespace--before-blocks"></a><a name="18.2"></a>
   - [18.2](#whitespace--before-blocks) Place 1 space before the leading brace. eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
@@ -2533,12 +2496,14 @@ So then the first example becomes valid.
     ```
 
   <a name="commas--dangling"></a><a name="19.2"></a>
-  - [19.2](#commas--dangling) Additional trailing comma: **Yup.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
+  - [19.2](#commas--dangling) Additional trailing comma: **Nope.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
 
-    > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
+~~Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.~~
+    
+ Why not? Because you still have to watch out for REST params (they can't have a trailing comma). So even though the git diff reason sounds good, it's not a blanket rule.
 
     ```diff
-    // bad - git diff without trailing comma
+    // good - git diff without trailing comma
     const hero = {
          firstName: 'Florence',
     -    lastName: 'Nightingale'
@@ -2546,7 +2511,7 @@ So then the first example becomes valid.
     +    inventorOf: ['coxcomb chart', 'modern nursing']
     };
 
-    // good - git diff with trailing comma
+    // bad - git diff with trailing comma
     const hero = {
          firstName: 'Florence',
          lastName: 'Nightingale',
@@ -2555,7 +2520,7 @@ So then the first example becomes valid.
     ```
 
     ```javascript
-    // bad
+    // good
     const hero = {
       firstName: 'Dana',
       lastName: 'Scully'
@@ -2566,7 +2531,7 @@ So then the first example becomes valid.
       'Superman'
     ];
 
-    // good
+    // bad
     const hero = {
       firstName: 'Dana',
       lastName: 'Scully',
@@ -2587,45 +2552,37 @@ So then the first example becomes valid.
     }
 
     // good
-    function createHero(
-      firstName,
-      lastName,
-      inventorOf,
-    ) {
+    function createHero(firstName,
+					    lastName,
+					    inventorOf) {
       // does nothing
     }
 
     // good (note that a comma must not appear after a "rest" element)
-    function createHero(
-      firstName,
-      lastName,
-      inventorOf,
-      ...heroArgs
-    ) {
+    function createHero(firstName,
+					    lastName,
+					    inventorOf,
+					    ...heroArgs) {
       // does nothing
     }
+
+    // good
+    createHero(firstName,
+		       lastName,
+		       inventorOf);
 
     // bad
     createHero(
       firstName,
       lastName,
-      inventorOf
-    );
-
-    // good
-    createHero(
-      firstName,
-      lastName,
       inventorOf,
     );
 
     // good (note that a comma must not appear after a "rest" element)
-    createHero(
-      firstName,
-      lastName,
-      inventorOf,
-      ...heroArgs
-    )
+    createHero(firstName,
+		      lastName,
+		      inventorOf,
+		      ...heroArgs)
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -2659,6 +2616,10 @@ So then the first example becomes valid.
     [Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214).
 
 **[⬆ back to top](#table-of-contents)**
+
+
+**TO BE REVIEWED:**
+----------
 
 
 ## Type Casting & Coercion
@@ -3260,3 +3221,4 @@ So then the first example becomes valid.
 
   - [JavaScript Air](https://javascriptair.com/)
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
+
