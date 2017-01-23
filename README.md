@@ -1623,14 +1623,6 @@ function bar() {}
     ```
 
 
-----------
-
-**Edit:** Not really sure about this, but I think we should strive to declare all the variables (that we can) at the top. 
-So then the first example becomes valid.
-
-----------
-
-
   <a name="variables--no-chain-assignment"></a><a name="13.5"></a>
   - [13.5](#variables--no-chain-assignment) Don't chain variable assignments.
 
@@ -2141,7 +2133,7 @@ So then the first example becomes valid.
 ## Whitespace
 
   <a name="whitespace--spaces"></a><a name="18.1"></a>
-  - [18.1](#whitespace--spaces) Use soft tabs set to 2 spaces. eslint: [`indent`](http://eslint.org/docs/rules/indent.html) jscs: [`validateIndentation`](http://jscs.info/rule/validateIndentation)
+  - [18.1](#whitespace--spaces) Use soft tabs set to 4 spaces. eslint: [`indent`](http://eslint.org/docs/rules/indent.html) jscs: [`validateIndentation`](http://jscs.info/rule/validateIndentation)
 
     ```javascript
     // bad
@@ -2160,14 +2152,6 @@ So then the first example becomes valid.
     }
     ```
     
-
-
-----------
-
-**Edit:** I would rather go with 4 spaces. 
-In my opinion, the visible difference is way bigger, and it forces you to separate pieces of code into functions, instead of nesting them, more often.
-
-----------
 
 
   <a name="whitespace--before-blocks"></a><a name="18.2"></a>
