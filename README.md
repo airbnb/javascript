@@ -504,8 +504,8 @@ Other Style Guides
     const foo = '\'this\' \i\s \"quoted\"';
 
     // good
-    const foo = '\'this\' is "quoted"';
-    const foo = `'this' is "quoted"`;
+    const foo = 'this is "quoted"';
+    const foo = `and 'this' is also "quoted"`;
     ```
 
 **[⬆ back to top](#table-of-contents)**
