@@ -580,14 +580,14 @@ Other Style Guides
 
     ```javascript
     // bad
-    const foo = function () {
-      // ...
-    };
-
-    // bad
     function foo() {
       // ...
     }
+
+    // bad
+    const foo = function () {
+      // ...
+    };
 
     // good
     const foo = function bar() {
