@@ -1588,7 +1588,7 @@ Other Style Guides
     ```javascript
     // bad
 
-    let array = [1, 2, 3];
+    const array = [1, 2, 3];
     let num = 1;
     num++;
     --num;
@@ -1605,7 +1605,7 @@ Other Style Guides
 
     // good
 
-    let array = [1, 2, 3];
+    const array = [1, 2, 3];
     let num = 1;
     num += 1;
     num -= 1;
