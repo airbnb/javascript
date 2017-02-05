@@ -92,10 +92,6 @@ module.exports = {
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/lang.md
     'jsx-a11y/lang': 'error',
 
-    // prevent marquee elements
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-marquee.md
-    'jsx-a11y/no-marquee': 'error',
-
     // only allow <th> to have the "scope" attr
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/scope.md
     'jsx-a11y/scope': 'error',
