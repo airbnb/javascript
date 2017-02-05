@@ -1,3 +1,8 @@
+14.1.0 / 2017-02-05
+==================
+- [patch] allow `eslint-plugin-jsx-a11y` to be v3 or v4. Remove `no-marquee` rule temporarily.
+- [deps] update `eslint-config-airbnb-base`, `babel-preset-airbnb`, `eslint`
+
 14.0.0 / 2017-01-08
 ==================
 - [breaking] enable `react/no-array-index-key`, `react/require-default-props`
