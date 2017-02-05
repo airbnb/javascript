@@ -1,3 +1,9 @@
+11.1.0 / 2017-01-08
+==================
+ - [minor] enable `no-multi-assign`
+ - [deps] update `eslint`, `babel-preset-airbnb`
+ - Update a deprecated option (`eqeqeq`) (#1244)
+
 11.0.1 / 2017-01-08
 ==================
  - [deps] update `eslint`
