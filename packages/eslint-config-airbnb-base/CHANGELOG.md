@@ -1,3 +1,9 @@
+11.0.1 / 2017-01-08
+==================
+ - [deps] update `eslint`
+ - [docs] add note about `install-peerdeps` (#1234)
+ - [docs] Updated instructions to support non-bash users (#1214)
+
 11.0.0 / 2016-12-11
 ==================
  - [breaking] enable `no-await-in-loop`
