@@ -69,6 +69,8 @@
     }
     ```
 
+    > Why normal functions over classes? One normal function component takes at least minimum 1 kB less space on the final bundle than the class-based one.
+
 ## Naming
 
   - **Extensions**: Use `.jsx` extension for React components.
