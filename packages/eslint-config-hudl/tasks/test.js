@@ -1,3 +1,4 @@
+'use strict';
 const path = require('path');
 const fs = require('fs-extra');
 const gulp = require('gulp');
@@ -19,7 +20,7 @@ gulp.task('pre-test', function() {
 });
 
 gulp.task('run-test', ['pre-test'], function() {
-  var stream = gulp.src(config.tests, {
+  let stream = gulp.src(config.tests, {
     read: false,
   })
     .pipe(mocha({

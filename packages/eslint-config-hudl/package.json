@@ -1,12 +1,12 @@
 {
   "name": "eslint-config-hudl",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "description": "Hudl's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
     "tests-only": "babel-tape-runner ./test/original/test-*.js",
     "test": "gulp test && npm run tests-only",
-    "lint": "gulp lint"
+    "lint": "eslint --ignore 'node_modules' ."
   },
   "repository": {
     "type": "git",
@@ -59,7 +59,7 @@
     }
   },
   "devDependencies": {
-    "babel-eslint": "^5.0.0-beta9",
+    "babel-eslint": "^7.1.1",
     "babel-tape-runner": "1.2.0",
     "big-object-diff": "^0.7.0",
     "chai": "^3.5.0",
@@ -68,12 +68,14 @@
     "deep-diff": "^0.3.3",
     "deep-property": "^1.1.0",
     "dir-compare": "0.0.2",
-    "eslint": "^1.10.3",
-    "eslint-plugin-react": "^3.12.0",
+    "eslint": "^3.15.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.9.0",
     "eslint-teamcity": "^1.0.0",
     "fs-extra": "^0.26.5",
     "gulp": "^3.9.0",
-    "gulp-eslint": "^1.1.1",
+    "gulp-eslint": "^3.0.1",
     "gulp-if": "^2.0.0",
     "gulp-istanbul": "^0.10.3",
     "gulp-mocha": "^2.2.0",

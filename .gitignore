@@ -1,3 +1,5 @@
 node_modules
 
 packages/eslint-config-hudl/reports/
+
+npm-debug.log

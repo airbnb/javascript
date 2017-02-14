@@ -1,3 +1,13 @@
+5.0.0 / 2017-02-14 (Hudl)
+==================
+- [breaking] Updated eslint-config-hudl dependencies
+    + Required some structural changes to .eslintrc options
+    + Removed comparison with rules before packaging refactor (super old and caused errors on tests)
+    + Updated docs comparison to eslint-config-airbnb@14.1.0 (lots of differences - job for another PR?)
+    + Updated a few rules that have changed
+    + Fixed ConfigDiff code to handle the new configs
+    + Applied new eslint rules to the code itself as required
+
 4.0.1 / 2016-03-09 (Hudl)
 ==================
  - Update eslint peer dependency to only be compatible with 1.x

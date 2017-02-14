@@ -1,8 +1,10 @@
 {
-  "extends": "./legacy.js",
-  "ecmaFeatures": {
-    // Recognize `const` keyword. Note that this also enables `let`, even though it's not available
-    "blockBindings": true
+  "extends": "./base.js",
+  "parserOptions": {
+    "ecmaFeatures": {
+      // Recognize `const` keyword. Note that this also enables `let`, even though it's not available
+      "blockBindings": true
+    }
   },
   "rules": {
     // This is super annoying and won't be relevant with arrow functions

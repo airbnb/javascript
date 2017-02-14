@@ -1,3 +1,4 @@
+'use strict';
 const path = require('path');
 const request = require('request-promise');
 const fs = require('fs-extra');
@@ -33,10 +34,14 @@ function diffRules(ourConfig, theirConfig, options) {
   const ruleOptions = options.rules;
 
   const ruleDifferences = (diff(ourConfig.rules, theirConfig.rules) || []).map(function(change) {
-    var valueArrays;
-    var changeType;
-    var isKnown;
-    var isIgnorable = false;
+    let valueArrays;
+    let changeType;
+    let isKnown;
+    let isIgnorable = false;
+
+    function ensureArray(value) {
+      return value.constructor === Array ? value : [value];
+    }
 
     function diffValueChanges(thisSet, otherSet, flag) {
       return thisSet.map(function(value, i) {
@@ -54,7 +59,7 @@ function diffRules(ourConfig, theirConfig, options) {
       changeType = 'added';
       isKnown = ruleOptions.added && _.isEqual(ruleOptions.added[change.path[0]], change.rhs);
       valueArrays = [
-        change.rhs.map(function(value) {
+        ensureArray(change.rhs).map(function(value) {
           return {
             rawValue: value,
             added: true,
@@ -67,7 +72,7 @@ function diffRules(ourConfig, theirConfig, options) {
       // The rule has been removed, but it was disabled anyway
       isIgnorable = change.lhs[0] === 0;
       valueArrays = [
-        change.lhs.map(function(value) {
+        ensureArray(change.lhs).map(function(value) {
           return {
             rawValue: value,
             removed: true,
@@ -75,9 +80,8 @@ function diffRules(ourConfig, theirConfig, options) {
         }),
       ];
     } else {
-      const prevValue = ourConfig.rules[change.path[0]];
-      const newValue = theirConfig.rules[change.path[0]];
-
+      const prevValue = ensureArray(ourConfig.rules[change.path[0]]);
+      const newValue = ensureArray(theirConfig.rules[change.path[0]]);
       changeType = 'edited';
       isKnown = ruleOptions.edited && _.isEqual(ruleOptions.edited[change.path[0]], newValue);
       // Rule was and still is disabled, so we can ignore it's settings
@@ -137,7 +141,9 @@ function diffEverythingElse(ourConfig, theirConfig /* , options */ ) {
     return newConfig;
   }
 
-  return (diff(cleanConfig(ourConfig), cleanConfig(theirConfig)) || []).map(function(change) {
+  const ourCleanConfig = _.omit(cleanConfig(ourConfig), 'globals');
+  const theirCleanConfig = _.omit(cleanConfig(theirConfig), 'globals');
+  return (diff(ourCleanConfig, theirCleanConfig) || []).map(function(change) {
     const isKnown = false;
     const changeType = {
       N: 'added',
@@ -147,7 +153,7 @@ function diffEverythingElse(ourConfig, theirConfig /* , options */ ) {
     }[change.kind];
 
     function createValueArray(from, to, prop) {
-      var value = {
+      const value = {
         rawValue: deepProperty.get(from, prop),
       };
       if (value.rawValue === undefined) {
@@ -284,7 +290,7 @@ ConfigDiff.prototype._loadConfigs = function(configPaths) {
 };
 
 ConfigDiff.prototype._resolveFilePath = function(configPath) {
-  var url;
+  let url;
   if (/^https?:/.test(configPath)) {
     url = configPath;
     if (/^https:\/\/github.com/.test(configPath)) {
