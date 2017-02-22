@@ -3197,6 +3197,7 @@ Other Style Guides
   - **General Electric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
   - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
   - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
+  - **Honey**: [honeyscience/javascript](https://github.com/honeyscience/javascript)
   - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript-style-guide)
   - **Huballin**: [huballin/javascript](https://github.com/huballin/javascript)
   - **HubSpot**: [HubSpot/javascript](https://github.com/HubSpot/javascript)
