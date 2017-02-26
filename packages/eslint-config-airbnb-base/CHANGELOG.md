@@ -1,3 +1,15 @@
+11.1.0 / 2017-01-08
+==================
+ - [minor] enable `no-multi-assign`
+ - [deps] update `eslint`, `babel-preset-airbnb`
+ - Update a deprecated option (`eqeqeq`) (#1244)
+
+11.0.1 / 2017-01-08
+==================
+ - [deps] update `eslint`
+ - [docs] add note about `install-peerdeps` (#1234)
+ - [docs] Updated instructions to support non-bash users (#1214)
+
 11.0.0 / 2016-12-11
 ==================
  - [breaking] enable `no-await-in-loop`
