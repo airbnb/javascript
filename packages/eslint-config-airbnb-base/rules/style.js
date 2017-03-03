@@ -286,6 +286,10 @@ module.exports = {
     // http://eslint.org/docs/rules/no-whitespace-before-property
     'no-whitespace-before-property': 'error',
 
+    // enforce the location of single-line statements
+    // http://eslint.org/docs/rules/nonblock-statement-body-position
+    'nonblock-statement-body-position': 'off',
+
     // require padding inside curly braces
     'object-curly-spacing': ['error', 'always'],
 
