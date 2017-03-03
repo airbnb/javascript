@@ -1,3 +1,8 @@
+11.1.1 / 2017-03-03
+==================
+ - [deps] update `eslint`
+ - [patch] enable `ignoreRestSiblings` in `no-unused-vars`
+
 11.1.0 / 2017-01-08
 ==================
  - [minor] enable `no-multi-assign`
