@@ -207,6 +207,7 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
     'react/sort-comp': ['error', {
       order: [
+        'type-annotations',
         'static-methods',
         'lifecycle',
         '/^on.+$/',
