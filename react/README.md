@@ -456,12 +456,39 @@
           {props.items.map((item, index) => (
             <Item
               key={item.key}
-              onClick={() => doSomethingWith(item.name, index)}
+              onClick={() => doSomethingWith(item.name, index)} 
             />
           ))}
         </ul>
       );
     }
+    // We shouldnot use arrow function onClick as it create instance of method doSomethingWith every time in for loop in your example. //Instead we can function call with ==> and access the attribute or pass on as a props to Item React componenet. Let me know if have any other question
+    function ItemList(props) {
+      return (
+        <ul>
+          {props.items.map((item, index) => (
+            <Item
+              key={item.key}
+              onItemClick={this.doSomethingWith} 
+            />
+          ))}
+        </ul>
+      );
+    }
+    
+   handleItemClick = (item) => {
+        if (this.props.onItemClick) {
+            this.props.onItemClick(item);
+        }
+    }
+    return (
+        <div>
+            {this.props.items.map(item =>
+                <ListItem key={item.id} item={item} onItemClick={this.handleItemClick}/>
+            )}
+         </div>
+    );
+
     ```
 
   - Bind event handlers for the render method in the constructor. eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
