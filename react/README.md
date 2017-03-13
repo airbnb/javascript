@@ -462,7 +462,7 @@
         </ul>
       );
     }
-    // We should not use arrow function onClick as it create instance of method "doSomethingWith" every time in for loop in your example. //This will create performance issue. Instead we can just have onClick as show in below example. Let me know if have any other question
+    // We should not use arrow function onClick as it create instance of method "doSomethingWith" every time in for loop in your example. This will create performance issue. Instead we can just have onClick as show in below example. Let me know if have any other question
     function ItemList(props) {
       return (
         <ul>
