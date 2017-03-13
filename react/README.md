@@ -456,7 +456,7 @@
           {props.items.map((item, index) => (
             <Item
               key={item.key}
-              onClick={() => doSomethingWith(item.name, index)} 
+              onClick={() => doSomethingWith(item.name, index)}
             />
           ))}
         </ul>
