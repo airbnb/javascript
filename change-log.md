@@ -15,5 +15,7 @@ The format for an entry is as follows:
 Consult the git commit log for complete details of a release/tag.
 
 # Change log (most recent first)
+* 2.2.0 (2017-03-14)
+  * _minor_: Update 'valid-jsdoc' rule from error to warn
 * 2.1.0 (2016-12-06)
   * _minor_: Enable eslint for VS code's eslint plugin
