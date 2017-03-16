@@ -417,6 +417,45 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
+<a name="arrays--bracket-newline"></a>
+  - [4.6](#arrays--bracket-newline) Use line breaks after open and before close array brackets if an array has multiple lines
+
+  ```javascript
+  // bad
+  const arr = [
+    [0, 1], [2, 3], [4, 5],
+  ];
+
+  const objectInArray = [{
+    id: 1,
+  }, {
+    id: 2,
+  }];
+
+  const numberInArray = [
+    1, 2,
+  ];
+
+  // good
+  const arr = [[0, 1], [2, 3], [4, 5]];
+
+  const objectInArray = [
+    {
+      id: 1,
+    },
+    {
+      id: 2,
+    },
+  ];
+
+  const numberInArray = [
+    1,
+    2,
+  ];
+  ```
+
+**[⬆ back to top](#table-of-contents)**
+
 ## Destructuring
 
   <a name="destructuring--object"></a><a name="5.1"></a>
