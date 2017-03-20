@@ -1,13 +1,11 @@
-# Airbnb JavaScript Style Guide() {
+# FreeAgent JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript*
+*A mostly reasonable approach to JavaScript, forked from [Airbnb](https://github.com/airbnb/javascript)*
 
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+Slack: [#javascript](slack://channel?team=T0252T2FN&id=C0AKXB1RS) | [#frontend-engineering](slack://channel?team=T0252T2FN&id=C37K79GCA)
 
 Other Style Guides
- - [ES5 (Deprecated)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5)
+ - [ES5](https://github.com/fac/javascript/tree/es5-deprecated/es5)
  - [React](react/)
  - [CSS-in-JavaScript](css-in-javascript/)
  - [CSS & Sass](https://github.com/airbnb/css)
@@ -170,13 +168,13 @@ Other Style Guides
       id: 5,
       name: 'San Francisco',
     };
-    obj[getKey('enabled')] = true;
+    obj[getKey("enabled")] = true;
 
     // good
     const obj = {
       id: 5,
       name: 'San Francisco',
-      [getKey('enabled')]: true,
+      [getKey("enabled")]: true,
     };
     ```
 
@@ -209,7 +207,7 @@ Other Style Guides
     > Why? It is shorter to write and descriptive.
 
     ```javascript
-    const lukeSkywalker = 'Luke Skywalker';
+    const lukeSkywalker = "Luke Skywalker";
 
     // bad
     const obj = {
@@ -228,8 +226,8 @@ Other Style Guides
     > Why? It's easier to tell which properties are using the shorthand.
 
     ```javascript
-    const anakinSkywalker = 'Anakin Skywalker';
-    const lukeSkywalker = 'Luke Skywalker';
+    const anakinSkywalker = "Anakin Skywalker";
+    const lukeSkywalker = "Luke Skywalker";
 
     // bad
     const obj = {
@@ -261,7 +259,7 @@ Other Style Guides
     // bad
     const bad = {
       'foo': 3,
-      'bar': 4,
+      "bar": 4,
       'data-blah': 5,
     };
 
@@ -335,10 +333,10 @@ Other Style Guides
     const someStack = [];
 
     // bad
-    someStack[someStack.length] = 'abracadabra';
+    someStack[someStack.length] = "abracadabra";
 
     // good
-    someStack.push('abracadabra');
+    someStack.push("abracadabra");
     ```
 
   <a name="es6-array-spreads"></a><a name="4.3"></a>
@@ -362,7 +360,7 @@ Other Style Guides
   - [4.4](#arrays--from) To convert an array-like object to an array, use [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
 
     ```javascript
-    const foo = document.querySelectorAll('.foo');
+    const foo = document.querySelectorAll(".foo");
     const nodes = Array.from(foo);
     ```
 
@@ -397,8 +395,8 @@ Other Style Guides
     // bad
     inbox.filter((msg) => {
       const { subject, author } = msg;
-      if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
+      if (subject === "Mockingbird") {
+        return author === "Harper Lee";
       } else {
         return false;
       }
@@ -407,8 +405,8 @@ Other Style Guides
     // good
     inbox.filter((msg) => {
       const { subject, author } = msg;
-      if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
+      if (subject === "Mockingbird") {
+        return author === "Harper Lee";
       }
 
       return false;
@@ -529,17 +527,18 @@ Other Style Guides
 ## Strings
 
   <a name="strings--quotes"></a><a name="6.1"></a>
-  - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
+  - [6.1](#strings--quotes) Use double quotes `""` for strings. This is consistent
+  with our Ruby code.
 
     ```javascript
     // bad
-    const name = "Capt. Janeway";
+    const name = 'Capt. Janeway';
 
     // bad - template literals should contain interpolation or newlines
     const name = `Capt. Janeway`;
 
     // good
-    const name = 'Capt. Janeway';
+    const name = "Capt. Janeway";
     ```
 
   <a name="strings--line-length"></a><a name="6.2"></a>
@@ -549,18 +548,18 @@ Other Style Guides
 
     ```javascript
     // bad
-    const errorMessage = 'This is a super long error that was thrown because \
+    const errorMessage = "This is a super long error that was thrown because \
     of Batman. When you stop to think about how Batman had anything to do \
     with this, you would get nowhere \
-    fast.';
+    fast.";
 
     // bad
-    const errorMessage = 'This is a super long error that was thrown because ' +
-      'of Batman. When you stop to think about how Batman had anything to do ' +
-      'with this, you would get nowhere fast.';
+    const errorMessage = "This is a super long error that was thrown because " +
+      "of Batman. When you stop to think about how Batman had anything to do " +
+      "with this, you would get nowhere fast.";
 
     // good
-    const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+    const errorMessage = "This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.";
     ```
 
   <a name="es6-template-literals"></a><a name="6.4"></a>
@@ -571,12 +570,12 @@ Other Style Guides
     ```javascript
     // bad
     function sayHi(name) {
-      return 'How are you, ' + name + '?';
+      return "How are you, " + name + "?";
     }
 
     // bad
     function sayHi(name) {
-      return ['How are you, ', name, '?'].join();
+      return ["How are you, ", name, "?"].join();
     }
 
     // bad
@@ -600,10 +599,10 @@ Other Style Guides
 
     ```javascript
     // bad
-    const foo = '\'this\' \i\s \"quoted\"';
+    const foo = "\"this\" \i\s \'quoted\'";
 
     // good
-    const foo = '\'this\' is "quoted"';
+    const foo = "\"this\" is 'quoted'";
     const foo = `my name is '${name}'`;
     ```
 
@@ -642,7 +641,7 @@ Other Style Guides
     ```javascript
     // immediately-invoked function expression (IIFE)
     (function () {
-      console.log('Welcome to the Internet. Please follow me.');
+      console.log("Welcome to the Internet. Please follow me.");
     }());
     ```
 
@@ -656,7 +655,7 @@ Other Style Guides
     // bad
     if (currentUser) {
       function test() {
-        console.log('Nope.');
+        console.log("Nope.");
       }
     }
 
@@ -664,7 +663,7 @@ Other Style Guides
     let test;
     if (currentUser) {
       test = () => {
-        console.log('Yup.');
+        console.log("Yup.");
       };
     }
     ```
@@ -693,12 +692,12 @@ Other Style Guides
     // bad
     function concatenateAll() {
       const args = Array.prototype.slice.call(arguments);
-      return args.join('');
+      return args.join("");
     }
 
     // good
     function concatenateAll(...args) {
-      return args.join('');
+      return args.join("");
     }
     ```
 
@@ -768,10 +767,10 @@ Other Style Guides
 
     ```javascript
     // bad
-    var add = new Function('a', 'b', 'return a + b');
+    var add = new Function("a", "b", "return a + b");
 
     // still bad
-    var subtract = Function('a', 'b', 'return a - b');
+    var subtract = Function("a", "b", "return a - b");
     ```
 
   <a name="functions--signature-spacing"></a><a name="7.11"></a>
@@ -803,7 +802,7 @@ Other Style Guides
 
     // good
     function f2(obj) {
-      const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
+      const key = Object.prototype.hasOwnProperty.call(obj, "key") ? obj.key : 1;
     }
     ```
 
@@ -948,14 +947,14 @@ Other Style Guides
 
     ```javascript
     // bad
-    ['get', 'post', 'put'].map(httpMethod => Object.prototype.hasOwnProperty.call(
+    ["get", "post", "put"].map(httpMethod => Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
         httpMethod,
       )
     );
 
     // good
-    ['get', 'post', 'put'].map(httpMethod => (
+    ["get", "post", "put"].map(httpMethod => (
       Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
         httpMethod,
@@ -1055,7 +1054,7 @@ Other Style Guides
 
     ```javascript
     // bad
-    const inherits = require('inherits');
+    const inherits = require("inherits");
     function PeekableQueue(contents) {
       Queue.apply(this, contents);
     }
@@ -1116,7 +1115,7 @@ Other Style Guides
     ```javascript
     class Jedi {
       constructor(options = {}) {
-        this.name = options.name || 'no name';
+        this.name = options.name || "no name";
       }
 
       getName() {
@@ -1153,7 +1152,7 @@ Other Style Guides
     class Rey extends Jedi {
       constructor(...args) {
         super(...args);
-        this.name = 'Rey';
+        this.name = "Rey";
       }
     }
     ```
@@ -1194,7 +1193,7 @@ Other Style Guides
 
     ```javascript
     // bad
-    const AirbnbStyleGuide = require('./AirbnbStyleGuide');
+    const AirbnbStyleGuide = require("./AirbnbStyleGuide");
     module.exports = AirbnbStyleGuide.es6;
 
     // ok
@@ -1293,11 +1292,11 @@ Other Style Guides
     import foo from 'foo';
     foo.init();
 
-    import bar from 'bar';
+    import bar from "bar";
 
     // good
     import foo from 'foo';
-    import bar from 'bar';
+    import bar from "bar";
 
     foo.init();
     ```
@@ -1461,7 +1460,7 @@ Other Style Guides
     };
 
     // bad
-    const isJedi = luke['jedi'];
+    const isJedi = luke["jedi"];
 
     // good
     const isJedi = luke.jedi;
@@ -1480,7 +1479,7 @@ Other Style Guides
       return luke[prop];
     }
 
-    const isJedi = getProp('jedi');
+    const isJedi = getProp("jedi");
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1508,18 +1507,18 @@ Other Style Guides
     // bad
     const items = getItems(),
         goSportsTeam = true,
-        dragonball = 'z';
+        dragonball = "z";
 
     // bad
     // (compare to above, and try to spot the mistake)
     const items = getItems(),
         goSportsTeam = true;
-        dragonball = 'z';
+        dragonball = "z";
 
     // good
     const items = getItems();
     const goSportsTeam = true;
-    const dragonball = 'z';
+    const dragonball = "z";
     ```
 
   <a name="variables--const-let-group"></a><a name="13.3"></a>
@@ -1558,12 +1557,12 @@ Other Style Guides
     function checkName(hasName) {
       const name = getName();
 
-      if (hasName === 'test') {
+      if (hasName === "test") {
         return false;
       }
 
-      if (name === 'test') {
-        this.setName('');
+      if (name === "test") {
+        this.setName("");
         return false;
       }
 
@@ -1572,14 +1571,14 @@ Other Style Guides
 
     // good
     function checkName(hasName) {
-      if (hasName === 'test') {
+      if (hasName === "test") {
         return false;
       }
 
       const name = getName();
 
-      if (name === 'test') {
-        this.setName('');
+      if (name === "test") {
+        this.setName("");
         return false;
       }
 
@@ -1704,7 +1703,7 @@ Other Style Guides
       anonymous(); // => TypeError anonymous is not a function
 
       var anonymous = function () {
-        console.log('anonymous function expression');
+        console.log("anonymous function expression");
       };
     }
     ```
@@ -1721,7 +1720,7 @@ Other Style Guides
       superPower(); // => ReferenceError superPower is not defined
 
       var named = function superPower() {
-        console.log('Flying');
+        console.log("Flying");
       };
     }
 
@@ -1733,7 +1732,7 @@ Other Style Guides
       named(); // => TypeError named is not a function
 
       var named = function named() {
-        console.log('named');
+        console.log("named");
       };
     }
     ```
@@ -1746,7 +1745,7 @@ Other Style Guides
       superPower(); // => Flying
 
       function superPower() {
-        console.log('Flying');
+        console.log("Flying");
       }
     }
     ```
@@ -1798,7 +1797,7 @@ Other Style Guides
     }
 
     // good
-    if (name !== '') {
+    if (name !== "") {
       // ...
     }
 
@@ -1878,16 +1877,16 @@ Other Style Guides
       : value1 > value2 ? "baz" : null;
 
     // better
-    const maybeNull = value1 > value2 ? 'baz' : null;
+    const maybeNull = value1 > value2 ? "baz" : null;
 
     const foo = maybe1 > maybe2
-      ? 'bar'
+      ? "bar"
       : maybeNull;
 
     // best
-    const maybeNull = value1 > value2 ? 'baz' : null;
+    const maybeNull = value1 > value2 ? "baz" : null;
 
-    const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
+    const foo = maybe1 > maybe2 ? "bar" : maybeNull;
     ```
 
   <a name="comparison--unneeded-ternary"></a><a name="15.7"></a>
@@ -2008,27 +2007,27 @@ Other Style Guides
 
     // bad
     function getType() {
-      console.log('fetching type...');
-      // set the default type to 'no type'
-      const type = this.type || 'no type';
+      console.log("fetching type...");
+      // set the default type to "no type"
+      const type = this.type || "no type";
 
       return type;
     }
 
     // good
     function getType() {
-      console.log('fetching type...');
+      console.log("fetching type...");
 
-      // set the default type to 'no type'
-      const type = this.type || 'no type';
+      // set the default type to "no type"
+      const type = this.type || "no type";
 
       return type;
     }
 
     // also good
     function getType() {
-      // set the default type to 'no type'
-      const type = this.type || 'no type';
+      // set the default type to "no type"
+      const type = this.type || "no type";
 
       return type;
     }
@@ -2132,24 +2131,24 @@ Other Style Guides
     ```javascript
     // bad
     function test(){
-      console.log('test');
+      console.log("test");
     }
 
     // good
     function test() {
-      console.log('test');
+      console.log("test");
     }
 
     // bad
-    dog.set('attr',{
-      age: '1 year',
-      breed: 'Bernese Mountain Dog',
+    dog.set("attr",{
+      age: "1 year",
+      breed: "Bernese Mountain Dog",
     });
 
     // good
-    dog.set('attr', {
-      age: '1 year',
-      breed: 'Bernese Mountain Dog',
+    dog.set("attr", {
+      age: "1 year",
+      breed: "Bernese Mountain Dog",
     });
     ```
 
@@ -2169,12 +2168,12 @@ Other Style Guides
 
     // bad
     function fight () {
-      console.log ('Swooosh!');
+      console.log ("Swooosh!");
     }
 
     // good
     function fight() {
-      console.log('Swooosh!');
+      console.log("Swooosh!");
     }
     ```
 
@@ -2194,14 +2193,14 @@ Other Style Guides
 
     ```javascript
     // bad
-    import { es6 } from './AirbnbStyleGuide';
+    import { es6 } from "./AirbnbStyleGuide";
       // ...
     export default es6;
     ```
 
     ```javascript
     // bad
-    import { es6 } from './AirbnbStyleGuide';
+    import { es6 } from "./AirbnbStyleGuide";
       // ...
     export default es6;↵
     ↵
@@ -2209,7 +2208,7 @@ Other Style Guides
 
     ```javascript
     // good
-    import { es6 } from './AirbnbStyleGuide';
+    import { es6 } from "./AirbnbStyleGuide";
       // ...
     export default es6;↵
     ```
@@ -2220,42 +2219,42 @@ Other Style Guides
 
     ```javascript
     // bad
-    $('#items').find('.selected').highlight().end().find('.open').updateCount();
+    $("#items").find(".selected").highlight().end().find(".open").updateCount();
 
     // bad
-    $('#items').
-      find('.selected').
+    $("#items").
+      find(".selected").
         highlight().
         end().
-      find('.open').
+      find(".open").
         updateCount();
 
     // good
-    $('#items')
-      .find('.selected')
+    $("#items")
+      .find(".selected")
         .highlight()
         .end()
-      .find('.open')
+      .find(".open")
         .updateCount();
 
     // bad
-    const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
-        .attr('width', (radius + margin) * 2).append('svg:g')
-        .attr('transform', `translate(${radius + margin},${radius + margin})`)
+    const leds = stage.selectAll(".led").data(data).enter().append("svg:svg").classed("led", true)
+        .attr("width", (radius + margin) * 2).append("svg:g")
+        .attr("transform", `translate(${radius + margin},${radius + margin})`)
         .call(tron.led);
 
     // good
-    const leds = stage.selectAll('.led')
+    const leds = stage.selectAll(".led")
         .data(data)
-      .enter().append('svg:svg')
-        .classed('led', true)
-        .attr('width', (radius + margin) * 2)
-      .append('svg:g')
-        .attr('transform', `translate(${radius + margin},${radius + margin})`)
+      .enter().append("svg:svg")
+        .classed("led", true)
+        .attr("width", (radius + margin) * 2)
+      .append("svg:g")
+        .attr("transform", `translate(${radius + margin},${radius + margin})`)
         .call(tron.led);
 
     // good
-    const leds = stage.selectAll('.led').data(data);
+    const leds = stage.selectAll(".led").data(data);
     ```
 
   <a name="whitespace--after-blocks"></a><a name="18.7"></a>
@@ -2392,10 +2391,10 @@ Other Style Guides
 
     ```javascript
     // bad
-    const foo = {clark: 'kent'};
+    const foo = {clark: "kent"};
 
     // good
-    const foo = { clark: 'kent' };
+    const foo = { clark: "kent" };
     ```
 
   <a name="whitespace--max-len"></a><a name="18.12"></a>
@@ -2408,7 +2407,7 @@ Other Style Guides
     const foo = jsonData && jsonData.foo && jsonData.foo.bar && jsonData.foo.bar.baz && jsonData.foo.bar.baz.quux && jsonData.foo.bar.baz.quux.xyzzy;
 
     // bad
-    $.ajax({ method: 'POST', url: 'https://airbnb.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
+    $.ajax({ method: "POST", url: "https://airbnb.com/", data: { name: "John" } }).done(() => console.log("Congratulations!")).fail(() => console.log("You have failed this city."));
 
     // good
     const foo = jsonData
@@ -2420,12 +2419,12 @@ Other Style Guides
 
     // good
     $.ajax({
-      method: 'POST',
-      url: 'https://airbnb.com/',
-      data: { name: 'John' },
+      method: "POST",
+      url: "https://airbnb.com/",
+      data: { name: "John" },
     })
-      .done(() => console.log('Congratulations!'))
-      .fail(() => console.log('You have failed this city.'));
+      .done(() => console.log("Congratulations!"))
+      .fail(() => console.log("You have failed this city."));
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -2452,18 +2451,18 @@ Other Style Guides
 
     // bad
     const hero = {
-        firstName: 'Ada'
-      , lastName: 'Lovelace'
+        firstName: "Ada"
+      , lastName: "Lovelace"
       , birthYear: 1815
-      , superPower: 'computers'
+      , superPower: "computers"
     };
 
     // good
     const hero = {
-      firstName: 'Ada',
-      lastName: 'Lovelace',
+      firstName: "Ada",
+      lastName: "Lovelace",
       birthYear: 1815,
-      superPower: 'computers',
+      superPower: "computers",
     };
     ```
 
@@ -2475,41 +2474,41 @@ Other Style Guides
     ```diff
     // bad - git diff without trailing comma
     const hero = {
-         firstName: 'Florence',
-    -    lastName: 'Nightingale'
-    +    lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb chart', 'modern nursing']
+         firstName: "Florence",
+    -    lastName: "Nightingale"
+    +    lastName: "Nightingale",
+    +    inventorOf: ["coxcomb chart", "modern nursing"]
     };
 
     // good - git diff with trailing comma
     const hero = {
-         firstName: 'Florence',
-         lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb chart', 'modern nursing'],
+         firstName: "Florence",
+         lastName: "Nightingale",
+    +    inventorOf: ["coxcomb chart", 'modern nursing"],
     };
     ```
 
     ```javascript
     // bad
     const hero = {
-      firstName: 'Dana',
-      lastName: 'Scully'
+      firstName: "Dana",
+      lastName: "Scully"
     };
 
     const heroes = [
-      'Batman',
-      'Superman'
+      "Batman",
+      "Superman"
     ];
 
     // good
     const hero = {
-      firstName: 'Dana',
-      lastName: 'Scully',
+      firstName: "Dana",
+      lastName: "Scully",
     };
 
     const heroes = [
-      'Batman',
-      'Superman',
+      "Batman",
+      "Superman",
     ];
 
     // bad
@@ -2574,19 +2573,19 @@ Other Style Guides
     ```javascript
     // bad
     (function () {
-      const name = 'Skywalker'
+      const name = "Skywalker"
       return name
     })()
 
     // good
     (function () {
-      const name = 'Skywalker';
+      const name = "Skywalker";
       return name;
     }());
 
     // good, but legacy (guards against the function becoming an argument when two files with IIFEs are concatenated)
     ;((() => {
-      const name = 'Skywalker';
+      const name = "Skywalker";
       return name;
     })());
     ```
@@ -2608,7 +2607,7 @@ Other Style Guides
     // => this.reviewScore = 9;
 
     // bad
-    const totalScore = this.reviewScore + ''; // invokes this.reviewScore.valueOf()
+    const totalScore = this.reviewScore + ""; // invokes this.reviewScore.valueOf()
 
     // bad
     const totalScore = this.reviewScore.toString(); // isn't guaranteed to return a string
@@ -2621,7 +2620,7 @@ Other Style Guides
   - [21.3](#coercion--numbers) Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings. eslint: [`radix`](http://eslint.org/docs/rules/radix)
 
     ```javascript
-    const inputValue = '4';
+    const inputValue = "4";
 
     // bad
     const val = new Number(inputValue);
@@ -2724,7 +2723,7 @@ Other Style Guides
     }
 
     const bad = new user({
-      name: 'nope',
+      name: "nope",
     });
 
     // good
@@ -2735,7 +2734,7 @@ Other Style Guides
     }
 
     const good = new User({
-      name: 'yup',
+      name: "yup",
     });
     ```
 
@@ -2800,21 +2799,21 @@ Other Style Guides
 
     // in some other file
     // bad
-    import CheckBox from './checkBox'; // PascalCase import/export, camelCase filename
-    import FortyTwo from './FortyTwo'; // PascalCase import/filename, camelCase export
-    import InsideDirectory from './InsideDirectory'; // PascalCase import/filename, camelCase export
+    import CheckBox from "./checkBox"; // PascalCase import/export, camelCase filename
+    import FortyTwo from "./FortyTwo"; // PascalCase import/filename, camelCase export
+    import InsideDirectory from "./InsideDirectory"; // PascalCase import/filename, camelCase export
 
     // bad
-    import CheckBox from './check_box'; // PascalCase import/export, snake_case filename
-    import forty_two from './forty_two'; // snake_case import/filename, camelCase export
-    import inside_directory from './inside_directory'; // snake_case import, camelCase export
-    import index from './inside_directory/index'; // requiring the index file explicitly
-    import insideDirectory from './insideDirectory/index'; // requiring the index file explicitly
+    import CheckBox from "./check_box"; // PascalCase import/export, snake_case filename
+    import forty_two from "./forty_two"; // snake_case import/filename, camelCase export
+    import inside_directory from "./inside_directory"; // snake_case import, camelCase export
+    import index from "./inside_directory/index"; // requiring the index file explicitly
+    import insideDirectory from "./insideDirectory/index"; // requiring the index file explicitly
 
     // good
-    import CheckBox from './CheckBox'; // PascalCase export/import/filename
-    import fortyTwo from './fortyTwo'; // camelCase export/import/filename
-    import insideDirectory from './insideDirectory'; // camelCase export/import/directory name/implicit "index"
+    import CheckBox from "./CheckBox"; // PascalCase export/import/filename
+    import fortyTwo from "./fortyTwo"; // camelCase export/import/filename
+    import insideDirectory from "./insideDirectory"; // camelCase export/import/directory name/implicit "index"
     // ^ supports both insideDirectory.js and insideDirectory/index.js
     ```
 
@@ -2848,7 +2847,7 @@ Other Style Guides
 
     ```javascript
     // bad
-    import SmsContainer from './containers/SmsContainer';
+    import SmsContainer from "./containers/SmsContainer";
 
     // bad
     const HttpRequests = [
@@ -2856,7 +2855,7 @@ Other Style Guides
     ];
 
     // good
-    import SMSContainer from './containers/SMSContainer';
+    import SMSContainer from "./containers/SMSContainer";
 
     // good
     const HTTPRequests = [
@@ -2864,7 +2863,7 @@ Other Style Guides
     ];
 
     // best
-    import TextMessageContainer from './containers/TextMessageContainer';
+    import TextMessageContainer from "./containers/TextMessageContainer";
 
     // best
     const Requests = [
@@ -2881,7 +2880,7 @@ Other Style Guides
   - [23.1](#accessors--not-required) Accessor functions for properties are not required.
 
   <a name="accessors--no-getters-setters"></a><a name="23.2"></a>
-  - [23.2](#accessors--no-getters-setters) Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use getVal() and setVal('hello').
+  - [23.2](#accessors--no-getters-setters) Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use getVal() and setVal("hello").
 
     ```javascript
     // bad
@@ -2928,8 +2927,8 @@ Other Style Guides
     ```javascript
     class Jedi {
       constructor(options = {}) {
-        const lightsaber = options.lightsaber || 'blue';
-        this.set('lightsaber', lightsaber);
+        const lightsaber = options.lightsaber || "blue";
+        this.set("lightsaber", lightsaber);
       }
 
       set(key, val) {
@@ -2952,11 +2951,11 @@ Other Style Guides
 
     ```javascript
     // bad
-    $(this).trigger('listingUpdated', listing.id);
+    $(this).trigger("listingUpdated", listing.id);
 
     // ...
 
-    $(this).on('listingUpdated', (e, listingId) => {
+    $(this).on("listingUpdated", (e, listingId) => {
       // do something with listingId
     });
     ```
@@ -2965,11 +2964,11 @@ Other Style Guides
 
     ```javascript
     // good
-    $(this).trigger('listingUpdated', { listingId: listing.id });
+    $(this).trigger("listingUpdated", { listingId: listing.id });
 
     // ...
 
-    $(this).on('listingUpdated', (e, data) => {
+    $(this).on("listingUpdated", (e, data) => {
       // do something with data.listingId
     });
     ```
@@ -2984,13 +2983,13 @@ Other Style Guides
 
     ```javascript
     // bad
-    const sidebar = $('.sidebar');
+    const sidebar = $(".sidebar");
 
     // good
-    const $sidebar = $('.sidebar');
+    const $sidebar = $(".sidebar");
 
     // good
-    const $sidebarBtn = $('.sidebar-btn');
+    const $sidebarBtn = $(".sidebar-btn");
     ```
 
   <a name="jquery--cache"></a><a name="25.2"></a>
@@ -2999,49 +2998,49 @@ Other Style Guides
     ```javascript
     // bad
     function setSidebar() {
-      $('.sidebar').hide();
+      $(".sidebar").hide();
 
       // ...
 
-      $('.sidebar').css({
-        'background-color': 'pink',
+      $(".sidebar").css({
+        "background-color": "pink",
       });
     }
 
     // good
     function setSidebar() {
-      const $sidebar = $('.sidebar');
+      const $sidebar = $(".sidebar");
       $sidebar.hide();
 
       // ...
 
       $sidebar.css({
-        'background-color': 'pink',
+        "background-color": "pink",
       });
     }
     ```
 
   <a name="jquery--queries"></a><a name="25.3"></a>
-  - [25.3](#jquery--queries) For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - [25.3](#jquery--queries) For DOM queries use Cascading `$(".sidebar ul")` or parent > child `$(".sidebar > ul")`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
 
   <a name="jquery--find"></a><a name="25.4"></a>
   - [25.4](#jquery--find) Use `find` with scoped jQuery object queries.
 
     ```javascript
     // bad
-    $('ul', '.sidebar').hide();
+    $("ul", ".sidebar").hide();
 
     // bad
-    $('.sidebar').find('ul').hide();
+    $(".sidebar").find("ul").hide();
 
     // good
-    $('.sidebar ul').hide();
+    $(".sidebar ul").hide();
 
     // good
-    $('.sidebar > ul').hide();
+    $(".sidebar > ul").hide();
 
     // good
-    $sidebar.find('ul').hide();
+    $sidebar.find("ul").hide();
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -3097,7 +3096,7 @@ Other Style Guides
    - Whichever testing framework you use, you should be writing tests!
    - Strive to write many small pure functions, and minimize where mutations occur.
    - Be cautious about stubs and mocks - they can make your tests more brittle.
-   - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Airbnb. [`tape`](https://www.npmjs.com/package/tape) is also used occasionally for small, separate modules.
+   - We primarily use [`Jasmine`](https://jasmine.github.io) at FreeAgent. [`Timecop.js`](https://github.com/jamesarosen/Timecop.js) can help with "time travel" in tests.
    - 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
    - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
 
