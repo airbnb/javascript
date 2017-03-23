@@ -14,7 +14,7 @@
 
   - Use camelCase for object keys (i.e. "selectors").
 
-  > Why? We access these keys as properties on the `styles` object in the component, so it is most convenient to use camelCase.
+    > Why? We access these keys as properties on the `styles` object in the component, so it is most convenient to use camelCase.
 
     ```js
     // bad
@@ -34,7 +34,7 @@
 
   - Use an underscore for modifiers to other styles.
 
-  > Why? Similar to BEM, this naming convention makes it clear that the styles are intended to modify the element preceded by the underscore. Underscores do not need to be quoted, so they are preferred over other characters, such as dashes.
+    > Why? Similar to BEM, this naming convention makes it clear that the styles are intended to modify the element preceded by the underscore. Underscores do not need to be quoted, so they are preferred over other characters, such as dashes.
 
     ```js
     // bad
@@ -64,7 +64,7 @@
 
   - Use `selectorName_fallback` for sets of fallback styles.
 
-  > Why? Similar to modifiers, keeping the naming consistent helps reveal the relationship of these styles to the styles that override them in more adequate browsers.
+    > Why? Similar to modifiers, keeping the naming consistent helps reveal the relationship of these styles to the styles that override them in more adequate browsers.
 
     ```js
     // bad
@@ -92,7 +92,7 @@
 
   - Use a separate selector for sets of fallback styles.
 
-  > Why? Keeping fallback styles contained in a separate object clarifies their purpose, which improves readability.
+    > Why? Keeping fallback styles contained in a separate object clarifies their purpose, which improves readability.
 
     ```js
     // bad
@@ -133,7 +133,7 @@
 
   - Use device-agnostic names (e.g. "small", "medium", and "large") to name media query breakpoints.
 
-  > Why? Commonly used names like "phone", "tablet", and "desktop" do not match the characteristics of the devices in the real world. Using these names sets the wrong expectations.
+    > Why? Commonly used names like "phone", "tablet", and "desktop" do not match the characteristics of the devices in the real world. Using these names sets the wrong expectations.
 
     ```js
     // bad
@@ -155,7 +155,7 @@
 
   - Define styles after the component.
 
-  > Why? We use a higher-order component to theme our styles, which is naturally used after the component definition. Passing the styles object directly to this function reduces indirection.
+    > Why? We use a higher-order component to theme our styles, which is naturally used after the component definition. Passing the styles object directly to this function reduces indirection.
 
     ```jsx
     // bad
@@ -198,7 +198,7 @@
 
   - Leave a blank line between adjacent blocks at the same indentation level.
 
-  > Why? The whitespace improves readability and reduces the likelihood of merge conflicts.
+    > Why? The whitespace improves readability and reduces the likelihood of merge conflicts.
 
     ```js
     // bad
@@ -234,7 +234,7 @@
 
   - Use inline styles for styles that have a high cardinality (e.g. uses the value of a prop) and not for styles that have a low cardinality.
 
-  > Why? Generating themed stylesheets can be expensive, so they are best for discrete sets of styles.
+    > Why? Generating themed stylesheets can be expensive, so they are best for discrete sets of styles.
 
     ```jsx
     // bad
@@ -373,7 +373,7 @@
 
   - Define tricky fallback properties in themes.
 
-  > Why? Many CSS-in-JavaScript implementations merge style objects together which makes specifying fallbacks for the same property (e.g. `display`) a little tricky. To keep the approach unified, put these fallbacks in the theme.
+    > Why? Many CSS-in-JavaScript implementations merge style objects together which makes specifying fallbacks for the same property (e.g. `display`) a little tricky. To keep the approach unified, put these fallbacks in the theme.
 
     ```js
     // bad
