@@ -29,7 +29,7 @@ module.exports = {
     'default-case': ['error', { commentPattern: '^no default$' }],
 
     // encourages use of dot notation whenever possible
-    'dot-notation': ['error', { allowKeywords: true, 'allowPattern': '[^a-zA-Z0-9\_\$]' }],
+    'dot-notation': ['error', { allowKeywords: true, 'allowPattern': '[^a-zA-Z0-9_$]' }],
 
     // enforces consistent newlines before or after dots
     // http://eslint.org/docs/rules/dot-location
