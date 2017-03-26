@@ -1,3 +1,8 @@
+11.1.2 / 2017-03-25
+==================
+ - [patch] `no-param-reassign`: add ignorePropertyModificationsFor (#1325)
+ - [deps] update `eslint`
+
 11.1.1 / 2017-03-03
 ==================
  - [deps] update `eslint`
