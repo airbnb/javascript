@@ -9,6 +9,15 @@ module.exports = {
       functions: 'always-multiline',
     }],
 
+    // Disallow await inside of loops
+    // http://eslint.org/docs/rules/no-await-in-loop
+    'no-await-in-loop': 'error',
+
+    // Disallow comparisons to negative zero
+    // http://eslint.org/docs/rules/no-compare-neg-zero
+    // TODO: enable (semver-major)
+    'no-compare-neg-zero': 'off',
+
     // disallow assignment in conditional expressions
     'no-cond-assign': ['error', 'always'],
 

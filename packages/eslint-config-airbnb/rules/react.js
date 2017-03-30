@@ -71,7 +71,8 @@ module.exports = {
 
     // Limit maximum of props on a single line in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
-    'react/jsx-max-props-per-line': ['off', { maximum: 1 }],
+    // TODO: enable (semver-minor)
+    'react/jsx-max-props-per-line': ['off', { maximum: 1, when: 'multiline' }],
 
     // Prevent usage of .bind() in JSX props
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
@@ -118,6 +119,7 @@ module.exports = {
       callbacksLast: false,
       shorthandFirst: false,
       shorthandLast: false,
+      noSortAlphabetically: false,
     }],
 
     // Prevent React to be incorrectly marked as unused
@@ -178,7 +180,7 @@ module.exports = {
 
     // Prevent missing props validation in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
-    'react/prop-types': ['error', { ignore: [], customValidators: [] }],
+    'react/prop-types': ['error', { ignore: [], customValidators: [], skipUndeclared: false }],
 
     // Prevent missing React when using JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
@@ -296,6 +298,28 @@ module.exports = {
       beforeSelfClosing: 'always',
       afterOpening: 'never'
     }],
+
+    // Prevent usage of Array index in keys
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md
+    'react/no-array-index-key': 'error',
+
+    // Enforce a defaultProps definition for every prop that is not a required prop
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
+    'react/require-default-props': 'error',
+
+    'react/forbid-elements': ['off', {
+      forbid: [
+      ],
+    }],
+
+    // Forbids using non-exported propTypes
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
+    'react/forbid-foreign-prop-types': 'off',
+
+    // Prevent void DOM elements from receiving children
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
+    // TODO: enable (semver-minor)
+    'react/void-dom-elements-no-children': 'off',
   },
 
   settings: {

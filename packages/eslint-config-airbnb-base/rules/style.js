@@ -13,6 +13,21 @@ module.exports = {
     // require camel case names
     camelcase: ['error', { properties: 'never' }],
 
+    // enforce or disallow capitalization of the first letter of a comment
+    // http://eslint.org/docs/rules/capitalized-comments
+    'capitalized-comments': ['off', 'never', {
+      line: {
+        ignorePattern: '.*',
+        ignoreInlineComments: true,
+        ignoreConsecutiveComments: true,
+      },
+      block: {
+        ignorePattern: '.*',
+        ignoreInlineComments: true,
+        ignoreConsecutiveComments: true,
+      },
+    }],
+
     // enforce spacing before and after comma
     'comma-spacing': ['error', { before: false, after: true }],
 
@@ -216,6 +231,10 @@ module.exports = {
     // disallow mixed spaces and tabs for indentation
     'no-mixed-spaces-and-tabs': 'error',
 
+    // disallow use of chained assignment expressions
+    // http://eslint.org/docs/rules/no-multi-assign
+    'no-multi-assign': ['error'],
+
     // disallow multiple empty lines and only one newline at the end
     'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 1 }],
 
@@ -266,6 +285,10 @@ module.exports = {
     // disallow whitespace before properties
     // http://eslint.org/docs/rules/no-whitespace-before-property
     'no-whitespace-before-property': 'error',
+
+    // enforce the location of single-line statements
+    // http://eslint.org/docs/rules/nonblock-statement-body-position
+    'nonblock-statement-body-position': 'off',
 
     // require padding inside curly braces
     'object-curly-spacing': ['error', 'always'],
@@ -363,6 +386,11 @@ module.exports = {
         balanced: false,
       }
     }],
+
+    // Require or disallow spacing between template tags and their literals
+    // http://eslint.org/docs/rules/template-tag-spacing
+    // TODO: enable, semver-major
+    'template-tag-spacing': ['off', 'never'],
 
     // require or disallow the Unicode Byte Order Mark
     // http://eslint.org/docs/rules/unicode-bom
