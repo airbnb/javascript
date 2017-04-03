@@ -1,3 +1,8 @@
+11.1.3 / 2017-04-03
+==================
+ - [patch] add error messages to `no-restricted-syntax` (#1353)
+ - [deps] update `eslint`
+
 11.1.2 / 2017-03-25
 ==================
  - [patch] `no-param-reassign`: add ignorePropertyModificationsFor (#1325)
