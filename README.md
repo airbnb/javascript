@@ -3270,6 +3270,7 @@ Other Style Guides
   - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
   - **SeekingAlpha**: [seekingalpha/javascript-style-guide](https://github.com/seekingalpha/javascript-style-guide)
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
+  - **Sourcetoad**: [sourcetoad/javascript](https://github.com/sourcetoad/javascript)
   - **Springload**: [springload/javascript](https://github.com/springload/javascript)
   - **StratoDem Analytics**: [stratodem/javascript](https://github.com/stratodem/javascript)
   - **SteelKiwi Development**: [steelkiwi/javascript](https://github.com/steelkiwi/javascript)
