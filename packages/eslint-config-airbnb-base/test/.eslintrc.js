@@ -1,4 +1,4 @@
-{
+module.exports = {
   "rules": {
     // disabled because I find it tedious to write tests while following this rule
     "no-shadow": 0,
