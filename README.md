@@ -2942,6 +2942,22 @@ Other Style Guides
     }
     ```
 
+  - Self invoking constructors to facilitate invoking constructors with or without ``new`` keyword.
+
+    ```javascript
+    function Jedi(options) {
+      options || (options = {});
+      if (!(this instanceof Jedi)) {
+        return new Jedi(options);
+      }
+      this.name = options.name || 'no name';
+    }
+
+    var jedi = new Jedi({name: 'Jedi'});
+
+    var jedi = Jedi({name: 'Jedi'})
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 
