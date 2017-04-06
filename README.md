@@ -64,8 +64,8 @@ Other Style Guides
     + `undefined`
 
     ```javascript
-    const foo = 1;
-    let bar = foo;
+    var foo = 1,
+        bar = foo;
 
     bar = 9;
 
