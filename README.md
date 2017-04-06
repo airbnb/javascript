@@ -15,6 +15,8 @@ Other Style Guides
 
 ## Table of Contents
 
+  1. [Directory Structure](#directory)
+  1. [Namespacing](#namespacing)
   1. [Types](#types)
   1. [References](#references)
   1. [Objects](#objects)
@@ -51,6 +53,72 @@ Other Style Guides
   1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
   1. [Contributors](#contributors)
   1. [License](#license)
+  
+## <a name='directory'>Directory Structure</a>
+
+  - Logically try to keep files as structured as possible reducing the complexity for adding new features
+
+    ```javascript
+    javascripts
+    │   # Manifest files
+    ├── admin.js.coffee 
+    ├── application.coffee
+    │
+    │   # Libraries
+    ├── plugins
+    │   ├── jquery.cycle.js
+    │   └── foresight.min.js
+    │
+    │   # Reuseable items
+    ├── components
+    │   ├── sidebar.coffee
+    │   └── cart.coffee
+    │
+    │   # Major shared components (global site JS ie: footer, header)
+    ├── shared
+    │   ├── header.coffee
+    │   └── footer.coffee
+    │
+    │   # Sections or features of the site (daily giveaway, )
+    └── sections
+        ├── homepage.coffee
+        ├── products
+        │   │   # Manifest file directory specific allows for //= require sections/products
+        │   ├── index.coffee 
+        │   ├── sidebar.coffee
+        │   └── pricing.coffee
+        │
+        │   # Example of a backbone application 
+        └── site_search
+            │   # Manifest file directory specific allows for //= require sections/site_search
+            ├── index.coffee 
+            ├── collections
+            │   └── articles.coffee
+            ├── models
+            │   └── article.coffee
+            ├── views
+            │   ├── search_bar.coffee
+            │   └── tabs.coffee
+            └── routers
+                └── search.coffee
+    ```
+    
+    **[[⬆]](#TOC)**
+
+## <a name='namespacing'>Namespacing</a>
+
+  - The `GP` namespace should be absolutely reserved for global definitions, utlitity functions, etc.
+
+  ```javascript
+  // bad
+  GP.isPlayingVideo = true
+  
+  // good
+  GP.productCurrencies = {
+  }
+  ```
+
+    **[[⬆]](#TOC)**
 
 ## Types
 
