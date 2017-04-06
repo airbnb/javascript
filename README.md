@@ -3043,6 +3043,36 @@ Other Style Guides
     // good
     $sidebar.find('ul').hide();
     ```
+    
+  - [25.5](#25.5) <a name='25.5'></a> jQuery plugins have few concrete rules, which is one of the reasons for the incredible diversity in how they are implemented across the community. At the most basic level, we can write a plugin simply by adding a new function property to jQuery’s `jQuery.fn` object, as follows:
+    
+    ```javascript
+    $.fn.myPluginName = function () {
+            // our plugin logic
+    };
+    ```
+      
+    This is great for compactness, but the following would be a better foundation to build on:
+    
+    ```javascript
+    (function( $ ){
+      $.fn.myPluginName = function () {
+        // our plugin logic
+      };
+    })( jQuery );
+    ```
+    
+    An alternative way to write this pattern would be to use `jQuery.extend()`, which enables us to define multiple functions at once and which sometimes make more sense semantically:
+    
+    ```javascript
+    (function( $ ){
+        $.extend($.fn, {
+            myplugin: function(){
+                // your plugin logic
+            }
+        });
+    })( jQuery );
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
