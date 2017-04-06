@@ -1907,6 +1907,23 @@ Other Style Guides
     const baz = !c;
     ```
 
+  - Avoid unnecessary else statements when returning within an if clause.
+
+    ```javascript
+    // bad
+    if (someCondition) {
+      return something;
+    } else {
+      return somethingElse;
+    }
+
+    // good
+    if (someCondition) {
+      return something;
+    }
+    return somethingElse;
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 
