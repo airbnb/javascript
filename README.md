@@ -2447,7 +2447,7 @@ Other Style Guides
     const story = [
       once,
       upon,
-      aTime,
+      aTime
     ];
 
     // bad
@@ -2463,7 +2463,7 @@ Other Style Guides
       firstName: 'Ada',
       lastName: 'Lovelace',
       birthYear: 1815,
-      superPower: 'computers',
+      superPower: 'computers'
     };
     ```
 
