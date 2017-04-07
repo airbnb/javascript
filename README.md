@@ -1656,18 +1656,18 @@ Other Style Guides
   <a name="variables--space-equal-sign"></a><a name="13.7"></a>
   - [13.7](#variables--space-equal-sign) Always leave one whitespace before and after the `=` sign, in any variable or function declaration.
 
-  ```javascript
-  // bad
+    ```javascript
+    // bad
 
-  let foo=0;
-  let hello ='world';
-  let hello= 'world';
+    let foo=0;
+    let hello ='world';
+    let hello= 'world';
 
-  // good
+    // good
 
-  let foo = 0;
-  let hello = 'world';
-  ```
+    let foo = 0;
+    let hello = 'world';
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
