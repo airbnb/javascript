@@ -2699,7 +2699,7 @@ Other Style Guides
   <a name="naming--leading-underscore"></a><a name="22.4"></a>
   - [22.4](#naming--leading-underscore) Do not use trailing or leading underscores. eslint: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html) jscs: [`disallowDanglingUnderscores`](http://jscs.info/rule/disallowDanglingUnderscores)
 
-    > Even though there are no actual private methods, the underline naming prefix (_) represents a gentlemen agreement that conventions the method is not public and won't follow Semantic Version rules. Nonetheless, the method should be tested, in order to guarantee the granularity and quality of all code parts.
+    > Even though there are no actual private methods, the underline naming prefix (_) represents a gentlemen agreement that conventions the method is not public. Nonetheless, the method should be tested, in order to guarantee the granularity and quality of all code parts.
 
     ```javascript
     // bad
