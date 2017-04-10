@@ -2706,9 +2706,13 @@ Other Style Guides
     this.__firstName__ = 'Panda';
     this.firstName = 'Panda';
     this.firstName_ = 'Panda';
+    this.__foo__ = function() {}
+    function __foo() {}
 
     // good
     this._firstName = 'Panda';
+    this._foo = function() {}
+    function _foo() {}
     ```
 
   <a name="naming--self-this"></a><a name="22.5"></a>
