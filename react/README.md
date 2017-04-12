@@ -360,8 +360,8 @@
   };
 
   // good
-  function SFC({ foo, bar }) {
-    return <div>{foo}{bar}</div>;
+  function SFC({ foo, bar, children }) {
+    return <div>{foo}{bar}{children}</div>;
   }
   SFC.propTypes = {
     foo: PropTypes.number.isRequired,
