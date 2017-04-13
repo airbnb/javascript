@@ -1201,9 +1201,12 @@ Other Style Guides
     import AirbnbStyleGuide from './AirbnbStyleGuide';
     export default AirbnbStyleGuide.es6;
 
-    // best
+    // good
     import { es6 } from './AirbnbStyleGuide';
     export default es6;
+    
+    // best
+    export { es6 as default } from './AirbnbStyleGuide';
     ```
 
   <a name="modules--no-wildcard"></a><a name="10.2"></a>
