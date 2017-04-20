@@ -176,7 +176,7 @@ module.exports = {
 
     // Require stateless functions when not using lifecycle methods, setState or ref
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
-    'react/prefer-stateless-function': 'error',
+    'react/prefer-stateless-function': ['error', { ignorePureComponent: true }],
 
     // Prevent missing props validation in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
