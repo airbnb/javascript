@@ -666,39 +666,39 @@ This document is not intended to:
 
     ```javascript
     // bad
-    foo(a) {
-        a = 1;
+    foo(name) {
+        name = name || 'Tony Stark';
+    }
+
+    // good
+    foo(name) {
+        const localName = name || 'Tony Stark';
+    }
+
+    // good
+    foo(name = 'Tony Stark') {
+        const localName = name;
     }
     ```
 
   <a name="functions--default-parameters"></a><a name="7.3"></a>
-  - [7.3](#functions--default-parameters) Use default parameter syntax rather than mutating function parameters.
+  - [7.3](#functions--default-parameters) When arguments may be omitted completely, use default parameter syntax.
 
     ```javascript
-    // really bad
-    signup(name) {
-        // No! We shouldn't mutate function arguments.
-        // Double bad: if opts is falsy it'll be set to an object which may
-        // be what you want but it can introduce subtle bugs.
-        name = name || 'Tony Stark';
+    // bad
+    // This won't work as expected, the default parameter will
+    // only be assigned if the value provided is `undefined`
+    signup(name = 'Tony Stark') {
+        // ...
     }
-
-    // still bad
-    signup (name) {
-        if (name == null) {
-            name = 'Tony Stark';
-        }
-    }
+    signup(null);
 
     // good
     signup(name = 'Tony Stark') {
         // ...
     }
+    signup();
 
-    // good
-    signup({ name = 'Tony Stark' }) {
-        // ...
-    }
     ```
 
   <a name="functions--default-side-effects"></a><a name="7.4"></a>
@@ -985,35 +985,6 @@ This document is not intended to:
 
         toString() {
             return `Jedi - ${this.getName()}`;
-        }
-    }
-    ```
-
-  <a name="classes--no-useless"></a><a name="9.5"></a>
-  - [9.5](#classes--no-useless) Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
-
-    ```javascript
-    // bad
-    class Jedi {
-        constructor() {}
-
-        getName() {
-            return this.name;
-        }
-    }
-
-    // bad
-    class Rey extends Jedi {
-        constructor(...args) {
-            super(...args);
-        }
-    }
-
-    // good
-    class Rey extends Jedi {
-        constructor(...args) {
-            super(...args);
-            this.name = 'Rey';
         }
     }
     ```
@@ -1689,67 +1660,17 @@ This document is not intended to:
 
 ## Commas
 
-  <a name="commas--leading-trailing"></a><a name="17.1"></a>
-  - [17.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style)
+  <a name="commas--multiline"></a><a name="17.1"></a>
+  - [17.1](#commas--multiline) Use trailing commas for multi-line arrays and objects. eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style) [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle)
+
+    > Why? This leads to cleaner git diffs.
 
     ```javascript
     // bad
-    const story = [
-        once
-      , upon
-      , aTime
+    const heroes = [
+        'Batman'
+      , 'Superman'
     ];
-
-    // good
-    const story = [
-        once,
-        upon,
-        aTime,
-    ];
-
-    // bad
-    const hero = {
-        firstName: 'Ada'
-      , lastName: 'Lovelace'
-      , birthYear: 1815
-      , superPower: 'computers'
-    };
-
-    // good
-    const hero = {
-        firstName: 'Ada',
-        lastName: 'Lovelace',
-        birthYear: 1815,
-        superPower: 'computers',
-    };
-    ```
-
-  <a name="commas--dangling"></a><a name="17.2"></a>
-  - [17.2](#commas--dangling) Additional trailing comma: **Yup.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle)
-
-    > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](es5/README.md#commas) in legacy browsers.
-
-    ```javascript
-    // bad - git diff without trailing comma
-    const hero = {
-         firstName: 'Florence',
-    -    lastName: 'Nightingale'
-    +    lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb graph', 'modern nursing']
-    };
-
-    // good - git diff with trailing comma
-    const hero = {
-         firstName: 'Florence',
-         lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb chart', 'modern nursing'],
-    };
-
-    // bad
-    const hero = {
-        firstName: 'Dana',
-        lastName: 'Scully'
-    };
 
     // bad
     const heroes = [
@@ -1758,16 +1679,45 @@ This document is not intended to:
     ];
 
     // good
-    const hero = {
-        firstName: 'Dana',
-        lastName: 'Scully',
-    };
-
-    // good
     const heroes = [
         'Batman',
         'Superman',
     ];
+
+    // bad
+    const hero = {
+        firstName: 'Ada'
+      , lastName: 'Lovelace'
+    };
+
+    // bad
+    const hero = {
+        firstName: 'Ada',
+        lastName: 'Lovelace'
+    };
+
+    // good
+    const hero = {
+        firstName: 'Ada',
+        lastName: 'Lovelace',
+    };
+    ```
+
+  <a name="commas--singleline"></a><a name="17.2"></a>
+  - [17.2](#commas--singleline) No trailing commas for single-line arrays and objects. eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle)
+
+  ```javascript
+    // bad
+    const heroes = ['Batman', 'Superman',];
+
+    // good
+    const heroes = ['Batman', 'Superman'];
+
+    // bad
+    const hero = { firstName: 'Ada', lastName: 'Lovelace', };
+
+    // good
+    const hero = { firstName: 'Ada', lastName: 'Lovelace' };
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -2199,7 +2149,8 @@ This document is not intended to:
     waitFor(milliseconds) {
         return new Promise((resolve, reject) => {
             window.setTimeout(
-                () => { resolve(); }, milliseconds
+                () => { resolve(); },
+                milliseconds
             );
         });
     }
@@ -2209,10 +2160,10 @@ This document is not intended to:
     ```
 
   <a name="asynchronous--nested-promises"></a><a name="23.2"></a>
-  - [23.2](#asynchronous--nested-promises) Avoid nesting promises several layers deep. Instead, compose a sequence of promises using a flat chain.
+  - [23.2](#asynchronous--nested-promises) Avoid nesting promises several layers deep. Instead, compose a sequence of promises using a flat chain. Better yet, use the await syntax.
 
     ```javascript
-    //bad
+    // bad
     waitFor(1000)
         .then(() => {
             waitFor(2000)
@@ -2224,7 +2175,7 @@ This document is not intended to:
                 })
         });
 
-    //good
+    // good
     waitFor(1000)
         .then(() => {
             return waitFor(2000);
@@ -2235,6 +2186,14 @@ This document is not intended to:
         .then(() => {
             console.log('Done waiting!');
         });
+
+    // best
+    async function mySequence() {
+        await waitFor(1000);
+        await waitFor(2000);
+        await waitFor(3000);
+        console.log('Done waiting!');
+    }
     ```
 
   <a name="asynchronous--catch"></a><a name="23.3"></a>
@@ -2246,6 +2205,7 @@ This document is not intended to:
     waitFor(1000)
         .then(() => { console.log('Done waiting!'); })
         .catch(exception => { console.error('Error in waitFor():', exception); });
+
     ```
 
 **[⬆ back to top](#table-of-contents)**

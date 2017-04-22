@@ -17,7 +17,7 @@ https://github.com/thenerdery/javascript-standards/linters
 
         npm install
 
-1. If eslint is installed globally, we recommend uninstalling it
+1. If eslint is installed globally, please uninstall it. The globally installed version  might conflict with the specific version needed by your project.
 
         npm uninstall -g eslint
 
@@ -42,9 +42,12 @@ Sublime Text 2 not supported.
 
 ### WebStorm
 
-1. Navigate to `Languages and Frameworks > JavaScript > Code Quality Tools > ESLint`
-1. Check `Enable` and the `.eslintrc` file will be used.
-1. For more info: [https://www.jetbrains.com/help/webstorm/2016.1/eslint.html](https://www.jetbrains.com/help/webstorm/2016.1/eslint.html)
+1. Navigate to `Preferences -> Languages and Frameworks > JavaScript > Code Quality Tools > ESLint`
+1. Check `Enable`
+1. Specify Node Interpreter as the path where you've installed node.js. If you've used the `n` version manager to install node, this will be located under /yourusername/.node/bin/node
+1. Specify ESLint Package as the path where you've installed ESLint. This may already be pre-selected with the correct path; if not, navigate to /{your project folder}/node_modules/eslint
+ 
+For more info: [https://www.jetbrains.com/help/webstorm/2016.1/eslint.html](https://www.jetbrains.com/help/webstorm/2016.1/eslint.html)
 
 ## Testing
 

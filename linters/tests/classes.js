@@ -113,43 +113,6 @@
     }
 }());
 
-
-// https://github.com/thenerdery/javascript-standards#classes--no-useless
-// estlint: no-useless-constructor
-(function() {
-    // bad
-    class Jedi {
-        constructor() {}
-
-        getName() {
-            return this.name;
-        }
-    }
-}());
-
-(function() {
-    // bad
-    class Jedi {}
-
-    class Rey extends Jedi {
-        constructor(...args) {
-            super(...args);
-        }
-    }
-}());
-
-(function() {
-    // good
-    class Jedi {}
-
-    class Rey extends Jedi {
-        constructor(...args) {
-            super(...args);
-            this.name = 'Rey';
-        }
-    }
-}());
-
 // https://github.com/thenerdery/javascript-standards#classes
 // eslint: no-dupe-class-members
 (function() {

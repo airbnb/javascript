@@ -1,6 +1,6 @@
 ###################################################################################################
 # ESLint rules enforcing Nerdery JavaScript standards
-# https://github.com/thenerdery/javascript-standards/linters
+# https://github.com/thenerdery/javascript-standards/tree/master/linters
 #
 # Last tested with eslint v2.8.0 and babel-eslint v6.0.0
 ###################################################################################################
@@ -53,7 +53,6 @@
 
     "no-dupe-class-members": 2,                   # Disallow duplicate class member names
     "no-class-assign": 2,                         # Disallow reassigning classes
-    "no-useless-constructor": 2,                  # Disallow unnecessary constructor
     "no-this-before-super": 2,                    # Disallow `this` before super()
 
     ###############################################################################################
