@@ -18,7 +18,7 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+. It
   npm info "eslint-config-airbnb-base@latest" peerDependencies
   ```
 
-  Linux/OSX users can simply run
+  Linux/OSX users can run
   ```sh
   (
     export PKG=eslint-config-airbnb-base;
