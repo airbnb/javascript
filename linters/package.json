@@ -1,7 +1,7 @@
 {
     "name": "nerdery-eslint",
     "description": "Nerdery ESLint Ruleset",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/thenerdery/javascript-standards.git"
@@ -11,7 +11,9 @@
         "lint",
         "nerdery",
         "es6",
-        "es2015"
+		"es7",
+        "es2015",
+		"es2016"
     ],
     "author": "Nerdery",
     "license": "MIT",
@@ -20,11 +22,11 @@
     },
     "homepage": "https://github.com/thenerdery/javascript-standards",
     "dependencies": {
-        "eslint": "2.8.0",
-        "babel-eslint": "6.0.0",
+        "eslint": "3.19.0",
+        "babel-eslint": "7.2.2",
         "grunt": "1.0.1",
-        "grunt-eslint": "18.1.0",
-        "jit-grunt": "0.9.1",
-        "load-grunt-tasks": "3.1.0"
+        "grunt-eslint": "19.0.0",
+        "jit-grunt": "0.10.0",
+        "load-grunt-tasks": "3.5.2"
     }
 }

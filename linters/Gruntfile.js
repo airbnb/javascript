@@ -6,10 +6,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         eslint: {
-            target: ['tests/**/*.js'],
-            options: {
-                format: 'table',
-            },
+            target: ['tests/**/*.js']
         },
     });
 

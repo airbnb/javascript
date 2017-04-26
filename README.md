@@ -44,7 +44,7 @@ This document is not intended to:
 ## Types
 
   <a name="types--assign-consistent"></a><a name="1.1"></a>
-  - [1.1](#types--assign-consistent) The value of a variables should remain the same type as it was originally assigned (a number, string, boolean, array, or object). Avoid reassigning variables to a different type.
+  - [1.1](#types--assign-consistent) A variable should remain the same type it was originally assigned (a number, string, boolean, array, or object). Avoid reassigning variables to a different type.
 
     ```javascript
     // bad
@@ -215,23 +215,19 @@ This document is not intended to:
 
     ```javascript
     // bad
-    let i, len, dragonball,
+    let dragonball,
         items = getItems(),
         goSportsTeam = true;
 
     // bad
-    let i;
     const items = getItems();
     let dragonball;
     const goSportsTeam = true;
-    let len;
 
     // good
     const goSportsTeam = true;
     const items = getItems();
     let dragonball;
-    let i;
-    let length;
     ```
 
   <a name="variables--define-where-used"></a><a name="2.5"></a>
@@ -273,8 +269,8 @@ This document is not intended to:
     }
     ```
 
-  <a name="variables--always-declare"></a><a name="2.7"></a>
-  - [2.6](#variables--always-declare) Always declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef)
+  <a name="variables--always-declare"></a><a name="2.6"></a>
+  - [2.6](#variables--always-declare) Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef)
 
     ```javascript
     // bad
@@ -282,6 +278,39 @@ This document is not intended to:
 
     // good
     const superPower = new SuperPower();
+    ```
+
+  <a name="variables--no-chain-assignment"></a><a name="2.7"></a>
+  - [2.7](#variables--no-chain-assignment) Don't chain variable assignments.
+
+	> Why? Chaining variable assignments creates implicit global variables.
+
+    ```javascript
+    // bad
+    (function example() {
+        // JavaScript interprets this as
+        // let a = ( b = ( c = 1 ) );
+        // The let keyword only applies to variable a; variables b and c become
+        // global variables.
+      let a = b = c = 1;
+    }());
+
+    console.log(a); // undefined
+    console.log(b); // 1
+    console.log(c); // 1
+
+    // good
+    (function example() {
+        let a = 1;
+        let b = a;
+        let c = a;
+    }());
+
+    console.log(a); // undefined
+    console.log(b); // undefined
+    console.log(c); // undefined
+
+    // the same applies for `const`
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -419,6 +448,26 @@ This document is not intended to:
     };
     ```
 
+  <a name="objects--rest-spread"></a><a name="3.7"></a>
+  - [3.8](#objects--rest-spread) Prefer the object spread operator over Object.assign to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
+    
+    ```javascript
+    // very bad
+    const original = { a: 1, b: 2 };
+    const copy = Object.assign(original, { c: 3 }); // this mutates `original` ಠ_ಠ
+    delete copy.a; // so does this
+
+    // bad
+    const original = { a: 1, b: 2 };
+    const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
+
+    // good
+    const original = { a: 1, b: 2 };
+    const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
+
+    const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrays
@@ -448,7 +497,7 @@ This document is not intended to:
     ```
 
   <a name="arrays--spreads"></a><a name="4.3"></a>
-  - [4.3](#arrays--spreads) Use array spreads `...` or the slice() method to make a shallow copy of arrays. Avoid extraneous for loops.
+  - [4.3](#arrays--spreads) Use array spreads `...` or the slice() method to make a shallow copy of arrays.
 
     ```javascript
     // bad
@@ -461,7 +510,7 @@ This document is not intended to:
     }
 
     // good
-    const itemsCopy = items.slice()
+    const itemsCopy = items.slice();
 
     // good
     const itemsCopy = [...items];
@@ -493,6 +542,29 @@ This document is not intended to:
     // good
     [1, 2, 3].map(x => x + 1);
     ```
+
+  <a name="arrays--bracket-newline"></a><a name="4.6"></a>
+  - [4.6](#arrays--bracket-newline) Use line breaks after open and before close array brackets if an array has multiple lines
+
+    ```javascript
+    // bad
+    const objectInArray = [{
+      	id: 1,
+    }, {
+      	id: 2,
+    }];
+
+    // good
+    const objectInArray = [
+      	{
+            id: 1,
+      	},
+      	{
+            id: 2,
+      	},
+    ];
+    ```
+
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -579,25 +651,24 @@ This document is not intended to:
     ```
 
   <a name="strings--line-length"></a><a name="6.2"></a>
-  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should be written across multiple lines using string concatenation. eslint: [`max-len`](http://eslint.org/docs/rules/max-len)
+  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
 
-  <a name="strings--concat-perf"></a><a name="6.3"></a>
-  - [6.3](#strings--concat-perf) Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
+	> Why? Broken strings are painful to work with and make code less searchable.
 
     ```javascript
-    // bad
-    const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
-
     // bad
     const errorMessage = 'This is a super long error that was thrown because \
     of Batman. When you stop to think about how Batman had anything to do \
     with this, you would get nowhere \
     fast.';
 
-    // good
+    // bad
     const errorMessage = 'This is a super long error that was thrown because ' +
-        'of Batman. When you stop to think about how Batman had anything to do ' +
-        'with this, you would get nowhere fast.';
+      'of Batman. When you stop to think about how Batman had anything to do ' +
+      'with this, you would get nowhere fast.';
+
+    // good
+    const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
     ```
 
   <a name="strings--template-literals"></a><a name="6.4"></a>
@@ -631,7 +702,7 @@ This document is not intended to:
   - [6.5](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities. eslint: [`no-eval`](http://eslint.org/docs/rules/no-eval)
 
   <a name="strings--sanitize"></a><a name="6.6"></a>
-  - [6.6](#strings--sanitize) Never inject untrusted strings into the DOM unless the has been sanitized. Untrusted strings include anything a user or external source can manipulate, such as query parameters, cookie values, or results from an AJAX call.
+  - [6.6](#strings--sanitize) Never inject untrusted strings into the DOM unless the value has been sanitized. Untrusted strings include anything a user or external source can manipulate, such as query parameters, cookie values, or results from an AJAX call.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -645,17 +716,12 @@ This document is not intended to:
     ```javascript
     // bad
     foo(obj) {
-        if (obj.meaningOfLife == null) {
-            obj.meaningOfLife = 42;
-        }
+        obj.key = 1;
     }
 
     // good
     foo(obj) {
-        let meaningOfLife = obj.meaningOfLife;
-        if (meaningOfLife == null) {
-            meaningOfLife = 42;
-        }
+        const key = obj.key != null ? obj.key : 1;
     }
     ```
 
@@ -717,13 +783,12 @@ This document is not intended to:
   - [7.5](#functions--defaults-last) Always put default parameters last.
 
     ```javascript
-    // bad
-    signup(name = 'Tony Stark', birthdate) {
+    handleThings(opts = {}, name) {
         // ...
     }
 
     // good
-    signup(birthdate, name = 'Tony Stark') {
+    handleThings(name, opts = {}) {
         // ...
     }
     ```
@@ -812,12 +877,39 @@ This document is not intended to:
     const add = new Function('a', 'b', 'return a + b');
     ```
 
-  <a name="functions--exit-early"></a><a name="7.11"></a>
-  - [7.11](#functions--exit-early) Exit early using return statements at the beginning of the function. This avoids complex if-else blocks and unnecessary indentation.
+   <a name="functions--exit-early"></a><a name="7.11"></a>
+  - [7.11](#functions--exit-early) Prefer a single return at the end of the function. Avoid adding multiple returns in the middle of a function, since they make the flow harder to debug and encourage inconsistent return types.
+
+    ```javascript
+	// bad
+    login(userId) {
+		if (userId != null) {
+			return getUser(userId);
+		} else {
+			return new User();
+		}
+    };
+	
+	// good
+    login(userId) {
+		let user = null;
+
+		if (userId != null) {
+			user = getUser(userId);
+		} else {
+			user = new User();
+		}
+
+		return user;
+    };
+    ```
+	
+  <a name="functions--exit-early"></a><a name="7.12"></a>
+  - [7.12](#functions--exit-early) An exception to the above for guard clauses: if asserting whether parameters are valid, exit early using return statements at the beginning of the function.
 
     ```javascript
     add(num1, num2) {
-        if (num1 == null || num2 == null) {
+        if (isNaN(num1) || isNaN(num2)) {
             return false;
         }
 
@@ -825,8 +917,8 @@ This document is not intended to:
     };
     ```
 
-  <a name="functions--iife"></a><a name="7.12"></a>
-  - [7.12](#functions--iife) Add parantheses around immediately invoked function expressions. eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife)
+  <a name="functions--iife"></a><a name="7.13"></a>
+  - [7.13](#functions--iife) Add parantheses around immediately invoked function expressions. eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife)
 
     > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
 
@@ -988,6 +1080,21 @@ This document is not intended to:
         }
     }
     ```
+    
+    
+      <a name="classes--no-duplicate-members"></a><a name="9.5"></a>
+  - [9.5](#classes--no-duplicate-members) Avoid duplicate class members. eslint: [`no-dupe-class-members`] (http://eslint.org/docs/rules/no-dupe-class-members)
+
+	> Why? Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
+
+    ```javascript
+    // bad
+    class Foo {
+      	bar() { return 1; }
+      	bar() { return 2; }
+    }
+    ```
+    
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -1010,8 +1117,19 @@ This document is not intended to:
     import NerderyStyleGuide from './NerderyStyleGuide';
     ```
 
-  <a name="modules--no-wildcard"></a><a name="10.3"></a>
-  - [10.3](#modules--no-wildcard) Do not use wildcard imports.
+  <a name="modules--prefer-default-export"></a><a name="10.3"></a>
+  - [10.3](#modules--prefer-default-export) In modules with a single export, prefer default export over named export. eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
+
+    ```javascript
+    // bad
+    export function foo() {}
+
+    // good
+    export default function foo() {}
+    ```
+
+  <a name="modules--no-wildcard"></a><a name="10.4"></a>
+  - [10.4](#modules--no-wildcard) Do not use wildcard imports.
 
     > Why? This makes sure you have a single default export.
 
@@ -1021,22 +1139,6 @@ This document is not intended to:
 
     // good
     import NerderyStyleGuide from './NerderyStyleGuide';
-    ```
-
-  <a name="modules--no-export-from-import"></a><a name="10.4"></a>
-  - [10.4](#modules--no-export-from-import) And do not export directly from an import.
-
-    > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
-
-    ```javascript
-    // bad
-    // filename es6.js
-    export { es6 as default } from './NerderyStyleGuide';
-
-    // good
-    // filename es6.js
-    import { es6 } from './NerderyStyleGuide';
-    export default es6;
     ```
 
   <a name="modules--self-host"></a><a name="10.5"></a>
@@ -1057,7 +1159,9 @@ This document is not intended to:
 ## Iterators and Generators
 
   <a name="iterators--nope"></a><a name="11.1"></a>
-  - [11.1](#iterators--nope) Avoid using iterators and `for-of` loops. Prefer JavaScript's higher-order functions like `map()` and `reduce()`.
+  - [11.1](#iterators--nope) Avoid using iterators and `for-of` loops. Prefer JavaScript's higher-order functions instead of loops like `for-in` or `for-of`.
+
+    > Use `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... to iterate over arrays, and `Object.keys()` / `Object.values()` / `Object.entries()` to produce arrays so you can iterate over objects.
 
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
@@ -1065,19 +1169,28 @@ This document is not intended to:
     // bad
     let sum = 0;
     for (let num of numbers) {
-        sum += num;
+      sum += num;
     }
-
-    sum === 15;
 
     // good
     let sum = 0;
     numbers.forEach(num => sum += num);
-    sum === 15;
 
     // best (use the functional force)
     const sum = numbers.reduce((total, num) => total + num, 0);
-    sum === 15;
+
+    // bad
+    const increasedByOne = [];
+    for (let i = 0; i < numbers.length; i++) {
+      increasedByOne.push(numbers[i] + 1);
+    }
+
+    // good
+    const increasedByOne = [];
+    numbers.forEach(num => increasedByOne.push(num + 1));
+
+    // best (keeping it functional)
+    const increasedByOne = numbers.map(num => num + 1);
     ```
 
   <a name="generators--nope"></a><a name="11.2"></a>
@@ -1155,36 +1268,44 @@ This document is not intended to:
     ```
 
   <a name="comparison--no-shortcuts"></a><a name="13.3"></a>
-  - [13.3](#comparison--no-shortcuts) Avoid the "shortcut" syntax that omits the comparison operator in most cases.
+  - [13.3](#comparison--no-shortcuts) Use shortcuts for booleans, but explicit comparisons for strings and numbers.
 
-    > Why? JavaScript will try to coerce the expression into a boolean value, which could lead to unintended results. Be more descriptive about what you want to compare.
+    > Why? JavaScript will try to coerce strings and numbers into a boolean value, which could lead to unintended results. Be more descriptive about what you want to compare. For more information see [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
 
     ```javascript
+    // bad
+    if (isValid === true) {
+        // ...
+    }
+
+    // good
+    if (isValid) {
+        // ...
+    }
+
     // bad
     if (name) {
         // ...
     }
 
     // good
-    if (name != null) {
+    if (name !== '') {
         // ...
     }
-    ```
 
-  <a name="comparison--shortcuts-boolean"></a><a name="13.4"></a>
-  - [13.4](#comparison--shortcuts-boolean) Do use the shortcut syntax if comparing a boolean true/false value.
+    // bad
+    if (collection.length) {
+        // ...
+    }
 
-    ```javascript
     // good
-    let isValid = true;
-
-    if (isValid) {
+    if (collection.length > 0) {
         // ...
     }
     ```
 
-  <a name="comparison--switch-blocks"></a><a name="13.5"></a>
-  - [13.5](#comparison--switch-blocks) Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`). eslint: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations).
+  <a name="comparison--switch-blocks"></a><a name="13.4"></a>
+  - [13.4](#comparison--switch-blocks) Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`). eslint: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations).
 
     > Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
 
@@ -1217,8 +1338,8 @@ This document is not intended to:
     }
     ```
 
-  <a name="comparison--nested-ternaries"></a><a name="13.6"></a>
-  - [13.6](#comparison--nested-ternaries) Ternaries should not be nested and should generally be single line expressions. eslint: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary).
+  <a name="comparison--nested-ternaries"></a><a name="13.5"></a>
+  - [13.5](#comparison--nested-ternaries) Ternaries should not be nested and should be single line expressions. eslint: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary).
 
     ```javascript
     // bad
@@ -1275,7 +1396,7 @@ This document is not intended to:
 ## Comments
 
   <a name="comments--multiline"></a><a name="15.1"></a>
-  - [15.1](#comments--multiline) Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values. eslint: [`valid-jsdoc`](http://eslint.org/docs/rules/valid-jsdoc)
+  - [15.1](#comments--multiline) Use `/** ... */` for multi-line comments. Include types for all parameters and return values. eslint: [`valid-jsdoc`](http://eslint.org/docs/rules/valid-jsdoc)
 
     ```javascript
     // bad
@@ -1423,6 +1544,7 @@ This document is not intended to:
         age: '1 year',
         breed: 'Bernese Mountain Dog',
     });
+    
     ```
 
   <a name="whitespace--around-keywords"></a><a name="16.3"></a>
@@ -1632,9 +1754,42 @@ This document is not intended to:
     // good
     const foo = { clark: 'kent' };
     ```
+    
+  <a name="whitespace--signature-invocation-indentation"></a><a name="16.12"></a>
+  - [16.12](#whitespace--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented with each item on a line by itself, with a trailing comma on the last item.
 
-  <a name="whitespace--max-len"></a><a name="16.12"></a>
-  - [16.12](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). eslint: [`max-len`](http://eslint.org/docs/rules/max-len)
+    ```javascript
+    // bad
+    function foo(bar,
+                 baz,
+                 quux) {
+      // ...
+    }
+
+    // good
+    function foo(
+        bar,
+        baz,
+        quux,
+    ) {
+      // ...
+    }
+
+    // bad
+    console.log(foo,
+        bar,
+        baz);
+
+    // good
+    console.log(
+        foo,
+        bar,
+        baz,
+    );
+    ```
+
+  <a name="whitespace--max-len"></a><a name="16.13"></a>
+  - [16.13](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). eslint: [`max-len`](http://eslint.org/docs/rules/max-len)
 
     > Why? This ensures readability and maintainability.
 
@@ -1706,7 +1861,7 @@ This document is not intended to:
   <a name="commas--singleline"></a><a name="17.2"></a>
   - [17.2](#commas--singleline) No trailing commas for single-line arrays and objects. eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle)
 
-  ```javascript
+      ```javascript
     // bad
     const heroes = ['Batman', 'Superman',];
 
@@ -1746,27 +1901,29 @@ This document is not intended to:
 
     ```javascript
     // bad
-    class Wizard {
-        perform = 'Smoke Rings';
+    class Plane {
+        flew = 0;
+        powering = 4;
 
-        impressiveMagicalStuff() {
+        airborne() {
             // ...
         }
 
-        scared() {
+        grounded() {
             // ...
         }
     }  
 
     // good
-    class Wizard {
-        ability = 'Smoke Rings';
+    class Plane {
+        altitude = 0;
+        engineCount = 4;
 
-        useMagic() {
+        takeoff() {
             // ...
         }
 
-        runAway() {
+        land() {
             // ...
         }
     }   
@@ -1870,7 +2027,7 @@ This document is not intended to:
     ```
 
   <a name="naming--self-this"></a><a name="19.7"></a>
-  - [19.7](#naming--self-this) Don't save references to `this`. Use arrow functions or Function#bind.
+  - [19.7](#naming--self-this) Don't save references to `this`. Use arrow functions or  [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind).
 
     ```javascript
     // bad
@@ -1918,39 +2075,23 @@ This document is not intended to:
     import CheckBox from './CheckBox';
     ```
 
-  <a name="naming--camelCase-default-export"></a><a name="19.9"></a>
-  - [19.9](#naming--camelCase-default-export) Use camelCase when you export-default a function. Your filename should be identical to your function's name.
-
-    ```javascript
-    function makeStyleGuide() {
-    }
-
-    export default makeStyleGuide;
-    ```
-
-  <a name="naming--PascalCase-singleton"></a><a name="19.10"></a>
-  - [19.10](#naming--PascalCase-singleton) Use PascalCase when you export a singleton / function library / bare object.
-
-    ```javascript
-    const NerderyStyleGuide = {
-        es6: {
-        }
-    };
-
-    export default NerderyStyleGuide;
-    ```
-
-  <a name="naming--constants"></a><a name="19.11"></a>
-  - [19.11](#naming--constants) Constant values should be in all capitals and underscore-separated.
+  <a name="naming--constants"></a><a name="19.9"></a>
+  - [19.9](#naming--constants) Constant values should be in all capitals and underscore-separated.
 
     ```javascript
     const MAXIMUM_POWER = 9000;
     ```
 
-  <a name="naming--constants-grouping"></a><a name="19.12"></a>
-  - [19.12](#naming--constants-grouping) Group related constants in an object. All properties should be named using the same convention for constants.
+  <a name="naming--constants-grouping"></a><a name="19.10"></a>
+  - [19.10](#naming--constants-grouping) Group related constants in an object. All properties should be named using the same convention for constants.
 
     ```javascript
+    // bad
+    const SELECTOR_ACTIVE = '.isActive';
+    const SELECTOR_DISABLED = '.isDisabled';
+    const SELECTOR_MODAL_CLOSE = '.js-modal-close';
+     
+    // good
     const SELECTORS = {
         ACTIVE: '.isActive',
         DISABLED: '.isDisabled',
@@ -1958,8 +2099,8 @@ This document is not intended to:
      };
     ```
 
-  <a name="naming--symbols"></a><a name="19.13"></a>
-  - [19.13](#naming--symbols) If the values you set for constants are arbitrary and don't add meaning, use Symbol() instead.
+  <a name="naming--symbols"></a><a name="19.11"></a>
+  - [19.11](#naming--symbols) If the values you set for constants are arbitrary and don't add meaning, use Symbol() instead.
 
     ```javascript
     // bad
@@ -2006,7 +2147,6 @@ This document is not intended to:
     prefer:
 
     ```javascript
-
     //good
     class Dragon {
         _age = 0;
