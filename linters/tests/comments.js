@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#comments--multiline
 // eslint: valid-jsdoc
 (function() {
@@ -46,7 +48,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#comments--singleline
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     const active = true; // is current tab

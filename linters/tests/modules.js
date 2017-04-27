@@ -1,5 +1,7 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#modules--use-them
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 // bad
 const NerderyStyleGuide0 = require('./NerderyStyleGuide');
 

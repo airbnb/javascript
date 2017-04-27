@@ -1,5 +1,7 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#types--assign-consistent
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     let count = 1;
@@ -13,7 +15,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#types--return-consistent
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     function pressYourLuck(bigMoney) {
@@ -26,7 +28,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#types--coercion-strings
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     function test() {
         this.reviewScore = 9;
@@ -124,7 +126,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#types--comment-deviations
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     const inputValue = '4';
 
@@ -137,7 +139,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#types--exceptions
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     function divide(numerator, denominator) {
         if (denominator === 0) {

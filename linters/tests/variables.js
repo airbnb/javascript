@@ -54,7 +54,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#variables--const-let-group
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     const getItems = () => {};
 
@@ -87,7 +87,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#variables--define-where-used
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     const getName = () => {};
     // bad - unnecessary function call
@@ -140,4 +140,52 @@
 
     // good
     const superPower = new SuperPower();
+}());
+
+// eslint: no-use-before-define
+(function() {
+	// bad
+	alert(foo);
+	const foo = 1;
+}());
+
+// eslint: no-global-assign
+(function() {
+    window = {};
+}());
+
+// https://github.com/thenerdery/javascript-standards#variables--no-chain-assignment
+// eslint: no-multi-assign
+(function() {
+    // bad
+    (function example() {
+        // JavaScript interprets this as
+        // let a = ( b = ( c = 1 ) );
+        // The let keyword only applies to variable a; variables b and c become
+        // global variables.
+        let a = b = c = 1;
+    }());
+
+    console.log(a); // undefined
+    console.log(b); // 1
+    console.log(c); // 1
+
+    // good
+    (function example() {
+        let a = 1;
+        let b = a;
+        let c = a;
+    }());
+
+    console.log(a); // undefined
+    console.log(b); // undefined
+    console.log(c); // undefined
+}());
+
+
+// eslint: no-unused-vars
+(function() {
+	// bad
+	const a = 1;
+
 }());

@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#functions--mutate-parameters
 // eslint: no-param-reassign
 (function() {
@@ -23,7 +25,7 @@
 // eslint: no-param-reassign
 (function() {
     // bad
-    function foo(a) {
+    function foo(e) {
         a = 1;
     }
 }());
@@ -61,7 +63,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#functions--default-side-effects
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     let b = 0;
@@ -72,7 +74,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#functions--defaults-last
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     function signup(name = 'Tony Stark', birthdate) {
@@ -161,7 +163,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#functions--exit-early
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // good
     function add(num1, num2) {

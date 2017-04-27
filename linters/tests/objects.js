@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#objects--no-new
 // eslint: no-new-object
 (function() {
@@ -34,7 +36,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#objects--computed-properties
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     function getKey(k) {
         return `a key named ${k}`;
@@ -102,7 +104,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#objects--grouped-shorthand
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     function makePoint(x, y) {
         return {

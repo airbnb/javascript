@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#strings--quotes
 // eslint: quotes
 (function() {

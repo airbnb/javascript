@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#naming--camelCase
 // eslint: camelcase
 (function() {
@@ -40,7 +42,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#naming--leading-underscore
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     function test() {
@@ -57,7 +59,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#naming--self-this
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     function foo() {

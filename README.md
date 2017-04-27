@@ -281,9 +281,9 @@ This document is not intended to:
     ```
 
   <a name="variables--no-chain-assignment"></a><a name="2.7"></a>
-  - [2.7](#variables--no-chain-assignment) Don't chain variable assignments.
+  - [2.7](#variables--no-chain-assignment) Don't chain variable assignments. eslint: [`no-multi-assign`](http://eslint.org/docs/rules/no-multi-assign)
 
-	> Why? Chaining variable assignments creates implicit global variables.
+    > Why? Chaining variable assignments creates implicit global variables.
 
     ```javascript
     // bad
@@ -549,19 +549,19 @@ This document is not intended to:
     ```javascript
     // bad
     const objectInArray = [{
-      	id: 1,
+          id: 1,
     }, {
-      	id: 2,
+          id: 2,
     }];
 
     // good
     const objectInArray = [
-      	{
+          {
             id: 1,
-      	},
-      	{
+          },
+          {
             id: 2,
-      	},
+          },
     ];
     ```
 
@@ -653,7 +653,7 @@ This document is not intended to:
   <a name="strings--line-length"></a><a name="6.2"></a>
   - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
 
-	> Why? Broken strings are painful to work with and make code less searchable.
+    > Why? Broken strings are painful to work with and make code less searchable.
 
     ```javascript
     // bad
@@ -881,29 +881,29 @@ This document is not intended to:
   - [7.11](#functions--exit-early) Prefer a single return at the end of the function. Avoid adding multiple returns in the middle of a function, since they make the flow harder to debug and encourage inconsistent return types.
 
     ```javascript
-	// bad
+    // bad
     login(userId) {
-		if (userId != null) {
-			return getUser(userId);
-		} else {
-			return new User();
-		}
+        if (userId != null) {
+            return getUser(userId);
+        } else {
+            return new User();
+        }
     };
-	
-	// good
+    
+    // good
     login(userId) {
-		let user = null;
+        let user = null;
 
-		if (userId != null) {
-			user = getUser(userId);
-		} else {
-			user = new User();
-		}
+        if (userId != null) {
+            user = getUser(userId);
+        } else {
+            user = new User();
+        }
 
-		return user;
+        return user;
     };
     ```
-	
+    
   <a name="functions--exit-early"></a><a name="7.12"></a>
   - [7.12](#functions--exit-early) An exception to the above for guard clauses: if asserting whether parameters are valid, exit early using return statements at the beginning of the function.
 
@@ -1085,13 +1085,13 @@ This document is not intended to:
       <a name="classes--no-duplicate-members"></a><a name="9.5"></a>
   - [9.5](#classes--no-duplicate-members) Avoid duplicate class members. eslint: [`no-dupe-class-members`] (http://eslint.org/docs/rules/no-dupe-class-members)
 
-	> Why? Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
+    > Why? Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
 
     ```javascript
     // bad
     class Foo {
-      	bar() { return 1; }
-      	bar() { return 2; }
+          bar() { return 1; }
+          bar() { return 2; }
     }
     ```
     

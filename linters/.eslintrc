@@ -206,7 +206,11 @@
     "object-curly-spacing": [2, "always"],        # Require spaces inside object curly braces
     "max-len": [2, {                              # Disallow lines over 100 characters
       "code": 100,
-      "ignoreUrls": true
+      "ignoreUrls": true,
+      "ignoreComments": false,
+      "ignoreRegExpLiterals": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true
     }],
     "keyword-spacing": [2, {                      # Require spacing before and after keywords
       "before": true,
@@ -217,11 +221,6 @@
     "no-mixed-spaces-and-tabs": 2,                # Disallow mixing of spaces and tabs
     "no-trailing-spaces": 2,                      # Disallow trailing spaces
     "eol-last": 2,                                # Require file to end with a newline
-	"rest-spread-spacing": 2,					  # Disallow spaces between spread operator
-	
-	###############################################################################################
-	# ASYNCRONOUS OPERATIONS <https://github.com/thenerdery/javascript-standards#asynchronous-operations>
-	###############################################################################################
-	"no-return-await": 2						  # Disallow return await in async functions
+	"rest-spread-spacing": 2					  # Disallow spaces between spread operator
   }
 }

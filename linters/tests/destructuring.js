@@ -1,5 +1,7 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#destructuring--object
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     function getFullName(user) {
@@ -26,7 +28,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#destructuring--array
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     const arr = [1, 2, 3, 4];
 
@@ -43,7 +45,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#destructuring--object-over-array
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     function processInput(input) {

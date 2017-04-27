@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#arrays--literals
 // eslint: no-array-constructor
 (function() {
@@ -11,7 +13,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#arrays--push
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     const someStack = [];
@@ -25,7 +27,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#arrays--spreads
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     const items = [1, 2, 3];
@@ -51,7 +53,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#arrays--from
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     const foo = document.querySelectorAll('.foo');
     const nodes = Array.from(foo);
@@ -90,4 +92,25 @@
     // good
     const args = [1, 2, 3, 4];
     Math.max(...args);
+}());
+
+// https://github.com/thenerdery/javascript-standards#arrays--bracket-newline
+// eslint: array-bracket-newline
+(function() {
+    // bad
+    const objectInArray = [{
+      	id: 1,
+    }, {
+      	id: 2,
+    }];
+
+    // good
+    const objectInArray = [
+      	{
+            id: 1,
+      	},
+      	{
+            id: 2,
+      	},
+    ];
 }());

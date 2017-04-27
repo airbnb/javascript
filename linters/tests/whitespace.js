@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#whitespace--spaces
 // eslint: indent
 (function() {
@@ -151,7 +153,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#whitespace--after-blocks
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     const foo = true;
     const bar = true;
@@ -361,6 +363,14 @@
 (function() {
     // bad
     const foo = 1;   
+}());
+
+// eslint: rest-spread-spacing
+(function() {
+    // bad
+	const bar = function() {};
+	const foo = [1,2,3];
+    bar(... foo);
 }());
 
 // https://github.com/thenerdery/javascript-standards#whitespace--newline-at-end

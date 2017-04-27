@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#properties--dot
 // eslint: dot-notation
 (function() {
@@ -21,7 +23,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#properties--bracket
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     const luke = {
         jedi: true,

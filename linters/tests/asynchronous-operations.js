@@ -1,5 +1,7 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#asynchronous--nested-promises
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     const Promise = null;
     function waitFor(milliseconds) {
@@ -47,7 +49,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#asynchronous--catch
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     const Promise = null;
     function waitFor(milliseconds) {

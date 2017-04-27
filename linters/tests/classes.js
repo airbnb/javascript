@@ -1,5 +1,7 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#classes--use-them
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     function Queue(contents = []) {
@@ -33,7 +35,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#classes--static
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     class Queue {
@@ -65,7 +67,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#classes--extends
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     class Queue {
@@ -95,7 +97,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#classes--tostring
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // good
     class Jedi {

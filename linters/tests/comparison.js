@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#comparison--eqeqeq
 // eslint: eqeqeq
 (function() {
@@ -39,7 +41,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#comparison--no-shortcuts
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     const name = null;
@@ -59,7 +61,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#comparison--shortcuts-boolean
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // good
     const isValid = true;

@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#arrows--use-them
 // eslint: prefer-arrow-callback
 (function() {

@@ -1,5 +1,7 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#dom--dollar-prefix
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     const $ = null;
     // bad

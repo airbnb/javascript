@@ -1,5 +1,7 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#iterators--nope
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     const numbers = [1, 2, 3, 4, 5];

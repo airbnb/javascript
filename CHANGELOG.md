@@ -1,3 +1,51 @@
+2.1.0 / 2017-05-20
+==================
+General refresh pulling in feedback from developers, and various new updates from airbnb standards.
+
+**General**
+- Some minor cleanup of descriptions and code examples.
+
+**Variables**
+- 2.7 Added rule to discourage chaining assignments
+
+**Objects**
+- 3.8 Added new rule to prefer the object spread operator to copy Objects
+
+**Arrays**
+- 4.6 Added new rule to encourage line breaks after open and close array brackets
+
+**Strings**
+- 6.2 Modified rule to encourage long strings on a single line, instead of forbidding them
+
+**Functions**
+- 7.11 Modified early exit rule to encourage a single return at the end of the function, unless asserting guard condition
+
+**Classes**
+- 9.5 Added rule to discourage duplicate class member declarations
+
+**Modules**
+- 10.4 Removed rule relating to exporting directly from an import, since it didn't add value
+
+**Comparison**
+- 13.3 Combined two separate rules relating to shortcut syntax into one single rule
+
+**Whitespace**
+- 16.12 Clarified that max line length of 100 characters apply to function code only, not strings
+
+**Asynchronous Operations**
+- 23.2 Added new preferred example using `await`
+
+**ESlint**
+- Updated ruleset to comply with eslint 3.19.0 and babel-eslint 7.2.2
+- Updated deprecated option for `eqeqeq`
+- Added ignore options for `no-param-assign`
+- Removed `no-useless-constructor` rule
+- Added `no-use-before-define` rule
+- Added `no-global-assign` rule
+- Added `no-unused-vars` rule
+- Modified `max-len` rule to ignore long strings
+- Added `rest-spread-spacing` rule
+
 2.0.1 / 2016-06-09
 ==================
 Published initial version of ESLint ruleset to enforce standards.

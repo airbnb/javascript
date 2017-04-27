@@ -1,5 +1,7 @@
+/* eslint no-unused-vars: 0 */
+
 // https://github.com/thenerdery/javascript-standards#accessors--use-them
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // bad
     class Dragon {
@@ -39,7 +41,7 @@
 }());
 
 // https://github.com/thenerdery/javascript-standards#accessors--use-them
-// eslint: ???
+// eslint: (no known rule enforcing this exists)
 (function() {
     // good
     class Dragon {
