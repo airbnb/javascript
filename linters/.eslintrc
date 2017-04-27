@@ -9,7 +9,7 @@
   "env": {
     "browser": true,
     "node": false,
-	"es6": true
+    "es6": true
   },
   "globals": {
     "module": true,
@@ -102,11 +102,11 @@
     ###############################################################################################
 
     "no-param-reassign": [2, {    				  # Disallow reassignment of parameters
-		"props": true,
-		ignorePropertyModificationsFor: [
-			"acc", "e", "event", "$scope",
-		]
-	}],
+      "props": true,
+      "ignorePropertyModificationsFor": [
+        "acc", "e", "event", "$scope",
+      ]
+    }],
     "max-params": [2, 5],                         # Disallow more than 5 parameters
     "prefer-rest-params": 2,                      # Require rest parameters instead of `arguments`
     "wrap-iife": [2, "outside"],                  # Require IIFEs to be wrapped
@@ -181,14 +181,14 @@
     "no-var": 2,                                  # Disallow use of `var`
     "one-var": [2, "never"],                      # Disallow one variable declaration per scope
     "no-undef": 2,                                # Disallow undeclared variables
-	"no-use-before-define": 2,					  # Disallow using variables before declaration
-	"no-global-assign": 2,						  # Disallow overwriting native variables
-	"no-multi-assign": 2,						  # Disallow multiple assignments on one line
-    "no-unused-vars": [2, {						  # Disallow unused variables
-	    "vars": "local",
-		"args": "after-used",
-		"ignoreRestSiblings": true
-	}],
+    "no-use-before-define": 2,					          # Disallow using variables before declaration
+    "no-global-assign": 2,						            # Disallow overwriting native variables
+    "no-multi-assign": 2,						              # Disallow multiple assignments on one line
+    "no-unused-vars": [2, {						            # Disallow unused variables
+      "vars": "local",
+      "args": "after-used",
+      "ignoreRestSiblings": true
+    }],
 
     ###############################################################################################
     # WHITESPACE <https://github.com/thenerdery/javascript-standards#whitespace>
@@ -221,6 +221,6 @@
     "no-mixed-spaces-and-tabs": 2,                # Disallow mixing of spaces and tabs
     "no-trailing-spaces": 2,                      # Disallow trailing spaces
     "eol-last": 2,                                # Require file to end with a newline
-	"rest-spread-spacing": 2					  # Disallow spaces between spread operator
+    "rest-spread-spacing": 2					            # Disallow spaces between spread operator
   }
 }

@@ -448,7 +448,7 @@ This document is not intended to:
     };
     ```
 
-  <a name="objects--rest-spread"></a><a name="3.7"></a>
+  <a name="objects--rest-spread"></a><a name="3.8"></a>
   - [3.8](#objects--rest-spread) Prefer the object spread operator over Object.assign to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
     
     ```javascript
@@ -549,19 +549,19 @@ This document is not intended to:
     ```javascript
     // bad
     const objectInArray = [{
-          id: 1,
+        id: 1,
     }, {
-          id: 2,
+        id: 2,
     }];
 
     // good
     const objectInArray = [
-          {
+        {
             id: 1,
-          },
-          {
+        },
+        {
             id: 2,
-          },
+        },
     ];
     ```
 

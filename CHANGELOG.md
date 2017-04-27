@@ -18,6 +18,7 @@ General refresh pulling in feedback from developers, and various new updates fro
 - 6.2 Modified rule to encourage long strings on a single line, instead of forbidding them
 
 **Functions**
+- 7.3 Added better caution around when and when not to use default parameters 
 - 7.11 Modified early exit rule to encourage a single return at the end of the function, unless asserting guard condition
 
 **Classes**
@@ -31,6 +32,9 @@ General refresh pulling in feedback from developers, and various new updates fro
 
 **Whitespace**
 - 16.12 Clarified that max line length of 100 characters apply to function code only, not strings
+
+**Commas**
+- 17.2 Revised rule to clarify that trailing commas are not required for single line arrayys/objects
 
 **Asynchronous Operations**
 - 23.2 Added new preferred example using `await`

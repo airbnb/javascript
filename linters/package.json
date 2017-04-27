@@ -11,9 +11,9 @@
         "lint",
         "nerdery",
         "es6",
-		"es7",
+        "es7",
         "es2015",
-		"es2016"
+        "es2016"
     ],
     "author": "Nerdery",
     "license": "MIT",
