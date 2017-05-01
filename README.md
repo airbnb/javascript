@@ -329,7 +329,7 @@ Other Style Guides
     ```
 
   <a name="arrays--push"></a><a name="4.2"></a>
-  - [4.2](#arrays--push) Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to add items to an array.
+  - [4.2](#arrays--push) Use [Array.push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to add items to an array.
 
     ```javascript
     const someStack = [];
@@ -2755,7 +2755,7 @@ Other Style Guides
     ```
 
   <a name="naming--self-this"></a><a name="22.5"></a>
-  - [22.5](#naming--self-this) Don't save references to `this`. Use arrow functions or [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind). jscs: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes)
+  - [22.5](#naming--self-this) Don't save references to `this`. Use arrow functions or [Function.bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind). jscs: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes)
 
     ```javascript
     // bad
