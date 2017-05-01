@@ -71,8 +71,7 @@ module.exports = {
 
     // Limit maximum of props on a single line in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
-    // TODO: enable (semver-minor)
-    'react/jsx-max-props-per-line': ['off', { maximum: 1, when: 'multiline' }],
+    'react/jsx-max-props-per-line': ['error', { maximum: 1, when: 'multiline' }],
 
     // Prevent usage of .bind() in JSX props
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
@@ -318,8 +317,7 @@ module.exports = {
 
     // Prevent void DOM elements from receiving children
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
-    // TODO: enable (semver-minor)
-    'react/void-dom-elements-no-children': 'off',
+    'react/void-dom-elements-no-children': 'error',
   },
 
   settings: {
