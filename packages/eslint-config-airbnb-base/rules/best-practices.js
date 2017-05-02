@@ -164,9 +164,21 @@ module.exports = {
     'no-octal-escape': 'error',
 
     // disallow reassignment of function parameters
-    // disallow parameter object manipulation
+    // disallow parameter object manipulation except for specific exclusions
     // rule: http://eslint.org/docs/rules/no-param-reassign.html
-    'no-param-reassign': ['error', { props: true }],
+    'no-param-reassign': ['error', {
+      props: true,
+      ignorePropertyModificationsFor: [
+        'acc', // for reduce accumulators
+        'e', // for e.returnvalue
+        'ctx', // for Koa routing
+        'req', // for Express requests
+        'request', // for Express requests
+        'res', // for Express responses
+        'response', // for Express responses
+        '$scope', // for Angular 1 scopes
+      ]
+    }],
 
     // disallow usage of __proto__ property
     'no-proto': 'error',
@@ -222,6 +234,7 @@ module.exports = {
     'no-unused-expressions': ['error', {
       allowShortCircuit: false,
       allowTernary: false,
+      allowTaggedTemplates: false,
     }],
 
     // disallow unused labels
