@@ -368,8 +368,8 @@ module.exports = {
     // enforce operators to be placed before or after line breaks
     'operator-linebreak': 'off',
 
-    // enforce padding within blocks
-    'padded-blocks': ['error', 'never'],
+    // disallow padding within blocks
+    'padded-blocks': ['error', { blocks: 'never', classes: 'never', switches: 'never' }],
 
     // Require or disallow padding lines between statements
     // http://eslint.org/docs/rules/padding-line-between-statements
