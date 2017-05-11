@@ -1,4 +1,4 @@
-2.1.0 / 2017-05-20
+2.1.0 / 2017-05-11
 ==================
 General refresh pulling in feedback from developers, and various new updates from airbnb standards.
 
@@ -43,7 +43,6 @@ General refresh pulling in feedback from developers, and various new updates fro
 - Updated ruleset to comply with eslint 3.19.0 and babel-eslint 7.2.2
 - Updated deprecated option for `eqeqeq`
 - Added ignore options for `no-param-assign`
-- Removed `no-useless-constructor` rule
 - Added `no-use-before-define` rule
 - Added `no-global-assign` rule
 - Added `no-unused-vars` rule
