@@ -101,12 +101,7 @@
     # FUNCTIONS <https://github.com/thenerdery/javascript-standards#functions>
     ###############################################################################################
 
-    "no-param-reassign": [2, {                    # Disallow reassignment of parameters
-      "props": true,
-      "ignorePropertyModificationsFor": [
-        "acc", "e", "event", "$scope",
-      ]
-    }],
+    "no-param-reassign": [2, {"props": false }],  # Disallow reassignment of parameters
     "max-params": [2, 5],                         # Disallow more than 5 parameters
     "prefer-rest-params": 2,                      # Require rest parameters instead of `arguments`
     "wrap-iife": [2, "outside"],                  # Require IIFEs to be wrapped

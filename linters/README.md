@@ -9,8 +9,8 @@ https://github.com/thenerdery/javascript-standards/linters
 1. Add the following lines to your project's package.json:
 
         "devDependencies": {
-           "babel-eslint": "6.0.4",
-           "eslint": "2.10.2",
+           "babel-eslint": "7.2.2",
+           "eslint": "3.19.0",
         }
 
 1. Install the package
