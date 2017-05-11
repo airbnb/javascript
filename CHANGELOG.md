@@ -31,7 +31,7 @@ General refresh pulling in feedback from developers, and various new updates fro
 - 13.3 Combined two separate rules relating to shortcut syntax into one single rule
 
 **Whitespace**
-- 16.12 Clarified that max line length of 100 characters apply to function code only, not strings
+- 16.13 Clarified that max line length of 100 characters apply to function code only, not strings
 
 **Commas**
 - 17.2 Revised rule to clarify that trailing commas are not required for single line arrayys/objects

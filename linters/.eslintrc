@@ -101,7 +101,7 @@
     # FUNCTIONS <https://github.com/thenerdery/javascript-standards#functions>
     ###############################################################################################
 
-    "no-param-reassign": [2, {    				  # Disallow reassignment of parameters
+    "no-param-reassign": [2, {                    # Disallow reassignment of parameters
       "props": true,
       "ignorePropertyModificationsFor": [
         "acc", "e", "event", "$scope",
@@ -181,10 +181,10 @@
     "no-var": 2,                                  # Disallow use of `var`
     "one-var": [2, "never"],                      # Disallow one variable declaration per scope
     "no-undef": 2,                                # Disallow undeclared variables
-    "no-use-before-define": 2,					          # Disallow using variables before declaration
-    "no-global-assign": 2,						            # Disallow overwriting native variables
-    "no-multi-assign": 2,						              # Disallow multiple assignments on one line
-    "no-unused-vars": [2, {						            # Disallow unused variables
+    "no-use-before-define": 2,                    # Disallow using variables before declaration
+    "no-global-assign": 2,                        # Disallow overwriting native variables
+    "no-multi-assign": 2,                         # Disallow multiple assignments on one line
+    "no-unused-vars": [2, {                       # Disallow unused variables
       "vars": "local",
       "args": "after-used",
       "ignoreRestSiblings": true
@@ -221,6 +221,6 @@
     "no-mixed-spaces-and-tabs": 2,                # Disallow mixing of spaces and tabs
     "no-trailing-spaces": 2,                      # Disallow trailing spaces
     "eol-last": 2,                                # Require file to end with a newline
-    "rest-spread-spacing": 2					            # Disallow spaces between spread operator
+    "rest-spread-spacing": 2                      # Disallow spaces between spread operator
   }
 }
