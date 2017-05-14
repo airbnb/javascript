@@ -1,3 +1,7 @@
+11.2.0 / 2017-05-14
+==================
+ - [minor] Disallow unused global variables
+
 11.1.3 / 2017-04-03
 ==================
  - [patch] add error messages to `no-restricted-syntax` (#1353)
