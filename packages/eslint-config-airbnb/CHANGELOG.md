@@ -1,3 +1,12 @@
+15.0.0 / 2017-05-14
+==================
+- [breaking] set default React version to 0.15
+- [breaking] `update eslint-plugin-jsx-a11y` to v5, enable new rules
+- [breaking] `update eslint-plugin-react` to v7, enable new rules
+- [minor] enable rules: `jsx-max-props-per-line`, `void-dom-elements-no-children`
+- [patch] Turn `ignorePureComponent` option on for react/prefer-stateless-function (#1378, #1398)
+- [deps] update `eslint`, `eslint-plugin-react`, `eslint-config-airbnb-base`
+
 14.1.0 / 2017-02-05
 ==================
 - [patch] allow `eslint-plugin-jsx-a11y` to be v3 or v4. Remove `no-marquee` rule temporarily.
