@@ -3173,7 +3173,7 @@ Other Style Guides
   - [innerHTML vs textContent for script text](https://jsperf.com/innerhtml-vs-textcontent-for-script-text)
   - [Long String Concatenation](https://jsperf.com/ya-string-concat)
   - [Are Javascript functions like `map()`, `reduce()`, and `filter()` optimized for traversing arrays?](https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta)
-  - Loading...
+
 
 **[⬆ back to top](#table-of-contents)**
 
