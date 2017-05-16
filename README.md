@@ -2695,10 +2695,12 @@ Other Style Guides
     const val = parseInt(inputValue);
 
     // good
-    const val = Number(inputValue);
+    // Prevent assign of NaN value
+    const val = Number(inputValue) || 0;
 
     // good
-    const val = parseInt(inputValue, 10);
+    // Prevent assign of NaN value
+    const val = parseInt(inputValue, 10) || 0;
     ```
 
   <a name="coercion--comment-deviations"></a><a name="21.4"></a>
