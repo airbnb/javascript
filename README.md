@@ -587,7 +587,7 @@ Other Style Guides
 
     // good
     function sayHi(name) {
-      return `How are you, ${name}?`;
+      return 'How are you, ${name}?';
     }
     ```
 
