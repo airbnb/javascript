@@ -1,3 +1,7 @@
+15.0.1 / 2017-05-15
+==================
+- [fix] set default React version to 15.0 (#1415)
+
 15.0.0 / 2017-05-14
 ==================
 - [breaking] set default React version to 0.15
