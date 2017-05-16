@@ -1204,7 +1204,7 @@ Other Style Guides
 
     // best
     import { es6 } from './AirbnbStyleGuide';
-    export default es6;
+    export es6;
     ```
 
   <a name="modules--no-wildcard"></a><a name="10.2"></a>
