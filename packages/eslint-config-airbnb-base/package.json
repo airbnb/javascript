@@ -62,5 +62,8 @@
   },
   "engines": {
     "node": ">= 4"
+  },
+  "dependencies": {
+    "eslint-restricted-globals": "^0.1.1"
   }
 }

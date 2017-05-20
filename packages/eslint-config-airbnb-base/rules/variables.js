@@ -1,3 +1,5 @@
+const restrictedGlobals = require('eslint-restricted-globals');
+
 module.exports = {
   rules: {
     // enforce or disallow variable initializations at definition
@@ -14,7 +16,7 @@ module.exports = {
     'no-label-var': 'error',
 
     // disallow specific globals
-    'no-restricted-globals': 'off',
+    'no-restricted-globals': ['error'].concat(restrictedGlobals),
 
     // disallow declaration of variables already declared in the outer scope
     'no-shadow': 'error',
