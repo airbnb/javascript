@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/eslint-config-airbnb.svg)](http://badge.fury.io/js/eslint-config-airbnb)
 
-This package provides Airbnb's .eslintrc as an extensible shared config.
+This package provides Airbnb's .eslintrc.js as an extensible shared config.
 
 ## Usage
 
@@ -46,7 +46,7 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+ and
   npm install --save-dev eslint-config-airbnb eslint@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-react@^#.#.#
   ```
 
-2. Add `"extends": "airbnb"` to your .eslintrc
+2. Add `"extends": "airbnb"` to your .eslintrc.js
 
 ### eslint-config-airbnb/base
 
@@ -62,7 +62,7 @@ for more information.
 
 ## Improving this config
 
-Consider adding test cases if you're making complicated rules changes, like anything involving regexes. Perhaps in a distant future, we could use literate programming to structure our README as test cases for our .eslintrc?
+Consider adding test cases if you're making complicated rules changes, like anything involving regexes. Perhaps in a distant future, we could use literate programming to structure our README as test cases for our .eslintrc.js?
 
 You can run tests with `npm test`.
 
