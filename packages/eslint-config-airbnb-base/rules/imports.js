@@ -74,9 +74,13 @@ module.exports = {
         'spec/**', // mocha, rspec-like pattern
         '**/__tests__/**', // jest pattern
         'test.js', // repos with a single test file
+        'test.jsx', // repos with a single test file
         'test-*.js', // repos with multiple top-level test files
+        'test-*.jsx', // repos with multiple top-level test files
         '**/*.test.js', // tests where the extension denotes that it is a test
+        '**/*.test.jsx', // tests where the extension denotes that it is a test
         '**/*.spec.js', // tests where the extension denotes that it is a test
+        '**/*.spec.jsx', // tests where the extension denotes that it is a test
         '**/webpack.config.js', // webpack config
         '**/webpack.config.*.js', // webpack config
         '**/rollup.config.js', // rollup config
