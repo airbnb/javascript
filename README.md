@@ -52,6 +52,7 @@ Other Style Guides
   1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
   1. [Contributors](#contributors)
   1. [License](#license)
+  1. [Promise](#promise)
 
 ## Types
 
@@ -3137,6 +3138,21 @@ Other Style Guides
   - [28.2](#tc39-proposals) Do not use [TC39 proposals](https://github.com/tc39/proposals) that have not reached stage 3.
 
     > Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
+    
+**[⬆ back to top](#table-of-contents)**
+
+## Promise
+
+### Guideline to follow:
+- Do not swallow errors. If you call a method that returns a promise, you should either handle errors from that promise directly (for application methods), or return the promise to your caller so that it can handle errors elsewhere.
+- This is not a hard-and-fast rule. If a library method invokes an operation and knows that no-one can possibly care about any failures (for example, if it tries two equivalent service endpoints, and one fails and the other succeeds), it may swallow the errors. If possible, it should log the errors to help application developers troubleshoot unexpected scenarios.
+- If a library method creates multiple promise chains, it can use Promise.all() to observe errors from any branch in the chains (consult the documentation for your promise library to find out how this behaves when multiple errors occur; many libraries have an alternative version of this method that will wait for every error).
+- If you don’t want to wait the method’s returned promise to wait or all of the promise chains to finish, you should probably refactor the method into multiple methods; each function should generally only serve one purpose. The caller can then call each operation separately and wait for its result or handle errors as appropriate.
+- Any reusable asynchronous function should (almost) always return a promise that consumes all of the function’s asynchrony, allowing callers to wait for the entire operation to finish and to observe any errors that occurred.
+- In C#, this means that you should never write reusable aync void methods (Async Sub in VB); instead, always use async Task, so that callers can wait for & observe the result.
+- Entry-point methods in applications should always handle errors from their promise chains & async method calls, displaying an error to the user and/or sending an error report to the developer.
+- For Javascript, the Q library has a useful done() helper method, which can be called at the tip of a promise chain to throw any errors and trigger the environment’s default unhandled error notifications (window.onerror in a browser, or the error event in process for Node.js). This is a convenient way to handle errors from promise chains in your application methods, especially if you already have a generic error handler for this event.
+- If a library method wants to add more context to an error, it can add an error callback that wraps the exception in a new exception with additional detail (making sure to preserve the inner exception details as well), then rethrows the new exception. This will reject the rest of the promise chain with the new error, just like throw new MySpecificException("...", ex) would inside a traditional catch block.
 
 **[⬆ back to top](#table-of-contents)**
 
