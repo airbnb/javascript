@@ -1030,9 +1030,7 @@ Other Style Guides
       this.queue = [...contents];
     }
     Queue.prototype.pop = function () {
-      const value = this.queue[0];
-      this.queue.splice(0, 1);
-      return value;
+      return this.queue.splice(0, 1);
     };
 
 
@@ -1042,9 +1040,7 @@ Other Style Guides
         this.queue = [...contents];
       }
       pop() {
-        const value = this.queue[0];
-        this.queue.splice(0, 1);
-        return value;
+        return this.queue.splice(0, 1);
       }
     }
     ```
