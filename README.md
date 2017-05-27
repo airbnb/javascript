@@ -3215,7 +3215,7 @@ Other Style Guides
  When writing more-complex asynchronous workflows, you may need to pass state along a promise chain, from an intermediary promise result to a later promise callback. For example, you might need to asynchronously fetch a post, fetch its author, then render both objects.
  
  Unfortunately, there is no good way to do this. The best option is to build an array of all of the objects you need, using Promise.all() to wait for new promises while keeping existing values:
- ```
+   ```
    loadPost(id)
        .then(function(post) {
            return Promise.all([post, loadAuthor(post.authorId)]);
@@ -3225,7 +3225,7 @@ Other Style Guides
            var author = results[1];
            // Do something with both values.
    })
- ```
+   ```
    Calling `Promise.all()` here will return a promise of the post and the author, which will be resolved once the author loads. This call is necessary because returning a simple array from a `then()` callback will not wait for the promises in the array. Without it, you would still have a promise of the author in the second callback.
    
    In Javascript, the Q promise library has a `spread()` method to simplify this pattern. This method is like then(), but will flatten the array into individual parameters. It will even call `all()` for you, so you can return an array of promises and it will wait for all of them to be resolved first. It would simplify the above code:
