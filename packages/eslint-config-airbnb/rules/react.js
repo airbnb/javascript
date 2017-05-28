@@ -203,7 +203,7 @@ module.exports = {
         'static-methods',
         'lifecycle',
         '/^on.+$/',
-        '/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/',
+        '/^(get|set)\s(?!(InitialState$|DefaultProps$|ChildContext$)).+$/',
         'everything-else',
         '/^render.+$/',
         'render'
