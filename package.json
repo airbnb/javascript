@@ -3,15 +3,18 @@
   "version": "2.0.0",
   "description": "A mostly reasonable approach to JavaScript.",
   "scripts": {
-    "preinstall": "npm run install:config && npm run install:config:base",
+    "preinstall": "npm run install:config && npm run install:config:base && npm run install:config:next",
     "install:config": "cd packages/eslint-config-airbnb && npm prune && npm install",
     "install:config:base": "cd packages/eslint-config-airbnb-base && npm prune && npm install",
-    "test": "npm run --silent test:config && npm run --silent test:config:base",
+    "install:config:next": "cd packages/eslint-config-airbnb-next && npm prune && npm install",
+    "test": "npm run --silent test:config && npm run --silent test:config:base && npm run --silent test:config:next",
     "test:config": "cd packages/eslint-config-airbnb; npm test",
     "test:config:base": "cd packages/eslint-config-airbnb-base; npm test",
-    "travis": "npm run --silent travis:config && npm run --silent travis:config:base",
+    "test:config:next": "cd packages/eslint-config-airbnb-next; npm test",
+    "travis": "npm run --silent travis:config && npm run --silent travis:config:base && npm run --silent travis:config:next",
     "travis:config": "cd packages/eslint-config-airbnb; npm run travis",
-    "travis:config:base": "cd packages/eslint-config-airbnb-base; npm run travis"
+    "travis:config:base": "cd packages/eslint-config-airbnb-base; npm run travis",
+    "travis:config:next": "cd packages/eslint-config-airbnb-next; npm run travis"
   },
   "repository": {
     "type": "git",
@@ -24,7 +27,8 @@
     "es6",
     "es2015",
     "react",
-    "jsx"
+    "jsx",
+    "flowtype"
   ],
   "author": "Harrison Shoff <hi@hshoff.com> (https://twitter.com/hshoff)",
   "license": "MIT",
