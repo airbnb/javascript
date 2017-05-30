@@ -503,7 +503,7 @@
 
     ```jsx
     // bad
-    React.createClass({
+    class extends React.Component {
       _onClickSubmit() {
         // do stuff
       },
