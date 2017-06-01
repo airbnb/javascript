@@ -50,7 +50,7 @@ module.exports = {
     // requires function names to match the name of the variable or property to which they are
     // assigned
     // http://eslint.org/docs/rules/func-name-matching
-    'func-name-matching': ['off', 'always', {
+    'func-name-matching': ['off', {
       includeCommonJSModuleExports: false
     }],
 
