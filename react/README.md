@@ -334,9 +334,11 @@
     ```
       export const partialFilterPropTypes = {
         searchString: PropTypes.string,
+        onFilter: PropTypes.func,
       };
       FilterData.propTypes = {
         ...partialFilterPropTypes,
+        isFilterActive: PropTypes.bool.isRequired,
       };
     ```
   - When a set of proptypes are not associated with a single component, but can be used across multiple components, define them in a `constants/proptypes.js` file. Example:
