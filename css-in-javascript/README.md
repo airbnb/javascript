@@ -176,7 +176,6 @@
 
     export default withStyles(() => styles)(MyComponent);
 
-
     // good
     function MyComponent({ styles }) {
       return (
