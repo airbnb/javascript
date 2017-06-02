@@ -12,6 +12,7 @@
   1. [Quotes](#quotes)
   1. [Spacing](#spacing)
   1. [Props](#props)
+  1. [Proptypes](#proptypes)
   1. [Refs](#refs)
   1. [Parentheses](#parentheses)
   1. [Tags](#tags)
@@ -296,6 +297,72 @@
     />
   ))}
   ```
+
+## Proptypes
+  - Always use `PropTypes.shape` to define object proptypes. Avoid `PropTypes.object`.
+    ```
+      UserDisplay.propTypes = {
+        user: PropTypes.shape({
+          name: PropTypes.string,
+          email: PropTypes.string,
+          birthday: PropTypes.instanceOf(Date),
+        }),
+      };
+    ```
+  - When a component's proptypes can be used in multiple components, export it as a `const` from the component file.
+    ```
+      export const statusPropTypes = {
+        active: PropTypes.bool.isRequired,
+        message: PropTypes.string.isRequired,
+      };
+      StatusMessage.propTypes = statusPropTypes;
+      export default StatusMessage;
+    ```
+
+    Usage:
+    ```
+      import StatusMessage, { statusPropTypes } from './status-message';
+
+      class AppContainer { };
+      AppContainer.propTypes = {
+        status: statusPropTypes,
+        data: PropTypes.string.isRequired,
+      };
+    ```
+  - When a subset of a component's proptypes can be used in multiple components, export it as a `const` from the component file.
+
+    ```
+      export const partialFilterPropTypes = {
+        searchString: PropTypes.string,
+      };
+      FilterData.propTypes = {
+        ...partialFilterPropTypes,
+      };
+    ```
+  - When a set of proptypes are not associated with a single component, but can be used across multiple components, define them in a `constants/proptypes.js` file. Example:
+    *constants/proptypes.js*
+    ```
+      export const userDataPropTypes = {
+        name: PropTypes.string,
+        email: PropTypes.string,
+        birthday: PropTypes.instanceOf(Date),
+      }
+    ```
+
+    *Users.jsx*
+    ```
+      Users.propTypes = {
+        users: PropTypes.arrayOf(PropTypes.shape(userDataPropTypes)).isRequired,
+      };
+    ```
+
+    *UserDisplay.jsx*
+    ```
+      UserDisplay.propTypes = {
+        user: PropTypes.shape(userDataPropTypes).isRequired,
+      };
+    ```
+
 
 ## Refs
 
