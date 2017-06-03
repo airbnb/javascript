@@ -357,6 +357,7 @@ Other Style Guides
 
     // good
     const itemsCopy = [...items];
+    const itemsCopy = items.slice();
     ```
 
   <a name="arrays--from"></a><a name="4.4"></a>
