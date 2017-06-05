@@ -1106,7 +1106,7 @@ Other Style Guides
     export default function foo() { ... }
     ...
 
-    // good defualt export
+    // good default export
     ...
     export default function foo() { ... }
 
