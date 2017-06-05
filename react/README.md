@@ -341,7 +341,7 @@
         isFilterActive: PropTypes.bool.isRequired,
       };
     ```
-  - When a set of proptypes are not associated with a single component, but can be used across multiple components, define them in a `constants/proptypes.js` file. Example:
+  - When describing a shape that is associated with multiple components, define them in a `constants/proptypes.js` file. Example:
     *constants/proptypes.js*
     ```
       export const userDataPropTypes = {
