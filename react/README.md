@@ -309,7 +309,7 @@
         }),
       };
     ```
-  - When a component's proptypes can be used in multiple components, export it as a `const` from the component file.
+  - When a component's proptypes can be used in multiple (3 or more) components, export it as a `const` from the component file.
     ```
       export const statusPropTypes = {
         active: PropTypes.bool.isRequired,
@@ -329,7 +329,7 @@
         data: PropTypes.string.isRequired,
       };
     ```
-  - When a subset of a component's proptypes can be used in multiple components, export it as a `const` from the component file.
+  - When a subset of a component's proptypes can be used in multiple (3 or more) components, export it as a `const` from the component file.
 
     ```
       export const partialFilterPropTypes = {
@@ -341,7 +341,7 @@
         isFilterActive: PropTypes.bool.isRequired,
       };
     ```
-  - When describing a shape that is associated with multiple components, define them in a `constants/proptypes.js` file. Example:
+  - When describing a shape that is associated with multiple (3 or more) components, define the shape in a `constants/proptypes.js` file. Example:
     *constants/proptypes.js*
     ```
       export const userDataPropTypes = {
