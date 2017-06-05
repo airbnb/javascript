@@ -1089,22 +1089,34 @@ Other Style Guides
     export default es6;
     ```
 
-  <a name="modules--no-wildcard"></a><a name="10.2"></a>
-  - [10.2](#modules--no-wildcard) Do not use wildcard imports.
-
-    > Why? This makes sure you have a single default export,
-    > and forces you to define the API (keeping things organized)
+  <a name="modules--define-api"></a><a name="10.2"></a>
+  - [10.2](#modules--define-api) Always define your module's API at the bottom of the file.
 
     ```javascript
-    // bad
-    import * as AirbnbStyleGuide from './AirbnbStyleGuide';
+    // bad named exports
+    export const foo = 23;
+    export const bar = 42;
 
-    // good
-    import AirbnbStyleGuide from './AirbnbStyleGuide';
+    // good named exports
+    const foo = 23;
+    const bar = 42;
+    export { foo, bar };
+
+    // bad default export
+    export default function foo() { ... }
+    ...
+
+    // good defualt export
+    ...
+    export default function foo() { ... }
+
+    // also good default export
+    function foo() { ... }
+    export default foo;
     ```
 
   <a name="modules--no-export-from-import"></a><a name="10.3"></a>
-  - [10.3](#modules--no-export-from-import) And do not export directly from an import.
+  - [10.3](#modules--no-export-from-import) Do not export directly from an import.
 
     > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
 
