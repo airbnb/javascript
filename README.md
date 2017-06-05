@@ -1201,19 +1201,6 @@ Other Style Guides
     export default es6;
     ```
 
-  <a name="modules--no-wildcard"></a><a name="10.2"></a>
-  - [10.2](#modules--no-wildcard) Do not use wildcard imports.
-
-    > Why? This makes sure you have a single default export.
-
-    ```javascript
-    // bad
-    import * as AirbnbStyleGuide from './AirbnbStyleGuide';
-
-    // good
-    import AirbnbStyleGuide from './AirbnbStyleGuide';
-    ```
-
   <a name="modules--no-export-from-import"></a><a name="10.3"></a>
   - [10.3](#modules--no-export-from-import) And do not export directly from an import.
 
