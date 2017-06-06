@@ -2521,14 +2521,14 @@ Other Style Guides
          firstName: 'Florence',
     -    lastName: 'Nightingale'
     +    lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb chart', 'modern nursing']
+    +    inventorOf: ['coxcomb chart', 'modern nursing',]
     };
 
     // good - git diff with trailing comma
     const hero = {
          firstName: 'Florence',
          lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb chart', 'modern nursing'],
+    +    inventorOf: ['coxcomb chart', 'modern nursing',],
     };
     ```
 
