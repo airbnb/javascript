@@ -2,4 +2,29 @@
 // Copy this file, and add rule overrides as needed.
 {
   "extends": "airbnb"
+  "rules": {
+    // Require or disallow semicolons instead of ASI
+    // http://eslint.org/docs/rules/semi
+    "semi" : [2, "never"],
+
+    // Enforce a maximum line length
+    // http://eslint.org/docs/rules/max-len
+    "max-len": [2, 120, 2],
+
+    // Enforce spacing around the * in generator functions
+    // http://eslint.org/docs/rules/generator-star-spacing
+    "generator-star-spacing": 0,
+
+    // Enforce the consistent use of either double or single quotes in JSX attributes
+    // http://eslint.org/docs/rules/jsx-quotes
+    "jsx-quotes": [2, "prefer-single"],
+
+    // Require or disallow trailing commas
+    // http://eslint.org/docs/rules/comma-dangle
+    "comma-dangle": ["error", "only-multiline"],
+
+    // Enforce consistent spacing inside braces
+    //http://eslint.org/docs/rules/object-curly-spacing
+    "object-curly-spacing": [2, "always"],
+  }
 }

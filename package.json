@@ -1,7 +1,7 @@
 {
-  "name": "airbnb-style",
+  "name": "teamsnap-style",
   "version": "2.0.0",
-  "description": "A mostly reasonable approach to JavaScript.",
+  "description": "A fork of AirBnB's mostly reasonable approach to JavaScript.",
   "scripts": {
     "preinstall": "npm run install:config && npm run install:config:base",
     "install:config": "cd packages/eslint-config-airbnb && npm prune && npm install",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airbnb/javascript.git"
+    "url": "https://github.com/teamsnap/javascript.git"
   },
   "keywords": [
     "style guide",
