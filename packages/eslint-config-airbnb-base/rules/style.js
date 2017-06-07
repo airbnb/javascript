@@ -395,7 +395,7 @@ module.exports = {
       block: {
         exceptions: ['-', '+'],
         markers: ['=', '!'], // space here to support sprockets directives
-        balanced: false,
+        balanced: true,
       }
     }],
 
