@@ -87,7 +87,7 @@ Other Style Guides
 
     bar[0] = 9;
 
-    console.log(foo[0], bar[0]); // => 9, 9
+    console.log(foo[0], bar[0]); // => 1, 9
     ```
 
 **[⬆ back to top](#table-of-contents)**
