@@ -889,6 +889,21 @@ Other Style Guides
     );
     ```
 
+  <a name="functions--passing-objects-as-arguments"></a>
+  - [7.16](#functions--passing-objects-as-arguments) Do not pass objects into functions only to emulate named parameters. Every passed object should be the thing, that can be described with interface to use Flow.
+
+    ```javascript
+    // bad
+    function foo({ wineId, storeId, pageSize, page }) {
+      // ...
+    }
+
+    // good
+    function foo(wineId, storeId, { pageSize, page }) {
+      // ...
+    }
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrow Functions
