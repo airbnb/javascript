@@ -26,6 +26,7 @@
     - eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless)
   - Always use JSX syntax
   - Do not use `React.createElement` unless you're initializing the app from a file that is not JSX
+  - Use default exports for Component and Reducer files, use named exports for everything else.
 
 ## Class vs `React.createClass` vs stateless
 
