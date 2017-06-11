@@ -18,7 +18,7 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+ and
   npm info "eslint-config-airbnb@latest" peerDependencies
   ```
 
-  Linux/OSX users can simply run
+  Linux/OSX users can run
 
   ```sh
   (

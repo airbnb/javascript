@@ -57,7 +57,7 @@ Lints ES5 and below. Requires `eslint` and `eslint-plugin-import`.
   npm info "eslint-config-airbnb-base@latest" peerDependencies
   ```
 
-  Linux/OSX users can simply run
+  Linux/OSX users can run
   ```sh
   (
     export PKG=eslint-config-airbnb-base;

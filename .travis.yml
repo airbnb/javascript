@@ -1,5 +1,6 @@
 language: node_js
 node_js:
+  - "8"
   - "7"
   - "6"
   - "5"
@@ -9,10 +10,15 @@ env:
   - 'TEST_DIR=packages/eslint-config-airbnb-base'
 before_install:
   - 'cd $TEST_DIR'
-  - 'if [ "${TRAVIS_NODE_VERSION}" != "0.9" ]; then case "$(npm --version)" in 1.*) npm install -g npm@1.4.28 ;; 2.*) npm install -g npm@2 ;; esac ; fi'
-  - 'if [ "${TRAVIS_NODE_VERSION}" != "0.6" ] && [ "${TRAVIS_NODE_VERSION}" != "0.9" ]; then npm install -g npm; fi'
+  - 'if [ "${TRAVIS_NODE_VERSION}" = "0.6" ]; then npm install -g npm@1.3 ; elif [ "${TRAVIS_NODE_VERSION}" != "0.9" ]; then case "$(npm --version)" in 1.*) npm install -g npm@1.4.28 ;; 2.*) npm install -g npm@2 ;; esac ; fi'
+  - 'if [ "${TRAVIS_NODE_VERSION%${TRAVIS_NODE_VERSION#[0-9]}}" = "0" ] || [ "${TRAVIS_NODE_VERSION:0:4}" = "iojs" ]; then npm install -g npm@4.5 ; elif [ "${TRAVIS_NODE_VERSION}" != "0.6" ] && [ "${TRAVIS_NODE_VERSION}" != "0.9" ]; then npm install -g npm; fi'
+install:
+  - 'if [ "${TRAVIS_NODE_VERSION}" = "0.6" ]; then nvm install 0.8 && npm install -g npm@1.3 && npm install -g npm@1.4.28 && npm install -g npm@2 && npm install && nvm use "${TRAVIS_NODE_VERSION}"; else npm install; fi;'
 script:
   - 'npm run travis'
 sudo: false
 matrix:
   fast_finish: true
+  allow_failures:
+    - node_js: "7"
+    - node_js: "5"

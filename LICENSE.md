@@ -1,6 +1,10 @@
 MIT License
 
+<<<<<<< HEAD
 Copyright (c) 2016 Airbnb
+=======
+Copyright (c) 2017 Airbnb
+>>>>>>> 721af5498fade08b3a5fe9e613aa6e33baa51e37
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

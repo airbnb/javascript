@@ -1,3 +1,22 @@
+11.2.0 / 2017-05-14
+==================
+ - [minor] Disallow unused global variables
+
+11.1.3 / 2017-04-03
+==================
+ - [patch] add error messages to `no-restricted-syntax` (#1353)
+ - [deps] update `eslint`
+
+11.1.2 / 2017-03-25
+==================
+ - [patch] `no-param-reassign`: add ignorePropertyModificationsFor (#1325)
+ - [deps] update `eslint`
+
+11.1.1 / 2017-03-03
+==================
+ - [deps] update `eslint`
+ - [patch] enable `ignoreRestSiblings` in `no-unused-vars`
+
 11.1.0 / 2017-01-08
 ==================
  - [minor] enable `no-multi-assign`

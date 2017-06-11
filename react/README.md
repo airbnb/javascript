@@ -110,7 +110,11 @@
     ```
   - **Higher-order Component Naming**: Use a composite of the higher-order component's name and the passed-in component's name as the `displayName` on the generated component. For example, the higher-order component `withFoo()`, when passed a component `Bar` should produce a component with a `displayName` of `withFoo(Bar)`.
 
+<<<<<<< HEAD
   > Why? A component's `displayName` may be used by developer tools or in error messages, and having a value that clearly expresses this relationship helps people understand what is happening.
+=======
+    > Why? A component's `displayName` may be used by developer tools or in error messages, and having a value that clearly expresses this relationship helps people understand what is happening.
+>>>>>>> 721af5498fade08b3a5fe9e613aa6e33baa51e37
 
     ```jsx
     // bad
@@ -137,7 +141,11 @@
 
   - **Props Naming**: Avoid using DOM component prop names for different purposes.
 
+<<<<<<< HEAD
   > Why? People expect props like `style` and `className` to mean one specific thing. Varying this API for a subset of your app makes the code less readable and less maintainable, and may cause bugs.
+=======
+    > Why? People expect props like `style` and `className` to mean one specific thing. Varying this API for a subset of your app makes the code less readable and less maintainable, and may cause bugs.
+>>>>>>> 721af5498fade08b3a5fe9e613aa6e33baa51e37
 
     ```jsx
     // bad
@@ -194,7 +202,11 @@
 
   - Always use double quotes (`"`) for JSX attributes, but single quotes (`'`) for all other JS. eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
 
+<<<<<<< HEAD
   > Why? Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
+=======
+    > Why? Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
+>>>>>>> 721af5498fade08b3a5fe9e613aa6e33baa51e37
 
     ```jsx
     // bad
@@ -212,7 +224,11 @@
 
 ## Spacing
 
+<<<<<<< HEAD
   - Always include a single space in your self-closing tag. eslint: [`no-multi-spaces`](http://eslint.org/docs/rules/no-multi-spaces), [`react/jsx-space-before-closing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-space-before-closing.md)
+=======
+  - Always include a single space in your self-closing tag. eslint: [`no-multi-spaces`](http://eslint.org/docs/rules/no-multi-spaces), [`react/jsx-tag-spacing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-tag-spacing.md)
+>>>>>>> 721af5498fade08b3a5fe9e613aa6e33baa51e37
 
     ```jsx
     // bad
@@ -271,7 +287,11 @@
     />
     ```
 
+<<<<<<< HEAD
   - Always include an `alt` prop on `<img>` tags. If the image is presentational, `alt` can be an empty string or the `<img>` must have `role="presentation"`. eslint: [`jsx-a11y/img-has-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-has-alt.md)
+=======
+  - Always include an `alt` prop on `<img>` tags. If the image is presentational, `alt` can be an empty string or the `<img>` must have `role="presentation"`. eslint: [`jsx-a11y/alt-text`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/alt-text.md)
+>>>>>>> 721af5498fade08b3a5fe9e613aa6e33baa51e37
 
     ```jsx
     // bad
@@ -289,7 +309,11 @@
 
   - Do not use words like "image", "photo", or "picture" in `<img>` `alt` props. eslint: [`jsx-a11y/img-redundant-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md)
 
+<<<<<<< HEAD
   > Why? Screenreaders already announce `img` elements as images, so there is no need to include this information in the alt text.
+=======
+    > Why? Screenreaders already announce `img` elements as images, so there is no need to include this information in the alt text.
+>>>>>>> 721af5498fade08b3a5fe9e613aa6e33baa51e37
 
     ```jsx
     // bad
@@ -360,8 +384,13 @@
   };
 
   // good
+<<<<<<< HEAD
   function SFC({ foo, bar }) {
     return <div>{foo}{bar}</div>;
+=======
+  function SFC({ foo, bar, children }) {
+    return <div>{foo}{bar}{children}</div>;
+>>>>>>> 721af5498fade08b3a5fe9e613aa6e33baa51e37
   }
   SFC.propTypes = {
     foo: PropTypes.number.isRequired,
@@ -466,7 +495,11 @@
 
   - Bind event handlers for the render method in the constructor. eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
 
+<<<<<<< HEAD
   > Why? A bind call in the render path creates a brand new function on every single render.
+=======
+    > Why? A bind call in the render path creates a brand new function on every single render.
+>>>>>>> 721af5498fade08b3a5fe9e613aa6e33baa51e37
 
     ```jsx
     // bad
@@ -476,7 +509,11 @@
       }
 
       render() {
+<<<<<<< HEAD
         return <div onClick={this.onClickDiv.bind(this)} />
+=======
+        return <div onClick={this.onClickDiv.bind(this)} />;
+>>>>>>> 721af5498fade08b3a5fe9e613aa6e33baa51e37
       }
     }
 
@@ -493,13 +530,21 @@
       }
 
       render() {
+<<<<<<< HEAD
         return <div onClick={this.onClickDiv} />
+=======
+        return <div onClick={this.onClickDiv} />;
+>>>>>>> 721af5498fade08b3a5fe9e613aa6e33baa51e37
       }
     }
     ```
 
   - Do not use underscore prefix for internal methods of a React component.
+<<<<<<< HEAD
   > Why? Underscore prefixes are sometimes used as a convention in other languages to denote privacy. But, unlike those languages, there is no native support for privacy in JavaScript, everything is public. Regardless of your intentions, adding underscore prefixes to your properties does not actually make them private, and any property (underscore-prefixed or not) should be treated as being public. See issues [#1024](https://github.com/airbnb/javascript/issues/1024), and [#490](https://github.com/airbnb/javascript/issues/490) for a more in-depth discussion.
+=======
+    > Why? Underscore prefixes are sometimes used as a convention in other languages to denote privacy. But, unlike those languages, there is no native support for privacy in JavaScript, everything is public. Regardless of your intentions, adding underscore prefixes to your properties does not actually make them private, and any property (underscore-prefixed or not) should be treated as being public. See issues [#1024](https://github.com/airbnb/javascript/issues/1024), and [#490](https://github.com/airbnb/javascript/issues/490) for a more in-depth discussion.
+>>>>>>> 721af5498fade08b3a5fe9e613aa6e33baa51e37
 
     ```jsx
     // bad
@@ -575,7 +620,11 @@
       }
 
       render() {
+<<<<<<< HEAD
         return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
+=======
+        return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>;
+>>>>>>> 721af5498fade08b3a5fe9e613aa6e33baa51e37
       }
     }
 
@@ -622,11 +671,22 @@
   This JSX/React style guide is also available in other languages:
 
   - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese (Simplified)**: [JasonBoy/javascript](https://github.com/JasonBoy/javascript/tree/master/react)
+<<<<<<< HEAD
   - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polish**: [pietraszekl/javascript](https://github.com/pietraszekl/javascript/tree/master/react)
   - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [apple77y/javascript](https://github.com/apple77y/javascript/tree/master/react)
   - ![Br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Portuguese**: [ronal2do/javascript](https://github.com/ronal2do/airbnb-react-styleguide)
   - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javascript-style-guide](https://github.com/mitsuruog/javascript-style-guide/tree/master/react)
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Español**: [agrcrobles/javascript](https://github.com/agrcrobles/javascript/tree/master/react)
+=======
+  - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chinese (Traditional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript/tree/master/react)
+  - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Español**: [agrcrobles/javascript](https://github.com/agrcrobles/javascript/tree/master/react)
+  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javascript-style-guide](https://github.com/mitsuruog/javascript-style-guide/tree/master/react)
+  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [apple77y/javascript](https://github.com/apple77y/javascript/tree/master/react)
+  - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polish**: [pietraszekl/javascript](https://github.com/pietraszekl/javascript/tree/master/react)
+  - ![Br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Portuguese**: [ronal2do/javascript](https://github.com/ronal2do/airbnb-react-styleguide)
+  - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [leonidlebedev/javascript-airbnb](https://github.com/leonidlebedev/javascript-airbnb/tree/master/react)
+  - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide/tree/master/react)
+>>>>>>> 721af5498fade08b3a5fe9e613aa6e33baa51e37
   - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Ukrainian**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript/tree/master/react)
 
 **[⬆ back to top](#table-of-contents)**
