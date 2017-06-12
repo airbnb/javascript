@@ -1102,6 +1102,19 @@ Other Style Guides
     const bar = 42;
     export { foo, bar };
 
+    // bad named export
+    export const foo = 23; // not the last thing in the file
+    ...
+
+    // good named export
+    ...
+    export const foo = 23; // the last thing and the only exported thing
+
+    // also good named export
+    ...
+    const foo = 23;
+    export { foo };
+
     // bad default export
     export default function foo() { ... }
     ...
