@@ -1082,11 +1082,12 @@ Other Style Guides
 
     // ok
     import AirbnbStyleGuide from './AirbnbStyleGuide';
-    export default AirbnbStyleGuide.es6;
+    const es6 = AirbnbStyleGuide.es6;
+    export { es6 };
 
     // best
     import { es6 } from './AirbnbStyleGuide';
-    export default es6;
+    export { es6 };
     ```
 
   <a name="modules--define-api"></a><a name="10.2"></a>
@@ -1116,16 +1117,16 @@ Other Style Guides
     export { foo };
 
     // bad default export
-    export default function foo() { ... }
+    export default function Foo() { ... }
     ...
 
     // good default export
     ...
-    export default function foo() { ... }
+    export default function Foo() { ... }
 
     // also good default export
-    function foo() { ... }
-    export default foo;
+    function Foo() { ... }
+    export default Foo;
     ```
 
   <a name="modules--no-export-from-import"></a><a name="10.3"></a>
@@ -1136,12 +1137,12 @@ Other Style Guides
     ```javascript
     // bad
     // filename es6.js
-    export { es6 as default } from './airbnbStyleGuide';
+    export { es6 } from './airbnbStyleGuide';
 
     // good
     // filename es6.js
     import { es6 } from './AirbnbStyleGuide';
-    export default es6;
+    export es6;
     ```
 
   <a name="modules--no-duplicate-imports"></a>
@@ -1178,18 +1179,6 @@ Other Style Guides
     // good
     const foo = 3;
     export { foo }
-    ```
-
-  <a name="modules--prefer-default-export"></a>
-  - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
- eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
-
-    ```javascript
-    // bad
-    export function foo() {}
-
-    // good
-    export default function foo() {}
     ```
 
   <a name="modules--imports-first"></a>
