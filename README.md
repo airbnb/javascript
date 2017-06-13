@@ -54,7 +54,7 @@ Other Style Guides
   1. [Contributors](#contributors)
   1. [License](#license)
 
-## Types
+## Types 类型
 
   <a name="types--primitives"></a><a name="1.1"></a>
   - [1.1](#types--primitives) **Primitives**: When you access a primitive type you work directly on its value.
@@ -73,6 +73,7 @@ Other Style Guides
 
     console.log(foo, bar); // => 1, 9
     ```
+    这里说的是基础类型，直接赋值
 
   <a name="types--complex"></a><a name="1.2"></a>
   - [1.2](#types--complex)  **Complex**: When you access a complex type you work on a reference to its value.
@@ -89,10 +90,11 @@ Other Style Guides
 
     console.log(foo[0], bar[0]); // => 9, 9
     ```
-
+    这里说的是对象类型，使用的都是值的指针，所以要特别注意
+    
 **[⬆ back to top](#table-of-contents)**
 
-## References
+## References 引用
 
   <a name="references--prefer-const"></a><a name="2.1"></a>
   - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
@@ -108,13 +110,16 @@ Other Style Guides
     const a = 1;
     const b = 2;
     ```
+	所有的引用，如果你不打算修改它的值的话，最好使用const来修饰，防止被修改造成bug
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
   - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
 
     > Why? `let` is block-scoped rather than function-scoped like `var`.
 
-    ```javascript
+
+    ```
+    javascript
     // bad
     var count = 1;
     if (true) {
@@ -127,7 +132,7 @@ Other Style Guides
       count += 1;
     }
     ```
-
+	如果你一定要修改一个引用，最好使用`let`，而不是`var`。`let`是`ES6`中新增加的修饰符，在变量提升、作用域等和`var`区别较大，建议`ES6`中全部用`let`。具体可以参考我的博客[《ES6入门》读书笔记之let和const命令](https://njafei.github.io/2017/04/17/ES6-%E5%85%A5%E9%97%A8-let%E5%91%BD%E4%BB%A4/)	
   <a name="references--block-scope"></a><a name="2.3"></a>
   - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped.
 
@@ -140,10 +145,11 @@ Other Style Guides
     console.log(a); // ReferenceError
     console.log(b); // ReferenceError
     ```
+    记得`let` 和 `const`都是块级作用域。所谓的块级作用域是{}，相对的是函数作用域，var就是函数作用域。具体可以参考我的博客[《ES6入门》读书笔记之let和const命令](https://njafei.github.io/2017/04/17/ES6-%E5%85%A5%E9%97%A8-let%E5%91%BD%E4%BB%A4/)
 
 **[⬆ back to top](#table-of-contents)**
 
-## Objects
+## Objects 对象
 
   <a name="objects--no-new"></a><a name="3.1"></a>
   - [3.1](#objects--no-new) Use the literal syntax for object creation. eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
@@ -155,6 +161,7 @@ Other Style Guides
     // good
     const item = {};
     ```
+    使用字面值创造对象，这个应该是看起来更简约
 
   <a name="es6-computed-properties"></a><a name="3.4"></a>
   - [3.2](#es6-computed-properties) Use computed property names when creating objects with dynamic property names.
@@ -181,6 +188,7 @@ Other Style Guides
       [getKey('enabled')]: true,
     };
     ```
+    使用动态的名称定义一个对象的属性时，使用计算好的，这样一次就定义你的所有属性名，防止后面再出现变化，代码也更易读
 
   <a name="es6-object-shorthand"></a><a name="3.5"></a>
   - [3.3](#es6-object-shorthand) Use object method shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
@@ -204,6 +212,7 @@ Other Style Guides
       },
     };
     ```
+   	对象的方法，使用速记的。我理解，下面的用法是简写的，亲测可用。
 
   <a name="es6-object-concise"></a><a name="3.6"></a>
   - [3.4](#es6-object-concise) Use property value shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
@@ -223,6 +232,8 @@ Other Style Guides
       lukeSkywalker,
     };
     ```
+    对象的属性的key和value一致时，可以直接定义key，则其value和key一样。这个应该也是为了简约。
+    
 
   <a name="objects--grouped-shorthand"></a><a name="3.7"></a>
   - [3.5](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
@@ -253,6 +264,7 @@ Other Style Guides
       mayTheFourth: 4,
     };
     ```
+    所有速记用法写的属性，都放到最上面，方便看出来哪些是速记的，避免忘记等。
 
   <a name="objects--quoted-props"></a><a name="3.8"></a>
   - [3.6](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
@@ -274,6 +286,7 @@ Other Style Guides
       'data-blah': 5,
     };
     ```
+    属性的key尽量直接用name，不需要加单引号或者双引号，这样不仅阅读放快捷，而且在许多引擎上面处理速度回更快。data-blah如果不加引号会报错。
 
   <a name="objects--prototype-builtins"></a>
   - [3.7](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`.
@@ -294,6 +307,7 @@ Other Style Guides
     // ...
     console.log(has.call(object, key));
     ```
+    不要直接使用`Object.prototype`方法，比如`hasOwnProperty `，`propertyIsEnumerable `，`isPrototypeOf `。防止`hasOwnProperty `被对象的属性覆盖，或者对象为`null`等情况
 
   <a name="objects--rest-spread"></a>
   - [3.8](#objects--rest-spread) Prefer the object spread operator over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
@@ -314,10 +328,11 @@ Other Style Guides
 
     const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
     ```
+    需要新对象而不想要某些属性的时候，不要使用`Object.assign`来直接修改对象，使用`...`来获取剩余的属性。
 
 **[⬆ back to top](#table-of-contents)**
 
-## Arrays
+## Arrays 数组
 
   <a name="arrays--literals"></a><a name="4.1"></a>
   - [4.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
@@ -329,6 +344,7 @@ Other Style Guides
     // good
     const items = [];
     ```
+	直接使用字面值类初始化数组
 
   <a name="arrays--push"></a><a name="4.2"></a>
   - [4.2](#arrays--push) Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to add items to an array.
@@ -342,6 +358,7 @@ Other Style Guides
     // good
     someStack.push('abracadabra');
     ```
+	数组增加新的对象时，不要直接修改数组，而是使用`push`
 
   <a name="es6-array-spreads"></a><a name="4.3"></a>
   - [4.3](#es6-array-spreads) Use array spreads `...` to copy arrays.
@@ -359,6 +376,7 @@ Other Style Guides
     // good
     const itemsCopy = [...items];
     ```
+    使用拓展运算符`...`来拷贝数组
 
   <a name="arrays--from"></a><a name="4.4"></a>
   - [4.4](#arrays--from) To convert an array-like object to an array, use [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
@@ -367,6 +385,7 @@ Other Style Guides
     const foo = document.querySelectorAll('.foo');
     const nodes = Array.from(foo);
     ```
+    拷贝类数组的对象为一个数组时，使用`Array.from`，这是`ES6`中新增加的语法
 
   <a name="arrays--callback-return"></a><a name="4.5"></a>
   - [4.5](#arrays--callback-return) Use return statements in array method callbacks. It's ok to omit the return if the function body consists of a single statement following [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
@@ -416,6 +435,7 @@ Other Style Guides
       return false;
     });
     ```
+    数据方法的callback中，尽量使用return，如果只有一个状态，也可以省略return
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -455,10 +475,11 @@ Other Style Guides
     2,
   ];
   ```
+  如果数组有多个对象，换行来区分不同的对象
 
 **[⬆ back to top](#table-of-contents)**
 
-## Destructuring
+## Destructuring 解构
 
   <a name="destructuring--object"></a><a name="5.1"></a>
   - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
@@ -485,6 +506,7 @@ Other Style Guides
       return `${firstName} ${lastName}`;
     }
     ```
+    多使用解构来获取属性值，ES6特性，具体可以看下我的博客[ES6之变量的解构赋值](https://njafei.github.io/2017/05/11/ES6%E4%B9%8B%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/)
 
   <a name="destructuring--array"></a><a name="5.2"></a>
   - [5.2](#destructuring--array) Use array destructuring. jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
@@ -499,6 +521,8 @@ Other Style Guides
     // good
     const [first, second] = arr;
     ```
+    使用数组的解构，ES6特性，具体可以看下我的博客[ES6之变量的解构赋值](https://njafei.github.io/2017/05/11/ES6%E4%B9%8B%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/)
+
 
   <a name="destructuring--object-over-array"></a><a name="5.3"></a>
   - [5.3](#destructuring--object-over-array) Use object destructuring for multiple return values, not array destructuring. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
@@ -524,10 +548,12 @@ Other Style Guides
     // the caller selects only the data they need
     const { left, top } = processInput(input);
     ```
+    使用对象的解构，ES6特性，具体可以看下我的博客[ES6之变量的解构赋值](https://njafei.github.io/2017/05/11/ES6%E4%B9%8B%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/)
+
 
 **[⬆ back to top](#table-of-contents)**
 
-## Strings
+## Strings 字符串
 
   <a name="strings--quotes"></a><a name="6.1"></a>
   - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
@@ -542,6 +568,7 @@ Other Style Guides
     // good
     const name = 'Capt. Janeway';
     ```
+    单个的字符，使用单引号
 
   <a name="strings--line-length"></a><a name="6.2"></a>
   - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
@@ -563,6 +590,7 @@ Other Style Guides
     // good
     const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
     ```
+    问题很多的情况，不要使用拼接。这样处理起来很痛苦，而且不好搜索。
 
   <a name="es6-template-literals"></a><a name="6.4"></a>
   - [6.3](#es6-template-literals) When programmatically building up strings, use template strings instead of concatenation. eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
@@ -590,9 +618,12 @@ Other Style Guides
       return `How are you, ${name}?`;
     }
     ```
+    尽量少使用`+`等来拼接，而是用`ES6`提供的模板字符串
 
   <a name="strings--eval"></a><a name="6.5"></a>
   - [6.4](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities. eslint: [`no-eval`](http://eslint.org/docs/rules/no-eval)
+  	 不要在字符串中使用`eval()`函数，太脆弱。
+  		
 
   <a name="strings--escaping"></a>
   - [6.5](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
@@ -607,10 +638,11 @@ Other Style Guides
     const foo = '\'this\' is "quoted"';
     const foo = `my name is '${name}'`;
     ```
+    除非必要，尽量少使用反斜杠，因为易读性差
 
 **[⬆ back to top](#table-of-contents)**
 
-## Functions
+## Functions 方法
 
   <a name="functions--declarations"></a><a name="7.1"></a>
   - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
@@ -633,6 +665,7 @@ Other Style Guides
       // ...
     };
     ```
+    使用已命名的方法而不是方法实现
 
   <a name="functions--iife"></a><a name="7.2"></a>
   - [7.2](#functions--iife) Wrap immediately invoked function expressions in parentheses. eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
@@ -645,9 +678,12 @@ Other Style Guides
       console.log('Welcome to the Internet. Please follow me.');
     }());
     ```
+    立刻要调用的函数，在外面使用圆括号包起来。这种用法基本不太会使用。
 
   <a name="functions--in-blocks"></a><a name="7.3"></a>
   - [7.3](#functions--in-blocks) Never declare a function in a non-function block (`if`, `while`, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
+  
+   不要在判断语句中定义函数，而是使用变量引用函数
 
   <a name="functions--note-on-blocks"></a><a name="7.4"></a>
   - [7.4](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
@@ -668,6 +704,7 @@ Other Style Guides
       };
     }
     ```
+    ECMA-262定义`block`为一组状态，一个方法的声明不是一个状态
 
   <a name="functions--arguments-shadow"></a><a name="7.5"></a>
   - [7.5](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
@@ -683,6 +720,7 @@ Other Style Guides
       // ...
     }
     ```
+    永远不要使用`arguments`来作为参数，这样会把函数的`argument`替换掉，使用`...args`代替
 
   <a name="es6-rest"></a><a name="7.6"></a>
   - [7.6](#es6-rest) Never use `arguments`, opt to use rest syntax `...` instead. eslint: [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
@@ -701,7 +739,9 @@ Other Style Guides
       return args.join('');
     }
     ```
-
+    永远不要使用`arguments`来作为参数，这样会把函数的`argument`替换掉，使用`...args`代替
+	
+	
   <a name="es6-default-parameters"></a><a name="7.7"></a>
   - [7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
 
@@ -728,7 +768,8 @@ Other Style Guides
       // ...
     }
     ```
-
+	使用默认参数值，而不是在函数中计算或者判断。此为`ES6`新增加的方法，建议全部使用这种方式。
+	
   <a name="functions--default-side-effects"></a><a name="7.8"></a>
   - [7.8](#functions--default-side-effects) Avoid side effects with default parameters.
 
@@ -745,6 +786,7 @@ Other Style Guides
     count(3); // 3
     count();  // 3
     ```
+    注意不要影响默认参数值
 
   <a name="functions--defaults-last"></a><a name="7.9"></a>
   - [7.9](#functions--defaults-last) Always put default parameters last.
@@ -760,6 +802,7 @@ Other Style Guides
       // ...
     }
     ```
+    永远把带默认值的参数放到最后
 
   <a name="functions--constructor"></a><a name="7.10"></a>
   - [7.10](#functions--constructor) Never use the Function constructor to create a new function. eslint: [`no-new-func`](http://eslint.org/docs/rules/no-new-func)
@@ -773,6 +816,7 @@ Other Style Guides
     // still bad
     var subtract = Function('a', 'b', 'return a - b');
     ```
+    不要使用函数的构造器来初始化一个函数，使用字面值
 
   <a name="functions--signature-spacing"></a><a name="7.11"></a>
   - [7.11](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks)
@@ -789,6 +833,7 @@ Other Style Guides
     const x = function () {};
     const y = function a() {};
     ```
+    函数中使用空格来区分不同的部分，这样比较统一
 
   <a name="functions--mutate-params"></a><a name="7.12"></a>
   - [7.12](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
@@ -806,6 +851,7 @@ Other Style Guides
       const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
     }
     ```
+    不要修改参数值
 
   <a name="functions--reassign-params"></a><a name="7.13"></a>
   - [7.13](#functions--reassign-params) Never reassign parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
@@ -834,7 +880,8 @@ Other Style Guides
       // ...
     }
     ```
-
+	不要修改参数
+	
   <a name="functions--spread-vs-apply"></a><a name="7.14"></a>
   - [7.14](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions. eslint: [`prefer-spread`](http://eslint.org/docs/rules/prefer-spread)
 
@@ -855,6 +902,7 @@ Other Style Guides
     // good
     new Date(...[2016, 8, 5]);
     ```
+    使用`...`来调用可变参数函数
 
   <a name="functions--signature-invocation-indentation"></a>
   - [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item.
@@ -888,6 +936,7 @@ Other Style Guides
       baz,
     );
     ```
+    多参数的时候，每个参数各自占一行
 
 **[⬆ back to top](#table-of-contents)**
 
