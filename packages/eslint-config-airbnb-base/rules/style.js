@@ -108,7 +108,7 @@ module.exports = {
       overrides: {
         return: { after: true },
         throw: { after: true },
-        case: { after: true }
+        case: { after: true },
       }
     }],
 
