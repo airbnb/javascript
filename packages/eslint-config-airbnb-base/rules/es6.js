@@ -124,7 +124,6 @@ module.exports = {
 
     // suggest using Reflect methods where applicable
     // http://eslint.org/docs/rules/prefer-reflect
-    // TODO: enable?
     'prefer-reflect': 'off',
 
     // use rest parameters instead of arguments
