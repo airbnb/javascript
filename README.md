@@ -1374,7 +1374,7 @@ Other Style Guides
     let sum = 0;
     numbers.forEach((num) => {
       sum += num;
-    );
+    });
     sum === 15;
 
     // best (use the functional force)
