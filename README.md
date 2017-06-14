@@ -16,7 +16,7 @@ Other Style Guides
 
 ## Table of Contents
 
-  1. [Types](#Types类型)
+  1. [Types](#Types)
   1. [References](#references)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
@@ -56,7 +56,7 @@ Other Style Guides
 
 ## Types 类型
 
-  <a name="types--primitives"></a><a name="1.1"></a>
+  <a name="types"></a><a name="1.1"></a>
   - [1.1](#types--primitives) **Primitives**: When you access a primitive type you work directly on its value. 基础类型，直接赋值
 
     - `string`
