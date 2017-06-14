@@ -705,12 +705,11 @@ Other Style Guides
   <a name="es6-default-parameters"></a><a name="7.7"></a>
   - [7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
 
+    > Why? Consider `opts = opts || {}` to apply a default value to the opts argument. This pattern is verbose, and if opts is falsy it'll be set to an object which may be what you want, but it can introduce subtle bugs.
+
     ```javascript
     // really bad
     function handleThings(opts) {
-      // No! We shouldn't mutate function arguments.
-      // Double bad: if opts is falsy it'll be set to an object which may
-      // be what you want but it can introduce subtle bugs.
       opts = opts || {};
       // ...
     }
