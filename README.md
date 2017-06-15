@@ -1843,13 +1843,24 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
-## Comparison Operators & Equality
+## Comparison Operators & Equality 比较和相等
 
   <a name="comparison--eqeqeq"></a><a name="15.1"></a>
   - [15.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`. eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
+  - 使用`===`和`!==`而不是`==`和`!=`
+  
+  区别看下列子，如果类型不一样，`==`会转换类型：
+  
+  ```
+  let a = 3; 
+  let b = "3"; 
+  console.log(a == b); //true
+  console.log(a === b); //false
+  ```
 
   <a name="comparison--if"></a><a name="15.2"></a>
   - [15.2](#comparison--if) Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
+  - 以下是各种类型在if判断中的值
 
     - **Objects** evaluate to **true**
     - **Undefined** evaluates to **false**
@@ -1867,6 +1878,7 @@ Other Style Guides
 
   <a name="comparison--shortcuts"></a><a name="15.3"></a>
   - [15.3](#comparison--shortcuts) Use shortcuts for booleans, but explicit comparisons for strings and numbers.
+  - 布尔值的判断使用简单写法，但是字符串和数字要使用明确的写法
 
     ```javascript
     // bad
@@ -1905,8 +1917,11 @@ Other Style Guides
 
   <a name="comparison--switch-blocks"></a><a name="15.5"></a>
   - [15.5](#comparison--switch-blocks) Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`).
+  - 使用{}来包裹case和default中的内容
 
     > Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
+    这里是因为ES6中`let`是块作用域，如果case 2中再定义x，则会报错，所以要加上大括号
+   
 
     eslint rules: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations.html).
 
@@ -1955,6 +1970,7 @@ Other Style Guides
 
   <a name="comparison--nested-ternaries"></a><a name="15.6"></a>
   - [15.6](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions.
+  - 不要嵌套三元运算，三元运算应该是阅读更清晰，而不是更复杂
 
     eslint rules: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary.html).
 
@@ -1979,6 +1995,7 @@ Other Style Guides
 
   <a name="comparison--unneeded-ternary"></a><a name="15.7"></a>
   - [15.7](#comparison--unneeded-ternary) Avoid unneeded ternary statements.
+  - 避免不需要的三元运算、建议使用`||`等，更简洁、高效
 
     eslint rules: [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary.html).
 
@@ -1996,10 +2013,11 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
-## Blocks
+## Blocks 代码块
 
   <a name="blocks--braces"></a><a name="16.1"></a>
   - [16.1](#blocks--braces) Use braces with all multi-line blocks.
+  - 所有的多行代码块，都使用{}
 
     ```javascript
     // bad
@@ -2025,6 +2043,7 @@ Other Style Guides
 
   <a name="blocks--cuddled-elses"></a><a name="16.2"></a>
   - [16.2](#blocks--cuddled-elses) If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your `if` block's closing brace. eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) jscs:  [`disallowNewlineBeforeBlockStatements`](http://jscs.info/rule/disallowNewlineBeforeBlockStatements)
+  - 如果使用了if 和 else、else 要在第一个{}结束的同一行
 
     ```javascript
     // bad
@@ -2047,10 +2066,11 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
-## Control Statements
+## Control Statements 控制状态
 
   <a name="control-statements"></a>
   - [17.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition could be put into a new line. It's up to you whether the logical operator should begin or end the line.
+  - 为了防止控制状态太长，每个情况都要单独放一行
 
     ```javascript
     // bad
@@ -2103,10 +2123,11 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
-## Comments
+## Comments 注释
 
   <a name="comments--multiline"></a><a name="17.1"></a>
   - [18.1](#comments--multiline) Use `/** ... */` for multi-line comments.
+  - 多行注释，使用`/** ... */`
 
     ```javascript
     // bad
@@ -2137,6 +2158,7 @@ Other Style Guides
 
   <a name="comments--singleline"></a><a name="17.2"></a>
   - [18.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it's on the first line of a block.
+  - 单行注释使用`//`，将注释卸载要注释语句的上一行，第一个单词前面加个空格
 
     ```javascript
     // bad
@@ -2175,6 +2197,7 @@ Other Style Guides
     ```
 
   - [18.3](#comments--spaces) Start all comments with a space to make it easier to read. eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
+  - 所有注释前都加个空格，提高易读性
 
     ```javascript
     // bad
@@ -2212,6 +2235,7 @@ Other Style Guides
 
   <a name="comments--actionitems"></a><a name="17.3"></a>
   - [18.4](#comments--actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
+  - 如果是bug或者待做事项，前面加个FIXME或者TODO
 
   <a name="comments--fixme"></a><a name="17.4"></a>
   - [18.5](#comments--fixme) Use `// FIXME:` to annotate problems.
@@ -2229,6 +2253,7 @@ Other Style Guides
 
   <a name="comments--todo"></a><a name="17.5"></a>
   - [18.6](#comments--todo) Use `// TODO:` to annotate solutions to problems.
+  - 使用TODO来注释一个问题的解决方案
 
     ```javascript
     class Calculator extends Abacus {
@@ -2243,10 +2268,11 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
-## Whitespace
+## Whitespace 空格
 
   <a name="whitespace--spaces"></a><a name="18.1"></a>
   - [19.1](#whitespace--spaces) Use soft tabs (space character) set to 2 spaces. eslint: [`indent`](http://eslint.org/docs/rules/indent.html) jscs: [`validateIndentation`](http://jscs.info/rule/validateIndentation)
+  - 把tab设置为两个空间（默认应该是4个空间）
 
     ```javascript
     // bad
@@ -2267,6 +2293,7 @@ Other Style Guides
 
   <a name="whitespace--before-blocks"></a><a name="18.2"></a>
   - [19.2](#whitespace--before-blocks) Place 1 space before the leading brace. eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
+  - 大括号前留一个空格
 
     ```javascript
     // bad
@@ -2294,6 +2321,7 @@ Other Style Guides
 
   <a name="whitespace--around-keywords"></a><a name="18.3"></a>
   - [19.3](#whitespace--around-keywords) Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing.html) jscs: [`requireSpaceAfterKeywords`](http://jscs.info/rule/requireSpaceAfterKeywords)
+  - if function等后面留一个空格，方法名后面不留空格
 
     ```javascript
     // bad
@@ -2319,6 +2347,7 @@ Other Style Guides
 
   <a name="whitespace--infix-ops"></a><a name="18.4"></a>
   - [19.4](#whitespace--infix-ops) Set off operators with spaces. eslint: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html) jscs: [`requireSpaceBeforeBinaryOperators`](http://jscs.info/rule/requireSpaceBeforeBinaryOperators), [`requireSpaceAfterBinaryOperators`](http://jscs.info/rule/requireSpaceAfterBinaryOperators)
+  - 操作之间留空格
 
     ```javascript
     // bad
@@ -2330,6 +2359,7 @@ Other Style Guides
 
   <a name="whitespace--newline-at-end"></a><a name="18.5"></a>
   - [19.5](#whitespace--newline-at-end) End files with a single newline character. eslint: [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md)
+  - 文件末尾留一行
 
     ```javascript
     // bad
@@ -2356,6 +2386,7 @@ Other Style Guides
   <a name="whitespace--chains"></a><a name="18.6"></a>
   - [19.6](#whitespace--chains) Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which
     emphasizes that the line is a method call, not a new statement. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
+ 	函数链留一个标志来标明这是一个函数调用，在开头使用.
 
     ```javascript
     // bad
@@ -2399,6 +2430,7 @@ Other Style Guides
 
   <a name="whitespace--after-blocks"></a><a name="18.7"></a>
   - [19.7](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement. jscs: [`requirePaddingNewLinesAfterBlocks`](http://jscs.info/rule/requirePaddingNewLinesAfterBlocks)
+  - 在代码块后面留一个空行
 
     ```javascript
     // bad
@@ -2457,6 +2489,7 @@ Other Style Guides
 
   <a name="whitespace--padded-blocks"></a><a name="18.8"></a>
   - [19.8](#whitespace--padded-blocks) Do not pad your blocks with blank lines. eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html) jscs:  [`disallowPaddingNewlinesInBlocks`](http://jscs.info/rule/disallowPaddingNewlinesInBlocks)
+  - 代码块里面不要留空行
 
     ```javascript
     // bad
@@ -2490,6 +2523,7 @@ Other Style Guides
 
   <a name="whitespace--in-parens"></a><a name="18.9"></a>
   - [19.9](#whitespace--in-parens) Do not add spaces inside parentheses. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html) jscs: [`disallowSpacesInsideParentheses`](http://jscs.info/rule/disallowSpacesInsideParentheses)
+  - 不要在()内留空格
 
     ```javascript
     // bad
@@ -2515,6 +2549,7 @@ Other Style Guides
 
   <a name="whitespace--in-brackets"></a><a name="18.10"></a>
   - [19.10](#whitespace--in-brackets) Do not add spaces inside brackets. eslint: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html) jscs: [`disallowSpacesInsideArrayBrackets`](http://jscs.info/rule/disallowSpacesInsideArrayBrackets)
+  - 不要在中括号里面留空格
 
     ```javascript
     // bad
@@ -2528,6 +2563,7 @@ Other Style Guides
 
   <a name="whitespace--in-braces"></a><a name="18.11"></a>
   - [19.11](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html) jscs: [`requireSpacesInsideObjectBrackets`](http://jscs.info/rule/requireSpacesInsideObjectBrackets)
+  - 在大括号里留空格
 
     ```javascript
     // bad
@@ -2539,6 +2575,7 @@ Other Style Guides
 
   <a name="whitespace--max-len"></a><a name="18.12"></a>
   - [19.12](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
+  - 避免一行代码超过100个字符
 
     > Why? This ensures readability and maintainability.
 
@@ -2569,10 +2606,11 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
-## Commas
+## Commas 逗号
 
 <a name="commas--leading-trailing"></a><a name="19.1"></a>
   - [20.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
+  - 逗号放在末尾
 
     ```javascript
     // bad
@@ -2608,8 +2646,11 @@ Other Style Guides
 
   <a name="commas--dangling"></a><a name="19.2"></a>
   - [20.2](#commas--dangling) Additional trailing comma: **Yup.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
+  - 每行结尾如果可以，都写上逗号
 
     > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
+    这样git diff的时候会更清晰，另外babel会溢出多余的逗号，所以你不用担心[trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas)
+
 
     ```diff
     // bad - git diff without trailing comma
@@ -2704,10 +2745,11 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
-## Semicolons
+## Semicolons 分号
 
   <a name="semicolons--required"></a><a name="20.1"></a>
   - [21.1](#semicolons--required) **Yup.** eslint: [`semi`](http://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
+  - 使用分号，每行都要用！
 
     ```javascript
     // bad
