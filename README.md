@@ -1616,7 +1616,7 @@ Other Style Guides
       let a = b = c = 1;
     }());
 
-    console.log(a); // undefined
+    console.log(a); // throws ReferenceError
     console.log(b); // 1
     console.log(c); // 1
 
@@ -1627,9 +1627,9 @@ Other Style Guides
       let c = a;
     }());
 
-    console.log(a); // undefined
-    console.log(b); // undefined
-    console.log(c); // undefined
+    console.log(a); // throws ReferenceError
+    console.log(b); // throws ReferenceError
+    console.log(c); // throws ReferenceError
 
     // the same applies for `const`
     ```
