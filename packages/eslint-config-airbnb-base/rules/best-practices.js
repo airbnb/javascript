@@ -205,7 +205,7 @@ module.exports = {
     }],
 
     // disallow use of assignment in return statement
-    'no-return-assign': 'error',
+    'no-return-assign': ['error', 'always'],
 
     // disallow redundant `return await`
     'no-return-await': 'error',
