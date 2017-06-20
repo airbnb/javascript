@@ -956,7 +956,7 @@ Other Style Guides
     // good
     foo(() => {
       bool = true;
-    }
+    });
     ```
 
   <a name="arrows--paren-wrap"></a><a name="8.3"></a>
