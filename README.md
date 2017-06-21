@@ -1,4 +1,4 @@
-# Coveo JavaScript Style Guide() {
+# Coveo TypeScript Style Guide() {
 
 <h2 id="table-of-contents">Table of Contents</h2>
 
@@ -73,7 +73,7 @@
 ## References
 
   <a name="references--prefer-const"></a><a name="2.1"></a>
-  - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
+  - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. 
 
     > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
 
@@ -88,7 +88,7 @@
     ```
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
-  - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
+  - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. 
 
     > Why? `let` is block-scoped rather than function-scoped like `var`.
 
@@ -124,7 +124,7 @@
 ## Objects
 
   <a name="objects--no-new"></a><a name="3.1"></a>
-  - [3.1](#objects--no-new) Use the literal syntax for object creation. eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
+  - [3.1](#objects--no-new) Use the literal syntax for object creation. 
 
     ```javascript
     // bad
@@ -161,7 +161,7 @@
     ```
 
   <a name="es6-object-shorthand"></a><a name="3.3"></a>
-  - [3.3](#es6-object-shorthand) Use object method shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
+  - [3.3](#es6-object-shorthand) Use object method shorthand. 
 
     ```javascript
     // bad
@@ -184,7 +184,7 @@
     ```
 
   <a name="es6-object-concise"></a><a name="3.4"></a>
-  - [3.4](#es6-object-concise) Use property value shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
+  - [3.4](#es6-object-concise) Use property value shorthand. 
 
     > Why? It is shorter to write and descriptive.
 
@@ -233,7 +233,7 @@
     ```
 
   <a name="objects--quoted-props"></a><a name="3.6"></a>
-  - [3.6](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
+  - [3.6](#objects--quoted-props) Only quote properties that are invalid identifiers. 
 
     > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
 
@@ -275,7 +275,7 @@
 ## Arrays
 
   <a name="arrays--literals"></a><a name="4.1"></a>
-  - [4.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
+  - [4.1](#arrays--literals) Use the literal syntax for array creation. 
 
     ```javascript
     // bad
@@ -382,7 +382,7 @@
 
 
   <a name="destructuring--object"></a><a name="5.1"></a>
-  - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
+  - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. 
 
     > Why? Destructuring saves you from creating temporary references for those properties.
 
@@ -448,7 +448,7 @@
 ## Strings
 
   <a name="strings--quotes"></a><a name="6.1"></a>
-  - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
+  - [6.1](#strings--quotes) Use single quotes `''` for strings. 
 
     ```javascript
     // bad
@@ -483,7 +483,7 @@
     ```
 
   <a name="es6-template-literals"></a><a name="6.4"></a>
-  - [6.3](#es6-template-literals) When programmatically building up strings, use template strings instead of concatenation. eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
+  - [6.3](#es6-template-literals) When programmatically building up strings, use template strings instead of concatenation. 
 
     > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
 
@@ -510,7 +510,7 @@
     ```
 
   <a name="strings--escaping"></a><a name="6.5"></a>
-  - [6.5](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
+  - [6.5](#strings--escaping) Do not unnecessarily escape characters in strings. 
 
     > Why? Backslashes harm readability, thus they should only be present when necessary.
 
@@ -554,7 +554,7 @@
     ```
 
   <a name="functions--in-blocks"></a><a name="7.2"></a>
-  - [7.3](#functions--in-blocks) Never declare a function in a non-function block (`if`, `while`, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
+  - [7.3](#functions--in-blocks) Never declare a function in a non-function block (`if`, `while`, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. 
 
   <a name="functions--note-on-blocks"></a><a name="7.3"></a>
   - [7.3](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
@@ -651,7 +651,7 @@
     ```
 
   <a name="functions--signature-spacing"></a><a name="7.10"></a>
-  - [7.10](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks)
+  - [7.10](#functions--signature-spacing) Spacing in a function signature. 
 
     > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
 
@@ -667,7 +667,7 @@
     ```
 
   <a name="functions--mutate-params"></a><a name="7.11"></a>
-  - [7.11](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.11](#functions--mutate-params) Never mutate parameters. 
 
     > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
 
@@ -684,7 +684,7 @@
     ```
 
   <a name="functions--reassign-params"></a><a name="7.12"></a>
-  - [7.12](#functions--reassign-params) Never reassign parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.12](#functions--reassign-params) Never reassign parameters. 
 
     > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
 
@@ -712,7 +712,7 @@
     ```
 
   <a name="functions--spread-vs-apply"></a><a name="7.13"></a>
-  - [7.13](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions. eslint: [`prefer-spread`](http://eslint.org/docs/rules/prefer-spread)
+  - [7.13](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions. 
 
     > Why? It's cleaner, you don't need to supply a context, and you can not easily compose `new` with `apply`.
 
@@ -790,7 +790,7 @@
     ```
 
   <a name="arrows--implicit-return"></a><a name="8.2"></a>
-  - [8.2](#arrows--implicit-return) If the function body consists of a single expression, omit the braces and use the implicit return. Otherwise, keep the braces and use a `return` statement. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
+  - [8.2](#arrows--implicit-return) If the function body consists of a single expression, omit the braces and use the implicit return. Otherwise, keep the braces and use a `return` statement. 
 
     > Why? Syntactic sugar. It reads well when multiple functions are chained together.
 
@@ -839,7 +839,7 @@
     ```
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments for clarity and consistency. Note: it is also acceptable to always use parentheses, in which case use the ["always" option](http://eslint.org/docs/rules/arrow-parens#always) for eslint or do not include [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam) for jscs. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
+  - [8.4](#arrows--one-arg-parens) If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments for clarity and consistency. Note: it is also acceptable to always use parentheses, in which case use the ["always" option](http://eslint.org/docs/rules/arrow-parens#always) for eslint or do not include [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam) for jscs. 
 
     > Why? Less visual clutter.
 
@@ -869,7 +869,7 @@
     ```
 
   <a name="arrows--confusing"></a><a name="8.5"></a>
-  - [8.5](#arrows--confusing) Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`). eslint: [`no-confusing-arrow`](http://eslint.org/docs/rules/no-confusing-arrow)
+  - [8.5](#arrows--confusing) Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`). 
 
     ```javascript
     // bad
@@ -1002,7 +1002,7 @@
     ```
 
   <a name="constructors--no-useless"></a><a name="9.5"></a>
-  - [9.5](#constructors--no-useless) Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. eslint: [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
+  - [9.5](#constructors--no-useless) Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. 
 
     ```javascript
     // bad
@@ -1084,7 +1084,7 @@
 
   <a name="modules--no-duplicate-imports"></a>
   - [10.4](#modules--no-duplicate-imports) Only import from a path in one place.
- eslint: [`no-duplicate-imports`](http://eslint.org/docs/rules/no-duplicate-imports)
+ 
     > Why? Having multiple lines that import from the same path can make code harder to maintain.
 
     ```javascript
@@ -1105,7 +1105,7 @@
 
   <a name="modules--no-mutable-exports"></a>
   - [10.5](#modules--no-mutable-exports) Do not export mutable bindings.
- eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
+ 
     > Why? Mutation should be avoided in general, but in particular when exporting mutable bindings. While this technique may be needed for some special cases, in general, only constant references should be exported.
 
     ```javascript
@@ -1120,7 +1120,7 @@
 
   <a name="modules--prefer-default-export"></a>
   - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
- eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
+ 
 
     ```javascript
     // bad
@@ -1132,7 +1132,7 @@
 
   <a name="modules--imports-first"></a>
   - [10.7](#modules--imports-first) Put all `import`s above non-import statements.
- eslint: [`import/first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md)
+ 
     > Why? Since `import`s are hoisted, keeping them all at the top prevents surprising behavior.
 
     ```javascript
@@ -1170,7 +1170,7 @@
 
   <a name="modules--no-webpack-loader-syntax"></a>
   - [10.9](#modules--no-webpack-loader-syntax) Disallow Webpack loader syntax in module import statements.
- eslint: [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md)
+ 
     > Why? Since using Webpack syntax in the imports couples the code to a module bundler. Prefer using the loader syntax in `webpack.config.js`.
 
     ```javascript
@@ -1188,7 +1188,7 @@
 ## Iterators and Generators
 
   <a name="iterators--nope"></a><a name="11.1"></a>
-  - [11.1](#iterators--nope) Don't use iterators. Prefer JavaScript's higher-order functions instead of loops like `for-in` or `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
+  - [11.1](#iterators--nope) Don't use iterators. Prefer JavaScript's higher-order functions instead of loops like `for-in` or `for-of`. 
 
     > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
 
@@ -1237,7 +1237,7 @@
 ## Properties
 
   <a name="properties--dot"></a><a name="12.1"></a>
-  - [12.1](#properties--dot) Use dot notation when accessing properties. eslint: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html) jscs: [`requireDotNotation`](http://jscs.info/rule/requireDotNotation)
+  - [12.1](#properties--dot) Use dot notation when accessing properties. 
 
     ```javascript
     const luke = {
@@ -1273,7 +1273,7 @@
 ## Variables
 
   <a name="variables--const"></a><a name="13.1"></a>
-  - [13.1](#variables--const) Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
+  - [13.1](#variables--const) Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. 
 
     ```javascript
     // bad
@@ -1284,7 +1284,7 @@
     ```
 
   <a name="variables--one-const"></a><a name="13.2"></a>
-  - [13.2](#variables--one-const) Use one `const` or `let` declaration per variable. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
+  - [13.2](#variables--one-const) Use one `const` or `let` declaration per variable. 
 
     > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
 
@@ -1371,7 +1371,7 @@
     }
     ```
   <a name="variables--unary-increment-decrement"></a><a name="13.5"></a>
-  - [13.5](#variables--unary-increment-decrement) Avoid using unary increments and decrements (++, --). eslint [`no-plusplus`](http://eslint.org/docs/rules/no-plusplus)
+  - [13.5](#variables--unary-increment-decrement) Avoid using unary increments and decrements (++, --). 
 
     > Why? Per the eslint documentation, unary increment and decrement statements are subject to automatic semicolon insertion and can cause silent errors with incrementing or decrementing values within an application. It is also more expressive to mutate your values with statements like `num += 1` instead of `num++` or `num ++`. Disallowing unary increment and decrement statements also prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
 
@@ -1408,14 +1408,14 @@
 
 ## Hoisting
 
-  Since this part appeared to be more educational than anything else, you can refer to the original [Airbnb Style Guide](https://github.com/airbnb/javascript) for more information about hoisting. In short, use `const` and `let`, and always avoid using `var`. 
+  Since this part appears to be more educational than anything else, you can refer to the original [Airbnb Style Guide](https://github.com/airbnb/javascript) for more information about hoisting. In short, use [`const`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/const) and [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and always avoid using `var`. 
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Comparison Operators & Equality
 
   <a name="comparison--eqeqeq"></a><a name="15.1"></a>
-  - [15.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`. eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
+  - [15.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`. 
 
   <a name="comparison--if"></a><a name="15.2"></a>
   - [15.2](#comparison--if) Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
@@ -1477,8 +1477,6 @@
 
     > Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
 
-    eslint rules: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations.html).
-
     ```javascript
     // bad
     switch (foo) {
@@ -1525,8 +1523,6 @@
   <a name="comparison--nested-ternaries"></a><a name="15.6"></a>
   - [15.6](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions.
 
-    eslint rules: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary.html).
-
     ```javascript
     // bad
     const foo = maybe1 > maybe2
@@ -1543,8 +1539,6 @@
 
   <a name="comparison--unneeded-ternary"></a><a name="15.7"></a>
   - [15.7](#comparison--unneeded-ternary) Avoid unneeded ternary statements.
-
-    eslint rules: [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary.html).
 
     ```javascript
     // bad
@@ -1587,7 +1581,7 @@
     ```
 
   <a name="blocks--cuddled-elses"></a><a name="16.2"></a>
-  - [16.2](#blocks--cuddled-elses) If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your `if` block's closing brace. eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) jscs:  [`disallowNewlineBeforeBlockStatements`](http://jscs.info/rule/disallowNewlineBeforeBlockStatements)
+  - [16.2](#blocks--cuddled-elses) If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your `if` block's closing brace. 
 
     ```javascript
     // bad
@@ -1708,7 +1702,7 @@
     }
     ```
 
-  - [18.3](#comments--spaces) Start all comments with a space to make it easier to read. eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
+  - [18.3](#comments--spaces) Start all comments with a space to make it easier to read. 
 
     ```javascript
     // bad
@@ -1778,7 +1772,7 @@
 **[⬆ back to top](#table-of-contents)**
 
   <a name="whitespace--before-blocks"></a><a name="18.2"></a>
-  - [19.2](#whitespace--before-blocks) Place 1 space before the leading brace. eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
+  - [19.2](#whitespace--before-blocks) Place 1 space before the leading brace. 
 
     ```javascript
     // bad
@@ -1805,7 +1799,7 @@
     ```
 
   <a name="whitespace--around-keywords"></a><a name="18.3"></a>
-  - [19.3](#whitespace--around-keywords) Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing.html) jscs: [`requireSpaceAfterKeywords`](http://jscs.info/rule/requireSpaceAfterKeywords)
+  - [19.3](#whitespace--around-keywords) Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. 
 
     ```javascript
     // bad
@@ -1830,7 +1824,7 @@
     ```
 
   <a name="whitespace--infix-ops"></a><a name="18.4"></a>
-  - [19.4](#whitespace--infix-ops) Set off operators with spaces. eslint: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html) jscs: [`requireSpaceBeforeBinaryOperators`](http://jscs.info/rule/requireSpaceBeforeBinaryOperators), [`requireSpaceAfterBinaryOperators`](http://jscs.info/rule/requireSpaceAfterBinaryOperators)
+  - [19.4](#whitespace--infix-ops) Set off operators with spaces. 
 
     ```javascript
     // bad
@@ -1841,7 +1835,7 @@
     ```
 
   <a name="whitespace--newline-at-end"></a><a name="18.5"></a>
-  - [19.5](#whitespace--newline-at-end) End files with a single newline character. eslint: [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md)
+  - [19.5](#whitespace--newline-at-end) End files with a single newline character. 
 
     ```javascript
     // bad
@@ -1867,7 +1861,7 @@
 
   <a name="whitespace--chains"></a><a name="18.6"></a>
   - [19.6](#whitespace--chains) Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which
-    emphasizes that the line is a method call, not a new statement. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
+    emphasizes that the line is a method call, not a new statement. 
 
     ```javascript
     // bad
@@ -1890,7 +1884,7 @@
     ```
 
   <a name="whitespace--after-blocks"></a><a name="18.7"></a>
-  - [19.7](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement. jscs: [`requirePaddingNewLinesAfterBlocks`](http://jscs.info/rule/requirePaddingNewLinesAfterBlocks)
+  - [19.7](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement. 
 
     ```javascript
     // bad
@@ -1928,7 +1922,7 @@
     ```
 
   <a name="whitespace--padded-blocks"></a><a name="18.8"></a>
-  - [19.8](#whitespace--padded-blocks) Do not pad your blocks with blank lines. eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html) jscs:  [`disallowPaddingNewlinesInBlocks`](http://jscs.info/rule/disallowPaddingNewlinesInBlocks)
+  - [19.8](#whitespace--padded-blocks) Do not pad your blocks with blank lines. 
 
     ```javascript
     // bad
@@ -1961,7 +1955,7 @@
     ```
 
   <a name="whitespace--in-parens"></a><a name="18.9"></a>
-  - [19.9](#whitespace--in-parens) Do not add spaces inside parentheses. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html) jscs: [`disallowSpacesInsideParentheses`](http://jscs.info/rule/disallowSpacesInsideParentheses)
+  - [19.9](#whitespace--in-parens) Do not add spaces inside parentheses. 
 
     ```javascript
     // bad
@@ -1986,7 +1980,7 @@
     ```
 
   <a name="whitespace--in-brackets"></a><a name="18.10"></a>
-  - [19.10](#whitespace--in-brackets) Do not add spaces inside brackets. eslint: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html) jscs: [`disallowSpacesInsideArrayBrackets`](http://jscs.info/rule/disallowSpacesInsideArrayBrackets)
+  - [19.10](#whitespace--in-brackets) Do not add spaces inside brackets. 
 
     ```javascript
     // bad
@@ -1999,7 +1993,7 @@
     ```
 
   <a name="whitespace--in-braces"></a><a name="18.11"></a>
-  - [19.11](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html) jscs: [`requireSpacesInsideObjectBrackets`](http://jscs.info/rule/requireSpacesInsideObjectBrackets)
+  - [19.11](#whitespace--in-braces) Add spaces inside curly braces. 
 
     ```javascript
     // bad
@@ -2010,7 +2004,7 @@
     ```
 
   <a name="whitespace--max-len"></a><a name="18.12"></a>
-  - [19.12](#whitespace--max-len) Avoid having lines of code that are longer than 140 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
+  - [19.12](#whitespace--max-len) Avoid having lines of code that are longer than 140 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. 
 
     > Why? This ensures readability and maintainability.
 
@@ -2044,7 +2038,7 @@
 ## Commas
 
 <a name="commas--leading-trailing"></a><a name="19.1"></a>
-  - [20.1](#commas--leading-trailing) Do not use leading commas, **use trailing commas**. eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
+  - [20.1](#commas--leading-trailing) Do not use leading commas, **use trailing commas**. 
 
     ```javascript
     // bad
@@ -2079,7 +2073,7 @@
     ```
 
   <a name="commas--dangling"></a><a name="19.2"></a>
-  - [20.2](#commas--dangling) Use the additional trailing comma. eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
+  - [20.2](#commas--dangling) Use the additional trailing comma. 
 
     > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
 
@@ -2179,7 +2173,7 @@
 ## Semicolons
 
   <a name="semicolons--required"></a><a name="20.1"></a>
-  - [21.1](#semicolons--required) **Use semicolons to end your code statements.** eslint: [`semi`](http://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
+  - [21.1](#semicolons--required) **Use semicolons to end your code statements.** 
 
     ```javascript
     // bad
@@ -2218,7 +2212,7 @@
     ```
 
   <a name="coercion--numbers"></a><a name="21.3"></a>
-  - [22.3](#coercion--numbers) Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings. eslint: [`radix`](http://eslint.org/docs/rules/radix)
+  - [22.3](#coercion--numbers) Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings. 
 
     ```javascript
     const inputValue = '4';
@@ -2283,7 +2277,7 @@
 ## Naming Conventions
 
   <a name="naming--descriptive"></a><a name="22.1"></a>
-  - [23.1](#naming--descriptive) Be descriptive with your naming. eslint: [`id-length`](http://eslint.org/docs/rules/id-length)
+  - [23.1](#naming--descriptive) Be descriptive with your naming. 
 
     ```javascript
     // bad
@@ -2298,7 +2292,7 @@
     ```
 
   <a name="naming--camelCase"></a><a name="22.2"></a>
-  - [23.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
+  - [23.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. 
 
     ```javascript
     // bad
@@ -2312,7 +2306,7 @@
     ```
 
   <a name="naming--PascalCase"></a><a name="22.3"></a>
-  - [23.3](#naming--PascalCase) Use PascalCase only when naming constructors or classes. eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap.html) jscs: [`requireCapitalizedConstructors`](http://jscs.info/rule/requireCapitalizedConstructors)
+  - [23.3](#naming--PascalCase) Use PascalCase only when naming constructors or classes. 
 
     ```javascript
     // bad
@@ -2337,10 +2331,10 @@
     ```
 
   <a name="naming--leading-underscore"></a><a name="22.4"></a>
-  - [23.4](#naming--leading-underscore) Do not use trailing or leading underscores. eslint: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html) jscs: [`disallowDanglingUnderscores`](http://jscs.info/rule/disallowDanglingUnderscores)
+  - [23.4](#naming--leading-underscore) Do not use trailing or leading underscores. 
 
   <a name="naming--self-this"></a><a name="22.5"></a>
-  - [23.5](#naming--self-this) Don't save references to `this`. Use arrow functions or [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind). jscs: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes)
+  - [23.5](#naming--self-this) Don't save references to `this`. Use arrow functions or [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind). 
 
     ```javascript
     // bad
@@ -2514,7 +2508,7 @@
 ## jQuery
 
   <a name="jquery--dollar-prefix"></a><a name="25.1"></a>
-  - [26.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$`. jscs: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment)
+  - [26.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$`. 
 
     ```javascript
     // bad
