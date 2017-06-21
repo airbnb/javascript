@@ -261,13 +261,13 @@
     const copy = _.extend(original, { c: 3 }); // this mutates `original` ಠ_ಠ
     delete copy.a; // so does this
 
-    // gppd
+    // good
     const original = { a: 1, b: 2 };
     const copy = _.extend({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
 
     // good
     const original = { a: 1, b: 2 };
-    const copy = _.omit(original, 'a'); // copy => { b: 2 }
+    const copy = _.omit(original, 'a'); // copy => { b: 2 }, _.omit does not mutate `original`
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -301,6 +301,8 @@
     inbox.filter((msg) => {
       if (msg.subject === 'Mockingbird') {
         return msg.author === 'Harper Lee';
+      } else if (msg.subject === 'AnotherSubject') {
+        return msg.author === 'The Author';  
       }
 
       return false;
@@ -378,7 +380,69 @@
 
 ## Destructuring
 
-  Although we very much appreciate the interesting feature of arrays and objects destructuring of [ECMAScript 6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment), we currently do not support it in our code base.  
+
+  <a name="destructuring--object"></a><a name="5.1"></a>
+  - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
+
+    > Why? Destructuring saves you from creating temporary references for those properties.
+
+    ```javascript
+    // bad
+    function getFullName(user) {
+      const firstName = user.firstName;
+      const lastName = user.lastName;
+
+      return `${firstName} ${lastName}`;
+    }
+
+    // good
+    function getFullName(user) {
+      const { firstName, lastName } = user;
+      return `${firstName} ${lastName}`;
+    }
+
+    // best
+    function getFullName({ firstName, lastName }) {
+      return `${firstName} ${lastName}`;
+    }
+    ```
+
+  <a name="destructuring--array"></a><a name="5.2"></a>
+  - [5.2](#destructuring--array) Use array destructuring.
+    ```javascript
+    const arr = [1, 2, 3, 4];
+
+    // bad
+    const first = arr[0];
+    const second = arr[1];
+
+    // good
+    const [first, second] = arr;
+    ```
+
+  <a name="destructuring--object-over-array"></a><a name="5.3"></a>
+  - [5.3](#destructuring--object-over-array) Use object destructuring for multiple return values, not array destructuring.
+    > Why? You can add new properties over time or change the order of things without breaking call sites.
+
+    ```javascript
+    // bad
+    function processInput(input) {
+      // then a miracle occurs
+      return [left, right, top, bottom];
+    }
+
+    // the caller needs to think about the order of return data
+    const [left, __, top] = processInput(input);
+
+    // good
+    function processInput(input) {
+      // then a miracle occurs
+      return { left, right, top, bottom };
+    }
+
+    // the caller selects only the data they need
+    const { left, top } = processInput(input);
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Strings
@@ -398,7 +462,7 @@
     ```
 
   <a name="strings--line-length"></a><a name="6.2"></a>
-  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
+  - [6.2](#strings--line-length) Strings that cause the line to go over 140 characters should not be written across multiple lines using string concatenation.
 
     > Why? Broken strings are painful to work with and make code less searchable.
 
@@ -971,7 +1035,7 @@
 ## Modules
 
   <a name="modules--use-them"></a><a name="10.1"></a>
-  - [10.1](#modules--use-them) Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system. **N.B. As of the last edit of our javascript styleguide, we are currently migrating towards `import`/`export`, but some of our projects use non-standard module system for now.** 
+  - [10.1](#modules--use-them) Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system. **N.B. As of the last edit of our javascript styleguide, we are currently migrating towards `import`/`export`, but some of our projects use non-standard module systems for now.** 
 
     > Why? Modules are the future, let's start using the future now.
 
@@ -1344,7 +1408,7 @@
 
 ## Hoisting
 
-  Since this part appeared to be more educational than anything else, you can refer to the original [Airbnb Style Guide](https://github.com/airbnb/javascript) for more information about hoisting. 
+  Since this part appeared to be more educational than anything else, you can refer to the original [Airbnb Style Guide](https://github.com/airbnb/javascript) for more information about hoisting. In short, use `const` and `let`, and always avoid using `var`. 
 
 **[⬆ back to top](#table-of-contents)**
 
