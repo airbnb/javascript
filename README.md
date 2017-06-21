@@ -1,4 +1,4 @@
-# Coveo TypeScript Style Guide() {
+# Coveo TypeScript - Cloud Platform Code Standards {
 
 <h2 id="table-of-contents">Table of Contents</h2>
 
