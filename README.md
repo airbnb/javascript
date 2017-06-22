@@ -6,7 +6,7 @@ The current repository aggregates all code standards that must be respected when
   
 Since the current repository is greatly inspired from [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript#naming-conventions), most code examples are written in plain JavaScript, except for TypeScript specific standards.  
   
-<h4 id="intro--why">Code standards, what for?</h4>
+<h3 id="intro--why">Code standards, what for?</h3>
 
 Adopting code standards means ranking the importance of code clarity and team conventions higher than personal style. In a more pragmatical perspective, we also believe that code standards have very positive and tangible effects on a team workflow:  
   1. __Team members get productive time back by avoiding subjective code style debates__. If the code doesn't respect team conventions, simply point the author to the commonly accepted code standard that must be respected. 
