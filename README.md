@@ -1,4 +1,23 @@
-# Coveo TypeScript - Cloud Platform Code Standards {
+# Coveo TypeScript - Cloud Platform Standards {
+
+<h2 id="intro">Introduction</h2>
+
+The current repository aggregates all code standards that must be respected when writing and reviewing TypeScript code related to the Coveo Cloud Platform. This document should therefore be read and applied by anyone having to write TypeScript code for the Coveo Cloud Platform.  
+  
+Since the current repository is greatly inspired from [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript#naming-conventions), most code examples are written in plain JavaScript, except for TypeScript specific standards.  
+  
+<h4 id="intro--why">Code standards, what for?</h4>
+
+Adopting code standards means ranking the importance of code clarity and team conventions higher than personal style. In a more pragmatical perspective, we also believe that code standards have very positive and tangible effects on a team workflow:  
+  1. __Team members get productive time back by avoiding subjective code style debates__. If the code doesn't respect team conventions, simply point the author to the commonly accepted code standard that must be respected. 
+  1. __Code reviews' focus are redirected towards what is most critical:__ 
+      1. _Code architecture_ (Is there a better/more intelligent way to handle the use case at hand?)
+      1. _Code fidelity_ (Will the code crash in real life situations? Are all possible cases handled?)  
+      1. _Code quality_ (Is the code well tested, meaningful, and DRY?) 
+  1. __The codebase gets easier to read and navigate for team members.__  
+  1. __Written standards (as opposed to implicit, word-to-mouth standards) allow newcomers to get up to speed faster by knowing how to write proper code from day one.__  
+  
+In summary, code standards make developpers happier. Embrace them.
 
 <h2 id="table-of-contents">Table of Contents</h2>
 
@@ -30,6 +49,10 @@
   1. [jQuery](#jquery)
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
   1. [Testing](#testing)
+  1. [Reviewing](#reviewing)
+  1. [Notes on Legacy Code](#legacy)
+  1. [TypeScript](#typescript)
+  1. [Libraries](#libraries)
   1. [Performance](#performance)
 
 ## Types
