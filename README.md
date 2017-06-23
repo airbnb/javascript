@@ -2473,7 +2473,7 @@ Other Style Guides
     const foo = jsonData && jsonData.foo && jsonData.foo.bar && jsonData.foo.bar.baz && jsonData.foo.bar.baz.quux && jsonData.foo.bar.baz.quux.xyzzy;
 
     // bad
-    $.ajax({ method: 'POST', url: 'https://airbnb.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
+    fetch('https://airbnb.com/', { headers: { 'Content-Type': 'application/json' }, method: 'POST', body: JSON.stringify({ name: 'John' }) }).then(() => console.log('Congratulations!')).catch(() => console.log('You have failed this city.'));
 
     // good
     const foo = jsonData
@@ -2484,13 +2484,13 @@ Other Style Guides
       && jsonData.foo.bar.baz.quux.xyzzy;
 
     // good
-    $.ajax({
+    fetch('https://airbnb.com/', {
+      headers: { 'Content-Type': 'application/json' },
       method: 'POST',
-      url: 'https://airbnb.com/',
-      data: { name: 'John' },
+      body: JSON.stringify({ name: 'John' }),
     })
-      .done(() => console.log('Congratulations!'))
-      .fail(() => console.log('You have failed this city.'));
+      .then(() => console.log('Congratulations!'))
+      .catch(() => console.log('You have failed this city.'));
     ```
 
 **[⬆ back to top](#table-of-contents)**
