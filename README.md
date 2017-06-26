@@ -1498,6 +1498,16 @@ Other Style Guides
 
     const isJedi = getProp('jedi');
     ```
+  <a name="es2016-properties--exponentiation-operator"></a>
+  - [12.3](#es2016-properties--exponentiation-operator) Use exponentiation operator `**` when calculating exponentiations. eslint: [`no-restricted-properties`](http://eslint.org/docs/rules/no-restricted-properties).
+
+    ```javascript
+    // bad
+    const binary = Math.pow(2, 10);
+
+    // good
+    const binary = 2 ** 10;
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -3116,7 +3126,7 @@ Other Style Guides
 ## ECMAScript 6+ (ES 2015+) Styles
 
   <a name="es6-styles"></a><a name="27.1"></a>
-  - [28.1](#es6-styles) This is a collection of links to the various ES6 features.
+  - [28.1](#es6-styles) This is a collection of links to the various ES6+ features.
 
 1. [Arrow Functions](#arrow-functions)
 1. [Classes](#classes--constructors)
@@ -3129,6 +3139,7 @@ Other Style Guides
 1. [Rest](#es6-rest)
 1. [Array Spreads](#es6-array-spreads)
 1. [Let and Const](#references)
+1. [Exponentiation Operator](#es2016-properties--exponentiation-operator)
 1. [Iterators and Generators](#iterators-and-generators)
 1. [Modules](#modules)
 
