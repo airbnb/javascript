@@ -871,19 +871,19 @@ Other Style Guides
     ```
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
+  - [8.4](#arrows--one-arg-parens) Always include parentheses around arguments, even when there's only one argument. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) "always" option.
 
-    > Why? Less visual clutter.
+    > Why? Clarity around function arguments.
 
     ```js
     // bad
-    [1, 2, 3].map((x) => x * x);
-
-    // good
     [1, 2, 3].map(x => x * x);
 
     // good
-    [1, 2, 3].map(number => (
+    [1, 2, 3].map((x) => x * x);
+
+    // good
+    [1, 2, 3].map((number) => (
       `A long string with the ${number}. It’s so long that we’ve broken it ` +
       'over multiple lines!'
     ));
@@ -1109,7 +1109,7 @@ Other Style Guides
     ```
 
   <a name="modules--no-wildcard"></a><a name="10.2"></a>
-  - [10.2](#modules--no-wildcard) Do not use wildcard imports.
+  - [10.2](#modules--no-wildcard) Do not use wildcard imports, unless you're exporting actions or selectors in Reudx.
 
     > Why? This makes sure you have a single default export.
 
@@ -1202,6 +1202,25 @@ Other Style Guides
     import bar from 'bar';
 
     foo.init();
+    ```
+  <a name="modules--imports-order"></a>
+  - [10.7](#modules--imports-order) Import React and PropTypes first, followed by third-party libraries (e.g. material components), followed by top-level global components, followed by route and directory-specific components. Import styles last. Within each section, alphabetize imports. Include a space between outside imports and Newsela-specific imports.
+    > Why? For consistency and ease of finding import statements.
+
+    ```javascript
+    // bad
+    import React from 'react';
+    import styles from './styles.scss';
+    import Classroom from './components/Classroom';
+    import FlatButton from 'material-ui/FlatButton';
+
+    // good
+    import React from 'react';
+    import FlatButton from 'material-ui/FlatButton';
+
+    import Classroom from './components/Classroom';
+    import styles from './styles.scss';
+
     ```
 
 **[⬆ back to top](#table-of-contents)**
