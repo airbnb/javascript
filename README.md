@@ -2142,7 +2142,7 @@ Other Style Guides
     ```
 
   <a name="whitespace--max-len"></a><a name="18.12"></a>
-  - [18.12](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
+  - [18.12](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). For multiline strings, use string templating to avoid concatenating strings. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
 
     > Why? This ensures readability and maintainability.
 
@@ -2156,6 +2156,10 @@ Other Style Guides
     // good
     const foo = 'Whatever national crop flips the window. The cartoon reverts within the screw. ' +
       'Whatever wizard constrains a helpful ally. The counterpart ascends!';
+
+    // best
+    const foo = `Whatever national crop flips the window. The cartoon reverts within the screw.
+      'Whatever wizard constrains a helpful ally. The counterpart ascends!`;
 
     // good
     $.ajax({
