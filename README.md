@@ -1233,7 +1233,7 @@ Other Style Guides
 ## Iterators and Generators
 
   <a name="iterators--nope"></a><a name="11.1"></a>
-  - [11.1](#iterators--nope) Don't use iterators. Prefer JavaScript's higher-order functions like `map()` and `reduce()` instead of loops like `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html)
+  - [11.1](#iterators--nope) Don't use iterators. Prefer higher-order functions like `map()` and `reduce()` instead of loops like `for-of`. Instead of using the JavaScript built-in functions, use lodash's `_.map` and `_.reduce` for better performance. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html)
 
     > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
 
@@ -1554,7 +1554,7 @@ Other Style Guides
 ## Comparison Operators & Equality
 
   <a name="comparison--eqeqeq"></a><a name="15.1"></a>
-  - [15.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`. eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
+  - [15.1](#comparison--eqeqeq) It is acceptable to use use `==` and `!=` over `===` and `!==`, but be wary of type coersion. eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
 
   <a name="comparison--if"></a><a name="15.2"></a>
   - [15.2](#comparison--if) Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
@@ -1586,18 +1586,21 @@ Other Style Guides
     if (name) {
       // ...stuff...
     }
+    ```
+   <a name="no-length"></a><a name="15.4"></a>
+  - [15.3](#comparison--shortcuts) Don't use `.length` directly, as there's a possibility of returning `undefined`. Use the lodash method `_.size` to calculate size for arrays and objects, which will return 0 in the case that the variable is `undefined`.
 
+    ```javascript
     // bad
     if (collection.length > 0) {
       // ...stuff...
     }
 
     // good
-    if (collection.length) {
+    if (_.size(collection) > 0) {
       // ...stuff...
     }
     ```
-
   <a name="comparison--moreinfo"></a><a name="15.4"></a>
   - [15.4](#comparison--moreinfo) For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
 
@@ -1747,7 +1750,7 @@ Other Style Guides
 ## Comments
 
   <a name="comments--multiline"></a><a name="17.1"></a>
-  - [17.1](#comments--multiline) Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
+  - [17.1](#comments--multiline) Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values. When possible, include a comment with a description for each React component.
 
     ```javascript
     // bad
