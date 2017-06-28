@@ -517,7 +517,7 @@ Other Style Guides
     ```
 
   <a name="strings--line-length"></a><a name="6.2"></a>
-  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should be written across multiple lines using string concatenation.
+  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should be written across multiple lines using string templating.
 
   <a name="strings--concat-perf"></a><a name="6.3"></a>
   - [6.3](#strings--concat-perf) Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
@@ -536,6 +536,11 @@ Other Style Guides
     const errorMessage = 'This is a super long error that was thrown because ' +
       'of Batman. When you stop to think about how Batman had anything to do ' +
       'with this, you would get nowhere fast.';
+
+    // best
+    const errorMessage = `This is a super long error that was thrown because
+      of Batman. When you stop to think about how Batman had anything to do
+      with this, you would get nowhere fast.`;
     ```
 
   <a name="es6-template-literals"></a><a name="6.4"></a>
