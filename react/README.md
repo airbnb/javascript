@@ -1,4 +1,4 @@
-# Airbnb React/JSX Style Guide
+# Postmates React/JSX Style Guide
 
 *A mostly reasonable approach to React and JSX*
 
@@ -324,7 +324,7 @@
   <div />
   ```
 
-  - Avoid using an array index as `key` prop, prefer a unique ID. ([why?](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318))
+  - Avoid using an array index as `key` prop, prefer a unique ID if possible. ([why?](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318))
 
   ```jsx
   // bad

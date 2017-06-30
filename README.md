@@ -1,4 +1,4 @@
-# Airbnb JavaScript Style Guide() {
+# Postmates JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
