@@ -3,6 +3,12 @@ module.exports = {
     // enforce spacing inside array brackets
     'array-bracket-spacing': ['error', 'never'],
 
+    // enforce line breaks after opening and before closing array brackets
+    'array-bracket-newline': ['error', { multiline: true }],
+
+    // enforce line breaks between elements when multiline
+    'array-element-newline': ['error', { multiline: true }],
+
     // enforce spacing inside single-line blocks
     // http://eslint.org/docs/rules/block-spacing
     'block-spacing': ['error', 'always'],

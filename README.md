@@ -419,8 +419,8 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
-<a name="arrays--bracket-newline"></a>
-  - [4.6](#arrays--bracket-newline) Use line breaks after open and before close array brackets if an array has multiple lines
+<a name="arrays--newline"></a>
+  - [4.6](#arrays--newline) Use line breaks after open and before close array brackets and between elements if an array has multiple lines
 
   ```javascript
   // bad
