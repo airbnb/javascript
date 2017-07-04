@@ -10,7 +10,9 @@
     "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test) && safe-publish-latest",
     "pretest": "npm run --silent lint",
     "test": "npm run --silent tests-only",
-    "travis": "npm run --silent test"
+    "pretravis": ":",
+    "travis": "npm run --silent test",
+    "posttravis": ":"
   },
   "repository": {
     "type": "git",
