@@ -1,10 +1,19 @@
 # Coveo TypeScript - Cloud Platform Standards {
 
+Other Style Guides  
+
+- [React/Redux](react_redux/)  
+- [CSS & Sass](css_sass/)
+
 <h2 id="intro">Introduction</h2>
 
 The current repository aggregates all code standards that must be respected when writing and reviewing TypeScript code related to the Coveo Cloud Platform. This document should therefore be read and applied by anyone having to write TypeScript code for the Coveo Cloud Platform.  
   
-Since the current repository is greatly inspired from [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript#naming-conventions), most code examples are written in plain JavaScript, except for TypeScript specific standards.  
+Since the current repository is greatly inspired from [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript), most code examples are written in plain JavaScript, except for TypeScript specific standards.  
+
+If you are somewhat new to JavaScript with ES6, we recommend you read the full [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript). Feel free to use additional resources, there are tons of it out there.
+
+If you are somewhat new to TypeScript, we recommend you follow this [5 minutes tutorial](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html), and read the official [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/basic-types.html) in full.
   
 <h3 id="intro--why">Code standards, what for?</h3>
 
@@ -14,10 +23,10 @@ Adopting code standards means ranking the importance of code clarity and team co
       1. _Code architecture_ (Is there a better/more intelligent way to handle the use case at hand?)
       1. _Code fidelity_ (Will the code crash in real life situations? Are all possible cases handled?)  
       1. _Code quality_ (Is the code well tested, meaningful, and DRY?) 
-  1. __The codebase gets easier to read and navigate for team members.__  
+  1. __The code base gets easier to read and navigate for team members.__  
   1. __Written standards (as opposed to implicit, word-to-mouth standards) allow newcomers to get up to speed faster by knowing how to write proper code from day one.__  
   
-In summary, code standards make developpers happier. Embrace them.
+In summary, code standards make developers happier. Embrace them.
 
 <h2 id="table-of-contents">Table of Contents</h2>
 
@@ -50,46 +59,15 @@ In summary, code standards make developpers happier. Embrace them.
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
   1. [Testing](#testing)
   1. [Reviewing](#reviewing)
-  1. [Notes on Legacy Code](#legacy)
-  1. [TypeScript](#typescript)
   1. [Libraries](#libraries)
-  1. [Performance](#performance)
+  1. [TypeScript](#typescript)
+  1. [Notes on Legacy Code](#legacy)
+  1. [Remaining Sections](#remaining-sections)
 
 ## Types
 
-  <a name="types--primitives"></a><a name="1.1"></a>
-  - [1.1](#types--primitives) **Primitives**: When you access a primitive type you work directly on its value.
-
-    - `string`
-    - `number`
-    - `boolean`
-    - `null`
-    - `undefined`
-
-    ```javascript
-    const foo = 1;
-    let bar = foo;
-
-    bar = 9;
-
-    console.log(foo, bar); // => 1, 9
-    ```
-
-  <a name="types--complex"></a><a name="1.2"></a>
-  - [1.2](#types--complex)  **Complex**: When you access a complex type you work on a reference to its value.
-
-    - `object`
-    - `array`
-    - `function`
-
-    ```javascript
-    const foo = [1, 2];
-    const bar = foo;
-
-    bar[0] = 9;
-
-    console.log(foo[0], bar[0]); // => 9, 9
-    ```
+Since this part appeared to have a more educational purpose, you can refer to the original [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript#types) for more information.  
+  
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -545,6 +523,11 @@ In summary, code standards make developpers happier. Embrace them.
     const foo = '\'this\' is "quoted"';
     const foo = `my name is '${name}'`;
     ```
+
+  <a name="strings--localization"></a><a name="6.6"></a>
+  - [6.6](#strings--localization) Never hardcode a string that will appear in the UI in the code base. Localize the string in a dedicated json file. 
+
+    > Why? Coveo develops international products, strings appearing the UI can be translated in multiple languages, thus we localize them.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -2600,7 +2583,7 @@ In summary, code standards make developpers happier. Embrace them.
 ## ECMAScript 6+ (ES 2015+) Styles
 
   <a name="tc39-proposals"></a>
-  - [28.2](#tc39-proposals) Do not use [TC39 proposals](https://github.com/tc39/proposals) that have not reached stage 3.
+  - [27.1](#tc39-proposals) Do not use [TC39 proposals](https://github.com/tc39/proposals) that have not reached stage 3.
 
     > Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
 
@@ -2608,26 +2591,115 @@ In summary, code standards make developpers happier. Embrace them.
 
 ## Testing
 
-  <a name="testing--yup"></a><a name="28.1"></a>
-  - [29.1](#testing--yup) **Yup.**
+  <a name="test-jasmine"></a>
+  - [28.1](#test-jasmine) We use [Jasmine](https://jasmine.github.io/) at Coveo, and combine it with [Enzyme](http://airbnb.io/enzyme/) when testing React components. 
 
-    ```javascript
-    function foo() {
-      return true;
-    }
-    ```
+  <a name="test-everything"></a>
+  - [28.2](#test-everything) You should be writing tests for all new code you write. 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
 
-  <a name="testing--for-real"></a><a name="28.2"></a>
-  - [29.2](#testing--for-real) **No, but seriously**:
-    - Whichever testing framework you use, you should be writing tests!
-    - Strive to write many small pure functions, and minimize where mutations occur.
-    - Be cautious about stubs and mocks - they can make your tests more brittle.
-    - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Airbnb. [`tape`](https://www.npmjs.com/package/tape) is also used occasionally for small, separate modules.
-    - 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
-    - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
+    > Why? Testing aggressively gives you solid proofs that your system/application will work the way you want. Plus, if new code breaks your application, it will be much easier to find out why it happened if the code base is well tested.
+
+
+  <a name="regression-test"></a>
+  - [28.3](#regression-test) Whenever you fix a bug, _write a regression test_. In other words, add additional unit tests proving that the bug is really fixed and unlikely to break again in the future.
+  
+    > Why? A bug fixed without a regression test is almost certainly going to break again in the future.
+
+  <a name="test-mocks"></a>
+  - [28.4](#test-mocks) Use mocks to mock objects, and create them in their own files.
+    > Why? Having your mocks outside your test files makes your tests more readable. 
+  
+  <a name="test-spies"></a>
+  - [28.5](#test-spies) Name your spies with the name of the entity you want to spy (be it a method or property) following with the _Spy_ suffix. For example, if you want to spy on a method called `renderChildren`, you should name your spy `renderChildrenSpy`.
+    > Why? Naming your spies makes your tests easier to understand and shorter to write overall. Adding the Spy suffix makes the person who reads your code aware that it is a "spied upon" entity.
+
+  <a name="test-matchers"></a>
+  - [28.6](#test-matchers) Prefer built-in jasmine matchers (`toBeDefined`, `toEqual`, `toBe`, `toContain`, etc) before custom matchers, except for `toBeTruthy` and `toBeFalsy`. 
+    > Why? Jasmine's matchers are robust and give clear information in the logs if your test breaks, which make things easier to debug. 
 
 **[⬆ back to top](#table-of-contents)**
 
-## Performance
-You can refer to the original [Airbnb Style Guide](https://github.com/airbnb/javascript) for this section and the following ones.
+## Reviewing  
 
+  <a name="review-daily"></a>
+  - [29.1](#review-daily) Review code of your peers **daily** as long as there is code/pull requests to review. No, this won't affect your productivity negatively, it will speed it up. 
+    > Why? Receiving or giving code reviews at least daily speed up the feedback rate for each team member and ultimately speed up the rate at which your team merges its pull requests without loosing in quality. Reviewing and merging pull requests at a standard and predictible pace gives momentum to the team. Adopting this habit can also free more brain power for tasks in progress, not having to think about tasks that have remained pending for multiple days in a row without feedback. 
+
+  <a name="review-fully"></a>
+  - [29.2](#review-fully) Consider a complete code review as having read (and hopefully understood) each line of code contained in the pull request being reviewed, including its unit tests. If there is a demo (in the form of a live demo, video or image), make sure you thoroughly tested it or seen it.
+    > Why? Half a review is no review. Be thorough and genuinely critical in your review, but always remain respectful.
+
+## Libraries and Frameworks 
+
+The following list is an overview of the main frameworks and libraries we use when developping for the Coveo Cloud Platform. You can dig deeper by clicking on the links of each library or framework listed:  
+  
+- [Backbone.js](http://backbonejs.org/)
+- [Marionette.js](https://marionettejs.com/)
+- [EJS](http://www.embeddedjs.com/)
+- [React](https://facebook.github.io/react/) 
+- [Redux](http://redux.js.org/docs/introduction/)
+- [Underscore.js](http://underscorejs.org/)
+- [jQuery](https://jquery.com/)
+- [Moment.js](https://momentjs.com/)
+- [URI.js](https://medialize.github.io/URI.js/)
+- [Polyglot.js](http://airbnb.io/polyglot.js/)  
+
+**A few rules of thumb:**
+  
+- Use "native" features of Backbone/Marionette and React/Redux whenever you can. Only defaults to using jQuery if and only if your problem cannot be solved with the main frameworks and architecture we use.  
+- Always use EJS for HTML templating if you are working with Backbone/Marionette.  
+- Use Underscore.js as much as it pleases you. 
+- If you are working on new components or complex features, favor React/Redux over Backbone/Marionette as your framework of choice.
+
+## TypeScript 
+#### Interface
+
+  <a name="interface-naming"></a>
+  - [31.1](#interface-naming) Use `PascalCase` when naming your interfaces, and `camelCase` for their members.
+
+  <a name="interface-no-i"></a>
+  - [31.2](#interface-no-i) Do not prefix your interfaces with `I`.  
+    > Why? Unconventional. Important interfaces (like `Window`, `Document`) are usually not defined with the `I` prefix.
+
+#### Type
+
+  <a name="type-naming"></a>
+  - [31.3](#types-naming) Use `PascalCase` when naming your types, and `camelCase` for their members.
+
+#### Enum
+
+  <a name="enum-naming"></a>
+  - [31.4](#enum-naming) Use `PascalCase` when naming your enums, and `camelCase` for their members.
+
+#### Function 
+  <a name="function-return"></a>
+  - [31.5](#function-return) Avoid specifying the returned type if the function can return anything (`any`) or nothing.
+
+  <a name="function-non-required-arguments"></a>
+  - [31.6](#function-non-required-arguments) Always put non required arguments last. 
+    > Why? If your function takes multiple arguments, you will only have to pass the required ones.
+
+    ```typescript
+    // bad
+    function foo (nonRequired?: number, required: number) {
+      // ...
+    }
+
+    // good
+    function foo (required: number, nonRequired?: number) {
+      // ...
+    }
+    ```
+### Namespace
+  <a name="namespace-avoid"></a>
+  - [31.7](#namespace-avoid) Do not use namespaces. Use [modules](https://www.typescriptlang.org/docs/handbook/modules.html).  
+
+## Notes on Legacy Code 
+
+As for any project that has lived for a long period of time, you may find some places in the code base where the code does not respect some standards described above. In this case, do refactor the code if it is related to your current task, or if you think it could represent a potential security or bug threat. Otherwise, you can leave the code as it is.
+  
+
+## Remaining Sections
+You can refer to the original [Airbnb Style Guide](https://github.com/airbnb/javascript) for the remaining sections if you want, although they are really not a required read by our team.  
+  
+# };
