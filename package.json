@@ -1,7 +1,7 @@
 {
-  "name": "airbnb-style",
-  "version": "2.0.0",
-  "description": "A mostly reasonable approach to JavaScript.",
+  "name": "typescript-cloudplatform",
+  "version": "0.1.0",
+  "description": "A mostly reasonable approach to TypeScript.",
   "scripts": {
     "preinstall": "npm run install:config && npm run install:config:base",
     "install:config": "cd packages/eslint-config-airbnb && npm prune && npm install",
@@ -18,24 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airbnb/javascript.git"
+    "url": "https://github.com/coveo/typescript-cloudplatform.git"
   },
-  "keywords": [
-    "style guide",
-    "lint",
-    "airbnb",
-    "es6",
-    "es2015",
-    "react",
-    "jsx"
-  ],
-  "author": "Harrison Shoff <hi@hshoff.com> (https://twitter.com/hshoff)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/airbnb/javascript/issues"
-  },
-  "homepage": "https://github.com/airbnb/javascript",
-  "devDependencies": {
-    "markdownlint-cli": "^0.3.1"
-  }
+  "license": "MIT"
 }
