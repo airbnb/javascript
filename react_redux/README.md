@@ -2,7 +2,7 @@
 
 Other Style Guides  
 
-- [TypeScript](..)  
+- [TypeScript](../README.md)  
 - [CSS & Sass](../css_sass)
 
 ## Table of Contents

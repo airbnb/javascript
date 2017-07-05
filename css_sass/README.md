@@ -2,7 +2,7 @@
 
 Other Style Guides  
 
-- [TypeScript](..)  
+- [TypeScript](../README.md)  
 - [React/Redux](../react_redux)
 
 ## Table of Contents
