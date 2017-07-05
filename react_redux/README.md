@@ -2,8 +2,8 @@
 
 Other Style Guides  
 
-- [TypeScript](../)  
-- [CSS & Sass](css_sass/)
+- [TypeScript](..)  
+- [CSS & Sass](../css_sass)
 
 ## Table of Contents
 

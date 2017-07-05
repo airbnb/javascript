@@ -2,8 +2,8 @@
 
 Other Style Guides  
 
-- [TypeScript](../)  
-- [React/Redux](react_redux/)
+- [TypeScript](..)  
+- [React/Redux](../react_redux)
 
 ## Table of Contents
 
