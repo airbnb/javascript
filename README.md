@@ -59,9 +59,9 @@ In summary, code standards make developers happier. Embrace them.
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
   1. [Testing](#testing)
   1. [Reviewing](#reviewing)
-  1. [Libraries](#libraries)
+  1. [Libraries and Frameworks](#libraries-and-frameworks)
   1. [TypeScript](#typescript)
-  1. [Notes on Legacy Code](#legacy)
+  1. [Notes on Legacy Code](#notes-on-legacy-code)
   1. [Remaining Sections](#remaining-sections)
 
 ## Types
