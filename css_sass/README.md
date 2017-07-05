@@ -36,7 +36,7 @@ Other Style Guides
 
 **Never use inline style in HTML or EJS templates.**
 
-**Always place your style rules in a `.sass` file.**
+**Always place your style rules in a `.scss` file.**
 
 ## Terminology
 
