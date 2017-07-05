@@ -15,6 +15,10 @@ module.exports = {
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-has-content.md
     'jsx-a11y/anchor-has-content': ['error', { components: [''] }],
 
+    // Enforce that anchors is valid and formally defined as representing a hyperlink
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md
+    'jsx-a11y/anchor-is-valid': ['error', { components: ['a'], aspects: ['invalidHref'] }],
+
     // Require ARIA roles to be valid and non-abstract
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md
     'jsx-a11y/aria-role': ['error', { ignoreNonDom: false }],
@@ -31,10 +35,6 @@ module.exports = {
     // properties do not have those attributes.
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-unsupported-elements.md
     'jsx-a11y/aria-unsupported-elements': 'error',
-
-    // disallow href "#"
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/href-no-hash.md
-    'jsx-a11y/href-no-hash': ['error', { components: ['a'] }],
 
     // Enforce that all elements that require alternative text have meaningful information
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/alt-text.md
@@ -187,15 +187,6 @@ module.exports = {
     'jsx-a11y/no-noninteractive-tabindex': ['error', {
       tags: [],
       roles: ['tabpanel'],
-    }],
-
-    // ensure <a> tags are valid
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/0745af376cdc8686d85a361ce36952b1fb1ccf6e/docs/rules/anchor-is-valid.md
-    // TODO: enable, semver-major
-    'jsx-a11y/anchor-is-valid': ['off', {
-      components: ['Link'],
-      specialLink: [],
-      aspects: ['noHref', 'invalidHref', 'preferButton'],
     }],
   },
 };
