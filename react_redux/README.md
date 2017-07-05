@@ -1,6 +1,6 @@
 # Coveo React/Redux - Cloud Platform Standards {
 
-Other Style Guides  
+Other Standards  
 
 - [TypeScript](../README.md)  
 - [CSS & Sass](../css_sass)
