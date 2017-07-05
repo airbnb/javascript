@@ -1,4 +1,4 @@
-# Coveo Cloud Platform React/Redux Style Guide
+# Coveo React/Redux - Cloud Platform Standards {
 
 Other Style Guides  
 
@@ -604,3 +604,5 @@ Other Style Guides
   - The file name for your reducers should be the name of the component + the suffix `Reducers`.
 
 **[⬆ back to top](#table-of-contents)**
+
+# };
