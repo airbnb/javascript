@@ -19,7 +19,7 @@
     ```js
     // bad
     {
-      'bermuda-triangle': {
+      bermuda-triangle: {
         display: 'none',
       },
     }
