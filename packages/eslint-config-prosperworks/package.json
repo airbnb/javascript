@@ -1,0 +1,35 @@
+{
+  "name": "eslint-config-prosperworks",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prelint": "editorconfig-tools check * rules/*",
+    "lint": "eslint .",
+    "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test) && safe-publish-latest",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "travis": "npm run --silent test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ProsperWorks/js-style"
+  },
+  "keywords": [],
+  "author": "Eric Peterson",
+  "license": "MIT",
+  "devDependencies": {
+    "editorconfig-tools": "^0.1.1",
+    "eslint": "^3.19.0",
+    "eslint-find-rules": "^1.14.3",
+    "eslint-plugin-import": "^2.2.0",
+    "in-publish": "^2.0.0",
+    "safe-publish-latest": "^1.1.1"
+  },
+  "peerDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "engines": {
+    "node": ">= 6"
+  }
+}

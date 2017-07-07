@@ -1,35 +1,34 @@
 {
-  "name": "airbnb-style",
-  "version": "2.0.0",
+  "name": "eslint-config-prosperworks",
+  "version": "1.0.0",
   "description": "A mostly reasonable approach to JavaScript.",
   "scripts": {
-    "preinstall": "npm run install:config && npm run install:config:base",
-    "install:config": "cd packages/eslint-config-airbnb && npm prune && npm install",
-    "install:config:base": "cd packages/eslint-config-airbnb-base && npm prune && npm install",
-    "test": "npm run --silent test:config && npm run --silent test:config:base",
-    "test:config": "cd packages/eslint-config-airbnb; npm test",
-    "test:config:base": "cd packages/eslint-config-airbnb-base; npm test",
-    "travis": "npm run --silent travis:config && npm run --silent travis:config:base",
-    "travis:config": "cd packages/eslint-config-airbnb; npm run travis",
-    "travis:config:base": "cd packages/eslint-config-airbnb-base; npm run travis"
+    "prelint": "editorconfig-tools check ./rules/*",
+    "lint": "eslint ./rules",
+    "fix": "eslint ./rules --fix"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/airbnb/javascript.git"
-  },
+
+  "private": true,
+  "repository": "git+https://git@github.com/ProsperWorks/js-style.git",
+  "homepage": "https://github.com/ProsperWorks/js-style",
+  "author": "Eric Peterson <eric@prosperworks.com>",
+  "license": "MIT",
   "keywords": [
     "style guide",
     "lint",
-    "airbnb",
+    "eslint",
+    "prosperworks",
     "es6",
-    "es2015",
-    "react",
-    "jsx"
+    "es2017"
   ],
-  "author": "Harrison Shoff <hi@hshoff.com> (https://twitter.com/hshoff)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/airbnb/javascript/issues"
+
+  "devDependencies": {
+    "editorconfig-tools": "^0.1.1",
+    "eslint": "^3.19.0",
+    "eslint-find-rules": "^1.14.3",
+    "eslint-plugin-import": "^2.2.0"
   },
-  "homepage": "https://github.com/airbnb/javascript"
+  "engines": {
+    "node": ">= 6"
+  }
 }
