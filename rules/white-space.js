@@ -56,9 +56,9 @@ module.exports = {
       ignoreRegExpLiterals: true,
     }],
     // 18.6
-    'newline-per-chained-call': 'warn',
+    // 'newline-per-chained-call': 'warn',
 
     // Optional ------------------------------------------------------------------------------------
-    // 'spaced-comment': 'warn',
+    // 'spaced-comment': 'error',
   },
 };

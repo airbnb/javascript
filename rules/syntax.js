@@ -27,7 +27,7 @@ module.exports = {
     radix: 'error',
     // Arrow Functions
     // 8.1
-    'prefer-arrow-callback': 'error',
+    // 'prefer-arrow-callback': 'error',
     // Enforce consistency
     'arrow-parens': 'error',
     // Enforce consistency

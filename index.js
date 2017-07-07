@@ -1,12 +1,13 @@
+/* eslint-env node */
 module.exports = {
   extends: [
-    './rules/best-practices',
-    './rules/errors',
-    './rules/node',
-    './rules/style',
-    './rules/variables',
+    './rules/comparison',
     './rules/es6',
-    './rules/imports',
+    './rules/function',
+    './rules/module',
+    './rules/quotes',
+    './rules/syntax',
+    './rules/white-space',
   ].map(require.resolve),
   parserOptions: {
     ecmaVersion: 2017,
