@@ -16,43 +16,43 @@ Other Style Guides
 
 ## Table of Contents
 
-  1. [Types](#1.1)
-  1. [References](#2.1)
-  1. [Objects](#3.1)
-  1. [Arrays](#4.1)
-  1. [Destructuring](#5.1)
-  1. [Strings](#6.1)
-  1. [Functions](#7.1)
-  1. [Arrow Functions](#8.1)
-  1. [Classes & Constructors](#9.1)
-  1. [Modules](#10.1)
-  1. [Iterators and Generators](#11.1)
-  1. [Properties](#12.1)
-  1. [Variables](#13.1)
-  1. [Hoisting](#14.1)
-  1. [Comparison Operators & Equality](#15.1)
-  1. [Blocks](#16.1)
-  1. [Control Statements](#17.1)
-  1. [Comments](#18.1)
-  1. [Whitespace](#19.1)
-  1. [Commas](#20.1)
-  1. [Semicolons](#21.1)
-  1. [Type Casting & Coercion](#22.1)
-  1. [Naming Conventions](#23.1)
-  1. [Accessors](#24.1)
-  1. [Events](#25.1)
-  1. [jQuery](#26.1)
-  1. [ECMAScript 5 Compatibility](#27.1)
-  1. [ECMAScript 6+ (ES 2015+) Styles](#28.1)
-  1. [Testing](#29.1)
-  1. [Performance](#30.1)
-  1. [Resources](#31.1)
-  1. [In the Wild](#32.1)
-  1. [Translation](#33.1)
-  1. [The JavaScript Style Guide Guide](#34.1)
-  1. [Chat With Us About JavaScript](#35.1)
-  1. [Contributors](#36.1)
-  1. [License](#37.1)
+  1. [Types](#types)
+  1. [References](#references)
+  1. [Objects](#objects)
+  1. [Arrays](#arrays)
+  1. [Destructuring](#destructuring)
+  1. [Strings](#strings)
+  1. [Functions](#functions)
+  1. [Arrow Functions](#arrow-functions)
+  1. [Classes & Constructors](#classes--constructors)
+  1. [Modules](#modules)
+  1. [Iterators and Generators](#iterators-and-generators)
+  1. [Properties](#properties)
+  1. [Variables](#variables)
+  1. [Hoisting](#hoisting)
+  1. [Comparison Operators & Equality](#comparison-operators--equality)
+  1. [Blocks](#blocks)
+  1. [Control Statements](#control-statements)
+  1. [Comments](#comments)
+  1. [Whitespace](#whitespace)
+  1. [Commas](#commas)
+  1. [Semicolons](#semicolons)
+  1. [Type Casting & Coercion](#type-casting--coercion)
+  1. [Naming Conventions](#naming-conventions)
+  1. [Accessors](#accessors)
+  1. [Events](#events)
+  1. [jQuery](#jquery)
+  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
+  1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
+  1. [Testing](#testing)
+  1. [Performance](#performance)
+  1. [Resources](#resources)
+  1. [In the Wild](#in-the-wild)
+  1. [Translation](#translation)
+  1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
+  1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
+  1. [Contributors](#contributors)
+  1. [License](#license)
 
 ## Types 类型
 
@@ -74,7 +74,7 @@ Other Style Guides
     console.log(foo, bar); // => 1, 9
     ```
 
-  <a name="types--complex"></a><a name="1.2"></a>
+  <a name="types"></a><a name="1.2"></a>
   - [1.2](#types--complex)  **Complex**: When you access a complex type you work on a reference to its value. 对象类型，使用的都是值的指针，所以要特别注意
 
     - `object`
@@ -95,7 +95,7 @@ Other Style Guides
 
 ## References 引用
 
-  <a name="references--prefer-const"></a><a name="2.1"></a>
+  <a name="references"></a><a name="2.1"></a>
   - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html) 所有的引用，如果你不打算修改它的值的话，最好使用const来修饰
 
     > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
@@ -116,7 +116,7 @@ Other Style Guides
   - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)如果你一定要修改一个引用，最好使用`let`，而不是`var`。
 
     > Why? `let` is block-scoped rather than function-scoped like `var`.
-    `let`是`ES6`中新增加的修饰符，在变量提升、作用域等和`var`区别较大，建议`ES6`中全部用`let`。具体可以参考我的博客[《ES6入门》读书笔记之let和const命令](https://njafei.github.io/2017/04/17/ES6-%E5%85%A5%E9%97%A8-let%E5%91%BD%E4%BB%A4/)	
+    `let`是`ES6`中新增加的修饰符，在变量提升、作用域等和`var`区别较大，建议`ES6`中全部用`let`。
 
     ```
     javascript
@@ -136,7 +136,7 @@ Other Style Guides
   <a name="references--block-scope"></a><a name="2.3"></a>
   - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped.记得`let` 和 `const`都是块级作用域。
 
-	> 所谓的块级作用域是{}，相对的是函数作用域，var就是函数作用域。具体可以参考我的博客[《ES6入门》读书笔记之let和const命令](https://njafei.github.io/2017/04/17/ES6-%E5%85%A5%E9%97%A8-let%E5%91%BD%E4%BB%A4/)
+	> 所谓的块级作用域是{}，相对的是函数作用域，var就是函数作用域。
 
     ```javascript
     // const and let only exist in the blocks they are defined in.
@@ -153,7 +153,7 @@ Other Style Guides
 
 ## Objects 对象
 
-  <a name="objects--no-new"></a><a name="3.1"></a>
+  <a name="objects"></a><a name="3.1"></a>
   - [3.1](#objects--no-new) Use the literal syntax for object creation. eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html) 使用字面值创造对象，这个应该是看起来更简约
 
     ```javascript
@@ -336,7 +336,7 @@ Other Style Guides
 
 ## Arrays 数组
 
-  <a name="arrays--literals"></a><a name="4.1"></a>
+  <a name="arrays"></a><a name="4.1"></a>
   - [4.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html) 直接使用字面值类初始化数组
 
     ```javascript
@@ -437,7 +437,7 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
-<a name="arrays--bracket-newline"></a>
+<a name="arrays"></a>
   - [4.6](#arrays--bracket-newline) Use line breaks after open and before close array brackets if an array has multiple lines. 如果数组有多个对象，换行来区分不同的对象
 
   ```javascript
@@ -478,11 +478,10 @@ Other Style Guides
 
 ## Destructuring 解构
 
-  <a name="destructuring--object"></a><a name="5.1"></a>
+  <a name="destructuring"></a><a name="5.1"></a>
   - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring) 多使用解构来获取属性值.
     > Why? Destructuring saves you from creating temporary references for those properties.
-    ES6特性，具体可以看下我的博客[ES6之变量的解构赋值](https://njafei.github.io/2017/05/11/ES6%E4%B9%8B%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/)
-
+    解构是ES6特性
 
     ```javascript
     // bad
@@ -509,7 +508,6 @@ Other Style Guides
   <a name="destructuring--array"></a><a name="5.2"></a>
   - [5.2](#destructuring--array) Use array destructuring. jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring) 使用数组的解构，ES6特性.
 	
-	> 具体可以看下我的博客[ES6之变量的解构赋值](https://njafei.github.io/2017/05/11/ES6%E4%B9%8B%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/)
 	
     ```javascript
     const arr = [1, 2, 3, 4];
@@ -526,7 +524,7 @@ Other Style Guides
   - [5.3](#destructuring--object-over-array) Use object destructuring for multiple return values, not array destructuring. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn) 使用对象的解构，ES6特性
 
     > Why? You can add new properties over time or change the order of things without breaking call sites.
-    具体可以看下我的博客[ES6之变量的解构赋值](https://njafei.github.io/2017/05/11/ES6%E4%B9%8B%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/)
+    
 
     ```javascript
     // bad
@@ -553,7 +551,7 @@ Other Style Guides
 
 ## Strings 字符串
 
-  <a name="strings--quotes"></a><a name="6.1"></a>
+  <a name="strings"></a><a name="6.1"></a>
   - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks) 单个的字符，使用单引号
 
     ```javascript
@@ -621,7 +619,7 @@ Other Style Guides
   	 
   		
 
-  <a name="strings--escaping"></a>
+  <a name="strings"></a>
   - [6.5](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape) 除非必要，尽量少使用反斜杠
 
     > Why? Backslashes harm readability, thus they should only be present when necessary.
@@ -640,7 +638,7 @@ Other Style Guides
 
 ## Functions 方法
 
-  <a name="functions--declarations"></a><a name="7.1"></a>
+  <a name="functions"></a><a name="7.1"></a>
   - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations) 使用已命名的方法而不是方法实现
 
     > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to name the expression - anonymous functions can make it harder to locate the problem in an Error's call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794)) 。函数声明会被提升，所以非常非常容易在它被定义前引用， 这会破坏易读性和可维护性，如果你觉得一个函数的定义太大或者太复杂，那也许是时候把它封装成一个模块了。不要忘记命名，匿名函数会让问题在错误的栈中难以定位。
@@ -937,7 +935,7 @@ Other Style Guides
 
 ## Arrow Functions 箭头函数
 
-  <a name="arrows--use-them"></a><a name="8.1"></a>
+  <a name="arrow-functions"></a><a name="8.1"></a>
   - [8.1](#arrows--use-them) When you must use function expressions (as when passing an anonymous function), use arrow function notation. eslint: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html) jscs: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions) 如果你需要声明一个方法，最好使用箭头函数
 
     > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
@@ -1069,7 +1067,7 @@ Other Style Guides
 
 ## Classes & Constructors 类和构造器
 
-  <a name="constructors--use-class"></a><a name="9.1"></a>
+  <a name="classes--constructors"></a><a name="9.1"></a>
   - [9.1](#constructors--use-class) Always use `class`. Avoid manipulating `prototype` directly. 永远要使用`class`，避免直接修改类的属性
 
     > Why? `class` syntax is more concise and easier to reason about.
@@ -1243,7 +1241,7 @@ Other Style Guides
 
 ## Modules 模块
 
-  <a name="modules--use-them"></a><a name="10.1"></a>
+  <a name="modules"></a><a name="10.1"></a>
   - [10.1](#modules--use-them) Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system. 永远使用模块而不是其他的非模块标准，你可以编译你喜欢的模块。
 
     > Why? Modules are the future, let's start using the future now.
@@ -1406,7 +1404,7 @@ Other Style Guides
 
 ## Iterators and Generators 迭代器和生成器
 
-  <a name="iterators--nope"></a><a name="11.1"></a>
+  <a name="iterators-and-generators"></a><a name="11.1"></a>
   - [11.1](#iterators--nope) Don't use iterators. Prefer JavaScript's higher-order functions instead of loops like `for-in` or `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)不要使用迭代器，最好使用更高级的方法，而不是 `for-in` `for-of`等
 
     > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
@@ -1524,7 +1522,7 @@ Other Style Guides
 
 ## Properties 属性
 
-  <a name="properties--dot"></a><a name="12.1"></a>
+  <a name="properties"></a><a name="12.1"></a>
   - [12.1](#properties--dot) Use dot notation when accessing properties. eslint: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html) jscs: [`requireDotNotation`](http://jscs.info/rule/requireDotNotation)
   - 当需要用属性时，使用`.`来读取
 
@@ -1562,7 +1560,7 @@ Other Style Guides
 
 ## Variables 变量
 
-  <a name="variables--const"></a><a name="13.1"></a>
+  <a name="variables"></a><a name="13.1"></a>
   - [13.1](#variables--const) Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
   - 永远使用`const`或者`let`声明变量，否则会导致其变成全局变量
 
@@ -1741,7 +1739,7 @@ Other Style Guides
 
 ## Hoisting 提升
 
-  <a name="hoisting--about"></a><a name="14.1"></a>
+  <a name="hoisting"></a><a name="14.1"></a>
   - [14.1](#hoisting--about) `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It's important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
   - var声明的变量会出现变量提升，尽量使用`let`，具体的可以看下我的blog [《ES6入门》读书笔记之let和const命令
 ](https://njafei.github.io/2017/04/17/ES6-%E5%85%A5%E9%97%A8-let%E5%91%BD%E4%BB%A4/)
@@ -1845,7 +1843,7 @@ Other Style Guides
 
 ## Comparison Operators & Equality 比较和相等
 
-  <a name="comparison--eqeqeq"></a><a name="15.1"></a>
+  <a name="comparison-operators--equality"></a><a name="15.1"></a>
   - [15.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`. eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
   - 使用`===`和`!==`而不是`==`和`!=`
   
@@ -2015,7 +2013,7 @@ Other Style Guides
 
 ## Blocks 代码块
 
-  <a name="blocks--braces"></a><a name="16.1"></a>
+  <a name="blocks"></a><a name="16.1"></a>
   - [16.1](#blocks--braces) Use braces with all multi-line blocks.
   - 所有的多行代码块，都使用{}
 
@@ -2125,7 +2123,7 @@ Other Style Guides
 
 ## Comments 注释
 
-  <a name="comments--multiline"></a><a name="17.1"></a>
+  <a name="comments"></a><a name="17.1"></a>
   - [18.1](#comments--multiline) Use `/** ... */` for multi-line comments.
   - 多行注释，使用`/** ... */`
 
@@ -2270,7 +2268,7 @@ Other Style Guides
 
 ## Whitespace 空格
 
-  <a name="whitespace--spaces"></a><a name="18.1"></a>
+  <a name="whitespace"></a><a name="18.1"></a>
   - [19.1](#whitespace--spaces) Use soft tabs (space character) set to 2 spaces. eslint: [`indent`](http://eslint.org/docs/rules/indent.html) jscs: [`validateIndentation`](http://jscs.info/rule/validateIndentation)
   - 把tab设置为两个空间（默认应该是4个空间）
 
@@ -2608,7 +2606,7 @@ Other Style Guides
 
 ## Commas 逗号
 
-<a name="commas--leading-trailing"></a><a name="19.1"></a>
+<a name="commas"></a><a name="19.1"></a>
   - [20.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
   - 逗号放在末尾
 
@@ -2747,7 +2745,7 @@ Other Style Guides
 
 ## Semicolons 分号
 
-  <a name="semicolons--required"></a><a name="20.1"></a>
+  <a name="semicolons"></a><a name="20.1"></a>
   - [21.1](#semicolons--required) **Yup.** eslint: [`semi`](http://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
   - 使用分号，每行都要用！
 
@@ -2777,8 +2775,9 @@ Other Style Guides
 
 ## Type Casting & Coercion
 
-  <a name="coercion--explicit"></a><a name="21.1"></a>
+  <a name="type-casting--coercion"></a><a name="21.1"></a>
   - [22.1](#coercion--explicit) Perform type coercion at the beginning of the statement.
+  - 在语句开始时，使用类型转换
 
   <a name="coercion--strings"></a><a name="21.2"></a>
   - [22.2](#coercion--strings)  Strings:
@@ -2823,6 +2822,7 @@ Other Style Guides
 
   <a name="coercion--comment-deviations"></a><a name="21.4"></a>
   - [22.4](#coercion--comment-deviations) If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](https://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
+  - 如果因为某些原因 parseInt 成为你所做的事的瓶颈而需要使用位操作解决性能问题时，留个注释说清楚原因和你的目的。
 
     ```javascript
     // good
@@ -2836,6 +2836,7 @@ Other Style Guides
 
   <a name="coercion--bitwise"></a><a name="21.5"></a>
   - [22.5](#coercion--bitwise) **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](https://es5.github.io/#x4.3.19), but bitshift operations always return a 32-bit integer ([source](https://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
+  - 小心使用位操作运算符。数字会被当成 64 位值，但是位操作运算符总是返回 32 位的整数（参考）。位操作处理大于 32 位的整数值时还会导致意料之外的行为。关于这个问题的讨论。最大的 32 位整数是 2,147,483,647：
 
     ```javascript
     2147483647 >> 0; // => 2147483647
@@ -2861,10 +2862,11 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
-## Naming Conventions
+## Naming Conventions  命名规则
 
-  <a name="naming--descriptive"></a><a name="22.1"></a>
+  <a name="naming-conventions"></a><a name="22.1"></a>
   - [23.1](#naming--descriptive) Avoid single letter names. Be descriptive with your naming. eslint: [`id-length`](http://eslint.org/docs/rules/id-length)
+  - 避免单字母命名。命名应具备描述性。
 
     ```javascript
     // bad
@@ -2880,6 +2882,7 @@ Other Style Guides
 
   <a name="naming--camelCase"></a><a name="22.2"></a>
   - [23.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
+  - 使用驼峰式命名对象、函数和实例。
 
     ```javascript
     // bad
@@ -2894,6 +2897,7 @@ Other Style Guides
 
   <a name="naming--PascalCase"></a><a name="22.3"></a>
   - [23.3](#naming--PascalCase) Use PascalCase only when naming constructors or classes. eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap.html) jscs: [`requireCapitalizedConstructors`](http://jscs.info/rule/requireCapitalizedConstructors)
+  - 使用帕斯卡式命名构造函数或类。
 
     ```javascript
     // bad
@@ -2919,6 +2923,7 @@ Other Style Guides
 
   <a name="naming--leading-underscore"></a><a name="22.4"></a>
   - [23.4](#naming--leading-underscore) Do not use trailing or leading underscores. eslint: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html) jscs: [`disallowDanglingUnderscores`](http://jscs.info/rule/disallowDanglingUnderscores)
+  - 不要使用下划线 _ 结尾或开头来命名属性和方法。
 
     > Why? JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won't count as breaking, or that tests aren't needed. tl;dr: if you want something to be “private”, it must not be observably present.
 
@@ -2934,6 +2939,7 @@ Other Style Guides
 
   <a name="naming--self-this"></a><a name="22.5"></a>
   - [23.5](#naming--self-this) Don't save references to `this`. Use arrow functions or [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind). jscs: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes)
+  - 别保存 this 的引用。使用箭头函数或 Function#bind。
 
     ```javascript
     // bad
@@ -2962,6 +2968,7 @@ Other Style Guides
 
   <a name="naming--filename-matches-export"></a><a name="22.6"></a>
   - [23.6](#naming--filename-matches-export) A base filename should exactly match the name of its default export.
+  - 如果你的文件只输出一个类，那你的文件名必须和类名完全保持一致。
 
     ```javascript
     // file 1 contents
@@ -2998,6 +3005,7 @@ Other Style Guides
 
   <a name="naming--camelCase-default-export"></a><a name="22.7"></a>
   - [23.7](#naming--camelCase-default-export) Use camelCase when you export-default a function. Your filename should be identical to your function's name.
+  - 当你导出默认的函数时使用驼峰式命名。你的文件名必须和函数名完全保持一致。
 
     ```javascript
     function makeStyleGuide() {
@@ -3009,6 +3017,7 @@ Other Style Guides
 
   <a name="naming--PascalCase-singleton"></a><a name="22.8"></a>
   - [23.8](#naming--PascalCase-singleton) Use PascalCase when you export a constructor / class / singleton / function library / bare object.
+  - 当你导出单例、函数库、空对象时使用帕斯卡式命名。
 
     ```javascript
     const AirbnbStyleGuide = {
@@ -3021,6 +3030,7 @@ Other Style Guides
 
   <a name="naming--Acronyms-and-Initialisms"></a>
   - [23.9](#naming--Acronyms-and-Initialisms) Acronyms and initialisms should always be all capitalized, or all lowercased.
+  - 缩写和缩略词应该永远大写，或者全称
 
     > Why? Names are for readability, not to appease a computer algorithm.
 
@@ -3054,11 +3064,13 @@ Other Style Guides
 
 ## Accessors
 
-  <a name="accessors--not-required"></a><a name="23.1"></a>
+  <a name="accessors"></a><a name="23.1"></a>
   - [24.1](#accessors--not-required) Accessor functions for properties are not required.
+  - 属性的存取函数不是必须的
 
   <a name="accessors--no-getters-setters"></a><a name="23.2"></a>
   - [24.2](#accessors--no-getters-setters) Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use getVal() and setVal('hello').
+  - 不要使用JS的getter和setter函数，因为他们可能引起副作用。如果你想要使用存取函数，使用getVal() and setVal('hello')
 
     ```javascript
     // bad
@@ -3086,6 +3098,7 @@ Other Style Guides
 
   <a name="accessors--boolean-prefix"></a><a name="23.3"></a>
   - [24.3](#accessors--boolean-prefix) If the property/method is a `boolean`, use `isVal()` or `hasVal()`.
+  - 布尔值存取函数使用`isVal()` or `hasVal()`
 
     ```javascript
     // bad
@@ -3101,6 +3114,7 @@ Other Style Guides
 
   <a name="accessors--consistent"></a><a name="23.4"></a>
   - [24.4](#accessors--consistent) It's okay to create get() and set() functions, but be consistent.
+  - 可以创建get() 和 set()函数，但是要保持一致
 
     ```javascript
     class Jedi {
@@ -3123,8 +3137,9 @@ Other Style Guides
 
 ## Events
 
-  <a name="events--hash"></a><a name="24.1"></a>
+  <a name="events"></a><a name="24.1"></a>
   - [25.1](#events--hash) When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+  - 当给事件附加数据时（无论是 DOM 事件还是私有事件），传入一个哈希而不是原始值。这样可以让后面的贡献者增加更多数据到事件数据而无需找出并更新事件的每一个处理器
 
     ```javascript
     // bad
@@ -3154,8 +3169,9 @@ Other Style Guides
 
 ## jQuery
 
-  <a name="jquery--dollar-prefix"></a><a name="25.1"></a>
+  <a name="jquery"></a><a name="25.1"></a>
   - [26.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$`. jscs: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment)
+  - 使用JQuery对象时，在前面加`$`
 
     ```javascript
     // bad
@@ -3170,6 +3186,7 @@ Other Style Guides
 
   <a name="jquery--cache"></a><a name="25.2"></a>
   - [26.2](#jquery--cache) Cache jQuery lookups.
+  - 缓存jquery
 
     ```javascript
     // bad
@@ -3198,6 +3215,7 @@ Other Style Guides
 
   <a name="jquery--queries"></a><a name="25.3"></a>
   - [26.3](#jquery--queries) For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+
 
   <a name="jquery--find"></a><a name="25.4"></a>
   - [26.4](#jquery--find) Use `find` with scoped jQuery object queries.
