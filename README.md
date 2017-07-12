@@ -1391,7 +1391,7 @@ Other Style Guides
     const increasedByOne = [];
     numbers.forEach((num) => {
       increasedByOne.push(num + 1);
-    );
+    });
 
     // best (keeping it functional)
     const increasedByOne = numbers.map(num => num + 1);
