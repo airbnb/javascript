@@ -97,7 +97,7 @@ Other Style Guides
   <a name="references--prefer-const"></a><a name="2.1"></a>
   - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
 
-    > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
+    > Why? This ensures that you can’t reassign your references, which can lead to bugs and difficult to comprehend code.
 
     ```javascript
     // bad
@@ -227,7 +227,7 @@ Other Style Guides
   <a name="objects--grouped-shorthand"></a><a name="3.7"></a>
   - [3.5](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
 
-    > Why? It's easier to tell which properties are using the shorthand.
+    > Why? It’s easier to tell which properties are using the shorthand.
 
     ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
@@ -369,7 +369,7 @@ Other Style Guides
     ```
 
   <a name="arrays--callback-return"></a><a name="4.5"></a>
-  - [4.5](#arrays--callback-return) Use return statements in array method callbacks. It's ok to omit the return if the function body consists of a single statement following [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
+  - [4.5](#arrays--callback-return) Use return statements in array method callbacks. It’s ok to omit the return if the function body consists of a single statement returning an expression without side effects, following [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
 
     ```javascript
     // good
@@ -615,7 +615,7 @@ Other Style Guides
   <a name="functions--declarations"></a><a name="7.1"></a>
   - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
 
-    > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to name the expression - anonymous functions can make it harder to locate the problem in an Error's call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
+    > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to name the expression - anonymous functions can make it harder to locate the problem in an Error’s call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
 
     ```javascript
     // bad
@@ -650,7 +650,7 @@ Other Style Guides
   - [7.3](#functions--in-blocks) Never declare a function in a non-function block (`if`, `while`, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
 
   <a name="functions--note-on-blocks"></a><a name="7.4"></a>
-  - [7.4](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - [7.4](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262’s note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
     // bad
@@ -708,7 +708,7 @@ Other Style Guides
     ```javascript
     // really bad
     function handleThings(opts) {
-      // No! We shouldn't mutate function arguments.
+      // No! We shouldn’t mutate function arguments.
       // Double bad: if opts is falsy it'll be set to an object which may
       // be what you want but it can introduce subtle bugs.
       opts = opts || {};
@@ -838,7 +838,7 @@ Other Style Guides
   <a name="functions--spread-vs-apply"></a><a name="7.14"></a>
   - [7.14](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions. eslint: [`prefer-spread`](http://eslint.org/docs/rules/prefer-spread)
 
-    > Why? It's cleaner, you don't need to supply a context, and you can not easily compose `new` with `apply`.
+    > Why? It’s cleaner, you don’t need to supply a context, and you can not easily compose `new` with `apply`.
 
     ```javascript
     // bad
@@ -915,7 +915,7 @@ Other Style Guides
     ```
 
   <a name="arrows--implicit-return"></a><a name="8.2"></a>
-  - [8.2](#arrows--implicit-return) If the function body consists of a single expression, omit the braces and use the implicit return. Otherwise, keep the braces and use a `return` statement. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
+  - [8.2](#arrows--implicit-return) If the function body consists of a single statement returning an [expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) without side effects, omit the braces and use the implicit return. Otherwise, keep the braces and use a `return` statement. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
 
     > Why? Syntactic sugar. It reads well when multiple functions are chained together.
 
@@ -939,6 +939,24 @@ Other Style Guides
     [1, 2, 3].map((number, index) => ({
       [index]: number,
     }));
+
+    // No implicit return with side effects
+    function foo(callback) {
+      const val = callback();
+      if (val === true) {
+        // Do something if callback returns true
+      }
+    }
+
+    let bool = false;
+
+    // bad
+    foo(() => bool = true);
+
+    // good
+    foo(() => {
+      bool = true;
+    });
     ```
 
   <a name="arrows--paren-wrap"></a><a name="8.3"></a>
@@ -964,7 +982,7 @@ Other Style Guides
     ```
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments for clarity and consistency. Note: it is also acceptable to always use parentheses, in which case use the ["always" option](http://eslint.org/docs/rules/arrow-parens#always) for eslint or do not include [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam) for jscs. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
+  - [8.4](#arrows--one-arg-parens) If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments for clarity and consistency. Note: it is also acceptable to always use parentheses, in which case use the [“always” option](http://eslint.org/docs/rules/arrow-parens#always) for eslint or do not include [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam) for jscs. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
 
     > Why? Less visual clutter.
 
@@ -1108,7 +1126,7 @@ Other Style Guides
     ```
 
   <a name="constructors--tostring"></a><a name="9.4"></a>
-  - [9.4](#constructors--tostring) It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - [9.4](#constructors--tostring) It’s okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
 
     ```javascript
     class Jedi {
@@ -1185,7 +1203,7 @@ Other Style Guides
   <a name="modules--use-them"></a><a name="10.1"></a>
   - [10.1](#modules--use-them) Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
 
-    > Why? Modules are the future, let's start using the future now.
+    > Why? Modules are the future, let’s start using the future now.
 
     ```javascript
     // bad
@@ -1336,7 +1354,7 @@ Other Style Guides
 ## Iterators and Generators
 
   <a name="iterators--nope"></a><a name="11.1"></a>
-  - [11.1](#iterators--nope) Don't use iterators. Prefer JavaScript's higher-order functions instead of loops like `for-in` or `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
+  - [11.1](#iterators--nope) Don’t use iterators. Prefer JavaScript’s higher-order functions instead of loops like `for-in` or `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
 
     > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
 
@@ -1354,7 +1372,9 @@ Other Style Guides
 
     // good
     let sum = 0;
-    numbers.forEach(num => sum += num);
+    numbers.forEach((num) => {
+      sum += num;
+    });
     sum === 15;
 
     // best (use the functional force)
@@ -1369,16 +1389,18 @@ Other Style Guides
 
     // good
     const increasedByOne = [];
-    numbers.forEach(num => increasedByOne.push(num + 1));
+    numbers.forEach((num) => {
+      increasedByOne.push(num + 1);
+    });
 
     // best (keeping it functional)
     const increasedByOne = numbers.map(num => num + 1);
     ```
 
   <a name="generators--nope"></a><a name="11.2"></a>
-  - [11.2](#generators--nope) Don't use generators for now.
+  - [11.2](#generators--nope) Don’t use generators for now.
 
-    > Why? They don't transpile well to ES5.
+    > Why? They don’t transpile well to ES5.
 
   <a name="generators--spacing"></a>
   - [11.3](#generators--spacing) If you must use generators, or if you disregard [our advice](#generators--nope), make sure their function signature is spaced properly. eslint: [`generator-star-spacing`](http://eslint.org/docs/rules/generator-star-spacing)
@@ -1495,7 +1517,7 @@ Other Style Guides
   <a name="variables--one-const"></a><a name="13.2"></a>
   - [13.2](#variables--one-const) Use one `const` or `let` declaration per variable. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
 
-    > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
+    > Why? It’s easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
 
     ```javascript
     // bad
@@ -1580,7 +1602,7 @@ Other Style Guides
     }
     ```
   <a name="variables--no-chain-assignment"></a><a name="13.5"></a>
-  - [13.5](#variables--no-chain-assignment) Don't chain variable assignments.
+  - [13.5](#variables--no-chain-assignment) Don’t chain variable assignments.
 
     > Why? Chaining variable assignments creates implicit global variables.
 
@@ -1594,7 +1616,7 @@ Other Style Guides
       let a = b = c = 1;
     }());
 
-    console.log(a); // undefined
+    console.log(a); // throws ReferenceError
     console.log(b); // 1
     console.log(c); // 1
 
@@ -1605,9 +1627,9 @@ Other Style Guides
       let c = a;
     }());
 
-    console.log(a); // undefined
-    console.log(b); // undefined
-    console.log(c); // undefined
+    console.log(a); // throws ReferenceError
+    console.log(b); // throws ReferenceError
+    console.log(c); // throws ReferenceError
 
     // the same applies for `const`
     ```
@@ -1651,10 +1673,10 @@ Other Style Guides
 ## Hoisting
 
   <a name="hoisting--about"></a><a name="14.1"></a>
-  - [14.1](#hoisting--about) `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It's important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
+  - [14.1](#hoisting--about) `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It’s important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
 
     ```javascript
-    // we know this wouldn't work (assuming there
+    // we know this wouldn’t work (assuming there
     // is no notDefined global variable)
     function example() {
       console.log(notDefined); // => throws a ReferenceError
@@ -1928,7 +1950,7 @@ Other Style Guides
     ```
 
   <a name="blocks--cuddled-elses"></a><a name="16.2"></a>
-  - [16.2](#blocks--cuddled-elses) If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your `if` block's closing brace. eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) jscs:  [`disallowNewlineBeforeBlockStatements`](http://jscs.info/rule/disallowNewlineBeforeBlockStatements)
+  - [16.2](#blocks--cuddled-elses) If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your `if` block’s closing brace. eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) jscs:  [`disallowNewlineBeforeBlockStatements`](http://jscs.info/rule/disallowNewlineBeforeBlockStatements)
 
     ```javascript
     // bad
@@ -1954,7 +1976,7 @@ Other Style Guides
 ## Control Statements
 
   <a name="control-statements"></a>
-  - [17.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition could be put into a new line. It's up to you whether the logical operator should begin or end the line.
+  - [17.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition could be put into a new line. It’s up to you whether the logical operator should begin or end the line.
 
     ```javascript
     // bad
@@ -2040,7 +2062,7 @@ Other Style Guides
     ```
 
   <a name="comments--singleline"></a><a name="17.2"></a>
-  - [18.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it's on the first line of a block.
+  - [18.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it’s on the first line of a block.
 
     ```javascript
     // bad
@@ -2125,7 +2147,7 @@ Other Style Guides
       constructor() {
         super();
 
-        // FIXME: shouldn't use a global here
+        // FIXME: shouldn’t use a global here
         total = 0;
       }
     }
@@ -2513,7 +2535,7 @@ Other Style Guides
   <a name="commas--dangling"></a><a name="19.2"></a>
   - [20.2](#commas--dangling) Additional trailing comma: **Yup.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
 
-    > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
+    > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don’t have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
 
     ```diff
     // bad - git diff without trailing comma
@@ -2652,7 +2674,7 @@ Other Style Guides
     const totalScore = this.reviewScore + ''; // invokes this.reviewScore.valueOf()
 
     // bad
-    const totalScore = this.reviewScore.toString(); // isn't guaranteed to return a string
+    const totalScore = this.reviewScore.toString(); // isn’t guaranteed to return a string
 
     // good
     const totalScore = String(this.reviewScore);
@@ -2782,7 +2804,7 @@ Other Style Guides
   <a name="naming--leading-underscore"></a><a name="22.4"></a>
   - [23.4](#naming--leading-underscore) Do not use trailing or leading underscores. eslint: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html) jscs: [`disallowDanglingUnderscores`](http://jscs.info/rule/disallowDanglingUnderscores)
 
-    > Why? JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won't count as breaking, or that tests aren't needed. tl;dr: if you want something to be “private”, it must not be observably present.
+    > Why? JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won’t count as breaking, or that tests aren’t needed. tl;dr: if you want something to be “private”, it must not be observably present.
 
     ```javascript
     // bad
@@ -2795,7 +2817,7 @@ Other Style Guides
     ```
 
   <a name="naming--self-this"></a><a name="22.5"></a>
-  - [23.5](#naming--self-this) Don't save references to `this`. Use arrow functions or [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind). jscs: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes)
+  - [23.5](#naming--self-this) Don’t save references to `this`. Use arrow functions or [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind). jscs: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes)
 
     ```javascript
     // bad
@@ -2859,7 +2881,7 @@ Other Style Guides
     ```
 
   <a name="naming--camelCase-default-export"></a><a name="22.7"></a>
-  - [23.7](#naming--camelCase-default-export) Use camelCase when you export-default a function. Your filename should be identical to your function's name.
+  - [23.7](#naming--camelCase-default-export) Use camelCase when you export-default a function. Your filename should be identical to your function’s name.
 
     ```javascript
     function makeStyleGuide() {
@@ -2962,7 +2984,7 @@ Other Style Guides
     ```
 
   <a name="accessors--consistent"></a><a name="23.4"></a>
-  - [24.4](#accessors--consistent) It's okay to create get() and set() functions, but be consistent.
+  - [24.4](#accessors--consistent) It’s okay to create get() and set() functions, but be consistent.
 
     ```javascript
     class Jedi {
@@ -3086,7 +3108,7 @@ Other Style Guides
 ## ECMAScript 5 Compatibility
 
   <a name="es5-compat--kangax"></a><a name="26.1"></a>
-  - [27.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
+  - [27.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)’s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -3134,7 +3156,7 @@ Other Style Guides
     - Strive to write many small pure functions, and minimize where mutations occur.
     - Be cautious about stubs and mocks - they can make your tests more brittle.
     - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Airbnb. [`tape`](https://www.npmjs.com/package/tape) is also used occasionally for small, separate modules.
-    - 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
+    - 100% test coverage is a good goal to strive for, even if it’s not always practical to reach it.
     - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
 
 **[⬆ back to top](#table-of-contents)**
@@ -3212,7 +3234,7 @@ Other Style Guides
   - [Third Party JavaScript](https://www.manning.com/books/third-party-javascript) - Ben Vinegar and Anton Kovalyov
   - [Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript](http://amzn.com/0321812182) - David Herman
   - [Eloquent JavaScript](http://eloquentjavascript.net/) - Marijn Haverbeke
-  - [You Don't Know JS: ES6 & Beyond](http://shop.oreilly.com/product/0636920033769.do) - Kyle Simpson
+  - [You Don’t Know JS: ES6 & Beyond](http://shop.oreilly.com/product/0636920033769.do) - Kyle Simpson
 
 **Blogs**
 
@@ -3284,6 +3306,7 @@ Other Style Guides
   - **JSSolutions**: [JSSolutions/javascript](https://github.com/JSSolutions/javascript)
   - **KickorStick**: [kickorstick/javascript](https://github.com/kickorstick/javascript)
   - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/Javascript-style-guide)
+  - **LEINWAND**: [LEINWAND/javascript](https://github.com/LEINWAND/javascript)
   - **Lonely Planet**: [lonelyplanet/javascript](https://github.com/lonelyplanet/javascript)
   - **M2GEN**: [M2GEN/javascript](https://github.com/M2GEN/javascript)
   - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
@@ -3388,6 +3411,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Amendments
 
-We encourage you to fork this guide and change the rules to fit your team's style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
+We encourage you to fork this guide and change the rules to fit your team’s style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
 
 # };

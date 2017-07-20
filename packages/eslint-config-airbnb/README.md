@@ -10,7 +10,9 @@ We export three ESLint configurations for your usage.
 
 ### eslint-config-airbnb
 
-Our default export contains all of our ESLint rules, including ECMAScript 6+ and React. It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, and `eslint-plugin-jsx-a11y`.
+Our default export contains all of our ESLint rules, including ECMAScript 6+ and React. It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, and `eslint-plugin-jsx-a11y`. If you don't need React, see [eslint-config-airbnb-base](https://npmjs.com/eslint-config-airbnb-base).
+
+If you use yarn, run `yarn add --dev eslint-config-airbnb-base eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y`, and see below for npm instructions.
 
 1. Install the correct versions of each package, which are listed by the command:
 

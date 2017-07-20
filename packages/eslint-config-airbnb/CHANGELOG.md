@@ -1,3 +1,8 @@
+15.0.2 / 2017-07-04
+==================
+- [fix] jsx should be enabled via parserOptions, not via a root ecmaFeatures
+- [deps] update `babel-preset-airbnb`, `eslint-find-rules`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y`, `eslint-plugin-react`, `tape`
+
 15.0.1 / 2017-05-15
 ==================
 - [fix] set default React version to 15.0 (#1415)
