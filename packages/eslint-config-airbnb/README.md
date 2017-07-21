@@ -10,9 +10,18 @@ We export three ESLint configurations for your usage.
 
 ### eslint-config-airbnb
 
-Our default export contains all of our ESLint rules, including ECMAScript 6+ and React. It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, and `eslint-plugin-jsx-a11y`.
+Our default export contains all of our ESLint rules, including ECMAScript 6+ and React. It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, and `eslint-plugin-jsx-a11y`. If you don't need React, see [eslint-config-airbnb-base](https://npmjs.com/eslint-config-airbnb-base).
 
-1. Ensure packages are installed with correct version numbers by running:
+If you use yarn, run `yarn add --dev eslint-config-airbnb-base eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y`, and see below for npm instructions.
+
+1. Install the correct versions of each package, which are listed by the command:
+
+  ```sh
+  npm info "eslint-config-airbnb@latest" peerDependencies
+  ```
+
+  Linux/OSX users can run
+
   ```sh
   (
     export PKG=eslint-config-airbnb;
@@ -21,6 +30,19 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+ and
   ```
 
   Which produces and runs a command like:
+
+  ```sh
+  npm install --save-dev eslint-config-airbnb eslint@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-react@^#.#.#
+  ```
+
+  Windows users can either install all the peer dependencies manually, or use the [install-peerdeps](https://github.com/nathanhleung/install-peerdeps) cli tool.
+
+  ```sh
+  npm install -g install-peerdeps
+  install-peerdeps --dev eslint-config-airbnb
+  ```
+
+  The cli will produce and run a command like:
 
   ```sh
   npm install --save-dev eslint-config-airbnb eslint@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-react@^#.#.#

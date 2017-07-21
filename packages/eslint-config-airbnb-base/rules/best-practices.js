@@ -37,7 +37,7 @@ module.exports = {
 
     // require the use of === and !==
     // http://eslint.org/docs/rules/eqeqeq
-    eqeqeq: ['error', 'allow-null'],
+    eqeqeq: ['error', 'always', { null: 'ignore' }],
 
     // make sure for-in loops have an if statement
     'guard-for-in': 'error',
@@ -164,9 +164,21 @@ module.exports = {
     'no-octal-escape': 'error',
 
     // disallow reassignment of function parameters
-    // disallow parameter object manipulation
+    // disallow parameter object manipulation except for specific exclusions
     // rule: http://eslint.org/docs/rules/no-param-reassign.html
-    'no-param-reassign': ['error', { props: true }],
+    'no-param-reassign': ['error', {
+      props: true,
+      ignorePropertyModificationsFor: [
+        'acc', // for reduce accumulators
+        'e', // for e.returnvalue
+        'ctx', // for Koa routing
+        'req', // for Express requests
+        'request', // for Express requests
+        'res', // for Express responses
+        'response', // for Express responses
+        '$scope', // for Angular 1 scopes
+      ]
+    }],
 
     // disallow usage of __proto__ property
     'no-proto': 'error',
@@ -193,7 +205,10 @@ module.exports = {
     }],
 
     // disallow use of assignment in return statement
-    'no-return-assign': 'error',
+    'no-return-assign': ['error', 'always'],
+
+    // disallow redundant `return await`
+    'no-return-await': 'error',
 
     // disallow use of `javascript:` urls.
     'no-script-url': 'error',
@@ -219,6 +234,7 @@ module.exports = {
     'no-unused-expressions': ['error', {
       allowShortCircuit: false,
       allowTernary: false,
+      allowTaggedTemplates: false,
     }],
 
     // disallow unused labels
@@ -250,8 +266,17 @@ module.exports = {
     // disallow use of the with statement
     'no-with': 'error',
 
+    // require using Error objects as Promise rejection reasons
+    // http://eslint.org/docs/rules/prefer-promise-reject-errors
+    // TODO: enable, semver-major
+    'prefer-promise-reject-errors': ['off', { allowEmptyReject: true }],
+
     // require use of the second argument for parseInt()
     radix: 'error',
+
+    // require `await` in `async function` (note: this is a horrible rule that should never be used)
+    // http://eslint.org/docs/rules/require-await
+    'require-await': 'off',
 
     // requires to declare all vars on top of their containing scope
     'vars-on-top': 'error',

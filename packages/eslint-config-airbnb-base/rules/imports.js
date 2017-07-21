@@ -68,7 +68,23 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
     // paths are treated both as absolute paths, and relative to process.cwd()
     'import/no-extraneous-dependencies': ['error', {
-      devDependencies: ['spec/**', 'test/**', 'tests/**', '**/__tests__/**'],
+      devDependencies: [
+        'test/**', // tape, common npm pattern
+        'tests/**', // also common npm pattern
+        'spec/**', // mocha, rspec-like pattern
+        '**/__tests__/**', // jest pattern
+        'test.{js,jsx}', // repos with a single test file
+        'test-*.{js,jsx}', // repos with multiple top-level test files
+        '**/*.{test,spec}.{js,jsx}', // tests where the extension denotes that it is a test
+        '**/webpack.config.js', // webpack config
+        '**/webpack.config.*.js', // webpack config
+        '**/rollup.config.js', // rollup config
+        '**/rollup.config.*.js', // rollup config
+        '**/gulpfile.js', // gulp config
+        '**/gulpfile.*.js', // gulp config
+        '**/Gruntfile', // grunt config
+        '**/protractor.conf.*.js', // protractor config
+      ],
       optionalDependencies: false,
     }],
 
@@ -175,5 +191,16 @@ module.exports = {
     // Prevent importing the default as if it were named
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-default.md
     'import/no-named-default': 'error',
+
+    // Reports if a module's default export is unnamed
+    // https://github.com/benmosher/eslint-plugin-import/blob/d9b712ac7fd1fddc391f7b234827925c160d956f/docs/rules/no-anonymous-default-export.md
+    'import/no-anonymous-default-export': ['off', {
+      allowArray: false,
+      allowArrowFunction: false,
+      allowAnonymousClass: false,
+      allowAnonymousFunction: false,
+      allowLiteral: false,
+      allowObject: false,
+    }],
   },
 };

@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/eslint-config-airbnb-base.svg)](http://badge.fury.io/js/eslint-config-airbnb-base)
 
-This package provides Airbnb's base JS .eslintrc as an extensible shared config.
+This package provides Airbnb's base JS .eslintrc (without React plugins) as an extensible shared config.
 
 ## Usage
 
@@ -12,7 +12,15 @@ We export two ESLint configurations for your usage.
 
 Our default export contains all of our ESLint rules, including ECMAScript 6+. It requires `eslint` and `eslint-plugin-import`.
 
-1. Ensure packages are installed with correct version numbers by running:
+If you use yarn, run `yarn add --dev eslint-config-airbnb-base eslint-plugin-import`, or see below for npm instructions.
+
+1. Install the correct versions of each package, which are listed by the command:
+
+  ```sh
+  npm info "eslint-config-airbnb-base@latest" peerDependencies
+  ```
+
+  Linux/OSX users can run
   ```sh
   (
     export PKG=eslint-config-airbnb-base;
@@ -26,13 +34,32 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+. It
     npm install --save-dev eslint-config-airbnb-base eslint@^#.#.# eslint-plugin-import@^#.#.#
   ```
 
-2. Add `"extends": "airbnb-base"` to your .eslintrc
+  Windows users can either install all the peer dependencies manually, or use the [install-peerdeps](https://github.com/nathanhleung/install-peerdeps) cli tool.
+
+  ```sh
+  npm install -g install-peerdeps
+  install-peerdeps --dev eslint-config-airbnb-base
+  ```
+
+  The cli will produce and run a command like:
+
+  ```sh
+  npm install --save-dev eslint-config-airbnb-base eslint@^#.#.# eslint-plugin-import@^#.#.#
+  ```
+
+2. Add `"extends": "airbnb-base"` to your .eslintrc.
 
 ### eslint-config-airbnb-base/legacy
 
 Lints ES5 and below. Requires `eslint` and `eslint-plugin-import`.
 
-1. Ensure packages are installed with correct version numbers by running:
+1. Install the correct versions of each package, which are listed by the command:
+
+  ```sh
+  npm info "eslint-config-airbnb-base@latest" peerDependencies
+  ```
+
+  Linux/OSX users can run
   ```sh
   (
     export PKG=eslint-config-airbnb-base;

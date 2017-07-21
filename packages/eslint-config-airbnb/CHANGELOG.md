@@ -1,3 +1,34 @@
+15.0.2 / 2017-07-04
+==================
+- [fix] jsx should be enabled via parserOptions, not via a root ecmaFeatures
+- [deps] update `babel-preset-airbnb`, `eslint-find-rules`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y`, `eslint-plugin-react`, `tape`
+
+15.0.1 / 2017-05-15
+==================
+- [fix] set default React version to 15.0 (#1415)
+
+15.0.0 / 2017-05-14
+==================
+- [breaking] set default React version to 0.15
+- [breaking] `update eslint-plugin-jsx-a11y` to v5, enable new rules
+- [breaking] `update eslint-plugin-react` to v7, enable new rules
+- [minor] enable rules: `jsx-max-props-per-line`, `void-dom-elements-no-children`
+- [patch] Turn `ignorePureComponents` option on for react/prefer-stateless-function (#1378, #1398)
+- [deps] update `eslint`, `eslint-plugin-react`, `eslint-config-airbnb-base`
+
+14.1.0 / 2017-02-05
+==================
+- [patch] allow `eslint-plugin-jsx-a11y` to be v3 or v4. Remove `no-marquee` rule temporarily.
+- [deps] update `eslint-config-airbnb-base`, `babel-preset-airbnb`, `eslint`
+
+14.0.0 / 2017-01-08
+==================
+- [breaking] enable `react/no-array-index-key`, `react/require-default-props`
+- [breaking] [deps] update `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, `eslint-config-airbnb-base`
+- [breaking] [deps] update `eslint-plugin-jsx-a11y` to v3 (#1166)
+- [docs] add note about `install-peerdeps` (#1234)
+- [docs] Updated instructions to support non-bash users (#1214)
+
 13.0.0 / 2016-11-06
 ==================
 - [breaking] Enable `import/no-webpack-loader-syntax` rule (#1123)
