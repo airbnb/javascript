@@ -1,5 +1,15 @@
 module.exports = {
   rules: {
+    // enforce line breaks after opening and before closing array brackets
+    // http://eslint.org/docs/rules/array-bracket-newline
+    // TODO: enable? semver-major
+    'array-bracket-newline': ['off', { multiline: true, minItems: 3 }],
+
+    // enforce line breaks between array elements
+    // http://eslint.org/docs/rules/array-element-newline
+    // TODO: enable? semver-major
+    'array-element-newline': ['off', { multiline: true, minItems: 3 }],
+
     // enforce spacing inside array brackets
     'array-bracket-spacing': ['error', 'never'],
 
@@ -82,7 +92,7 @@ module.exports = {
       outerIIFEBody: 1,
       // MemberExpression: null,
       // CallExpression: {
-        // parameters: null,
+      //   parameters: null,
       // },
       FunctionDeclaration: {
         parameters: 1,
@@ -284,10 +294,18 @@ module.exports = {
     'no-ternary': 'off',
 
     // disallow trailing whitespace at the end of lines
-    'no-trailing-spaces': 'error',
+    'no-trailing-spaces': ['error', {
+      skipBlankLines: false,
+      // ignoreComments: false, // TODO: uncomment once v3 is dropped
+    }],
 
     // disallow dangling underscores in identifiers
-    'no-underscore-dangle': ['error', { allowAfterThis: false }],
+    'no-underscore-dangle': ['error', {
+      allow: [],
+      allowAfterThis: false,
+      allowAfterSuper: false,
+      // enforceInMethodNames: false, // TODO: uncoment and enable, semver-minor once v3 is dropped
+    }],
 
     // disallow the use of Boolean literals in conditional expressions
     // also, prefer `a || b` over `a ? a : b`
@@ -307,10 +325,10 @@ module.exports = {
 
     // enforce line breaks between braces
     // http://eslint.org/docs/rules/object-curly-newline
-    // TODO: enable once https://github.com/eslint/eslint/issues/6488 is resolved
+    // TODO: enable once https://github.com/eslint/eslint/issues/6488 is resolved and v3 is dropped
     'object-curly-newline': ['off', {
-      ObjectExpression: { minProperties: 0, multiline: true },
-      ObjectPattern: { minProperties: 0, multiline: true }
+      ObjectExpression: { minProperties: 3, multiline: true, consistent: true },
+      ObjectPattern: { minProperties: 3, multiline: true, consistent: true }
     }],
 
     // enforce "same line" or "multiple line" on object properties.
@@ -336,6 +354,10 @@ module.exports = {
     // enforce padding within blocks
     'padded-blocks': ['error', 'never'],
 
+    // Require or disallow padding lines between statements
+    // http://eslint.org/docs/rules/padding-line-between-statements
+    'padding-line-between-statements': 'off',
+
     // require quotes around object literal property names
     // http://eslint.org/docs/rules/quote-props.html
     'quote-props': ['error', 'as-needed', { keywords: false, unnecessary: true, numbers: false }],
@@ -352,6 +374,11 @@ module.exports = {
 
     // enforce spacing before and after semicolons
     'semi-spacing': ['error', { before: false, after: true }],
+
+    // Enforce location of semicolons
+    // http://eslint.org/docs/rules/semi-style
+    // TODO: enable, semver-major until v3 is dropped, semver-minor otherwise
+    'semi-style': ['off', 'last'],
 
     // requires object keys to be sorted
     'sort-keys': ['off', 'asc', { caseSensitive: false, natural: true }],
@@ -398,6 +425,11 @@ module.exports = {
         balanced: true,
       }
     }],
+
+    // Enforce spacing around colons of switch statements
+    // http://eslint.org/docs/rules/switch-colon-spacing
+    // TODO: enable, semver-major
+    'switch-colon-spacing': ['off', { after: true, before: false }],
 
     // Require or disallow spacing between template tags and their literals
     // http://eslint.org/docs/rules/template-tag-spacing
