@@ -18,6 +18,7 @@ sudo: false
 env:
   matrix:
     - 'TEST=true ESLINT=3 PACKAGE=eslint-config-airbnb'
+    - 'TEST=true ESLINT=4 PACKAGE=eslint-config-airbnb'
     - 'TEST=true ESLINT=3 PACKAGE=eslint-config-airbnb-base'
     - 'TEST=true ESLINT=4 PACKAGE=eslint-config-airbnb-base'
 matrix:
@@ -26,6 +27,8 @@ matrix:
     - node_js: "node"
       env: PREPUBLISH=true ESLINT=3 PACKAGE=eslint-config-airbnb
     - node_js: "node"
+      env: PREPUBLISH=true ESLINT=4 PACKAGE=eslint-config-airbnb
+    - node_js: "node"
       env: PREPUBLISH=true ESLINT=3 PACKAGE=eslint-config-airbnb-base
     - node_js: "node"
       env: PREPUBLISH=true ESLINT=4 PACKAGE=eslint-config-airbnb-base
@@ -33,5 +36,6 @@ matrix:
     - node_js: "7"
     - node_js: "5"
     - env: PREPUBLISH=true ESLINT=3 PACKAGE=eslint-config-airbnb
+    - env: PREPUBLISH=true ESLINT=4 PACKAGE=eslint-config-airbnb
     - env: PREPUBLISH=true ESLINT=3 PACKAGE=eslint-config-airbnb-base
     - env: PREPUBLISH=true ESLINT=4 PACKAGE=eslint-config-airbnb-base
