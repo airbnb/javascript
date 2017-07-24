@@ -1,3 +1,7 @@
+11.3.1 / 2017-07-24
+==================
+ - [fix] `legacy`: remove top-level `ecmaFeatures`
+
 11.3.0 / 2017-07-23
 ==================
  - [deps] allow eslint v3 or v4 (#1447)
