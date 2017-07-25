@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb",
-  "version": "15.0.2",
+  "version": "15.1.0",
   "description": "Airbnb's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
@@ -48,15 +48,15 @@
   },
   "homepage": "https://github.com/airbnb/javascript",
   "dependencies": {
-    "eslint-config-airbnb-base": "^11.2.0"
+    "eslint-config-airbnb-base": "^11.3.0"
   },
   "devDependencies": {
     "babel-preset-airbnb": "^2.4.0",
     "babel-tape-runner": "^2.0.1",
     "editorconfig-tools": "^0.1.1",
-    "eslint": "^3.19.0",
+    "eslint": "^3.19.0 || ^4.3.0",
     "eslint-find-rules": "^3.1.1",
-    "eslint-plugin-import": "^2.6.1",
+    "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
     "in-publish": "^2.0.0",
@@ -65,9 +65,9 @@
     "tape": "^4.7.0"
   },
   "peerDependencies": {
-    "eslint": "^3.19.0",
+    "eslint": "^3.19.0 || ^4.3.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-import": "^2.6.1",
+    "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-react": "^7.1.0"
   },
   "engines": {

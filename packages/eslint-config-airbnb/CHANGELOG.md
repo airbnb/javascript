@@ -1,3 +1,8 @@
+15.1.0 / 2017-07-24
+==================
+- [deps] allow eslint v3 or v4 (#1447)
+- [deps] update `eslint-plugin-import`, `eslint-config-airbnb-base`
+
 15.0.2 / 2017-07-04
 ==================
 - [fix] jsx should be enabled via parserOptions, not via a root ecmaFeatures
