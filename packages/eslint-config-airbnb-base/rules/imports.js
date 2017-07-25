@@ -82,7 +82,7 @@ module.exports = {
         '**/rollup.config.*.js', // rollup config
         '**/gulpfile.js', // gulp config
         '**/gulpfile.*.js', // gulp config
-        '**/Gruntfile', // grunt config
+        '**/Gruntfile{,.js}', // grunt config
         '**/protractor.conf.*.js', // protractor config
       ],
       optionalDependencies: false,
