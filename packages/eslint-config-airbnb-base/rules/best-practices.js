@@ -179,6 +179,7 @@ module.exports = {
         'res', // for Express responses
         'response', // for Express responses
         '$scope', // for Angular 1 scopes
+        't', // for AVA test contexts
       ]
     }],
 
