@@ -12,7 +12,7 @@ We export two ESLint configurations for your usage.
 
 Our default export contains all of our ESLint rules, including ECMAScript 6+. It requires `eslint` and `eslint-plugin-import`.
 
-If you use yarn, run `yarn add --dev eslint-config-airbnb-base eslint-plugin-import`, or see below for npm instructions.
+If you use yarn, run `npm info "eslint-config-airbnb-base@latest" peerDependencies` to list the peer dependencies and versions, then run `yarn add --dev <dependency>@<version>` for each listed peer dependency. See below for npm instructions.
 
 1. Install the correct versions of each package, which are listed by the command:
 
