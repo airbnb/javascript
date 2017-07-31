@@ -1,7 +1,7 @@
 module.exports = {
   extends: [
-    'eslint-config-postmates-base',
-    'eslint-config-postmates-base/rules/strict',
+    '@postmates/eslint-config-base',
+    '@postmates/eslint-config-base/rules/strict',
     './rules/react',
     './rules/react-a11y',
   ].map(require.resolve),
