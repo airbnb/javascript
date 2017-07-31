@@ -49,8 +49,7 @@ test('validate react prop order', (t) => {
   setBar() {}
   someMethod() {}
   renderDogs() {}
-  render() { return <div />; }
-`));
+  render() { return <div />; }`));
 
     t.notOk(result.warningCount, 'no warnings');
     t.notOk(result.errorCount, 'no errors');

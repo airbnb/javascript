@@ -14,6 +14,11 @@ module.exports = {
     // enforces error handling in callbacks (node environment)
     'handle-callback-err': 'off',
 
+    // disallow use of the Buffer() constructor
+    // http://eslint.org/docs/rules/no-buffer-constructor
+    // TODO: enable, semver-major
+    'no-buffer-constructor': 'off',
+
     // disallow mixing regular variable and require declarations
     'no-mixed-requires': ['off', false],
 

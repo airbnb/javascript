@@ -1,3 +1,19 @@
+11.3.1 / 2017-07-24
+==================
+ - [fix] `legacy`: remove top-level `ecmaFeatures`
+
+11.3.0 / 2017-07-23
+==================
+ - [deps] allow eslint v3 or v4 (#1447)
+ - [deps] update `eslint-plugin-import`
+ - [minor] Balanced spacing for inline block comments (#1440)
+ - [minor] `no-return-assign`: strengthen linting against returning assignments
+ - [patch] Allow jsx extensions for test files (#1427)
+ - [patch] `no-restricted-globals`: add confusing globals; leave disabled for now (#1420)
+ - [patch] Support Protractor config files in import/no-extraneous-dependencies (#1456)
+ - [docs] Remove TODO in prefer-reflect as it's deprecated (#1452)
+ - [docs] add yarn instructions (#1463, #1464)
+
 11.2.0 / 2017-05-14
 ==================
  - [minor] Disallow unused global variables

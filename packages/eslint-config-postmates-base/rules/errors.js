@@ -9,6 +9,16 @@ module.exports = {
       functions: 'always-multiline',
     }],
 
+    // Enforce “for” loop update clause moving the counter in the right direction
+    // http://eslint.org/docs/rules/for-direction
+    // TODO: enable, semver-major until v3 is dropped; semver-minor otherwise
+    'for-direction': 'off',
+
+    // Enforces that a return statement is present in property getters
+    // http://eslint.org/docs/rules/getter-return
+    // TODO: enable, semver-major when v3 is dropped
+    'getter-return': ['off', { allowImplicit: true }],
+
     // Disallow await inside of loops
     // http://eslint.org/docs/rules/no-await-in-loop
     'no-await-in-loop': 'error',
@@ -61,6 +71,8 @@ module.exports = {
       conditionalAssign: true,
       nestedBinaryExpressions: false,
       returnAssign: false,
+      ignoreJSX: 'all', // delegate to eslint-plugin-react
+      enforceForArrowConditionals: false,
     }],
 
     // disallow unnecessary semicolons
