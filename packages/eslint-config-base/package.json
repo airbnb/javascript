@@ -7,7 +7,7 @@
     "prelint": "editorconfig-tools check * rules/* test/*",
     "lint": "eslint .",
     "tests-only": "babel-tape-runner ./test/test-*.js",
-    "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test) && safe-publish-latest",
+    "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test)",
     "pretest": "npm run --silent lint",
     "test": "npm run --silent tests-only",
     "pretravis": ":",
@@ -26,22 +26,7 @@
     "javascript",
     "styleguide"
   ],
-  "author": "Jake Teton-Landis (https://twitter.com/@jitl)",
-  "contributors": [
-    {
-      "name": "Jake Teton-Landis",
-      "url": "https://twitter.com/jitl"
-    },
-    {
-      "name": "Jordan Harband",
-      "email": "ljharb@gmail.com",
-      "url": "http://ljharb.codes"
-    },
-    {
-      "name": "Harrison Shoff",
-      "url": "https://twitter.com/hshoff"
-    }
-  ],
+  "author": "Kristen Mills",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/postmates/javascript/issues"
@@ -55,7 +40,6 @@
     "eslint-find-rules": "^3.1.1",
     "eslint-plugin-import": "^2.7.0",
     "in-publish": "^2.0.0",
-    "safe-publish-latest": "^1.1.1",
     "tape": "^4.7.0"
   },
   "peerDependencies": {
