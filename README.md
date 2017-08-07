@@ -1285,6 +1285,7 @@ Other Style Guides
   <a name="modules--prefer-default-export"></a>
   - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
  eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
+    > Why? To encourage more files that only ever export one thing, which is better for readability and maintainability.
 
     ```javascript
     // bad
