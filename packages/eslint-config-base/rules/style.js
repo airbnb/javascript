@@ -300,12 +300,7 @@ module.exports = {
     }],
 
     // disallow dangling underscores in identifiers
-    'no-underscore-dangle': ['error', {
-      allow: [],
-      allowAfterThis: false,
-      allowAfterSuper: false,
-      // enforceInMethodNames: false, // TODO: uncoment and enable, semver-minor once v3 is dropped
-    }],
+    'no-underscore-dangle': 'off',
 
     // disallow the use of Boolean literals in conditional expressions
     // also, prefer `a || b` over `a ? a : b`

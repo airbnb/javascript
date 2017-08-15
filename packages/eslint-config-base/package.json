@@ -1,6 +1,6 @@
 {
   "name": "@postmates/eslint-config-base",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Postmates' base JS ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
