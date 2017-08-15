@@ -324,6 +324,20 @@
   <div />
   ```
 
+  - Always include a `key` prop on elements when in an array or iterator. eslint: [`react/jsx-key`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-key.md)
+
+  ```jsx
+  // bad
+  [<Hello />, <Hello />, <Hello />];
+
+  data.map(({ name }) => <Hello>name</Hello>);
+
+  // good
+  [<Hello key="first" />, <Hello key="second" />, <Hello key="third" />];
+
+  data.map(({ id, name }) => <Hello key={id}>name</Hello>);
+  ```
+
   - Avoid using an array index as `key` prop, prefer a unique ID if possible. ([why?](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318))
 
   ```jsx

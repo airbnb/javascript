@@ -1,6 +1,6 @@
 {
   "name": "@postmates/eslint-config",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Postmates' ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/postmates/javascript",
   "dependencies": {
-    "@postmates/eslint-config-base": "^0.0.1"
+    "@postmates/eslint-config-base": "^1.0.0"
   },
   "devDependencies": {
     "babel-preset-airbnb": "^2.4.0",
