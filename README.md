@@ -2928,11 +2928,16 @@ Other Style Guides
       // ...
     ];
 
+    // also good
+    const httpRequests = [
+      // ...
+    ];
+
     // best
     import TextMessageContainer from './containers/TextMessageContainer';
 
     // best
-    const Requests = [
+    const requests = [
       // ...
     ];
     ```
