@@ -269,6 +269,9 @@
     <Foo
       hidden
     />
+
+    // good
+    <Foo hidden />
     ```
 
   - Always include an `alt` prop on `<img>` tags. If the image is presentational, `alt` can be an empty string or the `<img>` must have `role="presentation"`. eslint: [`jsx-a11y/alt-text`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/alt-text.md)
