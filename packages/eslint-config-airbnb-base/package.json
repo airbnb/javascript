@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb-base",
-  "version": "11.3.1",
+  "version": "11.3.2",
   "description": "Airbnb's base JS ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {

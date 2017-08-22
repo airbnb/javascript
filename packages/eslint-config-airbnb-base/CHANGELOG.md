@@ -1,3 +1,10 @@
+11.3.2 / 2017-08-22
+==================
+ - [patch] Add jest.config.js to import/no-extraneous-dependencies devDeps (#1522)
+ - [patch] Improve Gruntfile glob pattern (#1503)
+ - [deps] update `eslint` v4, `tape`
+ - [docs] Specify yarn-specific install instructions (#1511)
+
 11.3.1 / 2017-07-24
 ==================
  - [fix] `legacy`: remove top-level `ecmaFeatures`
