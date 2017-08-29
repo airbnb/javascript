@@ -84,6 +84,7 @@ module.exports = {
         '**/gulpfile.js', // gulp config
         '**/gulpfile.*.js', // gulp config
         '**/Gruntfile{,.js}', // grunt config
+        '**/protractor.conf.js', // protractor config
         '**/protractor.conf.*.js', // protractor config
       ],
       optionalDependencies: false,
