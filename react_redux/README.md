@@ -35,11 +35,11 @@ Other Standards
 
   - If you have internal state and/or refs, prefer `class extends React.Component` over `React.createClass`. 
 
-    ```jsx
+    ```typescript
     // bad
     const Listing = React.createClass({
       // ...
-      render() {
+      render(): JSX.Element {
         return <div>{this.state.hello}</div>;
       }
     });
@@ -47,31 +47,26 @@ Other Standards
     // good
     class Listing extends React.Component {
       // ...
-      render() {
+      render(): JSX.Element {
         return <div>{this.state.hello}</div>;
       }
     }
     ```
 
-    And if you don't have state or refs, prefer normal functions (not arrow functions) over classes:
+    And if you don't have state or refs, use arrow functions over classes:
 
-    ```jsx
+    ```typescript
     // bad
-    class Listing extends React.Component {
-      render() {
+    class Listing extends React.Component<Props, void> {
+      render(): JSX.Element {
         return <div>{this.props.hello}</div>;
       }
     }
 
-    // bad (relying on function name inference is discouraged)
-    const Listing = ({ hello }) => (
-      <div>{hello}</div>
-    );
-
     // good
-    function Listing({ hello }) {
-      return <div>{hello}</div>;
-    }
+    const Listing = (props: Props) => (
+      <div>{props.hello}</div>
+    );
     ```
 
 ## Mixins
@@ -86,13 +81,7 @@ Other Standards
   - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.tsx`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances. 
 
-    ```jsx
-    // bad
-    import reservationCard from './ReservationCard';
-
-    // good
-    import ReservationCard from './ReservationCard';
-
+    ```typescript
     // bad
     const ReservationItem = <ReservationCard />;
 
@@ -102,35 +91,35 @@ Other Standards
 
   - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.tsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.tsx` as the filename and use the directory name as the component name:
 
-    ```jsx
+    ```typescript
     // bad
-    import Footer from './Footer/Footer';
+    import { Footer } from './Footer/Footer';
 
     // bad
-    import Footer from './Footer/index';
+    import { Footer } from './Footer/index';
 
     // good
-    import Footer from './Footer';
+    import { Footer } from './Footer';
     ```
   - **Higher-order Component Naming**: Use a composite of the higher-order component's name and the passed-in component's name as the `displayName` on the generated component. For example, the higher-order component `withFoo()`, when passed a component `Bar` should produce a component with a `displayName` of `withFoo(Bar)`.
 
     > Why? A component's `displayName` may be used by developer tools or in error messages, and having a value that clearly expresses this relationship helps people understand what is happening.
 
-    ```jsx
+    ```typescript
     // bad
-    export default function withFoo(WrappedComponent) {
-      return function WithFoo(props) {
+    export function withFoo(WrappedComponent) {
+      return function WithFoo(props: Props): JSX.Element {
         return <WrappedComponent {...props} foo />;
       }
     }
 
     // good
-    export default function withFoo(WrappedComponent) {
-      function WithFoo(props) {
+    export function withFoo(WrappedComponent) {
+      function WithFoo(props: Props) {
         return <WrappedComponent {...props} foo />;
       }
 
-      const wrappedComponentName = WrappedComponent.displayName
+      const wrappedComponentName: string = WrappedComponent.displayName
         || WrappedComponent.name
         || 'Component';
 
@@ -143,7 +132,7 @@ Other Standards
 
     > Why? People expect props like `style` and `className` to mean one specific thing. Varying this API for a subset of your app makes the code less readable and less maintainable, and may cause bugs.
 
-    ```jsx
+    ```typescript
     // bad
     <MyComponent style="fancy" />
 
@@ -155,15 +144,15 @@ Other Standards
 
   - Do not use `displayName` for naming components. Instead, name the component by reference.
 
-    ```jsx
+    ```typescript
     // bad
-    export default React.createClass({
+    export React.createClass({
       displayName: 'ReservationCard',
       // stuff goes here
     });
 
     // good
-    export default class ReservationCard extends React.Component {
+    export class ReservationCard extends React.Component<Props, void> {
     }
     ```
 
@@ -171,7 +160,7 @@ Other Standards
 
   - Follow these alignment styles for JSX syntax. 
 
-    ```jsx
+    ```typescript
     // bad
     <Foo superLongParam="bar"
          anotherSuperLongParam="baz" />
@@ -196,11 +185,11 @@ Other Standards
 
 ## Quotes
 
-  - Always use double quotes (`'`) for JSX attributes, and all other JS. 
+  - Always use single quotes (`'`) for JSX attributes, and all other JS. 
 
     > Why? Using the same quote style everywhere is more readable and less dangerous.
 
-    ```jsx
+    ```typescript
     // bad
     <Foo bar="bar" />
 
@@ -218,7 +207,7 @@ Other Standards
 
   - Always include a single space in your self-closing tag. 
 
-    ```jsx
+    ```typescript
     // bad
     <Foo/>
 
@@ -235,7 +224,7 @@ Other Standards
 
   - Do not pad JSX curly braces with spaces. 
 
-    ```jsx
+    ```typescript
     // bad
     <Foo bar={ baz } />
 
@@ -247,23 +236,23 @@ Other Standards
 
   - Always use camelCase for prop names.
 
-    ```jsx
+    ```typescript
     // bad
     <Foo
-      UserName="hello"
+      UserName='hello'
       phone_number={12345678}
     />
 
     // good
     <Foo
-      userName="hello"
+      userName='hello'
       phoneNumber={12345678}
     />
     ```
 
   - Omit the value of the prop when it is explicitly `true`. 
 
-    ```jsx
+    ```typescript
     // bad
     <Foo
       hidden={true}
@@ -277,52 +266,52 @@ Other Standards
 
   - Always include an `alt` prop on `<img>` tags. If the image is presentational, `alt` can be an empty string or the `<img>` must have `role='presentation'`. 
 
-    ```jsx
+    ```typescript
     // bad
-    <img src="hello.jpg" />
+    <img src='hello.jpg' />
 
     // good
-    <img src="hello.jpg" alt="Me waving hello" />
+    <img src='hello.jpg' alt='Me waving hello' />
 
     // good
-    <img src="hello.jpg" alt="" />
+    <img src='hello.jpg' alt='' />
 
     // good
-    <img src="hello.jpg" role="presentation" />
+    <img src='hello.jpg' role='presentation' />
     ```
 
-  - Do not use words like "image", "photo", or "picture" in `<img>` `alt` props. 
+  - Do not use words like 'image', 'photo', or 'picture' in `<img>` `alt` props. 
 
     > Why? Screenreaders already announce `img` elements as images, so there is no need to include this information in the alt text.
 
-    ```jsx
+    ```typescript
     // bad
-    <img src="hello.jpg" alt="Picture of me waving hello" />
+    <img src='hello.jpg' alt='Picture of me waving hello' />
 
     // good
-    <img src="hello.jpg" alt="Me waving hello" />
+    <img src='hello.jpg' alt='Me waving hello' />
     ```
 
   - Use only valid, non-abstract [ARIA roles](https://www.w3.org/TR/wai-aria/roles#role_definitions). 
 
-    ```jsx
+    ```typescript
     // bad - not an ARIA role
-    <div role="datepicker" />
+    <div role='datepicker' />
 
     // bad - abstract ARIA role
-    <div role="range" />
+    <div role='range' />
 
     // good
-    <div role="button" />
+    <div role='button' />
     ```
 
   - Do not use `accessKey` on elements. 
 
   > Why? Inconsistencies between keyboard shortcuts and keyboard commands used by people using screenreaders and keyboards complicate accessibility.
 
-  ```jsx
+  ```typescript
   // bad
-  <div accessKey="h" />
+  <div accessKey='h' />
 
   // good
   <div />
@@ -330,9 +319,9 @@ Other Standards
 
   - Avoid using an array index as `key` prop, prefer a unique ID. ([why?](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318))
 
-  ```jsx
+  ```typescript
   // bad
-  {todos.map((todo, index) =>
+  {todos.map((todo: Todo, index: number): JSX.Element =>
     <Todo
       {...todo}
       key={index}
@@ -340,7 +329,7 @@ Other Standards
   )}
 
   // good
-  {todos.map(todo => (
+  {todos.map((todo: Todo): JSX.Element => (
     <Todo
       {...todo}
       key={todo.id}
@@ -356,10 +345,10 @@ Other Standards
 
   - Always use ref callbacks. 
 
-    ```jsx
+    ```typescript
     // bad
     <Foo
-      ref="myRef"
+      ref='myRef'
     />
 
     // good
@@ -372,25 +361,25 @@ Other Standards
 
   - Wrap JSX tags in parentheses when they span more than one line. 
 
-    ```jsx
+    ```typescript
     // bad
-    render() {
-      return <MyComponent className="long body" foo="bar">
+    render(): JSX.Element {
+      return <MyComponent className='long body' foo='bar'>
                <MyChild />
              </MyComponent>;
     }
 
     // good
-    render() {
+    render(): JSX.Element {
       return (
-        <MyComponent className="long body" foo="bar">
+        <MyComponent className='long body' foo='bar'>
           <MyChild />
         </MyComponent>
       );
     }
 
     // good, when single line
-    render() {
+    render(): JSX.Element {
       const body = <div>hello</div>;
       return <MyComponent>{body}</MyComponent>;
     }
@@ -400,26 +389,26 @@ Other Standards
 
   - Always self-close tags that have no children. 
 
-    ```jsx
+    ```typescript
     // bad
-    <Foo className="stuff"></Foo>
+    <Foo className='stuff'></Foo>
 
     // good
-    <Foo className="stuff" />
+    <Foo className='stuff' />
     ```
 
   - If your component has multi-line properties, close its tag on a new line. 
 
-    ```jsx
+    ```typescript
     // bad
     <Foo
-      bar="bar"
-      baz="baz" />
+      bar='bar'
+      baz='baz' />
 
     // good
     <Foo
-      bar="bar"
-      baz="baz"
+      bar='bar'
+      baz='baz'
     />
     ```
 
@@ -427,8 +416,8 @@ Other Standards
 
   - Use arrow functions to close over local variables.
 
-    ```jsx
-    function ItemList(props) {
+    ```typescript
+    const ItemList = (props: Props): JSX.Element => {
       return (
         <ul>
           {props.items.map((item, index) => (
@@ -446,21 +435,21 @@ Other Standards
 
     > Why? A bind call in the render path creates a brand new function on every single render.
 
-    ```jsx
+    ```typescript
     // bad
-    class extends React.Component {
+    class extends React.Component<Props, void> {
       onClickDiv() {
         // do stuff
       }
 
-      render() {
+      render(): JSX.Element {
         return <div onClick={this.onClickDiv.bind(this)} />;
       }
     }
 
     // good
-    class extends React.Component {
-      constructor(props) {
+    class extends React.Component<Props, void> {
+      constructor(props: Props) {
         super(props);
 
         this.onClickDiv = this.onClickDiv.bind(this);
@@ -470,7 +459,7 @@ Other Standards
         // do stuff
       }
 
-      render() {
+      render(): JSX.Element {
         return <div onClick={this.onClickDiv} />;
       }
     }
@@ -479,7 +468,7 @@ Other Standards
   - Do not use underscore prefix for internal methods of a React component.
     > Why? Underscore prefixes are sometimes used as a convention in other languages to denote privacy. But, unlike those languages, there is no native support for privacy in JavaScript, everything is public. Regardless of your intentions, adding underscore prefixes to your properties does not actually make them private, and any property (underscore-prefixed or not) should be treated as being public. See issues [#1024](https://github.com/airbnb/javascript/issues/1024), and [#490](https://github.com/airbnb/javascript/issues/490) for a more in-depth discussion.
 
-    ```jsx
+    ```typescript
     // bad
     React.createClass({
       _onClickSubmit() {
@@ -490,7 +479,7 @@ Other Standards
     });
 
     // good
-    class extends React.Component {
+    class extends React.Component<Props, void> {
       onClickSubmit() {
         // do stuff
       }
@@ -501,14 +490,14 @@ Other Standards
 
   - Be sure to return a value in your `render` methods. 
 
-    ```jsx
+    ```typescript
     // bad
-    render() {
+    render(): JSX.Element {
       (<div />);
     }
 
     // good
-    render() {
+    render(): JSX.Element {
       return (<div />);
     }
     ```
@@ -531,37 +520,6 @@ Other Standards
   1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
   1. *optional render methods* like `renderNavigation()` or `renderProfilePicture()`
   1. `render`
-
-  - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
-
-    ```jsx
-    import React, { PropTypes } from 'react';
-
-    const propTypes = {
-      id: PropTypes.number.isRequired,
-      url: PropTypes.string.isRequired,
-      text: PropTypes.string,
-    };
-
-    const defaultProps = {
-      text: 'Hello World',
-    };
-
-    class Link extends React.Component {
-      static methodsAreOk() {
-        return true;
-      }
-
-      render() {
-        return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>;
-      }
-    }
-
-    Link.propTypes = propTypes;
-    Link.defaultProps = defaultProps;
-
-    export default Link;
-    ```
 
   - Ordering for `React.createClass`: 
 
