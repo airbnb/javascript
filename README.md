@@ -141,7 +141,6 @@ Since this part appeared to have a more educational purpose, you can refer to th
     // bad
     const atom: Interface = {
       value: 1,
-
       addValue: function (value: number): number {
         return atom.value + value;
       },
@@ -150,7 +149,6 @@ Since this part appeared to have a more educational purpose, you can refer to th
     // good
     const atom: Interface = {
       value: 1,
-
       addValue: (value: number): number => value + 1,
     };
     ```
@@ -251,10 +249,10 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // bad
-    const items: Interface = new Array();
+    const items: Interface[] = new Array();
 
     // good
-    const items: Interface = [];
+    const items: Interface[] = [];
     ```
   <a name="arrays--callback-return"></a><a name="4.2"></a>
   - [4.2](#arrays--callback-return) Use return statements in array method callbacks. It's ok to omit the return if the function body consists of a single statement. We also encourage the use of the ternary operator in simple if/else cases. 
