@@ -9,7 +9,7 @@ Other Standards
 
 The current repository aggregates all code standards that must be respected when writing and reviewing TypeScript code related to the Coveo Cloud Platform. This document should therefore be read and applied by anyone having to write TypeScript code for the Coveo Cloud Platform.  
   
-Since the current repository is greatly inspired from [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript), most code examples are written in plain JavaScript, except for TypeScript specific standards.  
+The current repository is greatly inspired from [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript), but most code examples were written in TypeScript.  
 
 If you are somewhat new to JavaScript with ES6, we recommend you read the full [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript). Feel free to use additional resources, there are tons of it out there.
 
