@@ -350,7 +350,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // bad
-    function getFullName(user: User): string {
+    const getFullName = (user: User): string => {
       const firstName = user.firstName;
       const lastName = user.lastName;
 
@@ -358,7 +358,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
     }
 
     // good
-    function getFullName(user: User): string {
+    const getFullName = (user: User): string => {
       const { firstName, lastName } = user;
       return `${firstName} ${lastName}`;
     }
@@ -383,7 +383,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // bad
-    function processInput(input) {
+    const processInput = (input: Input): ProcessedInput => {
       // then a miracle occurs
       return [left, right, top, bottom];
     }
@@ -392,7 +392,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
     const [left, __, top] = processInput(input);
 
     // good
-    function processInput(input: Input): ProcessedInput {
+    const processInput = (input: Input): ProcessedInput => {
       // then a miracle occurs
       return { left, right, top, bottom };
     }
@@ -446,24 +446,16 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // bad
-    function sayHi(name: string): string {
-      return 'How are you, ' + name + '?';
-    }
+    const sayHi = (name: string): string => 'How are you, ' + name + '?';
 
     // bad
-    function sayHi(name: string): string {
-      return ['How are you, ', name, '?'].join();
-    }
+    const sayHi = (name: string): string => ['How are you, ', name, '?'].join();
 
     // bad
-    function sayHi(name: string): string {
-      return `How are you, ${ name }?`;
-    }
+    const sayHi = (name: string): string => `How are you, ${ name }?`;
 
     // good
-    function sayHi(name: string): string {
-      return `How are you, ${name}?`;
-    }
+    const sayHi = (name: string): string => `How are you, ${name}?`;
     ```
 
   <a name="strings--escaping"></a><a name="6.5"></a>
@@ -495,21 +487,16 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // bad
-    function foo(bar: Interface): ReturnedInterface {
-      // ...
-    }
-
-    // bad
     const foo = function (bar: Interface): ReturnedInterface {
       // ...
     };
 
-    // good
+    // bad
     const foo = function bar(bar: Interface): ReturnedInterface {
       // ...
     };
 
-    // good (and preferred)
+    // good
     const foo = (bar: Interface): ReturnedInterface => {
       // ...
     };
@@ -527,14 +514,14 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // bad
-    function foo(name: string, options: Options, arguments: Arguments): ReturnedInterface {
+    const foo = (name: string, options: Options, arguments: Arguments): ReturnedInterface => {
       // ...
-    }
+    };
 
     // good
-    function foo(name: string, options: Options, args: Arguments): ReturnedInterface {
+    const foo = (name: string, options: Options, args: Arguments): ReturnedInterface => {
       // ...
-    }
+    };
     ```
 
   <a name="es6-default-parameters"></a><a name="7.5"></a>
@@ -542,26 +529,26 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // really bad
-    function handleThings(options?: Options): ReturnedInterface {
+    const handleThings = (options?: Options): ReturnedInterface {
       // No! We shouldn't mutate function arguments.
       // Double bad: if opts is falsy it'll be set to an object which may
       // be what you want but it can introduce subtle bugs.
       options = options || {};
       // ...
-    }
+    };
 
     // still bad
-    function handleThings(options?: Options): ReturnedInterface {
+    const handleThings = (options?: Options): ReturnedInterface => {
       if (options === void 0) {
         options = {};
       }
       // ...
-    }
+    };
 
     // good
-    function handleThings(options: Options = {}): ReturnedInterface {
+    const handleThings = (options: Options = {}): ReturnedInterface => {
       // ...
-    }
+    };
     ```
   <a name="functions--mutate-params"></a><a name="7.11"></a>
   - [7.11](#functions--mutate-params) Never mutate parameters. 
@@ -570,14 +557,14 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // bad
-    function f1(obj: Interface) {
+    const f1 = (obj: Interface) => {
       obj.key = 1;
-    }
+    };
 
     // good
-    function f2((obj: Interface) {
+    const f2 = (obj: Interface) => {
       const key: number = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
-    }
+    };
     ```
 
   <a name="functions--reassign-params"></a><a name="7.12"></a>
@@ -587,25 +574,25 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // bad
-    function f1(a: number) {
+    const f1 = (a: number) => {
       a = 1;
       // ...
-    }
+    };
 
-    function f2(a?: number) {
+    const f2 = (a?: number) => {
       if (!a) { a = 1; }
       // ...
-    }
+    };
 
     // good
-    function f3(a?: number) {
+    const f3 = (a?: number) => {
       const b: number = a || 1;
       // ...
-    }
+    };
 
-    function f4(a: number = 1) {
+    const f4 = (a: number = 1) => {
       // ...
-    }
+    };
     ```
 
   <a name="functions--spread-vs-apply"></a><a name="7.13"></a>
@@ -634,18 +621,18 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // bad
-    function foo(bar: string,
+    const foo = (bar: string,
                  baz: number,
-                 quux: number) {
+                 quux: number) => {
       // ...
     }
 
     // good
-    function foo(
+    const foo = (
       bar: string,
       baz: number,
       quux: number,
-    ) {
+    ) => {
       // ...
     }
 
@@ -813,9 +800,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
       Queue.apply(this, contents);
     }
     inherits(PeekableQueue, Queue);
-    PeekableQueue.prototype.peek = function () {
-      return this.queue[0];
-    };
+    PeekableQueue.prototype.peek = () => this.queue[0];
 
     // good
     class PeekableQueue extends Queue {
@@ -1113,9 +1098,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
       age: 28,
     };
 
-    function getProp(prop): ReturnedInterface {
-      return luke[prop];
-    }
+    const getProp = (prop: string) => luke[prop];
 
     const isJedi: boolean = getProp('jedi');
     ```
@@ -1184,7 +1167,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // bad - unnecessary function call
-    function checkName(hasName: string): string|boolean {
+    const checkName = (hasName: string): string|boolean => {
       const name: string = getName();
 
       if (hasName === 'test') {
@@ -1200,7 +1183,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
     }
 
     // good
-    function checkName(hasName: string): string|boolean {
+    const checkName = (hasName: string): string|boolean => {
       if (hasName === 'test') {
         return false;
       }
@@ -1332,9 +1315,9 @@ Since this part appeared to have a more educational purpose, you can refer to th
         const y: number = 2;
         break;
       case 3:
-        function f() {
+        const f = () => {
           // ...
-        }
+        };
         break;
       default:
         class C {}
@@ -1351,7 +1334,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
         break;
       }
       case 3: {
-        function f() {
+        const f = () => {
           // ...
         }
         break;
@@ -1402,7 +1385,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
 ## Blocks
 
   <a name="blocks--braces"></a><a name="16.1"></a>
-  - [16.1](#blocks--braces) Always use braces for blocks, and place statements on their own lines.
+  - [16.1](#blocks--braces) Always use braces for if/else blocks or functions with multiple statemets, and place statements on their own lines.
 
     ```typescript
     // bad
@@ -1417,12 +1400,16 @@ Since this part appeared to have a more educational purpose, you can refer to th
     }
 
     // bad
-    function foo(): boolean { return false; }
+    const foo = (): boolean => { const isTrue: boolean = true; return isTrue; };
 
     // good
-    function bar(): boolean {
-      return false;
-    }
+    const bar = (): boolean => {
+      const isTrue: boolean = true;
+      return isTrue;
+    };
+
+    // good
+    const foo = (bar: boolean): boolean => bar;
     ```
 
   <a name="blocks--cuddled-elses"></a><a name="16.2"></a>
@@ -1489,7 +1476,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
     //
     // @param {String} tag
     // @return {Element} element
-    function make(tag): Element {
+    const make = (tag: string): Element => {
 
       // ...
 
@@ -1501,7 +1488,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
      * make() returns a new element
      * based on the passed-in tag name
      */
-    function make(tag): Element {
+    const make = (tag: string): Element {
 
       // ...
 
@@ -1521,31 +1508,31 @@ Since this part appeared to have a more educational purpose, you can refer to th
     const active: boolean = true;
 
     // bad
-    function getType(): string {
+    const getType = (): string => {
       console.log('fetching type...');
       // set the default type to 'no type'
       const type: string = this.type || 'no type';
 
       return type;
-    }
+    };
 
     // good
-    function getType(): string {
+    const getType = (): string => {
       console.log('fetching type...');
 
       // set the default type to 'no type'
       const type: string = this.type || 'no type';
 
       return type;
-    }
+    };
 
     // also good
-    function getType(): string {
+    const getType = (): string => {
       // set the default type to 'no type'
       const type: string = this.type || 'no type';
 
       return type;
-    }
+    };
     ```
 
   - [18.3](#comments--spaces) Start all comments with a space to make it easier to read. 
@@ -1564,24 +1551,24 @@ Since this part appeared to have a more educational purpose, you can refer to th
      *make() returns a new element
      *based on the passed-in tag name
      */
-    function make(tag): Element {
+    const make = (tag: string): Element {
 
       // ...
 
       return element;
-    }
+    };
 
     // good
     /**
      * make() returns a new element
      * based on the passed-in tag name
      */
-    function make(tag): Element {
+    const make = (tag: string): Element {
 
       // ...
 
       return element;
-    }
+    };
     ```
 
   <a name="comments--actionitems"></a><a name="17.3"></a>
@@ -1605,33 +1592,6 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
 **[⬆ back to top](#table-of-contents)**
 
-  <a name="whitespace--before-blocks"></a><a name="18.2"></a>
-  - [19.2](#whitespace--before-blocks) Place 1 space before the leading brace. 
-
-    ```typescript
-    // bad
-    function test(){
-      console.log('test');
-    }
-
-    // good
-    function test() {
-      console.log('test');
-    }
-
-    // bad
-    dog.set('attr',{
-      age: '1 year',
-      breed: 'Bernese Mountain Dog',
-    });
-
-    // good
-    dog.set('attr', {
-      age: '1 year',
-      breed: 'Bernese Mountain Dog',
-    });
-    ```
-
   <a name="whitespace--around-keywords"></a><a name="18.3"></a>
   - [19.3](#whitespace--around-keywords) Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. 
 
@@ -1647,12 +1607,12 @@ Since this part appeared to have a more educational purpose, you can refer to th
     }
 
     // bad
-    function fight () {
+    fight () {
       console.log ('Swooosh!');
     }
 
     // good
-    function fight() {
+    fight() {
       console.log('Swooosh!');
     }
     ```
@@ -1760,7 +1720,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // bad
-    function bar() {
+    bar() {
 
       console.log(foo);
 
@@ -1776,7 +1736,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
     }
 
     // good
-    function bar() {
+    bar() {
       console.log(foo);
     }
 
@@ -1793,12 +1753,12 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // bad
-    function bar( foo: Foo ): Foo {
+    bar( foo: Foo ): Foo {
       return foo;
     }
 
     // good
-    function bar(foo: Foo): Foo {
+    bar(foo: Foo): Foo {
       return foo;
     }
 
@@ -1952,7 +1912,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
     ];
 
     // bad
-    function createHero(
+    createHero(
       firstName: string,
       lastName: string,
       inventorOf: string[]
@@ -1961,20 +1921,10 @@ Since this part appeared to have a more educational purpose, you can refer to th
     }
 
     // good
-    function createHero(
+    createHero(
       firstName: string,
       lastName: string,
       inventorOf: string[],
-    ) {
-      // does nothing
-    }
-
-    // good (note that a comma must not appear after a "rest" element)
-    function createHero(
-      firstName: string,
-      lastName: string,
-      inventorOf: string,
-      ...heroArgs)
     ) {
       // does nothing
     }
@@ -2011,13 +1961,13 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // bad
-    (function (): string {
+    ((): string {
       const name: string = 'Skywalker'
       return name
     })()
 
     // good
-    (function (): string {
+    ((): string {
       const name: string = 'Skywalker';
       return name;
     }());
@@ -2115,14 +2065,14 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // bad
-    function q() {
+    const q = () => {
       // ...
-    }
+    };
 
     // good
-    function query() {
+    const query = () => {
       // ...
-    }
+    };
     ```
 
   <a name="naming--camelCase"></a><a name="22.2"></a>
@@ -2132,11 +2082,11 @@ Since this part appeared to have a more educational purpose, you can refer to th
     // bad
     const OBJEcttsssss: Interface = {};
     const this_is_my_object: Interface = {};
-    function c() {}
+    const c = () => {};
 
     // good
     const thisIsMyObject: Interface = {};
-    function thisIsMyFunction() {}
+    const thisIsMyFunction = () => {};
     ```
 
   <a name="naming--PascalCase"></a><a name="22.3"></a>
@@ -2168,34 +2118,6 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
   <a name="naming--leading-underscore"></a><a name="22.4"></a>
   - [23.4](#naming--leading-underscore) Do not use trailing or leading underscores. 
-
-  <a name="naming--self-this"></a><a name="22.5"></a>
-  - [23.5](#naming--self-this) Don't save references to `this`. Use arrow functions or [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind). 
-
-    ```typescript
-    // bad
-    function foo() {
-      const self = this;
-      return function () {
-        console.log(self);
-      };
-    }
-
-    // bad
-    function foo() {
-      const that = this;
-      return function () {
-        console.log(that);
-      };
-    }
-
-    // good
-    function foo() {
-      return () => {
-        console.log(this);
-      };
-    }
-    ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -2254,7 +2176,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
 ## jQuery
 
   <a name="jquery--dollar-prefix"></a><a name="25.1"></a>
-  - [26.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$`. 
+  - [26.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$` if they are outside `ui` elements bind to a Marionette View. 
 
     ```typescript
     // bad
@@ -2268,7 +2190,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
     ```
 
   <a name="jquery--cache"></a><a name="25.2"></a>
-  - [26.2](#jquery--cache) Cache jQuery lookups.
+  - [26.2](#jquery--cache) Cache jQuery lookups whenever possible.
 
     ```typescript
     // bad
@@ -2421,12 +2343,12 @@ The following list is an overview of the main frameworks and libraries we use wh
 
     ```typescript
     // bad
-    function foo (nonRequired?: number, required: number) {
+    foo (nonRequired?: number, required: number) {
       // ...
     }
 
     // good
-    function foo (required: number, nonRequired?: number) {
+    foo (required: number, nonRequired?: number) {
       // ...
     }
     ```
