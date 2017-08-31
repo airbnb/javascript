@@ -468,7 +468,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
     const foo: string = '\'this\' \i\s \"quoted\"';
 
     // good
-    const foo: string = '\'this\' is "quoted"';
+    const foo: string = `'this' is "quoted"`;
     const foo: string = `my name is '${name}'`;
     ```
 
@@ -714,7 +714,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
     );
 
     // good
-    ['get', 'post', 'put'].map((httpMethod: string): ReturnedInterface => (
+    ['get', 'post', 'put'].map((httpMethod: string): boolean => (
       Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
         httpMethod,
@@ -728,7 +728,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // bad (not even possible in TypeScript with typed parameters)
-    [1, 2, 3].map(x => (
+    [1, 2, 3].map(x: number => (
       `A long string with the ${x}. It’s so long that we don’t want it to take up space on the .map line!`
     ));
 
@@ -923,7 +923,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
     ```
 
   <a name="modules--no-wildcard"></a><a name="10.2"></a>
-  - [10.2](#modules--no-wildcard) Do not use wildcard or default imports/exports.
+  - [10.2](#modules--no-wildcard) Do not use wildcard (unless you're forced to) or default imports/exports.
 
     > Why? This makes sure you have a single default export.
 
@@ -1201,7 +1201,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
   <a name="variables--unary-increment-decrement"></a><a name="13.5"></a>
   - [13.5](#variables--unary-increment-decrement) Avoid using unary increments and decrements (++, --). 
 
-    > Why? Per the eslint documentation, unary increment and decrement statements are subject to automatic semicolon insertion and can cause silent errors with incrementing or decrementing values within an application. It is also more expressive to mutate your values with statements like `num += 1` instead of `num++` or `num ++`. Disallowing unary increment and decrement statements also prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
+    > Why? Disallowing unary increment and decrement statements prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
 
     ```typescript
     // bad
@@ -1263,7 +1263,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
     ```
 
   <a name="comparison--shortcuts"></a><a name="15.3"></a>
-  - [15.3](#comparison--shortcuts) Use shortcuts for booleans, but explicit comparisons for strings and numbers.
+  - [15.3](#comparison--shortcuts) Use shortcuts for conditionals as often as possible.
 
     ```typescript
     // bad
@@ -1276,23 +1276,23 @@ Since this part appeared to have a more educational purpose, you can refer to th
       // ...
     }
 
-    // bad
-    if (name) {
-      // ...
-    }
-
-    // good
+    // bad (unless you are testing for empty string only and not all falsy values)
     if (name !== '') {
       // ...
     }
 
+    // good
+    if (name) {
+      // ...
+    }
+
     // bad
-    if (collection.length) {
+    if (collection.length > 0) {
       // ...
     }
 
     // good
-    if (collection.length > 0) {
+    if (collection.length) {
       // ...
     }
     ```
@@ -2272,7 +2272,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
     > Why? Having your mocks outside your test files makes your tests more readable. 
   
   <a name="test-spies"></a>
-  - [28.5](#test-spies) Name your spies with the name of the entity you want to spy (be it a method or property) following with the _Spy_ suffix. For example, if you want to spy on a method called `renderChildren`, you should name your spy `renderChildrenSpy`.
+  - [28.5](#test-spies) Name your spies with the name of the entity you want to spy on (be it a method or property) following with the _Spy_ suffix. For example, if you want to spy on a method called `renderChildren`, you should name your spy `renderChildrenSpy`.
     > Why? Naming your spies makes your tests easier to understand and shorter to write overall. Adding the Spy suffix makes the person who reads your code aware that it is a "spied upon" entity.
 
   <a name="test-matchers"></a>
@@ -2337,21 +2337,6 @@ The following list is an overview of the main frameworks and libraries we use wh
   <a name="function-return"></a>
   - [31.5](#function-return) Avoid specifying the returned type if the function can return anything (`any`) or nothing.
 
-  <a name="function-non-required-arguments"></a>
-  - [31.6](#function-non-required-arguments) Always put non required arguments last. 
-    > Why? If your function takes multiple arguments, you will only have to pass the required ones.
-
-    ```typescript
-    // bad
-    foo (nonRequired?: number, required: number) {
-      // ...
-    }
-
-    // good
-    foo (required: number, nonRequired?: number) {
-      // ...
-    }
-    ```
 ### Namespace
   <a name="namespace-avoid"></a>
   - [31.7](#namespace-avoid) Do not use namespaces. Use [modules](https://www.typescriptlang.org/docs/handbook/modules.html).  
