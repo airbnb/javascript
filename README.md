@@ -3169,7 +3169,7 @@ Other Style Guides
     eslint: [`no-restricted-globals`](http://eslint.org/docs/rules/no-restricted-globals)
 
     > Why? The global `isNaN` coerces non-numbers to numbers, returning true for anything that coerces to NaN.
-    If this behavior is desired, make it explicit.
+    > If this behavior is desired, make it explicit.
 
     ```javascript
     // bad
@@ -3186,7 +3186,7 @@ Other Style Guides
     eslint: [`no-restricted-globals`](http://eslint.org/docs/rules/no-restricted-globals)
 
     > Why? The global `isFinite` coerces non-numbers to numbers, returning true for anything that coerces to a finite number.
-    If this behavior is desired, make it explicit.
+    > If this behavior is desired, make it explicit.
 
     ```javascript
     // bad
