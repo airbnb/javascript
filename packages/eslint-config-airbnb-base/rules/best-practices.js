@@ -143,7 +143,7 @@ module.exports = {
 
     // disallow use of multiple spaces
     'no-multi-spaces': ['error', {
-      // ignoreEOLComments: false, // TODO: uncomment once v3 is dropped
+      ignoreEOLComments: false,
     }],
 
     // disallow use of multiline strings
@@ -294,8 +294,7 @@ module.exports = {
 
     // require using Error objects as Promise rejection reasons
     // http://eslint.org/docs/rules/prefer-promise-reject-errors
-    // TODO: enable, semver-major
-    'prefer-promise-reject-errors': ['off', { allowEmptyReject: true }],
+    'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
 
     // require use of the second argument for parseInt()
     radix: 'error',
