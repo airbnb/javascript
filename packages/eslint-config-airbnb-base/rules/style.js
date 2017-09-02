@@ -113,7 +113,7 @@ module.exports = {
         body: 1
       },
       CallExpression: {
-        'arguments': 1
+        arguments: 1
       },
       ArrayExpression: 1,
       ObjectExpression: 1,
@@ -344,8 +344,8 @@ module.exports = {
     // enforce line breaks between braces
     // http://eslint.org/docs/rules/object-curly-newline
     'object-curly-newline': ['error', {
-      ObjectExpression: { minProperties: 3, multiline: true, consistent: true },
-      ObjectPattern: { minProperties: 3, multiline: true, consistent: true }
+      ObjectExpression: { minProperties: 4, multiline: true, consistent: true },
+      ObjectPattern: { minProperties: 4, multiline: true, consistent: true }
     }],
 
     // enforce "same line" or "multiple line" on object properties.
