@@ -2590,7 +2590,14 @@ Other Style Guides
       'Batman',
       'Superman',
     ];
+    ```
 
+  <a name="commas--dangling-in-function"></a><a name="20.3"></a>
+  - [20.3](#commas--dangling-in-function) Avoid trailing commas in function calls and declarations.
+
+    > Why? This causes syntax errors when executing.
+
+    ```javascript
     // bad
     function createHero(
       firstName,
@@ -2609,16 +2616,6 @@ Other Style Guides
       // does nothing
     }
 
-    // good (note that a comma must not appear after a "rest" element)
-    function createHero(
-      firstName,
-      lastName,
-      inventorOf,
-      ...heroArgs
-    ) {
-      // does nothing
-    }
-
     // bad
     createHero(
       firstName,
@@ -2631,14 +2628,6 @@ Other Style Guides
       firstName,
       lastName,
       inventorOf
-    );
-
-    // good (note that a comma must not appear after a "rest" element)
-    createHero(
-      firstName,
-      lastName,
-      inventorOf,
-      ...heroArgs
     );
     ```
 
