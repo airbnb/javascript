@@ -2595,7 +2595,7 @@ Other Style Guides
     function createHero(
       firstName,
       lastName,
-      inventorOf
+      inventorOf,
     ) {
       // does nothing
     }
@@ -2604,7 +2604,7 @@ Other Style Guides
     function createHero(
       firstName,
       lastName,
-      inventorOf,
+      inventorOf
     ) {
       // does nothing
     }
@@ -2623,14 +2623,14 @@ Other Style Guides
     createHero(
       firstName,
       lastName,
-      inventorOf
+      inventorOf,
     );
 
     // good
     createHero(
       firstName,
       lastName,
-      inventorOf,
+      inventorOf
     );
 
     // good (note that a comma must not appear after a "rest" element)
