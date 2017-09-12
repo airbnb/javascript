@@ -96,17 +96,12 @@
     const reservationItem = <ReservationCard />;
     ```
 
-  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`: |(We dont use the convention of naming the `.jsx` file in a compinent `index.jsx` as whwen working on multiple components this can cause confusion in editor tabs etx)
 
     ```jsx
-    // bad
+    // good
     import Footer from './Footer/Footer';
 
-    // bad
-    import Footer from './Footer/index';
-
-    // good
-    import Footer from './Footer';
     ```
   - **Higher-order Component Naming**: Use a composite of the higher-order component's name and the passed-in component's name as the `displayName` on the generated component. For example, the higher-order component `withFoo()`, when passed a component `Bar` should produce a component with a `displayName` of `withFoo(Bar)`.
 
