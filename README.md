@@ -1,4 +1,6 @@
 # Which? JavaScript Style Guide
+=======
+
 
 *A mostly reasonable approach to JavaScript. Based on [Airbnb's style guide](https://github.com/airbnb/javascript)*
 
@@ -3295,12 +3297,9 @@
   - **JSSolutions**: [JSSolutions/javascript](https://github.com/JSSolutions/javascript)
   - **KickorStick**: [kickorstick/javascript](https://github.com/kickorstick/javascript)
   - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/Javascript-style-guide)
-<<<<<<< HEAD
-=======
   - **LEINWAND**: [LEINWAND/javascript](https://github.com/LEINWAND/javascript)
   - **Lonely Planet**: [lonelyplanet/javascript](https://github.com/lonelyplanet/javascript)
   - **M2GEN**: [M2GEN/javascript](https://github.com/M2GEN/javascript)
->>>>>>> upstream/master
   - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
   - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
   - **MitocGroup**: [MitocGroup/javascript](https://github.com/MitocGroup/javascript)
