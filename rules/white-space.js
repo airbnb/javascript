@@ -43,6 +43,8 @@ module.exports = {
     'key-spacing': ['error', { mode: 'minimum' }],
     'no-multi-spaces': ['error', { exceptions: {
       Property: true,
+      ArrayExpression: true,
+      CallExpression: true,
     } }],
     'comma-spacing': 'error',
 
