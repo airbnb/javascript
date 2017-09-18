@@ -27,7 +27,7 @@
 1. [Naming Conventions](#naming-conventions)
 1. [Accessors](#accessors)
 1. [Events](#events)
-1. [Asynchronous](#asynchronous)
+1. [Asynchronous](#asynchronous-operations)
 1. [jQuery](#jquery)
 1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
 1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
