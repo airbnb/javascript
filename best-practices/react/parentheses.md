@@ -1,3 +1,6 @@
+---
+---
+
 ## Parentheses
 
 - Wrap JSX tags in parentheses when they span more than one line:

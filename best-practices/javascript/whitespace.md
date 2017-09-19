@@ -1,3 +1,6 @@
+---
+---
+
 # Whitespace
 
 - [18.1](#18.1) <a name='18.1'></a> Use soft tabs set to 2 spaces.

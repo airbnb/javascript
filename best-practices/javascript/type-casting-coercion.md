@@ -1,3 +1,6 @@
+---
+---
+
 # Type Casting & Coercion
 
 - [21.1](#21.1) <a name='21.1'></a> Perform type coercion at the beginning of the statement.

@@ -1,3 +1,6 @@
+---
+---
+
 ## propTypes & defaultProps
 
 - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...

@@ -1,0 +1,55 @@
+---
+---
+
+# ADS
+
+- ADS Docs - http://localhost:4000
+
+* [Best Practices](best-practices/README.md)
+  * [Linting](best-practices/linting.md)
+  * [HTML](best-practices/html.md)
+  * [CSS](best-practices/css.md)
+  * [JavaScript](best-practices/javascript/README.md)
+    * [Types](best-practices/javascript/types.md)
+    * [References](best-practices/javascript/references.md)
+    * [Objects](best-practices/javascript/objects.md)
+    * [Arrays](best-practices/javascript/arrays.md)
+    * [Destructuring](best-practices/javascript/destructuring.md)
+    * [Strings](best-practices/javascript/strings.md)
+    * [Functions](best-practices/javascript/functions.md)
+    * [Arrow Functions](best-practices/javascript/arrow-functions.md)
+    * [Constructors](best-practices/javascript/constructors.md)
+    * [Modules](best-practices/javascript/modules.md)
+    * [Iterators and Generators](best-practices/javascript/iterators-generators.md)
+    * [Properties](best-practices/javascript/properties.md)
+    * [Variables](best-practices/javascript/variables.md)
+    * [Hoisting](best-practices/javascript/hoisting.md)
+    * [Comparison Operators & Equality](best-practices/javascript/comparison-operators-equality.md)
+    * [Blocks](best-practices/javascript/blocks.md)
+    * [Comments](best-practices/javascript/comments.md)
+    * [Whitespace](best-practices/javascript/whitespace.md)
+    * [Commas](best-practices/javascript/commas.md)
+    * [Semicolons](best-practices/javascript/semicolons.md)
+    * [Type Casting & Coercion](best-practices/javascript/type-casting-coercion.md)
+    * [Naming Conventions](best-practices/javascript/naming-conventions.md)
+    * [Accessors](best-practices/javascript/accessors.md)
+  * [React](best-practices/react/README.md)
+    * [Basic Rules](best-practices/react/basic-rules.md)
+    * [Class vs `React.createClass` vs stateless](best-practices/react/class-vs-reactcreateclass-vs-stateless.md)
+    * [Naming](best-practices/react/naming.md)
+    * [Declaration](best-practices/react/declaration.md)
+    * [Alignment](best-practices/react/alignment.md)
+    * [Quotes](best-practices/react/quotes.md)
+    * [Spacing](best-practices/react/spacing.md)
+    * [Props](best-practices/react/props.md)
+    * [Parentheses](best-practices/react/parentheses.md)
+    * [Tags](best-practices/react/tags.md)
+    * [Methods](best-practices/react/methods.md)
+    * [Ordering](best-practices/react/ordering.md)
+    * [propTypes & defaultProps](best-practices/react/prop-types-default-props.md)
+
+* [Performance Testing](perf/README.md)
+
+* [Unit Testing & Code Coverage](unit-testing/README.md)
+
+* [Glossary](GLOSSARY.md)

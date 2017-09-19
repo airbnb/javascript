@@ -1,4 +1,7 @@
-# SDP Best Practices
+---
+---
+
+# ADS Best Practices
 
 * [Linting](./linting.md)
 * [HTML](./html.md)

@@ -1,3 +1,6 @@
+---
+---
+
 # Objects
 
 - [3.1](#3.1) <a name='3.1'></a> Use the literal syntax for object creation.

@@ -1,3 +1,6 @@
+---
+---
+
 ## Methods
 
 - Use underscore prefix for internal methods of a react component.

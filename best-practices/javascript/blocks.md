@@ -1,3 +1,6 @@
+---
+---
+
 # Blocks
 
 - [16.1](#16.1) <a name='16.1'></a> Use braces with all multi-line blocks.

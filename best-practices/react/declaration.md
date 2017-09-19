@@ -1,3 +1,6 @@
+---
+---
+
 ## Declaration
 
 - Do not use displayName for naming components, instead name the component by reference.

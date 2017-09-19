@@ -1,3 +1,6 @@
+---
+---
+
 ## Quotes
 - Always use double quotes (`"`) for JSX attributes, but single quotes for all other JavaScript.
 

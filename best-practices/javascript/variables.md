@@ -1,3 +1,6 @@
+---
+---
+
 # Variables
 
 - [13.1](#13.1) <a name='13.1'></a> Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
