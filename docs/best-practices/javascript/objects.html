@@ -1,0 +1,979 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Objects · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="arrays.html" />
+    
+    
+    <link rel="prev" href="references.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Best Practices
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../linting.html">
+            
+                <a href="../linting.html">
+            
+                    
+                    Linting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../html.html">
+            
+                <a href="../html.html">
+            
+                    
+                    HTML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../css.html">
+            
+                <a href="../css.html">
+            
+                    
+                    CSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    JavaScript
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="types.html">
+            
+                <a href="types.html">
+            
+                    
+                    Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="references.html">
+            
+                <a href="references.html">
+            
+                    
+                    References
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4.3" data-path="objects.html">
+            
+                <a href="objects.html">
+            
+                    
+                    Objects
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="arrays.html">
+            
+                <a href="arrays.html">
+            
+                    
+                    Arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="destructuring.html">
+            
+                <a href="destructuring.html">
+            
+                    
+                    Destructuring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.6" data-path="strings.html">
+            
+                <a href="strings.html">
+            
+                    
+                    Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.7" data-path="functions.html">
+            
+                <a href="functions.html">
+            
+                    
+                    Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.8" data-path="arrow-functions.html">
+            
+                <a href="arrow-functions.html">
+            
+                    
+                    Arrow Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.9" data-path="constructors.html">
+            
+                <a href="constructors.html">
+            
+                    
+                    Constructors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.10" data-path="modules.html">
+            
+                <a href="modules.html">
+            
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.11" data-path="iterators-generators.html">
+            
+                <a href="iterators-generators.html">
+            
+                    
+                    Iterators and Generators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.12" data-path="properties.html">
+            
+                <a href="properties.html">
+            
+                    
+                    Properties
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.13" data-path="variables.html">
+            
+                <a href="variables.html">
+            
+                    
+                    Variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.14" data-path="hoisting.html">
+            
+                <a href="hoisting.html">
+            
+                    
+                    Hoisting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.15" data-path="comparison-operators-equality.html">
+            
+                <a href="comparison-operators-equality.html">
+            
+                    
+                    Comparison Operators & Equality
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.16" data-path="blocks.html">
+            
+                <a href="blocks.html">
+            
+                    
+                    Blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.17" data-path="comments.html">
+            
+                <a href="comments.html">
+            
+                    
+                    Comments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.18" data-path="whitespace.html">
+            
+                <a href="whitespace.html">
+            
+                    
+                    Whitespace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.19" data-path="commas.html">
+            
+                <a href="commas.html">
+            
+                    
+                    Commas
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.20" data-path="semicolons.html">
+            
+                <a href="semicolons.html">
+            
+                    
+                    Semicolons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.21" data-path="type-casting-coercion.html">
+            
+                <a href="type-casting-coercion.html">
+            
+                    
+                    Type Casting & Coercion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.22" data-path="naming-conventions.html">
+            
+                <a href="naming-conventions.html">
+            
+                    
+                    Naming Conventions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.23" data-path="accessors.html">
+            
+                <a href="accessors.html">
+            
+                    
+                    Accessors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../react/">
+            
+                <a href="../react/">
+            
+                    
+                    React
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.1" data-path="../react/basic-rules.html">
+            
+                <a href="../react/basic-rules.html">
+            
+                    
+                    Basic Rules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" data-path="../react/class-vs-reactcreateclass-vs-stateless.html">
+            
+                <a href="../react/class-vs-reactcreateclass-vs-stateless.html">
+            
+                    
+                    Class vs React.createClass vs stateless
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3" data-path="../react/naming.html">
+            
+                <a href="../react/naming.html">
+            
+                    
+                    Naming
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.4" data-path="../react/declaration.html">
+            
+                <a href="../react/declaration.html">
+            
+                    
+                    Declaration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.5" data-path="../react/alignment.html">
+            
+                <a href="../react/alignment.html">
+            
+                    
+                    Alignment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.6" data-path="../react/quotes.html">
+            
+                <a href="../react/quotes.html">
+            
+                    
+                    Quotes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.7" data-path="../react/spacing.html">
+            
+                <a href="../react/spacing.html">
+            
+                    
+                    Spacing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.8" data-path="../react/props.html">
+            
+                <a href="../react/props.html">
+            
+                    
+                    Props
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.9" data-path="../react/parentheses.html">
+            
+                <a href="../react/parentheses.html">
+            
+                    
+                    Parentheses
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.10" data-path="../react/tags.html">
+            
+                <a href="../react/tags.html">
+            
+                    
+                    Tags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.11" data-path="../react/methods.html">
+            
+                <a href="../react/methods.html">
+            
+                    
+                    Methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.12" data-path="../react/ordering.html">
+            
+                <a href="../react/ordering.html">
+            
+                    
+                    Ordering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.13" data-path="../react/prop-types-default-props.html">
+            
+                <a href="../react/prop-types-default-props.html">
+            
+                    
+                    propTypes & defaultProps
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../perf/">
+            
+                <a href="../../perf/">
+            
+                    
+                    Performance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../unit-testing/">
+            
+                <a href="../../unit-testing/">
+            
+                    
+                    Unit Testing & Code Coverage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../GLOSSARY.html">
+            
+                <a href="../../GLOSSARY.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Objects</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="objects"><a name="objects" class="plugin-anchor" href="#objects"><i class="fa fa-link" aria-hidden="true"></i></a>Objects</h1>
+<ul>
+<li><a href="#3.1">3.1</a> <a name="3.1"></a> Use the literal syntax for object creation.</li>
+</ul>
+<pre class="language-"><code class="lang-javascript"><span class="token comment" spellcheck="true">// bad</span>
+<span class="token keyword">const</span> item <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// good</span>
+<span class="token keyword">const</span> item <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li><a href="#3.2">3.2</a> <a name="3.2"></a> Don&apos;t use <a href="http://es5.github.io/#x7.6.1" target="_blank">reserved words</a> as keys. It won&apos;t work in IE8. <a href="https://github.com/airbnb/javascript/issues/61" target="_blank">More info</a>.</li>
+</ul>
+<pre class="language-"><code class="lang-javascript"><span class="token comment" spellcheck="true">// bad</span>
+<span class="token keyword">const</span> superman <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> clark<span class="token punctuation">:</span> <span class="token string">&apos;kent&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">private</span><span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// good</span>
+<span class="token keyword">const</span> superman <span class="token operator">=</span> <span class="token punctuation">{</span>
+  defaults<span class="token punctuation">:</span> <span class="token punctuation">{</span> clark<span class="token punctuation">:</span> <span class="token string">&apos;kent&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  hidden<span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li><a href="#3.3">3.3</a> <a name="3.3"></a> Use readable synonyms in place of reserved words.</li>
+</ul>
+<pre class="language-"><code class="lang-javascript"><span class="token comment" spellcheck="true">// bad</span>
+<span class="token keyword">const</span> superman <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">class</span><span class="token punctuation">:</span> <span class="token string">&apos;alien&apos;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// bad</span>
+<span class="token keyword">const</span> superman <span class="token operator">=</span> <span class="token punctuation">{</span>
+  klass<span class="token punctuation">:</span> <span class="token string">&apos;alien&apos;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// good</span>
+<span class="token keyword">const</span> superman <span class="token operator">=</span> <span class="token punctuation">{</span>
+  type<span class="token punctuation">:</span> <span class="token string">&apos;alien&apos;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p><a name="es6-computed-properties"></a></p>
+<ul>
+<li><a href="#3.4">3.4</a> <a name="3.4"></a> Use computed property names when creating objects with dynamic property names.</li>
+</ul>
+<blockquote>
+<p>Why? They allow you to define all the properties of an object in one place.</p>
+</blockquote>
+<pre class="language-"><code class="lang-javascript">
+<span class="token keyword">function</span> <span class="token function">getKey</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`a key named </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>k<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// bad</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  id<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+  name<span class="token punctuation">:</span> <span class="token string">&apos;San Francisco&apos;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+obj<span class="token punctuation">[</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token string">&apos;enabled&apos;</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// good</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  id<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+  name<span class="token punctuation">:</span> <span class="token string">&apos;San Francisco&apos;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token string">&apos;enabled&apos;</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p><a name="es6-object-shorthand"></a></p>
+<ul>
+<li><a href="#3.5">3.5</a> <a name="3.5"></a> Use object method shorthand.</li>
+</ul>
+<pre class="language-"><code class="lang-javascript"><span class="token comment" spellcheck="true">// bad</span>
+<span class="token keyword">const</span> atom <span class="token operator">=</span> <span class="token punctuation">{</span>
+  value<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+
+  addValue<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> atom<span class="token punctuation">.</span>value <span class="token operator">+</span> value<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// good</span>
+<span class="token keyword">const</span> atom <span class="token operator">=</span> <span class="token punctuation">{</span>
+  value<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+
+  <span class="token function">addValue</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> atom<span class="token punctuation">.</span>value <span class="token operator">+</span> value<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p><a name="es6-object-concise"></a></p>
+<ul>
+<li><a href="#3.6">3.6</a> <a name="3.6"></a> Use property value shorthand.</li>
+</ul>
+<blockquote>
+<p>Why? It is shorter to write and descriptive.</p>
+</blockquote>
+<pre class="language-"><code class="lang-javascript"><span class="token keyword">const</span> lukeSkywalker <span class="token operator">=</span> <span class="token string">&apos;Luke Skywalker&apos;</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// bad</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  lukeSkywalker<span class="token punctuation">:</span> lukeSkywalker
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// good</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  lukeSkywalker
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li><a href="#3.7">3.7</a> <a name="3.7"></a> Group your shorthand properties at the beginning of your object declaration.</li>
+</ul>
+<blockquote>
+<p>Why? It&apos;s easier to tell which properties are using the shorthand.</p>
+</blockquote>
+<pre class="language-"><code class="lang-javascript"><span class="token keyword">const</span> anakinSkywalker <span class="token operator">=</span> <span class="token string">&apos;Anakin Skywalker&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> lukeSkywalker <span class="token operator">=</span> <span class="token string">&apos;Luke Skywalker&apos;</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// bad</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  episodeOne<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  twoJedisWalkIntoACantina<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+  lukeSkywalker<span class="token punctuation">,</span>
+  episodeThree<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+  mayTheFourth<span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+  anakinSkywalker<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// good</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  lukeSkywalker<span class="token punctuation">,</span>
+  anakinSkywalker<span class="token punctuation">,</span>
+  episodeOne<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  twoJedisWalkIntoACantina<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+  episodeThree<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+  mayTheFourth<span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="references.html" class="navigation navigation-prev " aria-label="Previous page: References">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="arrays.html" class="navigation navigation-next " aria-label="Next page: Arrays">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Objects","level":"1.2.4.3","depth":3,"next":{"title":"Arrays","level":"1.2.4.4","depth":3,"path":"best-practices/javascript/arrays.md","ref":"best-practices/javascript/arrays.md","articles":[]},"previous":{"title":"References","level":"1.2.4.2","depth":3,"path":"best-practices/javascript/references.md","ref":"best-practices/javascript/references.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","anchors","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"anchors":{},"collapsible-menu":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"3.x.x"},"file":{"path":"best-practices/javascript/objects.md","mtime":"2017-09-19T16:46:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-19T17:38:20.774Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
