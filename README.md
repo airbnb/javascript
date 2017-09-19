@@ -645,12 +645,12 @@
         // ...
     }
 
-    // bad
+    // okay, anonymous
     const foo = function () {
         // ...
     };
 
-    // good
+    // good, traceable
     const foo = function bar() {
         // ...
     };
@@ -1405,7 +1405,7 @@
 ## Variables
 
 <a name="variables--const"></a>
-- [13.1](#variables--const) Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
+- [13.1](#variables--const) Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to [avoid polluting the global namespace](http://wiki.c2.com/?GlobalVariablesAreBad). Captain Planet warned us of that. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
 
     ```javascript
     // bad
@@ -2996,6 +2996,17 @@ contains utilities that are functionally broken but remain for legacy reasons.
 
 ## Performance
 
+<a name="performance--inline-scripts"></a>
+- [31.1](#performance--inline-scripts) Avoid inline scripts.
+
+    > Why? They are more difficult to cache and compress.
+
+<a name="performance--script-tags"></a>
+- [31.2](#performance--script-tags) Include `<script>` tags as late as possible inside page markup.
+
+    > Why? To prevent render blocking of other resources.
+
+**Further Reading**
 - [On Layout & Web Performance](https://www.kellegous.com/j/2013/01/26/layout-performance/)
 - [String vs Array Concat](https://jsperf.com/string-vs-array-concat/2)
 - [Try/Catch Cost In a Loop](https://jsperf.com/try-catch-in-loop-cost)
