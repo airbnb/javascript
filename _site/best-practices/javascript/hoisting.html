@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>Hoisting | ads-best-practices</title>
+<meta property="og:title" content="Hoisting" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="ADS Best Practices" />
+<meta property="og:description" content="ADS Best Practices" />
+<link rel="canonical" href="http://localhost:4000/best-practices/javascript/hoisting.html" />
+<meta property="og:url" content="http://localhost:4000/best-practices/javascript/hoisting.html" />
+<meta property="og:site_name" content="ads-best-practices" />
+<script type="application/ld+json">
+{"name":null,"description":"ADS Best Practices","author":null,"@type":"WebPage","url":"http://localhost:4000/best-practices/javascript/hoisting.html","publisher":null,"image":null,"headline":"Hoisting","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="description" content="ADS Best Practices"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=7104772699e25e1a356f072be53677c477b754ae">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">ads-best-practices</h1>
+      <h2 class="project-tagline">ADS Best Practices</h2>
+      
+        <a href="http://github.com/appirio-digital/ads-best-practices" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <h1 id="hoisting">Hoisting</h1>
+
+<ul>
+  <li><a href="#14.1">14.1</a> <a name="14.1"></a> <code class="highlighter-rouge">var</code> declarations get hoisted to the top of their scope, their assignment does not. <code class="highlighter-rouge">const</code> and <code class="highlighter-rouge">let</code> declarations are blessed with a new concept called <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let">Temporal Dead Zones (TDZ)</a>. It’s important to know why <a href="http://es-discourse.com/t/why-typeof-is-no-longer-safe/15">typeof is no longer safe</a>.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// we know this wouldn't work (assuming there</span>
+<span class="c1">// is no notDefined global variable)</span>
+<span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">notDefined</span><span class="p">);</span> <span class="c1">// =&gt; throws a ReferenceError</span>
+<span class="p">}</span>
+
+<span class="c1">// creating a variable declaration after you</span>
+<span class="c1">// reference the variable will work due to</span>
+<span class="c1">// variable hoisting. Note: the assignment</span>
+<span class="c1">// value of `true` is not hoisted.</span>
+<span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">declaredButNotAssigned</span><span class="p">);</span> <span class="c1">// =&gt; undefined</span>
+  <span class="kd">var</span> <span class="nx">declaredButNotAssigned</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// The interpreter is hoisting the variable</span>
+<span class="c1">// declaration to the top of the scope,</span>
+<span class="c1">// which means our example could be rewritten as:</span>
+<span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">declaredButNotAssigned</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">declaredButNotAssigned</span><span class="p">);</span> <span class="c1">// =&gt; undefined</span>
+  <span class="nx">declaredButNotAssigned</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// using const and let</span>
+<span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">declaredButNotAssigned</span><span class="p">);</span> <span class="c1">// =&gt; throws a ReferenceError</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">declaredButNotAssigned</span><span class="p">);</span> <span class="c1">// =&gt; throws a ReferenceError</span>
+  <span class="kr">const</span> <span class="nx">declaredButNotAssigned</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li><a href="#14.2">14.2</a> <a name="14.2"></a> Anonymous function expressions hoist their variable name, but not the function assignment.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">anonymous</span><span class="p">);</span> <span class="c1">// =&gt; undefined</span>
+
+  <span class="nx">anonymous</span><span class="p">();</span> <span class="c1">// =&gt; TypeError anonymous is not a function</span>
+
+  <span class="kd">var</span> <span class="nx">anonymous</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'anonymous function expression'</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li><a href="#14.3">14.3</a> <a name="14.3"></a> Named function expressions hoist the variable name, not the function name or the function body.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">named</span><span class="p">);</span> <span class="c1">// =&gt; undefined</span>
+
+  <span class="nx">named</span><span class="p">();</span> <span class="c1">// =&gt; TypeError named is not a function</span>
+
+  <span class="nx">superPower</span><span class="p">();</span> <span class="c1">// =&gt; ReferenceError superPower is not defined</span>
+
+  <span class="kd">var</span> <span class="nx">named</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">superPower</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Flying'</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// the same is true when the function name</span>
+<span class="c1">// is the same as the variable name.</span>
+<span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">named</span><span class="p">);</span> <span class="c1">// =&gt; undefined</span>
+
+  <span class="nx">named</span><span class="p">();</span> <span class="c1">// =&gt; TypeError named is not a function</span>
+
+  <span class="kd">var</span> <span class="nx">named</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">named</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'named'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li><a href="#14.4">14.4</a> <a name="14.4"></a> Function declarations hoist their name and the function body.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">superPower</span><span class="p">();</span> <span class="c1">// =&gt; Flying</span>
+
+  <span class="kd">function</span> <span class="nx">superPower</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Flying'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>For more information refer to <a href="http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting">JavaScript Scoping &amp; Hoisting</a> by <a href="http://www.adequatelygood.com/">Ben Cherry</a>.</li>
+</ul>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="http://github.com/appirio-digital/ads-best-practices">ads-best-practices</a> is maintained by <a href="http://github.com/appirio-digital">appirio-digital</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

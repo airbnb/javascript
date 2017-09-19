@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>Comments | ads-best-practices</title>
+<meta property="og:title" content="Comments" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="ADS Best Practices" />
+<meta property="og:description" content="ADS Best Practices" />
+<link rel="canonical" href="http://localhost:4000/best-practices/javascript/comments.html" />
+<meta property="og:url" content="http://localhost:4000/best-practices/javascript/comments.html" />
+<meta property="og:site_name" content="ads-best-practices" />
+<script type="application/ld+json">
+{"name":null,"description":"ADS Best Practices","author":null,"@type":"WebPage","url":"http://localhost:4000/best-practices/javascript/comments.html","publisher":null,"image":null,"headline":"Comments","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="description" content="ADS Best Practices"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=7104772699e25e1a356f072be53677c477b754ae">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">ads-best-practices</h1>
+      <h2 class="project-tagline">ADS Best Practices</h2>
+      
+        <a href="http://github.com/appirio-digital/ads-best-practices" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <h1 id="comments">Comments</h1>
+
+<ul>
+  <li><a href="#17.1">17.1</a> <a name="17.1"></a> Use <code class="highlighter-rouge">/** ... */</code> for multi-line comments. Include a description, specify types and values for all parameters and return values.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// bad</span>
+<span class="c1">// make() returns a new element</span>
+<span class="c1">// based on the passed in tag name</span>
+<span class="c1">//</span>
+<span class="c1">// @param {String} tag</span>
+<span class="c1">// @return {Element} element</span>
+<span class="kd">function</span> <span class="nx">make</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// ...stuff...</span>
+
+  <span class="k">return</span> <span class="nx">element</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="cm">/**
+ * make() returns a new element
+ * based on the passed in tag name
+ *
+ * @param {String} tag
+ * @return {Element} element
+ */</span>
+<span class="kd">function</span> <span class="nx">make</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// ...stuff...</span>
+
+  <span class="k">return</span> <span class="nx">element</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li><a href="#17.2">17.2</a> <a name="17.2"></a> Use <code class="highlighter-rouge">//</code> for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// bad</span>
+<span class="kr">const</span> <span class="nx">active</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>  <span class="c1">// is current tab</span>
+
+<span class="c1">// good</span>
+<span class="c1">// is current tab</span>
+<span class="kr">const</span> <span class="nx">active</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="kd">function</span> <span class="nx">getType</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'fetching type...'</span><span class="p">);</span>
+  <span class="c1">// set the default type to 'no type'</span>
+  <span class="kr">const</span> <span class="nx">type</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_type</span> <span class="o">||</span> <span class="s1">'no type'</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="nx">type</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="kd">function</span> <span class="nx">getType</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'fetching type...'</span><span class="p">);</span>
+
+  <span class="c1">// set the default type to 'no type'</span>
+  <span class="kr">const</span> <span class="nx">type</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_type</span> <span class="o">||</span> <span class="s1">'no type'</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="nx">type</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>
+    <p><a href="#17.3">17.3</a> <a name="17.3"></a> Prefixing your comments with <code class="highlighter-rouge">FIXME</code> or <code class="highlighter-rouge">TODO</code> helps other developers quickly understand if you’re pointing out a problem that needs to be revisited, or if you’re suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are <code class="highlighter-rouge">FIXME -- need to figure this out</code> or <code class="highlighter-rouge">TODO -- need to implement</code>.</p>
+  </li>
+  <li>
+    <p><a href="#17.4">17.4</a> <a name="17.4"></a> Use <code class="highlighter-rouge">// FIXME:</code> to annotate problems.</p>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">class</span> <span class="nx">Calculator</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// FIXME: shouldn't use a global here</span>
+    <span class="nx">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li><a href="#17.5">17.5</a> <a name="17.5"></a> Use <code class="highlighter-rouge">// TODO:</code> to annotate solutions to problems.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">class</span> <span class="nx">Calculator</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// TODO: total should be configurable by an options param</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="http://github.com/appirio-digital/ads-best-practices">ads-best-practices</a> is maintained by <a href="http://github.com/appirio-digital">appirio-digital</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>
