@@ -1,0 +1,13 @@
+. ⍣ ⍠
+⍤ ∘ ⌸
+
+----------------------------------------------------
+
+[
+	["dyadic-operator", "."], ["dyadic-operator", "⍣"], ["dyadic-operator", "⍠"],
+	["dyadic-operator", "⍤"], ["dyadic-operator", "∘"], ["dyadic-operator", "⌸"]
+]
+
+----------------------------------------------------
+
+Checks for dyadic operators.

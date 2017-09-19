@@ -1,0 +1,88 @@
+@-webkit-keyframes prism-previewer-time {
+	0% {
+		stroke-dasharray: 0, 500;
+		stroke-dashoffset: 0;
+	}
+	50% {
+		stroke-dasharray: 100, 500;
+		stroke-dashoffset: 0;
+	}
+	100% {
+		stroke-dasharray: 0, 500;
+		stroke-dashoffset: -100;
+	}
+}
+
+@-o-keyframes prism-previewer-time {
+	0% {
+		stroke-dasharray: 0, 500;
+		stroke-dashoffset: 0;
+	}
+	50% {
+		stroke-dasharray: 100, 500;
+		stroke-dashoffset: 0;
+	}
+	100% {
+		stroke-dasharray: 0, 500;
+		stroke-dashoffset: -100;
+	}
+}
+
+@-moz-keyframes prism-previewer-time {
+	0% {
+		stroke-dasharray: 0, 500;
+		stroke-dashoffset: 0;
+	}
+	50% {
+		stroke-dasharray: 100, 500;
+		stroke-dashoffset: 0;
+	}
+	100% {
+		stroke-dasharray: 0, 500;
+		stroke-dashoffset: -100;
+	}
+}
+
+@keyframes prism-previewer-time {
+	0% {
+		stroke-dasharray: 0, 500;
+		stroke-dashoffset: 0;
+	}
+	50% {
+		stroke-dasharray: 100, 500;
+		stroke-dashoffset: 0;
+	}
+	100% {
+		stroke-dasharray: 0, 500;
+		stroke-dashoffset: -100;
+	}
+}
+
+.prism-previewer-time:before {
+	border-radius: 50%;
+	background: #fff;
+}
+.prism-previewer-time:after {
+	margin-top: 4px;
+}
+.prism-previewer-time svg {
+	width: 32px;
+	height: 32px;
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
+.prism-previewer-time circle {
+	fill: transparent;
+	stroke: hsl(200, 10%, 20%);
+	stroke-opacity: 0.9;
+	stroke-width: 32;
+	stroke-dasharray: 0, 500;
+	stroke-dashoffset: 0;
+	-webkit-animation: prism-previewer-time linear infinite 3s;
+	-moz-animation: prism-previewer-time linear infinite 3s;
+	-o-animation: prism-previewer-time linear infinite 3s;
+	animation: prism-previewer-time linear infinite 3s;
+}

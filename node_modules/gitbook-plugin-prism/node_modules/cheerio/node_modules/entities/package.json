@@ -1,0 +1,80 @@
+{
+  "name": "entities",
+  "version": "1.1.1",
+  "description": "Encode & decode XML/HTML entities with ease",
+  "author": {
+    "name": "Felix Boehm",
+    "email": "me@feedic.com"
+  },
+  "keywords": [
+    "html",
+    "xml",
+    "entity",
+    "encoding"
+  ],
+  "main": "./index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "mocha": "1",
+    "mocha-lcov-reporter": "*",
+    "coveralls": "*",
+    "istanbul": "*",
+    "jshint": "2"
+  },
+  "scripts": {
+    "test": "mocha && npm run lint",
+    "lint": "jshint index.js lib/*.js test/*.js",
+    "lcov": "istanbul cover _mocha --report lcovonly -- -R spec",
+    "coveralls": "npm run lint && npm run lcov && (cat coverage/lcov.info | coveralls || exit 0)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fb55/node-entities.git"
+  },
+  "license": "BSD-like",
+  "jshintConfig": {
+    "eqeqeq": true,
+    "freeze": true,
+    "latedef": "nofunc",
+    "noarg": true,
+    "nonbsp": true,
+    "quotmark": "double",
+    "undef": true,
+    "unused": true,
+    "trailing": true,
+    "eqnull": true,
+    "proto": true,
+    "smarttabs": true,
+    "node": true,
+    "globals": {
+      "describe": true,
+      "it": true
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/fb55/node-entities/issues"
+  },
+  "homepage": "https://github.com/fb55/node-entities",
+  "_id": "entities@1.1.1",
+  "dist": {
+    "shasum": "6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0",
+    "tarball": "https://registry.npmjs.org/entities/-/entities-1.1.1.tgz"
+  },
+  "_from": "entities@>=1.1.1 <1.2.0",
+  "_npmVersion": "1.4.6",
+  "_npmUser": {
+    "name": "feedic",
+    "email": "me@feedic.com"
+  },
+  "maintainers": [
+    {
+      "name": "feedic",
+      "email": "me@feedic.com"
+    }
+  ],
+  "_shasum": "6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0",
+  "_resolved": "https://registry.npmjs.org/entities/-/entities-1.1.1.tgz",
+  "readme": "ERROR: No README data found!"
+}

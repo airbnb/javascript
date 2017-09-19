@@ -1,0 +1,23 @@
+---
+foo: ""
+bar: "fo\"obar"
+foo: ''
+bar: 'fo\'obar'
+
+----------------------------------------------------
+
+[
+	["punctuation", "---"],
+	["key", "foo"], ["punctuation", ":"],
+	["string", "\"\""],
+	["key", "bar"], ["punctuation", ":"],
+	["string", "\"fo\\\"obar\""],
+	["key", "foo"], ["punctuation", ":"],
+	["string", "''"],
+	["key", "bar"], ["punctuation", ":"],
+	["string", "'fo\\'obar'"]
+]
+
+----------------------------------------------------
+
+Checks for strings.

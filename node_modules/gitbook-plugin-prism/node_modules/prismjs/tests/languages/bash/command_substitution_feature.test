@@ -1,0 +1,34 @@
+$(echo foo)
+`echo foo`
+"$(echo foo) bar"
+
+----------------------------------------------------
+
+[
+	["variable", [
+		["variable", "$("],
+		["keyword", "echo"], 
+		" foo",
+		["variable", ")"]
+	]],
+	["variable", [
+		["variable", "`"],
+		["keyword", "echo"], 
+		" foo",
+		["variable", "`"]
+	]],
+	["string", [
+		"\"",
+		["variable", [
+			["variable", "$("],
+			["keyword", "echo"], 
+			" foo",
+			["variable", ")"]
+		]],
+		" bar\""
+	]]
+]
+
+----------------------------------------------------
+
+Checks for command substitution.

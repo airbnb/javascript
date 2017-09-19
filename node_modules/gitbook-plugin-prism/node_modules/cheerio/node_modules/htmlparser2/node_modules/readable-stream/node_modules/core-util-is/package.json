@@ -1,0 +1,60 @@
+{
+  "name": "core-util-is",
+  "version": "1.0.2",
+  "description": "The `util.is*` functions introduced in Node v0.12.",
+  "main": "lib/util.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/isaacs/core-util-is.git"
+  },
+  "keywords": [
+    "util",
+    "isBuffer",
+    "isArray",
+    "isNumber",
+    "isString",
+    "isRegExp",
+    "isThis",
+    "isThat",
+    "polyfill"
+  ],
+  "author": {
+    "name": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isaacs/core-util-is/issues"
+  },
+  "scripts": {
+    "test": "tap test.js"
+  },
+  "devDependencies": {
+    "tap": "^2.3.0"
+  },
+  "gitHead": "a177da234df5638b363ddc15fa324619a38577c8",
+  "homepage": "https://github.com/isaacs/core-util-is#readme",
+  "_id": "core-util-is@1.0.2",
+  "_shasum": "b5fd54220aa2bc5ab57aab7140c940754503c1a7",
+  "_from": "core-util-is@>=1.0.0 <1.1.0",
+  "_npmVersion": "3.3.2",
+  "_nodeVersion": "4.0.0",
+  "_npmUser": {
+    "name": "isaacs",
+    "email": "i@izs.me"
+  },
+  "dist": {
+    "shasum": "b5fd54220aa2bc5ab57aab7140c940754503c1a7",
+    "tarball": "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "isaacs",
+      "email": "i@izs.me"
+    }
+  ],
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz",
+  "readme": "ERROR: No README data found!"
+}

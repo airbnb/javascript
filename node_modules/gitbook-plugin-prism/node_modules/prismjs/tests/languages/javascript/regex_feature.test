@@ -1,0 +1,23 @@
+/foo bar/
+/foo/gimyu,
+/[\[\]]{2,4}(?:foo)*/;
+/foo"test"bar/
+/foo\//
+1 / 4 + "/, not a regex";
+/ '1' '2' '3' '4' '5' /
+
+----------------------------------------------------
+
+[
+	["regex", "/foo bar/"],
+	["regex", "/foo/gimyu"], ["punctuation", ","],
+	["regex", "/[\\[\\]]{2,4}(?:foo)*/"], ["punctuation", ";"],
+	["regex", "/foo\"test\"bar/"],
+	["regex", "/foo\\//"],
+	["number", "1"], ["operator", "/"], ["number", "4"], ["operator", "+"], ["string", "\"/, not a regex\""], ["punctuation", ";"],
+	["regex", "/ '1' '2' '3' '4' '5' /"]
+]
+
+----------------------------------------------------
+
+Checks for regex.

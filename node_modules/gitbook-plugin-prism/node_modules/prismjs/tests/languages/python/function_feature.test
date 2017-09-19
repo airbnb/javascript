@@ -1,0 +1,15 @@
+def Foo(
+def foo_bar_42(
+def _(
+
+----------------------------------------------------
+
+[
+	["keyword", "def"], ["function", "Foo"], ["punctuation", "("],
+	["keyword", "def"], ["function", "foo_bar_42"], ["punctuation", "("],
+	["keyword", "def"], ["function", "_"], ["punctuation", "("]
+]
+
+----------------------------------------------------
+
+Checks for functions.

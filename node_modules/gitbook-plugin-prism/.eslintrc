@@ -1,0 +1,5 @@
+---
+extends: eslint-config-semistandard
+rules:
+  padded-blocks: 0
+  space-before-function-paren: 0

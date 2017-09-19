@@ -1,0 +1,53 @@
+{
+  "name": "nth-check",
+  "version": "1.0.1",
+  "description": "performant nth-check parser & compiler",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fb55/nth-check.git"
+  },
+  "keywords": [
+    "nth-child",
+    "nth",
+    "css"
+  ],
+  "author": {
+    "name": "Felix Boehm",
+    "email": "me@feedic.com"
+  },
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/fb55/nth-check/issues"
+  },
+  "homepage": "https://github.com/fb55/nth-check",
+  "dependencies": {
+    "boolbase": "~1.0.0"
+  },
+  "gitHead": "257338e5bbd53228236abd4cc09539b66b27dd11",
+  "_id": "nth-check@1.0.1",
+  "_shasum": "9929acdf628fc2c41098deab82ac580cf149aae4",
+  "_from": "nth-check@>=1.0.1 <1.1.0",
+  "_npmVersion": "2.6.1",
+  "_nodeVersion": "1.5.1",
+  "_npmUser": {
+    "name": "feedic",
+    "email": "me@feedic.com"
+  },
+  "maintainers": [
+    {
+      "name": "feedic",
+      "email": "me@feedic.com"
+    }
+  ],
+  "dist": {
+    "shasum": "9929acdf628fc2c41098deab82ac580cf149aae4",
+    "tarball": "https://registry.npmjs.org/nth-check/-/nth-check-1.0.1.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/nth-check/-/nth-check-1.0.1.tgz",
+  "readme": "ERROR: No README data found!"
+}

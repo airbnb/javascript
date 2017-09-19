@@ -1,0 +1,19 @@
+$(myLicenseData)
+${LANG_ENGLISH}
+${AtLeastWin8.1}
+${nsArray_Copy}
+${xml::CreateNode}
+
+----------------------------------------------------
+
+[
+    ["constant", "$(myLicenseData)"],
+    ["constant", "${LANG_ENGLISH}"],
+    ["constant", "${AtLeastWin8.1}"],
+    ["constant", "${nsArray_Copy}"],
+	["constant", "${xml::CreateNode}"]
+]
+
+----------------------------------------------------
+
+Checks for constants.

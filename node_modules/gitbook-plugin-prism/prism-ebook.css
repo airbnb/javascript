@@ -1,0 +1,17 @@
+/*
+ * Prism themes contain a ::selection selector that was being applied to <code>
+ * blocks in PDFs.
+ *
+ * @See https://github.com/gaearon/gitbook-plugin-prism/issues/11
+*/
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  background: none;
+}
+
+/*
+ * @See https://github.com/gaearon/gitbook-plugin-prism/issues/11#issuecomment-262058733
+*/
+.page .section pre code {
+    background-color: none;
+}

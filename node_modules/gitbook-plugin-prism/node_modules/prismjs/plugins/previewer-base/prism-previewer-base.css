@@ -1,0 +1,61 @@
+.prism-previewer,
+.prism-previewer:before,
+.prism-previewer:after {
+	position: absolute;
+	pointer-events: none;
+}
+.prism-previewer,
+.prism-previewer:after {
+	left: 50%;
+}
+.prism-previewer {
+	margin-top: -48px;
+	width: 32px;
+	height: 32px;
+	margin-left: -16px;
+
+	opacity: 0;
+	-webkit-transition: opacity .25s;
+	-o-transition: opacity .25s;
+	transition: opacity .25s;
+}
+.prism-previewer.flipped {
+	margin-top: 0;
+	margin-bottom: -48px;
+}
+.prism-previewer:before,
+.prism-previewer:after {
+	content: '';
+	position: absolute;
+	pointer-events: none;
+}
+.prism-previewer:before {
+	top: -5px;
+	right: -5px;
+	left: -5px;
+	bottom: -5px;
+	border-radius: 10px;
+	border: 5px solid #fff;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) inset, 0 0 10px rgba(0, 0, 0, 0.75);
+}
+
+.prism-previewer:after {
+	top: 100%;
+	width: 0;
+	height: 0;
+	margin: 5px 0 0 -7px;
+	border: 7px solid transparent;
+	border-color: rgba(255, 0, 0, 0);
+	border-top-color: #fff;
+}
+.prism-previewer.flipped:after {
+	top: auto;
+	bottom: 100%;
+	margin-top: 0;
+	margin-bottom: 5px;
+	border-top-color: rgba(255, 0, 0, 0);
+	border-bottom-color: #fff;
+}
+.prism-previewer.active {
+	opacity: 1;
+}

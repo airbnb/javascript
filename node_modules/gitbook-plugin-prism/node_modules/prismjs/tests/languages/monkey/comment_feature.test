@@ -1,0 +1,15 @@
+' Foobar
+#Rem Foo
+Bar 'Baz
+#End
+
+----------------------------------------------------
+
+[
+	["comment", "' Foobar"],
+	["comment", "#Rem Foo\r\nBar 'Baz\r\n#End"]
+]
+
+----------------------------------------------------
+
+Checks for comments.

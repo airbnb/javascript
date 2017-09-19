@@ -1,0 +1,73 @@
+{
+  "name": "dom-serializer",
+  "version": "0.1.0",
+  "description": "render dom nodes to string",
+  "author": {
+    "name": "Felix Boehm",
+    "email": "me@feedic.com"
+  },
+  "keywords": [
+    "html",
+    "xml",
+    "render"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cheeriojs/dom-renderer.git"
+  },
+  "main": "./index.js",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "domelementtype": "~1.1.1",
+    "entities": "~1.1.1"
+  },
+  "devDependencies": {
+    "cheerio": "*",
+    "expect.js": "~0.3.1",
+    "jshint": "~2.3.0",
+    "lodash": "~2.4.1",
+    "mocha": "*",
+    "xyz": "0.4.x"
+  },
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "license": "MIT",
+  "gitHead": "249b9a921e6ba318c52b87de21e8475bcb4050e5",
+  "bugs": {
+    "url": "https://github.com/cheeriojs/dom-renderer/issues"
+  },
+  "homepage": "https://github.com/cheeriojs/dom-renderer",
+  "_id": "dom-serializer@0.1.0",
+  "_shasum": "073c697546ce0780ce23be4a28e293e40bc30c82",
+  "_from": "dom-serializer@>=0.1.0 <0.2.0",
+  "_npmVersion": "2.4.1",
+  "_nodeVersion": "1.2.0",
+  "_npmUser": {
+    "name": "feedic",
+    "email": "me@feedic.com"
+  },
+  "maintainers": [
+    {
+      "name": "feedic",
+      "email": "me@feedic.com"
+    },
+    {
+      "name": "davidchambers",
+      "email": "dc@davidchambers.me"
+    },
+    {
+      "name": "mattmueller",
+      "email": "mattmuelle@gmail.com"
+    }
+  ],
+  "dist": {
+    "shasum": "073c697546ce0780ce23be4a28e293e40bc30c82",
+    "tarball": "https://registry.npmjs.org/dom-serializer/-/dom-serializer-0.1.0.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/dom-serializer/-/dom-serializer-0.1.0.tgz",
+  "readme": "ERROR: No README data found!"
+}

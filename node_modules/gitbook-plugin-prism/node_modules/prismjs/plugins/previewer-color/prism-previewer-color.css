@@ -1,0 +1,9 @@
+.prism-previewer-color {
+	background-image: linear-gradient(45deg, #bbb 25%, transparent 25%, transparent 75%, #bbb 75%, #bbb), linear-gradient(45deg, #bbb 25%, #eee 25%, #eee 75%, #bbb 75%, #bbb);
+	background-size: 10px 10px;
+	background-position: 0 0, 5px 5px;
+}
+.prism-previewer-color:before {
+	background-color: inherit;
+	background-clip: padding-box;
+}
