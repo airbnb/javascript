@@ -1,3 +1,6 @@
+---
+---
+
 # Arrays
 
 - [4.1](#4.1) <a name='4.1'></a> Use the literal syntax for array creation.

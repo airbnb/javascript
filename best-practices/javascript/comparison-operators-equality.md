@@ -1,3 +1,6 @@
+---
+---
+
 # Comparison Operators & Equality
 
 - [15.1](#15.1) <a name='15.1'></a> Use `===` and `!==` over `==` and `!=`.

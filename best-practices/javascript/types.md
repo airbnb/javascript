@@ -1,3 +1,6 @@
+---
+---
+
 # Types
 
 - [1.1](#1.1) <a name='1.1'></a> **Primitives**: When you access a primitive type you work directly on its value.

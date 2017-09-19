@@ -1,3 +1,6 @@
+---
+---
+
 # Iterators and Generators
 
 - [11.1](#11.1) <a name='11.1'></a> Don't use iterators. Prefer JavaScript's higher-order functions like `map()` and `reduce()` instead of loops like `for-of`.

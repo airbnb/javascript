@@ -1,3 +1,6 @@
+---
+---
+
 # Functions
 
 - [7.1](#7.1) <a name='7.1'></a> Use function declarations instead of function expressions.

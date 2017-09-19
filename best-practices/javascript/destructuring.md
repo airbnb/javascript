@@ -1,3 +1,6 @@
+---
+---
+
 # Destructuring
 
 - [5.1](#5.1) <a name='5.1'></a> Use object destructuring when accessing and using multiple properties of an object.

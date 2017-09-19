@@ -1,3 +1,6 @@
+---
+---
+
 ## Basic Rules
 
 - Only include one React component per file.

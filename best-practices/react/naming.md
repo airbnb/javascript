@@ -1,3 +1,6 @@
+---
+---
+
 ## Naming
 
 - **Extensions**: Use `.js` extension for React components.
