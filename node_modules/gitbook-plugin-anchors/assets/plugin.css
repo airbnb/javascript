@@ -1,0 +1,30 @@
+
+a.plugin-anchor {
+    color: inherit !important;
+    display: none;
+    margin-left: -30px;
+    padding-left: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+a.plugin-anchor i {
+    margin-left: -30px;
+    font-size: 15px !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    position: relative;
+}
+
+h1:hover a.plugin-anchor, h2:hover a.plugin-anchor, h3:hover a.plugin-anchor,
+h4:hover a.plugin-anchor, h5:hover a.plugin-anchor, h6:hover a.plugin-anchor {
+    display: inline-block;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal {
+    overflow: visible;
+}

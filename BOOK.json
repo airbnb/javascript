@@ -1,0 +1,10 @@
+{
+  "gitbook": "3.x.x",
+  "plugins": [
+    "edit-link",
+    "prism",
+    "-highlight",
+    "anchors",
+    "collapsible-menu"
+  ]
+}

@@ -1,0 +1,687 @@
+ACTION
+ADD
+AFTER
+ALGORITHM
+ALL
+ALTER
+ANALYZE
+ANY
+APPLY
+AS
+ASC
+AUTHORIZATION
+BACKUP
+BDB
+BEGIN
+BERKELEYDB
+BIGINT
+BINARY
+BIT
+BLOB
+BOOL
+BOOLEAN
+BREAK
+BROWSE
+BTREE
+BULK
+BY
+CALL
+CASCADE
+CASCADED
+CASE
+CHAIN
+CHAR VARYING
+CHARACTER SET
+CHARACTER VARYING
+CHARSET
+CHECK
+CHECKPOINT
+CLOSE
+CLUSTERED
+COALESCE
+COLLATE
+COLUMN
+COLUMNS
+COMMENT
+COMMIT
+COMMITTED
+COMPUTE
+CONNECT
+CONSISTENT
+CONSTRAINT
+CONTAINS
+CONTAINSTABLE
+CONTINUE
+CONVERT
+CREATE
+CROSS
+CURRENT
+CURRENT_DATE
+CURRENT_TIME
+CURRENT_TIMESTAMP
+CURRENT_USER
+CURSOR
+DATA
+DATABASE
+DATABASES
+DATETIME
+DBCC
+DEALLOCATE
+DEC
+DECIMAL
+DECLARE
+DEFAULT
+DEFINER
+DELAYED
+DELETE
+DENY
+DESC
+DESCRIBE
+DETERMINISTIC
+DISABLE
+DISCARD
+DISK
+DISTINCT
+DISTINCTROW
+DISTRIBUTED
+DO
+DOUBLE
+DOUBLE PRECISION
+DROP
+DUMMY
+DUMP
+DUMPFILE
+DUPLICATE KEY
+ELSE
+ENABLE
+ENCLOSED BY
+END
+ENGINE
+ENUM
+ERRLVL
+ERRORS
+ESCAPE
+ESCAPED BY
+EXCEPT
+EXEC
+EXECUTE
+EXISTS
+EXIT
+EXPLAIN
+EXTENDED
+FETCH
+FIELDS
+FILE
+FILLFACTOR
+FIRST
+FIXED
+FLOAT
+FOLLOWING
+FOR
+FOR EACH ROW
+FORCE
+FOREIGN
+FREETEXT
+FREETEXTTABLE
+FROM
+FULL
+FUNCTION
+GEOMETRY
+GEOMETRYCOLLECTION
+GLOBAL
+GOTO
+GRANT
+GROUP
+HANDLER
+HASH
+HAVING
+HOLDLOCK
+IDENTITY
+IDENTITY_INSERT
+IDENTITYCOL
+IF
+IGNORE
+IMPORT
+INDEX
+INFILE
+INNER
+INNODB
+INOUT
+INSERT
+INT
+INTEGER
+INTERSECT
+INTO
+INVOKER
+ISOLATION LEVEL
+JOIN
+KEY
+KEYS
+KILL
+LANGUAGE SQL
+LAST
+LEFT
+LIMIT
+LINENO
+LINES
+LINESTRING
+LOAD
+LOCAL
+LOCK
+LONGBLOB
+LONGTEXT
+MATCH
+MATCHED
+MEDIUMBLOB
+MEDIUMINT
+MEDIUMTEXT
+MERGE
+MIDDLEINT
+MODIFIES SQL DATA
+MODIFY
+MULTILINESTRING
+MULTIPOINT
+MULTIPOLYGON
+NATIONAL
+NATIONAL CHAR VARYING
+NATIONAL CHARACTER
+NATIONAL CHARACTER VARYING
+NATIONAL VARCHAR
+NATURAL
+NCHAR
+NCHAR VARCHAR
+NEXT
+NO
+NO SQL
+NOCHECK
+NOCYCLE
+NONCLUSTERED
+NULLIF
+NUMERIC
+OF
+OFF
+OFFSET
+OFFSETS
+ON
+OPEN
+OPENDATASOURCE
+OPENQUERY
+OPENROWSET
+OPTIMIZE
+OPTION
+OPTIONALLY
+ORDER
+OUT
+OUTER
+OUTFILE
+OVER
+PARTIAL
+PARTITION
+PERCENT
+PIVOT
+PLAN
+POINT
+POLYGON
+PRECEDING
+PRECISION
+PREV
+PRIMARY
+PRINT
+PRIVILEGES
+PROC
+PROCEDURE
+PUBLIC
+PURGE
+QUICK
+RAISERROR
+READ
+READS SQL DATA
+READTEXT
+REAL
+RECONFIGURE
+REFERENCES
+RELEASE
+RENAME
+REPEATABLE
+REPLICATION
+REQUIRE
+RESTORE
+RESTRICT
+RETURN
+RETURNS
+REVOKE
+RIGHT
+ROLLBACK
+ROUTINE
+ROWCOUNT
+ROWGUIDCOL
+ROW
+ROWS
+RTREE
+RULE
+SAVE
+SAVEPOINT
+SCHEMA
+SELECT
+SERIAL
+SERIALIZABLE
+SESSION
+SESSION_USER
+SET
+SETUSER
+SHARE MODE
+SHOW
+SHUTDOWN
+SIMPLE
+SMALLINT
+SNAPSHOT
+SOME
+SONAME
+START
+STARTING BY
+STATISTICS
+STATUS
+STRIPED
+SYSTEM_USER
+TABLE
+TABLES
+TABLESPACE
+TEMP
+TEMPORARY
+TEMPTABLE
+TERMINATED BY
+TEXT
+TEXTSIZE
+THEN
+TIMESTAMP
+TINYBLOB
+TINYINT
+TINYTEXT
+TO
+TOP
+TRAN
+TRANSACTION
+TRANSACTIONS
+TRIGGER
+TRUNCATE
+TSEQUAL
+TYPE
+TYPES
+UNBOUNDED
+UNCOMMITTED
+UNDEFINED
+UNION
+UNIQUE
+UNPIVOT
+UPDATE
+UPDATETEXT
+USAGE
+USE
+USER
+USING
+VALUE
+VALUES
+VARBINARY
+VARCHAR
+VARCHARACTER
+VARYING
+VIEW
+WAITFOR
+WARNINGS
+WHEN
+WHERE
+WHILE
+WITH
+WITH ROLLUP
+WITHIN
+WORK
+WRITE
+WRITETEXT
+
+----------------------------------------------------
+
+[
+	["keyword", "ACTION"],
+	["keyword", "ADD"],
+	["keyword", "AFTER"],
+	["keyword", "ALGORITHM"],
+	["keyword", "ALL"],
+	["keyword", "ALTER"],
+	["keyword", "ANALYZE"],
+	["keyword", "ANY"],
+	["keyword", "APPLY"],
+	["keyword", "AS"],
+	["keyword", "ASC"],
+	["keyword", "AUTHORIZATION"],
+	["keyword", "BACKUP"],
+	["keyword", "BDB"],
+	["keyword", "BEGIN"],
+	["keyword", "BERKELEYDB"],
+	["keyword", "BIGINT"],
+	["keyword", "BINARY"],
+	["keyword", "BIT"],
+	["keyword", "BLOB"],
+	["keyword", "BOOL"],
+	["keyword", "BOOLEAN"],
+	["keyword", "BREAK"],
+	["keyword", "BROWSE"],
+	["keyword", "BTREE"],
+	["keyword", "BULK"],
+	["keyword", "BY"],
+	["keyword", "CALL"],
+	["keyword", "CASCADE"],
+	["keyword", "CASCADED"],
+	["keyword", "CASE"],
+	["keyword", "CHAIN"],
+	["keyword", "CHAR VARYING"],
+	["keyword", "CHARACTER SET"],
+	["keyword", "CHARACTER VARYING"],
+	["keyword", "CHARSET"],
+	["keyword", "CHECK"],
+	["keyword", "CHECKPOINT"],
+	["keyword", "CLOSE"],
+	["keyword", "CLUSTERED"],
+	["keyword", "COALESCE"],
+	["keyword", "COLLATE"],
+	["keyword", "COLUMN"],
+	["keyword", "COLUMNS"],
+	["keyword", "COMMENT"],
+	["keyword", "COMMIT"],
+	["keyword", "COMMITTED"],
+	["keyword", "COMPUTE"],
+	["keyword", "CONNECT"],
+	["keyword", "CONSISTENT"],
+	["keyword", "CONSTRAINT"],
+	["keyword", "CONTAINS"],
+	["keyword", "CONTAINSTABLE"],
+	["keyword", "CONTINUE"],
+	["keyword", "CONVERT"],
+	["keyword", "CREATE"],
+	["keyword", "CROSS"],
+	["keyword", "CURRENT"],
+	["keyword", "CURRENT_DATE"],
+	["keyword", "CURRENT_TIME"],
+	["keyword", "CURRENT_TIMESTAMP"],
+	["keyword", "CURRENT_USER"],
+	["keyword", "CURSOR"],
+	["keyword", "DATA"],
+	["keyword", "DATABASE"],
+	["keyword", "DATABASES"],
+	["keyword", "DATETIME"],
+	["keyword", "DBCC"],
+	["keyword", "DEALLOCATE"],
+	["keyword", "DEC"],
+	["keyword", "DECIMAL"],
+	["keyword", "DECLARE"],
+	["keyword", "DEFAULT"],
+	["keyword", "DEFINER"],
+	["keyword", "DELAYED"],
+	["keyword", "DELETE"],
+	["keyword", "DENY"],
+	["keyword", "DESC"],
+	["keyword", "DESCRIBE"],
+	["keyword", "DETERMINISTIC"],
+	["keyword", "DISABLE"],
+	["keyword", "DISCARD"],
+	["keyword", "DISK"],
+	["keyword", "DISTINCT"],
+	["keyword", "DISTINCTROW"],
+	["keyword", "DISTRIBUTED"],
+	["keyword", "DO"],
+	["keyword", "DOUBLE"],
+	["keyword", "DOUBLE PRECISION"],
+	["keyword", "DROP"],
+	["keyword", "DUMMY"],
+	["keyword", "DUMP"],
+	["keyword", "DUMPFILE"],
+	["keyword", "DUPLICATE KEY"],
+	["keyword", "ELSE"],
+	["keyword", "ENABLE"],
+	["keyword", "ENCLOSED BY"],
+	["keyword", "END"],
+	["keyword", "ENGINE"],
+	["keyword", "ENUM"],
+	["keyword", "ERRLVL"],
+	["keyword", "ERRORS"],
+	["keyword", "ESCAPE"],
+	["keyword", "ESCAPED BY"],
+	["keyword", "EXCEPT"],
+	["keyword", "EXEC"],
+	["keyword", "EXECUTE"],
+	["keyword", "EXISTS"],
+	["keyword", "EXIT"],
+	["keyword", "EXPLAIN"],
+	["keyword", "EXTENDED"],
+	["keyword", "FETCH"],
+	["keyword", "FIELDS"],
+	["keyword", "FILE"],
+	["keyword", "FILLFACTOR"],
+	["keyword", "FIRST"],
+	["keyword", "FIXED"],
+	["keyword", "FLOAT"],
+	["keyword", "FOLLOWING"],
+	["keyword", "FOR"],
+	["keyword", "FOR EACH ROW"],
+	["keyword", "FORCE"],
+	["keyword", "FOREIGN"],
+	["keyword", "FREETEXT"],
+	["keyword", "FREETEXTTABLE"],
+	["keyword", "FROM"],
+	["keyword", "FULL"],
+	["keyword", "FUNCTION"],
+	["keyword", "GEOMETRY"],
+	["keyword", "GEOMETRYCOLLECTION"],
+	["keyword", "GLOBAL"],
+	["keyword", "GOTO"],
+	["keyword", "GRANT"],
+	["keyword", "GROUP"],
+	["keyword", "HANDLER"],
+	["keyword", "HASH"],
+	["keyword", "HAVING"],
+	["keyword", "HOLDLOCK"],
+	["keyword", "IDENTITY"],
+	["keyword", "IDENTITY_INSERT"],
+	["keyword", "IDENTITYCOL"],
+	["keyword", "IF"],
+	["keyword", "IGNORE"],
+	["keyword", "IMPORT"],
+	["keyword", "INDEX"],
+	["keyword", "INFILE"],
+	["keyword", "INNER"],
+	["keyword", "INNODB"],
+	["keyword", "INOUT"],
+	["keyword", "INSERT"],
+	["keyword", "INT"],
+	["keyword", "INTEGER"],
+	["keyword", "INTERSECT"],
+	["keyword", "INTO"],
+	["keyword", "INVOKER"],
+	["keyword", "ISOLATION LEVEL"],
+	["keyword", "JOIN"],
+	["keyword", "KEY"],
+	["keyword", "KEYS"],
+	["keyword", "KILL"],
+	["keyword", "LANGUAGE SQL"],
+	["keyword", "LAST"],
+	["keyword", "LEFT"],
+	["keyword", "LIMIT"],
+	["keyword", "LINENO"],
+	["keyword", "LINES"],
+	["keyword", "LINESTRING"],
+	["keyword", "LOAD"],
+	["keyword", "LOCAL"],
+	["keyword", "LOCK"],
+	["keyword", "LONGBLOB"],
+	["keyword", "LONGTEXT"],
+	["keyword", "MATCH"],
+	["keyword", "MATCHED"],
+	["keyword", "MEDIUMBLOB"],
+	["keyword", "MEDIUMINT"],
+	["keyword", "MEDIUMTEXT"],
+	["keyword", "MERGE"],
+	["keyword", "MIDDLEINT"],
+	["keyword", "MODIFIES SQL DATA"],
+	["keyword", "MODIFY"],
+	["keyword", "MULTILINESTRING"],
+	["keyword", "MULTIPOINT"],
+	["keyword", "MULTIPOLYGON"],
+	["keyword", "NATIONAL"],
+	["keyword", "NATIONAL CHAR VARYING"],
+	["keyword", "NATIONAL CHARACTER"],
+	["keyword", "NATIONAL CHARACTER VARYING"],
+	["keyword", "NATIONAL VARCHAR"],
+	["keyword", "NATURAL"],
+	["keyword", "NCHAR"],
+	["keyword", "NCHAR VARCHAR"],
+	["keyword", "NEXT"],
+	["keyword", "NO"],
+	["keyword", "NO SQL"],
+	["keyword", "NOCHECK"],
+	["keyword", "NOCYCLE"],
+	["keyword", "NONCLUSTERED"],
+	["keyword", "NULLIF"],
+	["keyword", "NUMERIC"],
+	["keyword", "OF"],
+	["keyword", "OFF"],
+	["keyword", "OFFSET"],
+	["keyword", "OFFSETS"],
+	["keyword", "ON"],
+	["keyword", "OPEN"],
+	["keyword", "OPENDATASOURCE"],
+	["keyword", "OPENQUERY"],
+	["keyword", "OPENROWSET"],
+	["keyword", "OPTIMIZE"],
+	["keyword", "OPTION"],
+	["keyword", "OPTIONALLY"],
+	["keyword", "ORDER"],
+	["keyword", "OUT"],
+	["keyword", "OUTER"],
+	["keyword", "OUTFILE"],
+	["keyword", "OVER"],
+	["keyword", "PARTIAL"],
+	["keyword", "PARTITION"],
+	["keyword", "PERCENT"],
+	["keyword", "PIVOT"],
+	["keyword", "PLAN"],
+	["keyword", "POINT"],
+	["keyword", "POLYGON"],
+	["keyword", "PRECEDING"],
+	["keyword", "PRECISION"],
+	["keyword", "PREV"],
+	["keyword", "PRIMARY"],
+	["keyword", "PRINT"],
+	["keyword", "PRIVILEGES"],
+	["keyword", "PROC"],
+	["keyword", "PROCEDURE"],
+	["keyword", "PUBLIC"],
+	["keyword", "PURGE"],
+	["keyword", "QUICK"],
+	["keyword", "RAISERROR"],
+	["keyword", "READ"],
+	["keyword", "READS SQL DATA"],
+	["keyword", "READTEXT"],
+	["keyword", "REAL"],
+	["keyword", "RECONFIGURE"],
+	["keyword", "REFERENCES"],
+	["keyword", "RELEASE"],
+	["keyword", "RENAME"],
+	["keyword", "REPEATABLE"],
+	["keyword", "REPLICATION"],
+	["keyword", "REQUIRE"],
+	["keyword", "RESTORE"],
+	["keyword", "RESTRICT"],
+	["keyword", "RETURN"],
+	["keyword", "RETURNS"],
+	["keyword", "REVOKE"],
+	["keyword", "RIGHT"],
+	["keyword", "ROLLBACK"],
+	["keyword", "ROUTINE"],
+	["keyword", "ROWCOUNT"],
+	["keyword", "ROWGUIDCOL"],
+	["keyword", "ROW"],
+	["keyword", "ROWS"],
+	["keyword", "RTREE"],
+	["keyword", "RULE"],
+	["keyword", "SAVE"],
+	["keyword", "SAVEPOINT"],
+	["keyword", "SCHEMA"],
+	["keyword", "SELECT"],
+	["keyword", "SERIAL"],
+	["keyword", "SERIALIZABLE"],
+	["keyword", "SESSION"],
+	["keyword", "SESSION_USER"],
+	["keyword", "SET"],
+	["keyword", "SETUSER"],
+	["keyword", "SHARE MODE"],
+	["keyword", "SHOW"],
+	["keyword", "SHUTDOWN"],
+	["keyword", "SIMPLE"],
+	["keyword", "SMALLINT"],
+	["keyword", "SNAPSHOT"],
+	["keyword", "SOME"],
+	["keyword", "SONAME"],
+	["keyword", "START"],
+	["keyword", "STARTING BY"],
+	["keyword", "STATISTICS"],
+	["keyword", "STATUS"],
+	["keyword", "STRIPED"],
+	["keyword", "SYSTEM_USER"],
+	["keyword", "TABLE"],
+	["keyword", "TABLES"],
+	["keyword", "TABLESPACE"],
+	["keyword", "TEMP"],
+	["keyword", "TEMPORARY"],
+	["keyword", "TEMPTABLE"],
+	["keyword", "TERMINATED BY"],
+	["keyword", "TEXT"],
+	["keyword", "TEXTSIZE"],
+	["keyword", "THEN"],
+	["keyword", "TIMESTAMP"],
+	["keyword", "TINYBLOB"],
+	["keyword", "TINYINT"],
+	["keyword", "TINYTEXT"],
+	["keyword", "TO"],
+	["keyword", "TOP"],
+	["keyword", "TRAN"],
+	["keyword", "TRANSACTION"],
+	["keyword", "TRANSACTIONS"],
+	["keyword", "TRIGGER"],
+	["keyword", "TRUNCATE"],
+	["keyword", "TSEQUAL"],
+	["keyword", "TYPE"],
+	["keyword", "TYPES"],
+	["keyword", "UNBOUNDED"],
+	["keyword", "UNCOMMITTED"],
+	["keyword", "UNDEFINED"],
+	["keyword", "UNION"],
+	["keyword", "UNIQUE"],
+	["keyword", "UNPIVOT"],
+	["keyword", "UPDATE"],
+	["keyword", "UPDATETEXT"],
+	["keyword", "USAGE"],
+	["keyword", "USE"],
+	["keyword", "USER"],
+	["keyword", "USING"],
+	["keyword", "VALUE"],
+	["keyword", "VALUES"],
+	["keyword", "VARBINARY"],
+	["keyword", "VARCHAR"],
+	["keyword", "VARCHARACTER"],
+	["keyword", "VARYING"],
+	["keyword", "VIEW"],
+	["keyword", "WAITFOR"],
+	["keyword", "WARNINGS"],
+	["keyword", "WHEN"],
+	["keyword", "WHERE"],
+	["keyword", "WHILE"],
+	["keyword", "WITH"],
+	["keyword", "WITH ROLLUP"],
+	["keyword", "WITHIN"],
+	["keyword", "WORK"],
+	["keyword", "WRITE"],
+	["keyword", "WRITETEXT"]
+]
+
+----------------------------------------------------
+
+Checks for all keywords.

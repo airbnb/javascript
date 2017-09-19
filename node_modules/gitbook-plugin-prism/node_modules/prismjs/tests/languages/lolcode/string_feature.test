@@ -1,0 +1,33 @@
+""
+"foobar"
+"fo:"o"
+"foo:)bar:>baz"
+"foo:{bar}baz"
+
+----------------------------------------------------
+
+[
+	["string", ["\"\""]],
+	["string", ["\"foobar\""]],
+	["string", [
+		"\"fo",
+		["symbol", ":\""],
+		"o\""
+	]],
+	["string", [
+		"\"foo",
+		["symbol", ":)"],
+		"bar",
+		["symbol", ":>"],
+		"baz\""
+	]],
+	["string", [
+		"\"foo",
+		["variable", ":{bar}"],
+		"baz\""
+	]]
+]
+
+----------------------------------------------------
+
+Checks for strings, with variables and symbols in them.

@@ -1,0 +1,48 @@
+var myDivElement = <div className="foo" />;
+var myElement = <MyComponent someProperty={true} />;
+
+----------------------------------------------------
+
+[
+	["keyword", "var"],
+	" myDivElement ",
+	["operator", "="],
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"div"
+		]],
+		["attr-name", ["className"]],
+		["attr-value", [
+			["punctuation", "="],
+			["punctuation", "\""],
+			"foo",
+			["punctuation", "\""]
+		]],
+		["punctuation", "/>"]
+	]],
+	["punctuation", ";"],
+
+	["keyword", "var"],
+	" myElement ",
+	["operator", "="],
+	["tag", [
+		["tag", [
+			["punctuation", "<"],
+			"MyComponent"
+		]],
+		["attr-name", ["someProperty"]],
+		["script", [
+			 ["punctuation", "="],
+			 ["punctuation", "{"],
+			 ["boolean", "true"],
+			 ["punctuation", "}"]
+		]],
+		["punctuation", "/>"]
+	]],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------
+
+Checks for JSX tags.

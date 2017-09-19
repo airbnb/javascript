@@ -1,0 +1,24 @@
+#!/usr/bin/env q
+/ Foobar
+
+/
+Foo
+bar
+\
+
+\
+Foo
+Bar
+
+----------------------------------------------------
+
+[
+	["comment", "#!/usr/bin/env q"],
+	["comment", "/ Foobar"],
+	["comment", "/\r\nFoo\r\nbar\r\n\\"],
+	["comment", "\\\r\nFoo\r\nBar"]
+]
+
+----------------------------------------------------
+
+Checks for comments.

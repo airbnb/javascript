@@ -1,0 +1,37 @@
+COUNT (
+SUM(
+AVG(
+MIN(
+MAX(
+FIRST(
+LAST(
+UCASE(
+LCASE(
+MID(
+LEN(
+ROUND(
+NOW(
+FORMAT(
+
+----------------------------------------------------
+
+[
+	["function", "COUNT"], ["punctuation", "("],
+	["function", "SUM"], ["punctuation", "("],
+	["function", "AVG"], ["punctuation", "("],
+	["function", "MIN"], ["punctuation", "("],
+	["function", "MAX"], ["punctuation", "("],
+	["function", "FIRST"], ["punctuation", "("],
+	["function", "LAST"], ["punctuation", "("],
+	["function", "UCASE"], ["punctuation", "("],
+	["function", "LCASE"], ["punctuation", "("],
+	["function", "MID"], ["punctuation", "("],
+	["function", "LEN"], ["punctuation", "("],
+	["function", "ROUND"], ["punctuation", "("],
+	["function", "NOW"], ["punctuation", "("],
+	["function", "FORMAT"], ["punctuation", "("]
+]
+
+----------------------------------------------------
+
+Checks for functions.

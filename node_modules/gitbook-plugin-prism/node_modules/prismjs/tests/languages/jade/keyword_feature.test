@@ -1,0 +1,27 @@
+block title
+
+	extends ./foo.jade
+
+include ./bar.jade
+
+block append foo
+append bar
+
+block prepend foo
+prepend bar
+
+----------------------------------------------------
+
+[
+	["keyword", "block title"],
+	["keyword", "extends ./foo.jade"],
+	["keyword", "include ./bar.jade"],
+	["keyword", "block append foo"],
+	["keyword", "append bar"],
+	["keyword", "block prepend foo"],
+	["keyword", "prepend bar"]
+]
+
+----------------------------------------------------
+
+Checks for all keywords.

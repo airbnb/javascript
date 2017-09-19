@@ -1,0 +1,49 @@
+{
+  "name": "process-nextick-args",
+  "version": "1.0.7",
+  "description": "process.nextTick but always with args",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calvinmetcalf/process-nextick-args.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/calvinmetcalf/process-nextick-args/issues"
+  },
+  "homepage": "https://github.com/calvinmetcalf/process-nextick-args",
+  "devDependencies": {
+    "tap": "~0.2.6"
+  },
+  "gitHead": "5c00899ab01dd32f93ad4b5743da33da91404f39",
+  "_id": "process-nextick-args@1.0.7",
+  "_shasum": "150e20b756590ad3f91093f25a4f2ad8bff30ba3",
+  "_from": "process-nextick-args@>=1.0.6 <1.1.0",
+  "_npmVersion": "3.8.6",
+  "_nodeVersion": "5.11.0",
+  "_npmUser": {
+    "name": "cwmma",
+    "email": "calvin.metcalf@gmail.com"
+  },
+  "dist": {
+    "shasum": "150e20b756590ad3f91093f25a4f2ad8bff30ba3",
+    "tarball": "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-1.0.7.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "cwmma",
+      "email": "calvin.metcalf@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/process-nextick-args-1.0.7.tgz_1462394251778_0.36989671061746776"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-1.0.7.tgz",
+  "readme": "ERROR: No README data found!"
+}

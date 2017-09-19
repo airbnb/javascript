@@ -1,0 +1,57 @@
+(define
+(define-syntax
+(define-library
+(define-values
+(case-lambda
+(lambda
+(let
+(let*
+(letrec
+(let-values
+(let*-values
+(letrec-values
+(else
+(if
+(cond
+(begin
+(delay
+(delay-force
+(parameterize
+(guard
+(set!
+(quasi-quote
+(quote
+(syntax-rules
+
+----------------------------------------------------
+
+[
+	["punctuation", "("], ["keyword", "define"],
+	["punctuation", "("], ["keyword", "define-syntax"],
+	["punctuation", "("], ["keyword", "define-library"],
+	["punctuation", "("], ["keyword", "define-values"],
+	["punctuation", "("], ["keyword", "case-lambda"],
+	["punctuation", "("], ["keyword", "lambda"],
+	["punctuation", "("], ["keyword", "let"],
+	["punctuation", "("], ["keyword", "let*"],
+	["punctuation", "("], ["keyword", "letrec"],
+	["punctuation", "("], ["keyword", "let-values"],
+	["punctuation", "("], ["keyword", "let*-values"],
+	["punctuation", "("], ["keyword", "letrec-values"],
+	["punctuation", "("], ["keyword", "else"],
+	["punctuation", "("], ["keyword", "if"],
+	["punctuation", "("], ["keyword", "cond"],
+	["punctuation", "("], ["keyword", "begin"],
+	["punctuation", "("], ["keyword", "delay"],
+	["punctuation", "("], ["keyword", "delay-force"],
+	["punctuation", "("], ["keyword", "parameterize"],
+	["punctuation", "("], ["keyword", "guard"],
+	["punctuation", "("], ["keyword", "set!"],
+	["punctuation", "("], ["keyword", "quasi-quote"],
+	["punctuation", "("], ["keyword", "quote"],
+	["punctuation", "("], ["keyword", "syntax-rules"]
+]
+
+----------------------------------------------------
+
+Checks for keywords.

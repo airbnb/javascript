@@ -1,0 +1,14 @@
+[System.String]::Empty;
+[Foo.Bar+Baz]::Abc;
+[int] 42;
+
+----------------------------------------------------
+
+[
+	["namespace", "[System.String]"],"::Empty",["punctuation", ";"],
+	["namespace", "[Foo.Bar+Baz]"],"::Abc",["punctuation", ";"],
+	["namespace", "[int]"]," 42",["punctuation", ";"]
+]
+----------------------------------------------------
+
+Testing namespaces

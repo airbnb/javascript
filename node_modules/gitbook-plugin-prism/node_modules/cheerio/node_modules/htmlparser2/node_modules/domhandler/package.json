@@ -1,0 +1,74 @@
+{
+  "name": "domhandler",
+  "version": "2.4.1",
+  "description": "handler for htmlparser2 that turns pages into a dom",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha -R list && jshint index.js test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fb55/DomHandler.git"
+  },
+  "keywords": [
+    "dom",
+    "htmlparser2"
+  ],
+  "dependencies": {
+    "domelementtype": "1"
+  },
+  "devDependencies": {
+    "htmlparser2": "^3.9.0",
+    "mocha": "^3.0.2",
+    "jshint": "^2.9.1"
+  },
+  "author": {
+    "name": "Felix Boehm",
+    "email": "me@feedic.com"
+  },
+  "license": "BSD-2-Clause",
+  "jshintConfig": {
+    "quotmark": "double",
+    "trailing": true,
+    "unused": true,
+    "undef": true,
+    "node": true,
+    "proto": true,
+    "globals": {
+      "it": true
+    }
+  },
+  "gitHead": "9b17cc6cc9387a87dde6eb8ddbae11c753e7d23d",
+  "bugs": {
+    "url": "https://github.com/fb55/DomHandler/issues"
+  },
+  "homepage": "https://github.com/fb55/DomHandler#readme",
+  "_id": "domhandler@2.4.1",
+  "_shasum": "892e47000a99be55bbf3774ffea0561d8879c259",
+  "_from": "domhandler@>=2.3.0 <3.0.0",
+  "_npmVersion": "4.6.1",
+  "_nodeVersion": "7.9.0",
+  "_npmUser": {
+    "name": "feedic",
+    "email": "me@feedic.com"
+  },
+  "dist": {
+    "shasum": "892e47000a99be55bbf3774ffea0561d8879c259",
+    "tarball": "https://registry.npmjs.org/domhandler/-/domhandler-2.4.1.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "feedic",
+      "email": "me@feedic.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/domhandler-2.4.1.tgz_1494125946418_0.981079070828855"
+  },
+  "_resolved": "https://registry.npmjs.org/domhandler/-/domhandler-2.4.1.tgz",
+  "readme": "ERROR: No README data found!"
+}

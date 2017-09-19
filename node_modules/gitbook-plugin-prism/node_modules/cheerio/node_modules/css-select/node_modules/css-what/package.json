@@ -1,0 +1,75 @@
+{
+  "author": {
+    "name": "Felix Böhm",
+    "email": "me@feedic.com",
+    "url": "http://feedic.com"
+  },
+  "name": "css-what",
+  "description": "a CSS selector parser",
+  "version": "2.1.0",
+  "repository": {
+    "url": "git+https://github.com/fb55/css-what.git"
+  },
+  "main": "./index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "node tests/test.js && jshint *.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jshint": "2"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "license": "BSD-like",
+  "jshintConfig": {
+    "eqeqeq": true,
+    "freeze": true,
+    "latedef": "nofunc",
+    "noarg": true,
+    "nonbsp": true,
+    "quotmark": "double",
+    "undef": true,
+    "unused": true,
+    "trailing": true,
+    "eqnull": true,
+    "proto": true,
+    "smarttabs": true,
+    "node": true,
+    "globals": {
+      "describe": true,
+      "it": true
+    }
+  },
+  "gitHead": "fd6b9f62146efec8e17ee80ddaebdfb6ede21d7b",
+  "bugs": {
+    "url": "https://github.com/fb55/css-what/issues"
+  },
+  "homepage": "https://github.com/fb55/css-what#readme",
+  "_id": "css-what@2.1.0",
+  "_shasum": "9467d032c38cfaefb9f2d79501253062f87fa1bd",
+  "_from": "css-what@>=2.1.0 <2.2.0",
+  "_npmVersion": "3.3.9",
+  "_nodeVersion": "5.0.0",
+  "_npmUser": {
+    "name": "feedic",
+    "email": "me@feedic.com"
+  },
+  "maintainers": [
+    {
+      "name": "feedic",
+      "email": "me@feedic.com"
+    }
+  ],
+  "dist": {
+    "shasum": "9467d032c38cfaefb9f2d79501253062f87fa1bd",
+    "tarball": "https://registry.npmjs.org/css-what/-/css-what-2.1.0.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/css-what/-/css-what-2.1.0.tgz",
+  "readme": "ERROR: No README data found!"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "select",
+  "version": "1.1.0",
+  "description": "Programmatically select the text of a HTML element",
+  "license": "MIT",
+  "main": "dist/select.js",
+  "keywords": [
+    "range",
+    "select",
+    "selecting",
+    "selection"
+  ]
+}

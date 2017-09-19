@@ -1,0 +1,32 @@
+void method<T, U>();
+method<int, char>();
+
+----------------------------------------------------
+
+[
+	["keyword", "void"],
+	["generic-method", [ "method",
+		["punctuation", "<"],
+		"T",
+		["punctuation", ","],
+		" U",
+		["punctuation", ">"]
+	]],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+	["generic-method", [ "method",
+		["punctuation", "<"],
+		["keyword", "int"],
+		["punctuation", ","],
+		["keyword", "char"],
+		["punctuation", ">"]
+	]],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------
+
+Checks for generic methods
