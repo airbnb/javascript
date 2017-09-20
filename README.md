@@ -1914,16 +1914,15 @@ Other Style Guides
       ? "bar"
       : value1 > value2 ? "baz" : null;
 
-    // better
+    // split into 2 separated ternary expressions
     const maybeNull = value1 > value2 ? 'baz' : null;
 
+    // better
     const foo = maybe1 > maybe2
       ? 'bar'
       : maybeNull;
 
     // best
-    const maybeNull = value1 > value2 ? 'baz' : null;
-
     const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
     ```
 
