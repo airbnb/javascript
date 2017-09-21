@@ -2048,12 +2048,12 @@ Other Style Guides
     }
     
     // bad 
-    if (foo === 123 || foo === 321) {
+    if (foo === 123 || foo === 124 || foo === 125 || foo === 126) {
       thing1();
     }
     
     // good 
-    if ([123, 321].includes(foo)) {
+    if ([123, 124, 125, 126].includes(foo)) {
       thing1();
     }
     ```
