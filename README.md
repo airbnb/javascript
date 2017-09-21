@@ -2046,6 +2046,16 @@ Other Style Guides
     ) {
       thing1();
     }
+    
+    // bad 
+    if (foo === 123 || foo === 321) {
+      thing1();
+    }
+    
+    // good 
+    if ([123, 321].includes(foo)) {
+      thing1();
+    }
     ```
 
 **[⬆ back to top](#table-of-contents)**
