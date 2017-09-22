@@ -89,17 +89,14 @@ Other Standards
     const reservationItem = <ReservationCard />;
     ```
 
-  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.tsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.tsx` as the filename and use the directory name as the component name:
+  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.tsx` should have a reference name of `ReservationCard`.
 
     ```typescript
-    // bad
-    import { Footer } from './Footer/Footer';
-
     // bad
     import { Footer } from './Footer/index';
 
     // good
-    import { Footer } from './Footer';
+    import { Footer } from './Footer/Footer';
     ```
 
   - **Props Naming**: Avoid using DOM component prop names for different purposes.
@@ -390,6 +387,8 @@ Other Standards
 
   - Use arrow functions to close over local variables.
 
+  > Why? It creates a new function on each render, which is desirable.
+
     ```typescript
     const ItemList = (props: Props): JSX.Element => {
       return (
@@ -405,31 +404,12 @@ Other Standards
     }
     ```
 
-  - Bind event handlers for the render method in the constructor. 
-
-    > Why? A bind call in the render path creates a brand new function on every single render.
+  - Use arrow functions for the render method in the constructor. 
 
     ```typescript
     // bad
     class extends React.Component<Props, void> {
-      onClickDiv() {
-        // do stuff
-      }
-
-      render(): JSX.Element {
-        return <div onClick={this.onClickDiv.bind(this)} />;
-      }
-    }
-
-    // good
-    class extends React.Component<Props, void> {
-      constructor(props: Props) {
-        super(props);
-
-        this.onClickDiv = this.onClickDiv.bind(this);
-      }
-
-      onClickDiv() {
+      private onClickDiv() {
         // do stuff
       }
 
@@ -437,10 +417,21 @@ Other Standards
         return <div onClick={this.onClickDiv} />;
       }
     }
+
+    // good
+    class extends React.Component<Props, void> {
+      private onClickDiv() {
+        // do stuff
+      }
+
+      render(): JSX.Element {
+        return <div onClick={() => this.onClickDiv()} />;
+      }
+    }
     ```
 
   - Do not use underscore prefix for internal methods of a React component.
-    > Why? Underscore prefixes are sometimes used as a convention in other languages to denote privacy. But, unlike those languages, there is no native support for privacy in JavaScript, everything is public. Regardless of your intentions, adding underscore prefixes to your properties does not actually make them private, and any property (underscore-prefixed or not) should be treated as being public. See issues [#1024](https://github.com/airbnb/javascript/issues/1024), and [#490](https://github.com/airbnb/javascript/issues/490) for a more in-depth discussion.
+    > Why? Underscore prefixes are sometimes used as a convention in other languages to denote privacy. But, unlike those languages, TypeScript supports the `private` keyword to design an entity as private.
 
     ```typescript
     // bad
@@ -454,7 +445,7 @@ Other Standards
 
     // good
     class extends React.Component<Props, void> {
-      onClickSubmit() {
+      private onClickSubmit() {
         // do stuff
       }
 

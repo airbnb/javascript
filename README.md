@@ -258,14 +258,19 @@ Since this part appeared to have a more educational purpose, you can refer to th
   - [4.2](#arrays--callback-return) Use return statements in array method callbacks. It's ok to omit the return if the function body consists of a single statement. We also encourage the use of the ternary operator in simple if/else cases. 
 
     ```typescript
+    // bad
+    [1, 2, 3].map((x: number): number => {
+      return x + 1;
+    });
+
+    // good
+    [1, 2, 3].map((x: number): number => x + 1);
+
     // good
     [1, 2, 3].map((x: number): number => {
       const y = x + 1;
       return x * y;
     });
-
-    // good
-    [1, 2, 3].map((x: number): number => x + 1);
 
     // good
     inbox.filter((msg: string): boolean => {
@@ -561,7 +566,7 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     // good
     const f2 = (obj: Interface) => {
-      const key: number = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
+      const key: number = _.has(obj, 'key') ? obj.key : 1;
     };
     ```
 
@@ -1694,20 +1699,16 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     // bad
     const obj: Interface = {
-      foo() {
-      },
-      bar() {
-      },
+      foo: () => {},
+      bar: () => {},
     };
     return obj;
 
     // good
     const obj: Interface = {
-      foo() {
-      },
+      foo: () => {},
 
-      bar() {
-      },
+      bar: () => {},
     };
 
     return obj;
@@ -1789,10 +1790,11 @@ Since this part appeared to have a more educational purpose, you can refer to th
 
     ```typescript
     // bad
-    const foo: Interface = {clark: 'kent'};
+    const foo: Interface = { clark: 'kent' };
 
     // good
-    const foo: Interface = { clark: 'kent' };
+    const foo: Interface = {clark: 'kent'};
+
     ```
 
   <a name="whitespace--max-len"></a><a name="18.12"></a>
