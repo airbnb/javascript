@@ -355,15 +355,15 @@ Since this part appeared to have a more educational purpose, you can refer to th
     ```typescript
     // bad
     const getFullName = (user: User): string => {
-      const firstName = user.firstName;
-      const lastName = user.lastName;
+      const firstName = user.personalInformation.firstName;
+      const lastName = user.personalInformation.lastName;
 
       return `${firstName} ${lastName}`;
     }
 
     // good
     const getFullName = (user: User): string => {
-      const { firstName, lastName } = user;
+      const { firstName, lastName } = user.personalInformation;
       return `${firstName} ${lastName}`;
     }
     ```
