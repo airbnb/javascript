@@ -1,3 +1,8 @@
+12.0.1 / 2017-09-27
+==================
+ - [fix] ensure all JSX elements are ignored by `indent` (#1569)
+ - [deps] update `eslint`
+
 12.0.0 / 2017-09-02
 ==================
  - [deps] [breaking] require `eslint` v4
