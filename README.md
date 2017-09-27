@@ -381,10 +381,10 @@ Other Style Guides
 
     ```javascript
     // bad
-    const bar = [...foo].map(bar);
+    const baz = [...foo].map(bar);
 
     // good
-    const bar = Array.from(foo, bar);
+    const baz = Array.from(foo, bar);
     ```
 
   <a name="arrays--callback-return"></a><a name="4.5"></a>
@@ -400,18 +400,18 @@ Other Style Guides
     // good
     [1, 2, 3].map(x => x + 1);
 
-    // bad
+    // bad - no returned value means `memo` becomes undefined after the first iteration
     const flat = {};
     [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
       const flatten = memo.concat(item);
-      flat[index] = flatten;
+      memo[index] = flatten;
     });
 
     // good
     const flat = {};
     [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
       const flatten = memo.concat(item);
-      flat[index] = flatten;
+      memo[index] = flatten;
       return flatten;
     });
 
