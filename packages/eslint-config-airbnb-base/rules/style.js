@@ -119,7 +119,7 @@ module.exports = {
       ObjectExpression: 1,
       ImportDeclaration: 1,
       flatTernaryExpressions: false,
-      ignoredNodes: ['JSXElement *']
+      ignoredNodes: ['JSXElement', 'JSXElement *']
     }],
 
     // specify whether double or single quotes should be used in JSX attributes
