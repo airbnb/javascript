@@ -1551,18 +1551,18 @@ Other Style Guides
     // bad
     const items = getItems(),
         goSportsTeam = true,
-        dragonball = 'z';
+        dragonball = 'z'
 
     // bad
     // (compare to above, and try to spot the mistake)
     const items = getItems(),
-        goSportsTeam = true;
-        dragonball = 'z';
+        goSportsTeam = true
+        dragonball = 'z'
 
     // good
-    const items = getItems();
-    const goSportsTeam = true;
-    const dragonball = 'z';
+    const items = getItems()
+    const goSportsTeam = true
+    const dragonball = 'z'
     ```
 
   <a name="variables--const-let-group"></a><a name="13.3"></a>
