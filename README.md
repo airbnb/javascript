@@ -1551,18 +1551,18 @@ Other Style Guides
     // bad
     const items = getItems(),
         goSportsTeam = true,
-        dragonball = 'z';
+        dragonball = 'z'
 
     // bad
     // (compare to above, and try to spot the mistake)
     const items = getItems(),
-        goSportsTeam = true;
-        dragonball = 'z';
+        goSportsTeam = true
+        dragonball = 'z'
 
     // good
-    const items = getItems();
-    const goSportsTeam = true;
-    const dragonball = 'z';
+    const items = getItems()
+    const goSportsTeam = true
+    const dragonball = 'z'
     ```
 
   <a name="variables--const-let-group"></a><a name="13.3"></a>
@@ -2661,30 +2661,44 @@ Other Style Guides
 
 ## Semicolons
 
-  <a name="semicolons--required"></a><a name="20.1"></a>
-  - [21.1](#semicolons--required) **Yup.** eslint: [`semi`](http://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
+  <a name="semicolons--forbidden"></a><a name="20.1"></a>
+  - [21.1](#semicolons--forbidden) **Nope.** eslint: [`semi`](http://eslint.org/docs/rules/semi.html) jscs: [`disallowSemicolons`](http://jscs.info/rule/disallowSemicolons)
+  
+   > Why? semicolons help JavaScript transpilers minify your code, but since JavaScript is already interpreting your newline characters as statement breaks, and since you should never write more than one statement per line, semicolons are YAGNI from the developer's perspective. Also, since the semicolon stands out as the _only_ unary punctuation mark that _doesn't_ continue a statement to the next line, removing them from your code will immediately prevent confusion around whether or not a punctuation mark continues a statement to the next line.
 
-    ```javascript
-    // bad
-    (function () {
-      const name = 'Skywalker'
-      return name
-    })()
+   ```javascript
+   // bad
+   (function cuteAnimals() {
+     const animals = [new Puppy(), new Kitty(), new Snakey(), new Fishy(), new Rhinocery()];
+     return animals.
+              filter(animal => animal.hasCuteNose() && animal.isAnimal()).
+              map(animal => animal.giveCuddles({quota: false})).
+              reduce((animal, myFriends) => (myFriends[animal.name] = animal), {});
+   })();
 
-    // good
-    (function () {
-      const name = 'Skywalker';
-      return name;
-    }());
+   // bad
+   // (compare to above, and try to spot the mistake)
+   (function cuteAnimals() {
+     const animals = [new Puppy(), new Kitty(), new Snakey(), new Fishy(), new Rhinocery()];
+     return animals.
+              filter(animal => animal.hasCuteNose() && animal.isAnimal()).
+              map(animal => animal.giveCuddles({quota: false}));
+              reduce((animal, myFriends) => (myFriends[animal.name] = animal), {});
+   })();
 
-    // good, but legacy (guards against the function becoming an argument when two files with IIFEs are concatenated)
-    ;((() => {
-      const name = 'Skywalker';
-      return name;
-    })());
-    ```
+   // good
+   (function cuteAnimals() {
+     const animals = [new Puppy(), new Kitty(), new Snakey(), new Fishy(), new Rhinocery()]
+     return animals.
+              filter(animal => animal.hasCuteNose() && animal.isAnimal()).
+              map(animal => animal.giveCuddles({quota: false})).
+              reduce((myFriends, animal) => (myFriends[animal.name] = animal), {})
+   })()
 
-    [Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214#7365214).
+   // good
+   // minified JS needs semicolons (well... still not really, technically, but let's pretend a semicolon is fewer bytes than a newline just to make the argument)
+   s_F("sy26");var s_8ka={},s_$ka=function(a,b,c){var d=c?1:0;if(!s_ka(0!=d?"velour.":"sasha.")//...
+   ```
 
 **[⬆ back to top](#table-of-contents)**
 
