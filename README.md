@@ -56,6 +56,7 @@ Other Style Guides
   1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
   1. [Contributors](#contributors)
   1. [License](#license)
+  1. [Amendments](#amendments)
 
 ## Types
 
