@@ -28,11 +28,9 @@
 
 
 ## Guiding Principles
-	* Consistency beats optimality.  And freedom of expression.  And anything else that isn't consistency.  Which it ties.
+	* Consistency beats optimality.
 	* Typographical space is no longer limited by printing costs or tiny monitors.  Optimizing code density per line no longer makes sense.
 	* Whitespace makes things easier to read (andnotusingwhitespacemakesthingshardertoread).  Err on more whitespace rather than less.
-	* Religious arguments have been decided either first in favor of an approach that can easily satisfy everyone (tabs over spaces) or, when such an opportunity is not readily available, arbitrarily but favoring popularity (e.g. bracing style).
-	* English words are more comprehensible than abbreviations.
 	* Cutting-and-pasting whole lines is easier than any alternative and makes diffs easier to parse.
 	
 
