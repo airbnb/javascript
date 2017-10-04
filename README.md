@@ -28,12 +28,12 @@
 
 
 ## Guiding Principles
-	* Consistency beats optimality.
-	* Typographical space is no longer limited by printing costs or tiny monitors.  Optimizing code density per line no longer makes sense.
-	* Whitespace makes things easier to read (andnotusingwhitespacemakesthingshardertoread).  Err on more whitespace rather than less.
-	* Cutting-and-pasting whole lines is easier than any alternative and makes diffs easier to parse.
-	
 
+* Consistency beats optimality.
+* Typographical space is no longer limited by printing costs or tiny monitors.  Optimizing code density per line no longer makes sense.
+* Whitespace makes things easier to read (andnotusingwhitespacemakesthingshardertoread).  Err on more whitespace rather than less.
+* Cutting-and-pasting whole lines is easier than any alternative and makes diffs easier to parse.
+	
 ## Objects
 
   <a name="objects--no-new"></a><a name="1.1"></a>
