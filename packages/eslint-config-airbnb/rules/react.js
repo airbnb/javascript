@@ -328,18 +328,15 @@ module.exports = {
 
     // Enforce all defaultProps have a corresponding non-required PropType
     // https://github.com/yannickcr/eslint-plugin-react/blob/9e13ae2c51e44872b45cc15bf1ac3a72105bdd0e/docs/rules/default-props-match-prop-types.md
-    // TODO: enable, semver-minor
-    'react/default-props-match-prop-types': ['off', { allowRequiredDefaults: false }],
+    'react/default-props-match-prop-types': ['error', { allowRequiredDefaults: false }],
 
     // Prevent usage of shouldComponentUpdate when extending React.PureComponent
     // https://github.com/yannickcr/eslint-plugin-react/blob/9e13ae2c51e44872b45cc15bf1ac3a72105bdd0e/docs/rules/no-redundant-should-component-update.md
-    // TODO: enable, semver-major
-    'react/no-redundant-should-component-update': 'off',
+    'react/no-redundant-should-component-update': 'error',
 
     // Prevent unused state values
-    // https://github.com/yannickcr/eslint-plugin-react/pull/1103/files
-    // TODO: enable? semver-major
-    'react/no-unused-state': 'off',
+    // https://github.com/yannickcr/eslint-plugin-react/pull/1103/
+    'react/no-unused-state': 'error',
 
     // Enforces consistent naming for boolean props
     // https://github.com/yannickcr/eslint-plugin-react/blob/73abadb697034b5ccb514d79fb4689836fe61f91/docs/rules/boolean-prop-naming.md
@@ -350,8 +347,11 @@ module.exports = {
 
     // Prevents common casing typos
     // https://github.com/yannickcr/eslint-plugin-react/blob/73abadb697034b5ccb514d79fb4689836fe61f91/docs/rules/no-typos.md
-    // TODO: enable, semver-major
-    'react/no-typos': 'off',
+    'react/no-typos': 'error',
+
+    // Enforce curly braces or disallow unnecessary curly braces in JSX props and/or children
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
+    'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'never' }]
   },
 
   settings: {
