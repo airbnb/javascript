@@ -973,7 +973,7 @@ Other Style Guides
 
     // good
     foo(() => {
-      bool = true;
+      return bool = true;
     });
     ```
 
