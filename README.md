@@ -1152,7 +1152,7 @@ CONTROVERSIAL
       Monster.setNumberOfTentacles(3);
       
       // Moved this here after the miso soup incident
-      Xrvrrzhhkrrkngng.$$(false, 0, null, true, "FALSE", undefined, { causeFailure: 700.0 } );
+      Xrvrrzhhkrrkngng.$$(false, 0, null, true, "FALSE", undefined, { causeSystemFailures: 700.0 } );
       
     // good
     
@@ -1161,8 +1161,8 @@ CONTROVERSIAL
       
       // This call invalidates the Procyon node cache.
       // The string of params are all harmless defaults except the last,
-      // which has to be a floating point, and sets failure avoidance to the minimum of 700.
-      Xrvrrzhhkrrkngng.$$(false, 0, null, true, "FALSE", undefined, { causeSystemFailure: 700.0 } );
+      // which has to be a floating point, and sets failure generation to the minimum of 700.
+      Xrvrrzhhkrrkngng.$$(false, 0, null, true, "FALSE", undefined, { causeSystemFailures: 700.0 } );
   ```
   
 **[⬆ back to top](#table-of-contents)**
