@@ -375,6 +375,35 @@ CONTROVERSIAL
 	);
 	```
 
+  <a name="functions--boolean-parameters"></a>
+  - [7.16](#functions--boolean-parameters) Avoid boolean parameters.
+  > Why?  While boolean parameters convey their meaning clearly within the function definition, they do not at the sites of its calls.  Use hashes with named parameters to convey their purpose in the context from which they are called.
+  
+  ```javascript
+  // bad
+  var fall = function fall(object, up) {
+    var g = ACCELERATION_FROM_EARTH;
+    if( up ) {
+      g = -g;
+    }
+    // handle falling
+  }
+  
+  fall(object, false);
+  
+  // good
+  var fall = function fall(object, options) {
+    var g = UNIVERSAL_CONSTANTS.accelerationDueToEarthsGravity;
+    if( options.direction === 'up' ) {
+      g = -g;
+    }
+    // handle falling
+  }
+  
+  fall( object, { direction: 'up' } );
+
+  ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Iterators
