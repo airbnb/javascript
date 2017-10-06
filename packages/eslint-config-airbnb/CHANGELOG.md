@@ -1,3 +1,13 @@
+16.0.0 / 2017-10-06
+==================
+- [breaking] [deps] require `eslint` `v4`, update `eslint-config-airbnb-base`
+- [breaking] [deps] Upgrade `eslint-plugin-jsx-a11y` to `v6`; enable more a11y rules (#1482)
+- [breaking] enable/add react rules: `react/jsx-curly-brace-presence`, `react/no-typos`, `react/no-unused-state`, `react/no-redundant-should-component-update`, `react/default-props-match-prop-types`
+- [new] add `propWrapperFunctions` default settings for `eslint-plugin-react`
+- [new] Enable `react/jsx-closing-tag-location` (#1533)
+- [deps] update `eslint` v4, `eslint-plugin-react`, `tape`
+- [docs] Specify yarn-specific install instructions (#1511)
+
 15.1.0 / 2017-07-24
 ==================
 - [deps] allow eslint v3 or v4 (#1447)
