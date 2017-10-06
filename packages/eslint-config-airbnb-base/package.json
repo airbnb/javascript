@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb-base",
-  "version": "12.0.1",
+  "version": "12.0.2",
   "description": "Airbnb's base JS ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
@@ -51,7 +51,7 @@
     "babel-preset-airbnb": "^2.4.0",
     "babel-tape-runner": "^2.0.1",
     "editorconfig-tools": "^0.1.1",
-    "eslint": "^4.7.2",
+    "eslint": "^4.8.0",
     "eslint-find-rules": "^3.1.1",
     "eslint-plugin-import": "^2.7.0",
     "in-publish": "^2.0.0",
@@ -59,7 +59,7 @@
     "tape": "^4.8.0"
   },
   "peerDependencies": {
-    "eslint": "^4.7.2",
+    "eslint": "^4.8.0",
     "eslint-plugin-import": "^2.7.0"
   },
   "engines": {
