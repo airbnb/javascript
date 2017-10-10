@@ -151,18 +151,17 @@
 ## Strings
 
   <a name="strings--quotes"></a><a name="3.1"></a>
-  - [6.1](#strings--quotes) Use double quotes `"` for strings. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html)
+  - [6.1](#strings--quotes) Use single quotes `'` for strings. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html)
 
- > Why? Valid English words are composed of 27 characters, one of which is unfortunately the single-quote.  Escaping also appears more expected within double-quotes than single.
  
 	```javascript
 	// bad
-	var name = 'Buckaroo Banzai';
-	var note = 'Doesn\'t play accordion. Likes "The Sound of Music".'; 
+	var name = "Buckaroo Banzai";
+	var note = "Doesn\'t play accordion. Likes \"The Sound of Music\"."; 
 	 
 	// good
-	var name = "Buckaroo Banzai";
-	var note = "Doesn't play accordion. Likes \"The Sound of Music\".";
+	var name = 'Buckaroo Banzai';
+	var note = 'Doesn\'t play accordion. Likes "The Sound of Music".';
 	```
 
   <a name="strings--line-length"></a><a name="3.2"></a>
