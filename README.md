@@ -23,7 +23,6 @@
   1. [Naming Conventions](#naming-conventions)
   1. [Accessors](#accessors)
   1. [Events](#events)
-  1. [jQuery](#jquery)
   1. [License](#license)
 
 
@@ -1353,13 +1352,13 @@
 
     ```javascript
     // bad
-    if (foo) {
+    if( foo ) {
       return bar;
     }
     return baz;
 
     // good
-    if (foo) {
+    if( foo ) {
       return bar;
     }
 
@@ -1420,7 +1419,7 @@
     }
 
     // good
-    if (baz) {
+    if( baz ) {
       console.log(qux);
     } else {
       console.log(foo);
@@ -1517,21 +1516,21 @@
 
     ```javascript
     // bad
-    const story = [
+    var story = [
         once
       , upon
       , aTime
     ];
 
     // good
-    const story = [
+    var story = [
       once,
       upon,
       aTime,
     ];
 
     // bad
-    const hero = {
+    var hero = {
         firstName: 'Ada'
       , lastName: 'Lovelace'
       , birthYear: 1815
@@ -1539,7 +1538,7 @@
     };
 
     // good
-    const hero = {
+    var hero = {
       firstName: 'Ada',
       lastName: 'Lovelace',
       birthYear: 1815,
@@ -1553,23 +1552,23 @@
 
     ```javascript
     // bad
-    const hero = {
+    var hero = {
       firstName: 'Dana',
       lastName: 'Scully',
     };
 
-    const heroes = [
+    var heroes = [
       'Batman',
       'Superman',
     ];
 
     // good
-    const hero = {
+    var hero = {
       firstName: 'Dana',
       lastName: 'Scully'
     };
 
-    const heroes = [
+    var heroes = [
       'Batman',
       'Superman'
     ];
@@ -1602,19 +1601,18 @@
 
     ```javascript
     // bad
-    (function () {
+    function foo() {
       const name = 'Skywalker'
       return name
-    })()
+    }
 
     // good
-    (function () {
+    function foo() {
       const name = 'Skywalker';
       return name;
-    }());
+    }
 
     ```
-
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -1636,7 +1634,7 @@
     var totalScore = this.reviewScore.toString(); // isn’t guaranteed to return a string
 
     // good
-    var totalScore = String(this.reviewScore);
+    var totalScore = String( this.reviewScore );
     ```
 
   <a name="coercion--numbers"></a><a name="16.3"></a>
@@ -1646,7 +1644,7 @@
     var inputValue = '4';
 
     // bad
-    var val = new Number(inputValue);
+    var val = new Number( inputValue );
 
     // bad
     var val = +inputValue;
@@ -1655,13 +1653,13 @@
     var val = inputValue >> 0;
 
     // bad
-    var val = parseInt(inputValue);
+    var val = parseInt( inputValue );
 
     // good
-    var val = Number(inputValue);
+    var val = Number( inputValue) ;
 
     // good
-    var val = parseInt(inputValue, 10);
+    var val = parseInt( inputValue, 10 );
     ```
 
   <a name="coercion--comment-deviations"></a><a name="16.4"></a>
@@ -1693,10 +1691,10 @@
     var age = 0;
 
     // bad
-    var hasAge = new Boolean(age);
+    var hasAge = new Boolean( age );
 
     // good
-    var hasAge = Boolean(age);
+    var hasAge = Boolean( age );
 
     // ok
     var hasAge = !!age;
@@ -1739,7 +1737,7 @@
 
     ```javascript
     // bad
-    function funkyUser(options) {
+    function funkyUser( options ) {
       this.name = options.name;
     }
 
@@ -1749,7 +1747,7 @@
 
     // good
     class FunkyUser {
-      constructor(options) {
+      constructor( options ) {
         this.name = options.name;
       }
     }
@@ -1767,13 +1765,13 @@
     var userID;
     var SMSContainer;
     var HTTPRequests = [];
-    var AWSSQSQueueACKOK = what('?');
+    var AWSSQSQueueACKOK = what( '?' );
 
     // good
     var userId;
     var smsContainer;
     var httpRequests = [];
-    var AwsSqsQueueAckOk = oh('.');
+    var AwsSqsQueueAckOk = oh( '.' );
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1783,35 +1781,8 @@
   <a name="accessors--not-required"></a><a name="18.1"></a>
   - [18.1](#accessors--not-required) Accessor functions for properties are not required.
 
-  <a name="accessors--no-getters-setters"></a><a name="18.2"></a>
-  - [18.2](#accessors--no-getters-setters) Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use getVal() and setVal('hello').
-
-    ```javascript
-    // bad
-    class Dragon {
-      get age() {
-        // ...
-      }
-
-      set age(value) {
-        // ...
-      }
-    }
-
-    // good
-    class Dragon {
-      getAge() {
-        // ...
-      }
-
-      setAge(value) {
-        // ...
-      }
-    }
-    ```
-
-  <a name="accessors--boolean-prefix"></a><a name="18.3"></a>
-  - [18.3](#accessors--boolean-prefix) If the property/method is a `boolean`, use `isVal()`.
+  <a name="accessors--boolean-prefix"></a><a name="18.2"></a>
+  - [18.2](#accessors--boolean-prefix) If the property/method is a `boolean`, use `isVal()`.
 
     ```javascript
     // bad
@@ -1835,11 +1806,11 @@
 
     ```javascript
     // bad
-    $(this).trigger('listingUpdated', listing.id);
+    $(this).trigger( 'listingUpdated', listing.id );
 
     // ...
 
-    $(this).on('listingUpdated', function(e, listingId) {
+    $(this).on( 'listingUpdated', function( e, listingId ) {
       // do something with listingId
     });
     ```
@@ -1848,85 +1819,17 @@
 
     ```javascript
     // good
-    $(this).trigger('listingUpdated', { listingId: listing.id });
+    $(this).trigger( 'listingUpdated', { listingId: listing.id });
 
     // ...
 
-    $(this).on('listingUpdated', function(e, data) {
+    $(this).on( 'listingUpdated', function(e, data) {
       // do something with data.listingId
     });
     ```
 
   **[⬆ back to top](#table-of-contents)**
 
-## jQuery
-
-  <a name="jquery--dollar-prefix"></a><a name="20.1"></a>
-  - [20.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$`. jscs: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment)
-
-    ```javascript
-    // bad
-    const sidebar = $('.sidebar');
-
-    // good
-    const $sidebar = $('.sidebar');
-
-    // good
-    const $sidebarBtn = $('.sidebar-btn');
-    ```
-
-  <a name="jquery--cache"></a><a name="20.2"></a>
-  - [20.2](#jquery--cache) Cache jQuery lookups.
-
-    ```javascript
-    // bad
-    function setSidebar() {
-      $('.sidebar').hide();
-
-      // ...
-
-      $('.sidebar').css({
-        'background-color': 'pink',
-      });
-    }
-
-    // good
-    function setSidebar() {
-      var $sidebar = $('.sidebar');
-      $sidebar.hide();
-
-      // ...
-
-      $sidebar.css({
-        'background-color': 'pink',
-      });
-    }
-    ```
-
-  <a name="jquery--queries"></a><a name="20.2"></a>
-  - [20.2](#jquery--queries) For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-
-  <a name="jquery--find"></a><a name="20.3"></a>
-  - [20.3](#jquery--find) Use `find` with scoped jQuery object queries.
-
-    ```javascript
-    // bad
-    $('ul', '.sidebar').hide();
-
-    // bad
-    $('.sidebar').find('ul').hide();
-
-    // good
-    $('.sidebar ul').hide();
-
-    // good
-    $('.sidebar > ul').hide();
-
-    // good
-    $sidebar.find('ul').hide();
-    ```
-
-**[⬆ back to top](#table-of-contents)**
 
 ## License
 
