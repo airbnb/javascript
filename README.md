@@ -168,21 +168,21 @@
 
     > Why? Broken strings are painful to work with and make code less searchable.
 
-  ```javascript
-  // bad
-  var errorMessage = 'This is a super long error that was thrown because \
-  of Batman. When you stop to think about how Batman had anything to do \
-  with this, you would get nowhere \
-  fast.';
+    ```javascript
+    // bad
+    var errorMessage = 'This is a super long error that was thrown because \
+    of Batman. When you stop to think about how Batman had anything to do \
+    with this, you would get nowhere \
+    fast.';
 
-  // bad
-  var errorMessage = 'This is a super long error that was thrown because ' +
-  'of Batman. When you stop to think about how Batman had anything to do ' +
-  'with this, you would get nowhere fast.';
+    // bad
+    var errorMessage = 'This is a super long error that was thrown because ' +
+    'of Batman. When you stop to think about how Batman had anything to do ' +
+    'with this, you would get nowhere fast.';
 
-  // good
-  var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
-  ```
+    // good
+    var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+    ```
 
   <a name="strings--eval"></a><a name="3.3"></a>
   - [3.3](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities. eslint: [`no-eval`](http://eslint.org/docs/rules/no-eval)
@@ -192,13 +192,13 @@
 
     > Why? Backslashes harm readability, thus they should only be present when necessary.
 
-  ```javascript
-  // bad
-  var foo = '\'this\' \i\s \"quoted\"';
+    ```javascript
+    // bad
+    var foo = '\'this\' \i\s \"quoted\"';
 
-  // good
-  var foo = '\'this\' is "quoted"';
-  ```
+    // good
+    var foo = '\'this\' is "quoted"';
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -659,9 +659,9 @@
       var a = b = c = 1;
     }());
 
-    console.log(a); // throws ReferenceError
-    console.log(b); // 1
-    console.log(c); // 1
+    console.log( a ); // throws ReferenceError
+    console.log( b ); // 1
+    console.log( c ); // 1
 
     // good
     (function example() {
@@ -670,9 +670,9 @@
       var c = a;
     }());
 
-    console.log(a); // throws ReferenceError
-    console.log(b); // throws ReferenceError
-    console.log(c); // throws ReferenceError
+    console.log( a ); // throws ReferenceError
+    console.log( b ); // throws ReferenceError
+    console.log( c ); // throws ReferenceError
     ```
 
   <a name="variables--unary-increment-decrement"></a><a name="13.6"></a>
