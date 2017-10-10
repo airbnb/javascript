@@ -843,7 +843,7 @@
     - **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
     ```javascript
-    if ([0] && []) {
+    if( [0] && [] ) {
       // true
       // an array (even an empty one) is an object, objects will evaluate to true
     }
@@ -852,37 +852,37 @@
   <a name="comparison--shortcuts"></a><a name="9.3"></a>
   - [9.3](#comparison--shortcuts) Use shortcuts for booleans, but explicit comparisons for strings and numbers.
 
-    ```javascript
-    // bad
-    if (isValid === true) {
-      // ...
-    }
+  ```javascript
+  // bad
+  if( isValid === true ) {
+    // ...
+  }
 
-    // good
-    if (isValid) {
-      // ...
-    }
+  // good
+  if( isValid ) {
+    // ...
+  }
 
-    // bad
-    if (name) {
-      // ...
-    }
+  // bad
+  if( name ) {
+    // ...
+  }
 
-    // good
-    if (name !== '') {
-      // ...
-    }
+  // good
+  if( name !== '' ) {
+    // ...
+  }
 
-    // bad
-    if (collection.length) {
-      // ...
-    }
+  // bad
+  if( collection.length ) {
+    // ...
+  }
 
-    // good
-    if (collection.length > 0) {
-      // ...
-    }
-    ```
+  // good
+  if( collection.length > 0 ) {
+    // ...
+  }
+  ```
 
   <a name="comparison--moreinfo"></a><a name="9.4"></a>
   - [9.4](#comparison--moreinfo) For more information see [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
@@ -932,10 +932,10 @@
 
     ```javascript
     // bad
-    if (test) { return false; }
+    if( test ) { return false; }
 
     // good
-    if (test) {
+    if( test ) {
       return false;
     }
 
@@ -952,11 +952,11 @@
   - [10.2](#blocks--braces) Use braces with all blocks. 
     ```javascript
     // bad
-    if (test)
+    if( test )
       return false;
 
     // good
-    if (test) {
+    if( test ) {
       return false;
     }
     ```
@@ -1388,43 +1388,31 @@
   <a name="whitespace--padded-blocks"></a><a name="13.8"></a>
   - [13.8](#whitespace--padded-blocks) Do not pad your blocks with blank lines. eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html)
 
-    ```javascript
-    // bad
-    function bar() {
+  ```javascript
+  // bad
+  function bar() {
 
-      console.log(foo);
+    console.log( foo );
 
-    }
+  }
 
-    // bad
-    if (baz) {
+  // bad
+  if( baz ) {
 
-      console.log(qux);
-    } else {
-      console.log(foo);
+  console.log( qux );
+  } else {
+  console.log( foo );
 
-    }
+  }
 
-    // bad
-    class Foo {
-
-      constructor(bar) {
-        this.bar = bar;
-      }
-    }
-
-    // good
-    function bar() {
-      console.log(foo);
-    }
-
-    // good
-    if( baz ) {
-      console.log(qux);
-    } else {
-      console.log(foo);
-    }
-    ```
+  // good
+  if( baz ) {
+    console.log( qux );
+  } 
+  else {
+    console.log( foo );
+  }
+  ```
 
   <a name="whitespace--in-parens"></a><a name="13.9"></a>
   - [13.9](#whitespace--in-parens) Add spaces inside parentheses. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html)
