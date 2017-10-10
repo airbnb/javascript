@@ -118,7 +118,7 @@ module.exports = {
       },
       AssignmentExpression: {
         array: true,
-        object: true,
+        object: false,
       },
     }, {
       enforceForRenamedProperties: false,
