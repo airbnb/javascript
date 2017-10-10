@@ -1197,28 +1197,28 @@
   <a name="comments--unhelpful"></a><a name="12.7"></a>
   - [12.7](#comments--unhelpful) Don't make unhelpful or obvious comments.
   
-  ```javascript
-    // bad
-    
-      // increments variable i by one
-      i++;
-      
-      // Sets the number of tentacles on the monster to five for now
-      Monster.setNumberOfTentacles(3);
-      
-      // Moved this here after the miso soup incident
-      Xrvrrzhhkrrkngng.$$(false, 0, null, true, 'FALSE', undefined, { causeSystemFailures: 700.0 } );
-      
-    // good
-    
-      i++;
-      Monster.setNumberOfTentacles(3);    
-      
-      // This call invalidates the Procyon node cache.
-      // The string of params are all harmless defaults except the last,
-      // which has to be a floating point, and sets failure generation to the minimum of 700.
-      Xrvrrzhhkrrkngng.$$(false, 0, null, true, 'FALSE', undefined, { causeSystemFailures: 700.0 } );
-  ```
+    ```javascript
+      // bad
+
+        // increments variable i by one
+        i++;
+
+        // Sets the number of tentacles on the monster to five for now
+        Monster.setNumberOfTentacles(3);
+
+        // Moved this here after the miso soup incident
+        Xrvrrzhhkrrkngng.$$(false, 0, null, true, 'FALSE', undefined, { causeSystemFailures: 700.0 } );
+
+      // good
+
+        i++;
+        Monster.setNumberOfTentacles(3);    
+
+        // This call invalidates the Procyon node cache.
+        // The string of params are all harmless defaults except the last,
+        // which has to be a floating point, and sets failure generation to the minimum of 700.
+        Xrvrrzhhkrrkngng.$$(false, 0, null, true, 'FALSE', undefined, { causeSystemFailures: 700.0 } );
+    ```
   
 **[⬆ back to top](#table-of-contents)**
 
@@ -1227,12 +1227,12 @@
   <a name="whitespace--spaces"></a><a name="13.1"></a>
   - [13.1](#whitespace--spaces) The sociopaths have won.  Use 4 spaces instead of the character designed for indentation, through gritted teeth, constantly ruing the fact that we didn't adopt the approach that can easily please everyone instead. eslint: [`indent`](http://eslint.org/docs/rules/indent.html)
 
-  > Why?  To constantly remind ourselves of the cold, brutal and unforgiving nature of this meaningless vale of tears.
+    > Why?  To constantly remind ourselves of the cold, brutal and unforgiving nature of this meaningless vale of tears.
 
     ```javascript
     // unfortunately not recommended by this style guide
     function foo() {
-    	var name;
+      var name;
     }
 
     // plain bad
@@ -1315,7 +1315,7 @@
   <a name="whitespace--newline-at-end"></a><a name="13.5"></a>
   - [13.5](#whitespace--newline-at-end) End files with a single newline character. eslint: [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md)
 	
-	> Why?  Do you even POSIX?  Many (most?) *nix utilities that process text files rely on all lines ending with a line break.
+    > Why?  Do you even POSIX?  Many (most?) *nix utilities that process text files rely on all lines ending with a line break.
 	
     ```javascript
     // bad
@@ -1388,36 +1388,36 @@
   <a name="whitespace--padded-blocks"></a><a name="13.8"></a>
   - [13.8](#whitespace--padded-blocks) Do not pad your blocks with blank lines. eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html)
 
-  ```javascript
-  // bad
-  function bar() {
+    ```javascript
+    // bad
+    function bar() {
 
-    console.log( foo );
+      console.log( foo );
 
-  }
+    }
 
-  // bad
-  if( baz ) {
+    // bad
+    if( baz ) {
 
-  console.log( qux );
-  } else {
-  console.log( foo );
-
-  }
-
-  // good
-  if( baz ) {
     console.log( qux );
-  } 
-  else {
+    } else {
     console.log( foo );
-  }
-  ```
+
+    }
+
+    // good
+    if( baz ) {
+      console.log( qux );
+    } 
+    else {
+      console.log( foo );
+    }
+    ```
 
   <a name="whitespace--in-parens"></a><a name="13.9"></a>
   - [13.9](#whitespace--in-parens) Add spaces inside parentheses. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html)
  
-  > Why?  Becauseit'seasiertoreadthingswhenweusespacesratherthanputtingeverythingintoonelongrunon.
+    > Why?  Becauseit'seasiertoreadthingswhenweusespacesratherthanputtingeverythingintoonelongrunon.
 
     ```javascript
     // bad
