@@ -53,14 +53,14 @@
 
     ```javascript
     // bad
-    const bad = {
+    var bad = {
       'foo': 3,
       'bar': 4,
       'data-blah': 5,
     };
 
     // good
-    const good = {
+    var good = {
       foo: 3,
       bar: 4,
       'data-blah': 5,
@@ -170,18 +170,18 @@
 
   ```javascript
   // bad
-  const errorMessage = 'This is a super long error that was thrown because \
+  var errorMessage = 'This is a super long error that was thrown because \
   of Batman. When you stop to think about how Batman had anything to do \
   with this, you would get nowhere \
   fast.';
 
   // bad
-  const errorMessage = 'This is a super long error that was thrown because ' +
+  var errorMessage = 'This is a super long error that was thrown because ' +
   'of Batman. When you stop to think about how Batman had anything to do ' +
   'with this, you would get nowhere fast.';
 
   // good
-  const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+  var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
   ```
 
   <a name="strings--eval"></a><a name="3.3"></a>
@@ -278,13 +278,13 @@
 
     ```javascript
     // bad
-    const f = function(){};
-    const g = function (){};
-    const h = function() {};
+    var f = function(){};
+    var g = function (){};
+    var h = function() {};
 
     // good
-    const x = function () {};
-    const y = function a() {};
+    var x = function () {};
+    var y = function a() {};
     ```
 
   <a name="functions--mutate-params"></a><a name="4.7"></a>
@@ -446,40 +446,40 @@
     > Use `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... to iterate over arrays, and `Object.keys()` / `Object.values()` / `Object.entries()` to produce arrays so you can iterate over objects.
 
     ```javascript
-    const numbers = [1, 2, 3, 4, 5];
+    var numbers = [1, 2, 3, 4, 5];
 
     // bad
     var sum = 0;
-    for (var num of numbers) {
+    for( var num of numbers ) {
       sum += num;
     }
     sum === 15;
 
     // good
-    let sum = 0;
-    numbers.forEach(function(num) => {
+    var sum = 0;
+    numbers.forEach( function(num) => {
       sum += num;
     });
     sum === 15;
 
     // best (use the functional force)
-    const sum = numbers.reduce(function(total, num) => total + num, 0);
+    var sum = numbers.reduce( function(total, num) => total + num, 0 );
     sum === 15;
 
     // bad
-    const increasedByOne = [];
-    for (var i = 0; i < numbers.length; i++) {
-      increasedByOne.push(numbers[i] + 1);
+    var increasedByOne = [];
+    for( var i = 0; i < numbers.length; i++ ) {
+      increasedByOne.push( numbers[i] + 1 );
     }
 
     // good
-    const increasedByOne = [];
-    numbers.forEach(function(num) => {
+    var increasedByOne = [];
+    numbers.forEach( function(num) => {
       increasedByOne.push(num + 1);
     });
 
     // best (keeping it functional)
-    const increasedByOne = numbers.map(function () { num => num + 1; });
+    var increasedByOne = numbers.map(function () { num => num + 1; });
     
     // bad
     var hasAThree = false;
@@ -525,7 +525,7 @@
   - [6.2](#properties--bracket) Use bracket notation `[]` when accessing properties with a variable.
 
     ```javascript
-    const luke = {
+    var luke = {
       jedi: true,
       age: 28,
     };
@@ -534,7 +534,7 @@
       return luke[prop];
     }
 
-    const isJedi = getProp('jedi');
+    var isJedi = getProp('jedi');
     ```
     
   <a name="es2016-properties--exponentiation-operator"></a>
@@ -542,10 +542,10 @@
 
     ```javascript
     // bad
-    const binary = Math.pow(2, 10);
+    var binary = Math.pow(2, 10);
 
     // good
-    const binary = 2 ** 10;
+    var binary = 2 ** 10;
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -683,7 +683,7 @@
     ```javascript
     // bad
     
-    const array = [1, 2, 3];
+    var array = [1, 2, 3];
     var num = 1;
     num++;
     --num;
@@ -1093,15 +1093,15 @@
 
     ```javascript
     // bad
-    const active = true;  // is current tab
+    var active = true;  // is current tab
 
     // good
     // is current tab
-    const active = true;
+    var active = true;
 
     // bad
     function getType() {
-      console.log('fetching type...');
+      console.log( 'fetching type...' );
       // set the default type to 'no type'
       var type = this.type || 'no type';
 
@@ -1110,7 +1110,7 @@
 
     // good
     function getType() {
-      console.log('fetching type...');
+      console.log( 'fetching type...' );
 
       // set the default type to 'no type'
       var type = this.type || 'no type';
@@ -1121,7 +1121,7 @@
     // also good
     function getType() {
       // set the default type to 'no type'
-      const type = this.type || 'no type';
+      var type = this.type || 'no type';
 
       return type;
     }
@@ -1132,11 +1132,11 @@
     ```javascript
     // bad
     //is current tab
-    const active = true;
+    var active = true;
 
     // good
     // is current tab
-    const active = true;
+    var active = true;
 
     // bad
     /**
@@ -1306,10 +1306,10 @@
 
     ```javascript
     // bad
-    const x=y+5;
+    var x=y+5;
 
     // good
-    const x = y + 5;
+    var x = y + 5;
     ```
 
   <a name="whitespace--newline-at-end"></a><a name="13.5"></a>
@@ -1446,11 +1446,11 @@
 
     ```javascript
     // bad
-    const foo = [ 1, 2, 3 ];
+    var foo = [ 1, 2, 3 ];
     console.log( foo[ 0 ]) ;
 
     // good
-    const foo = [1, 2, 3];
+    var foo = [1, 2, 3];
     console.log( foo[0] );
     ```
 
@@ -1459,10 +1459,10 @@
 
     ```javascript
     // bad
-    const foo = {clark: 'kent'};
+    var foo = {clark: 'kent'};
 
     // good
-    const foo = { clark: 'kent' };
+    var foo = { clark: 'kent' };
     ```
 
   <a name="whitespace--max-len"></a><a name="13.12"></a>
@@ -1590,13 +1590,15 @@
     ```javascript
     // bad
     function foo() {
-      const name = 'Skywalker'
+      var name = 'Skywalker'
+      
       return name
     }
 
     // good
     function foo() {
-      const name = 'Skywalker';
+      var name = 'Skywalker';
+      
       return name;
     }
 
@@ -1660,7 +1662,7 @@
      * Bitshifting the String to coerce it to a
      * Number made it a lot faster.
      */
-    const val = inputValue >> 0;
+    var val = inputValue >> 0;
     ```
 
   <a name="coercion--bitwise"></a><a name="16.5"></a>
@@ -1734,12 +1736,6 @@
     });
 
     // good
-    class FunkyUser {
-      constructor( options ) {
-        this.name = options.name;
-      }
-    }
-
     var good = new FunkyUser({
       name: 'yup',
     });
