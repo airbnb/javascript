@@ -336,103 +336,103 @@
   <a name="functions--signature-invocation-indentation"></a>
   - [4.9](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself.
 
-  ```javascript
-  // bad
-  function foo( bar,
-                baz,
-                quux) {
-    // ...
-  }
+    ```javascript
+    // bad
+    function foo( bar,
+                  baz,
+                  quux) {
+      // ...
+    }
 
-  // good
-  function foo( bar, baz, quux ) {};
-    
-  function foo(
-    bar,
-    baz,
-    quux
-  ) {
-    // ...
-  }
+    // good
+    function foo( bar, baz, quux ) {};
 
-  // bad
-  console.log(foo,
-    bar,
-    baz);
+    function foo(
+      bar,
+      baz,
+      quux
+    ) {
+      // ...
+    }
 
-  // good
-  console.log(foo, bar, baz, quux);    
+    // bad
+    console.log(foo,
+      bar,
+      baz);
 
-  console.log(
-    foo,
-    bar,
-    baz
-  );
-  ```
+    // good
+    console.log(foo, bar, baz, quux);    
+
+    console.log(
+      foo,
+      bar,
+      baz
+    );
+    ```
 
   <a name="functions--boolean-parameters"></a>
   - [4.10](#functions--boolean-parameters) Avoid boolean parameters.
 
-  > Why?  While boolean parameters convey their meaning clearly within the function definition, they do not at the sites of the calls.  Use hashes with named parameters to convey their purpose in the context from which they are called.
+    > Why?  While boolean parameters convey their meaning clearly within the function definition, they do not at the sites of the calls.  Use hashes with named parameters to convey their purpose in the context from which they are called.
   
-  ```javascript
-  // bad
-  var fall = function fall(object, up) {
-    var g = ACCELERATION_FROM_EARTH;
-    if( up ) {
-      g = -g;
+    ```javascript
+    // bad
+    var fall = function fall(object, up) {
+      var g = ACCELERATION_FROM_EARTH;
+      if( up ) {
+        g = -g;
+      }
+      // handle falling
     }
-    // handle falling
-  }
-  
-  fall(object, false);
-  
-  // good
-  var fall = function fall(object, options) {
-    var g = UNIVERSAL_CONSTANTS.accelerationDueToEarthsGravity;
-    if( options.direction === 'up' ) {
-      g = -g;
+
+    fall(object, false);
+
+    // good
+    var fall = function fall(object, options) {
+      var g = UNIVERSAL_CONSTANTS.accelerationDueToEarthsGravity;
+      if( options.direction === 'up' ) {
+        g = -g;
+      }
+      // handle falling
     }
-    // handle falling
-  }
-  
-  fall( object, { direction: 'up' } );
-  
-	// bad (real code)
-		initMouseEvent(
-			eventType,
-			true /* bubble */, true /* cancelable */,
-			window, null,
-			0, 0, 0, 0, /* coordinates */
-			false, false, false, false, /* modifier keys */
-			0 /*left*/, null
-    	);
-	// left?
 
-	// so much better
-		initMouseEvent({
-			eventType: eventType,
-			bubble: true,
-			cancelable: true
-		});
-		
-	// worse, but ok
-		initMouseEvent({
-			eventType: eventType,
-			bubble: true,
-			cancelable: true,
-			coordinates: [0, 0, 0, 0],
-			modifierKeys: {
-				shift: false,
-				control: false,
-				alt: false,
-				command: false
-			},
-			left: 0,
-			whoKnows: null
-		});	
+    fall( object, { direction: 'up' } );
 
-  ```
+    // bad (real code)
+      initMouseEvent(
+        eventType,
+        true /* bubble */, true /* cancelable */,
+        window, null,
+        0, 0, 0, 0, /* coordinates */
+        false, false, false, false, /* modifier keys */
+        0 /*left*/, null
+        );
+    // left?
+
+    // so much better
+      initMouseEvent({
+        eventType: eventType,
+        bubble: true,
+        cancelable: true
+      });
+
+    // worse, but ok
+      initMouseEvent({
+        eventType: eventType,
+        bubble: true,
+        cancelable: true,
+        coordinates: [0, 0, 0, 0],
+        modifierKeys: {
+          shift: false,
+          control: false,
+          alt: false,
+          command: false
+        },
+        left: 0,
+        whoKnows: null
+      });	
+
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -555,7 +555,7 @@
   <a name="variables--const"></a><a name="13.1"></a>
   - [7.1](#variables--const) Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
 
-	```javascript
+    ```javascript
     // bad
     superPower = new SuperPower();
 
