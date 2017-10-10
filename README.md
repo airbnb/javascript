@@ -151,7 +151,7 @@
 ## Strings
 
   <a name="strings--quotes"></a><a name="3.1"></a>
-  - [6.1](#strings--quotes) Use single quotes `'` for strings. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html)
+  - [3.1](#strings--quotes) Use single quotes `'` for strings. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html)
 
  
 	```javascript
@@ -165,27 +165,25 @@
 	```
 
   <a name="strings--line-length"></a><a name="3.2"></a>
-  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
-
-CONTROVERSIAL 
+  - [3.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation. 
 
     > Why? Broken strings are painful to work with and make code less searchable.
 
-    ```javascript
-    // bad
-    const errorMessage = 'This is a super long error that was thrown because \
-    of Batman. When you stop to think about how Batman had anything to do \
-    with this, you would get nowhere \
-    fast.';
+  ```javascript
+  // bad
+  const errorMessage = 'This is a super long error that was thrown because \
+  of Batman. When you stop to think about how Batman had anything to do \
+  with this, you would get nowhere \
+  fast.';
 
-    // bad
-    const errorMessage = 'This is a super long error that was thrown because ' +
-      'of Batman. When you stop to think about how Batman had anything to do ' +
-      'with this, you would get nowhere fast.';
+  // bad
+  const errorMessage = 'This is a super long error that was thrown because ' +
+  'of Batman. When you stop to think about how Batman had anything to do ' +
+  'with this, you would get nowhere fast.';
 
-    // good
-    const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
-    ```
+  // good
+  const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+  ```
 
   <a name="strings--eval"></a><a name="3.3"></a>
   - [3.3](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities. eslint: [`no-eval`](http://eslint.org/docs/rules/no-eval)
@@ -195,13 +193,13 @@ CONTROVERSIAL
 
     > Why? Backslashes harm readability, thus they should only be present when necessary.
 
-    ```javascript
-    // bad
-    var foo = '\'this\' \i\s \"quoted\"';
+  ```javascript
+  // bad
+  var foo = '\'this\' \i\s \"quoted\"';
 
-    // good
-    var foo = '\'this\' is "quoted"';
-    ```
+  // good
+  var foo = '\'this\' is "quoted"';
+  ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -339,40 +337,39 @@ CONTROVERSIAL
   <a name="functions--signature-invocation-indentation"></a>
   - [4.9](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself.
 
-    ```javascript
-    // bad
-    function foo( bar,
-                  baz,
-                  quux) {
-      // ...
-    }
+  ```javascript
+  // bad
+  function foo( bar,
+                baz,
+                quux) {
+    // ...
+  }
 
-    // good
-    function foo( bar, baz, quux ) {};
+  // good
+  function foo( bar, baz, quux ) {};
     
-    function foo(
-      bar,
-      baz,
-      quux
-    ) {
-      // ...
-    }
+  function foo(
+    bar,
+    baz,
+    quux
+  ) {
+    // ...
+  }
 
-    // bad
-    console.log(foo,
-      bar,
-      baz);
-      
+  // bad
+  console.log(foo,
+    bar,
+    baz);
 
-   // good
-	console.log(foo, bar, baz, quux);    
-	    
-	console.log(
-		foo,
-		bar,
-		baz
-	);
-	```
+  // good
+  console.log(foo, bar, baz, quux);    
+
+  console.log(
+    foo,
+    bar,
+    baz
+  );
+  ```
 
   <a name="functions--boolean-parameters"></a>
   - [4.10](#functions--boolean-parameters) Avoid boolean parameters.
@@ -568,8 +565,8 @@ CONTROVERSIAL
     ```
     
     
-  <a name="variables--always-initialize"></a><a name="13.2"></a>
-  - 13.2 Always initialize variables.
+  <a name="variables--always-initialize"></a><a name="7.2"></a>
+  - 7.2 Always initialize variables.
     
     ```javascript
     // bad
@@ -719,7 +716,7 @@ CONTROVERSIAL
 
   <a name="hoisting--about"></a><a name="14.1"></a>
   - [8.1](#hoisting--about) `var` declarations get hoisted to the top of their scope, but their assignment does not. 
-  - 
+  
     ```javascript
     // we know this wouldn’t work (assuming there
     // is no notDefined global variable)
@@ -833,10 +830,10 @@ CONTROVERSIAL
 
 ## Comparison Operators & Equality
 
-  <a name="comparison--eqeqeq"></a><a name="15.1"></a>
+  <a name="comparison--eqeqeq"></a><a name="9.1"></a>
   - [9.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`. eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
 
-  <a name="comparison--if"></a><a name="15.2"></a>
+  <a name="comparison--if"></a><a name="9.2"></a>
   - [9.2](#comparison--if) Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
 
     - **Objects** evaluate to **true**
@@ -853,7 +850,7 @@ CONTROVERSIAL
     }
     ```
 
-  <a name="comparison--shortcuts"></a><a name="15.3"></a>
+  <a name="comparison--shortcuts"></a><a name="9.3"></a>
   - [9.3](#comparison--shortcuts) Use shortcuts for booleans, but explicit comparisons for strings and numbers.
 
     ```javascript
@@ -888,11 +885,11 @@ CONTROVERSIAL
     }
     ```
 
-  <a name="comparison--moreinfo"></a><a name="15.4"></a>
+  <a name="comparison--moreinfo"></a><a name="9.4"></a>
   - [9.4](#comparison--moreinfo) For more information see [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
 
 
-  <a name="comparison--nested-ternaries"></a><a name="15.6"></a>
+  <a name="comparison--nested-ternaries"></a><a name="9.5"></a>
   - [9.5](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions. eslint: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary.html)
 
     ```javascript
@@ -913,7 +910,7 @@ CONTROVERSIAL
     var foo = maybe1 > maybe2 ? 'bar' : maybeNull;
     ```
 
-  <a name="comparison--unneeded-ternary"></a><a name="15.7"></a>
+  <a name="comparison--unneeded-ternary"></a><a name="9.6"></a>
   - [9.6](#comparison--unneeded-ternary) Avoid unneeded ternary statements. eslint: [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary.html)
 
     ```javascript
@@ -931,7 +928,7 @@ CONTROVERSIAL
 **[⬆ back to top](#table-of-contents)**
 
 ## Blocks
-<a name="blocks--braces"></a><a name="16.1"></a>
+<a name="blocks--braces"></a><a name="10.1"></a>
   - [10.1](#blocks--braces) Do not put multiple statements on the same line, it makes it difficult to debug.
 
     ```javascript
@@ -952,7 +949,7 @@ CONTROVERSIAL
     }
     ```
 
-  <a name="blocks--braces"></a><a name="16.1"></a>
+  <a name="blocks--braces"></a><a name="10.2"></a>
   - [10.2](#blocks--braces) Use braces with all blocks. 
     ```javascript
     // bad
@@ -965,7 +962,7 @@ CONTROVERSIAL
     }
     ```
 
-  <a name="blocks--cuddled-elses"></a><a name="16.2"></a>
+  <a name="blocks--cuddled-elses"></a><a name="10.3"></a>
   - [10.3](#blocks--cuddled-elses) If you're using blocks with `if` and `else`, put `else` on the same line as your `if` block’s closing brace. eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) 
 
     ```javascript
@@ -1056,7 +1053,7 @@ CONTROVERSIAL
 
 ## Comments
 
-  <a name="comments--multiline"></a><a name="17.1"></a>
+  <a name="comments--multiline"></a><a name="12.1"></a>
   - [12.1](#comments--multiline) Use `/** ... */` for comments more than two lines.
 
     ```javascript
@@ -1092,7 +1089,7 @@ CONTROVERSIAL
     // Had 'em
     ```
 
-  <a name="comments--singleline"></a><a name="17.2"></a>
+  <a name="comments--singleline"></a><a name="12.2"></a>
   - [12.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it’s on the first line of a block.
 
     ```javascript
@@ -1167,10 +1164,10 @@ CONTROVERSIAL
     }
     ```
 
-  <a name="comments--actionitems"></a><a name="17.3"></a>
+  <a name="comments--actionitems"></a><a name="12.4"></a>
   - [12.4](#comments--actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
 
-  <a name="comments--fixme"></a><a name="17.4"></a>
+  <a name="comments--fixme"></a><a name="12.5"></a>
   - [12.5](#comments--fixme) Use `// FIXME:` to annotate problems.
 
     ```javascript
@@ -1184,7 +1181,7 @@ CONTROVERSIAL
     }
     ```
 
-  <a name="comments--todo"></a><a name="17.5"></a>
+  <a name="comments--todo"></a><a name="12.6"></a>
   - [12.6](#comments--todo) Use `// TODO:` to annotate solutions to problems.
 
     ```javascript
@@ -1198,7 +1195,7 @@ CONTROVERSIAL
     }
     ```
 
-  <a name="comments--unhelpful"></a><a name="17.3"></a>
+  <a name="comments--unhelpful"></a><a name="12.7"></a>
   - [12.7](#comments--unhelpful) Don't make unhelpful or obvious comments.
   
   ```javascript
@@ -1228,7 +1225,7 @@ CONTROVERSIAL
 
 ## Whitespace
 
-  <a name="whitespace--spaces"></a><a name="18.1"></a>
+  <a name="whitespace--spaces"></a><a name="13.1"></a>
   - [13.1](#whitespace--spaces) The sociopaths have won.  Use 4 spaces instead of the character designed for indentation, through gritted teeth, constantly ruing the fact that we didn't adopt the approach that can easily please everyone instead. eslint: [`indent`](http://eslint.org/docs/rules/indent.html)
 
   > Why?  To constantly remind ourselves of the cold, brutal and unforgiving nature of this meaningless vale of tears.
@@ -1250,7 +1247,7 @@ CONTROVERSIAL
     }
     ```
 
-  <a name="whitespace--before-blocks"></a><a name="18.2"></a>
+  <a name="whitespace--before-blocks"></a><a name="13.2"></a>
   - [13.2](#whitespace--before-blocks) Place 1 space before the leading brace. eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
 
     ```javascript
@@ -1281,7 +1278,7 @@ CONTROVERSIAL
     });
     ```
 
-  <a name="whitespace--around-keywords"></a><a name="18.3"></a>
+  <a name="whitespace--around-keywords"></a><a name="13.3"></a>
   - [13.3](#whitespace--around-keywords) Place a space after the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing.html) 
     ```javascript
     // bad
@@ -1305,7 +1302,7 @@ CONTROVERSIAL
     }
     ```
 
-  <a name="whitespace--infix-ops"></a><a name="18.4"></a>
+  <a name="whitespace--infix-ops"></a><a name="13.4"></a>
   - [13.4](#whitespace--infix-ops) Set off operators with spaces. eslint: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html) jscs: [`requireSpaceBeforeBinaryOperators`](http://jscs.info/rule/requireSpaceBeforeBinaryOperators), [`requireSpaceAfterBinaryOperators`](http://jscs.info/rule/requireSpaceAfterBinaryOperators)
 
     ```javascript
@@ -1316,7 +1313,7 @@ CONTROVERSIAL
     const x = y + 5;
     ```
 
-  <a name="whitespace--newline-at-end"></a><a name="18.5"></a>
+  <a name="whitespace--newline-at-end"></a><a name="13.5"></a>
   - [13.5](#whitespace--newline-at-end) End files with a single newline character. eslint: [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md)
 	
 	> Why?  Do you even POSIX?  Many (most?) *nix utilities that process text files rely on all lines ending with a line break.
@@ -1343,7 +1340,7 @@ CONTROVERSIAL
     }↵
     ```
 
-  <a name="whitespace--chains"></a><a name="18.6"></a>
+  <a name="whitespace--chains"></a><a name="13.6"></a>
   - [13.6](#whitespace--chains) TBD. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
 
     ```javascript
@@ -1351,7 +1348,7 @@ CONTROVERSIAL
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
     ```
 
-  <a name="whitespace--after-blocks"></a><a name="18.7"></a>
+  <a name="whitespace--after-blocks"></a><a name="13.7"></a>
   - [13.7](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement. jscs: [`requirePaddingNewLinesAfterBlocks`](http://jscs.info/rule/requirePaddingNewLinesAfterBlocks)
 
     ```javascript
@@ -1389,7 +1386,7 @@ CONTROVERSIAL
     return arr;
     ```
 
-  <a name="whitespace--padded-blocks"></a><a name="18.8"></a>
+  <a name="whitespace--padded-blocks"></a><a name="13.8"></a>
   - [13.8](#whitespace--padded-blocks) Do not pad your blocks with blank lines. eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html)
 
     ```javascript
@@ -1430,7 +1427,7 @@ CONTROVERSIAL
     }
     ```
 
-  <a name="whitespace--in-parens"></a><a name="18.9"></a>
+  <a name="whitespace--in-parens"></a><a name="13.9"></a>
   - [13.9](#whitespace--in-parens) Add spaces inside parentheses. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html)
  
   > Why?  Becauseit'seasiertoreadthingswhenweusespacesratherthanputtingeverythingintoonelongrunon.
@@ -1457,7 +1454,7 @@ CONTROVERSIAL
     }
     ```
 
-  <a name="whitespace--in-brackets"></a><a name="18.10"></a>
+  <a name="whitespace--in-brackets"></a><a name="13.10"></a>
   - [13.10](#whitespace--in-brackets) Do not add spaces inside brackets for one-line array declarations. eslint: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html)
 
     ```javascript
@@ -1470,7 +1467,7 @@ CONTROVERSIAL
     console.log( foo[0] );
     ```
 
-  <a name="whitespace--in-braces"></a><a name="18.11"></a>
+  <a name="whitespace--in-braces"></a><a name="13.11"></a>
   - [13.11](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html)
 
     ```javascript
@@ -1481,7 +1478,7 @@ CONTROVERSIAL
     const foo = { clark: 'kent' };
     ```
 
-  <a name="whitespace--max-len"></a><a name="18.12"></a>
+  <a name="whitespace--max-len"></a><a name="13.12"></a>
   - [13.12](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
 
     > Why? This ensures readability and maintainability.
@@ -1515,7 +1512,7 @@ CONTROVERSIAL
 
 ## Commas
 
-  <a name="commas--leading-trailing"></a><a name="19.1"></a>
+  <a name="commas--leading-trailing"></a><a name="14.1"></a>
   - [14.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
 
     ```javascript
