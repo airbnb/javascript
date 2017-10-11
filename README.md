@@ -457,13 +457,13 @@
 
     // good
     var sum = 0;
-    numbers.forEach( function(num) => {
+    numbers.forEach( function ( num ) {
       sum += num;
     });
     sum === 15;
 
     // best (use the functional force)
-    var sum = numbers.reduce( function(total, num) => total + num, 0 );
+    var sum = numbers.reduce( function( total, num ) { total + num, 0 } );
     sum === 15;
 
     // bad
@@ -474,12 +474,12 @@
 
     // good
     var increasedByOne = [];
-    numbers.forEach( function(num) => {
-      increasedByOne.push(num + 1);
+    numbers.forEach( function ( num ) {
+      increasedByOne.push( num + 1 );
     });
 
     // best (keeping it functional)
-    var increasedByOne = numbers.map(function () { num => num + 1; });
+    var increasedByOne = numbers.map( function ( num ) { return num + 1; } );
     
     // bad
     var hasAThree = false;
@@ -705,7 +705,7 @@
     num += 1;
     num -= 1;
 
-    var sum = array.reduce( (a, b) => a + b, 0 );
+    var sum = array.reduce( function (a, b) { return a + b; }, 0 );
     var truthyCount = array.filter(Boolean).length;
     ```
 
@@ -720,7 +720,7 @@
     // we know this wouldn’t work (assuming there
     // is no notDefined global variable)
     function example() {
-      console.log(notDefined); // => throws a ReferenceError
+      console.log( notDefined ); // throws a ReferenceError
     }
 
     // creating a variable declaration after you
@@ -728,7 +728,7 @@
     // variable hoisting. Note: the assignment
     // value of `true` is not hoisted.
     function example() {
-      console.log(declaredButNotAssigned); // => undefined
+      console.log(declaredButNotAssigned); // undefined
       var declaredButNotAssigned = true;
     }
 
@@ -737,7 +737,7 @@
     // which means our example could be rewritten as:
     function example() {
       var declaredButNotAssigned;
-      console.log(declaredButNotAssigned); // => undefined
+      console.log(declaredButNotAssigned); // undefined
       declaredButNotAssigned = true;
     }
 
@@ -771,9 +771,9 @@
 
     ```javascript
     function example() {
-      console.log(anonymous); // => undefined
+      console.log(anonymous); // undefined
 
-      anonymous(); // => TypeError anonymous is not a function
+      anonymous(); // TypeError anonymous is not a function
 
       var anonymous = function () {
         console.log('anonymous function expression');
@@ -786,11 +786,11 @@
 
     ```javascript
     function example() {
-      console.log(named); // => undefined
+      console.log(named); // undefined
 
-      named(); // => TypeError named is not a function
+      named(); // TypeError named is not a function
 
-      superPower(); // => ReferenceError superPower is not defined
+      superPower(); // ReferenceError superPower is not defined
 
       var named = function superPower() {
         console.log('Flying');
@@ -800,9 +800,9 @@
     // the same is true when the function name
     // is the same as the variable name.
     function example() {
-      console.log(named); // => undefined
+      console.log(named); // undefined
 
-      named(); // => TypeError named is not a function
+      named(); // TypeError named is not a function
 
       var named = function named() {
         console.log('named');
@@ -815,7 +815,7 @@
 
     ```javascript
     function example() {
-      superPower(); // => Flying
+      superPower(); // Flying
 
       function superPower() {
         console.log('Flying');
@@ -1475,7 +1475,7 @@
     var foo = jsonData && jsonData.foo && jsonData.foo.bar && jsonData.foo.bar.baz && jsonData.foo.bar.baz.quux && jsonData.foo.bar.baz.quux.xyzzy;
 
     // bad
-    $.ajax({ method: 'POST', url: 'https://airbnb.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
+    $.ajax({ method: 'POST', url: 'https://fivestars.com/', data: { name: 'John' } }).done(function() { console.log('Congratulations!');}).fail(function(){console.log('You have failed this city.')});
 
     // good
     var foo = jsonData
@@ -1491,8 +1491,8 @@
       url: 'https://airbnb.com/',
       data: { name: 'John' },
     })
-      .done(() => console.log('Congratulations!'))
-      .fail(() => console.log('You have failed this city.'));
+      .done(function () { console.log('Congratulations!') })
+      .fail(function () { console.log('You have failed this city.') });
     ```
 
 **[⬆ back to top](#table-of-contents)**
