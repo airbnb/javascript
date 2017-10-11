@@ -565,7 +565,7 @@
     
     
   <a name="variables--always-initialize"></a><a name="7.2"></a>
-  - 7.2 Always initialize variables.
+  - 7.2 Always initialize variables.  If their value is unknown at the point of declaration, use `null`.
     
     ```javascript
     // bad
@@ -574,8 +574,8 @@
     i = 8;
 
     // good
-    var i 	= 8;
-    var foo 	= null;
+    var i = 8;
+    var foo = null;
     ```
 	
   <a name="variables--one-const"></a><a name="13.2"></a>
