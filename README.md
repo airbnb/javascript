@@ -1225,20 +1225,23 @@
 ## Whitespace
 
   <a name="whitespace--spaces"></a><a name="13.1"></a>
-  - [13.1](#whitespace--spaces) The sociopaths have won.  Use 4 spaces instead of the character designed for indentation, through gritted teeth, constantly ruing the fact that we didn't adopt the approach that can easily please everyone instead. eslint: [`indent`](http://eslint.org/docs/rules/indent.html)
-
-    > Why?  To constantly remind ourselves of the cold, brutal and unforgiving nature of this meaningless vale of tears.
+  - [13.1](#whitespace--spaces) Use 4 spaces instead of tabs. eslint: [`indent`](http://eslint.org/docs/rules/indent.html)
 
     ```javascript
-    // unfortunately not recommended by this style guide
+    // bad
     function foo() {
       var name;
     }
 
-    // plain bad
+    // very bad
     function bar() {
     ∙var name;
     }
+    
+    function baz() {
+    ∙∙∙∙∙∙∙∙var name;
+    }
+
 
     // what you gotta use
     function baz() {
@@ -1415,10 +1418,8 @@
     ```
 
   <a name="whitespace--in-parens"></a><a name="13.9"></a>
-  - [13.9](#whitespace--in-parens) Add spaces inside parentheses. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html)
+  - [13.9](#whitespace--in-parens) Prefer adding spaces inside parentheses for this first function call on a line. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html)
  
-    > Why?  Becauseit'seasiertoreadthingswhenweusespacesratherthanputtingeverythingintoonelongrunon.
-
     ```javascript
     // bad
     function bar(foo) {
@@ -1439,6 +1440,13 @@
     if( foo ) {
       console.log(foo);
     }
+    
+    // bad
+    foo(bar(baz(5))));
+    
+    // good
+    foo( bar(baz(5))) );
+  
     ```
 
   <a name="whitespace--in-brackets"></a><a name="13.10"></a>
