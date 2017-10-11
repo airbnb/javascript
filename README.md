@@ -1418,34 +1418,25 @@
     ```
 
   <a name="whitespace--in-parens"></a><a name="13.9"></a>
-  - [13.9](#whitespace--in-parens) Prefer adding spaces inside parentheses for this first function call on a line. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html)
+  - [13.9](#whitespace--in-parens) Don't add spaces inside parentheses function calls. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html)
+    > Why not?  It doesn't gel with the vast corpus of extant JavaScript code and seems jarring because of that.
  
     ```javascript
     // bad
-    function bar(foo) {
-      return foo;
-    }
-
-    // good
     function bar( foo ) {
       return foo;
     }
 
-    // bad
-    if(foo) {
-      console.log(foo);
-    }
-
     // good
-    if( foo ) {
-      console.log(foo);
+    function bar(foo) {
+      return foo;
     }
     
     // bad
+    foo( bar( baz( 5 ) ) ) );
+    
+    // good
     foo(bar(baz(5))));
-    
-    // good
-    foo( bar(baz(5))) );
   
     ```
 
