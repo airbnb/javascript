@@ -3336,6 +3336,7 @@ Other Style Guides
 
   This is a list of organizations that are using this style guide. Send us a pull request and we'll add you to the list.
 
+  - **123erfasst**: [123erfasst/javascript](https://github.com/123erfasst/javascript)
   - **3blades**: [3Blades/javascript](https://github.com/3blades/javascript)
   - **4Catalyzer**: [4Catalyzer/javascript](https://github.com/4Catalyzer/javascript)
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
