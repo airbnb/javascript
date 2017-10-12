@@ -25,7 +25,11 @@
     "config",
     "airbnb",
     "javascript",
-    "styleguide"
+    "styleguide",
+	"es2015",
+    "es2016",
+    "es2017",
+    "es2018"
   ],
   "author": "Jake Teton-Landis (https://twitter.com/@jitl)",
   "contributors": [
