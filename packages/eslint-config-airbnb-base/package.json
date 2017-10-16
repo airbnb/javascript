@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prelint": "editorconfig-tools check * rules/* test/*",
-    "lint": "eslint .",
+    "lint": "eslint --report-unused-disable-directives .",
     "tests-only": "babel-tape-runner ./test/test-*.js",
     "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test) && safe-publish-latest",
     "pretest": "npm run --silent lint",
@@ -51,7 +51,7 @@
     "babel-preset-airbnb": "^2.4.0",
     "babel-tape-runner": "^2.0.1",
     "editorconfig-tools": "^0.1.1",
-    "eslint": "^4.8.0",
+    "eslint": "^4.9.0",
     "eslint-find-rules": "^3.1.1",
     "eslint-plugin-import": "^2.7.0",
     "in-publish": "^2.0.0",
@@ -59,7 +59,7 @@
     "tape": "^4.8.0"
   },
   "peerDependencies": {
-    "eslint": "^4.8.0",
+    "eslint": "^4.9.0",
     "eslint-plugin-import": "^2.7.0"
   },
   "engines": {

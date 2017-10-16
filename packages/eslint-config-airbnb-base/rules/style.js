@@ -3,7 +3,7 @@ module.exports = {
     // enforce line breaks after opening and before closing array brackets
     // http://eslint.org/docs/rules/array-bracket-newline
     // TODO: enable? semver-major
-    'array-bracket-newline': ['off', { multiline: true, minItems: 3 }],
+    'array-bracket-newline': ['off', 'consistent'], // object option alternative: { multiline: true, minItems: 3 }
 
     // enforce line breaks between array elements
     // http://eslint.org/docs/rules/array-element-newline
@@ -153,6 +153,11 @@ module.exports = {
     // http://eslint.org/docs/rules/linebreak-style
     'linebreak-style': ['error', 'unix'],
 
+    // require or disallow an empty line between class members
+    // https://eslint.org/docs/rules/lines-between-class-members
+    // TODO: semver-major: enable
+    'lines-between-class-members': ['off', 'always', { exceptAfterSingleLine: false }],
+
     // enforces empty lines around comments
     'lines-around-comment': 'off',
 
@@ -196,6 +201,10 @@ module.exports = {
     // restrict the number of statements per line
     // http://eslint.org/docs/rules/max-statements-per-line
     'max-statements-per-line': ['off', { max: 1 }],
+
+    // enforce a particular style for multiline comments
+    // https://eslint.org/docs/rules/multiline-comment-style
+    'multiline-comment-style': ['off', 'starred-block'],
 
     // require multiline ternary
     // http://eslint.org/docs/rules/multiline-ternary
