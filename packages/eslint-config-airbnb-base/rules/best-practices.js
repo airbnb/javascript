@@ -58,8 +58,7 @@ module.exports = {
 
     // disallow else after a return in an if
     // https://eslint.org/docs/rules/no-else-return
-    // TODO: semver-major, set allowElseIf to false
-    'no-else-return': ['error', { allowElseIf: true }],
+    'no-else-return': ['error', { allowElseIf: false }],
 
     // disallow empty functions, except for standalone funcs/arrows
     // http://eslint.org/docs/rules/no-empty-function
