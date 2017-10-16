@@ -1,3 +1,7 @@
+16.1.0 / 2017-10-16
+==================
+- [deps] update `eslint-config-airbnb-base`, `eslint` to v4.9
+
 16.0.0 / 2017-10-06
 ==================
 - [breaking] [deps] require `eslint` `v4`, update `eslint-config-airbnb-base`
