@@ -637,19 +637,19 @@
     ```javascript
     // bad
     var i, len, dragonball,
-        items = getItems(),
-        goSportsTeam = true;
+      items = getItems(),
+      goSportsTeam = true;
 
     // bad
     var i;
-    var items = getItems();
+    var ITEMS = getItems();
     var dragonball;
-    var goSportsTeam = true;
+    var GO_SPORTS_TEAM = true;
     var len;
 
     // good
     var GO_SPORTS_TEAM = true;
-    var NUM_ITEMS = getItems();
+    var ITEMS = getItems();
     var dragonball;
     var i;
     var length;
@@ -658,22 +658,23 @@
   <a name="variables--no-chain-assignment"></a><a name="7.6"></a>
   - [7.6](#variables--no-chain-assignment) Don’t chain variable assignments.
 
-		> Why? Chaining variable assignments creates implicit global variables.
+    > Why? Chaining variable assignments creates implicit global variables.
 
-		```javascript
-		// bad
-		function example() {
-			// JavaScript interprets this as
-			// var a = ( b = ( c = 1 ) );
-			// The var keyword only applies to variable a; variables b and c become
-			// global variables.
-			var a = b = c = 1;
-			// function body...
-		}
-		console.log(a); // throws ReferenceError
-		console.log(b); // 1
-		console.log(c); // 1
-		
+    ```javascript
+    // bad
+    function example() {
+      // JavaScript interprets this as
+      // var a = ( b = ( c = 1 ) );
+      // The var keyword only applies to variable a; variables b and c become
+      // global variables.
+      var a = b = c = 1;
+      // function body...
+    }
+
+    console.log(a); // throws ReferenceError
+    console.log(b); // 1
+    console.log(c); // 1
+
     // good
     function example() {
       var a = 1;
@@ -756,27 +757,26 @@
     ```
   For this reason declare all variables at the top of their function blocks.
   
-  	```javascript
-  		// bad
-  		function foo(wombats, marmosets) {
-  			console.log('Total: ' + numWombats + numMarmosets);
+    ```javascript
+      // bad
+      function foo(wombats, marmosets) {
+        console.log('Total: ' + numWombats + numMarmosets);
 
-  			var numWombats = wombats.length;
-  			console.log('Wombats: ' + wombatCount);
-  			
-  			var numMarmosets = marmosets.length;
-  			console.log('Marmosets count: ' + numMarmosets);
-  		}
-  		
-  		// good
-  		function foo(wombats, marmosets) {
-  			var numWombats = wombats.length;    			var numMarmosets = marmosets.length;		
-  			console.log('Total: ' + numWombats + numMarmosets);
-  			console.log('Wombats: ' + wombatCount);
-  			console.log('Marmosets count: ' + numMarmosets);
-  		}
-  		
-  	```
+        var numWombats = wombats.length;
+        console.log('Wombats: ' + wombatCount);
+
+        var numMarmosets = marmosets.length;
+        console.log('Marmosets count: ' + numMarmosets);
+      }
+
+      // good
+      function foo(wombats, marmosets) {
+        var numWombats = wombats.length;    			var numMarmosets = marmosets.length;		
+        console.log('Total: ' + numWombats + numMarmosets);
+        console.log('Wombats: ' + wombatCount);
+        console.log('Marmosets count: ' + numMarmosets);
+      }
+    ```
     
   <a name="hoisting--anon-expressions"></a><a name="8.2"></a>
   - [8.2](#hoisting--anon-expressions) Anonymous function expressions hoist their variable name, but not the function assignment.
@@ -864,37 +864,37 @@
   <a name="comparison--shortcuts"></a><a name="9.3"></a>
   - [9.3](#comparison--shortcuts) Use shortcuts for booleans, but explicit comparisons for strings and numbers.
 
-  ```javascript
-  // bad
-  if (isValid === true) {
-    // ...
-  }
+    ```javascript
+    // bad
+    if (isValid === true) {
+      // ...
+    }
 
-  // good
-  if (isValid) {
-    // ...
-  }
+    // good
+    if (isValid) {
+      // ...
+    }
 
-  // bad
-  if (name) {
-    // ...
-  }
+    // bad
+    if (name) {
+      // ...
+    }
 
-  // good
-  if (name !== '') {
-    // ...
-  }
+    // good
+    if (name !== '') {
+      // ...
+    }
 
-  // bad
-  if (collection.length) {
-    // ...
-  }
+    // bad
+    if (collection.length) {
+      // ...
+    }
 
-  // good
-  if (collection.length > 0) {
-    // ...
-  }
-  ```
+    // good
+    if (collection.length > 0) {
+      // ...
+    }
+    ```
 
   <a name="comparison--moreinfo"></a><a name="9.4"></a>
   - [9.4](#comparison--moreinfo) For more information see [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
