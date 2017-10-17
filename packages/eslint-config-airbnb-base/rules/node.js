@@ -16,8 +16,7 @@ module.exports = {
 
     // disallow use of the Buffer() constructor
     // http://eslint.org/docs/rules/no-buffer-constructor
-    // TODO: enable, semver-major
-    'no-buffer-constructor': 'off',
+    'no-buffer-constructor': 'error',
 
     // disallow mixing regular variable and require declarations
     'no-mixed-requires': ['off', false],

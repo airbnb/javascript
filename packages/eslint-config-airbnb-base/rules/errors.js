@@ -1,23 +1,12 @@
 module.exports = {
   rules: {
-    // require trailing commas in multiline object literals
-    'comma-dangle': ['error', {
-      arrays: 'always-multiline',
-      objects: 'always-multiline',
-      imports: 'always-multiline',
-      exports: 'always-multiline',
-      functions: 'always-multiline',
-    }],
-
     // Enforce “for” loop update clause moving the counter in the right direction
     // http://eslint.org/docs/rules/for-direction
-    // TODO: enable, semver-major until v3 is dropped; semver-minor otherwise
-    'for-direction': 'off',
+    'for-direction': 'error',
 
     // Enforces that a return statement is present in property getters
     // http://eslint.org/docs/rules/getter-return
-    // TODO: enable, semver-major when v3 is dropped
-    'getter-return': ['off', { allowImplicit: true }],
+    'getter-return': ['error', { allowImplicit: true }],
 
     // Disallow await inside of loops
     // http://eslint.org/docs/rules/no-await-in-loop
@@ -25,8 +14,7 @@ module.exports = {
 
     // Disallow comparisons to negative zero
     // http://eslint.org/docs/rules/no-compare-neg-zero
-    // TODO: enable (semver-major)
-    'no-compare-neg-zero': 'off',
+    'no-compare-neg-zero': 'error',
 
     // disallow assignment in conditional expressions
     'no-cond-assign': ['error', 'always'],

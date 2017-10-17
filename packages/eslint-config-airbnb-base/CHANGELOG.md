@@ -1,3 +1,26 @@
+12.1.0 / 2017-10-16
+==================
+ - [deps] update `eslint` to `v4.9`
+
+12.0.2 / 2017-10-05
+==================
+ - [deps] update `eslint`
+
+12.0.1 / 2017-09-27
+==================
+ - [fix] ensure all JSX elements are ignored by `indent` (#1569)
+ - [deps] update `eslint`
+
+12.0.0 / 2017-09-02
+==================
+ - [deps] [breaking] require `eslint` v4
+   - enable `function-paren-newline`, `for-direction`, `getter-return`, `no-compare-neg-zero`, `semi-style`, `object-curly-newline`, `no-buffer-constructor`, `no-restricted-globals`, `switch-colon-spacing`, `template-tag-spacing`, `prefer-promise-reject-errors`, `prefer-destructuring`
+   - improve `indent`, `no-multi-spaces`, `no-trailing-spaces`, `no-underscore-dangle`
+ - [breaking] move `comma-dangle` to Stylistic Issues (#1514)
+ - [breaking] Rules prohibiting global isNaN, isFinite (#1477)
+ - [patch] also disallow padding in classes and switches (#1403)
+ - [patch] support Protractor config files in import/no-extraneous-dependencies (#1543)
+
 11.3.2 / 2017-08-22
 ==================
  - [patch] Add jest.config.js to import/no-extraneous-dependencies devDeps (#1522)

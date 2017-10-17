@@ -2,6 +2,8 @@
 
 *A mostly reasonable approach to JavaScript*
 
+> **Note**: this guide assumes you are using [Babel](https://babeljs.io), and requires that you use [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) or the equivalent. It also assumes you are installing shims/polyfills in your app, with [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) or the equivalent.
+
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
@@ -44,6 +46,7 @@ Other Style Guides
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
+  1. [Standard Library](#standard-library)
   1. [Testing](#testing)
   1. [Performance](#performance)
   1. [Resources](#resources)
@@ -53,6 +56,7 @@ Other Style Guides
   1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
   1. [Contributors](#contributors)
   1. [License](#license)
+  1. [Amendments](#amendments)
 
 ## Types
 
@@ -361,15 +365,31 @@ Other Style Guides
     ```
 
   <a name="arrays--from"></a><a name="4.4"></a>
-  - [4.4](#arrays--from) To convert an array-like object to an array, use [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+  - [4.4](#arrays--from) To convert an array-like object to an array, use spreads `...` instead of [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
+
+    // good
     const nodes = Array.from(foo);
+
+    // best
+    const nodes = [...foo];
+    ```
+
+  <a name="arrays--mapping"></a>
+  - [4.5](#arrays--mapping) Use [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) instead of spread `...` for mapping over iterables, because it avoids creating an intermediate array.
+
+    ```javascript
+    // bad
+    const baz = [...foo].map(bar);
+
+    // good
+    const baz = Array.from(foo, bar);
     ```
 
   <a name="arrays--callback-return"></a><a name="4.5"></a>
-  - [4.5](#arrays--callback-return) Use return statements in array method callbacks. It’s ok to omit the return if the function body consists of a single statement returning an expression without side effects, following [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
+  - [4.6](#arrays--callback-return) Use return statements in array method callbacks. It’s ok to omit the return if the function body consists of a single statement returning an expression without side effects, following [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
 
     ```javascript
     // good
@@ -381,18 +401,18 @@ Other Style Guides
     // good
     [1, 2, 3].map(x => x + 1);
 
-    // bad
+    // bad - no returned value means `memo` becomes undefined after the first iteration
     const flat = {};
     [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
       const flatten = memo.concat(item);
-      flat[index] = flatten;
+      memo[index] = flatten;
     });
 
     // good
     const flat = {};
     [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
       const flatten = memo.concat(item);
-      flat[index] = flatten;
+      memo[index] = flatten;
       return flatten;
     });
 
@@ -417,8 +437,8 @@ Other Style Guides
     });
     ```
 
-<a name="arrays--bracket-newline"></a>
-  - [4.6](#arrays--bracket-newline) Use line breaks after open and before close array brackets if an array has multiple lines
+  <a name="arrays--bracket-newline"></a>
+  - [4.7](#arrays--bracket-newline) Use line breaks after open and before close array brackets if an array has multiple lines
 
   ```javascript
   // bad
@@ -459,7 +479,7 @@ Other Style Guides
 ## Destructuring
 
   <a name="destructuring--object"></a><a name="5.1"></a>
-  - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
+  - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring) jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
 
     > Why? Destructuring saves you from creating temporary references for those properties.
 
@@ -485,7 +505,7 @@ Other Style Guides
     ```
 
   <a name="destructuring--array"></a><a name="5.2"></a>
-  - [5.2](#destructuring--array) Use array destructuring. jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
+  - [5.2](#destructuring--array) Use array destructuring. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring) jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
 
     ```javascript
     const arr = [1, 2, 3, 4];
@@ -1895,16 +1915,15 @@ Other Style Guides
       ? "bar"
       : value1 > value2 ? "baz" : null;
 
-    // better
+    // split into 2 separated ternary expressions
     const maybeNull = value1 > value2 ? 'baz' : null;
 
+    // better
     const foo = maybe1 > maybe2
       ? 'bar'
       : maybeNull;
 
     // best
-    const maybeNull = value1 > value2 ? 'baz' : null;
-
     const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
     ```
 
@@ -2395,13 +2414,21 @@ Other Style Guides
 
     }
 
-    // also bad
+    // bad
     if (baz) {
 
       console.log(qux);
     } else {
       console.log(foo);
 
+    }
+
+    // bad
+    class Foo {
+
+      constructor(bar) {
+        this.bar = bar;
+      }
     }
 
     // good
@@ -2500,7 +2527,7 @@ Other Style Guides
 
 ## Commas
 
-<a name="commas--leading-trailing"></a><a name="19.1"></a>
+  <a name="commas--leading-trailing"></a><a name="19.1"></a>
   - [20.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
 
     ```javascript
@@ -3148,10 +3175,50 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
+## Standard Library
+
+  The [Standard Library](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects)
+  contains utilities that are functionally broken but remain for legacy reasons.
+
+  <a name="standard-library--isnan"></a>
+  - [29.1](#standard-library--isnan) Use `Number.isNaN` instead of global `isNaN`.
+    eslint: [`no-restricted-globals`](http://eslint.org/docs/rules/no-restricted-globals)
+
+    > Why? The global `isNaN` coerces non-numbers to numbers, returning true for anything that coerces to NaN.
+    > If this behavior is desired, make it explicit.
+
+    ```javascript
+    // bad
+    isNaN('1.2'); // false
+    isNaN('1.2.3'); // true
+
+    // good
+    Number.isNaN('1.2.3'); // false
+    Number.isNaN(Number('1.2.3')); // true
+    ```
+
+  <a name="standard-library--isfinite"></a>
+  - [29.2](#standard-library--isfinite) Use `Number.isFinite` instead of global `isFinite`.
+    eslint: [`no-restricted-globals`](http://eslint.org/docs/rules/no-restricted-globals)
+
+    > Why? The global `isFinite` coerces non-numbers to numbers, returning true for anything that coerces to a finite number.
+    > If this behavior is desired, make it explicit.
+
+    ```javascript
+    // bad
+    isFinite('2e3'); // true
+
+    // good
+    Number.isFinite('2e3'); // false
+    Number.isFinite(parseInt('2e3', 10)); // true
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
 ## Testing
 
   <a name="testing--yup"></a><a name="28.1"></a>
-  - [29.1](#testing--yup) **Yup.**
+  - [30.1](#testing--yup) **Yup.**
 
     ```javascript
     function foo() {
@@ -3160,7 +3227,7 @@ Other Style Guides
     ```
 
   <a name="testing--for-real"></a><a name="28.2"></a>
-  - [29.2](#testing--for-real) **No, but seriously**:
+  - [30.2](#testing--for-real) **No, but seriously**:
     - Whichever testing framework you use, you should be writing tests!
     - Strive to write many small pure functions, and minimize where mutations occur.
     - Be cautious about stubs and mocks - they can make your tests more brittle.
@@ -3269,6 +3336,7 @@ Other Style Guides
 
   This is a list of organizations that are using this style guide. Send us a pull request and we'll add you to the list.
 
+  - **123erfasst**: [123erfasst/javascript](https://github.com/123erfasst/javascript)
   - **3blades**: [3Blades/javascript](https://github.com/3blades/javascript)
   - **4Catalyzer**: [4Catalyzer/javascript](https://github.com/4Catalyzer/javascript)
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
@@ -3304,6 +3372,7 @@ Other Style Guides
   - **Generation Tux**: [GenerationTux/javascript](https://github.com/generationtux/styleguide)
   - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
   - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
+  - **Grupo-Abraxas**: [Grupo-Abraxas/javascript](https://github.com/Grupo-Abraxas/javascript)
   - **Honey**: [honeyscience/javascript](https://github.com/honeyscience/javascript)
   - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript-style-guide)
   - **Huballin**: [huballin/javascript](https://github.com/huballin/javascript)

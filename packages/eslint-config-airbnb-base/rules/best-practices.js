@@ -57,7 +57,9 @@ module.exports = {
     'no-div-regex': 'off',
 
     // disallow else after a return in an if
-    'no-else-return': 'error',
+    // https://eslint.org/docs/rules/no-else-return
+    // TODO: semver-major, set allowElseIf to false
+    'no-else-return': ['error', { allowElseIf: true }],
 
     // disallow empty functions, except for standalone funcs/arrows
     // http://eslint.org/docs/rules/no-empty-function
@@ -143,7 +145,7 @@ module.exports = {
 
     // disallow use of multiple spaces
     'no-multi-spaces': ['error', {
-      // ignoreEOLComments: false, // TODO: uncomment once v3 is dropped
+      ignoreEOLComments: false,
     }],
 
     // disallow use of multiline strings
@@ -194,6 +196,30 @@ module.exports = {
       object: 'arguments',
       property: 'callee',
       message: 'arguments.callee is deprecated',
+    }, {
+      object: 'global',
+      property: 'isFinite',
+      message: 'Please use Number.isFinite instead',
+    }, {
+      object: 'self',
+      property: 'isFinite',
+      message: 'Please use Number.isFinite instead',
+    }, {
+      object: 'window',
+      property: 'isFinite',
+      message: 'Please use Number.isFinite instead',
+    }, {
+      object: 'global',
+      property: 'isNaN',
+      message: 'Please use Number.isNaN instead',
+    }, {
+      object: 'self',
+      property: 'isNaN',
+      message: 'Please use Number.isNaN instead',
+    }, {
+      object: 'window',
+      property: 'isNaN',
+      message: 'Please use Number.isNaN instead',
     }, {
       property: '__defineGetter__',
       message: 'Please use Object.defineProperty instead.',
@@ -270,8 +296,7 @@ module.exports = {
 
     // require using Error objects as Promise rejection reasons
     // http://eslint.org/docs/rules/prefer-promise-reject-errors
-    // TODO: enable, semver-major
-    'prefer-promise-reject-errors': ['off', { allowEmptyReject: true }],
+    'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
 
     // require use of the second argument for parseInt()
     radix: 'error',
