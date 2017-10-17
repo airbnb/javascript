@@ -593,11 +593,11 @@
 
     > Why? It’s easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
 
-   ```javascript
+    ```javascript
     // bad
     var items = getItems(),
-        goSportsTeam = true,
-        dragonball = 'z';
+      goSportsTeam = true,
+      dragonball = 'z';
 
     // bad
     // (compare to above, and try to spot the mistake)
@@ -608,13 +608,8 @@
     // good
     var items = getItems();
     var goSportsTeam = true;
-    var dragonball = 'z';
-    
-    // best
-	var items 			= getItems();
-	var goSportsTeam 	= true;
-	var dragonball 		= 'z';    
-   ```
+    var dragonball = 'z';    
+    ```
 
   <a name="variables--capitalize-constants"></a><a name="7.4"></a>
   - [7.4](#variables--capitalize-constants) Capitalize your constants.
