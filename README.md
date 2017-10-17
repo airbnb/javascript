@@ -1348,31 +1348,31 @@
   <a name="whitespace--chains"></a><a name="13.6"></a>
   - [13.6](#whitespace--chains) When chaining calls, put each chained method on a new line. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
 
-		```javascript
-		// bad
-		Customer.getList(10).munge(customer);
-		    
-		// good
-		Customer
-			.getList(10)
-			.munge(customer);
-		    
-		// bad
-		var myMungedCustomer = 
-			Customer
-				.getList(10)
-				.munge(customer); 
-		// bad 
-		$('#items').find('.selected').highlight().end().find('.open').updateCount();
-		
-		// good
-		var $selectedItems = $('#items').find('.selected');
-		$selectedItems
-			.highlight()
-			.end();
-		$selectedItems			
-			.find('.open')
-			.updateCount();
+    ```javascript
+    // bad
+    Customer.getList(10).munge(customer);
+
+    // good
+    Customer
+      .getList(10)
+      .munge(customer);
+
+    // bad
+    var myMungedCustomer = 
+      Customer
+        .getList(10)
+        .munge(customer); 
+    // bad 
+    $('#items').find('.selected').highlight().end().find('.open').updateCount();
+
+    // good
+    var $selectedItems = $('#items').find('.selected');
+    $selectedItems
+      .highlight()
+      .end();
+    $selectedItems
+      .find('.open')
+      .updateCount();
     ```
 
   <a name="whitespace--after-blocks"></a><a name="13.7"></a>
