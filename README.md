@@ -1372,8 +1372,7 @@
 			.end();
 		$selectedItems			
 			.find('.open')
-			.updateCount();   
-    
+			.updateCount();
     ```
 
   <a name="whitespace--after-blocks"></a><a name="13.7"></a>
