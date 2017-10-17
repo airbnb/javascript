@@ -516,7 +516,7 @@
 ## Properties
 
   <a name="properties--dot"></a><a name="6.1"></a>
-  - [6.1](#properties--dot) Use dot notation when accessing properties. eslint: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html) jscs: [`requireDotNotation`](http://jscs.info/rule/requireDotNotation)
+  - [6.1](#properties--dot) Use dot notation when accessing properties. eslint: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html) 
 
     ```javascript
     var luke = {
@@ -1253,7 +1253,7 @@
     ```
 
   <a name="whitespace--before-blocks"></a><a name="13.2"></a>
-  - [13.2](#whitespace--before-blocks) Place 1 space before the leading brace. eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
+  - [13.2](#whitespace--before-blocks) Place 1 space before the leading brace. eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) 
 
     ```javascript
     // bad
@@ -1308,7 +1308,7 @@
     ```
 
   <a name="whitespace--infix-ops"></a><a name="13.4"></a>
-  - [13.4](#whitespace--infix-ops) Set off operators with spaces. eslint: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html) jscs: [`requireSpaceBeforeBinaryOperators`](http://jscs.info/rule/requireSpaceBeforeBinaryOperators), [`requireSpaceAfterBinaryOperators`](http://jscs.info/rule/requireSpaceAfterBinaryOperators)
+  - [13.4](#whitespace--infix-ops) Set off operators with spaces. eslint: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html) 
 
     ```javascript
     // bad
@@ -1376,7 +1376,7 @@
     ```
 
   <a name="whitespace--after-blocks"></a><a name="13.7"></a>
-  - [13.7](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement. jscs: [`requirePaddingNewLinesAfterBlocks`](http://jscs.info/rule/requirePaddingNewLinesAfterBlocks)
+  - [13.7](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement. 
 
     ```javascript
     // bad
@@ -1490,7 +1490,7 @@
     ```
 
   <a name="whitespace--max-len"></a><a name="13.12"></a>
-  - [13.12](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
+  - [13.12](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) 
 
     > Why? This ensures readability and maintainability.
 
@@ -1524,7 +1524,7 @@
 ## Commas
 
   <a name="commas--leading-trailing"></a><a name="14.1"></a>
-  - [14.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
+  - [14.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) 
 
     ```javascript
     // bad
@@ -1609,7 +1609,7 @@
 ## Semicolons
 
   <a name="semicolons--required"></a><a name="15.1"></a>
-  - [15.1](#semicolons--required) **Yup.** eslint: [`semi`](http://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
+  - [15.1](#semicolons--required) **Yup.** eslint: [`semi`](http://eslint.org/docs/rules/semi.html) 
 
     ```javascript
     // bad
@@ -1733,7 +1733,7 @@
     ```
 
   <a name="naming--camelCase"></a><a name="17.2"></a>
-  - [17.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
+  - [17.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) 
 
     ```javascript
     // bad
