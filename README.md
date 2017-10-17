@@ -751,7 +751,6 @@
 
     ```
   For this reason declare all variables at the top of their function blocks.
-  
     ```javascript
       // bad
       function foo(wombats, marmosets) {
