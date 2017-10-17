@@ -23,15 +23,9 @@
   1. [Naming Conventions](#naming-conventions)
   1. [Accessors](#accessors)
   1. [Events](#events)
+  1. [Exception Handling](#exception-handling)
   1. [License](#license)
 
-
-## Guiding Principles
-
-* Consistency beats optimality.
-* Typographical space is no longer limited by printing costs or tiny monitors.  Optimizing code density per line no longer makes sense.
-* Whitespace makes things easier to read (andnotusingwhitespacemakesthingshardertoread).  Err on more whitespace rather than less.
-* Cutting-and-pasting whole lines is easier than any alternative and makes diffs easier to parse.
 	
 ## Objects
 
@@ -74,10 +68,10 @@
 
     ```javascript
     // bad
-    console.log( object.hasOwnProperty(key) );
+    console.log(object.hasOwnProperty(key));
 
     // good
-    console.log( Object.prototype.hasOwnProperty.call(object, key) );
+    console.log(Object.prototype.hasOwnProperty.call(object, key));
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -248,12 +242,12 @@
 
     ```javascript
     // bad
-    function foo( name, options, arguments ) {
+    function foo(name, options, arguments) {
       // ...
     }
 
     // good
-    function foo( name, options, args ) {
+    function foo(name, options, args) {
       // ...
     }
     ```
@@ -265,10 +259,10 @@
 
     ```javascript
     // bad
-    var add = new Function( 'a', 'b', 'return a + b' );
+    var add = new Function('a', 'b', 'return a + b');
 
     // still bad
-    var subtract = Function( 'a', 'b', 'return a - b' );
+    var subtract = Function('a', 'b', 'return a - b');
     ```
 
   <a name="functions--signature-spacing"></a><a name="4.6"></a>
@@ -294,18 +288,18 @@
 
     ```javascript
     // bad
-    function f1( obj ) {
+    function f1(obj) {
       obj.key = 1;
     }
 
 	// good
-    function f1( obj ) {
+    function f1(obj) {
     	var key = obj.key; 
     }
 	
     // overkill
-    function f2( obj ) {
-      var key = Object.prototype.hasOwnProperty.call( obj, 'key' ) ? obj.key : 1;
+    function f2(obj) {
+      var key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
     }
     ```
 
@@ -316,18 +310,18 @@
 
     ```javascript
     // bad
-    function f1( a ) {
+    function f1(a) {
       a = 1;
       // ...
     }
 
-    function f2( a ) {
-      if( !a ) { a = 1; }
+    function f2(a) {
+      if (!a) { a = 1; }
       // ...
     }
 
     // good
-    function f3( a ) {
+    function f3(a) {
       var b = a || 1;
       // ...
     }
@@ -338,14 +332,14 @@
 
     ```javascript
     // bad
-    function foo( bar,
-                  baz,
-                  quux) {
+    function foo(bar,
+                 baz,
+                 quux) {
       // ...
     }
 
     // good
-    function foo( bar, baz, quux ) {};
+    function foo(bar, baz, quux) {};
 
     function foo(
       bar,
@@ -379,7 +373,7 @@
     // bad
     var fall = function fall(object, up) {
       var g = ACCELERATION_FROM_EARTH;
-      if( up ) {
+      if (up) {
         g = -g;
       }
       // handle falling
@@ -407,7 +401,6 @@
         false, false, false, false, /* modifier keys */
         0 /*left*/, null
         );
-    // left?
 
     // so much better
       initMouseEvent({
@@ -428,17 +421,31 @@
           alt: false,
           command: false
         },
-        left: 0,
+        leftButton: false,
         whoKnows: null
       });	
 
     ```
+  <a name="functions--boolean-parameters"></a>
+  - [4.11](#functions--parameter-spacing) Add spaces between function parameters of the outermost function.
+
+	```javascript
+	// bad
+	foo(a,b,c);
+
+	bar(baz(a,1),baz(b,2),baz(c,3));
+	
+	// good
+	foo(a, b, c);
+
+	bar(baz(a,1), baz(b,2), baz(c,3));
+	```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Iterators
 
-  <a name="iterators--nope"></a><a name="11.1"></a>
+  <a name="iterators--nope"></a><a name="5.1"></a>
   - [5.1](#iterators--nope) Don’t use `for` iterators. Prefer JavaScript’s higher-order functions instead of loops like `for-in` or `for-of`.  (If you have to do an early return, there may be no good way around it though.)  eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
 
     > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
@@ -450,62 +457,65 @@
 
     // bad
     var sum = 0;
-    for( var num of numbers ) {
+    for (var num of numbers) {
       sum += num;
     }
     sum === 15;
 
     // good
     var sum = 0;
-    numbers.forEach( function ( num ) {
+    numbers.forEach(function (num) {
       sum += num;
     });
     sum === 15;
 
     // best (use the functional force)
-    var sum = numbers.reduce( function( total, num ) { total + num, 0 } );
+    var sum = numbers.reduce(function(total, num) { return total + num; }, 0 );
     sum === 15;
 
     // bad
     var increasedByOne = [];
-    for( var i = 0; i < numbers.length; i++ ) {
-      increasedByOne.push( numbers[i] + 1 );
+    for(var i = 0; i < numbers.length; i++) {
+      increasedByOne.push(numbers[i] + 1);
     }
 
     // good
     var increasedByOne = [];
-    numbers.forEach( function ( num ) {
-      increasedByOne.push( num + 1 );
+    numbers.forEach(function (num) {
+      increasedByOne.push(num + 1);
     });
 
     // best (keeping it functional)
-    var increasedByOne = numbers.map( function ( num ) { return num + 1; } );
+    var increasedByOne = numbers.map(function (num) { return num + 1; });
     
     // bad
-    var hasAThree = false;
-    insanelyLongArray.forEach( function (value) {
-    	if( value === 3 ) {
-    		hasAThree = true;
-		}    		
-    });
-    
-    return hasAThree;
-    
-    // good
-    for( var i = 0; i < insanelyLongArray.length; i++ ) {
-    	if( insanelyLongArray[i] === 3 ) {
-    		return true;
+    function containsThree(insanelyLongArray) {
+	    var hasAThree = false;
+	    insanelyLongArray.forEach(function (value) {
+	    	if( value === 3 ) {
+	    		hasAThree = true;
+			}    		
+	    });
+	    
+	    return hasAThree;
     }
     
-    return false;
-    
+    // good
+    function containsThree(insanelyLongArray) {
+	    for (var i = 0; i < insanelyLongArray.length; i++) {
+	    	if (insanelyLongArray[i] === 3) {
+	    		return true;
+	    }
+	    
+	    return false;
+   	} 
     ```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Properties
 
-  <a name="properties--dot"></a><a name="12.1"></a>
+  <a name="properties--dot"></a><a name="6.1"></a>
   - [6.1](#properties--dot) Use dot notation when accessing properties. eslint: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html) jscs: [`requireDotNotation`](http://jscs.info/rule/requireDotNotation)
 
     ```javascript
@@ -552,7 +562,7 @@
 
 ## Variables
 
-  <a name="variables--const"></a><a name="13.1"></a>
+  <a name="variables--const"></a><a name="7.1"></a>
   - [7.1](#variables--const) Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
 
     ```javascript
@@ -565,7 +575,7 @@
     
     
   <a name="variables--always-initialize"></a><a name="7.2"></a>
-  - 7.2 Always initialize variables.  If their value is unknown at the point of declaration, use `null`.
+  - [7.2](#variables--always-init) Always initialize variables.  If their value is unknown at the point of declaration, use `null`.
     
     ```javascript
     // bad
@@ -578,8 +588,8 @@
     var foo = null;
     ```
 	
-  <a name="variables--one-const"></a><a name="13.2"></a>
-  - [7.2](#variables--one-const) Use one `var` declaration per variable. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) 
+  <a name="variables--one-const"></a><a name="7.3"></a>
+  - [7.3](#variables--one-const) Use one `var` declaration per variable. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) 
 
     > Why? It’s easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
 
@@ -606,8 +616,8 @@
 	var dragonball 		= 'z';    
    ```
 
-  <a name="variables--capitalize-constants"></a><a name="13.3"></a>
-  - [7.3](#variables--capitalize-constants) Capitalize your constants.
+  <a name="variables--capitalize-constants"></a><a name="7.4"></a>
+  - [7.4](#variables--capitalize-constants) Capitalize your constants.
 
     ```javascript
     // bad
@@ -615,11 +625,12 @@
     var userCount = getUsers().length;
     
     // good
-
+	var MAX_NAME_LENGTH = 16;
+	var USER_COUNT = getUsers().length;
 	```
 
-  <a name="variables--const-let-group"></a><a name="13.3"></a>
-  - [7.4](#variables--const-let-group) Group all your constants and then group all your vars.
+  <a name="variables--const-let-group"></a><a name="7.5"></a>
+  - [7.5](#variables--const-let-group) Group all your constants and then group all your vars.
 
     > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
@@ -644,39 +655,40 @@
     var length;
     ```
 
-  <a name="variables--no-chain-assignment"></a><a name="13.5"></a>
-  - [7.5](#variables--no-chain-assignment) Don’t chain variable assignments.
+  <a name="variables--no-chain-assignment"></a><a name="7.6"></a>
+  - [7.6](#variables--no-chain-assignment) Don’t chain variable assignments.
 
-    > Why? Chaining variable assignments creates implicit global variables.
+		> Why? Chaining variable assignments creates implicit global variables.
 
-    ```javascript
-    // bad
-    (function example() {
-      // JavaScript interprets this as
-      // var a = ( b = ( c = 1 ) );
-      // The var keyword only applies to variable a; variables b and c become
-      // global variables.
-      var a = b = c = 1;
-    }());
-
-    console.log( a ); // throws ReferenceError
-    console.log( b ); // 1
-    console.log( c ); // 1
-
+		```javascript
+		// bad
+		function example() {
+			// JavaScript interprets this as
+			// var a = ( b = ( c = 1 ) );
+			// The var keyword only applies to variable a; variables b and c become
+			// global variables.
+			var a = b = c = 1;
+			// function body...
+		}
+		console.log(a); // throws ReferenceError
+		console.log(b); // 1
+		console.log(c); // 1
+		
     // good
-    (function example() {
+    function example() {
       var a = 1;
       var b = a;
       var c = a;
-    }());
+      // function body...
+    }
 
-    console.log( a ); // throws ReferenceError
-    console.log( b ); // throws ReferenceError
-    console.log( c ); // throws ReferenceError
+    console.log(a); // throws ReferenceError
+    console.log(b); // throws ReferenceError
+    console.log(c); // throws ReferenceError
     ```
 
-  <a name="variables--unary-increment-decrement"></a><a name="13.6"></a>
-  - [7.6](#variables--unary-increment-decrement) Avoid using unary increments and decrements (++, --). eslint [`no-plusplus`](http://eslint.org/docs/rules/no-plusplus)
+  <a name="variables--unary-increment-decrement"></a><a name="7.7"></a>
+  - [7.7](#variables--unary-increment-decrement) Avoid using unary increments and decrements (++, --). eslint [`no-plusplus`](http://eslint.org/docs/rules/no-plusplus)
 
     > Why? Per the eslint documentation, unary increment and decrement statements are subject to automatic semicolon insertion and can cause silent errors with incrementing or decrementing values within an application. It is also more expressive to mutate your values with statements like `num += 1` instead of `num++` or `num ++`. Disallowing unary increment and decrement statements also prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
 
@@ -690,10 +702,10 @@
 
     var sum = 0;
     var truthyCount = 0;
-    for( var i = 0; i < array.length; i++ ) {
+    for (var i = 0; i < array.length; i++) {
       var value = array[i];
       sum += value;
-      if( value ) {
+      if (value) {
         truthyCount++;
       }
     }
@@ -705,7 +717,7 @@
     num += 1;
     num -= 1;
 
-    var sum = array.reduce( function (a, b) { return a + b; }, 0 );
+    var sum = array.reduce(function (a, b) { return a + b; }, 0 );
     var truthyCount = array.filter(Boolean).length;
     ```
 
@@ -713,14 +725,14 @@
 
 ## Hoisting
 
-  <a name="hoisting--about"></a><a name="14.1"></a>
+  <a name="hoisting--about"></a><a name="8.1"></a>
   - [8.1](#hoisting--about) `var` declarations get hoisted to the top of their scope, but their assignment does not. 
   
     ```javascript
     // we know this wouldn’t work (assuming there
     // is no notDefined global variable)
     function example() {
-      console.log( notDefined ); // throws a ReferenceError
+      console.log(notDefined); // throws a ReferenceError
     }
 
     // creating a variable declaration after you
@@ -766,7 +778,7 @@
   		
   	```
     
-  <a name="hoisting--anon-expressions"></a><a name="14.2"></a>
+  <a name="hoisting--anon-expressions"></a><a name="8.2"></a>
   - [8.2](#hoisting--anon-expressions) Anonymous function expressions hoist their variable name, but not the function assignment.
 
     ```javascript
@@ -781,7 +793,7 @@
     }
     ```
 
-  <a name="hoisting--named-expresions"></a><a name="14.3"></a>
+  <a name="hoisting--named-expresions"></a><a name="8.3"></a>
   - [8.3](#hoisting--named-expresions) Named function expressions hoist the variable name, not the function name or the function body.
 
     ```javascript
@@ -810,7 +822,7 @@
     }
     ```
 
-  <a name="hoisting--declarations"></a><a name="14.4"></a>
+  <a name="hoisting--declarations"></a><a name="8.4"></a>
   - [8.4](#hoisting--declarations) Function declarations hoist their name and the function body.
 
     ```javascript
@@ -843,7 +855,7 @@
     - **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
     ```javascript
-    if( [0] && [] ) {
+    if ([0] && []) {
       // true
       // an array (even an empty one) is an object, objects will evaluate to true
     }
@@ -854,32 +866,32 @@
 
   ```javascript
   // bad
-  if( isValid === true ) {
+  if (isValid === true) {
     // ...
   }
 
   // good
-  if( isValid ) {
+  if (isValid) {
     // ...
   }
 
   // bad
-  if( name ) {
+  if (name) {
     // ...
   }
 
   // good
-  if( name !== '' ) {
+  if (name !== '') {
     // ...
   }
 
   // bad
-  if( collection.length ) {
+  if (collection.length) {
     // ...
   }
 
   // good
-  if( collection.length > 0 ) {
+  if (collection.length > 0) {
     // ...
   }
   ```
@@ -928,14 +940,14 @@
 
 ## Blocks
 <a name="blocks--braces"></a><a name="10.1"></a>
-  - [10.1](#blocks--braces) Do not put multiple statements on the same line, it makes it difficult to debug.
+  - [10.1](#blocks--braces) Do not put multiple statements on the same line, debugging is easier with one statement per line.
 
     ```javascript
     // bad
-    if( test ) { return false; }
+    if (test) { return false; }
 
     // good
-    if( test ) {
+    if (test) {
       return false;
     }
 
@@ -965,15 +977,15 @@
   - [10.3](#blocks--cuddled-elses) If you're using blocks with `if` and `else`, put `else` on the same line as your `if` block’s closing brace. eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) 
 
     ```javascript
-    // bad (one true brace style)
-    if( test ) {
+    // bad (K&R, one true brace style)
+    if (test) {
       thing1();
     } else {
       thing2();
     }
 
-    // bad (allman) (why did we collectively decide that humans can pair things better if they don't line up?)
-    if( test ) 
+    // bad (Allman) 
+    if (test) 
     {
       thing1();
     } 
@@ -982,8 +994,8 @@
       thing2();
     }
     
-    // good (stroustrop)
-    if( test ) {
+    // good (Stroustrop)
+    if (test) {
       thing1();
     } 
     else {
@@ -1001,24 +1013,22 @@
 
     ```javascript
     // bad
-    if((foo === 123 || bar === 'abc') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
+    if ((foo === 123 || bar === 'abc') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
       thing1();
     }
 
-    // bad
-    if(foo === 123 &&
+    if (foo === 123 &&
       bar === 'abc') {
       thing1();
     }
 
-    // bad
-    if(foo === 123
+    if (foo === 123
       && bar === 'abc') {
       thing1();
     }
 
     // good
-    if(
+    if (
       (foo === 123 || bar === 'abc') &&
       doesItLookGoodWhenItBecomesThatLong() &&
       isThisReallyHappening()
@@ -1026,21 +1036,18 @@
       thing1();
     }
 
-    // good
-    if( foo === 123 && bar === 'abc' ) {
+    if (foo === 123 && bar === 'abc') {
       thing1();
     }
 
-    // good
-    if(
+    if (
       foo === 123 &&
       bar === 'abc'
     ) {
       thing1();
     }
 
-    // good
-    if(
+    if (
       foo === 123
       && bar === 'abc'
     ) {
@@ -1061,11 +1068,9 @@
     // based on the passed in tag name
     //
     // @param {String} tag
-    // @return {Element} element
+    // @returns {Element} element
     function make(tag) {
-
       // ...
-
       return element;
     }
     
@@ -1075,12 +1080,13 @@
     // good
     /**
      * make() returns a new element
-     * based on the passed-in tag name
+     * based on the tag name
+     * 
+     * @param {String}		tag
+     * @returns {Element}	element
      */
     function make(tag) {
-
       // ...
-
       return element;
     }
     
@@ -1170,22 +1176,22 @@
   - [12.5](#comments--fixme) Use `// FIXME:` to annotate problems.
 
     ```javascript
-    class Calculator extends Abacus {
-      constructor() {
+    var Abacus {
+      constructor: function constructor() {
         super();
 
         // FIXME: shouldn’t use a global here
         total = 0;
       }
-    }
+    };
     ```
 
   <a name="comments--todo"></a><a name="12.6"></a>
   - [12.6](#comments--todo) Use `// TODO:` to annotate solutions to problems.
 
     ```javascript
-    class Calculator extends Abacus {
-      constructor() {
+    var Abacus {
+      constructor: function constructor() {
         super();
 
         // TODO: total should be configurable by an options param
@@ -1214,9 +1220,12 @@
         i++;
         Monster.setNumberOfTentacles(3);    
 
-        // This call invalidates the Procyon node cache.
-        // The string of params are all harmless defaults except the last,
-        // which has to be a floating point, and sets failure generation to the minimum of 700.
+        /** 
+         * This call invalidates the Procyon node cache.
+         * The string of params are all harmless defaults except the last,
+         * which has to be a floating point, and sets failure generation to
+         * the minimum of 700.
+         */
         Xrvrrzhhkrrkngng.$$(false, 0, null, true, 'FALSE', undefined, { causeSystemFailures: 700.0 } );
     ```
   
@@ -1228,10 +1237,10 @@
   - [13.1](#whitespace--spaces) Use 4 spaces instead of tabs. eslint: [`indent`](http://eslint.org/docs/rules/indent.html)
 
     ```javascript
-    // bad
-    function foo() {
-      var name;
-    }
+	// bad
+	function foo() {
+		var name;
+	}
 
     // very bad
     function bar() {
@@ -1242,8 +1251,7 @@
     ∙∙∙∙∙∙∙∙var name;
     }
 
-
-    // what you gotta use
+    // good
     function baz() {
     ∙∙∙∙var name;
     }
@@ -1255,14 +1263,14 @@
     ```javascript
     // bad
     function test(){
-      console.log( 'test' );
+      console.log('test');
     }
     
     function() {}
 
     // good
     function test() {
-      console.log( 'test' );
+      console.log('test');
     }
     
     function () {}
@@ -1284,12 +1292,12 @@
   - [13.3](#whitespace--around-keywords) Place a space after the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing.html) 
     ```javascript
     // bad
-    if(isJedi) {
+    if ( isJedi ) {
       fight ();
     }
 
     // good
-    if( isJedi ) {
+    if ( isJedi ) {
       fight();
     }
 
@@ -1300,7 +1308,7 @@
 
     // good
     function fight() {
-      console.log( 'Swooosh!' );
+      console.log('Swooosh!');
     }
     ```
 
@@ -1318,7 +1326,7 @@
   <a name="whitespace--newline-at-end"></a><a name="13.5"></a>
   - [13.5](#whitespace--newline-at-end) End files with a single newline character. eslint: [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md)
 	
-    > Why?  Do you even POSIX?  Many (most?) *nix utilities that process text files rely on all lines ending with a line break.
+    > Why?  Do you even POSIX?  Many *nix utilities that process text files rely on all lines ending with a line break.
 	
     ```javascript
     // bad
@@ -1343,11 +1351,34 @@
     ```
 
   <a name="whitespace--chains"></a><a name="13.6"></a>
-  - [13.6](#whitespace--chains) TBD. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
+  - [13.6](#whitespace--chains) When chaining calls, put each chained method on a new line. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
 
-    ```javascript
-    // bad
-    $('#items').find('.selected').highlight().end().find('.open').updateCount();
+		```javascript
+		// bad
+		Customer.getList(10).munge(customer);
+		    
+		// good
+		Customer
+			.getList(10)
+			.munge(customer);
+		    
+		// bad
+		var myMungedCustomer = 
+			Customer
+				.getList(10)
+				.munge(customer); 
+		// bad 
+		$('#items').find('.selected').highlight().end().find('.open').updateCount();
+		
+		// good
+		var $selectedItems = $('#items').find('.selected');
+		$selectedItems
+			.highlight()
+			.end();
+		$selectedItems			
+			.find('.open')
+			.updateCount();   
+    
     ```
 
   <a name="whitespace--after-blocks"></a><a name="13.7"></a>
@@ -1355,13 +1386,13 @@
 
     ```javascript
     // bad
-    if( foo ) {
+    if (foo) {
       return bar;
     }
     return baz;
 
     // good
-    if( foo ) {
+    if (foo) {
       return bar;
     }
 
@@ -1380,7 +1411,6 @@
     var arr = [
       function foo() {
       },
-
       function bar() {
       },
     ];
@@ -1395,25 +1425,26 @@
     // bad
     function bar() {
 
-      console.log( foo );
+      console.log(foo);
 
     }
 
     // bad
-    if( baz ) {
+    if (baz) {
 
-    console.log( qux );
-    } else {
-    console.log( foo );
+    console.log(qux);
+    } 
+    else {
+    console.log(foo);
 
     }
 
     // good
-    if( baz ) {
-      console.log( qux );
+    if (baz) {
+      console.log(qux);
     } 
     else {
-      console.log( foo );
+      console.log(foo);
     }
     ```
 
@@ -1446,11 +1477,11 @@
     ```javascript
     // bad
     var foo = [ 1, 2, 3 ];
-    console.log( foo[ 0 ]) ;
+    console.log(foo[ 0 ]) ;
 
     // good
     var foo = [1, 2, 3];
-    console.log( foo[0] );
+    console.log(foo[0]);
     ```
 
   <a name="whitespace--in-braces"></a><a name="13.11"></a>
@@ -1614,16 +1645,15 @@
   - [16.2](#coercion--strings)  Strings:
 
     ```javascript
-    // => this.reviewScore = 9;
-
     // bad
-    var totalScore = this.reviewScore + ''; // invokes this.reviewScore.valueOf()
+	    // invokes this.reviewScore.valueOf()
+		var totalScore = this.reviewScore + ''; 
 
-    // bad
-    var totalScore = this.reviewScore.toString(); // isn’t guaranteed to return a string
+		// isn’t guaranteed to return a string
+		var totalScore = this.reviewScore.toString(); 
 
     // good
-    var totalScore = String( this.reviewScore );
+	    var totalScore = String(this.reviewScore);
     ```
 
   <a name="coercion--numbers"></a><a name="16.3"></a>
@@ -1633,7 +1663,7 @@
     var inputValue = '4';
 
     // bad
-    var val = new Number( inputValue );
+    var val = new Number(inputValue);
 
     // bad
     var val = +inputValue;
@@ -1642,13 +1672,13 @@
     var val = inputValue >> 0;
 
     // bad
-    var val = parseInt( inputValue );
+    var val = parseInt(inputValue);
 
     // good
-    var val = Number( inputValue) ;
+    var val = Number(inputValue) ;
 
     // good
-    var val = parseInt( inputValue, 10 );
+    var val = parseInt(inputValue, 10);
     ```
 
   <a name="coercion--comment-deviations"></a><a name="16.4"></a>
@@ -1680,10 +1710,10 @@
     var age = 0;
 
     // bad
-    var hasAge = new Boolean( age );
+    var hasAge = new Boolean(age);
 
     // good
-    var hasAge = Boolean( age );
+    var hasAge = Boolean(age);
 
     // ok
     var hasAge = !!age;
@@ -1726,7 +1756,7 @@
 
     ```javascript
     // bad
-    function funkyUser( options ) {
+    function funkyUser(options) {
       this.name = options.name;
     }
 
@@ -1748,13 +1778,13 @@
     var userID;
     var SMSContainer;
     var HTTPRequests = [];
-    var AWSSQSQueueACKOK = what( '?' );
+    var AWSSQSQueueACKOK = what('?');
 
     // good
     var userId;
     var smsContainer;
     var httpRequests = [];
-    var AwsSqsQueueAckOk = oh( '.' );
+    var AwsSqsQueueAckOk = oh('.');
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1769,12 +1799,12 @@
 
     ```javascript
     // bad
-    if( dragon.dead() ) {
+    if (dragon.dead()) {
       return false;
     }
 
     // good
-    if( dragon.isDead()) {
+    if (dragon.isDead()) {
       return false;
     }
     ```
@@ -1793,7 +1823,7 @@
 
     // ...
 
-    $(this).on( 'listingUpdated', function( e, listingId ) {
+    $(this).on( 'listingUpdated', function(e,listingId) {
       // do something with listingId
     });
     ```
@@ -1813,6 +1843,33 @@
 
   **[⬆ back to top](#table-of-contents)**
 
+## Exception Handling
+
+  <a name="exception-handling"></a><a name="20.1"></a>
+  - [19.1](#exception-handling) For Promises, always use a `catch` call instead of passing a failure-handling function.
+		> Why?  Check out [this good treatment on StackOverflow](https://stackoverflow.com/questions/24662289/when-is-thensuccess-fail-considered-an-antipattern-for-promises)
+
+  		```javascript
+  		// bad
+  		foo
+  			.munge()
+  			.then(function () {
+  				// blah
+  			}, function (rejection) {
+  				// handle rejection
+  			});
+  			
+  		// good
+  		foo
+  			.munge()
+  			.then(function () {
+  				// blah
+  			})
+  			.catch(function (rejection) {
+  				// handle rejection
+  			});
+  			
+  		```
 
 ## License
 
