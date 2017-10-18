@@ -1031,41 +1031,41 @@
     ```javascript
     // bad
     if (foo === 123 &&
-      bar === 'abc') {
-      thing1();
+        bar === 'abc') {
+        thing1();
     }
 
     if (foo === 123
-      && bar === 'abc') {
-      thing1();
+        && bar === 'abc') {
+        thing1();
     }
 
     if ((foo === 123 || bar === 'abc' || baz === 'quux') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
-      thing1();
+        thing1();
     }
 
     // good
     if (foo === 123 && bar === 'abc') {
-      thing1();
+        thing1();
     }
 
     if (
-      foo === 123 
-      && bar === 'abc'
-    ) {
-      thing1();
-    }
-
-    if (
-      (
         foo === 123 
-        || bar === 'abc' 
-        || baz === 'quux'
-      ) 
-      && doesItLookGoodWhenItBecomesThatLong() 
-      && isThisReallyHappening()
+        && bar === 'abc'
     ) {
-      thing1();
+        thing1();
+    }
+
+    if (
+        (
+            foo === 123 
+            || bar === 'abc' 
+            || baz === 'quux'
+        ) 
+        && doesItLookGoodWhenItBecomesThatLong() 
+        && isThisReallyHappening()
+    ) {
+        thing1();
     } 
     ```
 
