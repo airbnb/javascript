@@ -1998,7 +1998,9 @@ Other Style Guides
 ## Control Statements
 
   <a name="control-statements"></a>
-  - [17.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition could be put into a new line. It’s up to you whether the logical operator should begin or end the line.
+  - [17.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition could be put into a new line. The logical operator should begin the line.
+
+  > Why? This ensures readability.
 
     ```javascript
     // bad
@@ -2018,21 +2020,7 @@ Other Style Guides
       thing1();
     }
 
-    // good
-    if (
-      (foo === 123 || bar === "abc") &&
-      doesItLookGoodWhenItBecomesThatLong() &&
-      isThisReallyHappening()
-    ) {
-      thing1();
-    }
-
-    // good
-    if (foo === 123 && bar === 'abc') {
-      thing1();
-    }
-
-    // good
+    // bad
     if (
       foo === 123 &&
       bar === 'abc'
@@ -2045,6 +2033,20 @@ Other Style Guides
       foo === 123
       && bar === 'abc'
     ) {
+      thing1();
+    }
+
+    // good
+    if (
+      (foo === 123 || bar === "abc")
+      && doesItLookGoodWhenItBecomesThatLong()
+      && isThisReallyHappening()
+    ) {
+      thing1();
+    }
+
+    // good
+    if (foo === 123 && bar === 'abc') {
       thing1();
     }
     ```
