@@ -1300,7 +1300,7 @@
     ```
 
   <a name="whitespace--around-keywords"></a><a name="13.3"></a>
-  - [13.3](#whitespace--around-keywords) Place a space after the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing.html) 
+  - [13.3](#whitespace--around-keywords) Do not place a space after the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing.html) 
     ```javascript
     // bad
     if ( isJedi ) {
@@ -1308,19 +1308,15 @@
     }
 
     // good
-    if ( isJedi ) {
+    if (isJedi) {
       fight();
     }
 
     // bad
-    function fight () {
-      console.log ('Swooosh!');
-    }
-
+    while ( true ) {}
+    
     // good
-    function fight() {
-      console.log('Swooosh!');
-    }
+    while (true) {}
     ```
 
   <a name="whitespace--infix-ops"></a><a name="13.4"></a>
