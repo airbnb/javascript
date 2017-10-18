@@ -289,11 +289,13 @@
     // bad
     var f = function(){};
     var g = function (){};
-    var h = function() {};
+    foo(function(){});
 
     // good
-    var x = function () {};
-    var y = function a() {};
+    var f = function f() {};
+    var g = function g() {};
+    foo(function () {});
+
     ```
 
   <a name="functions--mutate-params"></a><a name="4.7"></a>
@@ -465,7 +467,7 @@
 
     > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
 
-    > Use `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... to iterate over arrays, and `Object.keys()` / `Object.values()` / `Object.entries()` to produce arrays so you can iterate over objects.
+    > Use `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... to iterate over arrays, and `Object.keys()` / `Object.values()` / `Object.entries()` to produce arrays so you can iterate over objects.  Use [lodash](https://lodash.com/) liberally and without hesitation ([underscore](http://underscorejs.org/) is also good, but we recommend lodash for consistency).  
 
     ```javascript
     var numbers = [1, 2, 3, 4, 5];
@@ -590,17 +592,21 @@
     
     
   <a name="variables--always-initialize"></a><a name="7.2"></a>
-  - [7.2](#variables--always-init) Always initialize variables.  If their value is unknown at the point of declaration, use `null`. eslint: [`init-declarations`](https://eslint.org/docs/rules/init-declarations)
+  - [7.2](#variables--always-init) Always initialize variables.  If their value is unknown at the point of declaration, use `null`.  Never use `undefined`. eslint: [`init-declarations`](https://eslint.org/docs/rules/init-declarations), [`no-undefined`](https://eslint.org/docs/rules/no-undefined), [`no-undef-init`](https://eslint.org/docs/rules/no-undef-init)
     
     ```javascript
     // bad
     var i;
     var foo;
     i = 8;
+    var whoKnows = undefined;
+    if (foo === undefined) {}
 
     // good
     var i = 8;
     var foo = null;
+    var whoKnows = null;
+    if (typeof foo === 'undefined') {}
     ```
 	
   <a name="variables--one-const"></a><a name="7.3"></a>
@@ -1359,33 +1365,57 @@
     ```
 
   <a name="whitespace--chains"></a><a name="13.6"></a>
-  - [13.6](#whitespace--chains) When chaining calls, put each chained method on a new line. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
+  - [13.6](#whitespace--chains) When chaining calls, put the root object and each chained method on a their own line. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
 
     ```javascript
     // bad
-    Customer.getList(10).munge(customer);
+    Customer.get(customerId).munge(customer);
 
     // good
     Customer
-      .getList(10)
-      .munge(customer);
+        .get(customerId)
+        .munge(customer);
 
     // bad
-    var myMungedCustomer = 
-      Customer
-        .getList(10)
+    var myMungedCustomer = Customer
+        .get(customerId)
         .munge(customer); 
+        
+    var myMungedCustomer = Customer.get(customerId)
+        .munge(customer);         
+    
+    // good
+    var myMungedCustomer = 
+        Customer
+            .getList(customerId)
+            .munge(customer);     
+    
+    // bad
+    var foo = function foo(cid) {
+        return Customer
+            .get(cid)
+            .munge();
+    };
+    
+    // good
+    var foo = function foo(cid) {
+        return 
+            Customer
+                .get(cid)
+                .munge();
+    };
+    
     // bad 
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
     // good
     var $selectedItems = $('#items').find('.selected');
     $selectedItems
-      .highlight()
-      .end();
+        .highlight()
+        .end();
     $selectedItems
-      .find('.open')
-      .updateCount();
+        .find('.open')
+        .updateCount();
     ```
 
   <a name="whitespace--after-blocks"></a><a name="13.7"></a>
@@ -1937,6 +1967,8 @@
   * [`no-extra-boolean-cast`](https://eslint.org/docs/rules/no-extra-boolean-cast)
   * [`no-extra-parens`](https://eslint.org/docs/rules/no-extra-parens)
   * [`no-unreachable`](https://eslint.org/docs/rules/no-unreachable)
+  * [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars)
+  * [`no-use-before-define`](https://eslint.org/docs/rules/no-use-before-define)
   * [`valid-typeof`](https://eslint.org/docs/rules/valid-typeof)
 
 ## License
