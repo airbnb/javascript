@@ -949,7 +949,7 @@
 
 ## Blocks
 <a name="blocks--braces"></a><a name="10.1"></a>
-  - [10.1](#blocks--braces) Do not put multiple statements on the same line, debugging is easier with one statement per line.
+  - [10.1](#blocks--braces) Do not put multiple statements on the same line, debugging is easier with one statement per line. eslint: [`max-statements-per-line`](https://eslint.org/docs/rules/max-statements-per-line)
 
     ```javascript
     // bad
