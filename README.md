@@ -1320,7 +1320,7 @@
     ```
 
   <a name="whitespace--infix-ops"></a><a name="13.4"></a>
-  - [13.4](#whitespace--infix-ops) Set off operators with spaces. eslint: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html) 
+  - [13.4](#whitespace--infix-ops) Set off operators with spaces. eslint: [`space-infix-ops`](https://eslint.org/docs/rules/space-infix-ops) 
 
     ```javascript
     // bad
