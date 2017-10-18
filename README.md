@@ -1381,8 +1381,8 @@
     // good
     var myMungedCustomer = 
         Customer
-          .getList(customerId)
-          .munge(customer);     
+            .getList(customerId)
+            .munge(customer);     
     
     // bad 
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
