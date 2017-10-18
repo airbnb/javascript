@@ -467,7 +467,7 @@
 
     > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
 
-    > Use `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... to iterate over arrays, and `Object.keys()` / `Object.values()` / `Object.entries()` to produce arrays so you can iterate over objects.
+    > Use `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... to iterate over arrays, and `Object.keys()` / `Object.values()` / `Object.entries()` to produce arrays so you can iterate over objects.  Use [lodash](https://lodash.com/) liberally and without hesitation ([underscore](http://underscorejs.org/) is also good, but we recommend lodash for consistency).  
 
     ```javascript
     var numbers = [1, 2, 3, 4, 5];
