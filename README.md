@@ -1099,8 +1099,10 @@
       return element;
     }
     
-    // Adam
-    // Had 'em
+    /*
+     * Adam
+     * Had 'em
+     */
     ```
 
   <a name="comments--singleline"></a><a name="12.2"></a>
