@@ -1979,7 +1979,7 @@
 ## Exception Handling
 
   <a name="exception-handling"></a><a name="20.1"></a>
-  - [19.1](#exception-handling) For Promises, always use a `catch` call instead of passing a failure-handling function.
+  - [20.1](#exception-handling) For Promises, always use a `catch` call instead of passing a failure-handling function.
 		
     > Why?  Check out [this good treatment on StackOverflow](https://stackoverflow.com/questions/24662289/when-is-thensuccess-fail-considered-an-antipattern-for-promises)
 
