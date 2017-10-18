@@ -65,20 +65,20 @@
     "for-direction": 0,                   // enforce “for” loop update clause moving the counter in the right direction.
     "getter-return": 0,                   // enforce return statements in getters
     "no-await-in-loop": 0,                // disallow await inside of loops
-    "no-compare-neg-zero": 0,             // disallow comparing against -0
-    "no-cond-assign": 0,                  // disallow assignment operators in conditional expressions
-    "no-console": 0,                      // disallow the use of console
+    "no-compare-neg-zero": "error",       // disallow comparing against -0
+    "no-cond-assign": "error",            // disallow assignment operators in conditional expressions
+    "no-console": "error",                // disallow the use of console
     "no-constant-condition": 0,           // disallow constant expressions in conditions
     "no-control-regex": 0,                // disallow control characters in regular expressions
-    "no-debugger": 0,                     // disallow the use of debugger
-    "no-dupe-args": 0,                    // disallow duplicate arguments in function definitions
-    "no-dupe-keys": 0,                    // disallow duplicate keys in object literals
-    "no-duplicate-case": 0,               // disallow duplicate case labels
+    "no-debugger": "error",               // disallow the use of debugger
+    "no-dupe-args": "error",              // disallow duplicate arguments in function definitions
+    "no-dupe-keys": "error",              // disallow duplicate keys in object literals
+    "no-duplicate-case": "error",         // disallow duplicate case labels
     "no-empty": 0,                        // disallow empty block statements
     "no-empty-character-class": 0,        // disallow empty character classes in regular expressions
     "no-ex-assign": 0,                    // disallow reassigning exceptions in catch clauses
-    "no-extra-boolean-cast": 0,           // disallow unnecessary boolean casts
-    "no-extra-parens": 0,                 // disallow unnecessary parentheses
+    "no-extra-boolean-cast": "error",     // disallow unnecessary boolean casts
+    "no-extra-parens": "error",           // disallow unnecessary parentheses
     "no-extra-semi": "error",             // disallow unnecessary semicolons
     "no-func-assign": 0,                  // disallow reassigning function declarations
     "no-inner-declarations": 0,           // disallow variable or function declarations in nested blocks
@@ -90,12 +90,16 @@
     "no-sparse-arrays": 0,                // disallow sparse arrays
     "no-template-curly-in-string": 0,     // disallow template literal placeholder syntax in regular strings
     "no-unexpected-multiline": 0,         // disallow confusing multiline expressions
-    "no-unreachable": 0,                  // disallow unreachable code after return, throw, continue, and break statements
+    "no-unreachable": "error",            // disallow unreachable code after return, throw, continue, and break statements
     "no-unsafe-finally": 0,               // disallow control flow statements in finally blocks
     "no-unsafe-negation": 0,              // disallow negating the left operand of relational operators
     "use-isnan": 0,                       // require calls to isNaN() when checking for NaN
     "valid-jsdoc": 0,                     // enforce valid JSDoc comments
-    "valid-typeof": 0,                    // enforce comparing typeof expressions against valid strings
+    "valid-typeof": [                     // enforce comparing typeof expressions against valid strings
+      "error", {
+        "requireStringLiterals": true
+      }
+    ],
 
     ////////// Best Practices //////////
 
@@ -308,7 +312,7 @@
     "quotes": ["error", "single"],         // enforce the consistent use of either backticks, double, or single quotes
     "require-jsdoc": 0,                    // require JSDoc comments
     "semi": ["error", "always"],           // require or disallow semicolons instead of ASI
-    "semi-spacing": 0,                     // enforce consistent spacing before and after semicolons
+    "semi-spacing": "error",               // enforce consistent spacing before and after semicolons
     "semi-style": 0,                       // enforce location of semicolons
     "sort-keys": 0,                        // require object keys to be sorted
     "sort-vars": 0,                        // require variables within the same declaration block to be sorted
