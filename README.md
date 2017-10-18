@@ -158,7 +158,7 @@
 	```
 
   <a name="strings--line-length"></a><a name="3.2"></a>
-  - [3.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.  (If using JSHint to limit line-length, you can add `// jshint ignore:line` at the end of the line)
+  - [3.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.  (Add `// eslint-disable-line max-len` or `// jshint ignore:line` at the end of the line to skip line-length checking)
 
     > Why? Broken strings are painful to work with and make code less searchable.
 
