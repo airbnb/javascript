@@ -1069,7 +1069,7 @@
 ## Comments
 
   <a name="comments--multiline"></a><a name="12.1"></a>
-  - [12.1](#comments--multiline) Use `/** ... */` for comments more than two lines.
+  - [12.1](#comments--multiline) Use `/** ... */` for multi-line comments. eslint: [`multiline-comment-style`](https://eslint.org/docs/rules/multiline-comment-style)
 
     ```javascript
     // bad
