@@ -626,7 +626,7 @@
     ```
 
   <a name="variables--capitalize-constants"></a><a name="7.4"></a>
-  - [7.4](#variables--capitalize-constants) Capitalize your constants.
+  - [7.4](#variables--capitalize-constants) Capitalize your constants with SCREAMING_SNAKE_CASE.
 
     ```javascript
     // bad
