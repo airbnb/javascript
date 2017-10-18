@@ -289,11 +289,13 @@
     // bad
     var f = function(){};
     var g = function (){};
-    var h = function() {};
+    foo(function(){});
 
     // good
-    var x = function () {};
-    var y = function a() {};
+    var f = function f() {};
+    var g = function g() {};
+    foo(function () {});
+
     ```
 
   <a name="functions--mutate-params"></a><a name="4.7"></a>
