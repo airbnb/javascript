@@ -1571,31 +1571,32 @@
     // bad
     var story = [
         once
-      , upon
-      , aTime
+        , upon
+        , aTime
     ];
 
     // good
     var story = [
-      once,
-      upon,
-      aTime,
+        once,
+        upon,
+        aTime
     ];
 
     // bad
     var hero = {
-        firstName: 'Ada'
-      , lastName: 'Lovelace'
-      , birthYear: 1815
-      , superPower: 'computers'
+          firstName: 'Ada'
+        , lastName: 'Lovelace'
+        , birthYear: 1815
+        , superPower: 'computers'
+        ,
     };
 
     // good
     var hero = {
-      firstName: 'Ada',
-      lastName: 'Lovelace',
-      birthYear: 1815,
-      superPower: 'computers',
+        firstName: 'Ada',
+        lastName: 'Lovelace',
+        birthYear: 1815,
+        superPower: 'computers'
     };
     ```
 
