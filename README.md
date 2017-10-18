@@ -646,29 +646,30 @@
 	```
 
   <a name="variables--const-let-group"></a><a name="7.5"></a>
-  - [7.5](#variables--const-let-group) Group all your constants and then group all your vars.
+  - [7.5](#variables--const-let-group) Group all your constants and then group all your vars.  Prefer inserting a line between the two blocks.
 
     > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
     ```javascript
-    // bad
+    // very bad
     var i, len, dragonball,
       items = getItems(),
       goSportsTeam = true;
 
     // bad
-    var i;
+    var i = null;
     var ITEMS = getItems();
-    var dragonball;
+    var dragonball = null;
     var GO_SPORTS_TEAM = true;
-    var len;
+    var len = null;
 
     // good
     var GO_SPORTS_TEAM = true;
     var ITEMS = getItems();
-    var dragonball;
-    var i;
-    var length;
+    
+    var dragonball = null;
+    var i = null;
+    var length = null;
     ```
 
   <a name="variables--no-chain-assignment"></a><a name="7.6"></a>
