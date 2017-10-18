@@ -1026,7 +1026,7 @@
 ## Control Statements
 
   <a name="control-statements"></a>
-  - [11.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition could be put into a new line. The logical operator should begin the line.
+  - [11.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition should be put into a new line. The logical operator should begin the line.
 
     ```javascript
     // bad
