@@ -970,7 +970,7 @@
     ```
 
   <a name="blocks--braces"></a><a name="10.2"></a>
-  - [10.2](#blocks--braces) Use braces with all blocks. 
+  - [10.2](#blocks--braces) Use braces with all blocks. eslint: [`curly`](https://eslint.org/docs/rules/curly)
     ```javascript
     // bad
     if( test )
