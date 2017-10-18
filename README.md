@@ -1621,25 +1621,66 @@
 ## Semicolons
 
   <a name="semicolons--required"></a><a name="15.1"></a>
-  - [15.1](#semicolons--required) **Yup.** eslint: [`semi`](http://eslint.org/docs/rules/semi.html) 
+  - [15.1](#semicolons--required) **Yup.** And no spaces before the semi-colon.  eslint: [`semi`](http://eslint.org/docs/rules/semi.html)
 
     ```javascript
     // bad
     function foo() {
       var name = 'Skywalker'
-      
+      var hairstyle = "70s" ;
       return name
     }
 
     // good
     function foo() {
       var name = 'Skywalker';
-      
+      var hairstyle = "70s";      
       return name;
     }
 
     ```
 
+<a name="semicolons--spacing"></a><a name="15.2"></a>
+  - [15.2](#semicolons--spacing) No spaces before the semi-colon.  eslint: [`semi-spacing`](https://eslint.org/docs/rules/semi-spacing)
+
+    ```javascript
+    // bad
+    function foo() {
+      var name = 'Skywalker' ;
+
+      return name
+    }
+
+    // good
+    function foo() {
+      var name = 'Skywalker';
+
+      return name;
+    }
+
+    ```
+  
+  <a name="semicolons--extra-semis"></a><a name="15.3"></a>
+  - [15.2](#semicolons--extra-semis) No extra semi-colosn.  eslint: [`no-extra-semi`](https://eslint.org/docs/rules/no-extra-semi)
+
+    ```javascript
+    // bad
+    function foo() {
+      var name = 'Skywalker';;;;;;;;
+
+      return name
+    }
+
+    // good
+    function foo() {
+      var name = 'Skywalker';
+
+      return name;
+    }
+
+    ```
+  
+  
 **[⬆ back to top](#table-of-contents)**
 
 ## Type Casting & Coercion
