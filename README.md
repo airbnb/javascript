@@ -193,6 +193,20 @@
     // good
     var foo = '\'this\' is "quoted"';
     ```
+    
+  <a name="strings--no-new"></a><a name="3.5"></a>
+  - [3.5](#strings--no-new) Do not use `new String`, use literals instead. eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
+  
+    ```javascript
+    // bad 
+    var myString = new String;
+    var hisString = new String();
+    var herString = new String('');
+    
+    // good
+    var everyonesString = '';
+    ```
+    
 
 **[⬆ back to top](#table-of-contents)**
 
