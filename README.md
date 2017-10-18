@@ -446,17 +446,73 @@
   <a name="functions--boolean-parameters"></a>
   - [4.11](#functions--parameter-spacing) Add spaces between function parameters of the outermost function.
 
-	```javascript
-	// bad
-	foo(a,b,c);
+    ```javascript
+    // bad
+    foo(a,b,c);
 
-	bar(baz(a,1),baz(b,2),baz(c,3));
-	
-	// good
-	foo(a, b, c);
+    bar(baz(a,1),baz(b,2),baz(c,3));
 
-	bar(baz(a,1), baz(b,2), baz(c,3));
-	```
+    // good
+    foo(a, b, c);
+
+    bar(baz(a,1), baz(b,2), baz(c,3));
+    ```
+  
+  <a name="functions--isolation"></a>
+  - [4.12](#functions--isolation) Isolate all functions to their own lines.
+  
+    ```javascript
+    // bad
+    var largeNumbers = numbers.filter(function (val) { return val >= 100; });
+    
+    // good
+    var largeNumbers = numbers.filter(
+        function (val) { 
+            return val >= 100; 
+        }
+    );
+    
+    // bad 
+    return 
+        Customer
+            .get(cid)
+            .then(function (customer) {
+                customer.processed = true;
+              
+                return customer;
+            });
+
+    // good
+    return 
+        Customer
+            .get(cid)
+            .then(
+                function (customer) {
+                    customer.processed = true;
+              
+                    return customer;
+                }
+            );  
+            
+    // bad
+    var interface = {
+        foo: function () { return 'foo'; },
+        bar: function () { return 'bar'; }
+    };
+    
+    // good
+    var interface = {
+        foo: 
+            function () { 
+                return 'foo'; 
+            },
+        bar: 
+            function () { 
+                return 'bar'; 
+            }
+    };
+    
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
