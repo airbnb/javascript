@@ -665,7 +665,7 @@
     ```
 
   <a name="variables--no-chain-assignment"></a><a name="7.6"></a>
-  - [7.6](#variables--no-chain-assignment) Don’t chain variable assignments.
+  - [7.6](#variables--no-chain-assignment) Don’t chain variable assignments. eslint: [`no-multi-assign`](https://eslint.org/docs/rules/no-multi-assign)
 
     > Why? Chaining variable assignments creates implicit global variables.
 
