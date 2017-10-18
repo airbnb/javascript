@@ -1107,7 +1107,7 @@
       return element;
     }
     
-    /*
+    /**
      * Adam
      * Had 'em
      */
