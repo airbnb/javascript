@@ -592,17 +592,21 @@
     
     
   <a name="variables--always-initialize"></a><a name="7.2"></a>
-  - [7.2](#variables--always-init) Always initialize variables.  If their value is unknown at the point of declaration, use `null`. eslint: [`init-declarations`](https://eslint.org/docs/rules/init-declarations)
+  - [7.2](#variables--always-init) Always initialize variables.  If their value is unknown at the point of declaration, use `null`.  Never use `undefined`. eslint: [`init-declarations`](https://eslint.org/docs/rules/init-declarations), [`no-undefined`](https://eslint.org/docs/rules/no-undefined), [`no-undef-init`](https://eslint.org/docs/rules/no-undef-init)
     
     ```javascript
     // bad
     var i;
     var foo;
     i = 8;
+    var whoKnows = undefined;
+    if (foo === undefined) {}
 
     // good
     var i = 8;
     var foo = null;
+    var whoKnows = null;
+    if (typeof foo === 'undefined') {}
     ```
 	
   <a name="variables--one-const"></a><a name="7.3"></a>
@@ -1963,6 +1967,8 @@
   * [`no-extra-boolean-cast`](https://eslint.org/docs/rules/no-extra-boolean-cast)
   * [`no-extra-parens`](https://eslint.org/docs/rules/no-extra-parens)
   * [`no-unreachable`](https://eslint.org/docs/rules/no-unreachable)
+  * [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars)
+  * [`no-use-before-define`](https://eslint.org/docs/rules/no-use-before-define)
   * [`valid-typeof`](https://eslint.org/docs/rules/valid-typeof)
 
 ## License
