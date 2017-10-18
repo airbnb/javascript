@@ -990,8 +990,8 @@
     }
     ```
 
-  <a name="blocks--cuddled-elses"></a><a name="10.3"></a>
-  - [10.3](#blocks--cuddled-elses) Bracing style: use [Stroustrup](https://en.wikipedia.org/wiki/Indentation_style#Variant:_Stroustrup). eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) 
+  <a name="blocks--bracing-style"></a><a name="10.3"></a>
+  - [10.3](#blocks--bracing-style) Bracing style: use [Stroustrup](https://en.wikipedia.org/wiki/Indentation_style#Variant:_Stroustrup). eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) 
 
     ```javascript
     // bad (K&R, one true brace style)
