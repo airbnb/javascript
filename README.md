@@ -1661,7 +1661,7 @@
     ```
   
   <a name="semicolons--extra-semis"></a><a name="15.3"></a>
-  - [15.2](#semicolons--extra-semis) No extra semi-colosn.  eslint: [`no-extra-semi`](https://eslint.org/docs/rules/no-extra-semi)
+  - [15.2](#semicolons--extra-semis) No extra semi-colons.  eslint: [`no-extra-semi`](https://eslint.org/docs/rules/no-extra-semi)
 
     ```javascript
     // bad
