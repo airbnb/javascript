@@ -374,8 +374,9 @@ module.exports = {
     // http://eslint.org/docs/rules/operator-assignment
     'operator-assignment': ['error', 'always'],
 
-    // enforce operators to be placed before or after line breaks
-    'operator-linebreak': 'off',
+    // Requires operator at the beginning of the line in multiline statements
+    // https://eslint.org/docs/rules/operator-linebreak
+    'operator-linebreak': ['error', 'before'],
 
     // disallow padding within blocks
     'padded-blocks': ['error', { blocks: 'never', classes: 'never', switches: 'never' }],
