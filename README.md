@@ -1384,6 +1384,21 @@
             .getList(customerId)
             .munge(customer);     
     
+    // bad
+    var foo = function foo(cid) {
+        return Customer
+            .get(cid)
+            .munge();
+    };
+    
+    // good
+    var foo = function foo(cid) {
+        return 
+            Customer
+                .get(cid)
+                .munge();
+    };
+    
     // bad 
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
