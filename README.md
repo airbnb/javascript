@@ -1363,25 +1363,25 @@
 
     ```javascript
     // bad
-    Customer.getList(10).munge(customer);
+    Customer.get(customerId).munge(customer);
 
     // good
     Customer
-        .getList(10)
+        .get(customerId)
         .munge(customer);
 
     // bad
     var myMungedCustomer = Customer
-        .getList(10)
+        .get(customerId)
         .munge(customer); 
         
-    var myMungedCustomer = Customer.getList(10)
+    var myMungedCustomer = Customer.get(customerId)
         .munge(customer);         
     
     // good
     var myMungedCustomer = 
         Customer
-          .getList(10)
+          .getList(customerId)
           .munge(customer);     
     
     // bad 
