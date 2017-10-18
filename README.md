@@ -589,7 +589,7 @@
     
     
   <a name="variables--always-initialize"></a><a name="7.2"></a>
-  - [7.2](#variables--always-init) Always initialize variables.  If their value is unknown at the point of declaration, use `null`.
+  - [7.2](#variables--always-init) Always initialize variables.  If their value is unknown at the point of declaration, use `null`. eslint: [`init-declarations`](https://eslint.org/docs/rules/init-declarations)
     
     ```javascript
     // bad
