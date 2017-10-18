@@ -24,6 +24,7 @@
   1. [Accessors](#accessors)
   1. [Events](#events)
   1. [Exception Handling](#exception-handling)
+  1. [Sundries](#sundries)
   1. [License](#license)
 
 	
@@ -1918,6 +1919,25 @@
   			});
   			
   		```
+
+**[⬆ back to top](#table-of-contents)**
+
+## Sundries
+
+  <a name="sundries"></a><a name="21.1"></a>
+  - [21.1](#sundries) Some obvious error situations (or ones close enough that we don't need to support them).
+  
+  * [`no-compare-neg-zero`](https://eslint.org/docs/rules/no-compare-neg-zero)
+  * [`no-cond-assign`](https://eslint.org/docs/rules/no-cond-assign)
+  * [`no-console`](https://eslint.org/docs/rules/no-console)
+  * [`no-debugger`](https://eslint.org/docs/rules/no-debugger)
+  * [`no-dupe-args`](https://eslint.org/docs/rules/no-dupe-args)
+  * [`no-dupe-keys`](https://eslint.org/docs/rules/no-dupe-keys)
+  * [`no-duplicate-case`](https://eslint.org/docs/rules/no-duplicate-case)
+  * [`no-extra-boolean-cast`](https://eslint.org/docs/rules/no-extra-boolean-cast)
+  * [`no-extra-parens`](https://eslint.org/docs/rules/no-extra-parens)
+  * [`no-unreachable`](https://eslint.org/docs/rules/no-unreachable)
+  * [`valid-typeof`](https://eslint.org/docs/rules/valid-typeof)
 
 ## License
 
