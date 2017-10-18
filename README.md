@@ -30,7 +30,7 @@
 ## Objects
 
   <a name="objects--no-new"></a><a name="1.1"></a>
-  - [1.1](#objects--no-new) Use the literal syntax for object creation. eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
+  - [1.1](#objects--no-new) Use the literal syntax for object creation. jshint: [`nonew`](http://jshint.com/docs/options/#nonew), eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
 
     ```javascript
     // bad
@@ -144,7 +144,7 @@
 ## Strings
 
   <a name="strings--quotes"></a><a name="3.1"></a>
-  - [3.1](#strings--quotes) Use single quotes `'` for strings. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html)
+  - [3.1](#strings--quotes) Use single quotes `'` for strings. jshint: [`quotmark`](http://jshint.com/docs/options/#quotmark), eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html)
 
  
 	```javascript
@@ -158,7 +158,7 @@
 	```
 
   <a name="strings--line-length"></a><a name="3.2"></a>
-  - [3.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.  (If using JSHint to limit line-length, you can add `// jshint ignore:line` at the end of the line)
+  - [3.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.  eslint: `max-len` has an option to allow ignoring strings that exceed the line limit
 
     > Why? Broken strings are painful to work with and make code less searchable.
 
@@ -179,7 +179,7 @@
     ```
 
   <a name="strings--eval"></a><a name="3.3"></a>
-  - [3.3](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities. eslint: [`no-eval`](http://eslint.org/docs/rules/no-eval)
+  - [3.3](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities. jshint: [`evil`](http://jshint.com/docs/options/#evil), eslint: [`no-eval`](http://eslint.org/docs/rules/no-eval)
 
   <a name="strings--escaping"></a><a name="3.4"></a>
   - [3.4](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
@@ -193,6 +193,20 @@
     // good
     var foo = '\'this\' is "quoted"';
     ```
+    
+  <a name="strings--no-new"></a><a name="3.5"></a>
+  - [3.5](#strings--no-new) Do not use `new String`, use literals instead. eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
+  
+    ```javascript
+    // bad 
+    var myString = new String;
+    var hisString = new String();
+    var herString = new String('');
+    
+    // good
+    var everyonesString = '';
+    ```
+    
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -516,7 +530,7 @@
 ## Properties
 
   <a name="properties--dot"></a><a name="6.1"></a>
-  - [6.1](#properties--dot) Use dot notation when accessing properties. eslint: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html) jscs: [`requireDotNotation`](http://jscs.info/rule/requireDotNotation)
+  - [6.1](#properties--dot) Use dot notation when accessing properties. eslint: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html) 
 
     ```javascript
     var luke = {
@@ -531,7 +545,7 @@
     var isJedi = luke.jedi;
     ```
 
-  <a name="properties--bracket"></a><a name="12.2"></a>
+  <a name="properties--bracket"></a><a name="6.2"></a>
   - [6.2](#properties--bracket) Use bracket notation `[]` when accessing properties with a variable.
 
     ```javascript
@@ -575,7 +589,7 @@
     
     
   <a name="variables--always-initialize"></a><a name="7.2"></a>
-  - [7.2](#variables--always-init) Always initialize variables.  If their value is unknown at the point of declaration, use `null`.
+  - [7.2](#variables--always-init) Always initialize variables.  If their value is unknown at the point of declaration, use `null`. eslint: [`init-declarations`](https://eslint.org/docs/rules/init-declarations)
     
     ```javascript
     // bad
@@ -593,11 +607,11 @@
 
     > Why? It’s easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
 
-   ```javascript
+    ```javascript
     // bad
     var items = getItems(),
-        goSportsTeam = true,
-        dragonball = 'z';
+      goSportsTeam = true,
+      dragonball = 'z';
 
     // bad
     // (compare to above, and try to spot the mistake)
@@ -608,16 +622,11 @@
     // good
     var items = getItems();
     var goSportsTeam = true;
-    var dragonball = 'z';
-    
-    // best
-	var items 			= getItems();
-	var goSportsTeam 	= true;
-	var dragonball 		= 'z';    
-   ```
+    var dragonball = 'z';    
+    ```
 
   <a name="variables--capitalize-constants"></a><a name="7.4"></a>
-  - [7.4](#variables--capitalize-constants) Capitalize your constants.
+  - [7.4](#variables--capitalize-constants) Capitalize your constants with SCREAMING_SNAKE_CASE.
 
     ```javascript
     // bad
@@ -637,43 +646,44 @@
     ```javascript
     // bad
     var i, len, dragonball,
-        items = getItems(),
-        goSportsTeam = true;
+      items = getItems(),
+      goSportsTeam = true;
 
     // bad
     var i;
-    var items = getItems();
+    var ITEMS = getItems();
     var dragonball;
-    var goSportsTeam = true;
+    var GO_SPORTS_TEAM = true;
     var len;
 
     // good
     var GO_SPORTS_TEAM = true;
-    var NUM_ITEMS = getItems();
+    var ITEMS = getItems();
     var dragonball;
     var i;
     var length;
     ```
 
   <a name="variables--no-chain-assignment"></a><a name="7.6"></a>
-  - [7.6](#variables--no-chain-assignment) Don’t chain variable assignments.
+  - [7.6](#variables--no-chain-assignment) Don’t chain variable assignments. eslint: [`no-multi-assign`](https://eslint.org/docs/rules/no-multi-assign)
 
-		> Why? Chaining variable assignments creates implicit global variables.
+    > Why? Chaining variable assignments creates implicit global variables.
 
-		```javascript
-		// bad
-		function example() {
-			// JavaScript interprets this as
-			// var a = ( b = ( c = 1 ) );
-			// The var keyword only applies to variable a; variables b and c become
-			// global variables.
-			var a = b = c = 1;
-			// function body...
-		}
-		console.log(a); // throws ReferenceError
-		console.log(b); // 1
-		console.log(c); // 1
-		
+    ```javascript
+    // bad
+    function example() {
+      // JavaScript interprets this as
+      // var a = ( b = ( c = 1 ) );
+      // The var keyword only applies to variable a; variables b and c become
+      // global variables.
+      var a = b = c = 1;
+      // function body...
+    }
+
+    console.log(a); // throws ReferenceError
+    console.log(b); // 1
+    console.log(c); // 1
+
     // good
     function example() {
       var a = 1;
@@ -755,28 +765,27 @@
 
     ```
   For this reason declare all variables at the top of their function blocks.
-  
-  	```javascript
-  		// bad
-  		function foo(wombats, marmosets) {
-  			console.log('Total: ' + numWombats + numMarmosets);
 
-  			var numWombats = wombats.length;
-  			console.log('Wombats: ' + wombatCount);
-  			
-  			var numMarmosets = marmosets.length;
-  			console.log('Marmosets count: ' + numMarmosets);
-  		}
-  		
-  		// good
-  		function foo(wombats, marmosets) {
-  			var numWombats = wombats.length;    			var numMarmosets = marmosets.length;		
-  			console.log('Total: ' + numWombats + numMarmosets);
-  			console.log('Wombats: ' + wombatCount);
-  			console.log('Marmosets count: ' + numMarmosets);
-  		}
-  		
-  	```
+    ```javascript
+      // bad
+      function foo(wombats, marmosets) {
+        console.log('Total: ' + numWombats + numMarmosets);
+
+        var numWombats = wombats.length;
+        console.log('Wombats: ' + wombatCount);
+
+        var numMarmosets = marmosets.length;
+        console.log('Marmosets count: ' + numMarmosets);
+      }
+
+      // good
+      function foo(wombats, marmosets) {
+        var numWombats = wombats.length;    			var numMarmosets = marmosets.length;		
+        console.log('Total: ' + numWombats + numMarmosets);
+        console.log('Wombats: ' + wombatCount);
+        console.log('Marmosets count: ' + numMarmosets);
+      }
+    ```
     
   <a name="hoisting--anon-expressions"></a><a name="8.2"></a>
   - [8.2](#hoisting--anon-expressions) Anonymous function expressions hoist their variable name, but not the function assignment.
@@ -864,37 +873,37 @@
   <a name="comparison--shortcuts"></a><a name="9.3"></a>
   - [9.3](#comparison--shortcuts) Use shortcuts for booleans, but explicit comparisons for strings and numbers.
 
-  ```javascript
-  // bad
-  if (isValid === true) {
-    // ...
-  }
+    ```javascript
+    // bad
+    if (isValid === true) {
+      // ...
+    }
 
-  // good
-  if (isValid) {
-    // ...
-  }
+    // good
+    if (isValid) {
+      // ...
+    }
 
-  // bad
-  if (name) {
-    // ...
-  }
+    // bad
+    if (name) {
+      // ...
+    }
 
-  // good
-  if (name !== '') {
-    // ...
-  }
+    // good
+    if (name !== '') {
+      // ...
+    }
 
-  // bad
-  if (collection.length) {
-    // ...
-  }
+    // bad
+    if (collection.length) {
+      // ...
+    }
 
-  // good
-  if (collection.length > 0) {
-    // ...
-  }
-  ```
+    // good
+    if (collection.length > 0) {
+      // ...
+    }
+    ```
 
   <a name="comparison--moreinfo"></a><a name="9.4"></a>
   - [9.4](#comparison--moreinfo) For more information see [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
@@ -940,7 +949,7 @@
 
 ## Blocks
 <a name="blocks--braces"></a><a name="10.1"></a>
-  - [10.1](#blocks--braces) Do not put multiple statements on the same line, debugging is easier with one statement per line.
+  - [10.1](#blocks--braces) Do not put multiple statements on the same line, debugging is easier with one statement per line. eslint: [`max-statements-per-line`](https://eslint.org/docs/rules/max-statements-per-line)
 
     ```javascript
     // bad
@@ -961,7 +970,7 @@
     ```
 
   <a name="blocks--braces"></a><a name="10.2"></a>
-  - [10.2](#blocks--braces) Use braces with all blocks. 
+  - [10.2](#blocks--braces) Use braces with all blocks. eslint: [`curly`](https://eslint.org/docs/rules/curly)
     ```javascript
     // bad
     if( test )
@@ -1060,7 +1069,7 @@
 ## Comments
 
   <a name="comments--multiline"></a><a name="12.1"></a>
-  - [12.1](#comments--multiline) Use `/** ... */` for comments more than two lines.
+  - [12.1](#comments--multiline) Use `/** ... */` for multi-line comments. eslint: [`multiline-comment-style`](https://eslint.org/docs/rules/multiline-comment-style)
 
     ```javascript
     // bad
@@ -1090,12 +1099,14 @@
       return element;
     }
     
-    // Adam
-    // Had 'em
+    /*
+     * Adam
+     * Had 'em
+     */
     ```
 
   <a name="comments--singleline"></a><a name="12.2"></a>
-  - [12.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it’s on the first line of a block.
+  - [12.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it’s on the first line of a block. 
 
     ```javascript
     // bad
@@ -1133,7 +1144,7 @@
     }
     ```
 
-  - [12.3](#comments--spaces) Start all comments with a space to make it easier to read. eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
+  - [12.3](#comments--spaces) Start all comments with a space to make it easier to read. eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment), [`spaced-line-comment`](https://eslint.org/docs/rules/spaced-line-comment)
 
     ```javascript
     // bad
@@ -1258,7 +1269,7 @@
     ```
 
   <a name="whitespace--before-blocks"></a><a name="13.2"></a>
-  - [13.2](#whitespace--before-blocks) Place 1 space before the leading brace. eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
+  - [13.2](#whitespace--before-blocks) Place 1 space before the leading brace. eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) 
 
     ```javascript
     // bad
@@ -1289,7 +1300,7 @@
     ```
 
   <a name="whitespace--around-keywords"></a><a name="13.3"></a>
-  - [13.3](#whitespace--around-keywords) Place a space after the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing.html) 
+  - [13.3](#whitespace--around-keywords) Do not place a space after the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing.html) 
     ```javascript
     // bad
     if ( isJedi ) {
@@ -1297,23 +1308,19 @@
     }
 
     // good
-    if ( isJedi ) {
+    if (isJedi) {
       fight();
     }
 
     // bad
-    function fight () {
-      console.log ('Swooosh!');
-    }
-
+    while ( true ) {}
+    
     // good
-    function fight() {
-      console.log('Swooosh!');
-    }
+    while (true) {}
     ```
 
   <a name="whitespace--infix-ops"></a><a name="13.4"></a>
-  - [13.4](#whitespace--infix-ops) Set off operators with spaces. eslint: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html) jscs: [`requireSpaceBeforeBinaryOperators`](http://jscs.info/rule/requireSpaceBeforeBinaryOperators), [`requireSpaceAfterBinaryOperators`](http://jscs.info/rule/requireSpaceAfterBinaryOperators)
+  - [13.4](#whitespace--infix-ops) Set off operators with spaces. eslint: [`space-infix-ops`](https://eslint.org/docs/rules/space-infix-ops) 
 
     ```javascript
     // bad
@@ -1324,7 +1331,7 @@
     ```
 
   <a name="whitespace--newline-at-end"></a><a name="13.5"></a>
-  - [13.5](#whitespace--newline-at-end) End files with a single newline character. eslint: [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md)
+  - [13.5](#whitespace--newline-at-end) End files with a single newline character. eslint: [`eol-last`](https://eslint.org/docs/rules/eol-last)
 	
     > Why?  Do you even POSIX?  Many *nix utilities that process text files rely on all lines ending with a line break.
 	
@@ -1353,36 +1360,35 @@
   <a name="whitespace--chains"></a><a name="13.6"></a>
   - [13.6](#whitespace--chains) When chaining calls, put each chained method on a new line. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
 
-		```javascript
-		// bad
-		Customer.getList(10).munge(customer);
-		    
-		// good
-		Customer
-			.getList(10)
-			.munge(customer);
-		    
-		// bad
-		var myMungedCustomer = 
-			Customer
-				.getList(10)
-				.munge(customer); 
-		// bad 
-		$('#items').find('.selected').highlight().end().find('.open').updateCount();
-		
-		// good
-		var $selectedItems = $('#items').find('.selected');
-		$selectedItems
-			.highlight()
-			.end();
-		$selectedItems			
-			.find('.open')
-			.updateCount();   
-    
+    ```javascript
+    // bad
+    Customer.getList(10).munge(customer);
+
+    // good
+    Customer
+      .getList(10)
+      .munge(customer);
+
+    // bad
+    var myMungedCustomer = 
+      Customer
+        .getList(10)
+        .munge(customer); 
+    // bad 
+    $('#items').find('.selected').highlight().end().find('.open').updateCount();
+
+    // good
+    var $selectedItems = $('#items').find('.selected');
+    $selectedItems
+      .highlight()
+      .end();
+    $selectedItems
+      .find('.open')
+      .updateCount();
     ```
 
   <a name="whitespace--after-blocks"></a><a name="13.7"></a>
-  - [13.7](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement. jscs: [`requirePaddingNewLinesAfterBlocks`](http://jscs.info/rule/requirePaddingNewLinesAfterBlocks)
+  - [13.7](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement. 
 
     ```javascript
     // bad
@@ -1496,7 +1502,7 @@
     ```
 
   <a name="whitespace--max-len"></a><a name="13.12"></a>
-  - [13.12](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
+  - [13.12](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) 
 
     > Why? This ensures readability and maintainability.
 
@@ -1530,7 +1536,7 @@
 ## Commas
 
   <a name="commas--leading-trailing"></a><a name="14.1"></a>
-  - [14.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
+  - [14.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) 
 
     ```javascript
     // bad
@@ -1615,25 +1621,66 @@
 ## Semicolons
 
   <a name="semicolons--required"></a><a name="15.1"></a>
-  - [15.1](#semicolons--required) **Yup.** eslint: [`semi`](http://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
+  - [15.1](#semicolons--required) **Yup.** And no spaces before the semi-colon.  eslint: [`semi`](http://eslint.org/docs/rules/semi.html)
 
     ```javascript
     // bad
     function foo() {
       var name = 'Skywalker'
-      
+      var hairstyle = "70s" ;
       return name
     }
 
     // good
     function foo() {
       var name = 'Skywalker';
-      
+      var hairstyle = "70s";      
       return name;
     }
 
     ```
 
+<a name="semicolons--spacing"></a><a name="15.2"></a>
+  - [15.2](#semicolons--spacing) No spaces before the semi-colon.  eslint: [`semi-spacing`](https://eslint.org/docs/rules/semi-spacing)
+
+    ```javascript
+    // bad
+    function foo() {
+      var name = 'Skywalker' ;
+
+      return name
+    }
+
+    // good
+    function foo() {
+      var name = 'Skywalker';
+
+      return name;
+    }
+
+    ```
+  
+  <a name="semicolons--extra-semis"></a><a name="15.3"></a>
+  - [15.3](#semicolons--extra-semis) No extra semi-colons.  eslint: [`no-extra-semi`](https://eslint.org/docs/rules/no-extra-semi)
+
+    ```javascript
+    // bad
+    function foo() {
+      var name = 'Skywalker';;;;;;;;
+
+      return name
+    }
+
+    // good
+    function foo() {
+      var name = 'Skywalker';
+
+      return name;
+    }
+
+    ```
+  
+  
 **[⬆ back to top](#table-of-contents)**
 
 ## Type Casting & Coercion
@@ -1739,7 +1786,7 @@
     ```
 
   <a name="naming--camelCase"></a><a name="17.2"></a>
-  - [17.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
+  - [17.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) 
 
     ```javascript
     // bad
@@ -1847,7 +1894,8 @@
 
   <a name="exception-handling"></a><a name="20.1"></a>
   - [19.1](#exception-handling) For Promises, always use a `catch` call instead of passing a failure-handling function.
-		> Why?  Check out [this good treatment on StackOverflow](https://stackoverflow.com/questions/24662289/when-is-thensuccess-fail-considered-an-antipattern-for-promises)
+		
+    > Why?  Check out [this good treatment on StackOverflow](https://stackoverflow.com/questions/24662289/when-is-thensuccess-fail-considered-an-antipattern-for-promises)
 
   		```javascript
   		// bad
