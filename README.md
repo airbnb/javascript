@@ -545,7 +545,7 @@
     var isJedi = luke.jedi;
     ```
 
-  <a name="properties--bracket"></a><a name="12.2"></a>
+  <a name="properties--bracket"></a><a name="6.2"></a>
   - [6.2](#properties--bracket) Use bracket notation `[]` when accessing properties with a variable.
 
     ```javascript
@@ -1106,7 +1106,7 @@
     ```
 
   <a name="comments--singleline"></a><a name="12.2"></a>
-  - [12.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it’s on the first line of a block.
+  - [12.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it’s on the first line of a block. 
 
     ```javascript
     // bad
@@ -1144,7 +1144,7 @@
     }
     ```
 
-  - [12.3](#comments--spaces) Start all comments with a space to make it easier to read. eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
+  - [12.3](#comments--spaces) Start all comments with a space to make it easier to read. eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment), [`spaced-line-comment`](https://eslint.org/docs/rules/spaced-line-comment)
 
     ```javascript
     // bad
