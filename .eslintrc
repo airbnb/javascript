@@ -18,14 +18,14 @@
   //  },
   //
   //  // https://eslint.org/docs/user-guide/configuring#specifying-environments
-  //  "env": {
+    "env": {
   //    "browser": false,                     // browser global variables
   //    "node": false,                        // Node.js global variables and Node.js scoping
   //    "commonjs": false,                    // CommonJS global variables and CommonJS scoping (use this for browser-only code that uses Browserify/WebPack)
   //    "shared-node-browser": false,         // Globals common to both Node and Browser
   //    "es6": false,                         // enable all ECMAScript 6 features except for modules (this automatically sets the ecmaVersion parser option to 6)
   //    "worker": false,                      // web workers global variables
-  //    "amd": false,                         // defines require() and define() as global variables as per the amd spec
+      "amd": true                         // defines require() and define() as global variables as per the amd spec
   //    "mocha": false,                       // adds all of the Mocha testing global variables
   //    "jasmine": false,                     // adds all of the Jasmine testing global variables for version 1.3 and 2.0
   //    "jest": false,                        // Jest global variables
@@ -44,7 +44,7 @@
   //    "embertest": false,                   // Ember test globals
   //    "webextensions": false,               // WebExtensions globals
   //    "greasemonkey": false,                // GreaseMonkey globals
-  //  },
+    },
   //
   //  // https://eslint.org/docs/user-guide/configuring#specifying-globals
   //  "globals": {
@@ -78,7 +78,7 @@
     "no-empty-character-class": 0,        // disallow empty character classes in regular expressions
     "no-ex-assign": 0,                    // disallow reassigning exceptions in catch clauses
     "no-extra-boolean-cast": "error",     // disallow unnecessary boolean casts
-    "no-extra-parens": "error",           // disallow unnecessary parentheses
+    "no-extra-parens": 0,                 // disallow unnecessary parentheses
     "no-extra-semi": "error",             // disallow unnecessary semicolons
     "no-func-assign": 0,                  // disallow reassigning function declarations
     "no-inner-declarations": 0,           // disallow variable or function declarations in nested blocks
@@ -151,11 +151,7 @@
     "no-new-wrappers": "error",           // disallow new operators with the String, Number, and Boolean objects
     "no-octal": 0,                        // disallow octal literals
     "no-octal-escape": 0,                 // disallow octal escape sequences in string literals
-    "no-param-reassign": [                // disallow reassigning function parameters
-      "error", {
-        "props": true                       // prevent assignation to parameters' properties
-      }
-    ],
+    "no-param-reassign": "error",         // disallow reassigning function parameters
     "no-proto": 0,                        // disallow the use of the __proto__ property
     "no-redeclare": 0,                    // disallow variable redeclaration
     "no-restricted-properties": [         // disallow certain properties on certain objects
@@ -249,7 +245,7 @@
     "max-depth": 0,                        // enforce a maximum depth that blocks can be nested
     "max-len": [                           // enforce a maximum line length
       "error", {
-        "code": 100,                         // 100-character limit
+        "code": 120,                         // 100-character limit
         "ignoreStrings": true                // let long strings exceed this limit
       }
     ],
@@ -300,9 +296,9 @@
     "nonblock-statement-body-position": 0, // enforce the location of single-line statements
     "object-curly-newline": 0,             // enforce consistent line breaks inside braces
     "object-curly-spacing":                // enforce consistent spacing inside braces
-      ["error", "never"],
+      ["error", "always"],
     "object-property-newline": 0,          // enforce placing object properties on separate lines
-    "one-var": ["error", "always"],        // enforce variables to be declared either together or separately in functions
+    "one-var": ["error", "never"],        // enforce variables to be declared either together or separately in functions
     "one-var-declaration-per-line": 0,     // require or disallow newlines around variable declarations
     "operator-assignment": 0,              // require or disallow assignment operator shorthand where possible
     "operator-linebreak": 0,               // enforce consistent linebreak style for operators
