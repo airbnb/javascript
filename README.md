@@ -110,34 +110,34 @@
 	```javascript
 	// bad
 	var arr = [
-		[0, 1], [2, 3], [4, 5],
+	    [0, 1], [2, 3], [4, 5],
 	];
 
 	var objectInArray = [{
-		id: 1,
-	}, {
-		id: 2,
+	        id: 1,
+	    }, {
+	        id: 2,
 	}];
 
 	var numberInArray = [
-	1, 2,
+	    1, 2,
 	];
 
 	// good
 	var arr = [[0, 1], [2, 3], [4, 5]];
 	
 	var objectInArray = [
-		{
-		  id: 1,
-		},
-		{
-		  id: 2,
-		},
+	    {
+	        id: 1,
+	    },
+	    {
+	        id: 2,
+	    },
 	];
 	
 	var numberInArray = [
-		1,
-		2
+	    1,
+	    2
 	];
 	```
 
