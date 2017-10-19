@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/fivestars/javascript/issues"
   },
-  "homepage": "https://github.com/fivestars/javascript#readme"
+  "homepage": "https://github.com/fivestars/javascript#readme",
+  "peerDependencies": {
+    "eslint": ">= 4.9.0"
+  }
 }
