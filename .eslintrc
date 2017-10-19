@@ -213,7 +213,7 @@
     "array-element-newline": 0,            // enforce line breaks after each array element
     "block-spacing": 0,                    // enforce consistent spacing inside single-line blocks
     "brace-style":                         // enforce consistent brace style for blocks
-      ["error", "stroustrup"],
+      ["error", "1tbs"],
     "camelcase": 0,                        // enforce camelcase naming convention
     "capitalized-comments": 0,             // enforce or disallow capitalization of the first letter of a comment
     "comma-dangle": ["error", "never"],    // require or disallow trailing commas
