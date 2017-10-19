@@ -1097,7 +1097,7 @@
         thing1();
     }
 
-    if ((foo === 123 || bar === 'abc' || baz === 'quux') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
+    if ((foo === 123 || bar === 'abc' || baz === 'quux') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()  && (ohno === 'it' || justKeeps === 'going')) {
         thing1();
     }
 
@@ -1121,6 +1121,7 @@
         ) 
         && doesItLookGoodWhenItBecomesThatLong() 
         && isThisReallyHappening()
+	&& (ohno === 'it' || justKeeps === 'going')
     ) {
         thing1();
     } 
