@@ -47,9 +47,9 @@
     },
   //
   //  // https://eslint.org/docs/user-guide/configuring#specifying-globals
-  //  "globals": {
-  //    // e.g. "Vue": true
-  //  },
+    "globals": {
+      "module": false
+    },
   //
   //  // https://eslint.org/docs/user-guide/configuring#configuring-plugins
   //  "plugins": [
