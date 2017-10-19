@@ -24,5 +24,8 @@
   "homepage": "https://github.com/fivestars/javascript#readme",
   "peerDependencies": {
     "eslint": ">= 4.9.0"
+  },
+  "dependencies": {
+    "decomment": "^0.9.1"
   }
 }
