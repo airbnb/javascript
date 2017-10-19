@@ -446,17 +446,73 @@
   <a name="functions--boolean-parameters"></a>
   - [4.11](#functions--parameter-spacing) Add spaces between function parameters of the outermost function.
 
-	```javascript
-	// bad
-	foo(a,b,c);
+    ```javascript
+    // bad
+    foo(a,b,c);
 
-	bar(baz(a,1),baz(b,2),baz(c,3));
-	
-	// good
-	foo(a, b, c);
+    bar(baz(a,1),baz(b,2),baz(c,3));
 
-	bar(baz(a,1), baz(b,2), baz(c,3));
-	```
+    // good
+    foo(a, b, c);
+
+    bar(baz(a,1), baz(b,2), baz(c,3));
+    ```
+  
+  <a name="functions--isolation"></a>
+  - [4.12](#functions--isolation) Isolate all functions to their own lines.
+  
+    ```javascript
+    // bad
+    var largeNumbers = numbers.filter(function (val) { return val >= 100; });
+    
+    // good
+    var largeNumbers = numbers.filter(
+        function (val) { 
+            return val >= 100; 
+        }
+    );
+    
+    // bad 
+    return 
+        Customer
+            .get(cid)
+            .then(function (customer) {
+                customer.processed = true;
+              
+                return customer;
+            });
+
+    // good
+    return 
+        Customer
+            .get(cid)
+            .then(
+                function (customer) {
+                    customer.processed = true;
+              
+                    return customer;
+                }
+            );  
+            
+    // bad
+    var interface = {
+        foo: function () { return 'foo'; },
+        bar: function () { return 'bar'; }
+    };
+    
+    // good
+    var interface = {
+        foo: 
+            function () { 
+                return 'foo'; 
+            },
+        bar: 
+            function () { 
+                return 'bar'; 
+            }
+    };
+    
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -646,29 +702,30 @@
 	```
 
   <a name="variables--const-let-group"></a><a name="7.5"></a>
-  - [7.5](#variables--const-let-group) Group all your constants and then group all your vars.
+  - [7.5](#variables--const-let-group) Group all your constants and then group all your vars.  Prefer inserting a line between the two blocks.
 
     > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
     ```javascript
-    // bad
+    // very bad
     var i, len, dragonball,
       items = getItems(),
       goSportsTeam = true;
 
     // bad
-    var i;
+    var i = null;
     var ITEMS = getItems();
-    var dragonball;
+    var dragonball = null;
     var GO_SPORTS_TEAM = true;
-    var len;
+    var len = null;
 
     // good
     var GO_SPORTS_TEAM = true;
     var ITEMS = getItems();
-    var dragonball;
-    var i;
-    var length;
+    
+    var dragonball = null;
+    var i = null;
+    var length = null;
     ```
 
   <a name="variables--no-chain-assignment"></a><a name="7.6"></a>
@@ -989,8 +1046,8 @@
     }
     ```
 
-  <a name="blocks--cuddled-elses"></a><a name="10.3"></a>
-  - [10.3](#blocks--cuddled-elses) If you're using blocks with `if` and `else`, put `else` on the same line as your `if` block’s closing brace. eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) 
+  <a name="blocks--bracing-style"></a><a name="10.3"></a>
+  - [10.3](#blocks--bracing-style) Bracing style: use [Stroustrup](https://en.wikipedia.org/wiki/Indentation_style#Variant:_Stroustrup). eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) 
 
     ```javascript
     // bad (K&R, one true brace style)
@@ -1025,50 +1082,47 @@
 ## Control Statements
 
   <a name="control-statements"></a>
-  - [11.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition could be put into a new line. It’s up to you whether the logical operator should begin or end the line.
+  - [11.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition should be put into a new line. The logical operator should begin the line.
 
     ```javascript
     // bad
-    if ((foo === 123 || bar === 'abc') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
-      thing1();
-    }
-
     if (foo === 123 &&
-      bar === 'abc') {
-      thing1();
+        bar === 'abc') {
+        thing1();
     }
 
     if (foo === 123
-      && bar === 'abc') {
-      thing1();
+        && bar === 'abc') {
+        thing1();
+    }
+
+    if ((foo === 123 || bar === 'abc' || baz === 'quux') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
+        thing1();
     }
 
     // good
-    if (
-      (foo === 123 || bar === 'abc') &&
-      doesItLookGoodWhenItBecomesThatLong() &&
-      isThisReallyHappening()
-    ) {
-      thing1();
-    }
-
     if (foo === 123 && bar === 'abc') {
-      thing1();
+        thing1();
     }
 
     if (
-      foo === 123 &&
-      bar === 'abc'
+        foo === 123 
+        && bar === 'abc'
     ) {
-      thing1();
+        thing1();
     }
 
     if (
-      foo === 123
-      && bar === 'abc'
+        (
+            foo === 123 
+            || bar === 'abc' 
+            || baz === 'quux'
+        ) 
+        && doesItLookGoodWhenItBecomesThatLong() 
+        && isThisReallyHappening()
     ) {
-      thing1();
-    }
+        thing1();
+    } 
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1106,7 +1160,7 @@
       return element;
     }
     
-    /*
+    /**
      * Adam
      * Had 'em
      */
@@ -1573,31 +1627,32 @@
     // bad
     var story = [
         once
-      , upon
-      , aTime
+        , upon
+        , aTime
     ];
 
     // good
     var story = [
-      once,
-      upon,
-      aTime,
+        once,
+        upon,
+        aTime
     ];
 
     // bad
     var hero = {
-        firstName: 'Ada'
-      , lastName: 'Lovelace'
-      , birthYear: 1815
-      , superPower: 'computers'
+          firstName: 'Ada'
+        , lastName: 'Lovelace'
+        , birthYear: 1815
+        , superPower: 'computers'
+        ,
     };
 
     // good
     var hero = {
-      firstName: 'Ada',
-      lastName: 'Lovelace',
-      birthYear: 1815,
-      superPower: 'computers',
+        firstName: 'Ada',
+        lastName: 'Lovelace',
+        birthYear: 1815,
+        superPower: 'computers'
     };
     ```
 
@@ -1924,7 +1979,7 @@
 ## Exception Handling
 
   <a name="exception-handling"></a><a name="20.1"></a>
-  - [19.1](#exception-handling) For Promises, always use a `catch` call instead of passing a failure-handling function.
+  - [20.1](#exception-handling) For Promises, always use a `catch` call instead of passing a failure-handling function.
 		
     > Why?  Check out [this good treatment on StackOverflow](https://stackoverflow.com/questions/24662289/when-is-thensuccess-fail-considered-an-antipattern-for-promises)
 
