@@ -397,7 +397,7 @@
       // handle falling
     }
 
-    fall(object, false);
+    fall(object, true);
 
     // good
     var fall = function fall(object, options) {
