@@ -12,7 +12,7 @@
     "test": "npm run --silent tests-only",
     "pretravis": "cd ../eslint-config-airbnb-base && npm install && npm link && cd - && npm link --no-save eslint-config-airbnb-base",
     "travis": "npm run --silent test",
-    "posttravis": "npm unlink eslint-config-airbnb-base >/dev/null &"
+    "posttravis": "npm unlink --no-save eslint-config-airbnb-base >/dev/null &"
   },
   "repository": {
     "type": "git",

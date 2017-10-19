@@ -11,6 +11,8 @@ const cli = new CLIEngine({
   rules: {
     // It is okay to import devDependencies in tests.
     'import/no-extraneous-dependencies': [2, { devDependencies: true }],
+    // this doesn't matter for tests
+    'lines-between-class-members': 0,
   },
 });
 
