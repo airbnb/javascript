@@ -19,31 +19,31 @@
   //
   //  // https://eslint.org/docs/user-guide/configuring#specifying-environments
     "env": {
-  //    "browser": false,                     // browser global variables
-  //    "node": false,                        // Node.js global variables and Node.js scoping
-  //    "commonjs": false,                    // CommonJS global variables and CommonJS scoping (use this for browser-only code that uses Browserify/WebPack)
-  //    "shared-node-browser": false,         // Globals common to both Node and Browser
-  //    "es6": false,                         // enable all ECMAScript 6 features except for modules (this automatically sets the ecmaVersion parser option to 6)
-  //    "worker": false,                      // web workers global variables
-      "amd": true                         // defines require() and define() as global variables as per the amd spec
-  //    "mocha": false,                       // adds all of the Mocha testing global variables
-  //    "jasmine": false,                     // adds all of the Jasmine testing global variables for version 1.3 and 2.0
-  //    "jest": false,                        // Jest global variables
-  //    "phantomjs": false,                   // PhantomJS global variables
-  //    "protractor": false,                  // Protractor global variables
-  //    "qunit": false,                       // QUnit globals
-  //    "jquery": false,                      // jQuery globals
-  //    "prototypejs": false,                 // Prototype.js global variables
-  //    "shelljs": false,                     // ShellJS globals
-  //    "meteor": false,                      // Meteor globals
-  //    "mongo": false,                       // MongoDB globals
-  //    "applescript": false,                 // AppleScript global variables
-  //    "nashorn": false,                     // Java 8 Nashorn global variables
-  //    "serviceworker": false,               // Service Worker global variables
-  //    "atomtest": false,                    // Atom test globals
-  //    "embertest": false,                   // Ember test globals
-  //    "webextensions": false,               // WebExtensions globals
-  //    "greasemonkey": false,                // GreaseMonkey globals
+      //    "browser": false,                     // browser global variables
+      //    "node": false,                        // Node.js global variables and Node.js scoping
+      //    "commonjs": false,                    // CommonJS global variables and CommonJS scoping (use this for browser-only code that uses Browserify/WebPack)
+      //    "shared-node-browser": false,         // Globals common to both Node and Browser
+      //    "es6": false,                         // enable all ECMAScript 6 features except for modules (this automatically sets the ecmaVersion parser option to 6)
+      //    "worker": false,                      // web workers global variables
+      "amd": true                                 // defines require() and define() as global variables as per the amd spec
+      //    "mocha": false,                       // adds all of the Mocha testing global variables
+      //    "jasmine": false,                     // adds all of the Jasmine testing global variables for version 1.3 and 2.0
+      //    "jest": false,                        // Jest global variables
+      //    "phantomjs": false,                   // PhantomJS global variables
+      //    "protractor": false,                  // Protractor global variables
+      //    "qunit": false,                       // QUnit globals
+      //    "jquery": false,                      // jQuery globals
+      //    "prototypejs": false,                 // Prototype.js global variables
+      //    "shelljs": false,                     // ShellJS globals
+      //    "meteor": false,                      // Meteor globals
+      //    "mongo": false,                       // MongoDB globals
+      //    "applescript": false,                 // AppleScript global variables
+      //    "nashorn": false,                     // Java 8 Nashorn global variables
+      //    "serviceworker": false,               // Service Worker global variables
+      //    "atomtest": false,                    // Atom test globals
+      //    "embertest": false,                   // Ember test globals
+      //    "webextensions": false,               // WebExtensions globals
+      //    "greasemonkey": false,                // GreaseMonkey globals
     },
   //
   //  // https://eslint.org/docs/user-guide/configuring#specifying-globals
@@ -230,7 +230,11 @@
     "id-blacklist": 0,                     // disallow specified identifiers
     "id-length": 0,                        // enforce minimum and maximum identifier lengths
     "id-match": 0,                         // require identifiers to match a specified regular expression
-    "indent": ["error", 4],                // enforce consistent indentation
+    "indent": ["error", 4, {               // enforce consistent indentation
+      "ignoredNodes": [
+        ":nth-child(1)"
+      ]
+    }],
     "jsx-quotes": 0,                       // enforce the consistent use of either double or single quotes in JSX attributes
     "key-spacing": 0,                      // enforce consistent spacing between keys and values in object literal properties
     "keyword-spacing": [                   // enforce consistent spacing before and after keywords
