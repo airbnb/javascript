@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-fivestars",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Better than anarchy!",
   "main": "index.js",
   "scripts": {
