@@ -108,7 +108,7 @@
     "block-scoped-var": "error",          // enforce the use of variables within the scope they are defined
     "class-methods-use-this": 0,          // enforce that class methods utilize this
     "complexity": 0,                      // enforce a maximum cyclomatic complexity allowed in a program
-    "consistent-return": "error",         // require return statements to either always or never specify values
+    "consistent-return": 0,               // require return statements to either always or never specify values
     "curly": "error",                     // enforce consistent brace style for all control statements
     "default-case": 0,                    // require default cases in switch statements
     "dot-location":                       // enforce consistent newlines before and after dots
@@ -145,8 +145,9 @@
     "no-lone-blocks": 0,                  // disallow unnecessary nested blocks
     "no-loop-func": "error",              // disallow function declarations and expressions inside loop statements
     "no-magic-numbers": 0,                // disallow magic numbers
-    "no-multi-spaces": "error",           // disallow multiple spaces
+    "no-multi-spaces": 0,                 // disallow multiple spaces
     "no-multi-str": "error",              // disallow multiline strings
+    "no-multi-spaces": 0,                 // disallow multiple spaces
     "no-new": 0,                          // disallow new operators outside of assignments or comparisons
     "no-new-func": "error",               // disallow new operators with the Function object
     "no-new-wrappers": "error",           // disallow new operators with the String, Number, and Boolean objects
@@ -307,7 +308,7 @@
     "operator-assignment": "error",        // require or disallow assignment operator shorthand where possible
     "operator-linebreak": [                // enforce consistent linebreak style for operators
       "error",
-      "before",                              // enforces operators are line prefixes (ie. &&, ||)
+      "before",                              // enforce operators are line prefixes (ie. &&, ||)
       {
         "overrides": {
           "=": "after"                       // you can end a line with the '=' operator
