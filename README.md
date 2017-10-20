@@ -32,7 +32,7 @@
 ## Objects
 
   <a name="objects--no-new"></a><a name="1.1"></a>
-  - [1.1](#objects--no-new) Use the literal syntax for object creation. ([`no-new-object`](http://eslint.org/docs/rules/no-new-object.html))
+  - [1.1](#objects--no-new) Use the literal syntax for object creation. [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
 
     ```javascript
     // bad
@@ -146,7 +146,7 @@
 ## Strings
 
   <a name="strings--quotes"></a><a name="3.1"></a>
-  - [3.1](#strings--quotes) Use single quotes `'` for strings. jshint: [`quotmark`](http://jshint.com/docs/options/#quotmark), eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html)
+  - [3.1](#strings--quotes) Use single quotes `'` for strings. ([`quotes`](http://eslint.org/docs/rules/quotes.html))
 
  
 	```javascript
@@ -181,7 +181,7 @@
     ```
 
   <a name="strings--eval"></a><a name="3.3"></a>
-  - [3.3](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities. jshint: [`evil`](http://jshint.com/docs/options/#evil), eslint: [`no-eval`](http://eslint.org/docs/rules/no-eval)
+  - [3.3](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities. ([`no-eval`](http://eslint.org/docs/rules/no-eval))
 
   <a name="strings--escaping"></a><a name="3.4"></a>
   - [3.4](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
