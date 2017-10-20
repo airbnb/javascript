@@ -2024,6 +2024,9 @@
   <a name="sundries"></a><a name="22.1"></a>
   - [22.1](#sundries) Some obvious error situations (or ones close enough that we don't need to support them).
   
+  * [`consistent-return`](https://eslint.org/docs/rules/consistent-return)
+  * [`no-alert`](https://eslint.org/docs/rules/no-alert)
+  * [`no-caller`](https://eslint.org/docs/rules/no-caller)
   * [`no-compare-neg-zero`](https://eslint.org/docs/rules/no-compare-neg-zero)
   * [`no-cond-assign`](https://eslint.org/docs/rules/no-cond-assign)
   * [`no-console`](https://eslint.org/docs/rules/no-console)
@@ -2032,9 +2035,20 @@
   * [`no-dupe-keys`](https://eslint.org/docs/rules/no-dupe-keys)
   * [`no-duplicate-case`](https://eslint.org/docs/rules/no-duplicate-case)
   * [`no-extra-boolean-cast`](https://eslint.org/docs/rules/no-extra-boolean-cast)
+  * [`no-floating-decimal`](https://eslint.org/docs/rules/no-floating-decimal)
+  * [`no-implicit-coercion`](https://eslint.org/docs/rules/no-implicit-coercion)
+  * [`no-irregular-whitespace`](https://eslint.org/docs/rules/no-irregular-whitespace)
+  * [`no-magic-numbers`](https://eslint.org/docs/rules/no-magic-numbers)
+  * [`no-octal`](https://eslint.org/docs/rules/no-octal)
+  * [`no-self-assign`](https://eslint.org/docs/rules/no-self-assign)
+  * [`no-self-compare`](https://eslint.org/docs/rules/no-self-compare)
+  * [`no-trailing-spaces`](https://eslint.org/docs/rules/no-trailing-spaces)
   * [`no-unreachable`](https://eslint.org/docs/rules/no-unreachable)
+  * [`no-unused-expressions`](https://eslint.org/docs/rules/no-unused-expressions)
   * [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars)
   * [`no-use-before-define`](https://eslint.org/docs/rules/no-use-before-define)
+  * [`no-useless-return`](https://eslint.org/docs/rules/no-useless-return)
+  * [`use-isnan`](https://eslint.org/docs/rules/use-isnan)
   * [`valid-typeof`](https://eslint.org/docs/rules/valid-typeof)
 
 ## License
