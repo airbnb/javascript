@@ -108,7 +108,7 @@
     "block-scoped-var": 0,                // enforce the use of variables within the scope they are defined
     "class-methods-use-this": 0,          // enforce that class methods utilize this
     "complexity": 0,                      // enforce a maximum cyclomatic complexity allowed in a program
-    "consistent-return": "error",         // require return statements to either always or never specify values
+    "consistent-return": 0,               // require return statements to either always or never specify values
     "curly": "error",                     // enforce consistent brace style for all control statements
     "default-case": 0,                    // require default cases in switch statements
     "dot-location": 0,                    // enforce consistent newlines before and after dots
@@ -143,7 +143,7 @@
     "no-labels": 0,                       // disallow labeled statements
     "no-lone-blocks": 0,                  // disallow unnecessary nested blocks
     "no-loop-func": "error",              // disallow function declarations and expressions inside loop statements
-    "no-magic-numbers": "error",          // disallow magic numbers
+    "no-magic-numbers": 0,                // disallow magic numbers
     "no-multi-spaces": 0,                 // disallow multiple spaces
     "no-multi-str": 0,                    // disallow multiline strings
     "no-new": 0,                          // disallow new operators outside of assignments or comparisons
