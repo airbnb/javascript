@@ -93,7 +93,7 @@
     "no-unreachable": "error",            // disallow unreachable code after return, throw, continue, and break statements
     "no-unsafe-finally": "error",         // disallow control flow statements in finally blocks
     "no-unsafe-negation": "error",        // disallow negating the left operand of relational operators
-    "use-isnan": 0,                       // require calls to isNaN() when checking for NaN
+    "use-isnan": "error",                 // require calls to isNaN() when checking for NaN
     "valid-jsdoc": 0,                     // enforce valid JSDoc comments
     "valid-typeof": [                     // enforce comparing typeof expressions against valid strings
       "error", {
@@ -116,13 +116,13 @@
     "dot-notation": [                     // enforce dot notation whenever possible
       "error", {
         "allowPattern":
-          "^[a-z]+(_[a-z]+)+$"            // allow snake-case
+          "^[a-z]+(_[a-z]+)+$"              // allow snake-case
       }
     ],
     "eqeqeq": "error",                    // require the use of === and !==
     "guard-for-in": 0,                    // require for-in loops to include an if statement
-    "no-alert": 0,                        // disallow the use of alert, confirm, and prompt
-    "no-caller": 0,                       // disallow the use of arguments.caller or arguments.callee
+    "no-alert": "error",                  // disallow the use of alert, confirm, and prompt
+    "no-caller": "error",                 // disallow the use of arguments.caller or arguments.callee
     "no-case-declarations": 0,            // disallow lexical declarations in case clauses
     "no-div-regex": 0,                    // disallow division operators explicitly at the beginning of regular expressions
     "no-else-return": 0,                  // disallow else blocks after return statements in if statements
@@ -134,7 +134,7 @@
     "no-extra-bind": 0,                   // disallow unnecessary calls to .bind()
     "no-extra-label": 0,                  // disallow unnecessary labels
     "no-fallthrough": "error",            // disallow fallthrough of case statements
-    "no-floating-decimal": 0,             // disallow leading or trailing decimal points in numeric literals
+    "no-floating-decimal": "error",       // disallow leading or trailing decimal points in numeric literals
     "no-global-assign": 0,                // disallow assignments to native objects or read-only global variables
     "no-implicit-coercion": "error",      // disallow shorthand type conversions
     "no-implicit-globals": 0,             // disallow variable and function declarations in the global scope
@@ -150,7 +150,7 @@
     "no-new": 0,                          // disallow new operators outside of assignments or comparisons
     "no-new-func": "error",               // disallow new operators with the Function object
     "no-new-wrappers": "error",           // disallow new operators with the String, Number, and Boolean objects
-    "no-octal": 0,                        // disallow octal literals
+    "no-octal": "error",                  // disallow octal literals
     "no-octal-escape": 0,                 // disallow octal escape sequences in string literals
     "no-param-reassign": "error",         // disallow reassigning function parameters
     "no-proto": 0,                        // disallow the use of the __proto__ property
@@ -170,7 +170,7 @@
     "no-sequences": 0,                    // disallow comma operators
     "no-throw-literal": "error",          // disallow throwing literals as exceptions
     "no-unmodified-loop-condition": 0,    // disallow unmodified loop conditions
-    "no-unused-expressions": 0,           // disallow unused expressions
+    "no-unused-expressions": "error",     // disallow unused expressions
     "no-unused-labels": 0,                // disallow unused labels
     "no-useless-call": "error",           // disallow unnecessary calls to .call() and .apply()
     "no-useless-concat": "error",         // disallow unnecessary concatenation of literals or template literals
@@ -212,7 +212,7 @@
     "array-bracket-spacing":               // enforce consistent spacing inside array brackets
       ["error", "never"],
     "array-element-newline": 0,            // enforce line breaks after each array element
-    "block-spacing": "error",                    // enforce consistent spacing inside single-line blocks
+    "block-spacing": "error",              // enforce consistent spacing inside single-line blocks
     "brace-style":                         // enforce consistent brace style for blocks
       ["error", "stroustrup"],
     "camelcase": 0,                        // enforce camelcase naming convention
@@ -294,32 +294,26 @@
     "no-whitespace-before-property":       // disallow whitespace before properties
       "error",
     "nonblock-statement-body-position": 0, // enforce the location of single-line statements
-    "object-curly-newline": [              // enforce consistent line breaks inside braces
-      "error",
-      {
+    "object-curly-newline": ["error", {    // enforce consistent line breaks inside braces
         "minProperties": 2
-      }
-    ],
+    }],
     "object-curly-spacing":                // enforce consistent spacing inside braces
       ["error", "always"],
-    "object-property-newline": [           // enforce placing object properties on separate lines
-      "error",
-      {
+    "object-property-newline": ["error", { // enforce placing object properties on separate lines
         "allowMultiplePropertiesPerLine": false
-      }
-    ],
+    }],
     "one-var": ["error", "never"],         // enforce variables to be declared either together or separately in functions
     "one-var-declaration-per-line": 0,     // require or disallow newlines around variable declarations
-    "operator-assignment": "error",         // require or disallow assignment operator shorthand where possible
-    "operator-linebreak": [
+    "operator-assignment": "error",        // require or disallow assignment operator shorthand where possible
+    "operator-linebreak": [                // enforce consistent linebreak style for operators
       "error",
-      "before",
+      "before",                              // enforces operators are line prefixes (ie. &&, ||)
       {
         "overrides": {
-          "=": "after"
+          "=": "after"                       // you can end a line with the '=' operator
         }
       }
-    ],               // enforce consistent linebreak style for operators
+    ],
     "padded-blocks": ["error", "never"],   // require or disallow padding within blocks
     "padding-line-between-statements": [   // require or disallow padding lines between statements
       "error",
