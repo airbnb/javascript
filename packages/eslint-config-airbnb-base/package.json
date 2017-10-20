@@ -53,14 +53,14 @@
     "editorconfig-tools": "^0.1.1",
     "eslint": "^4.9.0",
     "eslint-find-rules": "^3.1.1",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-import": "^2.8.0",
     "in-publish": "^2.0.0",
     "safe-publish-latest": "^1.1.1",
     "tape": "^4.8.0"
   },
   "peerDependencies": {
     "eslint": "^4.9.0",
-    "eslint-plugin-import": "^2.7.0"
+    "eslint-plugin-import": "^2.8.0"
   },
   "engines": {
     "node": ">= 4"
