@@ -43,7 +43,7 @@
     ```
 
   <a name="objects--quoted-props"></a><a name="1.2"></a>
-  - [1.2](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html)
+  - [1.2](#objects--quoted-props) Only quote properties that are invalid identifiers.  [`quote-props`](http://eslint.org/docs/rules/quote-props.html)
 
     > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
 
@@ -81,7 +81,7 @@
 ## Arrays
 
   <a name="arrays--literals"></a><a name="2.1"></a>
-  - [2.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
+  - [2.1](#arrays--literals) Use the literal syntax for array creation. [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
 
     ```javascript
     // bad
@@ -160,7 +160,7 @@
 	```
 
   <a name="strings--line-length"></a><a name="3.2"></a>
-  - [3.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.  eslint: `max-len` has an option to allow ignoring strings that exceed the line limit
+  - [3.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.  `max-len` has an option to allow ignoring strings that exceed the line limit
 
     > Why? Broken strings are painful to work with and make code less searchable.
 
@@ -184,7 +184,7 @@
   - [3.3](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities. ([`no-eval`](http://eslint.org/docs/rules/no-eval))
 
   <a name="strings--escaping"></a><a name="3.4"></a>
-  - [3.4](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
+  - [3.4](#strings--escaping) Do not unnecessarily escape characters in strings. [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
 
     > Why? Backslashes harm readability, thus they should only be present when necessary.
 
@@ -197,7 +197,7 @@
     ```
     
   <a name="strings--no-new"></a><a name="3.5"></a>
-  - [3.5](#strings--no-new) Do not use `new String`, use literals instead. eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
+  - [3.5](#strings--no-new) Do not use `new String`, use literals instead. [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
   
     ```javascript
     // bad 
@@ -215,7 +215,7 @@
 ## Functions
 
   <a name="functions--declarations"></a><a name="4.1"></a>
-  - [4.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](http://eslint.org/docs/rules/func-style)
+  - [4.1](#functions--declarations) Use named function expressions instead of function declarations. [`func-style`](http://eslint.org/docs/rules/func-style)
 
     > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to name the expression - anonymous functions can make it harder to locate the problem in an Error’s call stack.
 
@@ -237,7 +237,7 @@
     ```
 
   <a name="functions--iife"></a><a name="4.2"></a>
-  - [4.2](#functions--iife) Wrap immediately invoked function expressions in parentheses. eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html)
+  - [4.2](#functions--iife) Wrap immediately invoked function expressions in parentheses. [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html)
 
     > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this.
 
@@ -249,7 +249,7 @@
     ```
 
   <a name="functions--in-blocks"></a><a name="4.3"></a>
-  - [4.3](#functions--in-blocks) Never declare a function in a non-function block (`if`, `while`, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently. eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
+  - [4.3](#functions--in-blocks) Never declare a function in a non-function block (`if`, `while`, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently. [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
 
 **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262’s note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
@@ -269,7 +269,7 @@
     ```
 
   <a name="functions--constructor"></a><a name="4.5"></a>
-  - [4.5](#functions--constructor) Never use the Function constructor to create a new function. eslint: [`no-new-func`](http://eslint.org/docs/rules/no-new-func)
+  - [4.5](#functions--constructor) Never use the Function constructor to create a new function. [`no-new-func`](http://eslint.org/docs/rules/no-new-func)
 
     > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
 
@@ -282,7 +282,7 @@
     ```
 
   <a name="functions--signature-spacing"></a><a name="4.6"></a>
-  - [4.6](#functions--signature-spacing) Provide spaces between 1) the `function` keyword and the parens for anonymous functions and 2) the close-paren and opening brace. eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks)
+  - [4.6](#functions--signature-spacing) Provide spaces between 1) the `function` keyword and the parens for anonymous functions and 2) the close-paren and opening brace. [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks)
 
     > Why? You shouldn’t have to add or remove a space when adding or removing a name.
 
@@ -300,7 +300,7 @@
     ```
 
   <a name="functions--mutate-params"></a><a name="4.7"></a>
-  - [4.7](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
+  - [4.7](#functions--mutate-params) Never mutate parameters. [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
 
     > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
 
@@ -322,7 +322,7 @@
     ```
 
   <a name="functions--reassign-params"></a><a name="4.8"></a>
-  - [4.8](#functions--reassign-params) Never reassign parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
+  - [4.8](#functions--reassign-params) Never reassign parameters. [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
 
     > Why? It's confusing.  Reviewers expect possible mutation of parameters, but not complete reassignment.  Reassigning parameters can also lead to unexpected behavior, especially when accessing the `arguments` object. And can cause optimization issues, especially in V8.
 
@@ -520,7 +520,7 @@
 ## Iterators
 
   <a name="iterators--nope"></a><a name="5.1"></a>
-  - [5.1](#iterators--nope) Don’t use `for` iterators. Prefer JavaScript’s higher-order functions instead of loops like `for-in` or `for-of`.  (If you have to do an early return, there may be no good way around it though.)  eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
+  - [5.1](#iterators--nope) Don’t use `for` iterators. Prefer JavaScript’s higher-order functions instead of loops like `for-in` or `for-of`.  (If you have to do an early return, there may be no good way around it though.)  [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
 
     > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
 
@@ -590,7 +590,7 @@
 ## Properties
 
   <a name="properties--dot"></a><a name="6.1"></a>
-  - [6.1](#properties--dot) Use dot notation when accessing properties. eslint: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html) 
+  - [6.1](#properties--dot) Use dot notation when accessing properties. [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html) 
 
     ```javascript
     var luke = {
@@ -622,7 +622,7 @@
     ```
     
   <a name="es2016-properties--exponentiation-operator"></a>
-  - [6.3](#es2016-properties--exponentiation-operator) Use exponentiation operator `**` when calculating exponentiations. eslint: [`no-restricted-properties`](http://eslint.org/docs/rules/no-restricted-properties).
+  - [6.3](#es2016-properties--exponentiation-operator) Use exponentiation operator `**` when calculating exponentiations. [`no-restricted-properties`](http://eslint.org/docs/rules/no-restricted-properties).
 
     ```javascript
     // bad
@@ -637,7 +637,7 @@
 ## Variables
 
   <a name="variables--const"></a><a name="7.1"></a>
-  - [7.1](#variables--const) Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
+  - [7.1](#variables--const) Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
 
     ```javascript
     // bad
@@ -649,7 +649,7 @@
     
     
   <a name="variables--always-initialize"></a><a name="7.2"></a>
-  - [7.2](#variables--always-init) Always initialize variables.  If their value is unknown at the point of declaration, use `null`.  Never use `undefined`. eslint: [`init-declarations`](https://eslint.org/docs/rules/init-declarations), [`no-undefined`](https://eslint.org/docs/rules/no-undefined), [`no-undef-init`](https://eslint.org/docs/rules/no-undef-init)
+  - [7.2](#variables--always-init) Always initialize variables.  If their value is unknown at the point of declaration, use `null`.  Never use `undefined`. [`init-declarations`](https://eslint.org/docs/rules/init-declarations), [`no-undefined`](https://eslint.org/docs/rules/no-undefined), [`no-undef-init`](https://eslint.org/docs/rules/no-undef-init)
     
     ```javascript
     // bad
@@ -667,7 +667,7 @@
     ```
 	
   <a name="variables--one-const"></a><a name="7.3"></a>
-  - [7.3](#variables--one-const) Use one `var` declaration per variable. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) 
+  - [7.3](#variables--one-const) Use one `var` declaration per variable. [`one-var`](http://eslint.org/docs/rules/one-var.html) 
 
     > Why? It’s easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
 
@@ -730,7 +730,7 @@
     ```
 
   <a name="variables--no-chain-assignment"></a><a name="7.6"></a>
-  - [7.6](#variables--no-chain-assignment) Don’t chain variable assignments. eslint: [`no-multi-assign`](https://eslint.org/docs/rules/no-multi-assign)
+  - [7.6](#variables--no-chain-assignment) Don’t chain variable assignments. [`no-multi-assign`](https://eslint.org/docs/rules/no-multi-assign)
 
     > Why? Chaining variable assignments creates implicit global variables.
 
@@ -763,7 +763,7 @@
     ```
 
   <a name="variables--unary-increment-decrement"></a><a name="7.7"></a>
-  - [7.7](#variables--unary-increment-decrement) Avoid using unary increments and decrements (++, --). eslint [`no-plusplus`](http://eslint.org/docs/rules/no-plusplus)
+  - [7.7](#variables--unary-increment-decrement) Avoid using unary increments and decrements (++, --). [`no-plusplus`](http://eslint.org/docs/rules/no-plusplus)
 
     > Why? Per the eslint documentation, unary increment and decrement statements are subject to automatic semicolon insertion and can cause silent errors with incrementing or decrementing values within an application. It is also more expressive to mutate your values with statements like `num += 1` instead of `num++` or `num ++`. Disallowing unary increment and decrement statements also prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
 
@@ -916,7 +916,7 @@
 ## Comparison Operators & Equality
 
   <a name="comparison--eqeqeq"></a><a name="9.1"></a>
-  - [9.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`. eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
+  - [9.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`. [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
 
   <a name="comparison--if"></a><a name="9.2"></a>
   - [9.2](#comparison--if) Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
@@ -975,7 +975,7 @@
 
 
   <a name="comparison--nested-ternaries"></a><a name="9.5"></a>
-  - [9.5](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions. eslint: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary.html)
+  - [9.5](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions. [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary.html)
 
     ```javascript
     // bad
@@ -996,7 +996,7 @@
     ```
 
   <a name="comparison--unneeded-ternary"></a><a name="9.6"></a>
-  - [9.6](#comparison--unneeded-ternary) Avoid unneeded ternary statements. eslint: [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary.html)
+  - [9.6](#comparison--unneeded-ternary) Avoid unneeded ternary statements. [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary.html)
 
     ```javascript
     // bad
@@ -1014,7 +1014,7 @@
 
 ## Blocks
 <a name="blocks--braces"></a><a name="10.1"></a>
-  - [10.1](#blocks--braces) Do not put multiple statements on the same line, debugging is easier with one statement per line. eslint: [`max-statements-per-line`](https://eslint.org/docs/rules/max-statements-per-line)
+  - [10.1](#blocks--braces) Do not put multiple statements on the same line, debugging is easier with one statement per line. [`max-statements-per-line`](https://eslint.org/docs/rules/max-statements-per-line)
 
     ```javascript
     // bad
@@ -1035,7 +1035,7 @@
     ```
 
   <a name="blocks--braces"></a><a name="10.2"></a>
-  - [10.2](#blocks--braces) Use braces with all blocks. eslint: [`curly`](https://eslint.org/docs/rules/curly)
+  - [10.2](#blocks--braces) Use braces with all blocks. [`curly`](https://eslint.org/docs/rules/curly)
     ```javascript
     // bad
     if( test )
@@ -1048,7 +1048,7 @@
     ```
 
   <a name="blocks--bracing-style"></a><a name="10.3"></a>
-  - [10.3](#blocks--bracing-style) Bracing style: use [Stroustrup](https://en.wikipedia.org/wiki/Indentation_style#Variant:_Stroustrup). eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) 
+  - [10.3](#blocks--bracing-style) Bracing style: use [Stroustrup](https://en.wikipedia.org/wiki/Indentation_style#Variant:_Stroustrup). [`brace-style`](http://eslint.org/docs/rules/brace-style.html) 
 
     ```javascript
     // bad (K&R, one true brace style)
@@ -1132,7 +1132,7 @@
 ## Comments
 
   <a name="comments--multiline"></a><a name="12.1"></a>
-  - [12.1](#comments--multiline) Use `/** ... */` for multi-line comments. eslint: [`multiline-comment-style`](https://eslint.org/docs/rules/multiline-comment-style)
+  - [12.1](#comments--multiline) Use `/** ... */` for multi-line comments. [`multiline-comment-style`](https://eslint.org/docs/rules/multiline-comment-style)
 
     ```javascript
     // bad
@@ -1207,7 +1207,7 @@
     }
     ```
 
-  - [12.3](#comments--spaces) Start all comments with a space to make it easier to read. eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment), [`spaced-line-comment`](https://eslint.org/docs/rules/spaced-line-comment)
+  - [12.3](#comments--spaces) Start all comments with a space to make it easier to read. [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment), [`spaced-line-comment`](https://eslint.org/docs/rules/spaced-line-comment)
 
     ```javascript
     // bad
@@ -1308,7 +1308,7 @@
 ## Whitespace
 
   <a name="whitespace--spaces"></a><a name="13.1"></a>
-  - [13.1](#whitespace--spaces) Use 4 spaces instead of tabs. eslint: [`indent`](http://eslint.org/docs/rules/indent.html)
+  - [13.1](#whitespace--spaces) Use 4 spaces instead of tabs. [`indent`](http://eslint.org/docs/rules/indent.html)
 
     ```javascript
 	// bad
@@ -1332,7 +1332,7 @@
     ```
 
   <a name="whitespace--before-blocks"></a><a name="13.2"></a>
-  - [13.2](#whitespace--before-blocks) Place 1 space before the leading brace. eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) 
+  - [13.2](#whitespace--before-blocks) Place 1 space before the leading brace. [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) 
 
     ```javascript
     // bad
@@ -1363,7 +1363,7 @@
     ```
 
   <a name="whitespace--around-keywords"></a><a name="13.3"></a>
-  - [13.3](#whitespace--around-keywords) Do not place a space after the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing.html) 
+  - [13.3](#whitespace--around-keywords) Do not place a space after the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing.html) 
     ```javascript
     // bad
     if ( isJedi ) {
@@ -1383,7 +1383,7 @@
     ```
 
   <a name="whitespace--infix-ops"></a><a name="13.4"></a>
-  - [13.4](#whitespace--infix-ops) Set off operators with spaces. eslint: [`space-infix-ops`](https://eslint.org/docs/rules/space-infix-ops) 
+  - [13.4](#whitespace--infix-ops) Set off operators with spaces. [`space-infix-ops`](https://eslint.org/docs/rules/space-infix-ops) 
 
     ```javascript
     // bad
@@ -1394,7 +1394,7 @@
     ```
 
   <a name="whitespace--newline-at-end"></a><a name="13.5"></a>
-  - [13.5](#whitespace--newline-at-end) End files with a single newline character. eslint: [`eol-last`](https://eslint.org/docs/rules/eol-last)
+  - [13.5](#whitespace--newline-at-end) End files with a single newline character. [`eol-last`](https://eslint.org/docs/rules/eol-last)
 	
     > Why?  Do you even POSIX?  Many *nix utilities that process text files rely on all lines ending with a line break.
 	
@@ -1421,7 +1421,7 @@
     ```
 
   <a name="whitespace--chains"></a><a name="13.6"></a>
-  - [13.6](#whitespace--chains) When chaining calls, put each chained method on a separate line. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
+  - [13.6](#whitespace--chains) When chaining calls, put each chained method on a separate line. [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
 
     ```javascript
     // bad
@@ -1516,7 +1516,7 @@
     ```
 
   <a name="whitespace--padded-blocks"></a><a name="13.8"></a>
-  - [13.8](#whitespace--padded-blocks) Do not pad your blocks with blank lines. eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html)
+  - [13.8](#whitespace--padded-blocks) Do not pad your blocks with blank lines. [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html)
 
     ```javascript
     // bad
@@ -1546,7 +1546,7 @@
     ```
 
   <a name="whitespace--in-parens"></a><a name="13.9"></a>
-  - [13.9](#whitespace--in-parens) Don't add spaces inside parentheses function calls. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html)
+  - [13.9](#whitespace--in-parens) Don't add spaces inside parentheses function calls. [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html)
     > Why not?  It doesn't gel with the vast corpus of extant JavaScript code and seems jarring because of that.
  
     ```javascript
@@ -1569,7 +1569,7 @@
     ```
 
   <a name="whitespace--in-brackets"></a><a name="13.10"></a>
-  - [13.10](#whitespace--in-brackets) Do not add spaces inside brackets for one-line array declarations. eslint: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html)
+  - [13.10](#whitespace--in-brackets) Do not add spaces inside brackets for one-line array declarations. [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html)
 
     ```javascript
     // bad
@@ -1582,7 +1582,7 @@
     ```
 
   <a name="whitespace--in-braces"></a><a name="13.11"></a>
-  - [13.11](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html)
+  - [13.11](#whitespace--in-braces) Add spaces inside curly braces. [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html)
 
     ```javascript
     // bad
@@ -1593,7 +1593,7 @@
     ```
 
   <a name="whitespace--max-len"></a><a name="13.12"></a>
-  - [13.12](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) 
+  - [13.12](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. [`max-len`](http://eslint.org/docs/rules/max-len.html) 
 
     > Why? This ensures readability and maintainability.
 
@@ -1627,7 +1627,7 @@
 ## Commas
 
   <a name="commas--leading-trailing"></a><a name="14.1"></a>
-  - [14.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) 
+  - [14.1](#commas--leading-trailing) Leading commas: **Nope.** [`comma-style`](http://eslint.org/docs/rules/comma-style.html) 
 
     ```javascript
     // bad
@@ -1663,7 +1663,7 @@
     ```
 
   <a name="commas--dangling"></a><a name="14.2"></a>
-  - [14.2](#commas--dangling) Additional trailing comma: **Nope.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) 
+  - [14.2](#commas--dangling) Additional trailing comma: **Nope.** [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) 
 
 
     ```javascript
@@ -1713,7 +1713,7 @@
 ## Semicolons
 
   <a name="semicolons--required"></a><a name="15.1"></a>
-  - [15.1](#semicolons--required) **Yup.** And no spaces before the semi-colon.  eslint: [`semi`](http://eslint.org/docs/rules/semi.html)
+  - [15.1](#semicolons--required) **Yup.** And no spaces before the semi-colon.  [`semi`](http://eslint.org/docs/rules/semi.html)
 
     ```javascript
     // bad
@@ -1733,7 +1733,7 @@
     ```
 
 <a name="semicolons--spacing"></a><a name="15.2"></a>
-  - [15.2](#semicolons--spacing) No spaces before the semi-colon.  eslint: [`semi-spacing`](https://eslint.org/docs/rules/semi-spacing)
+  - [15.2](#semicolons--spacing) No spaces before the semi-colon.  [`semi-spacing`](https://eslint.org/docs/rules/semi-spacing)
 
     ```javascript
     // bad
@@ -1753,7 +1753,7 @@
     ```
   
   <a name="semicolons--extra-semis"></a><a name="15.3"></a>
-  - [15.3](#semicolons--extra-semis) No extra semi-colons.  eslint: [`no-extra-semi`](https://eslint.org/docs/rules/no-extra-semi)
+  - [15.3](#semicolons--extra-semis) No extra semi-colons.  [`no-extra-semi`](https://eslint.org/docs/rules/no-extra-semi)
 
     ```javascript
     // bad
@@ -1796,7 +1796,7 @@
     ```
 
   <a name="coercion--numbers"></a><a name="16.3"></a>
-  - [16.3](#coercion--numbers) Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings. eslint: [`radix`](http://eslint.org/docs/rules/radix)
+  - [16.3](#coercion--numbers) Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings. [`radix`](http://eslint.org/docs/rules/radix)
 
     ```javascript
     var inputValue = '4';
@@ -1863,7 +1863,7 @@
 ## Naming Conventions
 
   <a name="naming--descriptive"></a><a name="17.1"></a>
-  - [17.1](#naming--descriptive) Avoid single letter names. Be descriptive with your naming. eslint: [`id-length`](http://eslint.org/docs/rules/id-length)
+  - [17.1](#naming--descriptive) Avoid single letter names. Be descriptive with your naming. [`id-length`](http://eslint.org/docs/rules/id-length)
 
     ```javascript
     // bad
@@ -1878,7 +1878,7 @@
     ```
 
   <a name="naming--camelCase"></a><a name="17.2"></a>
-  - [17.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) 
+  - [17.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. [`camelcase`](http://eslint.org/docs/rules/camelcase.html) 
 
     ```javascript
     // bad
@@ -1891,7 +1891,7 @@
     ```
 
   <a name="naming--PascalCase"></a><a name="17.3"></a>
-  - [17.3](#naming--PascalCase) Use PascalCase only when naming constructors or classes. eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap.html)
+  - [17.3](#naming--PascalCase) Use PascalCase only when naming constructors or classes. [`new-cap`](http://eslint.org/docs/rules/new-cap.html)
 
     ```javascript
     // bad
