@@ -2028,7 +2028,7 @@
   <a name="sundries"></a><a name="22.1"></a>
   - [22.1](#sundries) Some obvious error situations (or ones close enough that we don't need to support them).
   
-  * [`consistent-return`](https://eslint.org/docs/rules/consistent-return)
+  * [`block-scoped-var`](https://eslint.org/docs/rules/block-scoped-var)
   * [`no-alert`](https://eslint.org/docs/rules/no-alert)
   * [`no-caller`](https://eslint.org/docs/rules/no-caller)
   * [`no-compare-neg-zero`](https://eslint.org/docs/rules/no-compare-neg-zero)
@@ -2038,12 +2038,17 @@
   * [`no-dupe-args`](https://eslint.org/docs/rules/no-dupe-args)
   * [`no-dupe-keys`](https://eslint.org/docs/rules/no-dupe-keys)
   * [`no-duplicate-case`](https://eslint.org/docs/rules/no-duplicate-case)
+  * [`no-empty`](https://eslint.org/docs/rules/no-empty)
   * [`no-extra-boolean-cast`](https://eslint.org/docs/rules/no-extra-boolean-cast)
   * [`no-floating-decimal`](https://eslint.org/docs/rules/no-floating-decimal)
+  * [`no-func-assign`](https://eslint.org/docs/rules/no-func-assign)
   * [`no-implicit-coercion`](https://eslint.org/docs/rules/no-implicit-coercion)
+  * [`no-inner-declarations`](https://eslint.org/docs/rules/no-inner-declarations)
   * [`no-irregular-whitespace`](https://eslint.org/docs/rules/no-irregular-whitespace)
   * [`no-magic-numbers`](https://eslint.org/docs/rules/no-magic-numbers)
   * [`no-octal`](https://eslint.org/docs/rules/no-octal)
+  * [`no-redeclare`](https://eslint.org/docs/rules/no-redeclare)
+  * [`no-return-assign`](https://eslint.org/docs/rules/no-return-assign)
   * [`no-self-assign`](https://eslint.org/docs/rules/no-self-assign)
   * [`no-self-compare`](https://eslint.org/docs/rules/no-self-compare)
   * [`no-trailing-spaces`](https://eslint.org/docs/rules/no-trailing-spaces)
@@ -2054,6 +2059,7 @@
   * [`no-useless-return`](https://eslint.org/docs/rules/no-useless-return)
   * [`use-isnan`](https://eslint.org/docs/rules/use-isnan)
   * [`valid-typeof`](https://eslint.org/docs/rules/valid-typeof)
+  * [`yoda`](https://eslint.org/docs/rules/yoda)
 
 ## License
 
