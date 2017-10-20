@@ -32,7 +32,7 @@
 ## Objects
 
   <a name="objects--no-new"></a><a name="1.1"></a>
-  - [1.1](#objects--no-new) Use the literal syntax for object creation. jshint: [`nonew`](http://jshint.com/docs/options/#nonew), eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
+  - [1.1](#objects--no-new) Use the literal syntax for object creation. ([`no-new-object`](http://eslint.org/docs/rules/no-new-object.html))
 
     ```javascript
     // bad
