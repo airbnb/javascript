@@ -2026,9 +2026,11 @@
 ## Sundries
 
   <a name="sundries"></a><a name="22.1"></a>
-  - [22.1](#sundries) Some obvious error situations (or ones close enough that we don't need to support them).
+  - [22.1](#sundries) ESLint checks included without further comment.  The links go into further detail.
   
   * [`block-scoped-var`](https://eslint.org/docs/rules/block-scoped-var)
+  * [`block-spacing`](https://eslint.org/docs/rules/block-spacing)
+  * [`dot-location`](https://eslint.org/docs/rules/dot-location)
   * [`no-alert`](https://eslint.org/docs/rules/no-alert)
   * [`no-caller`](https://eslint.org/docs/rules/no-caller)
   * [`no-compare-neg-zero`](https://eslint.org/docs/rules/no-compare-neg-zero)
@@ -2039,26 +2041,39 @@
   * [`no-dupe-keys`](https://eslint.org/docs/rules/no-dupe-keys)
   * [`no-duplicate-case`](https://eslint.org/docs/rules/no-duplicate-case)
   * [`no-empty`](https://eslint.org/docs/rules/no-empty)
+  * [`no-ex-assign`](https://eslint.org/docs/rules/no-ex-assign)
   * [`no-extra-boolean-cast`](https://eslint.org/docs/rules/no-extra-boolean-cast)
+  * [`no-fallthrough`](https://eslint.org/docs/rules/no-fallthrough)
   * [`no-floating-decimal`](https://eslint.org/docs/rules/no-floating-decimal)
   * [`no-func-assign`](https://eslint.org/docs/rules/no-func-assign)
   * [`no-implicit-coercion`](https://eslint.org/docs/rules/no-implicit-coercion)
+  * [`no-implied-eval`](https://eslint.org/docs/rules/no-implied-eval)
   * [`no-inner-declarations`](https://eslint.org/docs/rules/no-inner-declarations)
+  * [`no-invalid-regexp`](https://eslint.org/docs/rules/no-invalid-regexp)
+  * [`no-invalid-this`](https://eslint.org/docs/rules/no-invalid-this)
   * [`no-irregular-whitespace`](https://eslint.org/docs/rules/no-irregular-whitespace)
-  * [`no-magic-numbers`](https://eslint.org/docs/rules/no-magic-numbers)
+  * [`no-multi-str`](https://eslint.org/docs/rules/no-multi-str)
   * [`no-octal`](https://eslint.org/docs/rules/no-octal)
   * [`no-redeclare`](https://eslint.org/docs/rules/no-redeclare)
+  * [`no-regex-spaces`](https://eslint.org/docs/rules/no-regex-spaces)
   * [`no-return-assign`](https://eslint.org/docs/rules/no-return-assign)
   * [`no-self-assign`](https://eslint.org/docs/rules/no-self-assign)
   * [`no-self-compare`](https://eslint.org/docs/rules/no-self-compare)
+  * [`no-throw-literal`](https://eslint.org/docs/rules/no-throw-literal)
   * [`no-trailing-spaces`](https://eslint.org/docs/rules/no-trailing-spaces)
+  * [`no-unexpected-multiline`](https://eslint.org/docs/rules/no-unexpected-multiline)
   * [`no-unreachable`](https://eslint.org/docs/rules/no-unreachable)
+  * [`no-unsafe-finally`](https://eslint.org/docs/rules/no-unsafe-finally)
+  * [`no-unsafe-negation`](https://eslint.org/docs/rules/no-unsafe-negation)
   * [`no-unused-expressions`](https://eslint.org/docs/rules/no-unused-expressions)
   * [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars)
   * [`no-use-before-define`](https://eslint.org/docs/rules/no-use-before-define)
+  * [`no-useless-call`](https://eslint.org/docs/rules/no-useless-call)
+  * [`no-useless-concat`](https://eslint.org/docs/rules/no-useless-concat)
   * [`no-useless-return`](https://eslint.org/docs/rules/no-useless-return)
   * [`use-isnan`](https://eslint.org/docs/rules/use-isnan)
   * [`valid-typeof`](https://eslint.org/docs/rules/valid-typeof)
+  * [`vars-on-top`](https://eslint.org/docs/rules/vars-on-top)
   * [`yoda`](https://eslint.org/docs/rules/yoda)
 
 ## License
