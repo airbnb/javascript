@@ -1943,6 +1943,38 @@ Other Style Guides
     const baz = !c;
     ```
 
+  <a name="comparison--no-mixed-operators"></a><a name="15.8"></a>
+  - [15.7](#comparison--no-mixed-operators) Enclose operators in parentheses when they are mixed in a statement. When mixing arithmetic operators, do not mix `**` and `%` with themselves or with `+`, `-`, `*`, & `/`. eslint: [`no-mixed-operators`](http://eslint.org/docs/rules/no-mixed-operators.html)
+
+    > Why? This improves readability and clarifies the developer’s intention.
+
+    ```javascript
+    // bad
+    const foo = a && b < 0 || c > 0 || d + 1 === 0;
+
+    // bad
+    const bar = a ** b - 5 % d;
+
+    // bad
+    if (a || b && c) {
+      return d;
+    }
+
+    // good
+    const foo = (a && b < 0) || c > 0 || (d + 1 === 0);
+
+    // good
+    const bar = (a ** b) - (5 % d);
+
+    // good
+    if ((a || b) && c) {
+      return d;
+    }
+
+    // good
+    const bar = a + b / c * d;
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Blocks
