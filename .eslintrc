@@ -83,7 +83,7 @@
     "no-func-assign": 0,                  // disallow reassigning function declarations
     "no-inner-declarations": 0,           // disallow variable or function declarations in nested blocks
     "no-invalid-regexp": 0,               // disallow invalid regular expression strings in RegExp constructors
-    "no-irregular-whitespace": 0,         // disallow irregular whitespace outside of strings and comments
+    "no-irregular-whitespace": "error",   // disallow irregular whitespace outside of strings and comments
     "no-obj-calls": 0,                    // disallow calling global object properties as functions
     "no-prototype-builtins": 0,           // disallow calling some Object.prototype methods directly on objects
     "no-regex-spaces": 0,                 // disallow multiple spaces in regular expressions
@@ -93,7 +93,7 @@
     "no-unreachable": "error",            // disallow unreachable code after return, throw, continue, and break statements
     "no-unsafe-finally": 0,               // disallow control flow statements in finally blocks
     "no-unsafe-negation": 0,              // disallow negating the left operand of relational operators
-    "use-isnan": 0,                       // require calls to isNaN() when checking for NaN
+    "use-isnan": "error",                 // require calls to isNaN() when checking for NaN
     "valid-jsdoc": 0,                     // enforce valid JSDoc comments
     "valid-typeof": [                     // enforce comparing typeof expressions against valid strings
       "error", {
@@ -108,7 +108,7 @@
     "block-scoped-var": 0,                // enforce the use of variables within the scope they are defined
     "class-methods-use-this": 0,          // enforce that class methods utilize this
     "complexity": 0,                      // enforce a maximum cyclomatic complexity allowed in a program
-    "consistent-return": 0,               // require return statements to either always or never specify values
+    "consistent-return": "error",         // require return statements to either always or never specify values
     "curly": "error",                     // enforce consistent brace style for all control statements
     "default-case": 0,                    // require default cases in switch statements
     "dot-location": 0,                    // enforce consistent newlines before and after dots
@@ -120,8 +120,8 @@
     ],
     "eqeqeq": "error",                          // require the use of === and !==
     "guard-for-in": 0,                    // require for-in loops to include an if statement
-    "no-alert": 0,                        // disallow the use of alert, confirm, and prompt
-    "no-caller": 0,                       // disallow the use of arguments.caller or arguments.callee
+    "no-alert": "error",                  // disallow the use of alert, confirm, and prompt
+    "no-caller": "error",                 // disallow the use of arguments.caller or arguments.callee
     "no-case-declarations": 0,            // disallow lexical declarations in case clauses
     "no-div-regex": 0,                    // disallow division operators explicitly at the beginning of regular expressions
     "no-else-return": 0,                  // disallow else blocks after return statements in if statements
@@ -133,9 +133,9 @@
     "no-extra-bind": 0,                   // disallow unnecessary calls to .bind()
     "no-extra-label": 0,                  // disallow unnecessary labels
     "no-fallthrough": 0,                  // disallow fallthrough of case statements
-    "no-floating-decimal": 0,             // disallow leading or trailing decimal points in numeric literals
+    "no-floating-decimal": "error",       // disallow leading or trailing decimal points in numeric literals
     "no-global-assign": 0,                // disallow assignments to native objects or read-only global variables
-    "no-implicit-coercion": 0,            // disallow shorthand type conversions
+    "no-implicit-coercion": "error",      // disallow shorthand type conversions
     "no-implicit-globals": 0,             // disallow variable and function declarations in the global scope
     "no-implied-eval": 0,                 // disallow the use of eval()-like methods
     "no-invalid-this": 0,                 // disallow this keywords outside of classes or class-like objects
@@ -143,13 +143,13 @@
     "no-labels": 0,                       // disallow labeled statements
     "no-lone-blocks": 0,                  // disallow unnecessary nested blocks
     "no-loop-func": "error",              // disallow function declarations and expressions inside loop statements
-    "no-magic-numbers": 0,                // disallow magic numbers
+    "no-magic-numbers": "error",          // disallow magic numbers
     "no-multi-spaces": 0,                 // disallow multiple spaces
     "no-multi-str": 0,                    // disallow multiline strings
     "no-new": 0,                          // disallow new operators outside of assignments or comparisons
     "no-new-func": "error",               // disallow new operators with the Function object
     "no-new-wrappers": "error",           // disallow new operators with the String, Number, and Boolean objects
-    "no-octal": 0,                        // disallow octal literals
+    "no-octal": "error",                  // disallow octal literals
     "no-octal-escape": 0,                 // disallow octal escape sequences in string literals
     "no-param-reassign": "error",         // disallow reassigning function parameters
     "no-proto": 0,                        // disallow the use of the __proto__ property
@@ -164,17 +164,17 @@
     "no-return-assign": 0,                // disallow assignment operators in return statements
     "no-return-await": 0,                 // disallow unnecessary return await
     "no-script-url": 0,                   // disallow javascript: urls
-    "no-self-assign": 0,                  // disallow assignments where both sides are exactly the same
-    "no-self-compare": 0,                 // disallow comparisons where both sides are exactly the same
+    "no-self-assign": "error",            // disallow assignments where both sides are exactly the same
+    "no-self-compare": "error",           // disallow comparisons where both sides are exactly the same
     "no-sequences": 0,                    // disallow comma operators
     "no-throw-literal": 0,                // disallow throwing literals as exceptions
     "no-unmodified-loop-condition": 0,    // disallow unmodified loop conditions
-    "no-unused-expressions": 0,           // disallow unused expressions
+    "no-unused-expressions": "error",     // disallow unused expressions
     "no-unused-labels": 0,                // disallow unused labels
     "no-useless-call": 0,                 // disallow unnecessary calls to .call() and .apply()
     "no-useless-concat": 0,               // disallow unnecessary concatenation of literals or template literals
     "no-useless-escape": "error",         // disallow unnecessary escape characters
-    "no-useless-return": 0,               // disallow redundant return statements
+    "no-useless-return": "error",         // disallow redundant return statements
     "no-void": 0,                         // disallow void operators
     "no-warning-comments": 0,             // disallow specified warning terms in comments
     "no-with": 0,                         // disallow with statements
@@ -213,7 +213,7 @@
     "array-element-newline": 0,            // enforce line breaks after each array element
     "block-spacing": 0,                    // enforce consistent spacing inside single-line blocks
     "brace-style":                         // enforce consistent brace style for blocks
-      ["error", "1tbs"],
+      ["error", "stroustrup"],
     "camelcase": 0,                        // enforce camelcase naming convention
     "capitalized-comments": 0,             // enforce or disallow capitalization of the first letter of a comment
     "comma-dangle": ["error", "never"],    // require or disallow trailing commas
@@ -292,7 +292,7 @@
     ],
     "no-tabs": 0,                          // disallow all tabs
     "no-ternary": 0,                       // disallow ternary operators
-    "no-trailing-spaces": 0,               // disallow trailing whitespace at the end of lines
+    "no-trailing-spaces": "error",         // disallow trailing whitespace at the end of lines
     "no-underscore-dangle": 0,             // disallow dangling underscores in identifiers
     "no-unneeded-ternary": "error",        // disallow ternary operators when simpler alternatives exist
     "no-whitespace-before-property":       // disallow whitespace before properties
