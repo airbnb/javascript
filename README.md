@@ -1433,6 +1433,11 @@
         .munge(customer);
 
     // bad
+    var myMungedCustomer = 
+        Customer
+	    .get(customerId)
+	    .munge(customer);         
+    
     var myMungedCustomer = Customer.get(customerId)
         .munge(customer); 
         
@@ -1466,8 +1471,8 @@
         .find('.selected');
 	
     $selectedItems
-        .highlight()
-        .end();
+        .highlight();
+	
     $selectedItems
         .find('.open')
         .updateCount();
