@@ -147,7 +147,6 @@
     "no-magic-numbers": 0,                // disallow magic numbers
     "no-multi-spaces": 0,                 // disallow multiple spaces
     "no-multi-str": "error",              // disallow multiline strings
-    "no-multi-spaces": 0,                 // disallow multiple spaces
     "no-new": 0,                          // disallow new operators outside of assignments or comparisons
     "no-new-func": "error",               // disallow new operators with the Function object
     "no-new-wrappers": "error",           // disallow new operators with the String, Number, and Boolean objects
@@ -218,16 +217,16 @@
       ["error", "stroustrup"],
     "camelcase": 0,                        // enforce camelcase naming convention
     "capitalized-comments": 0,             // enforce or disallow capitalization of the first letter of a comment
-    "comma-dangle": "error",               // require or disallow trailing commas
+    "comma-dangle": ["error", "never"],    // require or disallow trailing commas
     "comma-spacing": 0,                    // enforce consistent spacing before and after commas
-    "comma-style": "error",                // enforce consistent comma style
+    "comma-style": ["error", "last"],      // enforce consistent comma style
     "computed-property-spacing": 0,        // enforce consistent spacing inside computed property brackets
     "consistent-this": 0,                  // enforce consistent naming when capturing the current execution context
     "eol-last": "error",                   // require or disallow newline at the end of files
     "func-call-spacing": "error",          // require or disallow spacing between function identifiers and their invocations
     "func-name-matching": "error",         // require function names to match the name of the variable or property to which they are assigned
     "func-names": 0,                       // require or disallow named function expressions
-    "func-style": "error",                 // enforce the consistent use of either function declarations or expressions
+    "func-style": ["error", "expression"], // enforce the consistent use of either function declarations or expressions
     "function-paren-newline": 0,           // enforce consistent line breaks inside function parentheses
     "id-blacklist": 0,                     // disallow specified identifiers
     "id-length": 0,                        // enforce minimum and maximum identifier lengths
@@ -260,8 +259,11 @@
     "max-nested-callbacks": 0,             // enforce a maximum depth that callbacks can be nested
     "max-params": 0,                       // enforce a maximum number of parameters in function definitions
     "max-statements": 0,                   // enforce a maximum number of statements allowed in function blocks
-    "max-statements-per-line": "error",    // enforce a maximum number of statements allowed per line
-    "multiline-comment-style": "error",    // enforce multiline comment style
+    "max-statements-per-line": ["error", { // enforce a maximum number of statements allowed per line
+      "max": 1
+    }],
+    "multiline-comment-style":             // enforce multiline comment style
+      ["error", "starred-block"],
     "multiline-ternary": 0,                // enforce newlines between operands of ternary expressions
     "new-cap": 0,                          // require constructor names to begin with a capital letter
     "new-parens": 0,                       // require parentheses when invoking a constructor with no arguments
@@ -329,7 +331,8 @@
     "semi-style": 0,                       // enforce location of semicolons
     "sort-keys": 0,                        // require object keys to be sorted
     "sort-vars": 0,                        // require variables within the same declaration block to be sorted
-    "space-before-blocks": "error",        // enforce consistent spacing before blocks
+    "space-before-blocks":                 // enforce consistent spacing before blocks
+      ["error", "always"],
     "space-before-function-paren": [       // enforce consistent spacing before function definition opening parenthesis
         "error", {
           "anonymous": "always",             // function () {}
