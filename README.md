@@ -2013,8 +2013,7 @@
 ## lodash
 
   <a name="lodash"></a><a name="21.1"></a>
-  - [22.1](#lodash) Use [lodash](https://lodash.com/).
-  
+  - [21.1](#lodash) Use [lodash](https://lodash.com/) liberally.  Prefer lodash collection operations over JavaScript native, as they are the same for arrays and objects.  Also, prefer lodash type checking functions: `isUndefined`, `isNumber`, etc.
   
 
 **[⬆ back to top](#table-of-contents)**
@@ -2022,7 +2021,7 @@
 
 ## Sundries
 
-  <a name="sundries"></a><a name="21.1"></a>
+  <a name="sundries"></a><a name="22.1"></a>
   - [22.1](#sundries) Some obvious error situations (or ones close enough that we don't need to support them).
   
   * [`no-compare-neg-zero`](https://eslint.org/docs/rules/no-compare-neg-zero)
