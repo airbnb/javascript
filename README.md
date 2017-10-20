@@ -1421,7 +1421,7 @@
     ```
 
   <a name="whitespace--chains"></a><a name="13.6"></a>
-  - [13.6](#whitespace--chains) When chaining calls, put the root object and each chained method on a their own line. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
+  - [13.6](#whitespace--chains) When chaining calls, put each chained method on a separate line. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
 
     ```javascript
     // bad
@@ -1433,39 +1433,38 @@
         .munge(customer);
 
     // bad
-    var myMungedCustomer = Customer
-        .get(customerId)
+    var myMungedCustomer = Customer.get(customerId)
         .munge(customer); 
         
-    var myMungedCustomer = Customer.get(customerId)
-        .munge(customer);         
+    var myMungedCustomer = Customer.get(customerId).munge(customer);         
     
     // good
-    var myMungedCustomer = 
-        Customer
-            .getList(customerId)
-            .munge(customer);     
+    var myMungedCustomer = Customer
+        .getList(customerId)
+        .munge(customer);     
     
     // bad
+    var foo = function foo(cid) {
+        return 
+	    Customer
+                .get(cid)
+                .munge();
+    };
+    
+    // good
     var foo = function foo(cid) {
         return Customer
             .get(cid)
             .munge();
     };
     
-    // good
-    var foo = function foo(cid) {
-        return 
-            Customer
-                .get(cid)
-                .munge();
-    };
-    
     // bad 
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
     // good
-    var $selectedItems = $('#items').find('.selected');
+    var $selectedItems = $('#items')
+        .find('.selected');
+	
     $selectedItems
         .highlight()
         .end();
