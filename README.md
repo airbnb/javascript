@@ -648,7 +648,7 @@ Other Style Guides
 
     // good
     //  lexical name distinguished from the variable-referenced invocation(s)
-    const foo = function uniqueMoreDescriptiveLexicalFoo() {
+    const short = function longUniqueMoreDescriptiveLexicalFoo() {
       // ...
     };
     ```
