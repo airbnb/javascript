@@ -26,9 +26,10 @@
   1. [Exception Handling](#exception-handling)
   1. [lodash](#lodash)
   1. [Sundries](#sundries)
+  1. [AngularJS](#angularjs)
   1. [License](#license)
 
-	
+
 ## Objects
 
   <a name="objects--no-new"></a><a name="1.1"></a>
@@ -50,16 +51,16 @@
     ```javascript
     // bad
     var bad = {
-      'foo': 3,
-      'bar': 4,
-      'data-blah': 5,
+        'foo': 3,
+        'bar': 4,
+        'data-blah': 5,
     };
 
     // good
     var good = {
-      foo: 3,
-      bar: 4,
-      'data-blah': 5,
+        foo: 3,
+        bar: 4,
+        'data-blah': 5,
     };
     ```
 
@@ -107,39 +108,44 @@
   <a name="arrays--bracket-newline"></a>
   - [2.3](#arrays--bracket-newline) Use line breaks after open and before close array brackets if an array has multiple lines
 
-	```javascript
-	// bad
-	var arr = [
-	    [0, 1], [2, 3], [4, 5],
-	];
+    ```javascript
+    // bad
+    var arr = [
+        [0, 1], [2, 3], [4, 5],
+    ];
 
-	var objectInArray = [{
-	        id: 1,
-	    }, {
-	        id: 2,
-	}];
+    var objectInArray = [{
+            id: 1,
+        }, {
+            id: 2,
+    }];
 
-	var numberInArray = [
-	    1, 2,
-	];
+    var numberInArray = [
+        1, 2,
+    ];
 
-	// good
-	var arr = [[0, 1], [2, 3], [4, 5]];
-	
-	var objectInArray = [
-	    {
-	        id: 1,
-	    },
-	    {
-	        id: 2,
-	    },
-	];
-	
-	var numberInArray = [
-	    1,
-	    2
-	];
-	```
+    // good
+    var arr = [[0, 1], [2, 3], [4, 5]];
+
+    var objectInArray = [
+        {
+            id: 1
+        },
+        {
+            id: 2
+        }
+    ];
+
+    var objectInArray = [
+        { id: 1 },
+        { id: 2 }
+    ];
+
+    var numberInArray = [
+        1,
+        2
+    ];
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -148,16 +154,15 @@
   <a name="strings--quotes"></a><a name="3.1"></a>
   - [3.1](#strings--quotes) Use single quotes `'` for strings. jshint: [`quotmark`](http://jshint.com/docs/options/#quotmark), eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html)
 
- 
-	```javascript
-	// bad
-	var name = "Buckaroo Banzai";
-	var note = "Doesn\'t play accordion. Likes \"The Sound of Music\"."; 
-	 
-	// good
-	var name = 'Buckaroo Banzai';
-	var note = 'Doesn\'t play accordion. Likes "The Sound of Music".';
-	```
+    ```javascript
+    // bad
+    var name = "Buckaroo Banzai";
+    var note = "Doesn't play accordion. Likes \"The Sound of Music\".";
+
+    // good
+    var name = 'Buckaroo Banzai';
+    var note = 'Doesn\'t play accordion. Likes "The Sound of Music".';
+    ```
 
   <a name="strings--line-length"></a><a name="3.2"></a>
   - [3.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.  eslint: `max-len` has an option to allow ignoring strings that exceed the line limit
@@ -195,20 +200,20 @@
     // good
     var foo = '\'this\' is "quoted"';
     ```
-    
+
   <a name="strings--no-new"></a><a name="3.5"></a>
   - [3.5](#strings--no-new) Do not use `new String`, use literals instead. eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
-  
+
     ```javascript
-    // bad 
+    // bad
     var myString = new String;
     var hisString = new String();
     var herString = new String('');
-    
+
     // good
     var everyonesString = '';
     ```
-    
+
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -222,17 +227,22 @@
     ```javascript
     // bad
     function foo() {
-      // ...
+        // ...
     }
 
     // bad
     var foo = function () {
-      // ...
+        // ...
+    };
+
+    // bad
+    var foo = function bar() {
+        // ...
     };
 
     // good
     var foo = function foo() {
-      // ...
+        // ...
     };
     ```
 
@@ -244,7 +254,7 @@
     ```javascript
     // immediately-invoked function expression (IIFE)
     (function () {
-      console.log('Welcome to the Internet. Please follow me.');
+        console.log('Welcome to the Internet. Please follow me.');
     }());
     ```
 
@@ -259,12 +269,12 @@
     ```javascript
     // bad
     function foo(name, options, arguments) {
-      // ...
+        // ...
     }
 
     // good
     function foo(name, options, args) {
-      // ...
+        // ...
     }
     ```
 
@@ -288,14 +298,34 @@
 
     ```javascript
     // bad
-    var f = function(){};
-    var g = function (){};
-    foo(function(){});
+    var f =
+        function(){
+            // ...
+        };
+    var g =
+        function (){
+            // ...
+        };
+    foo(
+        function(){
+            // ...
+        }
+    );
 
     // good
-    var f = function f() {};
-    var g = function g() {};
-    foo(function () {});
+    var f =
+        function f() {
+            // ...
+        };
+    var g =
+        function g() {
+            // ...
+        };
+    foo(
+        function () {
+            // ...
+        }
+    );
 
     ```
 
@@ -307,17 +337,17 @@
     ```javascript
     // bad
     function f1(obj) {
-      obj.key = 1;
+        obj.key = 1;
     }
 
-	// good
+    // good
     function f1(obj) {
-    	var key = obj.key; 
+        var key = obj.key;
     }
-	
+
     // overkill
     function f2(obj) {
-      var key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
+        var key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
     }
     ```
 
@@ -329,19 +359,19 @@
     ```javascript
     // bad
     function f1(a) {
-      a = 1;
-      // ...
+        a = 1;
+        // ...
     }
 
     function f2(a) {
-      if (!a) { a = 1; }
-      // ...
+        if (!a) { a = 1; }
+        // ...
     }
 
     // good
     function f3(a) {
-      var b = a || 1;
-      // ...
+        var b = a || 1;
+        // ...
     }
     ```
 
@@ -353,32 +383,32 @@
     function foo(bar,
                  baz,
                  quux) {
-      // ...
+        // ...
     }
 
     // good
     function foo(bar, baz, quux) {};
 
     function foo(
-      bar,
-      baz,
-      quux
+        bar,
+        baz,
+        quux
     ) {
-      // ...
+        // ...
     }
 
     // bad
     console.log(foo,
-      bar,
-      baz);
+        bar,
+        baz);
 
     // good
-    console.log(foo, bar, baz, quux);    
+    console.log(foo, bar, baz, quux);
 
     console.log(
-      foo,
-      bar,
-      baz
+        foo,
+        bar,
+        baz
     );
     ```
 
@@ -386,32 +416,32 @@
   - [4.10](#functions--boolean-parameters) Avoid boolean parameters.
 
     > Why?  While boolean parameters convey their meaning clearly within the function definition, they do not at the sites of the calls.  Use hashes with named parameters to convey their purpose in the context from which they are called.
-  
+
     ```javascript
     // bad
     var fall = function fall(object, up) {
-      var g = ACCELERATION_FROM_EARTH;
-      if (up) {
-        g = -g;
-      }
-      // handle falling
+        var g = ACCELERATION_FROM_EARTH;
+        if (up) {
+            g = -g;
+        }
+        // handle falling
     }
 
     fall(object, true);
 
     // good
     var fall = function fall(object, options) {
-      var g = UNIVERSAL_CONSTANTS.accelerationDueToEarthsGravity;
-      if( options.direction === 'up' ) {
-        g = -g;
-      }
-      // handle falling
+        var g = UNIVERSAL_CONSTANTS.accelerationDueToEarthsGravity;
+        if (options.direction === 'up') {
+            g = -g;
+        }
+        // handle falling
     }
 
-    fall( object, { direction: 'up' } );
+    fall(object, { direction: 'up' });
 
     // bad (real code)
-      initMouseEvent(
+    initMouseEvent(
         eventType,
         true /* bubble */, true /* cancelable */,
         window, null,
@@ -421,29 +451,29 @@
         );
 
     // so much better
-      initMouseEvent({
+    initMouseEvent({
         eventType: eventType,
         bubble: true,
         cancelable: true
-      });
+    });
 
     // worse, but ok
-      initMouseEvent({
+    initMouseEvent({
         eventType: eventType,
         bubble: true,
         cancelable: true,
         coordinates: [0, 0, 0, 0],
         modifierKeys: {
-          shift: false,
-          control: false,
-          alt: false,
-          command: false
+            shift: false,
+            control: false,
+            alt: false,
+            command: false
         },
         leftButton: false,
         whoKnows: null
-      });	
-
+    });
     ```
+
   <a name="functions--boolean-parameters"></a>
   - [4.11](#functions--parameter-spacing) Add spaces between function parameters of the outermost function.
 
@@ -458,61 +488,59 @@
 
     bar(baz(a,1), baz(b,2), baz(c,3));
     ```
-  
+
   <a name="functions--isolation"></a>
-  - [4.12](#functions--isolation) Isolate all functions to their own lines.
-  
+  - [4.12](#functions--isolation) Isolate all function definitions to their own lines.
+
     ```javascript
     // bad
     var largeNumbers = numbers.filter(function (val) { return val >= 100; });
-    
-    // good
-    var largeNumbers = numbers.filter(
-        function (val) { 
-            return val >= 100; 
-        }
-    );
-    
-    // bad 
-    return 
-        Customer
-            .get(cid)
-            .then(function (customer) {
-                customer.processed = true;
-              
-                return customer;
-            });
 
     // good
-    return 
-        Customer
-            .get(cid)
-            .then(
-                function (customer) {
-                    customer.processed = true;
-              
-                    return customer;
-                }
-            );  
-            
+    var largeNumbers = numbers.filter(
+        function (val) {
+            return val >= 100;
+        }
+    );
+
+    // bad
+    return Customer
+        .get(cid)
+        .then(function (customer) {
+            customer.processed = true;
+
+            return customer;
+        });
+
+    // good
+    return Customer
+        .get(cid)
+        .then(
+            function (customer) {
+                customer.processed = true;
+
+                return customer;
+            }
+        );
+
     // bad
     var interface = {
         foo: function () { return 'foo'; },
         bar: function () { return 'bar'; }
     };
-    
+
     // good
     var interface = {
-        foo: 
-            function () { 
-                return 'foo'; 
+        foo:
+            function () {
+                return 'foo';
             },
-        bar: 
-            function () { 
-                return 'bar'; 
+        bar:
+            function () {
+                return 'bar';
             }
     };
-    
+
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -524,7 +552,7 @@
 
     > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
 
-    > Use `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... to iterate over arrays, and `Object.keys()` / `Object.values()` / `Object.entries()` to produce arrays so you can iterate over objects.  Use [lodash](https://lodash.com/) liberally and without hesitation ([underscore](http://underscorejs.org/) is also good, but we recommend lodash for consistency).  
+    > Use `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... to iterate over arrays, and `Object.keys()` / `Object.values()` / `Object.entries()` to produce arrays so you can iterate over objects.  Use [lodash](https://lodash.com/) liberally and without hesitation ([underscore](http://underscorejs.org/) is also good, but we recommend lodash for consistency).
 
     ```javascript
     var numbers = [1, 2, 3, 4, 5];
@@ -532,57 +560,107 @@
     // bad
     var sum = 0;
     for (var num of numbers) {
-      sum += num;
+        sum += num;
     }
     sum === 15;
 
     // good
     var sum = 0;
-    numbers.forEach(function (num) {
-      sum += num;
-    });
+    numbers.forEach(
+        function (num) {
+            sum += num;
+        }
+    );
     sum === 15;
 
-    // best (use the functional force)
-    var sum = numbers.reduce(function(total, num) { return total + num; }, 0 );
+    // better (use the functional force)
+    var sum = numbers.reduce(
+        function(total, num) {
+            return total + num;
+        },
+        0
+    );
     sum === 15;
+
+    // best (lodash)
+    var sum = _.reduce(
+        numbers,
+        function(total, num) {
+            return total + num;
+        },
+        0
+    );
 
     // bad
     var increasedByOne = [];
     for(var i = 0; i < numbers.length; i++) {
-      increasedByOne.push(numbers[i] + 1);
+        increasedByOne.push(numbers[i] + 1);
     }
 
     // good
     var increasedByOne = [];
-    numbers.forEach(function (num) {
-      increasedByOne.push(num + 1);
-    });
+    numbers.forEach(
+        function (num) {
+            increasedByOne.push(num + 1);
+        }
+    );
 
-    // best (keeping it functional)
-    var increasedByOne = numbers.map(function (num) { return num + 1; });
-    
+    // better (keeping it functional)
+    var increasedByOne = numbers.map(
+        function (num) {
+            return num + 1;
+        }
+    );
+
+    // best (lodash)
+    var increasedByOne = _.map(
+        numbers,
+        function (num) {
+            return num + 1;
+        }
+    );
+
     // bad
     function containsThree(insanelyLongArray) {
-	    var hasAThree = false;
-	    insanelyLongArray.forEach(function (value) {
-	    	if( value === 3 ) {
-	    		hasAThree = true;
-			}    		
-	    });
-	    
-	    return hasAThree;
+        var hasAThree = false;
+        insanelyLongArray.forEach(
+            function (value) {
+                if (value === 3) {
+                    hasAThree = true;
+                }
+            }
+        );
+
+        return hasAThree;
     }
-    
+
     // good
     function containsThree(insanelyLongArray) {
-	    for (var i = 0; i < insanelyLongArray.length; i++) {
-	    	if (insanelyLongArray[i] === 3) {
-	    		return true;
-	    }
-	    
-	    return false;
-   	} 
+      for (var i = 0; i < insanelyLongArray.length; i++) {
+        if (insanelyLongArray[i] === 3) {
+          return true;
+      }
+
+      return false;
+    }
+
+    // better (lodash)
+    function containsThree(insanelyLongArray) {
+        return _.includes(
+            insanelyLongArray,
+            3
+        );
+    }
+
+    // best (lodash - allow for complex conditionals)
+    function containsThree(insanelyLongArray) {
+        return _.some(
+            insanelyLongArray,
+            function (item) {
+                return item.value === 3;
+            }
+        );
+    }
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -590,12 +668,12 @@
 ## Properties
 
   <a name="properties--dot"></a><a name="6.1"></a>
-  - [6.1](#properties--dot) Use dot notation when accessing properties. eslint: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html) 
+  - [6.1](#properties--dot) Use dot notation when accessing properties. eslint: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html)
 
     ```javascript
     var luke = {
-      jedi: true,
-      age: 28,
+        jedi: true,
+        age: 28,
     };
 
     // bad
@@ -610,17 +688,17 @@
 
     ```javascript
     var luke = {
-      jedi: true,
-      age: 28,
+        jedi: true,
+        age: 28,
     };
 
     function getProp(prop) {
-      return luke[prop];
+        return luke[prop];
     }
 
     var isJedi = getProp('jedi');
     ```
-    
+
   <a name="es2016-properties--exponentiation-operator"></a>
   - [6.3](#es2016-properties--exponentiation-operator) Use exponentiation operator `**` when calculating exponentiations. eslint: [`no-restricted-properties`](http://eslint.org/docs/rules/no-restricted-properties).
 
@@ -646,11 +724,11 @@
     // good
     var superPower = new SuperPower();
     ```
-    
-    
+
+
   <a name="variables--always-initialize"></a><a name="7.2"></a>
   - [7.2](#variables--always-init) Always initialize variables.  If their value is unknown at the point of declaration, use `null`.  Never use `undefined`. eslint: [`init-declarations`](https://eslint.org/docs/rules/init-declarations), [`no-undefined`](https://eslint.org/docs/rules/no-undefined), [`no-undef-init`](https://eslint.org/docs/rules/no-undef-init)
-    
+
     ```javascript
     // bad
     var i;
@@ -665,17 +743,17 @@
     var whoKnows = null;
     if (typeof foo === 'undefined') {}
     ```
-	
+
   <a name="variables--one-const"></a><a name="7.3"></a>
-  - [7.3](#variables--one-const) Use one `var` declaration per variable. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) 
+  - [7.3](#variables--one-const) Use one `var` declaration per variable. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html)
 
     > Why? It’s easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
 
     ```javascript
     // bad
     var items = getItems(),
-      goSportsTeam = true,
-      dragonball = 'z';
+        goSportsTeam = true,
+        dragonball = 'z';
 
     // bad
     // (compare to above, and try to spot the mistake)
@@ -686,7 +764,7 @@
     // good
     var items = getItems();
     var goSportsTeam = true;
-    var dragonball = 'z';    
+    var dragonball = 'z';
     ```
 
   <a name="variables--capitalize-constants"></a><a name="7.4"></a>
@@ -696,22 +774,23 @@
     // bad
     var maxNameLength = 16;
     var userCount = getUsers().length;
-    
+
     // good
-	var MAX_NAME_LENGTH = 16;
-	var USER_COUNT = getUsers().length;
-	```
+    var MAX_NAME_LENGTH = 16;
+    var USER_COUNT = getUsers().length;
+    ```
 
   <a name="variables--const-let-group"></a><a name="7.5"></a>
-  - [7.5](#variables--const-let-group) Group all your constants and then group all your vars.  Prefer inserting a line between the two blocks.
+  - [7.5](#variables--const-let-group) Group all your constants and then group all your vars.  Prefer inserting a line between the two blocks. Also prefer inserting a line after these blocks to separate them from your function's actual code.
 
     > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
     ```javascript
     // very bad
     var i, len, dragonball,
-      items = getItems(),
-      goSportsTeam = true;
+        items = getItems(),
+        goSportsTeam = true;
+    doSomethingWith(items);
 
     // bad
     var i = null;
@@ -719,14 +798,17 @@
     var dragonball = null;
     var GO_SPORTS_TEAM = true;
     var len = null;
+    doSomethingWith(ITEMS);
 
     // good
     var GO_SPORTS_TEAM = true;
     var ITEMS = getItems();
-    
+
     var dragonball = null;
     var i = null;
     var length = null;
+
+    doSomethingWith(ITEMS);
     ```
 
   <a name="variables--no-chain-assignment"></a><a name="7.6"></a>
@@ -737,12 +819,12 @@
     ```javascript
     // bad
     function example() {
-      // JavaScript interprets this as
-      // var a = ( b = ( c = 1 ) );
-      // The var keyword only applies to variable a; variables b and c become
-      // global variables.
-      var a = b = c = 1;
-      // function body...
+        // JavaScript interprets this as
+        // var a = ( b = ( c = 1 ) );
+        // The var keyword only applies to variable a; variables b and c become
+        // global variables.
+        var a = b = c = 1;
+        // function body...
     }
 
     console.log(a); // throws ReferenceError
@@ -751,10 +833,10 @@
 
     // good
     function example() {
-      var a = 1;
-      var b = a;
-      var c = a;
-      // function body...
+        var a = 1;
+        var b = a;
+        var c = a;
+        // function body...
     }
 
     console.log(a); // throws ReferenceError
@@ -769,7 +851,6 @@
 
     ```javascript
     // bad
-    
     var array = [1, 2, 3];
     var num = 1;
     num++;
@@ -778,22 +859,41 @@
     var sum = 0;
     var truthyCount = 0;
     for (var i = 0; i < array.length; i++) {
-      var value = array[i];
-      sum += value;
-      if (value) {
-        truthyCount++;
-      }
+        var value = array[i];
+        sum += value;
+        if (value) {
+            truthyCount++;
+        }
     }
 
     // good
-    
     var array = [1, 2, 3];
     var num = 1;
     num += 1;
     num -= 1;
 
-    var sum = array.reduce(function (a, b) { return a + b; }, 0 );
+    var sum = array.reduce(
+        function (a, b) {
+            return a + b;
+        },
+        0
+    );
     var truthyCount = array.filter(Boolean).length;
+
+    // better (lodash)
+    var array = [1, 2, 3];
+
+    var sum = _.reduce(
+        array,
+        function (a, b) {
+            return a + b;
+        },
+        0
+    );
+    var truthyCount = _.filter(array, Boolean).length;
+
+    // best (lodash - in the contrived sum case)
+    var sum = _.sum(array);
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -801,13 +901,13 @@
 ## Hoisting
 
   <a name="hoisting--about"></a><a name="8.1"></a>
-  - [8.1](#hoisting--about) `var` declarations get hoisted to the top of their scope, but their assignment does not. 
-  
+  - [8.1](#hoisting--about) `var` declarations get hoisted to the top of their scope, but their assignment does not.
+
     ```javascript
     // we know this wouldn’t work (assuming there
     // is no notDefined global variable)
     function example() {
-      console.log(notDefined); // throws a ReferenceError
+        console.log(notDefined); // throws a ReferenceError
     }
 
     // creating a variable declaration after you
@@ -815,25 +915,26 @@
     // variable hoisting. Note: the assignment
     // value of `true` is not hoisted.
     function example() {
-      console.log(declaredButNotAssigned); // undefined
-      var declaredButNotAssigned = true;
+        console.log(declaredButNotAssigned); // undefined
+        var declaredButNotAssigned = true;
     }
 
     // the interpreter is hoisting the variable
     // declaration to the top of the scope,
     // which means our example could be rewritten as:
     function example() {
-      var declaredButNotAssigned;
-      console.log(declaredButNotAssigned); // undefined
-      declaredButNotAssigned = true;
+        var declaredButNotAssigned;
+        console.log(declaredButNotAssigned); // undefined
+        declaredButNotAssigned = true;
     }
 
     ```
-  For this reason declare all variables at the top of their function blocks.
+
+    For this reason declare all variables at the top of their function blocks.
 
     ```javascript
-      // bad
-      function foo(wombats, marmosets) {
+    // bad
+    function foo(wombats, marmosets) {
         console.log('Total: ' + numWombats + numMarmosets);
 
         var numWombats = wombats.length;
@@ -841,29 +942,29 @@
 
         var numMarmosets = marmosets.length;
         console.log('Marmosets count: ' + numMarmosets);
-      }
+    }
 
-      // good
-      function foo(wombats, marmosets) {
-        var numWombats = wombats.length;    			var numMarmosets = marmosets.length;		
+    // good
+    function foo(wombats, marmosets) {
+        var numWombats = wombats.length;          var numMarmosets = marmosets.length;
         console.log('Total: ' + numWombats + numMarmosets);
         console.log('Wombats: ' + wombatCount);
         console.log('Marmosets count: ' + numMarmosets);
-      }
+    }
     ```
-    
+
   <a name="hoisting--anon-expressions"></a><a name="8.2"></a>
   - [8.2](#hoisting--anon-expressions) Anonymous function expressions hoist their variable name, but not the function assignment.
 
     ```javascript
     function example() {
-      console.log(anonymous); // undefined
+        console.log(anonymous); // undefined
 
-      anonymous(); // TypeError anonymous is not a function
+        anonymous(); // TypeError anonymous is not a function
 
-      var anonymous = function () {
-        console.log('anonymous function expression');
-      };
+        var anonymous = function () {
+            console.log('anonymous function expression');
+        };
     }
     ```
 
@@ -872,27 +973,27 @@
 
     ```javascript
     function example() {
-      console.log(named); // undefined
+        console.log(named); // undefined
 
-      named(); // TypeError named is not a function
+        named(); // TypeError named is not a function
 
-      superPower(); // ReferenceError superPower is not defined
+        superPower(); // ReferenceError superPower is not defined
 
-      var named = function superPower() {
-        console.log('Flying');
-      };
+        var named = function superPower() {
+            console.log('Flying');
+        };
     }
 
     // the same is true when the function name
     // is the same as the variable name.
     function example() {
-      console.log(named); // undefined
+        console.log(named); // undefined
 
-      named(); // TypeError named is not a function
+        named(); // TypeError named is not a function
 
-      var named = function named() {
-        console.log('named');
-      };
+        var named = function named() {
+            console.log('named');
+        };
     }
     ```
 
@@ -901,11 +1002,11 @@
 
     ```javascript
     function example() {
-      superPower(); // Flying
+        superPower(); // Flying
 
-      function superPower() {
-        console.log('Flying');
-      }
+        function superPower() {
+            console.log('Flying');
+        }
     }
     ```
 
@@ -930,8 +1031,8 @@
 
     ```javascript
     if ([0] && []) {
-      // true
-      // an array (even an empty one) is an object, objects will evaluate to true
+        // true
+        // an array (even an empty one) is an object, objects will evaluate to true
     }
     ```
 
@@ -941,32 +1042,32 @@
     ```javascript
     // bad
     if (isValid === true) {
-      // ...
+        // ...
     }
 
     // good
     if (isValid) {
-      // ...
+        // ...
     }
 
     // bad
     if (name) {
-      // ...
+        // ...
     }
 
     // good
     if (name !== '') {
-      // ...
+        // ...
     }
 
     // bad
     if (collection.length) {
-      // ...
+        // ...
     }
 
     // good
     if (collection.length > 0) {
-      // ...
+        // ...
     }
     ```
 
@@ -980,16 +1081,16 @@
     ```javascript
     // bad
     var foo = maybe1 > maybe2
-      ? 'bar'
-      : value1 > value2 ? 'baz' : null;
+        ? 'bar'
+        : value1 > value2 ? 'baz' : null;
 
     // split into 2 separated ternary expressions
     var maybeNull = value1 > value2 ? 'baz' : null;
 
     // better
     var foo = maybe1 > maybe2
-      ? 'bar'
-      : maybeNull;
+        ? 'bar'
+        : maybeNull;
 
     // best
     var foo = maybe1 > maybe2 ? 'bar' : maybeNull;
@@ -1022,60 +1123,63 @@
 
     // good
     if (test) {
-      return false;
+        return false;
     }
 
     // bad
-    function bar() { return false; }
+    var bar = function bar() { return false; }
 
     // good
-    function bar() {
-      return false;
+    var bar = function bar() {
+        return false;
     }
     ```
 
   <a name="blocks--braces"></a><a name="10.2"></a>
   - [10.2](#blocks--braces) Use braces with all blocks. eslint: [`curly`](https://eslint.org/docs/rules/curly)
+
     ```javascript
     // bad
-    if( test )
-      return false;
+    if (test)
+        return false;
 
     // good
-    if( test ) {
-      return false;
+    if (test) {
+        return false;
     }
     ```
 
   <a name="blocks--bracing-style"></a><a name="10.3"></a>
-  - [10.3](#blocks--bracing-style) Bracing style: use [Stroustrup](https://en.wikipedia.org/wiki/Indentation_style#Variant:_Stroustrup). eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) 
+  - [10.3](#blocks--bracing-style) Bracing style: use [Stroustrup](https://en.wikipedia.org/wiki/Indentation_style#Variant:_Stroustrup). eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html)
+
+    > Why? This keeps our control blocks horizontally aligned without too much extra vertical spacing, much like Python.
 
     ```javascript
     // bad (K&R, one true brace style)
     if (test) {
-      thing1();
+        thing1();
     } else {
-      thing2();
+        thing2();
     }
 
-    // bad (Allman) 
-    if (test) 
+    // bad (Allman)
+    if (test)
     {
-      thing1();
-    } 
-    else 
-    {
-      thing2();
+        thing1();
     }
-    
+    else
+    {
+        thing2();
+    }
+
     // good (Stroustrop)
     if (test) {
-      thing1();
-    } 
-    else {
-      thing3();
+        thing1();
     }
-    
+    else {
+        thing3();
+    }
+
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1107,7 +1211,7 @@
     }
 
     if (
-        foo === 123 
+        foo === 123
         && bar === 'abc'
     ) {
         thing1();
@@ -1115,16 +1219,16 @@
 
     if (
         (
-            foo === 123 
-            || bar === 'abc' 
+            foo === 123
+            || bar === 'abc'
             || baz === 'quux'
-        ) 
-        && doesItLookGoodWhenItBecomesThatLong() 
+        )
+        && doesItLookGoodWhenItBecomesThatLong()
         && isThisReallyHappening()
-	&& (ohno === 'it' || justKeeps === 'going')
+        && (ohno === 'it' || justKeeps === 'going')
     ) {
         thing1();
-    } 
+    }
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1142,10 +1246,10 @@
     // @param {String} tag
     // @returns {Element} element
     function make(tag) {
-      // ...
-      return element;
+        // ...
+        return element;
     }
-    
+
     /* Adam
        Had 'em */
 
@@ -1153,15 +1257,15 @@
     /**
      * make() returns a new element
      * based on the tag name
-     * 
-     * @param {String}		tag
-     * @returns {Element}	element
+     *
+     * @param {String}    tag
+     * @returns {Element} element
      */
     function make(tag) {
-      // ...
-      return element;
+        // ...
+        return element;
     }
-    
+
     /**
      * Adam
      * Had 'em
@@ -1169,7 +1273,7 @@
     ```
 
   <a name="comments--singleline"></a><a name="12.2"></a>
-  - [12.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it’s on the first line of a block. 
+  - [12.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it’s on the first line of a block.
 
     ```javascript
     // bad
@@ -1181,29 +1285,29 @@
 
     // bad
     function getType() {
-      console.log( 'fetching type...' );
-      // set the default type to 'no type'
-      var type = this.type || 'no type';
+        console.log('fetching type...');
+        // set the default type to 'no type'
+        var type = this.type || 'no type';
 
-      return type;
+        return type;
     }
 
     // good
     function getType() {
-      console.log( 'fetching type...' );
+        console.log('fetching type...');
 
-      // set the default type to 'no type'
-      var type = this.type || 'no type';
+        // set the default type to 'no type'
+        var type = this.type || 'no type';
 
-      return type;
+        return type;
     }
 
     // also good
     function getType() {
-      // set the default type to 'no type'
-      var type = this.type || 'no type';
+        // set the default type to 'no type'
+        var type = this.type || 'no type';
 
-      return type;
+        return type;
     }
     ```
 
@@ -1225,9 +1329,9 @@
      */
     function make(tag) {
 
-      // ...
+        // ...
 
-      return element;
+        return element;
     }
 
     // good
@@ -1237,9 +1341,9 @@
      */
     function make(tag) {
 
-      // ...
+        // ...
 
-      return element;
+        return element;
     }
     ```
 
@@ -1251,12 +1355,12 @@
 
     ```javascript
     var Abacus {
-      constructor: function constructor() {
-        super();
+        constructor: function constructor() {
+            super();
 
-        // FIXME: shouldn’t use a global here
-        total = 0;
-      }
+            // FIXME: shouldn’t use a global here
+            total = 0;
+        }
     };
     ```
 
@@ -1265,44 +1369,43 @@
 
     ```javascript
     var Abacus {
-      constructor: function constructor() {
-        super();
+        constructor: function constructor() {
+            super();
 
-        // TODO: total should be configurable by an options param
-        this.total = 0;
-      }
+            // TODO: total should be configurable by an options param
+            this.total = 0;
+        }
     }
     ```
 
   <a name="comments--unhelpful"></a><a name="12.7"></a>
   - [12.7](#comments--unhelpful) Don't make unhelpful or obvious comments.
-  
+
     ```javascript
-      // bad
+    // bad
 
-        // increments variable i by one
-        i++;
+    // increments variable i by one
+    i++;
 
-        // Sets the number of tentacles on the monster to five for now
-        Monster.setNumberOfTentacles(3);
+    // Sets the number of tentacles on the monster to five for now
+    Monster.setNumberOfTentacles(3);
 
-        // Moved this here after the miso soup incident
-        Xrvrrzhhkrrkngng.$$(false, 0, null, true, 'FALSE', undefined, { causeSystemFailures: 700.0 } );
+    // Moved this here after the miso soup incident
+    Xrvrrzhhkrrkngng.$$(false, 0, null, true, 'FALSE', undefined, { causeSystemFailures: 700.0 } );
 
-      // good
+    // good
+    i++;
+    Monster.setNumberOfTentacles(3);
 
-        i++;
-        Monster.setNumberOfTentacles(3);    
-
-        /** 
-         * This call invalidates the Procyon node cache.
-         * The string of params are all harmless defaults except the last,
-         * which has to be a floating point, and sets failure generation to
-         * the minimum of 700.
-         */
-        Xrvrrzhhkrrkngng.$$(false, 0, null, true, 'FALSE', undefined, { causeSystemFailures: 700.0 } );
+    /**
+     * This call invalidates the Procyon node cache.
+     * The string of params are all harmless defaults except the last,
+     * which has to be a floating point, and sets failure generation to
+     * the minimum of 700.
+     */
+    Xrvrrzhhkrrkngng.$$(false, 0, null, true, 'FALSE', undefined, { causeSystemFailures: 700.0 } );
     ```
-  
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Whitespace
@@ -1311,18 +1414,27 @@
   - [13.1](#whitespace--spaces) Use 4 spaces instead of tabs. eslint: [`indent`](http://eslint.org/docs/rules/indent.html)
 
     ```javascript
-	// bad
-	function foo() {
-		var name;
-	}
+    // bad
+    function foo() {
+    	var name;
+    }
+
+    function foo() {
+    ∙∙var name;
+    }
 
     // very bad
     function bar() {
     ∙var name;
     }
-    
+
     function baz() {
     ∙∙∙∙∙∙∙∙var name;
+    }
+
+    // go away, ptr
+    function bar() {
+    ∙∙∙var name;
     }
 
     // good
@@ -1332,58 +1444,76 @@
     ```
 
   <a name="whitespace--before-blocks"></a><a name="13.2"></a>
-  - [13.2](#whitespace--before-blocks) Place 1 space before the leading brace. eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) 
+  - [13.2](#whitespace--before-blocks) Place 1 space before the leading brace. eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html)
 
     ```javascript
     // bad
     function test(){
-      console.log('test');
+        console.log('test');
     }
-    
+
     function() {}
 
     // good
     function test() {
-      console.log('test');
+        console.log('test');
     }
-    
+
     function () {}
 
     // bad
-    dog.set( 'attr',{
-      age: '1 year',
-      breed: 'Bernese Mountain Dog',
+    dog.set('attr',{
+        age: '1 year',
+        breed: 'Bernese Mountain Dog',
     });
 
     // good
-    dog.set( 'attr', {
-      age: '1 year',
-      breed: 'Bernese Mountain Dog',
+    dog.set('attr', {
+        age: '1 year',
+        breed: 'Bernese Mountain Dog',
     });
     ```
 
   <a name="whitespace--around-keywords"></a><a name="13.3"></a>
-  - [13.3](#whitespace--around-keywords) Do not place a space after the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing.html) 
+  - [13.3](#whitespace--around-keywords) Do not place a space after the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing.html)
+
     ```javascript
     // bad
-    if ( isJedi ) {
-      fight ();
+    if(isJedi) {
+        run();
+    }
+    else{
+        fight();
     }
 
     // good
     if (isJedi) {
-      fight();
+        run();
+    }
+    else {
+        fight();
     }
 
     // bad
-    while ( true ) {}
-    
+    while(true) {}
+
     // good
     while (true) {}
     ```
 
-  <a name="whitespace--infix-ops"></a><a name="13.4"></a>
-  - [13.4](#whitespace--infix-ops) Set off operators with spaces. eslint: [`space-infix-ops`](https://eslint.org/docs/rules/space-infix-ops) 
+  <a name="whitespace--function-calls"></a><a name="13.4"></a>
+  - [13.4](#whitespace--function-calls) Do not place a space between the function name and the opening parenthesis when calling a function. eslint: [`func-call-spacing`](http://eslint.org/docs/rules/func-call-spacing.html)
+
+    ```javascript
+    // bad
+    levitate (['rocks', 'R2-D2']);
+
+    // good
+    levitate(['X-wing']);
+    ```
+
+  <a name="whitespace--infix-ops"></a><a name="13.5"></a>
+  - [13.5](#whitespace--infix-ops) Set off operators with spaces. eslint: [`space-infix-ops`](https://eslint.org/docs/rules/space-infix-ops)
 
     ```javascript
     // bad
@@ -1393,22 +1523,22 @@
     var x = y + 5;
     ```
 
-  <a name="whitespace--newline-at-end"></a><a name="13.5"></a>
-  - [13.5](#whitespace--newline-at-end) End files with a single newline character. eslint: [`eol-last`](https://eslint.org/docs/rules/eol-last)
-	
+  <a name="whitespace--newline-at-end"></a><a name="13.6"></a>
+  - [13.6](#whitespace--newline-at-end) End files with a single newline character. eslint: [`eol-last`](https://eslint.org/docs/rules/eol-last)
+
     > Why?  Do you even POSIX?  Many *nix utilities that process text files rely on all lines ending with a line break.
-	
+
     ```javascript
     // bad
     function foo() {
-      // ...
+        // ...
     }
     ```
 
     ```javascript
     // bad
     function foo() {
-      // ...
+        // ...
     }
     ↵
     ```
@@ -1416,12 +1546,12 @@
     ```javascript
     // good
     function foo() {
-      // ...
+        // ...
     }↵
     ```
 
-  <a name="whitespace--chains"></a><a name="13.6"></a>
-  - [13.6](#whitespace--chains) When chaining calls, put each chained method on a separate line. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
+  <a name="whitespace--chains"></a><a name="13.7"></a>
+  - [13.7](#whitespace--chains) When chaining calls, put each chained method on a separate line. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
 
     ```javascript
     // bad
@@ -1433,143 +1563,139 @@
         .munge(customer);
 
     // bad
-    var myMungedCustomer = 
+    var myMungedCustomer =
         Customer
-	    .get(customerId)
-	    .munge(customer);         
-    
+            .get(customerId)
+            .munge(customer);
+
     var myMungedCustomer = Customer.get(customerId)
-        .munge(customer); 
-        
-    var myMungedCustomer = Customer.get(customerId).munge(customer);         
-    
+        .munge(customer);
+
+    var myMungedCustomer = Customer.get(customerId).munge(customer);
+
     // good
     var myMungedCustomer = Customer
         .getList(customerId)
-        .munge(customer);     
-    
+        .munge(customer);
+
     // bad
     var foo = function foo(cid) {
-        return 
-	    Customer
+        return
+            Customer
                 .get(cid)
                 .munge();
     };
-    
+
     // good
     var foo = function foo(cid) {
         return Customer
             .get(cid)
             .munge();
     };
-    
-    // bad 
+
+    // bad
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
     // good
-    var $selectedItems = $('#items')
-        .find('.selected');
-	
-    $selectedItems
-        .highlight();
-	
-    $selectedItems
+    $('#items')
+        .find('.selected')
+        .highlight()
+        .end()
         .find('.open')
         .updateCount();
     ```
 
-  <a name="whitespace--after-blocks"></a><a name="13.7"></a>
-  - [13.7](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement. 
+  <a name="whitespace--after-blocks"></a><a name="13.8"></a>
+  - [13.8](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement.
 
     ```javascript
     // bad
     if (foo) {
-      return bar;
+        return bar;
     }
     return baz;
 
     // good
     if (foo) {
-      return bar;
+        return bar;
     }
 
     return baz;
 
     // bad
     var arr = [
-      function foo() {
-      },
-      function bar() {
-      },
+        function foo() {
+        },
+        function bar() {
+        }
     ];
     return arr;
 
     // good
     var arr = [
-      function foo() {
-      },
-      function bar() {
-      },
+        function foo() {
+        },
+        function bar() {
+        }
     ];
 
     return arr;
     ```
 
-  <a name="whitespace--padded-blocks"></a><a name="13.8"></a>
-  - [13.8](#whitespace--padded-blocks) Do not pad your blocks with blank lines. eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html)
+  <a name="whitespace--padded-blocks"></a><a name="13.9"></a>
+  - [13.9](#whitespace--padded-blocks) Do not pad your blocks with blank lines. eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html)
 
     ```javascript
     // bad
     function bar() {
 
-      console.log(foo);
+        console.log(foo);
 
     }
 
     // bad
     if (baz) {
 
-    console.log(qux);
-    } 
+        console.log(qux);
+    }
     else {
-    console.log(foo);
+        console.log(foo);
 
     }
 
     // good
     if (baz) {
-      console.log(qux);
-    } 
+        console.log(qux);
+    }
     else {
-      console.log(foo);
+        console.log(foo);
     }
     ```
 
-  <a name="whitespace--in-parens"></a><a name="13.9"></a>
-  - [13.9](#whitespace--in-parens) Don't add spaces inside parentheses function calls. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html)
+  <a name="whitespace--in-parens"></a><a name="13.10"></a>
+  - [13.10](#whitespace--in-parens) Don't add spaces inside parentheses function calls. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html)
     > Why not?  It doesn't gel with the vast corpus of extant JavaScript code and seems jarring because of that.
- 
+
     ```javascript
     // bad
     function bar( foo ) {
-      return foo;
+        return foo;
     }
 
     // good
     function bar(foo) {
-      return foo;
+        return foo;
     }
-    
+
     // bad
     foo( bar( baz( 5 ) ) ) );
-    
+
     // good
     foo(bar(baz(5))));
-  
     ```
 
-  <a name="whitespace--in-brackets"></a><a name="13.10"></a>
-  - [13.10](#whitespace--in-brackets) Do not add spaces inside brackets for one-line array declarations. eslint: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html)
+  <a name="whitespace--in-brackets"></a><a name="13.11"></a>
+  - [13.11](#whitespace--in-brackets) Do not add spaces inside brackets for one-line array declarations. eslint: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html)
 
     ```javascript
     // bad
@@ -1581,8 +1707,8 @@
     console.log(foo[0]);
     ```
 
-  <a name="whitespace--in-braces"></a><a name="13.11"></a>
-  - [13.11](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html)
+  <a name="whitespace--in-braces"></a><a name="13.12"></a>
+  - [13.12](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html)
 
     ```javascript
     // bad
@@ -1592,8 +1718,8 @@
     var foo = { clark: 'kent' };
     ```
 
-  <a name="whitespace--max-len"></a><a name="13.12"></a>
-  - [13.12](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) 
+  <a name="whitespace--max-len"></a><a name="13.13"></a>
+  - [13.13](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html)
 
     > Why? This ensures readability and maintainability.
 
@@ -1606,20 +1732,46 @@
 
     // good
     var foo = jsonData
-      && jsonData.foo
-      && jsonData.foo.bar
-      && jsonData.foo.bar.baz
-      && jsonData.foo.bar.baz.quux
-      && jsonData.foo.bar.baz.quux.xyzzy;
+        && jsonData.foo
+        && jsonData.foo.bar
+        && jsonData.foo.bar.baz
+        && jsonData.foo.bar.baz.quux
+        && jsonData.foo.bar.baz.quux.xyzzy;
 
     // good
     $.ajax({
-      method: 'POST',
-      url: 'https://airbnb.com/',
-      data: { name: 'John' },
+        method: 'POST',
+        url: 'https://airbnb.com/',
+        data: { name: 'John' },
     })
-      .done(function () { console.log('Congratulations!') })
-      .fail(function () { console.log('You have failed this city.') });
+        .done(
+            function () {
+                console.log('Congratulations!');
+            }
+        )
+        .fail(
+            function () {
+                console.log('You have failed this city.');
+            }
+        );
+
+    // also acceptable
+    $
+        .ajax({
+            method: 'POST',
+            url: 'https://airbnb.com/',
+            data: { name: 'John' },
+        })
+        .done(
+            function () {
+                console.log('Congratulations!');
+            }
+        )
+        .fail(
+            function () {
+                console.log('You have failed this city.');
+            }
+        );
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1627,7 +1779,7 @@
 ## Commas
 
   <a name="commas--leading-trailing"></a><a name="14.1"></a>
-  - [14.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) 
+  - [14.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html)
 
     ```javascript
     // bad
@@ -1663,48 +1815,48 @@
     ```
 
   <a name="commas--dangling"></a><a name="14.2"></a>
-  - [14.2](#commas--dangling) Additional trailing comma: **Nope.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) 
+  - [14.2](#commas--dangling) Additional trailing comma: **Nope.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html)
 
 
     ```javascript
     // bad
     var hero = {
-      firstName: 'Dana',
-      lastName: 'Scully',
+        firstName: 'Dana',
+        lastName: 'Scully',
     };
 
     var heroes = [
-      'Batman',
-      'Superman',
+        'Batman',
+        'Superman',
     ];
 
     // good
     var hero = {
-      firstName: 'Dana',
-      lastName: 'Scully'
+        firstName: 'Dana',
+        lastName: 'Scully'
     };
 
     var heroes = [
-      'Batman',
-      'Superman'
+        'Batman',
+        'Superman'
     ];
 
     // bad
     function createHero(
-      firstName,
-      lastName,
-      inventorOf,
+        firstName,
+        lastName,
+        inventorOf,
     ) {
-      // does nothing
+        // does nothing
     }
 
     // good
     function createHero(
-      firstName,
-      lastName,
-      inventorOf
+        firstName,
+        lastName,
+        inventorOf
     ) {
-      // does nothing
+        // does nothing
     }
     ```
 
@@ -1718,16 +1870,16 @@
     ```javascript
     // bad
     function foo() {
-      var name = 'Skywalker'
-      var hairstyle = "70s" ;
-      return name
+        var name = 'Skywalker'
+        var hairstyle = "70s" ;
+        return name
     }
 
     // good
     function foo() {
-      var name = 'Skywalker';
-      var hairstyle = "70s";      
-      return name;
+        var name = 'Skywalker';
+        var hairstyle = "70s";
+        return name;
     }
 
     ```
@@ -1738,41 +1890,41 @@
     ```javascript
     // bad
     function foo() {
-      var name = 'Skywalker' ;
+        var name = 'Skywalker' ;
 
-      return name
+        return name
     }
 
     // good
     function foo() {
-      var name = 'Skywalker';
+        var name = 'Skywalker';
 
-      return name;
+        return name;
     }
 
     ```
-  
+
   <a name="semicolons--extra-semis"></a><a name="15.3"></a>
   - [15.3](#semicolons--extra-semis) No extra semi-colons.  eslint: [`no-extra-semi`](https://eslint.org/docs/rules/no-extra-semi)
 
     ```javascript
     // bad
     function foo() {
-      var name = 'Skywalker';;;;;;;;
+        var name = 'Skywalker';;;;;;;;
 
-      return name
+        return name
     }
 
     // good
     function foo() {
-      var name = 'Skywalker';
+        var name = 'Skywalker';
 
-      return name;
+        return name;
     }
 
     ```
-  
-  
+
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Type Casting & Coercion
@@ -1785,14 +1937,14 @@
 
     ```javascript
     // bad
-	    // invokes this.reviewScore.valueOf()
-		var totalScore = this.reviewScore + ''; 
+    // invokes this.reviewScore.valueOf()
+    var totalScore = this.reviewScore + '';
 
-		// isn’t guaranteed to return a string
-		var totalScore = this.reviewScore.toString(); 
+    // isn’t guaranteed to return a string
+    var totalScore = this.reviewScore.toString();
 
     // good
-	    var totalScore = String(this.reviewScore);
+    var totalScore = String(this.reviewScore);
     ```
 
   <a name="coercion--numbers"></a><a name="16.3"></a>
@@ -1868,17 +2020,17 @@
     ```javascript
     // bad
     function q() {
-      // ...
+        // ...
     }
 
     // good
     function query() {
-      // ...
+        // ...
     }
     ```
 
   <a name="naming--camelCase"></a><a name="17.2"></a>
-  - [17.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) 
+  - [17.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html)
 
     ```javascript
     // bad
@@ -1896,16 +2048,16 @@
     ```javascript
     // bad
     function funkyUser(options) {
-      this.name = options.name;
+        this.name = options.name;
     }
 
     var bad = new funkyUser({
-      name: 'nope',
+        name: 'nope',
     });
 
     // good
     var good = new FunkyUser({
-      name: 'yup',
+        name: 'yup',
     });
     ```
 
@@ -1939,12 +2091,12 @@
     ```javascript
     // bad
     if (dragon.dead()) {
-      return false;
+        return false;
     }
 
     // good
     if (dragon.isDead()) {
-      return false;
+        return false;
     }
     ```
 
@@ -1958,58 +2110,70 @@
 
     ```javascript
     // bad
-    $(this).trigger( 'listingUpdated', listing.id );
+    $(this).trigger('listingUpdated', listing.id);
 
     // ...
 
-    $(this).on( 'listingUpdated', function(e,listingId) {
-      // do something with listingId
-    });
+    $(this).on(
+        'listingUpdated',
+        function(e, listingId) {
+            // do something with listingId
+        }
+    );
     ```
 
     prefer:
 
     ```javascript
     // good
-    $(this).trigger( 'listingUpdated', { listingId: listing.id });
+    $(this).trigger('listingUpdated', { listingId: listing.id });
 
     // ...
 
-    $(this).on( 'listingUpdated', function(e, data) {
-      // do something with data.listingId
-    });
+    $(this).on(
+        'listingUpdated',
+        function(e, data) {
+            // do something with data.listingId
+        }
+    );
     ```
 
   **[⬆ back to top](#table-of-contents)**
 
-## Exception Handling
+## Exception
 
   <a name="exception-handling"></a><a name="20.1"></a>
   - [20.1](#exception-handling) For Promises, always use a `catch` call instead of passing a failure-handling function.
-		
+
     > Why?  Check out [this good treatment on StackOverflow](https://stackoverflow.com/questions/24662289/when-is-thensuccess-fail-considered-an-antipattern-for-promises)
 
-  		```javascript
-  		// bad
-  		foo
-  			.munge()
-  			.then(function () {
-  				// blah
-  			}, function (rejection) {
-  				// handle rejection
-  			});
-  			
-  		// good
-  		foo
-  			.munge()
-  			.then(function () {
-  				// blah
-  			})
-  			.catch(function (rejection) {
-  				// handle rejection
-  			});
-  			
-  		```
+      ```javascript
+      // bad
+      foo
+          .munge()
+          .then(
+              function () {
+                  // blah
+              },
+              function (rejection) {
+                  // handle rejection
+              }
+          );
+
+      // good
+      foo
+          .munge()
+          .then(
+              function () {
+                  // blah
+              }
+          )
+          .catch(
+              function (rejection) {
+                  // handle rejection
+              }
+          );
+      ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -2018,7 +2182,6 @@
 
   <a name="lodash"></a><a name="21.1"></a>
   - [21.1](#lodash) Use [lodash](https://lodash.com/) liberally.  Prefer lodash collection operations over JavaScript native, as they are the same for arrays and objects.  Also, prefer lodash type checking functions: `isUndefined`, `isNumber`, etc.
-  
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -2027,7 +2190,7 @@
 
   <a name="sundries"></a><a name="22.1"></a>
   - [22.1](#sundries) Some obvious error situations (or ones close enough that we don't need to support them).
-  
+
   * [`consistent-return`](https://eslint.org/docs/rules/consistent-return)
   * [`no-alert`](https://eslint.org/docs/rules/no-alert)
   * [`no-caller`](https://eslint.org/docs/rules/no-caller)
@@ -2042,7 +2205,6 @@
   * [`no-floating-decimal`](https://eslint.org/docs/rules/no-floating-decimal)
   * [`no-implicit-coercion`](https://eslint.org/docs/rules/no-implicit-coercion)
   * [`no-irregular-whitespace`](https://eslint.org/docs/rules/no-irregular-whitespace)
-  * [`no-magic-numbers`](https://eslint.org/docs/rules/no-magic-numbers)
   * [`no-octal`](https://eslint.org/docs/rules/no-octal)
   * [`no-self-assign`](https://eslint.org/docs/rules/no-self-assign)
   * [`no-self-compare`](https://eslint.org/docs/rules/no-self-compare)
@@ -2054,6 +2216,338 @@
   * [`no-useless-return`](https://eslint.org/docs/rules/no-useless-return)
   * [`use-isnan`](https://eslint.org/docs/rules/use-isnan)
   * [`valid-typeof`](https://eslint.org/docs/rules/valid-typeof)
+
+## AngularJS
+
+  <a name="angular-boilerplate"></a><a name="23.1"></a>
+  - [23.1](#angular-boilerplate) Use the following structure for RequireJs and AngularJs boilerplate.
+
+    > Why? We make an exception to our strict indentation style in order to conserve horizontal whitespace in the body of a module.
+
+    ```javascript
+    // bad
+    define(['lodash', 'angular', 'uuid'],
+        function (_, angular, uuid) {
+            'use strict';
+            return angular.module('fs-core.services.eventTracker', ['fs-core'])
+                .service('EventTracker', [
+                    '$window',
+                    '$log',
+                    'Config',
+                    function EventTracker(
+                        $window,
+                        $log,
+                        Config
+                    ) {
+                        var _this = this;
+                        // ...
+                    }
+                ]);
+        }
+    );
+
+    // good
+    define([
+        'lodash',
+        'angular',
+        'uuid'
+    ],
+    function (
+        _,
+        angular,
+        uuid
+    ) {
+    'use strict';
+
+    return angular.module('fs-core.services.eventTracker', ['fs-core'])
+        .service('EventTracker', [
+        '$window',
+        '$log',
+        'Config',
+    function EventTracker(
+        $window,
+        $log,
+        Config
+    ) {
+        var _this = this;
+        // ...
+    }
+    ]);
+    }
+    );
+    ```
+
+  <a name="angular-alphabetize-dependencies"></a><a name="23.2"></a>
+  - [23.2](#angular-alphabetize-dependencies) Alphabetize dependencies by variable name (not dependency string), with all `$` names earlier in the list.
+
+    ```javascript
+    // bad
+    define([
+        'angular',
+        'crypto-js/sha1',
+        'fs-utils',
+        'machina',
+        'moment',
+        'lodash'
+    ],
+    function (
+        angular,
+        sha1,
+        Utils,
+        machina,
+        moment,
+        _
+    ) {
+    'use strict';
+    // ...
+
+    // good
+    define([
+        'lodash',
+        'angular',
+        'fs-utils',
+        'machina',
+        'moment',
+        'crypto-js/sha1'
+    ],
+    function (
+        _,
+        angular,
+        fsUtils,
+        machina,
+        moment,
+        sha1
+    ) {
+    'use strict';
+    // ...
+
+    // bad
+    return angular.module('fs-core.services.customer', ['fs-core'])
+        .service('Customer', [
+        'BugReporter',
+        'EventTracker',
+        'Features',
+        '$q',
+        '$rootScope',
+        'Unified',
+    function (
+        BugReporter,
+        EventTracker,
+        Features,
+        $q,
+        $rootScope,
+        Unified
+    ) {
+
+    // good
+    return angular.module('fs-core.services.customer', ['fs-core'])
+        .service('Customer', [
+        '$q',
+        '$rootScope',
+        'BugReporter',
+        'EventTracker',
+        'Features',
+        'Unified',
+    function (
+        $q,
+        $rootScope,
+        BugReporter,
+        EventTracker,
+        Features,
+        Unified
+    ) {
+    ```
+
+  <a name="angular-module-name"></a><a name="23.3"></a>
+  - [23.3](#angular-module-name) Name the module function.
+
+    > Why? This allows us to use `this` in the module definition (where appropriate) without style checks failing.
+
+    ```javascript
+    // bad
+    return angular.module('fs-core.services.brightness', ['fs-core'])
+        .service('Brightness', [
+        '$log',
+        '$window',
+        'Substrate',
+    function (
+        $log,
+        $window,
+        Substrate
+    ) {
+
+    // good
+    return angular.module('fs-core.services.brightness', ['fs-core'])
+        .service('Brightness', [
+        '$log',
+        '$window',
+        'Substrate',
+    function Brightness(
+        $log,
+        $window,
+        Substrate
+    ) {
+    ```
+
+  <a name="angular-module-this"></a><a name="23.4"></a>
+  - [23.4](#angular-module-this) Define and use `_this` in your module constructor function
+
+    > Why? This eliminates the confusion around `this` usage in internal calls and inner functional loops. This can be especially useful in Controller implementations, where angular tries to be clever and assign `this` to the current `$scope` value.
+
+    ```javascript
+    // bad
+    function FancyControl(
+        $scope,
+        $timeout
+    ) {
+        $scope.$on(
+            '$ionicView.enter',
+            function () {
+                $timeout(this._putOnFancyPants, 1000);
+            }
+        );
+
+        this._putOnFancyPants = function _putOnFancyPants() {
+            this._doSomething();
+        };
+    }
+
+    // good
+    function FancyControl(
+        $scope,
+        $timeout
+    ) {
+        var _this = this;
+
+        $scope.$on(
+            '$ionicView.enter',
+            function () {
+                $timeout(_this._putOnFancyPants, 1000);
+            }
+        );
+
+        this._putOnFancyPants = function _putOnFancyPants() {
+            _this._doSomething();
+        };
+    }
+    ```
+
+  <a name="angular-closure-private-methods"></a><a name="23.5"></a>
+  - [23.5](#angular-closure-private-methodes) Do not define "hidden" methods in your module closure. Prefix their name with an `_` and expose them by attaching them to `_this` or whatever manner is appropriate for your module. If using `_this`, be sure to invoke them from `_this` when making internal calls.
+
+    > Why? This allows us to unit test all of our code, not just the public API.
+
+    ```javascript
+    // bad
+    function Kitchen(
+        Costco
+    ) {
+        var makeSecretSauce = function makeSecretSauce(recipe) {
+            var ingredients = Costco.orderIngredients(recipe);
+            var preparedSauce = mix(ingredients);
+
+            return heat(preparedSauce, {
+                source: 'sunlight',
+                duration: '1 day'
+            });
+        };
+
+        var mix = function mix() {
+            // ...
+        };
+
+        var heat = function heat(config) {
+            // ...
+        };
+    }
+
+    // good
+    function Kitchen(
+        Costco
+    ) {
+        var _this = this;
+
+        this._makeSecretSauce = function _makeSecretSauce(recipe) {
+            var ingredients = Costco.orderIngredients(recipe);
+            var preparedSauce = _this._mix(ingredients);
+
+            return _this._heat(preparedSauce, {
+                source: 'sunlight',
+                duration: '1 day'
+            });
+        };
+
+        this._mix = function _mix() {
+            // ...
+        };
+
+        this._heat = function _heat(config) {
+            // ...
+        };
+    }
+    ```
+
+  <a name="angular-controller-layout"></a><a name="23.6"></a>
+  - [23.6](#angular-controller-layout) Prefer this organization of controller componennts.
+
+    > `var` declarations
+    > `var fsm = {...}` definition as final var (if applicable)
+    >
+    > `$scope.$on('$ionicView.*')` lifecycle event definitions
+    >
+    > public `$scope` methods exposed to the view
+    >
+    > "private" `$scope._*` methods exposed for unit tests
+
+    ```javascript
+    // good
+    function RewardsControl(
+        $filter,
+        $scope,
+        $timeout,
+        Customer,
+        Rewards
+    ) {
+        var _this = this;
+        var selectedRewards = {};
+
+        $scope.$on(
+            '$ionicView.enter',
+            function () {
+                selectedRewards = {};
+                $scope.redeemableRewards = this._getRedeemableRewards(Customer.getPoints());
+            }
+        );
+
+        $scope.$on(
+            '$ionicView.leave',
+            function () {
+                // ...
+            }
+        );
+
+        $scope.hasRedeemableRewards = function hasRedeemableRewards() {
+            return $scope.redeemableRewards.length > 0;
+        };
+
+        $scope.next = function next(timeout) {
+            // ...
+        };
+
+        $scope.back = function back() {
+            // ...
+        };
+
+        this._getRedeemableRewards = function _getRedeemableRewards(totalPoints) {
+            return _.filter(
+                Rewards.getRewards(),
+                function (reward) {
+                    return reward.point_cost <= totalPoints;
+                }
+            );
+        };
+    }
+    ```
 
 ## License
 
