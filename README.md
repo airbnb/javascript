@@ -405,14 +405,12 @@ Other Style Guides
     [1, 2, 3].map(x => x + 1);
 
     // bad - no returned value means `memo` becomes undefined after the first iteration
-    const flat = {};
     [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
       const flatten = memo.concat(item);
       memo[index] = flatten;
     });
 
     // good
-    const flat = {};
     [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
       const flatten = memo.concat(item);
       memo[index] = flatten;
