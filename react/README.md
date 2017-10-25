@@ -400,7 +400,7 @@
     ```jsx
     // bad
     render() {
-      return <MyComponent className="long body" foo="bar">
+      return <MyComponent variant="long body" foo="bar">
                <MyChild />
              </MyComponent>;
     }
@@ -408,7 +408,7 @@
     // good
     render() {
       return (
-        <MyComponent className="long body" foo="bar">
+        <MyComponent variant="long body" foo="bar">
           <MyChild />
         </MyComponent>
       );
@@ -427,10 +427,10 @@
 
     ```jsx
     // bad
-    <Foo className="stuff"></Foo>
+    <Foo variant="stuff"></Foo>
 
     // good
-    <Foo className="stuff" />
+    <Foo variant="stuff" />
     ```
 
   - If your component has multi-line properties, close its tag on a new line. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
