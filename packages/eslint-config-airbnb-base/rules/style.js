@@ -354,7 +354,7 @@ module.exports = {
 
     // enforce the location of single-line statements
     // http://eslint.org/docs/rules/nonblock-statement-body-position
-    'nonblock-statement-body-position': 'off',
+    'nonblock-statement-body-position': ['error', 'beside', { overrides: {} }],
 
     // require padding inside curly braces
     'object-curly-spacing': ['error', 'always'],
