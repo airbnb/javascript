@@ -143,6 +143,9 @@
     // bad
     <MyComponent style="fancy" />
 
+    // bad
+    <MyComponent className="fancy" />
+
     // good
     <MyComponent variant="fancy" />
     ```
