@@ -380,6 +380,58 @@
   };
   ```
 
+  - Use spread props sparingly.
+  > Why? Otherwise you're more likely to pass unnecessary props down to components. And for React v15.6.1 and older, you could [pass invalid HTML attributes to the DOM](https://reactjs.org/blog/2017/09/08/dom-attributes-in-react-16.html).
+
+  Exceptions:
+
+  - HOCs that proxy down props and hoist propTypes
+
+  ```jsx
+  function HOC(WrappedComponent) {
+    return class Proxy extends React.Component {
+      Proxy.propTypes = {
+        text: PropTypes.string,
+        isLoading: PropTypes.bool
+      };
+
+      render() {
+        return <WrappedComponent {...this.props} />
+      }
+    }
+  }
+  ```
+
+  - Spreading objects with known, explicit props. This can be particularly useful when testing React components with Mocha's beforeEach construct.
+
+  ```jsx
+  export default function Foo {
+    const props = {
+      text: '',
+      isPublished: false
+    }
+
+    return (<div {...props} />);
+  }
+  ```
+
+  Notes for use:
+  Filter out unnecessary props when possible. Also, use [prop-types-exact](https://www.npmjs.com/package/prop-types-exact) to help prevent bugs.
+
+  ```jsx
+  //good
+  render() {
+    const { irrelevantProp, ...relevantProps  } = this.props;
+    return <WrappedComponent {...relevantProps} />
+  }
+
+  //bad
+  render() {
+    const { irrelevantProp, ...relevantProps  } = this.props;
+    return <WrappedComponent {...this.props} />
+  }
+  ```
+
 ## Refs
 
   - Always use ref callbacks. eslint: [`react/no-string-refs`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md)
