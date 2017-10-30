@@ -13,7 +13,7 @@ module.exports = {
   // https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
   rules: {
     // Specify whether double or single quotes should be used in JSX attributes
-    // http://eslint.org/docs/rules/jsx-quotes
+    // https://eslint.org/docs/rules/jsx-quotes
     'jsx-quotes': ['error', 'prefer-double'],
 
     'class-methods-use-this': ['error', {
