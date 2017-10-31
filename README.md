@@ -1,6 +1,6 @@
 # Airbnb JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript*
+*A mostly reasonable approach to JavaScript*hey
 
 > **Note**: this guide assumes you are using [Babel](https://babeljs.io), and requires that you use [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) or the equivalent. It also assumes you are installing shims/polyfills in your app, with [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) or the equivalent.
 
@@ -32,7 +32,7 @@ Other Style Guides
   1. [Properties](#properties)
   1. [Variables](#variables)
   1. [Hoisting](#hoisting)
-  1. [Comparison Operators & Equality](#comparison-operators--equality)
+  
   1. [Blocks](#blocks)
   1. [Control Statements](#control-statements)
   1. [Comments](#comments)
@@ -84,7 +84,6 @@ Other Style Guides
   <a name="types--complex"></a><a name="1.2"></a>
   - [1.2](#types--complex)  **Complex**: When you access a complex type you work on a reference to its value.
 
-    - `object`
     - `array`
     - `function`
 
