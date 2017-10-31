@@ -32,7 +32,7 @@ Other Style Guides
   1. [Properties](#properties)
   1. [Variables](#variables)
   1. [Hoisting](#hoisting)
-  1. [Comparison Operators & Equality](#comparison-operators--equality)
+  
   1. [Blocks](#blocks)
   1. [Control Statements](#control-statements)
   1. [Comments](#comments)
