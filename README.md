@@ -1066,8 +1066,8 @@ Other Style Guides
       this.queue = [...contents];
     }
     Queue.prototype.pop = function () {
-      const value = this.queue[0];
-      this.queue.splice(0, 1);
+      const value = this.queue[this.queue.length - 1];
+      this.queue.splice(-1, 1);
       return value;
     };
 
@@ -1077,8 +1077,8 @@ Other Style Guides
         this.queue = [...contents];
       }
       pop() {
-        const value = this.queue[0];
-        this.queue.splice(0, 1);
+        const value = this.queue[this.queue.length - 1];
+        this.queue.splice(-1, 1);
         return value;
       }
     }
@@ -1097,13 +1097,13 @@ Other Style Guides
     }
     inherits(PeekableQueue, Queue);
     PeekableQueue.prototype.peek = function () {
-      return this.queue[0];
+      return this.queue[this.queue.length - 1];
     };
 
     // good
     class PeekableQueue extends Queue {
       peek() {
-        return this.queue[0];
+        return this.queue[this.queue.length - 1];
       }
     }
     ```
