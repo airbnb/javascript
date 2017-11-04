@@ -142,7 +142,8 @@ module.exports = {
 
     // Prevent usage of setState in componentDidMount
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
-    'react/no-did-mount-set-state': 'error',
+    // this is necessary for server-rendering
+    'react/no-did-mount-set-state': 'off',
 
     // Prevent usage of setState in componentDidUpdate
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-update-set-state.md
