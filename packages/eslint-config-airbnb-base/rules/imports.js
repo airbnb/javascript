@@ -134,6 +134,7 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
     'import/extensions': ['error', 'always', {
       js: 'never',
+      mjs: 'never',
       jsx: 'never',
     }],
 
