@@ -13,11 +13,12 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.json']
+        extensions: ['.mjs', '.js', '.json']
       }
     },
     'import/extensions': [
       '.js',
+      '.mjs',
       '.jsx',
     ],
     'import/core-modules': [
