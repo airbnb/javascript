@@ -806,7 +806,7 @@ Other Style Guides
     const h = function() {};
 
     // good
-    const x = function () {};
+    const x = () => {};
     const y = function a() {};
     ```
 
