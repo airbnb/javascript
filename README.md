@@ -808,6 +808,7 @@ Other Style Guides
     // good
     const x = () => {};
     const y = function a() {};
+    const z = function abc() {};
     ```
 
   <a name="functions--mutate-params"></a><a name="7.12"></a>
