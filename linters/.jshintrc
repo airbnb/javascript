@@ -28,8 +28,8 @@
   // Prohibit use of == and != in favor of === and !==.
   "eqeqeq": true,
 
-  // Enforce tab width of 2 spaces.
-  "indent": 2,
+  // Enforce tab width of 4 spaces.
+  "indent": 4,
 
   // Prohibit use of a variable before it is defined.
   "latedef": true,
