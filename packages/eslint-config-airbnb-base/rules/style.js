@@ -99,8 +99,7 @@ module.exports = {
 
     // Enforce the location of arrow function bodies with implicit returns
     // https://eslint.org/docs/rules/implicit-arrow-linebreak
-    // TODO: enable, semver-major
-    'implicit-arrow-linebreak': ['off', 'beside'],
+    'implicit-arrow-linebreak': ['error', 'beside'],
 
     // this option sets a specific tab width for your code
     // https://eslint.org/docs/rules/indent
