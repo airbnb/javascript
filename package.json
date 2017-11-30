@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-lint-trap",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "A fork of AirBnB's eslint config for use at Virtru",
   "main": "index.js",
   "scripts": {
