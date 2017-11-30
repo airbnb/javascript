@@ -64,7 +64,10 @@ module.exports = {
 
     // disallow specific imports
     // https://eslint.org/docs/rules/no-restricted-imports
-    'no-restricted-imports': 'off',
+    'no-restricted-imports': ['off', {
+      paths: [],
+      patterns: []
+    }],
 
     // disallow to use this/super before super() calling in constructors.
     // https://eslint.org/docs/rules/no-this-before-super
