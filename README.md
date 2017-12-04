@@ -3545,7 +3545,7 @@ Other Style Guides
   - **Target**: [target/javascript](https://github.com/target/javascript)
   - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
   - **The Nerdery**: [thenerdery/javascript-standards](https://github.com/thenerdery/javascript-standards)
-  - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
+  - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)  
   - **VoxFeed**: [VoxFeed/javascript-style-guide](https://github.com/VoxFeed/javascript-style-guide)
   - **WeBox Studio**: [weboxstudio/javascript](https://github.com/weboxstudio/javascript)
   - **Weggo**: [Weggo/javascript](https://github.com/Weggo/javascript)
@@ -3555,6 +3555,7 @@ Other Style Guides
 **[⬆ back to top](#table-of-contents)**
 
 ## Translation
+
 
   This style guide is also available in other languages:
 
@@ -3574,9 +3575,10 @@ Other Style Guides
   - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Ukrainian**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript)
   - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnam**: [hngiang/javascript-style-guide](https://github.com/hngiang/javascript-style-guide)
 
-## The JavaScript Style Guide Guide
+## The JavaScript Style Guide
 
   - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
+  - [Website](http://js-styleguide.surge.sh/)
 
 ## Chat With Us About JavaScript
 
