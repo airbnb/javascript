@@ -805,11 +805,13 @@
     // bad
     const f = function(){};
     const g = function (){};
-    const h = function () {};
+
+    // okay
+    const p = function () {};
 
     // good
     const x = function() {};
-    const y = function a() {};
+    const z = function a() {};
     ```
 
 <a name="functions--mutate-params"></a>
@@ -2321,9 +2323,9 @@
 <a name="commas--trailing"></a>
 - [20.2](#commas--trailing) Trailing commas: **Not really.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
 
-    <img src="https://media.npr.org/assets/img/2017/01/06/ap_16363788353073_wide-a50fcee90f5f2618c8a3236e4af4be574b2476f5-s700-c85.jpg" width="200px">
-
     > Well...trailing commas can lead to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don’t have to worry about the trailing comma problem in legacy browsers.
+
+    <img src="https://media.npr.org/assets/img/2017/01/06/ap_16363788353073_wide-a50fcee90f5f2618c8a3236e4af4be574b2476f5-s700-c85.jpg" width="200px">
 
     ```javascript
     // bad
