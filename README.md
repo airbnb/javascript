@@ -805,10 +805,10 @@
     // bad
     const f = function(){};
     const g = function (){};
-    const h = function() {};
+    const h = function () {};
 
     // good
-    const x = function () {};
+    const x = function() {};
     const y = function a() {};
     ```
 
