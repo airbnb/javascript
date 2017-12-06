@@ -2321,7 +2321,7 @@
 <a name="commas--trailing"></a>
 - [20.2](#commas--trailing) Trailing commas: **Not really.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
 
-![Image of Donald Trump Frowning](https://media.npr.org/assets/img/2017/01/06/ap_16363788353073_wide-a50fcee90f5f2618c8a3236e4af4be574b2476f5-s700-c85.jpg)
+    <img src="https://media.npr.org/assets/img/2017/01/06/ap_16363788353073_wide-a50fcee90f5f2618c8a3236e4af4be574b2476f5-s700-c85.jpg" width="200px">
 
     > Well...trailing commas can lead to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don’t have to worry about the trailing comma problem in legacy browsers.
 
