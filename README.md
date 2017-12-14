@@ -1957,6 +1957,7 @@ Other Style Guides
     const bar = a ** b - 5 % d;
 
     // bad
+    // one may be confused into thinking (a || b) && c 
     if (a || b && c) {
       return d;
     }
@@ -1968,7 +1969,7 @@ Other Style Guides
     const bar = (a ** b) - (5 % d);
 
     // good
-    if ((a || b) && c) {
+    if (a || (b && c)) {
       return d;
     }
 
