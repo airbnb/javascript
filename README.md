@@ -1754,8 +1754,8 @@ Other Style Guides
     }
     ```
 
-  <a name="hoisting--named-expresions"></a><a name="14.3"></a>
-  - [14.3](#hoisting--named-expresions) Named function expressions hoist the variable name, not the function name or the function body.
+  <a name="hoisting--named-expresions"></a><a name="hoisting--named-expressions"></a><a name="14.3"></a>
+  - [14.3](#hoisting--named-expressions) Named function expressions hoist the variable name, not the function name or the function body.
 
     ```javascript
     function example() {
@@ -1957,7 +1957,7 @@ Other Style Guides
     const bar = a ** b - 5 % d;
 
     // bad
-    // one may be confused into thinking (a || b) && c 
+    // one may be confused into thinking (a || b) && c
     if (a || b && c) {
       return d;
     }
