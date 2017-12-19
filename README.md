@@ -3026,7 +3026,6 @@ Other Style Guides
     // bad
     import CheckBox from './check_box'; // PascalCase import/export, snake_case filename
     import forty_two from './forty_two'; // snake_case import/filename, camelCase export
-    import inside_directory from './inside_directory'; // snake_case import, camelCase export
     import index from './inside_directory/index'; // requiring the index file explicitly
     import insideDirectory from './insideDirectory/index'; // requiring the index file explicitly
 
