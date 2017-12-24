@@ -429,4 +429,4 @@
 
 ---
 
-CSS puns adapted from [Saijo George](http://saijogeorge.com/css-puns/).
+CSS puns adapted from [Saijo George](https://saijogeorge.com/css-puns/).
