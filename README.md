@@ -297,7 +297,7 @@ Other Style Guides
     // best
     const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
     /* or */
-    import has from 'has';
+    import has from 'has'; // https://www.npmjs.com/package/has
     // ...
     console.log(has.call(object, key));
     ```
