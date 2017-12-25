@@ -2156,7 +2156,7 @@ Other Style Guides
 ## Comments
 
   <a name="comments--multiline"></a><a name="17.1"></a>
-  - [18.1](#comments--multiline) Use `/** ... */` for multi-line comments.
+  - [18.1](#comments--multiline) Use `/* ... */` for multi-line comments.
 
     ```javascript
     // bad
@@ -2173,7 +2173,7 @@ Other Style Guides
     }
 
     // good
-    /**
+    /*
      * make() returns a new element
      * based on the passed-in tag name
      */
