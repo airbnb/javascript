@@ -13,11 +13,12 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.json']
+        extensions: ['.mjs', '.js', '.json']
       }
     },
     'import/extensions': [
       '.js',
+      '.mjs',
       '.jsx',
     ],
     'import/core-modules': [
@@ -133,6 +134,7 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
     'import/extensions': ['error', 'always', {
       js: 'never',
+      mjs: 'never',
       jsx: 'never',
     }],
 
