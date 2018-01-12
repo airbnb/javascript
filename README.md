@@ -1,4 +1,4 @@
-# Airbnb JavaScript Style Guide() {
+# Airbnb JavaScript Style Guide() { (Edited by / for Zoro)
 
 *A mostly reasonable approach to JavaScript*
 
@@ -15,6 +15,55 @@ Other Style Guides
   - [CSS-in-JavaScript](css-in-javascript/)
   - [CSS & Sass](https://github.com/airbnb/css)
   - [Ruby](https://github.com/airbnb/ruby)
+
+## ZORO exceptions
+  Within this document a number of exceptions and notes have been added to indicate
+  how ZORO intends to extend Airbnb's style guide.
+
+  `@ZORO NOTE` contains information regarding its implementation or the rule was eventually agreed upon after discussion. These will not  require changes to airbnb style guide lint configuration.
+
+  `@ZORO EXCEPTION` indicates a rule that was fundamentally disagreed with or is not possible to implement due to architectural limitations. These may require changes to airbnb style guide lint configuration.
+
+  The following is a short list of these notes and exceptions:
+
+### Notes
+> Note: (✓) indicates agreed upon.
+
+  - [3.8](#objects--rest-spread) Objects - Rest Spread ✓
+  - [5.3](#destructuring--object-over-array) Destructuring - Object over array ✓
+  - [6.1](#strings--quotes) Strings - Quotes ✓
+  - [9.1](#constructors--use-class) Constructors - Use Class ✓
+  - [10.3](#modules--no-export-from-import) Modules - No Export from Import
+  - [15.7](#comparison--unneeded-ternary) Comparison - Unneeded ternary ✓
+  - [15.8](#comparison--no-mixed-operators) Comparison - No mixed operators
+  - [19.6](#whitespace--chains) Whitespace - Chains
+  - [19.7](#whitespace--after-blocks) Whitespace - After blocks ✓
+  - [19.8](#whitespace--padded-blocks) Whitespace - Padded blocks ✓
+  - [20.1](#commas--leading-trailing) Commas - Leading trailing ✓
+  - [25.1](#events--hash) Events - Hash ✓
+
+### Exceptions
+  - [4.4](#arrays--from) Objects - Array.from
+  - [7.1](#functions--declarations) Functions - Declarations
+  - [7.2](#functions--iife) Functions - IIFE
+  - [7.11](#functions--signature-spacing) Functions - Signature Spacing
+  - [7.12](#functions--mutate-params) Functions - Mutate Params
+  - [8.1](#arrows--use-them) Arrows - Using them
+  - [8.4](#arrows--one-arg-parens) Arrows - One argument parentheses
+  - [10.2](#modules--no-wildcard) Modules - No Wildcard
+  - [10.8](#modules--multiline-imports-over-newlines) Module - Multiline imports
+  - [10.9](#modules--no-webpack-loader-syntax) Module - No webpack loader syntax
+  - [13.6](#variables--unary-increment-decrement) Variables - Unary inc / dec
+  - [18.2](#comments--singleline) Comments - Single line
+  - [18.4 - 18.6](#comments--actionitems) Comments - Action items
+  - [19.11](#whitespace--in-braces) Whitespace - In braces
+  - [19.12](#whitespace--max-len) Whitespace - Max Length
+  - [23.1](#naming--descriptive) Naming - Descriptive
+  - [23.5](#naming--self-this) Naming - Self / this
+  - [23.9](#naming--Acronyms-and-Initialisms) Naming - Acronyms / initialisms
+  - [24.2](#accessors--no-getters-setters) Accessors - Getters Setters
+  - [24.4](#accessors--consistent) Accessors - Consistent
+  - [26.1](#jquery--dollar-prefix) jQuery - Dollar Prefix
 
 ## Table of Contents
 
@@ -305,6 +354,8 @@ Other Style Guides
   <a name="objects--rest-spread"></a>
   - [3.8](#objects--rest-spread) Prefer the object spread operator over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
 
+  > @ZORO NOTE: This has been agreed upon.
+
     ```javascript
     // very bad
     const original = { a: 1, b: 2 };
@@ -369,6 +420,8 @@ Other Style Guides
 
   <a name="arrays--from"></a><a name="4.4"></a>
   - [4.4](#arrays--from) To convert an array-like object to an array, use spreads `...` instead of [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+
+  > @ZORO EXCEPTION: ignore because 4.5
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
@@ -522,6 +575,8 @@ Other Style Guides
   <a name="destructuring--object-over-array"></a><a name="5.3"></a>
   - [5.3](#destructuring--object-over-array) Use object destructuring for multiple return values, not array destructuring. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
 
+  > @ZORO NOTE: This has been agreed on.
+
     > Why? You can add new properties over time or change the order of things without breaking call sites.
 
     ```javascript
@@ -550,6 +605,8 @@ Other Style Guides
 
   <a name="strings--quotes"></a><a name="6.1"></a>
   - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
+
+  > @ZORO NOTE: This has been agreed on.
 
     ```javascript
     // bad
@@ -634,6 +691,8 @@ Other Style Guides
   <a name="functions--declarations"></a><a name="7.1"></a>
   - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](https://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
 
+  > @ZORO EXCEPTIONß: Ignore this rule for now, maybe implemented as a requirement in the future.
+
     > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to explicitly name the expression, regardless of whether or not the name is inferred from the containing variable (which is often the case in modern browsers or when using compilers such as Babel). This eliminates any assumptions made about the Error's call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
 
     ```javascript
@@ -656,6 +715,8 @@ Other Style Guides
 
   <a name="functions--iife"></a><a name="7.2"></a>
   - [7.2](#functions--iife) Wrap immediately invoked function expressions in parentheses. eslint: [`wrap-iife`](https://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
+
+  > @ZORO EXCEPTION: Ignore, keep current specification which dictates the function rather than the invocation is wrapped in parentheses
 
     > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
 
@@ -797,6 +858,8 @@ Other Style Guides
   <a name="functions--signature-spacing"></a><a name="7.11"></a>
   - [7.11](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
 
+  > @ZORO EXCEPTION: No space before parentheses.
+
     > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
 
     ```javascript
@@ -812,6 +875,8 @@ Other Style Guides
 
   <a name="functions--mutate-params"></a><a name="7.12"></a>
   - [7.12](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
+
+  > @ZORO EXCEPTION: Keep as rule but only as a warning.
 
     > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
 
@@ -916,6 +981,8 @@ Other Style Guides
   <a name="arrows--use-them"></a><a name="8.1"></a>
   - [8.1](#arrows--use-them) When you must use an anonymous function (as when passing an inline callback), use arrow function notation. eslint: [`prefer-arrow-callback`](https://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](https://eslint.org/docs/rules/arrow-spacing.html) jscs: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions)
 
+  > @ZORO EXCEPTION: might not be possible with 3rd party libraries that set `this` on callbacks.
+
     > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
 
     > Why not? If you have a fairly complicated function, you might move that logic out into its own named function expression.
@@ -1004,6 +1071,8 @@ Other Style Guides
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
   - [8.4](#arrows--one-arg-parens) If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments for clarity and consistency. Note: it is also acceptable to always use parentheses, in which case use the [“always” option](https://eslint.org/docs/rules/arrow-parens#always) for eslint or do not include [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam) for jscs. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
 
+  > @ZORO EXCEPTION: Omit the parentheses when single argument.
+
     > Why? Less visual clutter.
 
     ```javascript
@@ -1057,6 +1126,8 @@ Other Style Guides
 
   <a name="constructors--use-class"></a><a name="9.1"></a>
   - [9.1](#constructors--use-class) Always use `class`. Avoid manipulating `prototype` directly.
+
+  > @ZORO NOTE: This has been agreed upon.
 
     > Why? `class` syntax is more concise and easier to reason about.
 
@@ -1242,6 +1313,8 @@ Other Style Guides
   <a name="modules--no-wildcard"></a><a name="10.2"></a>
   - [10.2](#modules--no-wildcard) Do not use wildcard imports.
 
+  > @ZORO EXCEPTION: In tests wildcards are acceptable.
+
     > Why? This makes sure you have a single default export.
 
     ```javascript
@@ -1254,6 +1327,8 @@ Other Style Guides
 
   <a name="modules--no-export-from-import"></a><a name="10.3"></a>
   - [10.3](#modules--no-export-from-import) And do not export directly from an import.
+
+  > @ZORO NOTE: In addition, exports must be at the end of a file.
 
     > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
 
@@ -1307,6 +1382,7 @@ Other Style Guides
   <a name="modules--prefer-default-export"></a>
   - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
  eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
+
     > Why? To encourage more files that only ever export one thing, which is better for readability and maintainability.
 
     ```javascript
@@ -1339,6 +1415,8 @@ Other Style Guides
   <a name="modules--multiline-imports-over-newlines"></a>
   - [10.8](#modules--multiline-imports-over-newlines) Multiline imports should be indented just like multiline array and object literals.
 
+  > @ZORO EXCEPTION: Ignore as multiline imports aren't allowed.
+
     > Why? The curly braces follow the same indentation rules as every other curly brace block in the style guide, as do the trailing commas.
 
     ```javascript
@@ -1358,6 +1436,9 @@ Other Style Guides
   <a name="modules--no-webpack-loader-syntax"></a>
   - [10.9](#modules--no-webpack-loader-syntax) Disallow Webpack loader syntax in module import statements.
  eslint: [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md)
+
+ > @ZORO EXCEPTION: Ignore because jspm requires this. *
+
     > Why? Since using Webpack syntax in the imports couples the code to a module bundler. Prefer using the loader syntax in `webpack.config.js`.
 
     ```javascript
@@ -1668,6 +1749,8 @@ Other Style Guides
   <a name="variables--unary-increment-decrement"></a><a name="13.6"></a>
   - [13.6](#variables--unary-increment-decrement) Avoid using unary increments and decrements (++, --). eslint [`no-plusplus`](https://eslint.org/docs/rules/no-plusplus)
 
+  > @ZORO EXCEPTION: Ignore.
+
     > Why? Per the eslint documentation, unary increment and decrement statements are subject to automatic semicolon insertion and can cause silent errors with incrementing or decrementing values within an application. It is also more expressive to mutate your values with statements like `num += 1` instead of `num++` or `num ++`. Disallowing unary increment and decrement statements also prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
 
     ```javascript
@@ -1932,6 +2015,8 @@ Other Style Guides
   <a name="comparison--unneeded-ternary"></a><a name="15.7"></a>
   - [15.7](#comparison--unneeded-ternary) Avoid unneeded ternary statements. eslint: [`no-unneeded-ternary`](https://eslint.org/docs/rules/no-unneeded-ternary.html)
 
+  > @ZORO NOTE: This has been agreed upon.
+
     ```javascript
     // bad
     const foo = a ? a : b;
@@ -1946,6 +2031,8 @@ Other Style Guides
 
   <a name="comparison--no-mixed-operators"></a>
   - [15.8](#comparison--no-mixed-operators) When mixing operators, enclose them in parentheses. The only exception is the standard arithmetic operators (`+`, `-`, `*`, & `/`) since their precedence is broadly understood. eslint: [`no-mixed-operators`](https://eslint.org/docs/rules/no-mixed-operators.html)
+
+  > @ZORO NOTE: Parentheses preferred for clarity.
 
     > Why? This improves readability and clarifies the developer’s intention.
 
@@ -2188,6 +2275,8 @@ Other Style Guides
   <a name="comments--singleline"></a><a name="17.2"></a>
   - [18.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it’s on the first line of a block.
 
+  > @ZORO EXCEPTION: ignore, same line comments acceptable except when it exceeds max line length
+
     ```javascript
     // bad
     const active = true;  // is current tab
@@ -2263,6 +2352,8 @@ Other Style Guides
 
   <a name="comments--actionitems"></a><a name="17.3"></a>
   - [18.4](#comments--actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
+
+  > @ZORO EXCEPTION: REQUIRES FURTHER CLARIFICATION WITH JOE
 
   <a name="comments--fixme"></a><a name="17.4"></a>
   - [18.5](#comments--fixme) Use `// FIXME:` to annotate problems.
@@ -2408,6 +2499,8 @@ Other Style Guides
   - [19.6](#whitespace--chains) Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which
     emphasizes that the line is a method call, not a new statement. eslint: [`newline-per-chained-call`](https://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](https://eslint.org/docs/rules/no-whitespace-before-property)
 
+    > @ZORO NOTE: Only to be implemented if auto-formatting or minimum effort is possible.
+
     ```javascript
     // bad
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
@@ -2450,6 +2543,8 @@ Other Style Guides
 
   <a name="whitespace--after-blocks"></a><a name="18.7"></a>
   - [19.7](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement. jscs: [`requirePaddingNewLinesAfterBlocks`](http://jscs.info/rule/requirePaddingNewLinesAfterBlocks)
+
+  > @ZORO NOTE: This has been agreed on.
 
     ```javascript
     // bad
@@ -2508,6 +2603,8 @@ Other Style Guides
 
   <a name="whitespace--padded-blocks"></a><a name="18.8"></a>
   - [19.8](#whitespace--padded-blocks) Do not pad your blocks with blank lines. eslint: [`padded-blocks`](https://eslint.org/docs/rules/padded-blocks.html) jscs:  [`disallowPaddingNewlinesInBlocks`](http://jscs.info/rule/disallowPaddingNewlinesInBlocks)
+
+  > @ZORO NOTE: This has been agreed on.
 
     ```javascript
     // bad
@@ -2588,6 +2685,8 @@ Other Style Guides
   <a name="whitespace--in-braces"></a><a name="18.11"></a>
   - [19.11](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](https://eslint.org/docs/rules/object-curly-spacing.html) jscs: [`requireSpacesInsideObjectBrackets`](http://jscs.info/rule/requireSpacesInsideObjectBrackets)
 
+  > @ZORO EXCEPTION: Ignore, do the opposite.
+
     ```javascript
     // bad
     const foo = {clark: 'kent'};
@@ -2598,6 +2697,8 @@ Other Style Guides
 
   <a name="whitespace--max-len"></a><a name="18.12"></a>
   - [19.12](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](https://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
+
+  > @ZORO EXCEPTION: 120 character limit to be implemented instead.
 
     > Why? This ensures readability and maintainability.
 
@@ -2632,6 +2733,8 @@ Other Style Guides
 
   <a name="commas--leading-trailing"></a><a name="19.1"></a>
   - [20.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](https://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
+
+  > @ZORO NOTE: This has been agreed upon.
 
     ```javascript
     // bad
@@ -2907,6 +3010,8 @@ Other Style Guides
   <a name="naming--descriptive"></a><a name="22.1"></a>
   - [23.1](#naming--descriptive) Avoid single letter names. Be descriptive with your naming. eslint: [`id-length`](https://eslint.org/docs/rules/id-length)
 
+  > @ZORO EXCEPTION: This has been agreed upon with exceptions for 3rd party libraries and the global `z` object.
+
     ```javascript
     // bad
     function q() {
@@ -2975,6 +3080,8 @@ Other Style Guides
 
   <a name="naming--self-this"></a><a name="22.5"></a>
   - [23.5](#naming--self-this) Don’t save references to `this`. Use arrow functions or [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind). jscs: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes)
+
+  > @ZORO EXCEPTION: Follow this rule where possible.
 
     ```javascript
     // bad
@@ -3063,6 +3170,8 @@ Other Style Guides
   <a name="naming--Acronyms-and-Initialisms"></a>
   - [23.9](#naming--Acronyms-and-Initialisms) Acronyms and initialisms should always be all capitalized, or all lowercased.
 
+  > @ZORO EXCEPTION: Ignore, continue using pascal casing for acronyms and initialisms.
+
     > Why? Names are for readability, not to appease a computer algorithm.
 
     ```javascript
@@ -3106,6 +3215,8 @@ Other Style Guides
   <a name="accessors--no-getters-setters"></a><a name="23.2"></a>
   - [24.2](#accessors--no-getters-setters) Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use getVal() and setVal('hello').
 
+  > @ZORO EXCEPTION: Ignore.
+
     ```javascript
     // bad
     class Dragon {
@@ -3148,6 +3259,8 @@ Other Style Guides
   <a name="accessors--consistent"></a><a name="23.4"></a>
   - [24.4](#accessors--consistent) It’s okay to create get() and set() functions, but be consistent.
 
+  > @ZORO EXCEPTION: Ignore.
+
     ```javascript
     class Jedi {
       constructor(options = {}) {
@@ -3171,6 +3284,8 @@ Other Style Guides
 
   <a name="events--hash"></a><a name="24.1"></a>
   - [25.1](#events--hash) When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass an object literal (also known as a "hash")  instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+
+  > @ZORO NOTE: This has been agreed upon.
 
     ```javascript
     // bad
@@ -3202,6 +3317,8 @@ Other Style Guides
 
   <a name="jquery--dollar-prefix"></a><a name="25.1"></a>
   - [26.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$`. jscs: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment)
+
+  > @ZORO EXCEPTION: Ignore.
 
     ```javascript
     // bad
