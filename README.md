@@ -2783,7 +2783,8 @@ Other Style Guides
       // ...
     }())
 
-    // bad - returns `undefined` instead of the value on the next line - always happens when `return` is on a line by itself because of ASI!
+    // bad - returns `undefined` instead of the value on the next line
+    // - always happens when `return` is on a line by itself because of ASI!
     function foo() {
       return
         'search your feelings, you know it to be foo'
