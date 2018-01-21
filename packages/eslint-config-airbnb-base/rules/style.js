@@ -51,7 +51,21 @@ module.exports = {
     'comma-spacing': ['error', { before: false, after: true }],
 
     // enforce one true comma style
-    'comma-style': ['error', 'last'],
+    'comma-style': ['error', 'last', {
+      exceptions: {
+        ArrayExpression: false,
+        ArrayPattern: false,
+        ArrowFunctionExpression: false,
+        CallExpression: false,
+        FunctionDeclaration: false,
+        FunctionExpression: false,
+        ImportDeclaration: false,
+        ObjectExpression: false,
+        ObjectPattern: false,
+        VariableDeclaration: false,
+        NewExpression: false,
+      }
+    }],
 
     // disallow padding inside computed properties
     'computed-property-spacing': ['error', 'never'],
@@ -375,7 +389,7 @@ module.exports = {
     // enforce "same line" or "multiple line" on object properties.
     // https://eslint.org/docs/rules/object-property-newline
     'object-property-newline': ['error', {
-      allowMultiplePropertiesPerLine: true,
+      allowAllPropertiesOnSameLine: true,
     }],
 
     // allow just one var statement per function
