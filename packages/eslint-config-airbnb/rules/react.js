@@ -29,6 +29,7 @@ module.exports = {
         'componentWillUpdate',
         'componentDidUpdate',
         'componentWillUnmount',
+        'componentDidCatch',
       ],
     }],
 
@@ -363,7 +364,7 @@ module.exports = {
     },
     react: {
       pragma: 'React',
-      version: '15.0'
+      version: '16.0'
     },
     propWrapperFunctions: [
       'forbidExtraProps', // https://www.npmjs.com/package/airbnb-prop-types
