@@ -1,6 +1,6 @@
 # TSJS  
 > Coveo TypeScript (and JavaScript) Cloud Platform Standards  
-
+  
 Other Standards  
 
 - [React/Redux](react_redux/)  
