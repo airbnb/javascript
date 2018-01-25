@@ -1,5 +1,4 @@
-# TSJS   
-### Coveo TypeScript (and JavaScript) Cloud Platform Standards
+<h1>TSJS<small>Coveo TypeScript (and JavaScript) Cloud Platform Standards</small></h1>
 
 Other Standards  
 
