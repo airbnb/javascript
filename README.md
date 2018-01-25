@@ -1,5 +1,6 @@
-# Coveo TypeScript - Cloud Platform Standards {
-
+# TSJS  
+> Coveo TypeScript (and JavaScript) Cloud Platform Standards  
+  
 Other Standards  
 
 - [React/Redux](react_redux/)  
@@ -2363,4 +2364,3 @@ As for any project that has lived for a long period of time, you may find some p
 ## Remaining Sections
 You can refer to the original [Airbnb Style Guide](https://github.com/airbnb/javascript) for the remaining sections if you want, although they are really not a required read by our team.  
   
-# };
