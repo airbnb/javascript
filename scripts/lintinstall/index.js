@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const tslintConfig = require(`${__dirname}/../../tslint.json`);
-const tsConfigLint = require(`${__dirname}/../../tsconfig.lint.json`);
+const tslintConfig = require(path.join(__dirname, '..', '..', 'tslint.json'));
+const tsConfigLint = require(path.join(__dirname, '..', '..', 'tsconfig.lint.json'));
 const projectRoot = /tsjs$/.test(process.cwd()) ? process.cwd() : `${__dirname.split('node_modules')[0]}`;
 
 // tslint:disable-next-line
