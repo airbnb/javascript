@@ -1,6 +1,5 @@
 #! /usr/bin/env node
 
-const fs = require('fs');
 const argv = require('yargs').argv;
 const sh = require('shelljs');
 const path = require('path');
