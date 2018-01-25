@@ -2,16 +2,19 @@
   "name": "tsjs",
   "version": "0.1.5",
   "description": "A mostly reasonable approach to TypeScript and JavaScript.",
+  "main": "tsjs.js",
   "scripts": {
-    "test": "node -e 'console.log(\"No script added yet, add one.\");'",
-    "postinstall": "node scripts/lintinstall/"
+    "test": "node -e 'console.log(\"No script added yet, add one.\");'"
+  },
+  "bin": {
+    "tsjs": "tsjs.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/coveo/tsjs.git"
   },
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "shelljs": "0.8.1",
     "tslint": "5.9.1",
     "typescript": "2.6.2",
