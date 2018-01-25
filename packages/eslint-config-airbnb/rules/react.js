@@ -353,7 +353,7 @@ module.exports = {
 
     // Enforce curly braces or disallow unnecessary curly braces in JSX props and/or children
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
-    'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'never' }]
+    'react/jsx-curly-brace-presence': ['error', { props: 'ignore', children: 'never' }]
   },
 
   settings: {
