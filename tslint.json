@@ -58,7 +58,10 @@
       false,
       140
     ],
-    "member-access": [true, "no-public"],
+    "member-access": [
+      true,
+      "no-public"
+    ],
     "new-parens": true,
     "no-angle-bracket-type-assertion": true,
     "no-arg": true,
@@ -199,7 +202,6 @@
       "parameters",
       "statements"
     ],
-
     "arrow-parens": true,
     "arrow-return-shorthand": true,
     "class-name": true,
