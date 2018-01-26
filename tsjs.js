@@ -8,7 +8,7 @@ const sh = require('shelljs');
 const path = require('path');
 const tslintPath = argv.tslint || path.join(__dirname, 'tslint.json');
 const tempLintFile = '.tsconfig.lint.temp.json';
-const excludeOption = argv.exclude ? `--exclude ${argv.exclude.join(' ')}` : '';
+const excludeOption = argv.exclude ? ` -e ${argv.exclude.join('-e ')}` : '';
 let tsConfigPath = argv.tsconfig || 'tsconfig.json';
 
 process.on('exit', (code) => {
@@ -26,7 +26,7 @@ if (argv.all) {
     }
 }
 
-const tslintCommand = `node node_modules/tslint/bin/tslint --project ${tsConfigPath} --config ${tslintPath} ${excludeOption} --fix`;
+const tslintCommand = `node node_modules/tslint/bin/tslint -p ${tsConfigPath} -c ${tslintPath}${excludeOption} --fix`;
 console.log(`Executing the following tslint command:\n${tslintCommand}`);
 
 sh.exec(tslintCommand, () => {

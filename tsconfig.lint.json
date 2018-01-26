@@ -14,6 +14,8 @@
   "exclude": [
     "node_modules",
     "dist",
-    "target"
+    "target",
+    "mock",
+    "coverage"
   ]
 }
