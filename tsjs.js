@@ -8,7 +8,7 @@ const sh = require('shelljs');
 const path = require('path');
 const tslintPath = argv.tslint || path.join(__dirname, 'tslint.json');
 const tempLintFile = '.tsconfig.lint.temp.json';
-const excludeOption = argv.exclude ? ` -e ${argv.exclude.join('-e ')}` : '';
+const excludeOption = argv.exclude ? ` -e ${argv.exclude.join(' -e ')}` : '';
 let tsConfigPath = argv.tsconfig || 'tsconfig.json';
 
 process.on('exit', (code) => {
