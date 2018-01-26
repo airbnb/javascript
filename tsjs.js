@@ -11,6 +11,10 @@ const tempLintFile = '.tsconfig.lint.temp.json';
 const excludeOption = argv.exclude ? `--exclude ${argv.exclude.join(' ')}` : '';
 let tsConfigPath = argv.tsconfig || 'tsconfig.json';
 
+process.on('exit', (code) => {
+    sh.rm('-rf', tempLintFile);
+});
+
 if (argv.all) {
     try {
         fs.writeFileSync(tempLintFile, JSON.stringify(require(path.join(__dirname, 'tsconfig.lint.json'))));
@@ -18,7 +22,7 @@ if (argv.all) {
     } catch (e) {
         console.log(e);
         console.log('Something went wrong. See logs above for details.');
-        sh.rm('-rf', tempLintFile);
+        process.exit(1);
     }
 }
 
@@ -27,10 +31,5 @@ console.log(`Executing the following tslint command:\n${tslintCommand}`);
 
 sh.exec(tslintCommand, () => {
     console.log('\nLint fix completed.');
-
-    if (argv.all) {
-        sh.rm('-rf', tempLintFile);
-    }
-
     process.exit();
 });
