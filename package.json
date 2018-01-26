@@ -1,6 +1,6 @@
 {
   "name": "tsjs",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A mostly reasonable approach to TypeScript and JavaScript.",
   "main": "tsjs.js",
   "scripts": {
