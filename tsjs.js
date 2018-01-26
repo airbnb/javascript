@@ -1,8 +1,9 @@
 #! /usr/bin/env node
 
 const fs = require('fs');
-const argv = require('yargs').argv;
-argv.array('exclude');
+const yargs = require('yargs');
+yargs.array('exclude');
+const argv = yargs.argv;
 const sh = require('shelljs');
 const path = require('path');
 const tslintPath = argv.tslint || path.join(__dirname, 'tslint.json');
@@ -21,9 +22,10 @@ if (argv.all) {
     }
 }
 
-console.log(`Using following files for linting:\ntslint file: ${tslintPath}\ntsconfig file: ${tsConfigPath}`);
+const tslintCommand = `node node_modules/tslint/bin/tslint --project ${tsConfigPath} --config ${tslintPath} ${excludeOption} --fix`;
+console.log(`Executing the following tslint command:\n${tslintCommand}`);
 
-sh.exec(`node node_modules/tslint/bin/tslint --project ${tsConfigPath} --config ${tslintPath} ${excludeOption} --fix`, () => {
+sh.exec(tslintCommand, () => {
     console.log('\nLint fix completed.');
 
     if (argv.all) {
