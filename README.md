@@ -2993,6 +2993,11 @@ Other Style Guides
 
     // good
     this.firstName = 'Panda';
+
+    // good, in environments where WeakMaps are available
+    // see https://kangax.github.io/compat-table/es6/#test-WeakMap
+    const firstNames = new WeakMap();
+    firstNames.set(this, 'Panda');
     ```
 
   <a name="naming--self-this"></a><a name="22.5"></a>
