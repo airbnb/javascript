@@ -1,7 +1,7 @@
 # Nerdery ESLint Ruleset
 
 ESLint rules enforcing Nerdery JavaScript standards
-https://github.com/thenerdery/javascript-standards/linters
+https://github.com/thenerdery/javascript-standards
 
 ## Using in your project
 
@@ -48,6 +48,10 @@ Sublime Text 2 not supported.
 1. Specify ESLint Package as the path where you've installed ESLint. This may already be pre-selected with the correct path; if not, navigate to /{your project folder}/node_modules/eslint
  
 For more info: [https://www.jetbrains.com/help/webstorm/2016.1/eslint.html](https://www.jetbrains.com/help/webstorm/2016.1/eslint.html)
+
+### Visual Studio Code
+1. Install the Visual Studio Code ESLint plugin(https://code.visualstudio.com/docs/editor/extension-gallery)
+1. If the plugin does not pickup a .eslintrc file automatically, add the path to your settings file. (https://github.com/Microsoft/vscode-eslint/tree/master/eslint)
 
 ## Testing
 
