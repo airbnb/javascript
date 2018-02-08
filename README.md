@@ -2816,7 +2816,7 @@ Other Style Guides
 
     // bad - raises exception
     const reaction = "No! That's impossible!"
-    (async function meanwhileOnTheFalcon(){
+    (async function meanwhileOnTheFalcon() {
       // handle `leia`, `lando`, `chewie`, `r2`, `c3p0`
       // ...
     }())
@@ -2836,7 +2836,7 @@ Other Style Guides
 
     // good
     const reaction = "No! That's impossible!";
-    (async function meanwhileOnTheFalcon(){
+    (async function meanwhileOnTheFalcon() {
       // handle `leia`, `lando`, `chewie`, `r2`, `c3p0`
       // ...
     }());
