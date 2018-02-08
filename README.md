@@ -3403,6 +3403,16 @@ Other Style Guides
     - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Airbnb. [`tape`](https://www.npmjs.com/package/tape) is also used occasionally for small, separate modules.
     - 100% test coverage is a good goal to strive for, even if it’s not always practical to reach it.
     - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
+    
+  <a name="testing--is-documentation"></a>
+  - [30.3](#testing--is-documentation) **Is your documentation**:
+    - Tests should explain what your code does.
+    - First write a case for each main functionality, and then their exceptions.
+    - Refactor tests until they are easy to read and understand.
+    - Never use _"private"_ properties to test code.
+    - Code inside tests should be copy-pasteable code to make new developments.
+    - If some functionality works but is not tested, do not use it. It may break your code in the future.
+    - Test functionalities, not functions.
 
 **[⬆ back to top](#table-of-contents)**
 
