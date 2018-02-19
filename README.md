@@ -2162,7 +2162,7 @@ Other Style Guides
 
     // good
     if (
-      (foo === 123 || bar === "abc")
+      (foo === 123 || bar === 'abc')
       && doesItLookGoodWhenItBecomesThatLong()
       && isThisReallyHappening()
     ) {
