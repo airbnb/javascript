@@ -371,7 +371,8 @@ module.exports = {
 
     // Forbids using non-exported propTypes
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
-    'react/forbid-foreign-prop-types': 'off',
+    // TODO: enable?
+    'react/forbid-foreign-prop-types': ['off', { allowInPropTypes: true }],
 
     // Prevent void DOM elements from receiving children
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
@@ -431,6 +432,10 @@ module.exports = {
     // Prevent this from being used in stateless functional components
     // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/no-this-in-sfc.md
     'react/no-this-in-sfc': 'error',
+
+    // Validate JSX maximum depth
+    // https://github.com/yannickcr/eslint-plugin-react/blob/abe8381c0d6748047224c430ce47f02e40160ed0/docs/rules/jsx-max-depth.md
+    'react/jsx-max-depth': 'off',
   },
 
   settings: {
