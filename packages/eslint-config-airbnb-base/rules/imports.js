@@ -229,7 +229,6 @@ module.exports = {
 
     // Ensures that there are no useless path segments
     // https://github.com/benmosher/eslint-plugin-import/issues/1032
-    // TODO: enable
-    'import/no-useless-path-segments': 'off',
+    'import/no-useless-path-segments': 'error',
   },
 };

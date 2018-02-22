@@ -1,6 +1,6 @@
 import test from 'tape';
 import { CLIEngine } from 'eslint';
-import eslintrc from '../';
+import eslintrc from '..';
 import reactRules from '../rules/react';
 import reactA11yRules from '../rules/react-a11y';
 
