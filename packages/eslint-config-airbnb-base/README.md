@@ -84,6 +84,10 @@ Lints ES5 and below. Requires `eslint` and `eslint-plugin-import`.
 
 See [Airbnb's overarching ESLint config](https://npmjs.com/eslint-config-airbnb), [Airbnb's Javascript styleguide](https://github.com/airbnb/javascript), and the [ESlint config docs](https://eslint.org/docs/user-guide/configuring#extending-configuration-files) for more information.
 
+### eslint-config-airbnb-base/whitespace
+
+This entry point that only warns on whitespace rules and sets all other rules to warnings. View the list of whitespace rules [here](https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/whitespace.js).
+
 ## Improving this config
 
 Consider adding test cases if you're making complicated rules changes, like anything involving regexes. Perhaps in a distant future, we could use literate programming to structure our README as test cases for our .eslintrc?

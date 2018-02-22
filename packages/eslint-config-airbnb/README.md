@@ -55,6 +55,10 @@ If you use yarn, run `npm info "eslint-config-airbnb@latest" peerDependencies` t
 
 2. Add `"extends": "airbnb"` to your .eslintrc
 
+### eslint-config-airbnb/whitespace
+
+This entry point that only warns on whitespace rules and sets all other rules to warnings. View the list of whitespace rules [here](https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/whitespace.js).
+
 ### eslint-config-airbnb/base
 
 This entry point is deprecated. See [eslint-config-airbnb-base](https://npmjs.com/eslint-config-airbnb-base).
