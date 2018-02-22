@@ -51,16 +51,16 @@
     "babel-preset-airbnb": "^2.4.0",
     "babel-tape-runner": "^2.0.1",
     "editorconfig-tools": "^0.1.1",
-    "eslint": "^4.18.0",
+    "eslint": "^4.18.1",
     "eslint-find-rules": "^3.2.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-import": "^2.9.0",
     "in-publish": "^2.0.0",
     "safe-publish-latest": "^1.1.1",
     "tape": "^4.9.0"
   },
   "peerDependencies": {
-    "eslint": "^4.16.0",
-    "eslint-plugin-import": "^2.8.0"
+    "eslint": "^4.18.1",
+    "eslint-plugin-import": "^2.9.0"
   },
   "engines": {
     "node": ">= 4"

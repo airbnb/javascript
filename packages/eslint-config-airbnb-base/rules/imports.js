@@ -211,5 +211,25 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/blob/98acd6afd04dcb6920b81330114e146dc8532ea4/docs/rules/exports-last.md
     // TODO: enable?
     'import/exports-last': 'off',
+
+    // Reports when named exports are not grouped together in a single export declaration
+    // or when multiple assignments to CommonJS module.exports or exports object are present
+    // in a single file.
+    // https://github.com/benmosher/eslint-plugin-import/blob/44a038c06487964394b1e15b64f3bd34e5d40cde/docs/rules/group-exports.md
+    'import/group-exports': 'off',
+
+    // forbid default exports. this is a terrible rule, do not use it.
+    // https://github.com/benmosher/eslint-plugin-import/blob/44a038c06487964394b1e15b64f3bd34e5d40cde/docs/rules/no-default-export.md
+    'import/no-default-export': 'off',
+
+    // Forbid a module from importing itself
+    // https://github.com/benmosher/eslint-plugin-import/blob/44a038c06487964394b1e15b64f3bd34e5d40cde/docs/rules/no-self-import.md
+    // TODO: enable
+    'import/no-self-import': 'off',
+
+    // Ensures that there are no useless path segments
+    // https://github.com/benmosher/eslint-plugin-import/issues/1032
+    // TODO: enable
+    'import/no-useless-path-segments': 'off',
   },
 };
