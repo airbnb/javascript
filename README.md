@@ -212,6 +212,15 @@ Other Style Guides
         return atom.value + value;
       },
     };
+    
+    //even better
+        const atom = {
+      value: 1,
+
+      addValue = (value) => atom.value + value;
+      
+     }
+    };
     ```
 
   <a name="es6-object-concise"></a><a name="3.6"></a>
