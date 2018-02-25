@@ -13,8 +13,6 @@ module.exports = {
     mocha: false,
     jasmine: false
   },
-  ecmaFeatures: {},
-  globals: {},
   rules: {
     'comma-dangle': ['error', 'never'],
     'prefer-numeric-literals': 'off',

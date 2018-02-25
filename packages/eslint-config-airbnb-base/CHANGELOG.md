@@ -1,3 +1,49 @@
+12.1.0 / 2017-10-16
+==================
+ - [deps] update `eslint` to `v4.9`
+
+12.0.2 / 2017-10-05
+==================
+ - [deps] update `eslint`
+
+12.0.1 / 2017-09-27
+==================
+ - [fix] ensure all JSX elements are ignored by `indent` (#1569)
+ - [deps] update `eslint`
+
+12.0.0 / 2017-09-02
+==================
+ - [deps] [breaking] require `eslint` v4
+   - enable `function-paren-newline`, `for-direction`, `getter-return`, `no-compare-neg-zero`, `semi-style`, `object-curly-newline`, `no-buffer-constructor`, `no-restricted-globals`, `switch-colon-spacing`, `template-tag-spacing`, `prefer-promise-reject-errors`, `prefer-destructuring`
+   - improve `indent`, `no-multi-spaces`, `no-trailing-spaces`, `no-underscore-dangle`
+ - [breaking] move `comma-dangle` to Stylistic Issues (#1514)
+ - [breaking] Rules prohibiting global isNaN, isFinite (#1477)
+ - [patch] also disallow padding in classes and switches (#1403)
+ - [patch] support Protractor config files in import/no-extraneous-dependencies (#1543)
+
+11.3.2 / 2017-08-22
+==================
+ - [patch] Add jest.config.js to import/no-extraneous-dependencies devDeps (#1522)
+ - [patch] Improve Gruntfile glob pattern (#1503)
+ - [deps] update `eslint` v4, `tape`
+ - [docs] Specify yarn-specific install instructions (#1511)
+
+11.3.1 / 2017-07-24
+==================
+ - [fix] `legacy`: remove top-level `ecmaFeatures`
+
+11.3.0 / 2017-07-23
+==================
+ - [deps] allow eslint v3 or v4 (#1447)
+ - [deps] update `eslint-plugin-import`
+ - [minor] Balanced spacing for inline block comments (#1440)
+ - [minor] `no-return-assign`: strengthen linting against returning assignments
+ - [patch] Allow jsx extensions for test files (#1427)
+ - [patch] `no-restricted-globals`: add confusing globals; leave disabled for now (#1420)
+ - [patch] Support Protractor config files in import/no-extraneous-dependencies (#1456)
+ - [docs] Remove TODO in prefer-reflect as it's deprecated (#1452)
+ - [docs] add yarn instructions (#1463, #1464)
+
 11.2.0 / 2017-05-14
 ==================
  - [minor] Disallow unused global variables
