@@ -16,8 +16,7 @@ const handleError = (message, code) => {console.log(message || ''); process.exit
 const templateCommandErrorMessage = (cmd) => `The command:\n\n${cmd}\n\ndid not work. See logs above for details`;
 
 process.on('exit', (code) => {
-    sh.rm('-rf', tempLintFile);
-    sh.rm('-rf', tempTsfmtFile);
+    sh.rm('-rf', tempLintFile, tempTsfmtFile);
 });
 
 try {
