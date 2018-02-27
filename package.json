@@ -18,6 +18,7 @@
     "shelljs": "0.8.1",
     "tslint": "5.9.1",
     "typescript": "2.6.2",
+    "typescript-formatter": "7.1.0",
     "yargs": "10.1.1"
   }
 }
