@@ -20,7 +20,14 @@ If you use yarn, run `npm info "eslint-config-airbnb-base@latest" peerDependenci
   npm info "eslint-config-airbnb-base@latest" peerDependencies
   ```
 
-  Linux/OSX users can run
+  If using **npm 5+**, use this shortcut
+
+  ```sh
+  npx install-peerdeps --dev eslint-config-airbnb-base
+  ```
+
+  If using **npm < 5**, Linux/OSX users can run
+
   ```sh
   (
     export PKG=eslint-config-airbnb-base;
@@ -34,7 +41,7 @@ If you use yarn, run `npm info "eslint-config-airbnb-base@latest" peerDependenci
     npm install --save-dev eslint-config-airbnb-base eslint@^#.#.# eslint-plugin-import@^#.#.#
   ```
 
-  Windows users can either install all the peer dependencies manually, or use the [install-peerdeps](https://github.com/nathanhleung/install-peerdeps) cli tool.
+  If using **npm < 5**, Windows users can either install all the peer dependencies manually, or use the [install-peerdeps](https://github.com/nathanhleung/install-peerdeps) cli tool.
 
   ```sh
   npm install -g install-peerdeps
@@ -75,7 +82,7 @@ Lints ES5 and below. Requires `eslint` and `eslint-plugin-import`.
 
 2. Add `"extends": "airbnb-base/legacy"` to your .eslintrc
 
-See [Airbnb's overarching ESLint config](https://npmjs.com/eslint-config-airbnb), [Airbnb's Javascript styleguide](https://github.com/airbnb/javascript), and the [ESlint config docs](http://eslint.org/docs/user-guide/configuring#extending-configuration-files) for more information.
+See [Airbnb's overarching ESLint config](https://npmjs.com/eslint-config-airbnb), [Airbnb's Javascript styleguide](https://github.com/airbnb/javascript), and the [ESlint config docs](https://eslint.org/docs/user-guide/configuring#extending-configuration-files) for more information.
 
 ## Improving this config
 

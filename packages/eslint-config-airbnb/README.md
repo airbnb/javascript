@@ -20,7 +20,13 @@ If you use yarn, run `npm info "eslint-config-airbnb@latest" peerDependencies` t
   npm info "eslint-config-airbnb@latest" peerDependencies
   ```
 
-  Linux/OSX users can run
+  If using **npm 5+**, use this shortcut
+
+  ```sh
+  npx install-peerdeps --dev eslint-config-airbnb
+  ```
+
+  If using **npm < 5**, Linux/OSX users can run
 
   ```sh
   (
@@ -35,13 +41,12 @@ If you use yarn, run `npm info "eslint-config-airbnb@latest" peerDependencies` t
   npm install --save-dev eslint-config-airbnb eslint@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-react@^#.#.#
   ```
 
-  Windows users can either install all the peer dependencies manually, or use the [install-peerdeps](https://github.com/nathanhleung/install-peerdeps) cli tool.
+  If using **npm < 5**, Windows users can either install all the peer dependencies manually, or use the [install-peerdeps](https://github.com/nathanhleung/install-peerdeps) cli tool.
 
   ```sh
   npm install -g install-peerdeps
   install-peerdeps --dev eslint-config-airbnb
   ```
-
   The cli will produce and run a command like:
 
   ```sh
@@ -59,7 +64,7 @@ This entry point is deprecated. See [eslint-config-airbnb-base](https://npmjs.co
 This entry point is deprecated. See [eslint-config-airbnb-base](https://npmjs.com/eslint-config-airbnb-base).
 
 See [Airbnb's Javascript styleguide](https://github.com/airbnb/javascript) and
-the [ESlint config docs](http://eslint.org/docs/user-guide/configuring#extending-configuration-files)
+the [ESlint config docs](https://eslint.org/docs/user-guide/configuring#extending-configuration-files)
 for more information.
 
 ## Improving this config

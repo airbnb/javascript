@@ -12,7 +12,7 @@ module.exports = {
     'no-delete-var': 'error',
 
     // disallow labels that share a name with a variable
-    // http://eslint.org/docs/rules/no-label-var
+    // https://eslint.org/docs/rules/no-label-var
     'no-label-var': 'error',
 
     // disallow specific globals
@@ -31,7 +31,7 @@ module.exports = {
     'no-undef-init': 'error',
 
     // disallow use of undefined variable
-    // http://eslint.org/docs/rules/no-undefined
+    // https://eslint.org/docs/rules/no-undefined
     // TODO: enable?
     'no-undefined': 'off',
 
