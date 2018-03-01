@@ -68,6 +68,7 @@
   },
   "dependencies": {
     "eslint-restricted-globals": "^0.1.1",
+    "object.assign": "^4.1.0",
     "object.entries": "^1.0.4"
   }
 }
