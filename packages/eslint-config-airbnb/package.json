@@ -6,6 +6,7 @@
   "scripts": {
     "prelint": "editorconfig-tools check * rules/* test/*",
     "lint": "eslint .",
+    "pretests-only": "node ./test/requires",
     "tests-only": "babel-tape-runner ./test/test-*.js",
     "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test) && safe-publish-latest",
     "pretest": "npm run --silent lint",
