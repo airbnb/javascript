@@ -66,6 +66,7 @@
     "node": ">= 4"
   },
   "dependencies": {
-    "eslint-restricted-globals": "^0.1.1"
+    "eslint-restricted-globals": "^0.1.1",
+    "object.entries": "^1.0.4"
   }
 }
