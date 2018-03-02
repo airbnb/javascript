@@ -1,0 +1,63 @@
+{
+  "name": "inherits",
+  "description": "Browser-friendly inheritance fully compatible with standard node.js inherits()",
+  "version": "2.0.3",
+  "keywords": [
+    "inheritance",
+    "class",
+    "klass",
+    "oop",
+    "object-oriented",
+    "inherits",
+    "browser",
+    "browserify"
+  ],
+  "main": "./inherits.js",
+  "browser": "./inherits_browser.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/isaacs/inherits.git"
+  },
+  "license": "ISC",
+  "scripts": {
+    "test": "node test"
+  },
+  "devDependencies": {
+    "tap": "^7.1.0"
+  },
+  "files": [
+    "inherits.js",
+    "inherits_browser.js"
+  ],
+  "gitHead": "e05d0fb27c61a3ec687214f0476386b765364d5f",
+  "bugs": {
+    "url": "https://github.com/isaacs/inherits/issues"
+  },
+  "homepage": "https://github.com/isaacs/inherits#readme",
+  "_id": "inherits@2.0.3",
+  "_shasum": "633c2c83e3da42a502f52466022480f4208261de",
+  "_from": "inherits@>=2.0.1 <3.0.0",
+  "_npmVersion": "3.10.7",
+  "_nodeVersion": "6.5.0",
+  "_npmUser": {
+    "name": "isaacs",
+    "email": "i@izs.me"
+  },
+  "dist": {
+    "shasum": "633c2c83e3da42a502f52466022480f4208261de",
+    "tarball": "https://registry.npmjs.org/inherits/-/inherits-2.0.3.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "isaacs",
+      "email": "i@izs.me"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/inherits-2.0.3.tgz_1473295776489_0.08142363070510328"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/inherits/-/inherits-2.0.3.tgz",
+  "readme": "ERROR: No README data found!"
+}

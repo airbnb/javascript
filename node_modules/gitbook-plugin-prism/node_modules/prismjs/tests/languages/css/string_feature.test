@@ -1,0 +1,19 @@
+"f\"oo"
+'f\'oo'
+"foo\
+bar"
+'foo\
+bar'
+
+----------------------------------------------------
+
+[
+	["string", "\"f\\\"oo\""],
+	["string", "'f\\'oo'"],
+	["string", "\"foo\\\r\nbar\""],
+    ["string", "'foo\\\r\nbar'"]
+]
+
+----------------------------------------------------
+
+Checks for single-quoted and double-quoted strings.

@@ -1,0 +1,14 @@
+{
+  "name": "ads-docs",
+  "version": "0.0.1",
+  "engines" : { "node" : "6.11.0" },
+  "description": "ads docs",
+  "private": true,
+  "scripts": {
+    "start": "gitbook install && gitbook serve",
+    "build": "gitbook build . docs"
+  },
+  "dependencies": {
+    "gitbook-cli": "*"
+  }
+}

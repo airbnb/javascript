@@ -1,0 +1,71 @@
+{
+  "name": "isarray",
+  "description": "Array#isArray for older browsers",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/juliangruber/isarray.git"
+  },
+  "homepage": "https://github.com/juliangruber/isarray",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "~2.13.4"
+  },
+  "keywords": [
+    "browser",
+    "isarray",
+    "array"
+  ],
+  "author": {
+    "name": "Julian Gruber",
+    "email": "mail@juliangruber.com",
+    "url": "http://juliangruber.com"
+  },
+  "license": "MIT",
+  "testling": {
+    "files": "test.js",
+    "browsers": [
+      "ie/8..latest",
+      "firefox/17..latest",
+      "firefox/nightly",
+      "chrome/22..latest",
+      "chrome/canary",
+      "opera/12..latest",
+      "opera/next",
+      "safari/5.1..latest",
+      "ipad/6.0..latest",
+      "iphone/6.0..latest",
+      "android-browser/4.2..latest"
+    ]
+  },
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "gitHead": "2a23a281f369e9ae06394c0fb4d2381355a6ba33",
+  "bugs": {
+    "url": "https://github.com/juliangruber/isarray/issues"
+  },
+  "_id": "isarray@1.0.0",
+  "_shasum": "bb935d48582cba168c06834957a54a3e07124f11",
+  "_from": "isarray@>=1.0.0 <1.1.0",
+  "_npmVersion": "3.3.12",
+  "_nodeVersion": "5.1.0",
+  "_npmUser": {
+    "name": "juliangruber",
+    "email": "julian@juliangruber.com"
+  },
+  "dist": {
+    "shasum": "bb935d48582cba168c06834957a54a3e07124f11",
+    "tarball": "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "juliangruber",
+      "email": "julian@juliangruber.com"
+    }
+  ],
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz",
+  "readme": "ERROR: No README data found!"
+}

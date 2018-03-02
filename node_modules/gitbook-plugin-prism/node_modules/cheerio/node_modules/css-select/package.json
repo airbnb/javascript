@@ -1,0 +1,91 @@
+{
+  "name": "css-select",
+  "version": "1.2.0",
+  "description": "a CSS selector compiler/engine",
+  "author": {
+    "name": "Felix Boehm",
+    "email": "me@feedic.com"
+  },
+  "keywords": [
+    "css",
+    "selector",
+    "sizzle"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fb55/css-select.git"
+  },
+  "files": [
+    "index.js",
+    "lib"
+  ],
+  "dependencies": {
+    "css-what": "2.1",
+    "domutils": "1.5.1",
+    "boolbase": "~1.0.0",
+    "nth-check": "~1.0.1"
+  },
+  "devDependencies": {
+    "htmlparser2": "*",
+    "cheerio-soupselect": "*",
+    "mocha": "*",
+    "mocha-lcov-reporter": "*",
+    "coveralls": "*",
+    "istanbul": "*",
+    "expect.js": "*",
+    "jshint": "2"
+  },
+  "scripts": {
+    "test": "mocha && npm run lint",
+    "lint": "jshint index.js lib/*.js test/*.js",
+    "lcov": "istanbul cover _mocha --report lcovonly -- -R spec",
+    "coveralls": "npm run lint && npm run lcov && (cat coverage/lcov.info | coveralls || exit 0)"
+  },
+  "license": "BSD-like",
+  "jshintConfig": {
+    "eqeqeq": true,
+    "freeze": true,
+    "latedef": "nofunc",
+    "noarg": true,
+    "nonbsp": true,
+    "quotmark": "double",
+    "undef": true,
+    "unused": true,
+    "trailing": true,
+    "eqnull": true,
+    "proto": true,
+    "smarttabs": true,
+    "node": true,
+    "globals": {
+      "describe": true,
+      "it": true
+    }
+  },
+  "gitHead": "09c405d8296bd97a660256604d8cdfb23fca47b6",
+  "bugs": {
+    "url": "https://github.com/fb55/css-select/issues"
+  },
+  "homepage": "https://github.com/fb55/css-select#readme",
+  "_id": "css-select@1.2.0",
+  "_shasum": "2b3a110539c5355f1cd8d314623e870b121ec858",
+  "_from": "css-select@>=1.2.0 <1.3.0",
+  "_npmVersion": "3.3.9",
+  "_nodeVersion": "5.0.0",
+  "_npmUser": {
+    "name": "feedic",
+    "email": "me@feedic.com"
+  },
+  "maintainers": [
+    {
+      "name": "feedic",
+      "email": "me@feedic.com"
+    }
+  ],
+  "dist": {
+    "shasum": "2b3a110539c5355f1cd8d314623e870b121ec858",
+    "tarball": "https://registry.npmjs.org/css-select/-/css-select-1.2.0.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/css-select/-/css-select-1.2.0.tgz",
+  "readme": "ERROR: No README data found!"
+}

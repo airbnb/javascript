@@ -1,0 +1,123 @@
+break
+case
+catch
+class;
+const
+continue
+debugger
+default
+delete
+do
+else
+enum
+export
+extends;
+false
+finally
+for
+function
+get
+if
+implements;
+import
+in
+instanceof;
+interface;
+let
+new;
+null
+package
+private
+protected
+public
+return
+set
+static
+super
+switch
+this
+throw
+true
+try
+typeof
+var
+void
+while
+with
+yield
+module
+declare
+constructor
+string
+Function
+any
+number
+boolean
+Array
+enum
+
+----------------------------------------------------
+
+[
+	["keyword", "break"],
+	["keyword", "case"],
+	["keyword", "catch"],
+	["keyword", "class"], ["punctuation", ";"],
+	["keyword", "const"],
+	["keyword", "continue"],
+	["keyword", "debugger"],
+	["keyword", "default"],
+	["keyword", "delete"],
+	["keyword", "do"],
+	["keyword", "else"],
+	["keyword", "enum"],
+	["keyword", "export"],
+	["keyword", "extends"], ["punctuation", ";"],
+	["keyword", "false"],
+	["keyword", "finally"],
+	["keyword", "for"],
+	["keyword", "function"],
+	["keyword", "get"],
+	["keyword", "if"],
+	["keyword", "implements"], ["punctuation", ";"],
+	["keyword", "import"],
+	["keyword", "in"],
+	["keyword", "instanceof"], ["punctuation", ";"],
+	["keyword", "interface"], ["punctuation", ";"],
+	["keyword", "let"],
+	["keyword", "new"], ["punctuation", ";"],
+	["keyword", "null"],
+	["keyword", "package"],
+	["keyword", "private"],
+	["keyword", "protected"],
+	["keyword", "public"],
+	["keyword", "return"],
+	["keyword", "set"],
+	["keyword", "static"],
+	["keyword", "super"],
+	["keyword", "switch"],
+	["keyword", "this"],
+	["keyword", "throw"],
+	["keyword", "true"],
+	["keyword", "try"],
+	["keyword", "typeof"],
+	["keyword", "var"],
+	["keyword", "void"],
+	["keyword", "while"],
+	["keyword", "with"],
+	["keyword", "yield"],
+	["keyword", "module"],
+	["keyword", "declare"],
+	["keyword", "constructor"],
+	["keyword", "string"],
+	["keyword", "Function"],
+	["keyword", "any"],
+	["keyword", "number"],
+	["keyword", "boolean"],
+	["keyword", "Array"],
+	["keyword", "enum"]
+]
+
+----------------------------------------------------
+
+Checks for keywords.

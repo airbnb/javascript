@@ -1,0 +1,24 @@
+color: red;
+background-color: blue;
+-webkit-transform: none;
+
+----------------------------------------------------
+
+[
+	["property", "color"],
+	["punctuation", ":"],
+	" red",
+	["punctuation", ";"],
+	["property", "background-color"],
+	["punctuation", ":"],
+	" blue",
+    ["punctuation", ";"],
+	["property", "-webkit-transform"],
+	["punctuation", ":"],
+	" none",
+    ["punctuation", ";"]
+]
+
+----------------------------------------------------
+
+Checks for properties.

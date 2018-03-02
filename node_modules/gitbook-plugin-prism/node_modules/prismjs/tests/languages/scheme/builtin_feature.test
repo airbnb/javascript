@@ -1,0 +1,53 @@
+(cons
+(car
+(cdr
+(null?
+(pair?
+(boolean?
+(eof-object?
+(char?
+(procedure?
+(number?
+(port?
+(string?
+(vector?
+(symbol?
+(bytevector?
+(list
+(call-with-current-continuation
+(call/cc
+(append
+(abs
+(apply
+(eval
+
+----------------------------------------------------
+
+[
+	["punctuation", "("], ["builtin", "cons"],
+	["punctuation", "("], ["builtin", "car"],
+	["punctuation", "("], ["builtin", "cdr"],
+	["punctuation", "("], ["builtin", "null?"],
+	["punctuation", "("], ["builtin", "pair?"],
+	["punctuation", "("], ["builtin", "boolean?"],
+	["punctuation", "("], ["builtin", "eof-object?"],
+	["punctuation", "("], ["builtin", "char?"],
+	["punctuation", "("], ["builtin", "procedure?"],
+	["punctuation", "("], ["builtin", "number?"],
+	["punctuation", "("], ["builtin", "port?"],
+	["punctuation", "("], ["builtin", "string?"],
+	["punctuation", "("], ["builtin", "vector?"],
+	["punctuation", "("], ["builtin", "symbol?"],
+	["punctuation", "("], ["builtin", "bytevector?"],
+	["punctuation", "("], ["builtin", "list"],
+	["punctuation", "("], ["builtin", "call-with-current-continuation"],
+	["punctuation", "("], ["builtin", "call/cc"],
+	["punctuation", "("], ["builtin", "append"],
+	["punctuation", "("], ["builtin", "abs"],
+	["punctuation", "("], ["builtin", "apply"],
+	["punctuation", "("], ["builtin", "eval"]
+]
+
+----------------------------------------------------
+
+Checks for builtins.

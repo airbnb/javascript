@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>Arrow Functions | ads-best-practices</title>
+<meta property="og:title" content="Arrow Functions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="ADS Best Practices" />
+<meta property="og:description" content="ADS Best Practices" />
+<link rel="canonical" href="http://localhost:4000/best-practices/javascript/arrow-functions.html" />
+<meta property="og:url" content="http://localhost:4000/best-practices/javascript/arrow-functions.html" />
+<meta property="og:site_name" content="ads-best-practices" />
+<script type="application/ld+json">
+{"name":null,"description":"ADS Best Practices","author":null,"@type":"WebPage","url":"http://localhost:4000/best-practices/javascript/arrow-functions.html","publisher":null,"image":null,"headline":"Arrow Functions","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="description" content="ADS Best Practices"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=94436aef2b4f9129ea66d2f8872fbeab3f8b7a0b">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">ads-best-practices</h1>
+      <h2 class="project-tagline">ADS Best Practices</h2>
+      
+        <a href="http://github.com/appirio-digital/ads-best-practices" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <h1 id="arrow-functions">Arrow Functions</h1>
+
+<ul>
+  <li><a href="#8.1">8.1</a> <a name="8.1"></a> When you must use function expressions (as when passing an anonymous function), use arrow function notation.</li>
+</ul>
+
+<blockquote>
+  <p>Why? It creates a version of the function that executes in the context of <code class="highlighter-rouge">this</code>, which is usually what you want, and is a more concise syntax.</p>
+</blockquote>
+
+<blockquote>
+  <p>Why not? If you have a fairly complicated function, you might move that logic out into its own function declaration.</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// bad</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="c1">// good</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">map</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<ul>
+  <li><a href="#8.2">8.2</a> <a name="8.2"></a> If the function body fits on one line and there is only a single argument, feel free to omit the braces and parentheses, and use the implicit return. Otherwise, add the parentheses, braces, and use a <code class="highlighter-rouge">return</code> statement.</li>
+</ul>
+
+<blockquote>
+  <p>Why? Syntactic sugar. It reads well when multiple functions are chained together.</p>
+</blockquote>
+
+<blockquote>
+  <p>Why not? If you plan on returning an object.</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// good</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">);</span>
+
+<span class="c1">// good</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">total</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">total</span> <span class="o">+</span> <span class="nx">n</span><span class="p">;</span>
+<span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+</code></pre>
+</div>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="http://github.com/appirio-digital/ads-best-practices">ads-best-practices</a> is maintained by <a href="http://github.com/appirio-digital">appirio-digital</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

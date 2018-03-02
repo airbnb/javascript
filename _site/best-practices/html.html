@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>HTML Style Guide | ads-best-practices</title>
+<meta property="og:title" content="HTML Style Guide" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="ADS Best Practices" />
+<meta property="og:description" content="ADS Best Practices" />
+<link rel="canonical" href="http://localhost:4000/best-practices/html.html" />
+<meta property="og:url" content="http://localhost:4000/best-practices/html.html" />
+<meta property="og:site_name" content="ads-best-practices" />
+<script type="application/ld+json">
+{"name":null,"description":"ADS Best Practices","author":null,"@type":"WebPage","url":"http://localhost:4000/best-practices/html.html","publisher":null,"image":null,"headline":"HTML Style Guide","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="description" content="ADS Best Practices"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=94436aef2b4f9129ea66d2f8872fbeab3f8b7a0b">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">ads-best-practices</h1>
+      <h2 class="project-tagline">ADS Best Practices</h2>
+      
+        <a href="http://github.com/appirio-digital/ads-best-practices" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <h1 id="html-style-guide">HTML Style Guide</h1>
+
+<p><em>Standards for developing flexible, durable, and sustainable HTML</em></p>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ol>
+  <li><a href="#syntax">Syntax</a></li>
+  <li><a href="#doctype">HTML5 doctype</a></li>
+  <li><a href="#lang">Language attribute</a></li>
+  <li><a href="#encoding">Character encoding</a></li>
+  <li><a href="#ie-compatibility-mode">Internet Explorer compatibility mode</a></li>
+  <li><a href="#style-script">CSS and JavaScript includes</a></li>
+  <li><a href="#practicality">Practicality over purity</a></li>
+  <li><a href="#attribute-order">Attribute order</a></li>
+  <li><a href="#boolean-attributes">Boolean attributes</a></li>
+  <li><a href="#reducing-markup">Reducing markup</a></li>
+</ol>
+
+<h2 id="golden-rule">Golden rule</h2>
+
+<p>Enforce these, or your own, agreed upon guidelines at all times. Small or large, call out what’s incorrect. Every line of code should appear to be written by a single person, no matter the number of contributors.</p>
+
+<h2 id="syntax">Syntax</h2>
+
+<ul>
+  <li>Use tabs (four) to indent your code, never use spaces.</li>
+  <li>Nested elements should be indented once for every level.</li>
+  <li>Always use double quotes, never single quotes, on attributes.</li>
+  <li>Markup should be XHTML valid for easier integration with Teamsite.</li>
+  <li>Always include a trailing slash in self-closing elements even if the HTML5 spec says they’re optional. HTML should be XHTML valid.</li>
+  <li>Don’t omit optional closing tags (e.g. <code class="highlighter-rouge">&lt;/li&gt;</code> or <code class="highlighter-rouge">&lt;/body&gt;</code>).</li>
+  <li>Never use IE conditional hacks to include additional style sheets.</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Page title<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"images/company-logo.png"</span> <span class="na">alt=</span><span class="s">"Company"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"hello-world"</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="html5-doctype">HTML5 doctype</h2>
+
+<p>Enforce standards mode and more consistent rendering in every browser possible with this simple doctype at the beginning of every HTML page.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="language-attribute">Language attribute</h2>
+
+<p>From the HTML5 spec:</p>
+
+<blockquote>
+  <p>Authors are encouraged to specify a lang attribute on the root html element, giving the document’s language. This aids speech synthesis tools to determine what pronunciations to use, translation tools to determine what rules to use, and so forth.</p>
+</blockquote>
+
+<p>Read more about the <code class="highlighter-rouge">lang</code> attribute in the <a href="http://www.w3.org/html/wg/drafts/html/master/semantics.html#the-html-element">spec</a>.</p>
+
+<p>Head to Sitepoint for a <a href="http://reference.sitepoint.com/html/lang-codes">list of language codes</a>.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en-us"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- ... --&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="ie-compatibility-mode">IE compatibility mode</h2>
+
+<p>Internet Explorer supports the use of a document compatibility <code class="highlighter-rouge">&lt;meta&gt;</code> tag to specify what version of IE the page should be rendered as. Unless circumstances require otherwise, it’s most useful to instruct IE to use the latest supported mode with <strong>edge mode</strong>.</p>
+
+<p>For more information, <a href="http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge-e">read this awesome Stack Overflow article</a>.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=Edge"</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="character-encoding">Character encoding</h2>
+
+<p>Quickly and easily ensure proper rendering of your content by declaring an explicit character encoding. When doing so, you may avoid using character entities in your HTML, provided their encoding matches that of the document (generally UTF-8).</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">content=</span><span class="s">"text/html; charset=utf-8"</span> <span class="na">http-equiv=</span><span class="s">"Content-Type"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="css-and-javascript-includes">CSS and JavaScript includes</h2>
+
+<p>Per HTML5 spec, typically there is no need to specify a <code class="highlighter-rouge">type</code> when including CSS and JavaScript files as <code class="highlighter-rouge">text/css</code> and <code class="highlighter-rouge">text/javascript</code> are their respective defaults.</p>
+
+<h4 id="html5-spec-links">HTML5 spec links</h4>
+
+<ul>
+  <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-link-element">Using link</a></li>
+  <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-style-element">Using style</a></li>
+  <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/scripting-1.html#the-script-element">Using script</a></li>
+</ul>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!-- External CSS --&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"code-guide.css"</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- In-document CSS --&gt;</span>
+<span class="nt">&lt;style&gt;</span>
+  <span class="c">/* ... */</span>
+<span class="nt">&lt;/style&gt;</span>
+
+<span class="c">&lt;!-- JavaScript --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"code-guide.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="practicality-over-purity">Practicality over purity</h2>
+
+<p>Strive to maintain HTML standards and semantics, but not at the expense of practicality. Use the least amount of markup with the fewest intricacies whenever possible.</p>
+
+<h2 id="attribute-order">Attribute order</h2>
+
+<p>HTML attributes should come in this particular order for easier reading of code.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">id</code>, <code class="highlighter-rouge">name</code></li>
+  <li><code class="highlighter-rouge">class</code></li>
+  <li><code class="highlighter-rouge">src</code>, <code class="highlighter-rouge">for</code>, <code class="highlighter-rouge">type</code>, <code class="highlighter-rouge">href</code>, <code class="highlighter-rouge">value</code></li>
+  <li><code class="highlighter-rouge">data-*</code></li>
+  <li><code class="highlighter-rouge">title</code>, <code class="highlighter-rouge">alt</code></li>
+  <li><code class="highlighter-rouge">aria-*</code>, <code class="highlighter-rouge">role</code></li>
+</ul>
+
+<p>Classes make for great reusable components, so they come first. Ids are more specific and should be used sparingly (e.g., for in-page bookmarks), so they come second.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"..."</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-toggle=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
+  Example link
+<span class="nt">&lt;/a&gt;</span>
+
+<span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="boolean-attributes">Boolean attributes</h2>
+
+<p>A boolean attribute is one that needs no declared value. XHTML required you to declare a value, but HTML5 has no such requirement.</p>
+
+<p>For further reading, consult the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#boolean-attributes">WhatWG section on boolean attributes</a>:</p>
+
+<blockquote>
+  <p>The presence of a boolean attribute on an element represents the true value, and the absence of the attribute represents the false value.</p>
+</blockquote>
+
+<p>Even though the boolean attributes’ value is optional, it’s recommended that you use the attribute’s canonical name as it’s value.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">disabled=</span><span class="s">"disabled"</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">"1"</span> <span class="na">checked=</span><span class="s">"checked"</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;select&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1"</span> <span class="na">selected=</span><span class="s">"selected"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="reducing-markup">Reducing markup</h2>
+
+<p>Whenever possible, avoid superfluous parent elements when writing HTML. Many times this requires iteration and refactoring, but produces less HTML. Take the following example:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!-- Not so great --&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"avatar"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/span&gt;</span>
+
+<span class="c">&lt;!-- Better --&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"avatar"</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="http://github.com/appirio-digital/ads-best-practices">ads-best-practices</a> is maintained by <a href="http://github.com/appirio-digital">appirio-digital</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

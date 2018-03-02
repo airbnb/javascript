@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>Type Casting &amp; Coercion | ads-best-practices</title>
+<meta property="og:title" content="Type Casting &amp; Coercion" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="ADS Best Practices" />
+<meta property="og:description" content="ADS Best Practices" />
+<link rel="canonical" href="http://localhost:4000/best-practices/javascript/type-casting-coercion.html" />
+<meta property="og:url" content="http://localhost:4000/best-practices/javascript/type-casting-coercion.html" />
+<meta property="og:site_name" content="ads-best-practices" />
+<script type="application/ld+json">
+{"name":null,"description":"ADS Best Practices","author":null,"@type":"WebPage","url":"http://localhost:4000/best-practices/javascript/type-casting-coercion.html","publisher":null,"image":null,"headline":"Type Casting &amp; Coercion","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="description" content="ADS Best Practices"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=94436aef2b4f9129ea66d2f8872fbeab3f8b7a0b">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">ads-best-practices</h1>
+      <h2 class="project-tagline">ADS Best Practices</h2>
+      
+        <a href="http://github.com/appirio-digital/ads-best-practices" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <h1 id="type-casting--coercion">Type Casting &amp; Coercion</h1>
+
+<ul>
+  <li>
+    <p><a href="#21.1">21.1</a> <a name="21.1"></a> Perform type coercion at the beginning of the statement.</p>
+  </li>
+  <li>
+    <p><a href="#21.2">21.2</a> <a name="21.2"></a> Strings:</p>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//  =&gt; this.reviewScore = 9;</span>
+
+<span class="c1">// bad</span>
+<span class="kr">const</span> <span class="nx">totalScore</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">reviewScore</span> <span class="o">+</span> <span class="s1">''</span><span class="p">;</span>
+
+<span class="c1">// good</span>
+<span class="kr">const</span> <span class="nx">totalScore</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">reviewScore</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li><a href="#21.3">21.3</a> <a name="21.3"></a> Use <code class="highlighter-rouge">parseInt</code> for Numbers and always with a radix for type casting.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">inputValue</span> <span class="o">=</span> <span class="s1">'4'</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="kr">const</span> <span class="nx">val</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">inputValue</span><span class="p">);</span>
+
+<span class="c1">// bad</span>
+<span class="kr">const</span> <span class="nx">val</span> <span class="o">=</span> <span class="o">+</span><span class="nx">inputValue</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="kr">const</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">inputValue</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="kr">const</span> <span class="nx">val</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">inputValue</span><span class="p">);</span>
+
+<span class="c1">// good</span>
+<span class="kr">const</span> <span class="nx">val</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">inputValue</span><span class="p">);</span>
+
+<span class="c1">// good</span>
+<span class="kr">const</span> <span class="nx">val</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">inputValue</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li><a href="#21.4">21.4</a> <a name="21.4"></a> If for whatever reason you are doing something wild and <code class="highlighter-rouge">parseInt</code> is your bottleneck and need to use Bitshift for <a href="http://jsperf.com/coercion-vs-casting/3">performance reasons</a>, leave a comment explaining why and what you’re doing.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// good</span>
+<span class="cm">/**
+ * parseInt was the reason my code was slow.
+ * Bitshifting the String to coerce it to a
+ * Number made it a lot faster.
+ */</span>
+<span class="kr">const</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">inputValue</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<ul>
+  <li><a href="#21.5">21.5</a> <a name="21.5"></a> <strong>Note:</strong> Be careful when using bitshift operations. Numbers are represented as <a href="http://es5.github.io/#x4.3.19">64-bit values</a>, but Bitshift operations always return a 32-bit integer (<a href="http://es5.github.io/#x11.7">source</a>). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. <a href="https://github.com/airbnb/javascript/issues/109">Discussion</a>. Largest signed 32-bit Int is 2,147,483,647:</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="mi">2147483647</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span> <span class="c1">//=&gt; 2147483647</span>
+<span class="mi">2147483648</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span> <span class="c1">//=&gt; -2147483648</span>
+<span class="mi">2147483649</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span> <span class="c1">//=&gt; -2147483647</span>
+</code></pre>
+</div>
+
+<ul>
+  <li><a href="#21.6">21.6</a> <a name="21.6"></a> Booleans:</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">// bad</span>
+<span class="kr">const</span> <span class="nx">hasAge</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>
+
+<span class="c1">// good</span>
+<span class="kr">const</span> <span class="nx">hasAge</span> <span class="o">=</span> <span class="nb">Boolean</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>
+
+<span class="c1">// good</span>
+<span class="kr">const</span> <span class="nx">hasAge</span> <span class="o">=</span> <span class="o">!!</span><span class="nx">age</span><span class="p">;</span>
+</code></pre>
+</div>
+
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="http://github.com/appirio-digital/ads-best-practices">ads-best-practices</a> is maintained by <a href="http://github.com/appirio-digital">appirio-digital</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

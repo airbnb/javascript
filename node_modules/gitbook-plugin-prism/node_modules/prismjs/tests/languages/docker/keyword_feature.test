@@ -1,0 +1,37 @@
+ONBUILD ADD . /app/src
+FROM ubuntu
+MAINTAINER SvenDowideit@home.org.au
+RUN cd /tmp
+EXPOSE 5900
+ENV myName John Doe
+COPY hom* /mydir/
+VOLUME /myvol
+USER daemon
+WORKDIR /a
+CMD echo "foo"
+LABEL version="1.0"
+ENTRYPOINT ["top", "-b"]
+
+----------------------------------------------------
+
+[
+	["keyword", "ONBUILD"], ["keyword", "ADD"], " . /app/src\r\n",
+	["keyword", "FROM"], " ubuntu\r\n",
+	["keyword", "MAINTAINER"], " SvenDowideit@home.org.au\r\n",
+	["keyword", "RUN"], " cd /tmp\r\n",
+	["keyword", "EXPOSE"], " 5900\r\n",
+	["keyword", "ENV"], " myName John Doe\r\n",
+	["keyword", "COPY"], " hom* /mydir/\r\n",
+	["keyword", "VOLUME"], " /myvol\r\n",
+	["keyword", "USER"], " daemon\r\n",
+	["keyword", "WORKDIR"], " /a\r\n",
+	["keyword", "CMD"], " echo ", ["string", "\"foo\""],
+	["keyword", "LABEL"], " version=", ["string", "\"1.0\""],
+	["keyword", "ENTRYPOINT"],
+	["punctuation", "["], ["string", "\"top\""], ["punctuation", ","],
+	["string", "\"-b\""], ["punctuation", "]"]
+]
+
+----------------------------------------------------
+
+Checks for keywords.

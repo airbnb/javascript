@@ -1,0 +1,37 @@
+<div class="foo"></div>
+
+----------------------------------------------------
+
+[
+	["markup", [
+		["tag", [
+			["tag", [
+				["punctuation", "<"],
+				"div"
+			]],
+			["attr-name", [
+				"class"
+			]],
+			["attr-value", [
+				["punctuation", "="],
+				["punctuation", "\""],
+				"foo",
+				["punctuation", "\""]
+			]],
+			["punctuation", ">"]
+		]]
+	]],
+	["markup", [
+		["tag", [
+			["tag", [
+				["punctuation", "</"],
+				"div"
+			]],
+			["punctuation", ">"]
+		]]
+	]]
+]
+
+----------------------------------------------------
+
+Checks for markup in PHP.
