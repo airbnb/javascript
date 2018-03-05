@@ -49,5 +49,10 @@ module.exports = {
       requireForBlockBody: false,
     }],
 
+    'prefer-arrow-callback': ['error', {
+      allowNamedFunctions: true,
+      allowUnboundThis: true,
+    }],
+
   },
 };
