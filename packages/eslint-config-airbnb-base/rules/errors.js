@@ -1,32 +1,20 @@
 module.exports = {
   rules: {
-    // require trailing commas in multiline object literals
-    'comma-dangle': ['error', {
-      arrays: 'always-multiline',
-      objects: 'always-multiline',
-      imports: 'always-multiline',
-      exports: 'always-multiline',
-      functions: 'always-multiline',
-    }],
-
     // Enforce “for” loop update clause moving the counter in the right direction
-    // http://eslint.org/docs/rules/for-direction
-    // TODO: enable, semver-major until v3 is dropped; semver-minor otherwise
-    'for-direction': 'off',
+    // https://eslint.org/docs/rules/for-direction
+    'for-direction': 'error',
 
     // Enforces that a return statement is present in property getters
-    // http://eslint.org/docs/rules/getter-return
-    // TODO: enable, semver-major when v3 is dropped
-    'getter-return': ['off', { allowImplicit: true }],
+    // https://eslint.org/docs/rules/getter-return
+    'getter-return': ['error', { allowImplicit: true }],
 
     // Disallow await inside of loops
-    // http://eslint.org/docs/rules/no-await-in-loop
+    // https://eslint.org/docs/rules/no-await-in-loop
     'no-await-in-loop': 'error',
 
     // Disallow comparisons to negative zero
-    // http://eslint.org/docs/rules/no-compare-neg-zero
-    // TODO: enable (semver-major)
-    'no-compare-neg-zero': 'off',
+    // https://eslint.org/docs/rules/no-compare-neg-zero
+    'no-compare-neg-zero': 'error',
 
     // disallow assignment in conditional expressions
     'no-cond-assign': ['error', 'always'],
@@ -62,11 +50,11 @@ module.exports = {
     'no-ex-assign': 'error',
 
     // disallow double-negation boolean casts in a boolean context
-    // http://eslint.org/docs/rules/no-extra-boolean-cast
+    // https://eslint.org/docs/rules/no-extra-boolean-cast
     'no-extra-boolean-cast': 'error',
 
     // disallow unnecessary parentheses
-    // http://eslint.org/docs/rules/no-extra-parens
+    // https://eslint.org/docs/rules/no-extra-parens
     'no-extra-parens': ['off', 'all', {
       conditionalAssign: true,
       nestedBinaryExpressions: false,
@@ -94,7 +82,7 @@ module.exports = {
     'no-obj-calls': 'error',
 
     // disallow use of Object.prototypes builtins directly
-    // http://eslint.org/docs/rules/no-prototype-builtins
+    // https://eslint.org/docs/rules/no-prototype-builtins
     'no-prototype-builtins': 'error',
 
     // disallow multiple spaces in a regular expression literal
@@ -104,22 +92,22 @@ module.exports = {
     'no-sparse-arrays': 'error',
 
     // Disallow template literal placeholder syntax in regular strings
-    // http://eslint.org/docs/rules/no-template-curly-in-string
+    // https://eslint.org/docs/rules/no-template-curly-in-string
     'no-template-curly-in-string': 'error',
 
     // Avoid code that looks like two expressions but is actually one
-    // http://eslint.org/docs/rules/no-unexpected-multiline
+    // https://eslint.org/docs/rules/no-unexpected-multiline
     'no-unexpected-multiline': 'error',
 
     // disallow unreachable statements after a return, throw, continue, or break statement
     'no-unreachable': 'error',
 
     // disallow return/throw/break/continue inside finally blocks
-    // http://eslint.org/docs/rules/no-unsafe-finally
+    // https://eslint.org/docs/rules/no-unsafe-finally
     'no-unsafe-finally': 'error',
 
     // disallow negating the left operand of relational operators
-    // http://eslint.org/docs/rules/no-unsafe-negation
+    // https://eslint.org/docs/rules/no-unsafe-negation
     'no-unsafe-negation': 'error',
     // disallow negation of the left operand of an in expression
     // deprecated in favor of no-unsafe-negation
@@ -129,11 +117,11 @@ module.exports = {
     'use-isnan': 'error',
 
     // ensure JSDoc comments are valid
-    // http://eslint.org/docs/rules/valid-jsdoc
+    // https://eslint.org/docs/rules/valid-jsdoc
     'valid-jsdoc': 'off',
 
     // ensure that the results of typeof are compared against a valid string
-    // http://eslint.org/docs/rules/valid-typeof
+    // https://eslint.org/docs/rules/valid-typeof
     'valid-typeof': ['error', { requireStringLiterals: true }],
   }
 };

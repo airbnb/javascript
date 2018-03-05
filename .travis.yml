@@ -1,41 +1,36 @@
 language: node_js
 node_js:
+  - "9"
   - "8"
   - "7"
   - "6"
   - "5"
   - "4"
 before_install:
-  - 'if [ "${TRAVIS_NODE_VERSION}" = "0.6" ]; then npm install -g npm@1.3 ; elif [ "${TRAVIS_NODE_VERSION}" != "0.9" ]; then case "$(npm --version)" in 1.*) npm install -g npm@1.4.28 ;; 2.*) npm install -g npm@2 ;; esac ; fi'
-  - 'if [ "${TRAVIS_NODE_VERSION%${TRAVIS_NODE_VERSION#[0-9]}}" = "0" ] || [ "${TRAVIS_NODE_VERSION:0:4}" = "iojs" ]; then npm install -g npm@4.5 ; elif [ "${TRAVIS_NODE_VERSION}" != "0.6" ] && [ "${TRAVIS_NODE_VERSION}" != "0.9" ]; then npm install -g npm; fi'
+  - 'nvm install-latest-npm'
 install:
-  - 'cd "packages/${PACKAGE}"'
-  - 'if [ "${TRAVIS_NODE_VERSION}" = "0.6" ]; then nvm install 0.8 && npm install -g npm@1.3 && npm install -g npm@1.4.28 && npm install -g npm@2 && npm install && nvm use "${TRAVIS_NODE_VERSION}"; else npm install; fi;'
+  - 'if [ -n "${PACKAGE-}" ]; then cd "packages/${PACKAGE}"; fi'
+  - 'if [ "${TRAVIS_NODE_VERSION}" = "0.6" ] || [ "${TRAVIS_NODE_VERSION}" = "0.9" ]; then nvm install --latest-npm 0.8 && npm install && nvm use "${TRAVIS_NODE_VERSION}"; else npm install; fi;'
   - 'if [ -n "${ESLINT}" ]; then npm install --no-save "eslint@${ESLINT}"; fi'
 script:
-  - 'if [ -n "${PREPUBLISH-}" ]; then npm run pretravis && npm run prepublish && npm run posttravis; else npm run travis; fi'
+  - 'if [ -n "${PREPUBLISH-}" ]; then npm run pretravis && npm run prepublish && npm run posttravis; elif [ -n "${LINT-}" ]; then npm run lint; else npm run travis; fi'
 sudo: false
 env:
   matrix:
-    - 'TEST=true ESLINT=3 PACKAGE=eslint-config-airbnb'
     - 'TEST=true ESLINT=4 PACKAGE=eslint-config-airbnb'
-    - 'TEST=true ESLINT=3 PACKAGE=eslint-config-airbnb-base'
     - 'TEST=true ESLINT=4 PACKAGE=eslint-config-airbnb-base'
 matrix:
   fast_finish: true
   include:
-    - node_js: "node"
-      env: PREPUBLISH=true ESLINT=3 PACKAGE=eslint-config-airbnb
-    - node_js: "node"
+    - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=4 PACKAGE=eslint-config-airbnb
-    - node_js: "node"
-      env: PREPUBLISH=true ESLINT=3 PACKAGE=eslint-config-airbnb-base
-    - node_js: "node"
+    - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=4 PACKAGE=eslint-config-airbnb-base
+    - node_js: "lts/*"
+      env: LINT=true
   allow_failures:
+    - node_js: "9"
     - node_js: "7"
     - node_js: "5"
-    - env: PREPUBLISH=true ESLINT=3 PACKAGE=eslint-config-airbnb
     - env: PREPUBLISH=true ESLINT=4 PACKAGE=eslint-config-airbnb
-    - env: PREPUBLISH=true ESLINT=3 PACKAGE=eslint-config-airbnb-base
     - env: PREPUBLISH=true ESLINT=4 PACKAGE=eslint-config-airbnb-base
