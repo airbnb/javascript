@@ -1,9 +1,10 @@
 {
-  "name": "airbnb-style",
-  "version": "2.0.0",
+  "name": "javascript-styleguide",
+  "version": "1.0.0",
   "description": "A mostly reasonable approach to JavaScript.",
   "scripts": {
-    "preinstall": "npm run install:config && npm run install:config:base",
+    "preinstall": "npm run install:mindojo",
+    "install:mindojo": "cd packages/eslint-config-mindojo && npm prune && npm install",
     "install:config": "cd packages/eslint-config-airbnb && npm prune && npm install",
     "install:config:base": "cd packages/eslint-config-airbnb-base && npm prune && npm install",
     "lint": "markdownlint --config linters/.markdownlint.json README.md */README.md",
@@ -18,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airbnb/javascript.git"
+    "url": "https://github.com/mindojo/javascript-styleguide.git"
   },
   "keywords": [
     "style guide",
@@ -32,9 +33,9 @@
   "author": "Harrison Shoff <hi@hshoff.com> (https://twitter.com/hshoff)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/airbnb/javascript/issues"
+    "url": "https://github.com/mindojo/javascript-styleguide/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript",
+  "homepage": "https://github.com/mindojo/javascript-styleguide",
   "devDependencies": {
     "markdownlint-cli": "^0.3.1"
   }

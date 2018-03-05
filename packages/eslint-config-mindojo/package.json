@@ -1,0 +1,57 @@
+{
+  "name": "eslint-config-mindojo",
+  "version": "1.0.0",
+  "description": "Mindojo's base JS ESLint config, following airbnb styleguide",
+  "main": "index.js",
+  "scripts": {
+    "prelint": "editorconfig-tools check * rules/* test/*",
+    "lint": "eslint .",
+    "tests-only": "babel-tape-runner ./test/test-*.js",
+    "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test) && safe-publish-latest",
+    "pretest": "npm run --silent lint",
+    "test": "npm run --silent tests-only",
+    "pretravis": ":",
+    "travis": "npm run --silent test",
+    "posttravis": ":"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mindojo/javascript-styleguide"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "config",
+    "airbnb",
+    "javascript",
+    "styleguide"
+  ],
+  "author": "Mindojo (https://mindojo.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mindojo/javascript-styleguide/issues"
+  },
+  "homepage": "https://github.com/mindojo/javascript-styleguide",
+  "devDependencies": {
+    "babel-preset-airbnb": "^2.4.0",
+    "babel-tape-runner": "^2.0.1",
+    "editorconfig-tools": "^0.1.1",
+    "eslint": "4.17.0",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-find-rules": "^3.1.1",
+    "eslint-plugin-import": "2.8.0",
+    "in-publish": "^2.0.0",
+    "safe-publish-latest": "^1.1.1",
+    "tape": "^4.7.0"
+  },
+  "peerDependencies": {
+    "eslint": "^3.19.0 || ^4.3.0",
+    "eslint-plugin-import": "^2.7.0"
+  },
+  "engines": {
+    "node": ">= 4"
+  },
+  "dependencies": {
+    "eslint-restricted-globals": "^0.1.1"
+  }
+}
