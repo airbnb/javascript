@@ -287,76 +287,76 @@ Diğer Rehberler
   <a name="objects--prototype-builtins"></a>
   - [3.7](#objects--prototype-builtins) `hasOwnProperty`, `propertyIsEnumerable`, ve `isPrototypeOf` gibi `Object.prototype` metodlarını doğrudan kullanmayın.
 
-    > Neden? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
+    > Neden? Bu metodlar nesnedeki property'ler tarafından gölgelenebilirler (`{ hasOwnProperty: false }`) ya da nesne null olabilir (`Object.create(null)`).
 
     ```javascript
-    // bad
+    // kötü
     console.log(object.hasOwnProperty(key));
 
-    // good
+    // iyi
     console.log(Object.prototype.hasOwnProperty.call(object, key));
 
-    // best
-    const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
-    /* or */
+    // çok iyi
+    const has = Object.prototype.hasOwnProperty; // scope'da önbelleğe alın.
+    /* ya da */
     import has from 'has'; // https://www.npmjs.com/package/has
     // ...
     console.log(has.call(object, key));
     ```
 
   <a name="objects--rest-spread"></a>
-  - [3.8](#objects--rest-spread) Prefer the object spread operator over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
+  - [3.8](#objects--rest-spread) Sığ nesne kopyalamada [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) yerine spread operatorünü kullanın. Yeni bir nesne oluştururken dahil etmek istemediğiniz property'ler ile birlikte rest operatorünü kullanın.
 
     ```javascript
-    // very bad
+    // çok kötü
     const original = { a: 1, b: 2 };
-    const copy = Object.assign(original, { c: 3 }); // this mutates `original` ಠ_ಠ
-    delete copy.a; // so does this
+    const copy = Object.assign(original, { c: 3 }); // `original`'i de değiştirir.  ಠ_ಠ
+    delete copy.a; // burasıda.
 
-    // bad
+    // kötü
     const original = { a: 1, b: 2 };
     const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
 
-    // good
+    // iyi
     const original = { a: 1, b: 2 };
     const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
 
     const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#içindekiler)**
 
-## Arrays
+## Diziler
 
   <a name="arrays--literals"></a><a name="4.1"></a>
-  - [4.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor.html)
+  - [4.1](#arrays--literals) Dizi yaratırken literal sözdizimini kullanın. eslint: [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor.html)
 
     ```javascript
-    // bad
+    // kötü
     const items = new Array();
 
-    // good
+    // iyi
     const items = [];
     ```
 
   <a name="arrays--push"></a><a name="4.2"></a>
-  - [4.2](#arrays--push) Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to add items to an array.
+  - [4.2](#arrays--push) Dizilere doğrudan eleman atamak yerine [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push)'u kullanın.
 
     ```javascript
     const someStack = [];
 
-    // bad
+    // kötü
     someStack[someStack.length] = 'abracadabra';
 
-    // good
+    // iyi
     someStack.push('abracadabra');
     ```
 
   <a name="es6-array-spreads"></a><a name="4.3"></a>
-  - [4.3](#es6-array-spreads) Use array spreads `...` to copy arrays.
+  - [4.3](#es6-array-spreads) Dizileri kopyalamak için spread `...` operatörünü kullanın.
 
     ```javascript
-    // bad
+    // kötü
     const len = items.length;
     const itemsCopy = [];
     let i;
@@ -365,12 +365,12 @@ Diğer Rehberler
       itemsCopy[i] = items[i];
     }
 
-    // good
+    // iyi
     const itemsCopy = [...items];
     ```
 
   <a name="arrays--from"></a><a name="4.4"></a>
-  - [4.4](#arrays--from) To convert an array-like object to an array, use spreads `...` instead of [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+  - [4.4](#arrays--from) Dizi-benzeri bir nesneyi diziye dönüştürürken [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) yerine `...` spread operatörünü kullanın.
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
@@ -394,32 +394,32 @@ Diğer Rehberler
     ```
 
   <a name="arrays--callback-return"></a><a name="4.5"></a>
-  - [4.6](#arrays--callback-return) Use return statements in array method callbacks. It’s ok to omit the return if the function body consists of a single statement returning an expression without side effects, following [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](https://eslint.org/docs/rules/array-callback-return)
+  - [4.6](#arrays--callback-return) Dizi metodlarının callback'lerinde return ifadesini kullanın. Eğer fonksiyon içeriği [8.2](#arrows--implicit-return) de olduğu gibi tek bir ifadeyi içeriyorsa return kullanılmayabilir. eslint: [`array-callback-return`](https://eslint.org/docs/rules/array-callback-return)
 
     ```javascript
-    // good
+    // iyi
     [1, 2, 3].map((x) => {
       const y = x + 1;
       return x * y;
     });
 
-    // good
+    // kötü
     [1, 2, 3].map(x => x + 1);
 
-    // bad - no returned value means `acc` becomes undefined after the first iteration
+    // kötü - dönen değerin bulunmaması `acc`'nin ilk tekrardan sonra undefined olmasına neden olur
     [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
       const flatten = acc.concat(item);
       acc[index] = flatten;
     });
 
-    // good
+    // iyi
     [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
       const flatten = acc.concat(item);
       acc[index] = flatten;
       return flatten;
     });
 
-    // bad
+    // kötü
     inbox.filter((msg) => {
       const { subject, author } = msg;
       if (subject === 'Mockingbird') {
@@ -441,10 +441,10 @@ Diğer Rehberler
     ```
 
   <a name="arrays--bracket-newline"></a>
-  - [4.7](#arrays--bracket-newline) Use line breaks after open and before close array brackets if an array has multiple lines
+  - [4.7](#arrays--bracket-newline) Eğer dizide birden fazla satır varsa köşeli parantezleri açtıktan sonra ve kapatmadan önce yeni satıra geçin.
 
     ```javascript
-    // bad
+    // kötü
     const arr = [
       [0, 1], [2, 3], [4, 5],
     ];
@@ -459,7 +459,7 @@ Diğer Rehberler
       1, 2,
     ];
 
-    // good
+    // iyi
     const arr = [[0, 1], [2, 3], [4, 5]];
 
     const objectInArray = [
@@ -477,7 +477,7 @@ Diğer Rehberler
     ];
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#icindekiler)**
 
 ## Destructuring
 
