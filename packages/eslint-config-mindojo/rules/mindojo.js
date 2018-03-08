@@ -54,5 +54,9 @@ module.exports = {
       allowUnboundThis: true,
     }],
 
+    // require quotes around object literal property names
+    // http://eslint.org/docs/rules/quote-props.html
+    'quote-props': ['warn', 'as-needed', { keywords: false, unnecessary: true, numbers: false }],
+
   },
 };
