@@ -1,3 +1,17 @@
+16.1.0 / 2017-10-16
+==================
+- [deps] update `eslint-config-airbnb-base`, `eslint` to v4.9
+
+16.0.0 / 2017-10-06
+==================
+- [breaking] [deps] require `eslint` `v4`, update `eslint-config-airbnb-base`
+- [breaking] [deps] Upgrade `eslint-plugin-jsx-a11y` to `v6`; enable more a11y rules (#1482)
+- [breaking] enable/add react rules: `react/jsx-curly-brace-presence`, `react/no-typos`, `react/no-unused-state`, `react/no-redundant-should-component-update`, `react/default-props-match-prop-types`
+- [new] add `propWrapperFunctions` default settings for `eslint-plugin-react`
+- [new] Enable `react/jsx-closing-tag-location` (#1533)
+- [deps] update `eslint` v4, `eslint-plugin-react`, `tape`
+- [docs] Specify yarn-specific install instructions (#1511)
+
 15.1.0 / 2017-07-24
 ==================
 - [deps] allow eslint v3 or v4 (#1447)
@@ -294,36 +308,36 @@
 [pr-modular]: https://github.com/airbnb/javascript/pull/526
 [pr-legacy]: https://github.com/airbnb/javascript/pull/527
 
-[array-bracket-spacing]: http://eslint.org/docs/rules/array-bracket-spacing
-[array-callback-return]: http://eslint.org/docs/rules/array-callback-return
-[arrow-body-style]: http://eslint.org/docs/rules/arrow-body-style
-[arrow-spacing]: http://eslint.org/docs/rules/arrow-spacing
-[computed-property-spacing]: http://eslint.org/docs/rules/computed-property-spacing
-[id-length]: http://eslint.org/docs/rules/id-length
-[indent]: http://eslint.org/docs/rules/indent
-[max-len]: http://eslint.org/docs/rules/max-len
-[newline-per-chained-call]: http://eslint.org/docs/rules/newline-per-chained-call
-[no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
-[no-const-assign]: http://eslint.org/docs/rules/no-const-assign
-[no-mixed-spaces-and-tabs]: http://eslint.org/docs/rules/no-mixed-spaces-and-tabs
-[no-multiple-empty-lines]: http://eslint.org/docs/rules/no-multiple-empty-lines
-[no-new-symbol]: http://eslint.org/docs/rules/no-new-symbol
-[no-restricted-imports]: http://eslint.org/docs/rules/no-restricted-imports
-[no-self-assign]: http://eslint.org/docs/rules/no-self-assign
-[no-undef]: http://eslint.org/docs/rules/no-undef
-[no-useless-constructor]: http://eslint.org/docs/rules/no-useless-constructor
-[no-whitespace-before-property]: http://eslint.org/docs/rules/no-whitespace-before-property
-[object-curly-spacing]: http://eslint.org/docs/rules/object-curly-spacing
-[object-shorthand]: http://eslint.org/docs/rules/object-shorthand
-[one-var-declaration-per-line]: http://eslint.org/docs/rules/one-var-declaration-per-line
-[prefer-arrow-callback]: http://eslint.org/docs/rules/prefer-arrow-callback
-[prefer-rest-params]: http://eslint.org/docs/rules/prefer-rest-params
-[prefer-template]: http://eslint.org/docs/rules/prefer-template
-[quote-props]: http://eslint.org/docs/rules/quote-props
-[space-before-function-paren]: http://eslint.org/docs/rules/space-before-function-paren
-[space-before-keywords]: http://eslint.org/docs/rules/space-before-keywords
-[space-in-parens]: http://eslint.org/docs/rules/space-in-parens
-[template-curly-spacing]: http://eslint.org/docs/rules/template-curly-spacing
+[array-bracket-spacing]: https://eslint.org/docs/rules/array-bracket-spacing
+[array-callback-return]: https://eslint.org/docs/rules/array-callback-return
+[arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
+[arrow-spacing]: https://eslint.org/docs/rules/arrow-spacing
+[computed-property-spacing]: https://eslint.org/docs/rules/computed-property-spacing
+[id-length]: https://eslint.org/docs/rules/id-length
+[indent]: https://eslint.org/docs/rules/indent
+[max-len]: https://eslint.org/docs/rules/max-len
+[newline-per-chained-call]: https://eslint.org/docs/rules/newline-per-chained-call
+[no-confusing-arrow]: https://eslint.org/docs/rules/no-confusing-arrow
+[no-const-assign]: https://eslint.org/docs/rules/no-const-assign
+[no-mixed-spaces-and-tabs]: https://eslint.org/docs/rules/no-mixed-spaces-and-tabs
+[no-multiple-empty-lines]: https://eslint.org/docs/rules/no-multiple-empty-lines
+[no-new-symbol]: https://eslint.org/docs/rules/no-new-symbol
+[no-restricted-imports]: https://eslint.org/docs/rules/no-restricted-imports
+[no-self-assign]: https://eslint.org/docs/rules/no-self-assign
+[no-undef]: https://eslint.org/docs/rules/no-undef
+[no-useless-constructor]: https://eslint.org/docs/rules/no-useless-constructor
+[no-whitespace-before-property]: https://eslint.org/docs/rules/no-whitespace-before-property
+[object-curly-spacing]: https://eslint.org/docs/rules/object-curly-spacing
+[object-shorthand]: https://eslint.org/docs/rules/object-shorthand
+[one-var-declaration-per-line]: https://eslint.org/docs/rules/one-var-declaration-per-line
+[prefer-arrow-callback]: https://eslint.org/docs/rules/prefer-arrow-callback
+[prefer-rest-params]: https://eslint.org/docs/rules/prefer-rest-params
+[prefer-template]: https://eslint.org/docs/rules/prefer-template
+[quote-props]: https://eslint.org/docs/rules/quote-props
+[space-before-function-paren]: https://eslint.org/docs/rules/space-before-function-paren
+[space-before-keywords]: https://eslint.org/docs/rules/space-before-keywords
+[space-in-parens]: https://eslint.org/docs/rules/space-in-parens
+[template-curly-spacing]: https://eslint.org/docs/rules/template-curly-spacing
 
 [react/jsx-space-before-closing]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-space-before-closing.md
 [react/sort-comp]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
