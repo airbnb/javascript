@@ -107,8 +107,7 @@
       "check-catch",
       "check-else",
       "check-finally",
-      "check-open-brace",
-      "check-whitespace"
+      "check-open-brace"
     ],
     "one-variable-per-declaration": [
       true,
@@ -168,13 +167,6 @@
         "parameter": "nospace",
         "property-declaration": "nospace",
         "variable-declaration": "nospace"
-      },
-      {
-        "call-signature": "onespace",
-        "index-signature": "onespace",
-        "parameter": "onespace",
-        "property-declaration": "onespace",
-        "variable-declaration": "onespace"
       }
     ],
     "use-isnan": true,
@@ -190,7 +182,6 @@
       "check-branch",
       "check-decl",
       "check-operator",
-      "check-separator",
       "check-rest-spread",
       "check-type",
       "check-typecast"
@@ -259,8 +250,7 @@
       "check-catch",
       "check-else",
       "check-finally",
-      "check-open-brace",
-      "check-whitespace"
+      "check-open-brace"
     ],
     "one-variable-per-declaration": [
       true,
@@ -329,7 +319,6 @@
       "check-branch",
       "check-decl",
       "check-operator",
-      "check-separator",
       "check-rest-spread",
       "check-type",
       "check-typecast"
