@@ -6,32 +6,39 @@ yargs.array('exclude');
 const argv = yargs.argv;
 const sh = require('shelljs');
 const path = require('path');
-const tslintPath = argv.tslint || path.join(__dirname, 'tslint.json');
-const tempLintFile = '.tsconfig.lint.temp.json';
-const excludeOption = argv.exclude ? ` -e ${argv.exclude.join(' -e ')}` : '';
-let tsConfigPath = argv.tsconfig || 'tsconfig.json';
+const {handleError} = require('./utils/errors');
+const {executeCommand} = require('./utils/commands');
 
-const handleError = (message, code) => {console.log(message || ''); process.exit(code || 1); };
-const templateCommandErrorMessage = (cmd) => `The command:\n\n${cmd}\n\ndid not work. See logs above for details`;
+const tslintPath = path.join(__dirname, 'tslint.json');
+const tsfmtPath = path.join(__dirname, 'tsfmt.json');
+const tsconfigPath = path.join(__dirname, 'tsconfig.lint.json');
+const tempTsLintFile = '.tslint.temp.json';
+const tempTsfmtFile = '.tsfmt.temp.json';
+const tempTsConfigFile = '.tsconfig.lint.temp.json';
+let tsConfigFile = argv.tsconfig || 'tsconfig.json';
+
+const excludeOption = argv.exclude ? ` -e ${argv.exclude.join(' -e ')}` : '';
+const excludeOptionArray = argv.exclude || [];
 
 process.on('exit', (code) => {
-    sh.rm('-rf', tempLintFile);
+    sh.rm('-rf', tempTsConfigFile, tempTsfmtFile, tempTsLintFile);
 });
 
 try {
+    fs.writeFileSync(tempTsfmtFile, JSON.stringify(require(tsfmtPath)));
+    fs.writeFileSync(tempTsLintFile, JSON.stringify(require(tslintPath)));
     if (argv.all) {
-        fs.writeFileSync(tempLintFile, JSON.stringify(require(path.join(__dirname, 'tsconfig.lint.json'))));
-        tsConfigPath = tempLintFile;
+        const tsConfigLint = require(tsconfigPath);
+        tsConfigLint.exclude = [...tsConfigLint.exclude, ...excludeOptionArray];
+        fs.writeFileSync(tempTsConfigFile, JSON.stringify(tsConfigLint));
+        tsConfigFile = tempTsConfigFile;
     }
 } catch (e) {
     console.log(e);
-    console.log('Something went wrong. See logs above for details.');
-    process.exit(1);
+    handleError();
 }
 
-const command = `node node_modules/tslint/bin/tslint -p ${tsConfigPath} -c ${tslintPath}${excludeOption} --fix`;
-console.log(`Executing the following command:\n${command}`);
-const currentCmd = sh.exec(command);
-if (currentCmd.code !== 0) {
-    handleError(templateCommandErrorMessage(currentCmd), currentCmd.code);
-}
+[
+    `node node_modules/tslint/bin/tslint -p ${tsConfigFile} -c ${tempTsLintFile}${excludeOption} --fix`,
+    `node node_modules/typescript-formatter/bin/tsfmt --useTsconfig ${tsConfigFile} --useTsfmt ${tempTsfmtFile} --useTslint ${tempTsLintFile} --no-vscode --no-editorconfig --replace`,
+].forEach(executeCommand);

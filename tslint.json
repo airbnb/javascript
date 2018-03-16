@@ -168,13 +168,6 @@
         "parameter": "nospace",
         "property-declaration": "nospace",
         "variable-declaration": "nospace"
-      },
-      {
-        "call-signature": "onespace",
-        "index-signature": "onespace",
-        "parameter": "onespace",
-        "property-declaration": "onespace",
-        "variable-declaration": "onespace"
       }
     ],
     "use-isnan": true,
@@ -190,7 +183,6 @@
       "check-branch",
       "check-decl",
       "check-operator",
-      "check-separator",
       "check-rest-spread",
       "check-type",
       "check-typecast"
@@ -329,7 +321,6 @@
       "check-branch",
       "check-decl",
       "check-operator",
-      "check-separator",
       "check-rest-spread",
       "check-type",
       "check-typecast"
