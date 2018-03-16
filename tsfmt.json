@@ -1,6 +1,7 @@
 {
     "indentSize": 4,
     "tabSize": 4,
+    "convertTabsToSpaces": false,
     "insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
     "insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
     "insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false
