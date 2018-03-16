@@ -107,7 +107,8 @@
       "check-catch",
       "check-else",
       "check-finally",
-      "check-open-brace"
+      "check-open-brace",
+      "check-whitespace"
     ],
     "one-variable-per-declaration": [
       true,
@@ -250,7 +251,8 @@
       "check-catch",
       "check-else",
       "check-finally",
-      "check-open-brace"
+      "check-open-brace",
+      "check-whitespace"
     ],
     "one-variable-per-declaration": [
       true,
