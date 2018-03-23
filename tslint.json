@@ -187,7 +187,7 @@
       "check-type",
       "check-typecast"
     ],
-    "linebreak-style": [true, "LF"]
+    "linebreak-style": [true, "CRLF"]
   },
   "jsRules": {
     "align": [
