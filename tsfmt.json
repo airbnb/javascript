@@ -3,5 +3,6 @@
     "tabSize": 4,
     "insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
     "insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
-    "insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false
+    "insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+    "newLineCharacter": "\n"
 }

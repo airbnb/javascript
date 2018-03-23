@@ -186,7 +186,8 @@
       "check-rest-spread",
       "check-type",
       "check-typecast"
-    ]
+    ],
+    "linebreak-style": [true, "LF"]
   },
   "jsRules": {
     "align": [
@@ -324,6 +325,7 @@
       "check-rest-spread",
       "check-type",
       "check-typecast"
-    ]
+    ],
+    "linebreak-style": [true, "LF"]
   }
 }
