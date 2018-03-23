@@ -224,8 +224,7 @@ module.exports = {
 
     // Forbid a module from importing itself
     // https://github.com/benmosher/eslint-plugin-import/blob/44a038c06487964394b1e15b64f3bd34e5d40cde/docs/rules/no-self-import.md
-    // TODO: enable
-    'import/no-self-import': 'off',
+    'import/no-self-import': 'error',
 
     // Ensures that there are no useless path segments
     // https://github.com/benmosher/eslint-plugin-import/issues/1032
