@@ -4,5 +4,5 @@
     "insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
     "insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
     "insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-    "newLineCharacter": "\n"
+    "newLineCharacter": "\r\n"
 }
