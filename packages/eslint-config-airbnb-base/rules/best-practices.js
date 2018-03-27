@@ -181,7 +181,8 @@ module.exports = {
         'res', // for Express responses
         'response', // for Express responses
         '$scope', // for Angular 1 scopes
-      ]
+        'state', // for Vuex state
+      ],
     }],
 
     // disallow usage of __proto__ property
