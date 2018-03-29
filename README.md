@@ -482,12 +482,12 @@ Diğer Rehberler
 ## Destructuring
 
   <a name="destructuring--object"></a><a name="5.1"></a>
-  - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring) jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
+  - [5.1](#destructuring--object) Bir nesnede birden fazla property'e erişirken destructuring yöntemini kullanın. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring) jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
 
-    > Why? Destructuring saves you from creating temporary references for those properties.
+    > Neden ? Destructuring, property'ler için geçici referanslar oluşturmanızın önüne geçer.
 
     ```javascript
-    // bad
+    // kötü
     function getFullName(user) {
       const firstName = user.firstName;
       const lastName = user.lastName;
@@ -495,54 +495,54 @@ Diğer Rehberler
       return `${firstName} ${lastName}`;
     }
 
-    // good
+    // iyi
     function getFullName(user) {
       const { firstName, lastName } = user;
       return `${firstName} ${lastName}`;
     }
 
-    // best
+    // çok iyi
     function getFullName({ firstName, lastName }) {
       return `${firstName} ${lastName}`;
     }
     ```
 
   <a name="destructuring--array"></a><a name="5.2"></a>
-  - [5.2](#destructuring--array) Use array destructuring. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring) jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
+  - [5.2](#destructuring--array) Dizilerde de destructuring yöntemini kullanın. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring) jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
 
     ```javascript
     const arr = [1, 2, 3, 4];
 
-    // bad
+    // kötü
     const first = arr[0];
     const second = arr[1];
 
-    // good
+    // iyi
     const [first, second] = arr;
     ```
 
   <a name="destructuring--object-over-array"></a><a name="5.3"></a>
-  - [5.3](#destructuring--object-over-array) Use object destructuring for multiple return values, not array destructuring. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
+  - [5.3](#destructuring--object-over-array) Birden fazla dönen değer olması durumunda diziler yerine nesneler ile destructuring yapın. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
 
-    > Why? You can add new properties over time or change the order of things without breaking call sites.
+    > Neden? Zamanla yeni property'ler eklendiğinde ya da sıralama değiştiğinde çağrıyı yapan kod betikleri bozulmayacaktır.
 
     ```javascript
-    // bad
+    // kötü
     function processInput(input) {
       // then a miracle occurs
       return [left, right, top, bottom];
     }
 
-    // the caller needs to think about the order of return data
+    // çağrıyı yapan kısım dönen değerlerin sıralamasını dikkate almalıdır
     const [left, __, top] = processInput(input);
 
-    // good
+    // iyi
     function processInput(input) {
       // then a miracle occurs
       return { left, right, top, bottom };
     }
 
-    // the caller selects only the data they need
+    // çağıran bölüm sadece ihtiyacı olanı alır
     const { left, top } = processInput(input);
     ```
 
@@ -551,105 +551,105 @@ Diğer Rehberler
 ## Strings
 
   <a name="strings--quotes"></a><a name="6.1"></a>
-  - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
+  - [6.1](#strings--quotes) Stringlerde tek tırnak `''` kullanın. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
 
     ```javascript
-    // bad
+    // kötü
     const name = "Capt. Janeway";
 
-    // bad - template literals should contain interpolation or newlines
+    // kötü - şablon enterpolasyon veya yeni satırlar içerir.
     const name = `Capt. Janeway`;
 
-    // good
+    // iyi
     const name = 'Capt. Janeway';
     ```
 
   <a name="strings--line-length"></a><a name="6.2"></a>
-  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
+  - [6.2](#strings--line-length) 100 karakterden uzun stringler satırlara bölünüp birbirine bağlanmamalıdır.
 
-    > Why? Broken strings are painful to work with and make code less searchable.
+    > Neden? Bölünmüş stringler ile çalışmak kodun okunabilirliğini düşürür. 
 
     ```javascript
-    // bad
+    // kötü
     const errorMessage = 'This is a super long error that was thrown because \
     of Batman. When you stop to think about how Batman had anything to do \
     with this, you would get nowhere \
     fast.';
 
-    // bad
+    // kötü
     const errorMessage = 'This is a super long error that was thrown because ' +
       'of Batman. When you stop to think about how Batman had anything to do ' +
       'with this, you would get nowhere fast.';
 
-    // good
+    // iyi
     const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
     ```
 
   <a name="es6-template-literals"></a><a name="6.4"></a>
-  - [6.3](#es6-template-literals) When programmatically building up strings, use template strings instead of concatenation. eslint: [`prefer-template`](https://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](https://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
+  - [6.3](#es6-template-literals) Programlanabilir stringler yaratırken string şablonlarını kullanın. eslint: [`prefer-template`](https://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](https://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
 
-    > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+    > Neden? String şablonları; kısa, okunabilir, doğru sözdizimi ve string interpolasyon özelliklerine sahip bir kod betiği oluşturabilmenizi sağlar.
 
     ```javascript
-    // bad
+    // kötü
     function sayHi(name) {
       return 'How are you, ' + name + '?';
     }
 
-    // bad
+    // kötü
     function sayHi(name) {
       return ['How are you, ', name, '?'].join();
     }
 
-    // bad
+    // kötü
     function sayHi(name) {
       return `How are you, ${ name }?`;
     }
 
-    // good
+    // iyi
     function sayHi(name) {
       return `How are you, ${name}?`;
     }
     ```
 
   <a name="strings--eval"></a><a name="6.5"></a>
-  - [6.4](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities. eslint: [`no-eval`](https://eslint.org/docs/rules/no-eval)
+  - [6.4](#strings--eval) Stringler ile asla `eval()` fonksiyonunu kullanmayın. Bu durum pek çok açığa neden olabilir. eslint: [`no-eval`](https://eslint.org/docs/rules/no-eval)
 
   <a name="strings--escaping"></a>
-  - [6.5](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](https://eslint.org/docs/rules/no-useless-escape)
+  - [6.5](#strings--escaping) Stringlerde gereksiz yere escape karakterlerini kullanmayın. eslint: [`no-useless-escape`](https://eslint.org/docs/rules/no-useless-escape)
 
-    > Why? Backslashes harm readability, thus they should only be present when necessary.
+    > Neden? Tersbölüler okunabilirliği düşürür ve sadece gerektiğinde kullanılmalıdır.
 
     ```javascript
-    // bad
+    // kötü
     const foo = '\'this\' \i\s \"quoted\"';
 
-    // good
+    // iyi
     const foo = '\'this\' is "quoted"';
     const foo = `my name is '${name}'`;
     ```
 
 **[⬆ back to top](#table-of-contents)**
 
-## Functions
+## Fonksiyonlar
 
   <a name="functions--declarations"></a><a name="7.1"></a>
-  - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](https://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
+  - [7.1](#functions--declarations) Klasik fonksiyon tanımları yerine isimlendirilmiş fonksiyon ifadeleri kullanın. eslint: [`func-style`](https://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
 
-    > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to explicitly name the expression, regardless of whether or not the name is inferred from the containing variable (which is often the case in modern browsers or when using compilers such as Babel). This eliminates any assumptions made about the Error's call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
+    > Neden? Fonksiyon tanımlamaları fazla basite kaçan bir çözümdür. Bu kullanım şekli okunabilirliği ve geliştirilebilirliği düşürür. Eğer fonksiyon kapsamlı ya da dosyadaki diğer betikler ile karışabilecek durumda ise ayrı bir modül haline getirin. Fonksiyon ifadesini açıklayıcı bir şekilde isimlendirmeyi unutmayın. ([Discussion](https://github.com/airbnb/javascript/issues/794))
 
     ```javascript
-    // bad
+    // kötü
     function foo() {
       // ...
     }
 
-    // bad
+    // kötü
     const foo = function () {
       // ...
     };
 
-    // good
+    // iyi
     // lexical name distinguished from the variable-referenced invocation(s)
     const short = function longUniqueMoreDescriptiveLexicalFoo() {
       // ...
@@ -657,9 +657,9 @@ Diğer Rehberler
     ```
 
   <a name="functions--iife"></a><a name="7.2"></a>
-  - [7.2](#functions--iife) Wrap immediately invoked function expressions in parentheses. eslint: [`wrap-iife`](https://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
+  - [7.2](#functions--iife) Hemen çağrılan fonksiyonları (Immediately-invoked Function Expressions - IIFE) parantez içine alın. eslint: [`wrap-iife`](https://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
 
-    > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
+    > Neden? IIFE, blok bir betiktir. Betiği parantez içine alarak bu durum belirtilir. Not: Modüler bir yapı içerisinde neredeyse hiç IIFE kullanmaya ihtiyacınız olmayacaktır. 
 
     ```javascript
     // immediately-invoked function expression (IIFE)
