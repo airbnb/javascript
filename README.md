@@ -669,20 +669,20 @@ Diğer Rehberler
     ```
 
   <a name="functions--in-blocks"></a><a name="7.3"></a>
-  - [7.3](#functions--in-blocks) Never declare a function in a non-function block (`if`, `while`, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](https://eslint.org/docs/rules/no-loop-func.html)
+  - [7.3](#functions--in-blocks) Fonksiyonları asla fonksiyon harici bir blok (`if`, `while`, vb.). içinde tanımlamayın. Bunun yerine fonksiyonu bir değişkene atayın. Tarayıcılar bu tanıma izin verecektir fakat her biri farklı şekilde yorumlayabilir. eslint: [`no-loop-func`](https://eslint.org/docs/rules/no-loop-func.html)
 
   <a name="functions--note-on-blocks"></a><a name="7.4"></a>
-  - [7.4](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement.
+  - [7.4](#functions--note-on-blocks) **Not:** ECMA-262 `block` kavramını ifadelerin listesi şeklinde tanımlar. Fonksiyon tanımlamak bir ifade değildir. 
 
     ```javascript
-    // bad
+    // kötü
     if (currentUser) {
       function test() {
         console.log('Nope.');
       }
     }
 
-    // good
+    // iyi
     let test;
     if (currentUser) {
       test = () => {
@@ -692,15 +692,15 @@ Diğer Rehberler
     ```
 
   <a name="functions--arguments-shadow"></a><a name="7.5"></a>
-  - [7.5](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+  - [7.5](#functions--arguments-shadow) Asla bir parametreye `arguments` adını vermeyin. Bu şekilde bir kullanım her fonksiyonun blok alanında bulunan `arguments` nesnesinin üzerinde kalacaktır.
 
     ```javascript
-    // bad
+    // kötü
     function foo(name, options, arguments) {
       // ...
     }
 
-    // good
+    // iyi
     function foo(name, options, args) {
       // ...
     }
@@ -725,19 +725,18 @@ Diğer Rehberler
     ```
 
   <a name="es6-default-parameters"></a><a name="7.7"></a>
-  - [7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
+  - [7.7](#es6-default-parameters) Fonksiyon parametrelerini değiştirmek yerine varsayılan parametre sözdizimini kullanın.
 
     ```javascript
-    // really bad
+    // çok kötü
     function handleThings(opts) {
-      // No! We shouldn’t mutate function arguments.
-      // Double bad: if opts is falsy it'll be set to an object which may
-      // be what you want but it can introduce subtle bugs.
+      // Hayır! Fonksiyon argümanları değiştirilmemeli.
+      // Ayrıca, argüman hatalıyken bir nesneye eşitlemek açık oluşturabilir.
       opts = opts || {};
       // ...
     }
 
-    // still bad
+    // kötü
     function handleThings(opts) {
       if (opts === void 0) {
         opts = {};
@@ -745,20 +744,20 @@ Diğer Rehberler
       // ...
     }
 
-    // good
+    // iyi
     function handleThings(opts = {}) {
       // ...
     }
     ```
 
   <a name="functions--default-side-effects"></a><a name="7.8"></a>
-  - [7.8](#functions--default-side-effects) Avoid side effects with default parameters.
+  - [7.8](#functions--default-side-effects) Varsayılan parametrelerin yan etkilerini dikkate alın.
 
-    > Why? They are confusing to reason about.
+    > Neden? Kullanım amacına aykırıdır.
 
     ```javascript
     var b = 1;
-    // bad
+    // kötü
     function count(a = b++) {
       console.log(a);
     }
@@ -769,73 +768,73 @@ Diğer Rehberler
     ```
 
   <a name="functions--defaults-last"></a><a name="7.9"></a>
-  - [7.9](#functions--defaults-last) Always put default parameters last.
+  - [7.9](#functions--defaults-last) Varsayılan parametreleri daima en sonda kullanın.
 
     ```javascript
-    // bad
+    // kötü
     function handleThings(opts = {}, name) {
       // ...
     }
 
-    // good
+    // iyi
     function handleThings(name, opts = {}) {
       // ...
     }
     ```
 
   <a name="functions--constructor"></a><a name="7.10"></a>
-  - [7.10](#functions--constructor) Never use the Function constructor to create a new function. eslint: [`no-new-func`](https://eslint.org/docs/rules/no-new-func)
+  - [7.10](#functions--constructor) Yeni bir fonksiyon yaratmak için asla constructor'ları kullanmayın. eslint: [`no-new-func`](https://eslint.org/docs/rules/no-new-func)
 
-    > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
+    > Neden? Bu şekilde fonksiyon yaratmak güvenlik açıkları oluşturan eval()'e benzer bir durum oluşturur.
 
     ```javascript
-    // bad
+    // kötü
     var add = new Function('a', 'b', 'return a + b');
 
-    // still bad
+    // kötü
     var subtract = Function('a', 'b', 'return a - b');
     ```
 
   <a name="functions--signature-spacing"></a><a name="7.11"></a>
-  - [7.11](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
+  - [7.11](#functions--signature-spacing) Fonksiyon yapısında boşlukları doğru kullanın. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
 
-    > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
+    > Neden? Tutarlılık iyidir ve bu şekilde bir isim eklerken veya silerken boşluk eklemenize, silmenize gerek kalmaz.
 
     ```javascript
-    // bad
+    // kötü
     const f = function(){};
     const g = function (){};
     const h = function() {};
 
-    // good
+    // iyi
     const x = function () {};
     const y = function a() {};
     ```
 
   <a name="functions--mutate-params"></a><a name="7.12"></a>
-  - [7.12](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.12](#functions--mutate-params) Asla parametreleri değiştirmeyin. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+    > Neden? Gelen nesneleri değiştirmek çağrıyı yapan bölümde istenmeyen yan etkilere neden olabilir.
 
     ```javascript
-    // bad
+    // kötü
     function f1(obj) {
       obj.key = 1;
     }
 
-    // good
+    // iyi
     function f2(obj) {
       const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
     }
     ```
 
   <a name="functions--reassign-params"></a><a name="7.13"></a>
-  - [7.13](#functions--reassign-params) Never reassign parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.13](#functions--reassign-params) Asla parametreleri yeniden tanımlamayın. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
+    > Neden? Parametrelerin yeniden tanımlanması özellikle `arguments` nesnesine erişirken beklenmeyen davranışlara neden olabilir. Bunun yanında özellikle V8 motorunda optimizasyon sorunlarına neden olabilir.
 
     ```javascript
-    // bad
+    // kötü
     function f1(a) {
       a = 1;
       // ...
@@ -846,7 +845,7 @@ Diğer Rehberler
       // ...
     }
 
-    // good
+    // iyi
     function f3(a) {
       const b = a || 1;
       // ...
@@ -858,23 +857,23 @@ Diğer Rehberler
     ```
 
   <a name="functions--spread-vs-apply"></a><a name="7.14"></a>
-  - [7.14](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions. eslint: [`prefer-spread`](https://eslint.org/docs/rules/prefer-spread)
+  - [7.14](#functions--spread-vs-apply) Variadic fonksiyonlarda spread operatörünü `...` kullanmaya özen gösterin. eslint: [`prefer-spread`](https://eslint.org/docs/rules/prefer-spread)
 
-    > Why? It’s cleaner, you don’t need to supply a context, and you can not easily compose `new` with `apply`.
+    > Neden? Daha temiz bir kullanım şeklidir. İçeriği oluşturmanıza ve `new` ile `apply` kullanmanıza gerek kalmaz.
 
     ```javascript
-    // bad
+    // kötü
     const x = [1, 2, 3, 4, 5];
     console.log.apply(console, x);
 
-    // good
+    // iyi
     const x = [1, 2, 3, 4, 5];
     console.log(...x);
 
-    // bad
+    // kötü
     new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));
 
-    // good
+    // iyi
     new Date(...[2016, 8, 5]);
     ```
 
