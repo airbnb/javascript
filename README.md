@@ -878,17 +878,17 @@ Diğer Rehberler
     ```
 
   <a name="functions--signature-invocation-indentation"></a>
-  - [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item.
+  - [7.15](#functions--signature-invocation-indentation) Çok satırlı tanımlardaki ve çağrılardaki argümanlar, bu kılavuzdaki diğer çok satırlı listeler gibi girintili olmalıdır; her öğe bir satırda, son öğe sonunda bir virgülle birlikte.
 
     ```javascript
-    // bad
+    // kötü
     function foo(bar,
                  baz,
                  quux) {
       // ...
     }
 
-    // good
+    // iyi
     function foo(
       bar,
       baz,
@@ -897,12 +897,12 @@ Diğer Rehberler
       // ...
     }
 
-    // bad
+    // kötü
     console.log(foo,
       bar,
       baz);
 
-    // good
+    // iyi
     console.log(
       foo,
       bar,
@@ -915,20 +915,20 @@ Diğer Rehberler
 ## Arrow Functions
 
   <a name="arrows--use-them"></a><a name="8.1"></a>
-  - [8.1](#arrows--use-them) When you must use an anonymous function (as when passing an inline callback), use arrow function notation. eslint: [`prefer-arrow-callback`](https://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](https://eslint.org/docs/rules/arrow-spacing.html) jscs: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions)
+  - [8.1](#arrows--use-them) İsimsiz bir fonksiyon kullanırken (fonksiyon içi bir callback olarak) arrow (ok) fonksiyon notasyonunu kullanın. eslint: [`prefer-arrow-callback`](https://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](https://eslint.org/docs/rules/arrow-spacing.html) jscs: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions)
 
-    > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
+    > Neden? Bu kullanım ihtiyaç duyulduğu gibi, `this` ile çalışan bir yapı oluşturur ve daha sade bir sözdizimine sahiptir.
 
-    > Why not? If you have a fairly complicated function, you might move that logic out into its own named function expression.
+    > Ne zaman kullanılmamalı? Fonksiyonun karmaşık bir işlevi bulunuyorsa isimlendirilmiş bir fonksiyon ifadesi kullanmalısınız.
 
     ```javascript
-    // bad
+    // kötü
     [1, 2, 3].map(function (x) {
       const y = x + 1;
       return x * y;
     });
 
-    // good
+    // iyi
     [1, 2, 3].map((x) => {
       const y = x + 1;
       return x * y;
