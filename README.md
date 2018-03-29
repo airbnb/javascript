@@ -1,29 +1,29 @@
 # Airbnb JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript*
+*Javascript'e kabul edilebilir bir yaklaşım.*
 
-> **Note**: this guide assumes you are using [Babel](https://babeljs.io), and requires that you use [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) or the equivalent. It also assumes you are installing shims/polyfills in your app, with [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) or the equivalent.
+> **Not**: Bu rehber [Babel](https://babeljs.io) ile birlikte [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) ya da benzeri bir aracı kullandığınızı varsaymaktadır. Bununla birlikte uygulamanızda da [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) ya da bir benzeri araç ile shims/polyfills bulundurduğunuzu varsaymaktadır.
 
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-This guide is available in other languages too. See [Translation](#translation)
+Bu rehber farklı dillerde de bulunmaktadır. [Çeviri](#ceviri)
 
-Other Style Guides
+Diğer Rehberler
 
-  - [ES5 (Deprecated)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5)
+  - [ES5 (Kullanımdan Kaldırıldı)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5)
   - [React](react/)
   - [CSS-in-JavaScript](css-in-javascript/)
   - [CSS & Sass](https://github.com/airbnb/css)
   - [Ruby](https://github.com/airbnb/ruby)
 
-## Table of Contents
+## İçindekiler
 
-  1. [Types](#types)
-  1. [References](#references)
-  1. [Objects](#objects)
-  1. [Arrays](#arrays)
+  1. [Türler](#turler)
+  1. [Referanslar](#referanslar)
+  1. [Nesneler](#nesneler)
+  1. [Diziler](#diziler)
   1. [Destructuring](#destructuring)
   1. [Strings](#strings)
   1. [Functions](#functions)
@@ -60,10 +60,10 @@ Other Style Guides
   1. [License](#license)
   1. [Amendments](#amendments)
 
-## Types
+## Türler
 
   <a name="types--primitives"></a><a name="1.1"></a>
-  - [1.1](#types--primitives) **Primitives**: When you access a primitive type you work directly on its value.
+  - [1.1](#types--primitives) **İlkel**: İlkel bir türe eriştiğinizde doğrudan değer ile karşılaşırsınız.
 
     - `string`
     - `number`
@@ -81,10 +81,10 @@ Other Style Guides
     console.log(foo, bar); // => 1, 9
     ```
 
-    - Symbols cannot be faithfully polyfilled, so they should not be used when targeting browsers/environments that don't support them natively.
+    - Symbol türü kararlı polyfill edilemez. Bu yüzden doğal olarak türü desteklemeyen tarayıcı ve benzeri ortamlarda kullanılmamalıdır.
 
   <a name="types--complex"></a><a name="1.2"></a>
-  - [1.2](#types--complex)  **Complex**: When you access a complex type you work on a reference to its value.
+  - [1.2](#types--complex)  **Karmaşık**: Karmaşık türlere eriştiğinizde değeri işaret eden referans ile karşılaşırsınız.
 
     - `object`
     - `array`
@@ -99,38 +99,38 @@ Other Style Guides
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#icindekiler)**
 
-## References
+## Referanslar
 
   <a name="references--prefer-const"></a><a name="2.1"></a>
-  - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
+  - [2.1](#references--prefer-const) Tüm referanslarda `const` kullanın. `var` kullanmaktan kaçının. eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
 
-    > Why? This ensures that you can’t reassign your references, which can lead to bugs and difficult to comprehend code.
+    > Neden? Bu şekilde referansların değiştirilmesi engellenecek; bunun sonucu olarak hatalar önlenecek ve kodun anlaşılabilirliği artacaktır.
 
     ```javascript
-    // bad
+    // kötü
     var a = 1;
     var b = 2;
 
-    // good
+    // iyi
     const a = 1;
     const b = 2;
     ```
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
-  - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](https://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
+  - [2.2](#references--disallow-var) Eğer referansları yeniden tanımlayacaksanız, `var` yerine `let` kullanın. eslint: [`no-var`](https://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
 
-    > Why? `let` is block-scoped rather than function-scoped like `var`.
+    > Neden? `let` function-scope `var`'ın aksine block-scope'dur.
 
     ```javascript
-    // bad
+    // kötü
     var count = 1;
     if (true) {
       count += 1;
     }
 
-    // good, use the let.
+    // iyi, let'i kullan.
     let count = 1;
     if (true) {
       count += 1;
@@ -138,37 +138,37 @@ Other Style Guides
     ```
 
   <a name="references--block-scope"></a><a name="2.3"></a>
-  - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped.
+  - [2.3](#references--block-scope) Unutmayın; `let` ve `const`'un her ikiside block-scope'dur.
 
     ```javascript
-    // const and let only exist in the blocks they are defined in.
+    // const ve let sadece tanımlandıkları yaşam alanında erişilebilir olacaktır.
     {
       let a = 1;
       const b = 1;
     }
-    console.log(a); // ReferenceError
-    console.log(b); // ReferenceError
+    console.log(a); // ReferenceError (Referans Hatası)
+    console.log(b); // ReferenceError (Referans Hatası)
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](icindekiler)**
 
-## Objects
+## Nesneler
 
   <a name="objects--no-new"></a><a name="3.1"></a>
-  - [3.1](#objects--no-new) Use the literal syntax for object creation. eslint: [`no-new-object`](https://eslint.org/docs/rules/no-new-object.html)
+  - [3.1](#objects--no-new) Nesne yaratırken literal sözdizimini kullanın. eslint: [`no-new-object`](https://eslint.org/docs/rules/no-new-object.html)
 
     ```javascript
-    // bad
+    // kötü
     const item = new Object();
 
-    // good
+    // iyi
     const item = {};
     ```
 
   <a name="es6-computed-properties"></a><a name="3.4"></a>
-  - [3.2](#es6-computed-properties) Use computed property names when creating objects with dynamic property names.
+  - [3.2](#es6-computed-properties) Nesne property isimlerini dinamik şekilde oluştururken, property'leri block içerisinde oluşturun.
 
-    > Why? They allow you to define all the properties of an object in one place.
+    > Neden? Nesnenin tüm property'lerini aynı yerde tanımlayabilmenize olanak tanır.
 
     ```javascript
 
@@ -176,14 +176,14 @@ Other Style Guides
       return `a key named ${k}`;
     }
 
-    // bad
+    // kötü
     const obj = {
       id: 5,
       name: 'San Francisco',
     };
     obj[getKey('enabled')] = true;
 
-    // good
+    // iyi
     const obj = {
       id: 5,
       name: 'San Francisco',
@@ -192,10 +192,10 @@ Other Style Guides
     ```
 
   <a name="es6-object-shorthand"></a><a name="3.5"></a>
-  - [3.3](#es6-object-shorthand) Use object method shorthand. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
+  - [3.3](#es6-object-shorthand) Metodlarda shorthand yöntemini kullanın. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
 
     ```javascript
-    // bad
+    // kötü
     const atom = {
       value: 1,
 
@@ -204,7 +204,7 @@ Other Style Guides
       },
     };
 
-    // good
+    // iyi
     const atom = {
       value: 1,
 
@@ -215,7 +215,7 @@ Other Style Guides
     ```
 
   <a name="es6-object-concise"></a><a name="3.6"></a>
-  - [3.4](#es6-object-concise) Use property value shorthand. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
+  - [3.4](#es6-object-concise) Property'lerde shorthand yöntemini kullanın. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
 
     > Why? It is shorter to write and descriptive.
 
@@ -234,15 +234,15 @@ Other Style Guides
     ```
 
   <a name="objects--grouped-shorthand"></a><a name="3.7"></a>
-  - [3.5](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
+  - [3.5](#objects--grouped-shorthand) Shortend property'lerinize objenin en başında yer verin.
 
-    > Why? It’s easier to tell which properties are using the shorthand.
+    > Neden? Bu şekilde hangi property'nin shorthand'i kullandığını anlamak kolaylaşacaktır.
 
     ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
     const lukeSkywalker = 'Luke Skywalker';
 
-    // bad
+    // kötü
     const obj = {
       episodeOne: 1,
       twoJediWalkIntoACantina: 2,
@@ -252,7 +252,7 @@ Other Style Guides
       anakinSkywalker,
     };
 
-    // good
+    // iyi
     const obj = {
       lukeSkywalker,
       anakinSkywalker,
@@ -264,19 +264,19 @@ Other Style Guides
     ```
 
   <a name="objects--quoted-props"></a><a name="3.8"></a>
-  - [3.6](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](https://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
+  - [3.6](#objects--quoted-props) Sadece geçersiz tanımları tırnak içine alın. eslint: [`quote-props`](https://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
 
-    > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
+    > Neden? Genelde bu şekilde okunmasının daha kolay olacağını düşünüyoruz. Ayrıca sözdizimi vurgusunun artmasını ve JS engine'ler tarafından daha kolay optimize edilmesini sağlayacaktır.
 
     ```javascript
-    // bad
+    // kötü
     const bad = {
       'foo': 3,
       'bar': 4,
       'data-blah': 5,
     };
 
-    // good
+    // iyi
     const good = {
       foo: 3,
       bar: 4,
@@ -285,78 +285,78 @@ Other Style Guides
     ```
 
   <a name="objects--prototype-builtins"></a>
-  - [3.7](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`.
+  - [3.7](#objects--prototype-builtins) `hasOwnProperty`, `propertyIsEnumerable`, ve `isPrototypeOf` gibi `Object.prototype` metodlarını doğrudan kullanmayın.
 
-    > Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
+    > Neden? Bu metodlar nesnedeki property'ler tarafından gölgelenebilirler (`{ hasOwnProperty: false }`) ya da nesne null olabilir (`Object.create(null)`).
 
     ```javascript
-    // bad
+    // kötü
     console.log(object.hasOwnProperty(key));
 
-    // good
+    // iyi
     console.log(Object.prototype.hasOwnProperty.call(object, key));
 
-    // best
-    const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
-    /* or */
+    // çok iyi
+    const has = Object.prototype.hasOwnProperty; // scope'da önbelleğe alın.
+    /* ya da */
     import has from 'has'; // https://www.npmjs.com/package/has
     // ...
     console.log(has.call(object, key));
     ```
 
   <a name="objects--rest-spread"></a>
-  - [3.8](#objects--rest-spread) Prefer the object spread operator over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
+  - [3.8](#objects--rest-spread) Sığ nesne kopyalamada [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) yerine spread operatorünü kullanın. Yeni bir nesne oluştururken dahil etmek istemediğiniz property'ler ile birlikte rest operatorünü kullanın.
 
     ```javascript
-    // very bad
+    // çok kötü
     const original = { a: 1, b: 2 };
-    const copy = Object.assign(original, { c: 3 }); // this mutates `original` ಠ_ಠ
-    delete copy.a; // so does this
+    const copy = Object.assign(original, { c: 3 }); // `original`'i de değiştirir.  ಠ_ಠ
+    delete copy.a; // burasıda.
 
-    // bad
+    // kötü
     const original = { a: 1, b: 2 };
     const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
 
-    // good
+    // iyi
     const original = { a: 1, b: 2 };
     const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
 
     const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#içindekiler)**
 
-## Arrays
+## Diziler
 
   <a name="arrays--literals"></a><a name="4.1"></a>
-  - [4.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor.html)
+  - [4.1](#arrays--literals) Dizi yaratırken literal sözdizimini kullanın. eslint: [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor.html)
 
     ```javascript
-    // bad
+    // kötü
     const items = new Array();
 
-    // good
+    // iyi
     const items = [];
     ```
 
   <a name="arrays--push"></a><a name="4.2"></a>
-  - [4.2](#arrays--push) Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to add items to an array.
+  - [4.2](#arrays--push) Dizilere doğrudan eleman atamak yerine [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push)'u kullanın.
 
     ```javascript
     const someStack = [];
 
-    // bad
+    // kötü
     someStack[someStack.length] = 'abracadabra';
 
-    // good
+    // iyi
     someStack.push('abracadabra');
     ```
 
   <a name="es6-array-spreads"></a><a name="4.3"></a>
-  - [4.3](#es6-array-spreads) Use array spreads `...` to copy arrays.
+  - [4.3](#es6-array-spreads) Dizileri kopyalamak için spread `...` operatörünü kullanın.
 
     ```javascript
-    // bad
+    // kötü
     const len = items.length;
     const itemsCopy = [];
     let i;
@@ -365,12 +365,12 @@ Other Style Guides
       itemsCopy[i] = items[i];
     }
 
-    // good
+    // iyi
     const itemsCopy = [...items];
     ```
 
   <a name="arrays--from"></a><a name="4.4"></a>
-  - [4.4](#arrays--from) To convert an array-like object to an array, use spreads `...` instead of [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+  - [4.4](#arrays--from) Dizi-benzeri bir nesneyi diziye dönüştürürken [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) yerine `...` spread operatörünü kullanın.
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
@@ -394,32 +394,32 @@ Other Style Guides
     ```
 
   <a name="arrays--callback-return"></a><a name="4.5"></a>
-  - [4.6](#arrays--callback-return) Use return statements in array method callbacks. It’s ok to omit the return if the function body consists of a single statement returning an expression without side effects, following [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](https://eslint.org/docs/rules/array-callback-return)
+  - [4.6](#arrays--callback-return) Dizi metodlarının callback'lerinde return ifadesini kullanın. Eğer fonksiyon içeriği [8.2](#arrows--implicit-return) de olduğu gibi tek bir ifadeyi içeriyorsa return kullanılmayabilir. eslint: [`array-callback-return`](https://eslint.org/docs/rules/array-callback-return)
 
     ```javascript
-    // good
+    // iyi
     [1, 2, 3].map((x) => {
       const y = x + 1;
       return x * y;
     });
 
-    // good
+    // kötü
     [1, 2, 3].map(x => x + 1);
 
-    // bad - no returned value means `acc` becomes undefined after the first iteration
+    // kötü - dönen değerin bulunmaması `acc`'nin ilk tekrardan sonra undefined olmasına neden olur
     [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
       const flatten = acc.concat(item);
       acc[index] = flatten;
     });
 
-    // good
+    // iyi
     [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
       const flatten = acc.concat(item);
       acc[index] = flatten;
       return flatten;
     });
 
-    // bad
+    // kötü
     inbox.filter((msg) => {
       const { subject, author } = msg;
       if (subject === 'Mockingbird') {
@@ -441,10 +441,10 @@ Other Style Guides
     ```
 
   <a name="arrays--bracket-newline"></a>
-  - [4.7](#arrays--bracket-newline) Use line breaks after open and before close array brackets if an array has multiple lines
+  - [4.7](#arrays--bracket-newline) Eğer dizide birden fazla satır varsa köşeli parantezleri açtıktan sonra ve kapatmadan önce yeni satıra geçin.
 
     ```javascript
-    // bad
+    // kötü
     const arr = [
       [0, 1], [2, 3], [4, 5],
     ];
@@ -459,7 +459,7 @@ Other Style Guides
       1, 2,
     ];
 
-    // good
+    // iyi
     const arr = [[0, 1], [2, 3], [4, 5]];
 
     const objectInArray = [
@@ -477,17 +477,17 @@ Other Style Guides
     ];
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#icindekiler)**
 
 ## Destructuring
 
   <a name="destructuring--object"></a><a name="5.1"></a>
-  - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring) jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
+  - [5.1](#destructuring--object) Bir nesnede birden fazla property'e erişirken destructuring yöntemini kullanın. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring) jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
 
-    > Why? Destructuring saves you from creating temporary references for those properties.
+    > Neden ? Destructuring, property'ler için geçici referanslar oluşturmanızın önüne geçer.
 
     ```javascript
-    // bad
+    // kötü
     function getFullName(user) {
       const firstName = user.firstName;
       const lastName = user.lastName;
@@ -495,54 +495,54 @@ Other Style Guides
       return `${firstName} ${lastName}`;
     }
 
-    // good
+    // iyi
     function getFullName(user) {
       const { firstName, lastName } = user;
       return `${firstName} ${lastName}`;
     }
 
-    // best
+    // çok iyi
     function getFullName({ firstName, lastName }) {
       return `${firstName} ${lastName}`;
     }
     ```
 
   <a name="destructuring--array"></a><a name="5.2"></a>
-  - [5.2](#destructuring--array) Use array destructuring. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring) jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
+  - [5.2](#destructuring--array) Dizilerde de destructuring yöntemini kullanın. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring) jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
 
     ```javascript
     const arr = [1, 2, 3, 4];
 
-    // bad
+    // kötü
     const first = arr[0];
     const second = arr[1];
 
-    // good
+    // iyi
     const [first, second] = arr;
     ```
 
   <a name="destructuring--object-over-array"></a><a name="5.3"></a>
-  - [5.3](#destructuring--object-over-array) Use object destructuring for multiple return values, not array destructuring. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
+  - [5.3](#destructuring--object-over-array) Birden fazla dönen değer olması durumunda diziler yerine nesneler ile destructuring yapın. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
 
-    > Why? You can add new properties over time or change the order of things without breaking call sites.
+    > Neden? Zamanla yeni property'ler eklendiğinde ya da sıralama değiştiğinde çağrıyı yapan kod betikleri bozulmayacaktır.
 
     ```javascript
-    // bad
+    // kötü
     function processInput(input) {
       // then a miracle occurs
       return [left, right, top, bottom];
     }
 
-    // the caller needs to think about the order of return data
+    // çağrıyı yapan kısım dönen değerlerin sıralamasını dikkate almalıdır
     const [left, __, top] = processInput(input);
 
-    // good
+    // iyi
     function processInput(input) {
       // then a miracle occurs
       return { left, right, top, bottom };
     }
 
-    // the caller selects only the data they need
+    // çağıran bölüm sadece ihtiyacı olanı alır
     const { left, top } = processInput(input);
     ```
 
@@ -551,105 +551,105 @@ Other Style Guides
 ## Strings
 
   <a name="strings--quotes"></a><a name="6.1"></a>
-  - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
+  - [6.1](#strings--quotes) Stringlerde tek tırnak `''` kullanın. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
 
     ```javascript
-    // bad
+    // kötü
     const name = "Capt. Janeway";
 
-    // bad - template literals should contain interpolation or newlines
+    // kötü - şablon enterpolasyon veya yeni satırlar içerir.
     const name = `Capt. Janeway`;
 
-    // good
+    // iyi
     const name = 'Capt. Janeway';
     ```
 
   <a name="strings--line-length"></a><a name="6.2"></a>
-  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
+  - [6.2](#strings--line-length) 100 karakterden uzun stringler satırlara bölünüp birbirine bağlanmamalıdır.
 
-    > Why? Broken strings are painful to work with and make code less searchable.
+    > Neden? Bölünmüş stringler ile çalışmak kodun okunabilirliğini düşürür. 
 
     ```javascript
-    // bad
+    // kötü
     const errorMessage = 'This is a super long error that was thrown because \
     of Batman. When you stop to think about how Batman had anything to do \
     with this, you would get nowhere \
     fast.';
 
-    // bad
+    // kötü
     const errorMessage = 'This is a super long error that was thrown because ' +
       'of Batman. When you stop to think about how Batman had anything to do ' +
       'with this, you would get nowhere fast.';
 
-    // good
+    // iyi
     const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
     ```
 
   <a name="es6-template-literals"></a><a name="6.4"></a>
-  - [6.3](#es6-template-literals) When programmatically building up strings, use template strings instead of concatenation. eslint: [`prefer-template`](https://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](https://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
+  - [6.3](#es6-template-literals) Programlanabilir stringler yaratırken string şablonlarını kullanın. eslint: [`prefer-template`](https://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](https://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
 
-    > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+    > Neden? String şablonları; kısa, okunabilir, doğru sözdizimi ve string interpolasyon özelliklerine sahip bir kod betiği oluşturabilmenizi sağlar.
 
     ```javascript
-    // bad
+    // kötü
     function sayHi(name) {
       return 'How are you, ' + name + '?';
     }
 
-    // bad
+    // kötü
     function sayHi(name) {
       return ['How are you, ', name, '?'].join();
     }
 
-    // bad
+    // kötü
     function sayHi(name) {
       return `How are you, ${ name }?`;
     }
 
-    // good
+    // iyi
     function sayHi(name) {
       return `How are you, ${name}?`;
     }
     ```
 
   <a name="strings--eval"></a><a name="6.5"></a>
-  - [6.4](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities. eslint: [`no-eval`](https://eslint.org/docs/rules/no-eval)
+  - [6.4](#strings--eval) Stringler ile asla `eval()` fonksiyonunu kullanmayın. Bu durum pek çok açığa neden olabilir. eslint: [`no-eval`](https://eslint.org/docs/rules/no-eval)
 
   <a name="strings--escaping"></a>
-  - [6.5](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](https://eslint.org/docs/rules/no-useless-escape)
+  - [6.5](#strings--escaping) Stringlerde gereksiz yere escape karakterlerini kullanmayın. eslint: [`no-useless-escape`](https://eslint.org/docs/rules/no-useless-escape)
 
-    > Why? Backslashes harm readability, thus they should only be present when necessary.
+    > Neden? Tersbölüler okunabilirliği düşürür ve sadece gerektiğinde kullanılmalıdır.
 
     ```javascript
-    // bad
+    // kötü
     const foo = '\'this\' \i\s \"quoted\"';
 
-    // good
+    // iyi
     const foo = '\'this\' is "quoted"';
     const foo = `my name is '${name}'`;
     ```
 
 **[⬆ back to top](#table-of-contents)**
 
-## Functions
+## Fonksiyonlar
 
   <a name="functions--declarations"></a><a name="7.1"></a>
-  - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](https://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
+  - [7.1](#functions--declarations) Klasik fonksiyon tanımları yerine isimlendirilmiş fonksiyon ifadeleri kullanın. eslint: [`func-style`](https://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
 
-    > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to explicitly name the expression, regardless of whether or not the name is inferred from the containing variable (which is often the case in modern browsers or when using compilers such as Babel). This eliminates any assumptions made about the Error's call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
+    > Neden? Fonksiyon tanımlamaları fazla basite kaçan bir çözümdür. Bu kullanım şekli okunabilirliği ve geliştirilebilirliği düşürür. Eğer fonksiyon kapsamlı ya da dosyadaki diğer betikler ile karışabilecek durumda ise ayrı bir modül haline getirin. Fonksiyon ifadesini açıklayıcı bir şekilde isimlendirmeyi unutmayın. ([Discussion](https://github.com/airbnb/javascript/issues/794))
 
     ```javascript
-    // bad
+    // kötü
     function foo() {
       // ...
     }
 
-    // bad
+    // kötü
     const foo = function () {
       // ...
     };
 
-    // good
+    // iyi
     // lexical name distinguished from the variable-referenced invocation(s)
     const short = function longUniqueMoreDescriptiveLexicalFoo() {
       // ...
@@ -657,9 +657,9 @@ Other Style Guides
     ```
 
   <a name="functions--iife"></a><a name="7.2"></a>
-  - [7.2](#functions--iife) Wrap immediately invoked function expressions in parentheses. eslint: [`wrap-iife`](https://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
+  - [7.2](#functions--iife) Hemen çağrılan fonksiyonları (Immediately-invoked Function Expressions - IIFE) parantez içine alın. eslint: [`wrap-iife`](https://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
 
-    > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
+    > Neden? IIFE, blok bir betiktir. Betiği parantez içine alarak bu durum belirtilir. Not: Modüler bir yapı içerisinde neredeyse hiç IIFE kullanmaya ihtiyacınız olmayacaktır. 
 
     ```javascript
     // immediately-invoked function expression (IIFE)
@@ -669,20 +669,20 @@ Other Style Guides
     ```
 
   <a name="functions--in-blocks"></a><a name="7.3"></a>
-  - [7.3](#functions--in-blocks) Never declare a function in a non-function block (`if`, `while`, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](https://eslint.org/docs/rules/no-loop-func.html)
+  - [7.3](#functions--in-blocks) Fonksiyonları asla fonksiyon harici bir blok (`if`, `while`, vb.). içinde tanımlamayın. Bunun yerine fonksiyonu bir değişkene atayın. Tarayıcılar bu tanıma izin verecektir fakat her biri farklı şekilde yorumlayabilir. eslint: [`no-loop-func`](https://eslint.org/docs/rules/no-loop-func.html)
 
   <a name="functions--note-on-blocks"></a><a name="7.4"></a>
-  - [7.4](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement.
+  - [7.4](#functions--note-on-blocks) **Not:** ECMA-262 `block` kavramını ifadelerin listesi şeklinde tanımlar. Fonksiyon tanımlamak bir ifade değildir. 
 
     ```javascript
-    // bad
+    // kötü
     if (currentUser) {
       function test() {
         console.log('Nope.');
       }
     }
 
-    // good
+    // iyi
     let test;
     if (currentUser) {
       test = () => {
@@ -692,15 +692,15 @@ Other Style Guides
     ```
 
   <a name="functions--arguments-shadow"></a><a name="7.5"></a>
-  - [7.5](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+  - [7.5](#functions--arguments-shadow) Asla bir parametreye `arguments` adını vermeyin. Bu şekilde bir kullanım her fonksiyonun blok alanında bulunan `arguments` nesnesinin üzerinde kalacaktır.
 
     ```javascript
-    // bad
+    // kötü
     function foo(name, options, arguments) {
       // ...
     }
 
-    // good
+    // iyi
     function foo(name, options, args) {
       // ...
     }
@@ -725,19 +725,18 @@ Other Style Guides
     ```
 
   <a name="es6-default-parameters"></a><a name="7.7"></a>
-  - [7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
+  - [7.7](#es6-default-parameters) Fonksiyon parametrelerini değiştirmek yerine varsayılan parametre sözdizimini kullanın.
 
     ```javascript
-    // really bad
+    // çok kötü
     function handleThings(opts) {
-      // No! We shouldn’t mutate function arguments.
-      // Double bad: if opts is falsy it'll be set to an object which may
-      // be what you want but it can introduce subtle bugs.
+      // Hayır! Fonksiyon argümanları değiştirilmemeli.
+      // Ayrıca, argüman hatalıyken bir nesneye eşitlemek açık oluşturabilir.
       opts = opts || {};
       // ...
     }
 
-    // still bad
+    // kötü
     function handleThings(opts) {
       if (opts === void 0) {
         opts = {};
@@ -745,20 +744,20 @@ Other Style Guides
       // ...
     }
 
-    // good
+    // iyi
     function handleThings(opts = {}) {
       // ...
     }
     ```
 
   <a name="functions--default-side-effects"></a><a name="7.8"></a>
-  - [7.8](#functions--default-side-effects) Avoid side effects with default parameters.
+  - [7.8](#functions--default-side-effects) Varsayılan parametrelerin yan etkilerini dikkate alın.
 
-    > Why? They are confusing to reason about.
+    > Neden? Kullanım amacına aykırıdır.
 
     ```javascript
     var b = 1;
-    // bad
+    // kötü
     function count(a = b++) {
       console.log(a);
     }
@@ -769,73 +768,73 @@ Other Style Guides
     ```
 
   <a name="functions--defaults-last"></a><a name="7.9"></a>
-  - [7.9](#functions--defaults-last) Always put default parameters last.
+  - [7.9](#functions--defaults-last) Varsayılan parametreleri daima en sonda kullanın.
 
     ```javascript
-    // bad
+    // kötü
     function handleThings(opts = {}, name) {
       // ...
     }
 
-    // good
+    // iyi
     function handleThings(name, opts = {}) {
       // ...
     }
     ```
 
   <a name="functions--constructor"></a><a name="7.10"></a>
-  - [7.10](#functions--constructor) Never use the Function constructor to create a new function. eslint: [`no-new-func`](https://eslint.org/docs/rules/no-new-func)
+  - [7.10](#functions--constructor) Yeni bir fonksiyon yaratmak için asla constructor'ları kullanmayın. eslint: [`no-new-func`](https://eslint.org/docs/rules/no-new-func)
 
-    > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
+    > Neden? Bu şekilde fonksiyon yaratmak güvenlik açıkları oluşturan eval()'e benzer bir durum oluşturur.
 
     ```javascript
-    // bad
+    // kötü
     var add = new Function('a', 'b', 'return a + b');
 
-    // still bad
+    // kötü
     var subtract = Function('a', 'b', 'return a - b');
     ```
 
   <a name="functions--signature-spacing"></a><a name="7.11"></a>
-  - [7.11](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
+  - [7.11](#functions--signature-spacing) Fonksiyon yapısında boşlukları doğru kullanın. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
 
-    > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
+    > Neden? Tutarlılık iyidir ve bu şekilde bir isim eklerken veya silerken boşluk eklemenize, silmenize gerek kalmaz.
 
     ```javascript
-    // bad
+    // kötü
     const f = function(){};
     const g = function (){};
     const h = function() {};
 
-    // good
+    // iyi
     const x = function () {};
     const y = function a() {};
     ```
 
   <a name="functions--mutate-params"></a><a name="7.12"></a>
-  - [7.12](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.12](#functions--mutate-params) Asla parametreleri değiştirmeyin. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+    > Neden? Gelen nesneleri değiştirmek çağrıyı yapan bölümde istenmeyen yan etkilere neden olabilir.
 
     ```javascript
-    // bad
+    // kötü
     function f1(obj) {
       obj.key = 1;
     }
 
-    // good
+    // iyi
     function f2(obj) {
       const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
     }
     ```
 
   <a name="functions--reassign-params"></a><a name="7.13"></a>
-  - [7.13](#functions--reassign-params) Never reassign parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.13](#functions--reassign-params) Asla parametreleri yeniden tanımlamayın. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
+    > Neden? Parametrelerin yeniden tanımlanması özellikle `arguments` nesnesine erişirken beklenmeyen davranışlara neden olabilir. Bunun yanında özellikle V8 motorunda optimizasyon sorunlarına neden olabilir.
 
     ```javascript
-    // bad
+    // kötü
     function f1(a) {
       a = 1;
       // ...
@@ -846,7 +845,7 @@ Other Style Guides
       // ...
     }
 
-    // good
+    // iyi
     function f3(a) {
       const b = a || 1;
       // ...
@@ -858,23 +857,23 @@ Other Style Guides
     ```
 
   <a name="functions--spread-vs-apply"></a><a name="7.14"></a>
-  - [7.14](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions. eslint: [`prefer-spread`](https://eslint.org/docs/rules/prefer-spread)
+  - [7.14](#functions--spread-vs-apply) Variadic fonksiyonlarda spread operatörünü `...` kullanmaya özen gösterin. eslint: [`prefer-spread`](https://eslint.org/docs/rules/prefer-spread)
 
-    > Why? It’s cleaner, you don’t need to supply a context, and you can not easily compose `new` with `apply`.
+    > Neden? Daha temiz bir kullanım şeklidir. İçeriği oluşturmanıza ve `new` ile `apply` kullanmanıza gerek kalmaz.
 
     ```javascript
-    // bad
+    // kötü
     const x = [1, 2, 3, 4, 5];
     console.log.apply(console, x);
 
-    // good
+    // iyi
     const x = [1, 2, 3, 4, 5];
     console.log(...x);
 
-    // bad
+    // kötü
     new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));
 
-    // good
+    // iyi
     new Date(...[2016, 8, 5]);
     ```
 
@@ -3654,6 +3653,7 @@ Other Style Guides
   - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [leonidlebedev/javascript-airbnb](https://github.com/leonidlebedev/javascript-airbnb)
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
   - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
+  - ![tr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Turkey.png) **Turkish**: [eraycetinay/javascript](https://github.com/eraycetinay/javascript)
   - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Ukrainian**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript)
   - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnam**: [hngiang/javascript-style-guide](https://github.com/hngiang/javascript-style-guide)
 
