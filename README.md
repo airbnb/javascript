@@ -936,7 +936,7 @@ Diğer Rehberler
     ```
 
   <a name="arrows--implicit-return"></a><a name="8.2"></a>
-  - [8.2](#arrows--implicit-return) Eğer fonksiyon içeriği yan etkisi bulunmayan tek bir ifadeyi [expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) geri döndürüyorsa parantez kullanmadan satır içinde ifadeyi kullanın (implicit return). Aksi durumlarda parantez ve `return` kullanın. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](https://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
+  - [8.2](#arrows--implicit-return) Eğer fonksiyon içeriği yan etkisi bulunmayan tek bir ifadeyi [expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) geri döndürüyorsa süslü parantez kullanmadan satır içinde ifadeyi kullanın (implicit return). Aksi durumlarda süslü parantez ve `return` kullanın. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](https://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
 
     > Neden? Birden fazla fonksiyon zincir halinde kullanıldığında okunabilirliği artırır. 
 
@@ -1003,29 +1003,29 @@ Diğer Rehberler
     ```
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments for clarity and consistency. Note: it is also acceptable to always use parentheses, in which case use the [“always” option](https://eslint.org/docs/rules/arrow-parens#always) for eslint or do not include [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam) for jscs. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
+  - [8.4](#arrows--one-arg-parens) Fonksiyonunuz tek bir parametre alıyorsa ve süslü parantez kullanmıyorsa, parantez de kullanmayın. Diğer durumlarda sadelik ve tutarlılık için daima parametreleri parantez içine alın. Not: Parantezlerin sürekli kullanımı da kabul edilebilirdir. Bunun için eslint de [“always” option](https://eslint.org/docs/rules/arrow-parens#always)  kullanın ya da jscs de [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam) dahil etmeyin. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
 
-    > Why? Less visual clutter.
+    > Neden? Daha az görsel karmaşa.
 
     ```javascript
-    // bad
+    // kötü
     [1, 2, 3].map((x) => x * x);
 
-    // good
+    // iyi
     [1, 2, 3].map(x => x * x);
 
-    // good
+    // iyi
     [1, 2, 3].map(number => (
       `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
     ));
 
-    // bad
+    // kötü
     [1, 2, 3].map(x => {
       const y = x + 1;
       return x * y;
     });
 
-    // good
+    // iyi
     [1, 2, 3].map((x) => {
       const y = x + 1;
       return x * y;
@@ -1033,36 +1033,36 @@ Diğer Rehberler
     ```
 
   <a name="arrows--confusing"></a><a name="8.5"></a>
-  - [8.5](#arrows--confusing) Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`). eslint: [`no-confusing-arrow`](https://eslint.org/docs/rules/no-confusing-arrow)
+  - [8.5](#arrows--confusing) Arrow fonksiyonları (`=>`) yazarken karşılaştırma operatörleri (`<=`, `>=`) ile karıştırmamaya dikkat edin. eslint: [`no-confusing-arrow`](https://eslint.org/docs/rules/no-confusing-arrow)
 
     ```javascript
-    // bad
+    // kötü
     const itemHeight = item => item.height > 256 ? item.largeSize : item.smallSize;
 
-    // bad
+    // kötü
     const itemHeight = (item) => item.height > 256 ? item.largeSize : item.smallSize;
 
-    // good
+    // iyi
     const itemHeight = item => (item.height > 256 ? item.largeSize : item.smallSize);
 
-    // good
+    // iyi
     const itemHeight = (item) => {
       const { height, largeSize, smallSize } = item;
       return height > 256 ? largeSize : smallSize;
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
-## Classes & Constructors
+## Sınıflar & Yapılandırıcılar
 
   <a name="constructors--use-class"></a><a name="9.1"></a>
-  - [9.1](#constructors--use-class) Always use `class`. Avoid manipulating `prototype` directly.
+  - [9.1](#constructors--use-class) Daima `class` kullanın. Direkt `prototype` manipulasyonundan kaçının.
 
-    > Why? `class` syntax is more concise and easier to reason about.
+    > Neden? `class` sözdizimi daha doğru ve kolaydır.
 
     ```javascript
-    // bad
+    // kötü
     function Queue(contents = []) {
       this.queue = [...contents];
     }
@@ -1072,7 +1072,7 @@ Diğer Rehberler
       return value;
     };
 
-    // good
+    // iyi
     class Queue {
       constructor(contents = []) {
         this.queue = [...contents];
@@ -1086,12 +1086,12 @@ Diğer Rehberler
     ```
 
   <a name="constructors--extends"></a><a name="9.2"></a>
-  - [9.2](#constructors--extends) Use `extends` for inheritance.
+  - [9.2](#constructors--extends) Kalıtım için `extends`'i kullanın.
 
-    > Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
+    > Neden? Prototip işlevselliğini `instanceof`'u bozmadan içselleştirmenin yerleşik olarak gelen yöntemidir.
 
     ```javascript
-    // bad
+    // kötü
     const inherits = require('inherits');
     function PeekableQueue(contents) {
       Queue.apply(this, contents);
@@ -1101,7 +1101,7 @@ Diğer Rehberler
       return this.queue[0];
     };
 
-    // good
+    // iyi
     class PeekableQueue extends Queue {
       peek() {
         return this.queue[0];
@@ -1110,10 +1110,10 @@ Diğer Rehberler
     ```
 
   <a name="constructors--chaining"></a><a name="9.3"></a>
-  - [9.3](#constructors--chaining) Methods can return `this` to help with method chaining.
+  - [9.3](#constructors--chaining) Metodlar 'method chaining' için `this`'i return edebilir.
 
     ```javascript
-    // bad
+    // kötü
     Jedi.prototype.jump = function () {
       this.jumping = true;
       return true;
@@ -1127,7 +1127,7 @@ Diğer Rehberler
     luke.jump(); // => true
     luke.setHeight(20); // => undefined
 
-    // good
+    // iyi
     class Jedi {
       jump() {
         this.jumping = true;
@@ -1147,7 +1147,7 @@ Diğer Rehberler
     ```
 
   <a name="constructors--tostring"></a><a name="9.4"></a>
-  - [9.4](#constructors--tostring) It’s okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - [9.4](#constructors--tostring) Özel toString() metodları yazılabilir fakat doğru şekilde çalıştığına ve yan etkiler oluşturmadığına emin olunmalıdır.
 
     ```javascript
     class Jedi {
@@ -1166,10 +1166,10 @@ Diğer Rehberler
     ```
 
   <a name="constructors--no-useless"></a><a name="9.5"></a>
-  - [9.5](#constructors--no-useless) Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. eslint: [`no-useless-constructor`](https://eslint.org/docs/rules/no-useless-constructor)
+  - [9.5](#constructors--no-useless) Eğer bir yapılandırıcı tanımlanmadıysa sınıfların varsayılan bir yapılandırıcısı bulunur. Boş bir yapılandırıcı ya da üst sınıfı temsil eden bir yapılandırıcı gereksizdir. eslint: [`no-useless-constructor`](https://eslint.org/docs/rules/no-useless-constructor)
 
     ```javascript
-    // bad
+    // kötü
     class Jedi {
       constructor() {}
 
@@ -1178,14 +1178,14 @@ Diğer Rehberler
       }
     }
 
-    // bad
+    // kötü
     class Rey extends Jedi {
       constructor(...args) {
         super(...args);
       }
     }
 
-    // good
+    // iyi
     class Rey extends Jedi {
       constructor(...args) {
         super(...args);
@@ -1195,29 +1195,29 @@ Diğer Rehberler
     ```
 
   <a name="classes--no-duplicate-members"></a>
-  - [9.6](#classes--no-duplicate-members) Avoid duplicate class members. eslint: [`no-dupe-class-members`](https://eslint.org/docs/rules/no-dupe-class-members)
+  - [9.6](#classes--no-duplicate-members) Sınıf üyelerini tekrarlamaktan kaçının. eslint: [`no-dupe-class-members`](https://eslint.org/docs/rules/no-dupe-class-members)
 
-    > Why? Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
+    > Neden? Sınıf üyelerinin tekrar deklare edilmesi durumunda son tekrarlanan üye dikkate alınır.
 
     ```javascript
-    // bad
+    // kötü
     class Foo {
       bar() { return 1; }
       bar() { return 2; }
     }
 
-    // good
+    // iyi
     class Foo {
       bar() { return 1; }
     }
 
-    // good
+    // iyi
     class Foo {
       bar() { return 2; }
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
 ## Modules
 
