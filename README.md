@@ -936,32 +936,32 @@ Diğer Rehberler
     ```
 
   <a name="arrows--implicit-return"></a><a name="8.2"></a>
-  - [8.2](#arrows--implicit-return) If the function body consists of a single statement returning an [expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) without side effects, omit the braces and use the implicit return. Otherwise, keep the braces and use a `return` statement. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](https://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
+  - [8.2](#arrows--implicit-return) Eğer fonksiyon içeriği yan etkisi bulunmayan tek bir ifadeyi [expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) geri döndürüyorsa parantez kullanmadan satır içinde ifadeyi kullanın (implicit return). Aksi durumlarda parantez ve `return` kullanın. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](https://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
 
-    > Why? Syntactic sugar. It reads well when multiple functions are chained together.
+    > Neden? Birden fazla fonksiyon zincir halinde kullanıldığında okunabilirliği artırır. 
 
     ```javascript
-    // bad
+    // kötü
     [1, 2, 3].map(number => {
       const nextNumber = number + 1;
       `A string containing the ${nextNumber}.`;
     });
 
-    // good
+    // iyi
     [1, 2, 3].map(number => `A string containing the ${number}.`);
 
-    // good
+    // iyi
     [1, 2, 3].map((number) => {
       const nextNumber = number + 1;
       return `A string containing the ${nextNumber}.`;
     });
 
-    // good
+    // iyi
     [1, 2, 3].map((number, index) => ({
       [index]: number,
     }));
 
-    // No implicit return with side effects
+    // Yan etkiler içeren implicit return
     function foo(callback) {
       const val = callback();
       if (val === true) {
@@ -971,29 +971,29 @@ Diğer Rehberler
 
     let bool = false;
 
-    // bad
+    // kötü
     foo(() => bool = true);
 
-    // good
+    // iyi
     foo(() => {
       bool = true;
     });
     ```
 
   <a name="arrows--paren-wrap"></a><a name="8.3"></a>
-  - [8.3](#arrows--paren-wrap) In case the expression spans over multiple lines, wrap it in parentheses for better readability.
+  - [8.3](#arrows--paren-wrap) İfade birden fazla satır içeriyorsa okunabilirliği artırmak için parantez kullanın.
 
-    > Why? It shows clearly where the function starts and ends.
+    > Neden? Fonksiyonun nerede başlayıp bittiğini daha net şekilde gösterir.
 
     ```javascript
-    // bad
+    // kötü
     ['get', 'post', 'put'].map(httpMethod => Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
         httpMethod,
       )
     );
 
-    // good
+    // iyi
     ['get', 'post', 'put'].map(httpMethod => (
       Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
