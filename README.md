@@ -203,6 +203,14 @@ Other Style Guides
         return atom.value + value;
       },
     };
+     atom = {
+  value: 1,
+
+    // very good
+    const atom = {
+      value: 1,
+      addValue: (value = 0) => (atom.value + value),
+    };
 
     // good
     const atom = {
@@ -254,8 +262,8 @@ Other Style Guides
 
     // good
     const obj = {
+      anakinSkywalker,// keep up with declare order
       lukeSkywalker,
-      anakinSkywalker,
       episodeOne: 1,
       twoJediWalkIntoACantina: 2,
       episodeThree: 3,
@@ -313,7 +321,7 @@ Other Style Guides
     const copy = Object.assign(original, { c: 3 }); // this mutates `original` ಠ_ಠ
     delete copy.a; // so does this
 
-    // bad
+    // not too bad
     const original = { a: 1, b: 2 };
     const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
 
@@ -321,7 +329,7 @@ Other Style Guides
     const original = { a: 1, b: 2 };
     const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
 
-    const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
+    const { a, ...restA } = copy; // rest => { b: 2, c: 3 }
     ```
 
 **[⬆ back to top](#table-of-contents)**
