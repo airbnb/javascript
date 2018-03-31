@@ -561,16 +561,16 @@ Other Style Guides
 ## Strings
 
   <a name="strings--quotes"></a><a name="6.1"></a>
-  - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
+  - [6.1](#strings--quotes) Use double quotes `""` for strings. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
 
     ```javascript
-    // bad
+    // good
     const name = "Capt. Janeway";
 
-    // bad - template literals should contain interpolation or newlines
+    // perfect - template literals can contain interpolation or newlines
     const name = `Capt. Janeway`;
 
-    // good
+    // bad
     const name = 'Capt. Janeway';
     ```
 
@@ -591,8 +591,12 @@ Other Style Guides
       'of Batman. When you stop to think about how Batman had anything to do ' +
       'with this, you would get nowhere fast.';
 
-    // good
+    // not too good
     const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+     // very good
+    const errorMessage = `This is a super long error that was thrown because of Batman. 
+    When you stop to think about how Batman had anything to do with this, you would get nowhere fast.`;
+    
     ```
 
   <a name="es6-template-literals"></a><a name="6.4"></a>
