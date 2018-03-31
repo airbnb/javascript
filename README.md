@@ -509,6 +509,9 @@ Other Style Guides
     function getFullName({ firstName, lastName }) {
       return `${firstName} ${lastName}`;
     }
+    // perfect
+    const getFullName = ({firstName, lastName}) => `${firstName} ${lastName}`;
+    
     ```
 
   <a name="destructuring--array"></a><a name="5.2"></a>
@@ -523,6 +526,9 @@ Other Style Guides
 
     // good
     const [first, second] = arr;
+    
+    // very good
+    const [first, second, ...rest] = arr;
     ```
 
   <a name="destructuring--object-over-array"></a><a name="5.3"></a>
