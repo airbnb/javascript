@@ -1222,68 +1222,68 @@ Diğer Rehberler
 ## Modules
 
   <a name="modules--use-them"></a><a name="10.1"></a>
-  - [10.1](#modules--use-them) Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
+  - [10.1](#modules--use-them) Standart bir yapıya sahip olmayan modül sistemlerinizde daima (`import`/`export`) kullanın. İstediğinizde tercih ettiğiniz modül sistemine transpile edebilirsiniz.
 
-    > Why? Modules are the future, let’s start using the future now.
+    > Neden? Modüller geleceğin teknolojisidir. Şimdiden kullanmaya başlamalıyız.
 
     ```javascript
-    // bad
+    // kötü
     const AirbnbStyleGuide = require('./AirbnbStyleGuide');
     module.exports = AirbnbStyleGuide.es6;
 
-    // ok
+    // normal
     import AirbnbStyleGuide from './AirbnbStyleGuide';
     export default AirbnbStyleGuide.es6;
 
-    // best
+    // iyi
     import { es6 } from './AirbnbStyleGuide';
     export default es6;
     ```
 
   <a name="modules--no-wildcard"></a><a name="10.2"></a>
-  - [10.2](#modules--no-wildcard) Do not use wildcard imports.
+  - [10.2](#modules--no-wildcard) Wildcard import'ları kullanmayın.
 
-    > Why? This makes sure you have a single default export.
+    > Neden? Böylece tek bir default export'unuz bulunacaktır.
 
     ```javascript
-    // bad
+    // kötü
     import * as AirbnbStyleGuide from './AirbnbStyleGuide';
 
-    // good
+    // iyi
     import AirbnbStyleGuide from './AirbnbStyleGuide';
     ```
 
   <a name="modules--no-export-from-import"></a><a name="10.3"></a>
-  - [10.3](#modules--no-export-from-import) And do not export directly from an import.
+  - [10.3](#modules--no-export-from-import) Import üzerinden direkt export etmeyin.
 
-    > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
+    > Why? Tek satırda kullanmak daha sade gözüksede, import ve exportu farklı satırlara ayırmak daha temiz ve tutarlıdır.
 
     ```javascript
-    // bad
+    // kötü
     // filename es6.js
     export { es6 as default } from './AirbnbStyleGuide';
 
-    // good
+    // iyi
     // filename es6.js
     import { es6 } from './AirbnbStyleGuide';
     export default es6;
     ```
 
   <a name="modules--no-duplicate-imports"></a>
-  - [10.4](#modules--no-duplicate-imports) Only import from a path in one place.
+  - [10.4](#modules--no-duplicate-imports) Aynı path üzerinden tüm importları aynı yerde yapın.
  eslint: [`no-duplicate-imports`](https://eslint.org/docs/rules/no-duplicate-imports)
-    > Why? Having multiple lines that import from the same path can make code harder to maintain.
+    > Neden? Aynı path üzerinden farklı konumlarda import kullanmak kodun geliştirilmesini zorlaştıracaktır.
 
     ```javascript
-    // bad
+    // kötü
     import foo from 'foo';
     // … some other imports … //
     import { named1, named2 } from 'foo';
 
-    // good
+    // iyi
     import foo, { named1, named2 } from 'foo';
 
-    // good
+    // iyi
     import foo, {
       named1,
       named2,
@@ -1291,24 +1291,24 @@ Diğer Rehberler
     ```
 
   <a name="modules--no-mutable-exports"></a>
-  - [10.5](#modules--no-mutable-exports) Do not export mutable bindings.
+  - [10.5](#modules--no-mutable-exports) Değiştirilebilir binding'leri export etmeyin.
  eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
-    > Why? Mutation should be avoided in general, but in particular when exporting mutable bindings. While this technique may be needed for some special cases, in general, only constant references should be exported.
+    > Neden? Değiştirmelerden genel olarak kaçınılmalıdır, özellikle de binding'lerde. Zaman zaman bu teknik görmezden gelinebilir ancak genellikle değişmeyen/sabit referanslar export edilmelidir.
 
     ```javascript
-    // bad
+    // kötü
     let foo = 3;
     export { foo };
 
-    // good
+    // iyi
     const foo = 3;
     export { foo };
     ```
 
   <a name="modules--prefer-default-export"></a>
-  - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
+  - [10.6](#modules--prefer-default-export) Tek bir export'a sahip modüllerde isimlendirilmiş export yerine default export kullanın.
  eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
-    > Why? To encourage more files that only ever export one thing, which is better for readability and maintainability.
+    > Why? Tek bir export kullandığınız modüllerde default kullanımı okunabilirliği ve geliştirilebilirliği artırır.
 
     ```javascript
     // bad
@@ -1319,18 +1319,18 @@ Diğer Rehberler
     ```
 
   <a name="modules--imports-first"></a>
-  - [10.7](#modules--imports-first) Put all `import`s above non-import statements.
+  - [10.7](#modules--imports-first) Tüm `import`'ları diğer ifadelerin üzerinde kullanın.
  eslint: [`import/first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md)
-    > Why? Since `import`s are hoisted, keeping them all at the top prevents surprising behavior.
+    > Neden? `import` kullanımından doğabilecek aksilikleri önleyecektir.
 
     ```javascript
-    // bad
+    // kötü
     import foo from 'foo';
     foo.init();
 
     import bar from 'bar';
 
-    // good
+    // iyi
     import foo from 'foo';
     import bar from 'bar';
 
@@ -1338,15 +1338,15 @@ Diğer Rehberler
     ```
 
   <a name="modules--multiline-imports-over-newlines"></a>
-  - [10.8](#modules--multiline-imports-over-newlines) Multiline imports should be indented just like multiline array and object literals.
+  - [10.8](#modules--multiline-imports-over-newlines) Import'larda çok satırlı diziler ve sabitler gibi kullanılmalıdır.
 
-    > Why? The curly braces follow the same indentation rules as every other curly brace block in the style guide, as do the trailing commas.
+    > Neden? Süslü paramntezlere sahip bloklar stil rehberinin tamamında aynı yazım kurallarına sahiptir.
 
     ```javascript
-    // bad
+    // kötü
     import {longNameA, longNameB, longNameC, longNameD, longNameE} from 'path';
 
-    // good
+    // iyi
     import {
       longNameA,
       longNameB,
@@ -1357,21 +1357,21 @@ Diğer Rehberler
     ```
 
   <a name="modules--no-webpack-loader-syntax"></a>
-  - [10.9](#modules--no-webpack-loader-syntax) Disallow Webpack loader syntax in module import statements.
+  - [10.9](#modules--no-webpack-loader-syntax) Modül import ifadelerinde webpack loader sözdizimini kullanmayın.
  eslint: [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md)
-    > Why? Since using Webpack syntax in the imports couples the code to a module bundler. Prefer using the loader syntax in `webpack.config.js`.
+    > Neden? Webpack sözdizimi module bundler'da importları çoğaltır. Bunun yerine loader sözdizimini `webpack.config.js` içerisinde kullanın.
 
     ```javascript
-    // bad
+    // kötü
     import fooSass from 'css!sass!foo.scss';
     import barCss from 'style!css!bar.css';
 
-    // good
+    // iyi
     import fooSass from 'foo.scss';
     import barCss from 'bar.css';
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
 ## Iterators and Generators
 
