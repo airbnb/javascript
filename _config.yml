@@ -1,7 +1,7 @@
 title: Airbnb JavaScript Style Guide
 description: A mostly reasonable approach to JavaScript
 google_analytics: 
-show_downloads: true
+show_downloads: false
 theme: jekyll-theme-cayman
 
 gems:
