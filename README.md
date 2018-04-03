@@ -1634,12 +1634,12 @@ Diğer Rehberler
     }
     ```
   <a name="variables--no-chain-assignment"></a><a name="13.5"></a>
-  - [13.5](#variables--no-chain-assignment) Don’t chain variable assignments. eslint: [`no-multi-assign`](https://eslint.org/docs/rules/no-multi-assign)
+  - [13.5](#variables--no-chain-assignment) Değişken tanımlarında chain kullanmayın. eslint: [`no-multi-assign`](https://eslint.org/docs/rules/no-multi-assign)
 
-    > Why? Chaining variable assignments creates implicit global variables.
+    > Neden? Chain kullanımı global değişkenler üretir.
 
     ```javascript
-    // bad
+    // kötü
     (function example() {
       // JavaScript interprets this as
       // let a = ( b = ( c = 1 ) );
@@ -1652,7 +1652,7 @@ Diğer Rehberler
     console.log(b); // 1
     console.log(c); // 1
 
-    // good
+    // iyi
     (function example() {
       let a = 1;
       let b = a;
@@ -1667,12 +1667,12 @@ Diğer Rehberler
     ```
 
   <a name="variables--unary-increment-decrement"></a><a name="13.6"></a>
-  - [13.6](#variables--unary-increment-decrement) Avoid using unary increments and decrements (++, --). eslint [`no-plusplus`](https://eslint.org/docs/rules/no-plusplus)
+  - [13.6](#variables--unary-increment-decrement) Eksiltme ve artırma operatörlerini kullanmaktan kaçının. (++, --). eslint [`no-plusplus`](https://eslint.org/docs/rules/no-plusplus)
 
-    > Why? Per the eslint documentation, unary increment and decrement statements are subject to automatic semicolon insertion and can cause silent errors with incrementing or decrementing values within an application. It is also more expressive to mutate your values with statements like `num += 1` instead of `num++` or `num ++`. Disallowing unary increment and decrement statements also prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
+    > Neden? Eslint dökümanın göre bu kullanım şeklinde otomatik noktalı virgüller eklenmekte ve gizli hataların oluşmasına neden olabilmektedir. Ayrıca `num++` ya da `num ++` yerine `num += 1` şeklinde bir kullanım daha anlamlıdır. Ayrıca bu kullanım öncül artırma ve azaltmaya neden olabilecek hatalarında önüne geçer.
 
     ```javascript
-    // bad
+    // kötü
 
     const array = [1, 2, 3];
     let num = 1;
@@ -1689,7 +1689,7 @@ Diğer Rehberler
       }
     }
 
-    // good
+    // iyi
 
     const array = [1, 2, 3];
     let num = 1;
@@ -1701,25 +1701,25 @@ Diğer Rehberler
     ```
 
 <a name="variables--linebreak"></a>
-  - [13.7](#variables--linebreak) Avoid linebreaks before or after `=` in an assignment. If your assignment violates [`max-len`](https://eslint.org/docs/rules/max-len.html), surround the value in parens. eslint [`operator-linebreak`](https://eslint.org/docs/rules/operator-linebreak.html).
+  - [13.7](#variables--linebreak) Tanımlama işlemlerinde `=`'den sonra satır atlamayın. Eğer tanım [`max-len`](https://eslint.org/docs/rules/max-len.html) hatasına neden oluyorsa değeri paranteze alın. eslint [`operator-linebreak`](https://eslint.org/docs/rules/operator-linebreak.html).
 
-    > Why? Linebreaks surrounding `=` can obfuscate the value of an assignment.
+    > Neden? Satır atlamak `=`'de hataya neden olabilir.
 
     ```javascript
-    // bad
+    // kötü
     const foo =
       superLongLongLongLongLongLongLongLongFunctionName();
 
-    // bad
+    // kötü
     const foo
       = 'superLongLongLongLongLongLongLongLongString';
 
-    // good
+    // iyi
     const foo = (
       superLongLongLongLongLongLongLongLongFunctionName()
     );
 
-    // good
+    // iyi
     const foo = 'superLongLongLongLongLongLongLongLongString';
     ```
 
@@ -1728,7 +1728,7 @@ Diğer Rehberler
 ## Hoisting
 
   <a name="hoisting--about"></a><a name="14.1"></a>
-  - [14.1](#hoisting--about) `var` declarations get hoisted to the top of their closest enclosing function scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_Dead_Zone_and_errors_with_let). It’s important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
+  - [14.1](#hoisting--about) `var` tanımlamaları en yakın fonksiyon scope'unun üstüne taşınır ancak atanan değerleri taşınmaz. `const` ve `let` ise [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_Dead_Zone_and_errors_with_let) adlı yeni bir konsept ile çalışır. [typeof kullanımı artık sağlıklı değildir](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15) .
 
     ```javascript
     // we know this wouldn’t work (assuming there
@@ -1764,7 +1764,7 @@ Diğer Rehberler
     ```
 
   <a name="hoisting--anon-expressions"></a><a name="14.2"></a>
-  - [14.2](#hoisting--anon-expressions) Anonymous function expressions hoist their variable name, but not the function assignment.
+  - [14.2](#hoisting--anon-expressions) İsimsiz fonksiyon ifadelerinde isim yukarı taşınsada içerik taşınmaz.
 
     ```javascript
     function example() {
@@ -1779,7 +1779,7 @@ Diğer Rehberler
     ```
 
   <a name="hoisting--named-expresions"></a><a name="hoisting--named-expressions"></a><a name="14.3"></a>
-  - [14.3](#hoisting--named-expressions) Named function expressions hoist the variable name, not the function name or the function body.
+  - [14.3](#hoisting--named-expressions) Atanmış fonksiyon ifadelerinde değişken adı yukarı taşınsada, içerik ya da fonksiyon adı taşınmaz.
 
     ```javascript
     function example() {
@@ -1808,7 +1808,7 @@ Diğer Rehberler
     ```
 
   <a name="hoisting--declarations"></a><a name="14.4"></a>
-  - [14.4](#hoisting--declarations) Function declarations hoist their name and the function body.
+  - [14.4](#hoisting--declarations) Fonksiyon tanımlarında içerik ve isim yukarı taşınır.
 
     ```javascript
     function example() {
@@ -1820,24 +1820,24 @@ Diğer Rehberler
     }
     ```
 
-  - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) by [Ben Cherry](http://www.adequatelygood.com/).
+  - Daha fazla bilgi için [Ben Cherry](http://www.adequatelygood.com/)'nin kaleme aldığı [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) yazısı okunabilir.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
 ## Comparison Operators & Equality
 
   <a name="comparison--eqeqeq"></a><a name="15.1"></a>
-  - [15.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`. eslint: [`eqeqeq`](https://eslint.org/docs/rules/eqeqeq.html)
+  - [15.1](#comparison--eqeqeq) `==` ve `!=` yerine `===` ve `!==` kullanın. eslint: [`eqeqeq`](https://eslint.org/docs/rules/eqeqeq.html)
 
   <a name="comparison--if"></a><a name="15.2"></a>
-  - [15.2](#comparison--if) Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
+  - [15.2](#comparison--if) `if` gibi koşullu ifadelerinde `ToBoolean` metodu aşağıdaki kurallar ile uygulanır:
 
-    - **Objects** evaluate to **true**
-    - **Undefined** evaluates to **false**
-    - **Null** evaluates to **false**
-    - **Booleans** evaluate to **the value of the boolean**
-    - **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
-    - **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+    - **Objects**, **true** ile değerlendirilir.
+    - **Undefined**, **false** ile değerlendirilir.
+    - **Null**, **false** ile değerlendirilir.
+    - **Booleans**, **the value of the boolean** ile değerlendirilir.
+    - **Numbers**, **+0, -0, or NaN** için **false**, aksi halde **true** ile değerlendirilir.
+    - **Strings**, boş `''` ise **false**, aksi halde **true** ile değerlendirilir.
 
     ```javascript
     if ([0] && []) {
@@ -1847,45 +1847,45 @@ Diğer Rehberler
     ```
 
   <a name="comparison--shortcuts"></a><a name="15.3"></a>
-  - [15.3](#comparison--shortcuts) Use shortcuts for booleans, but explicit comparisons for strings and numbers.
+  - [15.3](#comparison--shortcuts) Boolean için kısayolları kullanabilirsiniz ancak strings ve number türlerinde kullanmamalısınız.
 
     ```javascript
-    // bad
+    // kötü
     if (isValid === true) {
       // ...
     }
 
-    // good
+    // iyi
     if (isValid) {
       // ...
     }
 
-    // bad
+    // kötü
     if (name) {
       // ...
     }
 
-    // good
+    // iyi
     if (name !== '') {
       // ...
     }
 
-    // bad
+    // kötü
     if (collection.length) {
       // ...
     }
 
-    // good
+    // iyi
     if (collection.length > 0) {
       // ...
     }
     ```
 
   <a name="comparison--moreinfo"></a><a name="15.4"></a>
-  - [15.4](#comparison--moreinfo) For more information see [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
+  - [15.4](#comparison--moreinfo) Daha fazla bilgi için Angus Croll tarafından kaleme alınan [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) adlı yazısı inceleyin.
 
   <a name="comparison--switch-blocks"></a><a name="15.5"></a>
-  - [15.5](#comparison--switch-blocks) Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`). eslint: [`no-case-declarations`](https://eslint.org/docs/rules/no-case-declarations.html)
+  - [15.5](#comparison--switch-blocks) Lexical tanımlar barındıran (`let`, `const`, `function`, ve `class` gibi) `case` ve `default` bloklarında süslü parantez kullanın. eslint: [`no-case-declarations`](https://eslint.org/docs/rules/no-case-declarations.html)
 
     > Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
 
