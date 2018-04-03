@@ -1376,121 +1376,121 @@ Diğer Rehberler
 ## Iterators and Generators
 
   <a name="iterators--nope"></a><a name="11.1"></a>
-  - [11.1](#iterators--nope) Don’t use iterators. Prefer JavaScript’s higher-order functions instead of loops like `for-in` or `for-of`. eslint: [`no-iterator`](https://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](https://eslint.org/docs/rules/no-restricted-syntax)
+  - [11.1](#iterators--nope) Iterator kullanmayın. `for-in` ve `for-of` gibi döngülerde higher-order fonksiyonları tercih edin.. eslint: [`no-iterator`](https://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](https://eslint.org/docs/rules/no-restricted-syntax)
 
-    > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
+    > Neden? Değerleri return eden sade fonksiyonların kullanılması yan etkileri önler ve bu kullanım şekli en önemli kurallardandır.
 
-    > Use `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... to iterate over arrays, and `Object.keys()` / `Object.values()` / `Object.entries()` to produce arrays so you can iterate over objects.
+    > Diziler üzerinde `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` kullanın. /  `Object.keys()` / `Object.values()` / `Object.entries()` kullanarak nesneler üzerinde çalışabilir ve diziler üretebilirsiniz.
 
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
 
-    // bad
+    // kötü
     let sum = 0;
     for (let num of numbers) {
       sum += num;
     }
     sum === 15;
 
-    // good
+    // iyi
     let sum = 0;
     numbers.forEach((num) => {
       sum += num;
     });
     sum === 15;
 
-    // best (use the functional force)
+    // çok iyi
     const sum = numbers.reduce((total, num) => total + num, 0);
     sum === 15;
 
-    // bad
+    // kötü
     const increasedByOne = [];
     for (let i = 0; i < numbers.length; i++) {
       increasedByOne.push(numbers[i] + 1);
     }
 
-    // good
+    // iyi
     const increasedByOne = [];
     numbers.forEach((num) => {
       increasedByOne.push(num + 1);
     });
 
-    // best (keeping it functional)
+    // çok iyi
     const increasedByOne = numbers.map(num => num + 1);
     ```
 
   <a name="generators--nope"></a><a name="11.2"></a>
-  - [11.2](#generators--nope) Don’t use generators for now.
+  - [11.2](#generators--nope) Şimdilik generator kullanmayın.
 
-    > Why? They don’t transpile well to ES5.
+    > Neden? ES5'e doğru şekilde transpile edilemezler.
 
   <a name="generators--spacing"></a>
-  - [11.3](#generators--spacing) If you must use generators, or if you disregard [our advice](#generators--nope), make sure their function signature is spaced properly. eslint: [`generator-star-spacing`](https://eslint.org/docs/rules/generator-star-spacing)
+  - [11.3](#generators--spacing) Eğer generator kullanmanız gerekiyorsa, ya da [önerimizi](#generators--nope) görmezden gelmek istiyorsanız fonksiyon tanımınızda boşluk karakterini doğru şekilde kullandığınıza emin olun. eslint: [`generator-star-spacing`](https://eslint.org/docs/rules/generator-star-spacing)
 
-    > Why? `function` and `*` are part of the same conceptual keyword - `*` is not a modifier for `function`, `function*` is a unique construct, different from `function`.
+    > Neden? `function` ve `*` kavramsal terimlerdir. `*`, `function` için ir niteleyici değildir., `function*`, `function`'ın aksine eşsiz bir construct'tır.
 
     ```javascript
-    // bad
+    // kötü
     function * foo() {
       // ...
     }
 
-    // bad
+    // kötü
     const bar = function * () {
       // ...
     };
 
-    // bad
+    // kötü
     const baz = function *() {
       // ...
     };
 
-    // bad
+    // kötü
     const quux = function*() {
       // ...
     };
 
-    // bad
+    // kötü
     function*foo() {
       // ...
     }
 
-    // bad
+    // kötü
     function *foo() {
       // ...
     }
 
-    // very bad
+    // çok kötü
     function
     *
     foo() {
       // ...
     }
 
-    // very bad
+    // çok kötü
     const wat = function
     *
     () {
       // ...
     };
 
-    // good
+    // iyi
     function* foo() {
       // ...
     }
 
-    // good
+    // iyi
     const foo = function* () {
       // ...
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
 ## Properties
 
   <a name="properties--dot"></a><a name="12.1"></a>
-  - [12.1](#properties--dot) Use dot notation when accessing properties. eslint: [`dot-notation`](https://eslint.org/docs/rules/dot-notation.html) jscs: [`requireDotNotation`](http://jscs.info/rule/requireDotNotation)
+  - [12.1](#properties--dot) Property'lere erişirken nokta notasyonunu kullanın. eslint: [`dot-notation`](https://eslint.org/docs/rules/dot-notation.html) jscs: [`requireDotNotation`](http://jscs.info/rule/requireDotNotation)
 
     ```javascript
     const luke = {
@@ -1498,15 +1498,15 @@ Diğer Rehberler
       age: 28,
     };
 
-    // bad
+    // kötü
     const isJedi = luke['jedi'];
 
-    // good
+    // iyi
     const isJedi = luke.jedi;
     ```
 
   <a name="properties--bracket"></a><a name="12.2"></a>
-  - [12.2](#properties--bracket) Use bracket notation `[]` when accessing properties with a variable.
+  - [12.2](#properties--bracket) Bir değişken ile property'lere erişirken köşeli parantez `[]` kullanın.
 
     ```javascript
     const luke = {
@@ -1521,73 +1521,73 @@ Diğer Rehberler
     const isJedi = getProp('jedi');
     ```
   <a name="es2016-properties--exponentiation-operator"></a>
-  - [12.3](#es2016-properties--exponentiation-operator) Use exponentiation operator `**` when calculating exponentiations. eslint: [`no-restricted-properties`](https://eslint.org/docs/rules/no-restricted-properties).
+  - [12.3](#es2016-properties--exponentiation-operator) Üstalma hesaplamalarında üstalma `**` operaötürünü kullanın. eslint: [`no-restricted-properties`](https://eslint.org/docs/rules/no-restricted-properties).
 
     ```javascript
-    // bad
+    // kötü
     const binary = Math.pow(2, 10);
 
-    // good
+    // iyi
     const binary = 2 ** 10;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
 ## Variables
 
   <a name="variables--const"></a><a name="13.1"></a>
-  - [13.1](#variables--const) Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](https://eslint.org/docs/rules/no-undef) [`prefer-const`](https://eslint.org/docs/rules/prefer-const)
+  - [13.1](#variables--const) Değişken tanımlarında daima `const` ve `let` kullanın. Aksi halde global değişkenler oluşacaktır ve global namespace'i kirletmekten kaçınmalısınız. eslint: [`no-undef`](https://eslint.org/docs/rules/no-undef) [`prefer-const`](https://eslint.org/docs/rules/prefer-const)
 
     ```javascript
-    // bad
+    // kötü
     superPower = new SuperPower();
 
-    // good
+    // iyi
     const superPower = new SuperPower();
     ```
 
   <a name="variables--one-const"></a><a name="13.2"></a>
-  - [13.2](#variables--one-const) Use one `const` or `let` declaration per variable. eslint: [`one-var`](https://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
+  - [13.2](#variables--one-const) Her değişkenke bir adet `const` ya da `let` kullanın. eslint: [`one-var`](https://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
 
-    > Why? It’s easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
+    > Neden? Bu şekilde yeni değişkenler tanımlamak kolaydır ve hata yapma olasılığınız daha azdır. Ayrıca bu şekilde değişkenler tek tek debug edilebilir.
 
     ```javascript
-    // bad
+    // kötü
     const items = getItems(),
         goSportsTeam = true,
         dragonball = 'z';
 
-    // bad
+    // kötü
     // (compare to above, and try to spot the mistake)
     const items = getItems(),
         goSportsTeam = true;
         dragonball = 'z';
 
-    // good
+    // iyi
     const items = getItems();
     const goSportsTeam = true;
     const dragonball = 'z';
     ```
 
   <a name="variables--const-let-group"></a><a name="13.3"></a>
-  - [13.3](#variables--const-let-group) Group all your `const`s and then group all your `let`s.
+  - [13.3](#variables--const-let-group) Önce `const` sonra `let` değişkenlerini gruplayın.
 
-    > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+    > Neden? Bu şekilde daha önce tanımlanmış bir değişkeni farklı bir değişkene atamak daha kolaydır.
 
     ```javascript
-    // bad
+    // kötü
     let i, len, dragonball,
         items = getItems(),
         goSportsTeam = true;
 
-    // bad
+    // kötü
     let i;
     const items = getItems();
     let dragonball;
     const goSportsTeam = true;
     let len;
 
-    // good
+    // iyi
     const goSportsTeam = true;
     const items = getItems();
     let dragonball;
@@ -1596,12 +1596,12 @@ Diğer Rehberler
     ```
 
   <a name="variables--define-where-used"></a><a name="13.4"></a>
-  - [13.4](#variables--define-where-used) Assign variables where you need them, but place them in a reasonable place.
+  - [13.4](#variables--define-where-used) Değişkenleri kullanmanız gereken yerlerde tanımlayın ancak kabul edilebilir bir alanda oluşturun.
 
-    > Why? `let` and `const` are block scoped and not function scoped.
+    > Neden? `let` ve `const` fonksiyon scope'da değil blok scope'da çalışır.
 
     ```javascript
-    // bad - unnecessary function call
+    // kötü
     function checkName(hasName) {
       const name = getName();
 
@@ -1617,7 +1617,7 @@ Diğer Rehberler
       return name;
     }
 
-    // good
+    // iyi
     function checkName(hasName) {
       if (hasName === 'test') {
         return false;
