@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+      <base href="../">
+    <meta charset="UTF-8">
+    <title>Airbnb JavaScript Style Guide by airbnb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+
+  </head>
+
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Airbnb JavaScript Style Guide</h1>
+      <h2 class="project-tagline">A mostly reasonable approach to JavaScript</h2>
+      <a href="https://github.com/airbnb/javascript" class="btn">View on GitHub</a>
+      <a href="https://github.com/airbnb/javascript/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/airbnb/javascript/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+    <section class="main-content">
+      <a href="https://gitter.im/airbnb/javascript?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a>
+      <h1><a id="Airbnb_JavaScript_Style_Guide__2"></a>Airbnb JavaScript Style Guide() {</h1>
+      <p><em>A mostly reasonable approach to JavaScript</em></p>
+      <h2><a id="Table_of_Contents_7"></a>Table of Contents</h2>
+      <ol>
+        <li><a href="#types">Types</a></li>
+        <li><a href="#objects">Objects</a></li>
+        <li><a href="#arrays">Arrays</a></li>
+        <li><a href="#strings">Strings</a></li>
+        <li><a href="#functions">Functions</a></li>
+        <li><a href="#properties">Properties</a></li>
+        <li><a href="#variables">Variables</a></li>
+        <li><a href="#hoisting">Hoisting</a></li>
+        <li><a href="#comparison-operators--equality">Comparison Operators &amp; Equality</a></li>
+        <li><a href="#blocks">Blocks</a></li>
+        <li><a href="#comments">Comments</a></li>
+        <li><a href="#whitespace">Whitespace</a></li>
+        <li><a href="#commas">Commas</a></li>
+        <li><a href="#semicolons">Semicolons</a></li>
+        <li><a href="#type-casting--coercion">Type Casting &amp; Coercion</a></li>
+        <li><a href="#naming-conventions">Naming Conventions</a></li>
+        <li><a href="#accessors">Accessors</a></li>
+        <li><a href="#constructors">Constructors</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#modules">Modules</a></li>
+        <li><a href="#jquery">jQuery</a></li>
+        <li><a href="#ecmascript-5-compatibility">ECMAScript 5 Compatibility</a></li>
+        <li><a href="#testing">Testing</a></li>
+        <li><a href="#performance">Performance</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#in-the-wild">In the Wild</a></li>
+        <li><a href="#translation">Translation</a></li>
+        <li><a href="#the-javascript-style-guide-guide">The JavaScript Style Guide Guide</a></li>
+        <li><a href="#chat-with-us-about-javascript">Chat With Us About Javascript</a></li>
+        <li><a href="#contributors">Contributors</a></li>
+        <li><a href="#license">License</a></li>
+      </ol>
+      <h2><a id="Types_41"></a>Types</h2>
+      <ul>
+        <li>
+          <p><strong>Primitives</strong>: When you access a primitive type you work directly on its value.</p>
+          <ul>
+            <li><code>string</code></li>
+            <li><code>number</code></li>
+            <li><code>boolean</code></li>
+            <li><code>null</code></li>
+            <li><code>undefined</code></li>
+          </ul>
+          <pre><code class="language-javascript"><span class="hljs-keyword">var</span> foo = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> bar = foo;
+
+bar = <span class="hljs-number">9</span>;
+
+<span class="hljs-built_in">console</span>.log(foo, bar); <span class="hljs-comment">// =&gt; 1, 9</span>
+</code></pre>
+        </li>
+        <li>
+          <p><strong>Complex</strong>: When you access a complex type you work on a reference to its value.</p>
+          <ul>
+            <li><code>object</code></li>
+            <li><code>array</code></li>
+            <li><code>function</code></li>
+          </ul>
+          <pre><code class="language-javascript"><span class="hljs-keyword">var</span> foo = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
+<span class="hljs-keyword">var</span> bar = foo;
+
+bar[<span class="hljs-number">0</span>] = <span class="hljs-number">9</span>;
+
+<span class="hljs-built_in">console</span>.log(foo[<span class="hljs-number">0</span>], bar[<span class="hljs-number">0</span>]); <span class="hljs-comment">// =&gt; 9, 9</span>
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Objects_76"></a>Objects</h2>
+      <ul>
+        <li>
+          <p>Use the literal syntax for object creation.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> item = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>();
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> item = {};
+</code></pre>
+        </li>
+        <li>
+          <p>Don’t use <a href="http://es5.github.io/#x7.6.1">reserved words</a> as keys. It won’t work in IE8. <a href="https://github.com/airbnb/javascript/issues/61">More info</a>.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> superman = {
+  <span class="hljs-keyword">default</span>: { clark: <span class="hljs-string">'kent'</span> },
+  private: <span class="hljs-literal">true</span>
+};
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> superman = {
+  defaults: { clark: <span class="hljs-string">'kent'</span> },
+  hidden: <span class="hljs-literal">true</span>
+};
+</code></pre>
+        </li>
+        <li>
+          <p>Use readable synonyms in place of reserved words.</p>
+          <pre><code class="language-javascript">// bad
+var superman = {
+  class: 'alien'
+};
+
+// bad
+var superman = {
+  klass: 'alien'
+};
+
+// good
+var superman = {
+  type: 'alien'
+};
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Arrays_125"></a>Arrays</h2>
+      <ul>
+        <li>
+          <p>Use the literal syntax for array creation.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> items = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>();
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> items = [];
+</code></pre>
+        </li>
+        <li>
+          <p>Use Array#push instead of direct assignment to add items to an array.</p>
+          <pre><code class="language-javascript"><span class="hljs-keyword">var</span> someStack = [];
+
+
+<span class="hljs-comment">// bad</span>
+someStack[someStack.length] = <span class="hljs-string">'abracadabra'</span>;
+
+<span class="hljs-comment">// good</span>
+someStack.push(<span class="hljs-string">'abracadabra'</span>);
+</code></pre>
+        </li>
+        <li>
+          <p>When you need to copy an array use Array#slice. <a href="http://jsperf.com/converting-arguments-to-an-array/7">jsPerf</a></p>
+          <pre><code class="language-javascript"><span class="hljs-keyword">var</span> len = items.length;
+<span class="hljs-keyword">var</span> itemsCopy = [];
+<span class="hljs-keyword">var</span> i;
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; len; i++) {
+  itemsCopy[i] = items[i];
+}
+
+<span class="hljs-comment">// good</span>
+itemsCopy = items.slice();
+</code></pre>
+        </li>
+        <li>
+          <p>To convert an array-like object to an array, use Array#slice.</p>
+          <pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">trigger</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> args = <span class="hljs-built_in">Array</span>.prototype.slice.call(<span class="hljs-built_in">arguments</span>);
+  ...
+}
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Strings_178"></a>Strings</h2>
+      <ul>
+        <li>
+          <p>Use single quotes <code>''</code> for strings.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> name = <span class="hljs-string">"Bob Parr"</span>;
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> name = <span class="hljs-string">'Bob Parr'</span>;
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> fullName = <span class="hljs-string">"Bob "</span> + <span class="hljs-keyword">this</span>.lastName;
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> fullName = <span class="hljs-string">'Bob '</span> + <span class="hljs-keyword">this</span>.lastName;
+</code></pre>
+        </li>
+        <li>
+          <p>Strings longer than 100 characters should be written across multiple lines using string concatenation.</p>
+        </li>
+        <li>
+          <p>Note: If overused, long strings with concatenation could impact performance. <a href="http://jsperf.com/ya-string-concat">jsPerf</a> &amp; <a href="https://github.com/airbnb/javascript/issues/40">Discussion</a>.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> errorMessage = <span class="hljs-string">'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.'</span>;
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> errorMessage = <span class="hljs-string">'This is a super long error that was thrown because \
+of Batman. When you stop to think about how Batman had anything to do \
+with this, you would get nowhere \
+fast.'</span>;
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> errorMessage = <span class="hljs-string">'This is a super long error that was thrown because '</span> +
+  <span class="hljs-string">'of Batman. When you stop to think about how Batman had anything to do '</span> +
+  <span class="hljs-string">'with this, you would get nowhere fast.'</span>;
+</code></pre>
+        </li>
+        <li>
+          <p>When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE: <a href="http://jsperf.com/string-vs-array-concat/2">jsPerf</a>.</p>
+          <pre><code class="language-javascript"><span class="hljs-keyword">var</span> items;
+<span class="hljs-keyword">var</span> messages;
+<span class="hljs-keyword">var</span> length;
+<span class="hljs-keyword">var</span> i;
+
+messages = [{
+  state: <span class="hljs-string">'success'</span>,
+  message: <span class="hljs-string">'This one worked.'</span>
+}, {
+  state: <span class="hljs-string">'success'</span>,
+  message: <span class="hljs-string">'This one worked as well.'</span>
+}, {
+  state: <span class="hljs-string">'error'</span>,
+  message: <span class="hljs-string">'This one did not work.'</span>
+}];
+
+length = messages.length;
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inbox</span>(<span class="hljs-params">messages</span>) </span>{
+  items = <span class="hljs-string">'&lt;ul&gt;'</span>;
+
+  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; length; i++) {
+    items += <span class="hljs-string">'&lt;li&gt;'</span> + messages[i].message + <span class="hljs-string">'&lt;/li&gt;'</span>;
+  }
+
+  <span class="hljs-keyword">return</span> items + <span class="hljs-string">'&lt;/ul&gt;'</span>;
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inbox</span>(<span class="hljs-params">messages</span>) </span>{
+  items = [];
+
+  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; length; i++) {
+    <span class="hljs-comment">// use direct assignment in this case because we're micro-optimizing.</span>
+    items[i] = <span class="hljs-string">'&lt;li&gt;'</span> + messages[i].message + <span class="hljs-string">'&lt;/li&gt;'</span>;
+  }
+
+  <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;ul&gt;'</span> + items.join(<span class="hljs-string">''</span>) + <span class="hljs-string">'&lt;/ul&gt;'</span>;
+}
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Functions_263"></a>Functions</h2>
+      <ul>
+        <li>
+          <p>Function expressions:</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// anonymous function expression</span>
+<span class="hljs-keyword">var</span> anonymous = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+};
+
+<span class="hljs-comment">// named function expression</span>
+<span class="hljs-keyword">var</span> named = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">named</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+};
+
+<span class="hljs-comment">// immediately-invoked function expression (IIFE)</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Welcome to the Internet. Please follow me.'</span>);
+}());
+</code></pre>
+        </li>
+        <li>
+          <p>Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.</p>
+        </li>
+        <li>
+          <p><strong>Note:</strong> ECMA-262 defines a <code>block</code> as a list of statements. A function declaration is not a statement. <a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97">Read ECMA-262’s note on this issue</a>.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">if</span> (currentUser) {
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Nope.'</span>);
+  }
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> test;
+<span class="hljs-keyword">if</span> (currentUser) {
+  test = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Yup.'</span>);
+  };
+}
+</code></pre>
+        </li>
+        <li>
+          <p>Never name a parameter <code>arguments</code>. This will take precedence over the <code>arguments</code> object that is given to every function scope.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nope</span>(<span class="hljs-params">name, options, arguments</span>) </span>{
+  <span class="hljs-comment">// ...stuff...</span>
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">yup</span>(<span class="hljs-params">name, options, args</span>) </span>{
+  <span class="hljs-comment">// ...stuff...</span>
+}
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Properties_322"></a>Properties</h2>
+      <ul>
+        <li>
+          <p>Use dot notation when accessing properties.</p>
+          <pre><code class="language-javascript"><span class="hljs-keyword">var</span> luke = {
+  jedi: <span class="hljs-literal">true</span>,
+  age: <span class="hljs-number">28</span>
+};
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> isJedi = luke[<span class="hljs-string">'jedi'</span>];
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> isJedi = luke.jedi;
+</code></pre>
+        </li>
+        <li>
+          <p>Use subscript notation <code>[]</code> when accessing properties with a variable.</p>
+          <pre><code class="language-javascript"><span class="hljs-keyword">var</span> luke = {
+  jedi: <span class="hljs-literal">true</span>,
+  age: <span class="hljs-number">28</span>
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getProp</span>(<span class="hljs-params">prop</span>) </span>{
+  <span class="hljs-keyword">return</span> luke[prop];
+}
+
+<span class="hljs-keyword">var</span> isJedi = getProp(<span class="hljs-string">'jedi'</span>);
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Variables_357"></a>Variables</h2>
+      <ul>
+        <li>
+          <p>Always use <code>var</code> to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+superPower = <span class="hljs-keyword">new</span> SuperPower();
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> superPower = <span class="hljs-keyword">new</span> SuperPower();
+</code></pre>
+        </li>
+        <li>
+          <p>Use one <code>var</code> declaration per variable. It’s easier to add new variable declarations this way, and you never have to worry about swapping out a <code>;</code> for a <code>,</code> or introducing punctuation-only diffs.
+          </p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> items = getItems(),
+    goSportsTeam = <span class="hljs-literal">true</span>,
+    dragonball = <span class="hljs-string">'z'</span>;
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-comment">// (compare to above, and try to spot the mistake)</span>
+<span class="hljs-keyword">var</span> items = getItems(),
+    goSportsTeam = <span class="hljs-literal">true</span>;
+    dragonball = <span class="hljs-string">'z'</span>;
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> items = getItems();
+<span class="hljs-keyword">var</span> goSportsTeam = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">var</span> dragonball = <span class="hljs-string">'z'</span>;
+</code></pre>
+        </li>
+        <li>
+          <p>Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> i, len, dragonball,
+    items = getItems(),
+    goSportsTeam = <span class="hljs-literal">true</span>;
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> i;
+<span class="hljs-keyword">var</span> items = getItems();
+<span class="hljs-keyword">var</span> dragonball;
+<span class="hljs-keyword">var</span> goSportsTeam = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">var</span> len;
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> items = getItems();
+<span class="hljs-keyword">var</span> goSportsTeam = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">var</span> dragonball;
+<span class="hljs-keyword">var</span> length;
+<span class="hljs-keyword">var</span> i;
+</code></pre>
+        </li>
+        <li>
+          <p>Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  test();
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'doing stuff..'</span>);
+
+  <span class="hljs-comment">//..other stuff..</span>
+
+  <span class="hljs-keyword">var</span> name = getName();
+
+  <span class="hljs-keyword">if</span> (name === <span class="hljs-string">'test'</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+
+  <span class="hljs-keyword">return</span> name;
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> name = getName();
+
+  test();
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'doing stuff..'</span>);
+
+  <span class="hljs-comment">//..other stuff..</span>
+
+  <span class="hljs-keyword">if</span> (name === <span class="hljs-string">'test'</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+
+  <span class="hljs-keyword">return</span> name;
+}
+
+<span class="hljs-comment">// bad - unnecessary function call</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> name = getName();
+
+  <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">arguments</span>.length) {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+
+  <span class="hljs-keyword">this</span>.setFirstName(name);
+
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> name;
+
+  <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">arguments</span>.length) {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+
+  name = getName();
+  <span class="hljs-keyword">this</span>.setFirstName(name);
+
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Hoisting_481"></a>Hoisting</h2>
+      <ul>
+        <li>
+          <p>Variable declarations get hoisted to the top of their scope, but their assignment does not.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// we know this wouldn't work (assuming there</span>
+<span class="hljs-comment">// is no notDefined global variable)</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">example</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(notDefined); <span class="hljs-comment">// =&gt; throws a ReferenceError</span>
+}
+
+<span class="hljs-comment">// creating a variable declaration after you</span>
+<span class="hljs-comment">// reference the variable will work due to</span>
+<span class="hljs-comment">// variable hoisting. Note: the assignment</span>
+<span class="hljs-comment">// value of `true` is not hoisted.</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">example</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(declaredButNotAssigned); <span class="hljs-comment">// =&gt; undefined</span>
+  <span class="hljs-keyword">var</span> declaredButNotAssigned = <span class="hljs-literal">true</span>;
+}
+
+<span class="hljs-comment">// The interpreter is hoisting the variable</span>
+<span class="hljs-comment">// declaration to the top of the scope,</span>
+<span class="hljs-comment">// which means our example could be rewritten as:</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">example</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> declaredButNotAssigned;
+  <span class="hljs-built_in">console</span>.log(declaredButNotAssigned); <span class="hljs-comment">// =&gt; undefined</span>
+  declaredButNotAssigned = <span class="hljs-literal">true</span>;
+}
+</code></pre>
+        </li>
+        <li>
+          <p>Anonymous function expressions hoist their variable name, but not the function assignment.</p>
+          <pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">example</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(anonymous); <span class="hljs-comment">// =&gt; undefined</span>
+
+  anonymous(); <span class="hljs-comment">// =&gt; TypeError anonymous is not a function</span>
+
+  <span class="hljs-keyword">var</span> anonymous = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'anonymous function expression'</span>);
+  };
+}
+</code></pre>
+        </li>
+        <li>
+          <p>Named function expressions hoist the variable name, not the function name or the function body.</p>
+          <pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">example</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(named); <span class="hljs-comment">// =&gt; undefined</span>
+
+  named(); <span class="hljs-comment">// =&gt; TypeError named is not a function</span>
+
+  superPower(); <span class="hljs-comment">// =&gt; ReferenceError superPower is not defined</span>
+
+  <span class="hljs-keyword">var</span> named = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">superPower</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Flying'</span>);
+  };
+}
+
+<span class="hljs-comment">// the same is true when the function name</span>
+<span class="hljs-comment">// is the same as the variable name.</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">example</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(named); <span class="hljs-comment">// =&gt; undefined</span>
+
+  named(); <span class="hljs-comment">// =&gt; TypeError named is not a function</span>
+
+  <span class="hljs-keyword">var</span> named = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">named</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'named'</span>);
+  }
+}
+</code></pre>
+        </li>
+        <li>
+          <p>Function declarations hoist their name and the function body.</p>
+          <pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">example</span>(<span class="hljs-params"></span>) </span>{
+  superPower(); <span class="hljs-comment">// =&gt; Flying</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">superPower</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Flying'</span>);
+  }
+}
+</code></pre>
+        </li>
+        <li>
+          <p>For more information refer to <a href="http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting">JavaScript Scoping &amp; Hoisting</a> by <a href="http://www.adequatelygood.com/">Ben Cherry</a>.</p>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Comparison_Operators__Equality_571"></a>Comparison Operators &amp; Equality</h2>
+      <ul>
+        <li>
+          <p>Use <code>===</code> and <code>!==</code> over <code>==</code> and <code>!=</code>.</p>
+        </li>
+        <li>
+          <p>Conditional statements such as the <code>if</code> statement evaluate their expression using coercion with the <code>ToBoolean</code> abstract method and always follow these simple rules:</p>
+          <ul>
+            <li><strong>Objects</strong> evaluate to <strong>true</strong></li>
+            <li><strong>Undefined</strong> evaluates to <strong>false</strong></li>
+            <li><strong>Null</strong> evaluates to <strong>false</strong></li>
+            <li><strong>Booleans</strong> evaluate to <strong>the value of the boolean</strong></li>
+            <li><strong>Numbers</strong> evaluate to <strong>false</strong> if <strong>+0, -0, or NaN</strong>, otherwise <strong>true</strong></li>
+            <li><strong>Strings</strong> evaluate to <strong>false</strong> if an empty string <code>''</code>, otherwise <strong>true</strong></li>
+          </ul>
+          <pre><code class="language-javascript"><span class="hljs-keyword">if</span> ([<span class="hljs-number">0</span>]) {
+  <span class="hljs-comment">// true</span>
+  <span class="hljs-comment">// An array is an object, objects evaluate to true</span>
+}
+</code></pre>
+        </li>
+        <li>
+          <p>Use shortcuts.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">if</span> (name !== <span class="hljs-string">''</span>) {
+  <span class="hljs-comment">// ...stuff...</span>
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">if</span> (name) {
+  <span class="hljs-comment">// ...stuff...</span>
+}
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">if</span> (collection.length &gt; <span class="hljs-number">0</span>) {
+  <span class="hljs-comment">// ...stuff...</span>
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">if</span> (collection.length) {
+  <span class="hljs-comment">// ...stuff...</span>
+}
+</code></pre>
+        </li>
+        <li>
+          <p>For more information see <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108">Truth Equality and JavaScript</a> by Angus Croll.</p>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Blocks_619"></a>Blocks</h2>
+      <ul>
+        <li>
+          <p>Use braces with all multi-line blocks.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">if</span> (test)
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">if</span> (test) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">if</span> (test) {
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+}
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; }
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+}
+</code></pre>
+        </li>
+        <li>
+          <p>If you’re using multi-line blocks with <code>if</code> and <code>else</code>, put <code>else</code> on the same line as your
+            <code>if</code> block’s closing brace.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">if</span> (test) {
+  thing1();
+  thing2();
+}
+<span class="hljs-keyword">else</span> {
+  thing3();
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">if</span> (test) {
+  thing1();
+  thing2();
+} <span class="hljs-keyword">else</span> {
+  thing3();
+}
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Comments_671"></a>Comments</h2>
+      <ul>
+        <li>
+          <p>Use <code>/** ... */</code> for multi-line comments. Include a description, specify types and values for all parameters and return values.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-comment">// make() returns a new element</span>
+<span class="hljs-comment">// based on the passed in tag name</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// @param {String} tag</span>
+<span class="hljs-comment">// @return {Element} element</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">make</span>(<span class="hljs-params">tag</span>) </span>{
+
+  <span class="hljs-comment">// ...stuff...</span>
+
+  <span class="hljs-keyword">return</span> element;
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-comment">/**
+ * make() returns a new element
+ * based on the passed in tag name
+ *
+ * @param {String} tag
+ * @return {Element} element
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">make</span>(<span class="hljs-params">tag</span>) </span>{
+
+  <span class="hljs-comment">// ...stuff...</span>
+
+  <span class="hljs-keyword">return</span> element;
+}
+</code></pre>
+        </li>
+        <li>
+          <p>Use <code>//</code> for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> active = <span class="hljs-literal">true</span>;  <span class="hljs-comment">// is current tab</span>
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-comment">// is current tab</span>
+<span class="hljs-keyword">var</span> active = <span class="hljs-literal">true</span>;
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getType</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'fetching type...'</span>);
+  <span class="hljs-comment">// set the default type to 'no type'</span>
+  <span class="hljs-keyword">var</span> type = <span class="hljs-keyword">this</span>.type || <span class="hljs-string">'no type'</span>;
+
+  <span class="hljs-keyword">return</span> type;
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getType</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'fetching type...'</span>);
+
+  <span class="hljs-comment">// set the default type to 'no type'</span>
+  <span class="hljs-keyword">var</span> type = <span class="hljs-keyword">this</span>.type || <span class="hljs-string">'no type'</span>;
+
+  <span class="hljs-keyword">return</span> type;
+}
+</code></pre>
+        </li>
+        <li>
+          <p>Prefixing your comments with <code>FIXME</code> or <code>TODO</code> helps other developers quickly understand if you’re pointing out a problem that needs to be revisited, or if you’re suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are <code>FIXME -- need to figure this out</code> or <code>TODO -- need to implement</code>.</p>
+        </li>
+        <li>
+          <p>Use <code>// FIXME:</code> to annotate problems.</p>
+          <pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Calculator</span>(<span class="hljs-params"></span>) </span>{
+
+  <span class="hljs-comment">// <span class="hljs-doctag">FIXME:</span> shouldn't use a global here</span>
+  total = <span class="hljs-number">0</span>;
+
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+}
+</code></pre>
+        </li>
+        <li>
+          <p>Use <code>// TODO:</code> to annotate solutions to problems.</p>
+          <pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Calculator</span>(<span class="hljs-params"></span>) </span>{
+
+  <span class="hljs-comment">// <span class="hljs-doctag">TODO:</span> total should be configurable by an options param</span>
+  <span class="hljs-keyword">this</span>.total = <span class="hljs-number">0</span>;
+
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+}
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Whitespace_764"></a>Whitespace</h2>
+      <ul>
+        <li>
+          <p>Use soft tabs set to 2 spaces.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+∙∙∙∙<span class="hljs-keyword">var</span> name;
+}
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+∙<span class="hljs-keyword">var</span> name;
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+∙∙<span class="hljs-keyword">var</span> name;
+}
+</code></pre>
+        </li>
+        <li>
+          <p>Place 1 space before the leading brace.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'test'</span>);
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'test'</span>);
+}
+
+<span class="hljs-comment">// bad</span>
+dog.set(<span class="hljs-string">'attr'</span>,{
+  age: <span class="hljs-string">'1 year'</span>,
+  breed: <span class="hljs-string">'Bernese Mountain Dog'</span>
+});
+
+<span class="hljs-comment">// good</span>
+dog.set(<span class="hljs-string">'attr'</span>, {
+  age: <span class="hljs-string">'1 year'</span>,
+  breed: <span class="hljs-string">'Bernese Mountain Dog'</span>
+});
+</code></pre>
+        </li>
+        <li>
+          <p>Place 1 space before the opening parenthesis in control statements (<code>if</code>, <code>while</code> etc.). Place no space before the argument list in function calls and declarations.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">if</span>(isJedi) {
+  fight ();
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">if</span> (isJedi) {
+  fight();
+}
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fight</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log (<span class="hljs-string">'Swooosh!'</span>);
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fight</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Swooosh!'</span>);
+}
+</code></pre>
+        </li>
+        <li>
+          <p>Set off operators with spaces.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> x=y+<span class="hljs-number">5</span>;
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> x = y + <span class="hljs-number">5</span>;
+</code></pre>
+        </li>
+        <li>
+          <p>End files with a single newline character.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">global</span>) </span>{
+  <span class="hljs-comment">// ...stuff...</span>
+})(<span class="hljs-keyword">this</span>);
+</code></pre>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">global</span>) </span>{
+  <span class="hljs-comment">// ...stuff...</span>
+})(<span class="hljs-keyword">this</span>);↵
+↵
+</code></pre>
+          <pre><code class="language-javascript"><span class="hljs-comment">// good</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">global</span>) </span>{
+  <span class="hljs-comment">// ...stuff...</span>
+})(<span class="hljs-keyword">this</span>);↵
+</code></pre>
+        </li>
+        <li>
+          <p>Use indentation when making long method chains. Use a leading dot, which emphasizes that the line is a method call, not a new statement.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+$(<span class="hljs-string">'#items'</span>).find(<span class="hljs-string">'.selected'</span>).highlight().end().find(<span class="hljs-string">'.open'</span>).updateCount();
+
+<span class="hljs-comment">// bad</span>
+$(<span class="hljs-string">'#items'</span>).
+  find(<span class="hljs-string">'.selected'</span>).
+    highlight().
+    end().
+  find(<span class="hljs-string">'.open'</span>).
+    updateCount();
+
+<span class="hljs-comment">// good</span>
+$(<span class="hljs-string">'#items'</span>)
+  .find(<span class="hljs-string">'.selected'</span>)
+    .highlight()
+    .end()
+  .find(<span class="hljs-string">'.open'</span>)
+    .updateCount();
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> leds = stage.selectAll(<span class="hljs-string">'.led'</span>).data(data).enter().append(<span class="hljs-string">'svg:svg'</span>).classed(<span class="hljs-string">'led'</span>, <span class="hljs-literal">true</span>)
+    .attr(<span class="hljs-string">'width'</span>, (radius + margin) * <span class="hljs-number">2</span>).append(<span class="hljs-string">'svg:g'</span>)
+    .attr(<span class="hljs-string">'transform'</span>, <span class="hljs-string">'translate('</span> + (radius + margin) + <span class="hljs-string">','</span> + (radius + margin) + <span class="hljs-string">')'</span>)
+    .call(tron.led);
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> leds = stage.selectAll(<span class="hljs-string">'.led'</span>)
+    .data(data)
+  .enter().append(<span class="hljs-string">'svg:svg'</span>)
+    .classed(<span class="hljs-string">'led'</span>, <span class="hljs-literal">true</span>)
+    .attr(<span class="hljs-string">'width'</span>, (radius + margin) * <span class="hljs-number">2</span>)
+  .append(<span class="hljs-string">'svg:g'</span>)
+    .attr(<span class="hljs-string">'transform'</span>, <span class="hljs-string">'translate('</span> + (radius + margin) + <span class="hljs-string">','</span> + (radius + margin) + <span class="hljs-string">')'</span>)
+    .call(tron.led);
+</code></pre>
+        </li>
+        <li>
+          <p>Leave a blank line after blocks and before the next statement</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">if</span> (foo) {
+  <span class="hljs-keyword">return</span> bar;
+}
+<span class="hljs-keyword">return</span> baz;
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">if</span> (foo) {
+  <span class="hljs-keyword">return</span> bar;
+}
+
+<span class="hljs-keyword">return</span> baz;
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> obj = {
+  foo: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  },
+  bar: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  }
+};
+<span class="hljs-keyword">return</span> obj;
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> obj = {
+  foo: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  },
+
+  bar: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  }
+};
+
+<span class="hljs-keyword">return</span> obj;
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Commas_949"></a>Commas</h2>
+      <ul>
+        <li>
+          <p>Leading commas: <strong>Nope.</strong></p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> story = [
+    once
+  , upon
+  , aTime
+];
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> story = [
+  once,
+  upon,
+  aTime
+];
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> hero = {
+    firstName: <span class="hljs-string">'Bob'</span>
+  , lastName: <span class="hljs-string">'Parr'</span>
+  , heroName: <span class="hljs-string">'Mr. Incredible'</span>
+  , superPower: <span class="hljs-string">'strength'</span>
+};
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> hero = {
+  firstName: <span class="hljs-string">'Bob'</span>,
+  lastName: <span class="hljs-string">'Parr'</span>,
+  heroName: <span class="hljs-string">'Mr. Incredible'</span>,
+  superPower: <span class="hljs-string">'strength'</span>
+};
+</code></pre>
+        </li>
+        <li>
+          <p>Additional trailing comma: <strong>Nope.</strong> This can cause problems with IE6/7 and IE9 if it’s in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 (<a href="http://es5.github.io/#D">source</a>):</p>
+        </li>
+      </ul>
+      <blockquote>
+        <p>Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.</p>
+      </blockquote>
+      <pre><code>```javascript
+// bad
+var hero = {
+  firstName: 'Kevin',
+  lastName: 'Flynn',
+};
+
+var heroes = [
+  'Batman',
+  'Superman',
+];
+
+// good
+var hero = {
+  firstName: 'Kevin',
+  lastName: 'Flynn'
+};
+
+var heroes = [
+  'Batman',
+  'Superman'
+];
+```
+</code></pre>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Semicolons_1016"></a>Semicolons</h2>
+      <ul>
+        <li>
+          <p><strong>Yup.</strong></p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> name = <span class="hljs-string">'Skywalker'</span>
+  <span class="hljs-keyword">return</span> name
+})()
+
+<span class="hljs-comment">// good</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> name = <span class="hljs-string">'Skywalker'</span>;
+  <span class="hljs-keyword">return</span> name;
+})();
+
+<span class="hljs-comment">// good (guards against the function becoming an argument when two files with IIFEs are concatenated)</span>
+;(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> name = <span class="hljs-string">'Skywalker'</span>;
+  <span class="hljs-keyword">return</span> name;
+})();
+</code></pre>
+          <p><a href="http://stackoverflow.com/a/7365214/1712802">Read more</a>.</p>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Type_Casting__Coercion_1045"></a>Type Casting &amp; Coercion</h2>
+      <ul>
+        <li>
+          <p>Perform type coercion at the beginning of the statement.</p>
+        </li>
+        <li>
+          <p>Strings:</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">//  =&gt; this.reviewScore = 9;</span>
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> totalScore = <span class="hljs-keyword">this</span>.reviewScore + <span class="hljs-string">''</span>;
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> totalScore = <span class="hljs-string">''</span> + <span class="hljs-keyword">this</span>.reviewScore;
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> totalScore = <span class="hljs-string">''</span> + <span class="hljs-keyword">this</span>.reviewScore + <span class="hljs-string">' total score'</span>;
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> totalScore = <span class="hljs-keyword">this</span>.reviewScore + <span class="hljs-string">' total score'</span>;
+</code></pre>
+        </li>
+        <li>
+          <p>Use <code>parseInt</code> for Numbers and always with a radix for type casting.</p>
+          <pre><code class="language-javascript"><span class="hljs-keyword">var</span> inputValue = <span class="hljs-string">'4'</span>;
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> val = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Number</span>(inputValue);
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> val = +inputValue;
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> val = inputValue &gt;&gt; <span class="hljs-number">0</span>;
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> val = <span class="hljs-built_in">parseInt</span>(inputValue);
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> val = <span class="hljs-built_in">Number</span>(inputValue);
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> val = <span class="hljs-built_in">parseInt</span>(inputValue, <span class="hljs-number">10</span>);
+</code></pre>
+        </li>
+        <li>
+          <p>If for whatever reason you are doing something wild and <code>parseInt</code> is your bottleneck and need to use Bitshift for <a href="http://jsperf.com/coercion-vs-casting/3">performance reasons</a>, leave a comment explaining why and what you’re doing.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// good</span>
+<span class="hljs-comment">/**
+ * parseInt was the reason my code was slow.
+ * Bitshifting the String to coerce it to a
+ * Number made it a lot faster.
+ */</span>
+<span class="hljs-keyword">var</span> val = inputValue &gt;&gt; <span class="hljs-number">0</span>;
+</code></pre>
+        </li>
+        <li>
+          <p><strong>Note:</strong> Be careful when using bitshift operations. Numbers are represented as <a href="http://es5.github.io/#x4.3.19">64-bit values</a>, but Bitshift operations always return a 32-bit integer (<a href="http://es5.github.io/#x11.7">source</a>). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. <a href="https://github.com/airbnb/javascript/issues/109">Discussion</a>. Largest signed 32-bit Int is 2,147,483,647:</p>
+          <pre><code class="language-javascript"><span class="hljs-number">2147483647</span> &gt;&gt; <span class="hljs-number">0</span> <span class="hljs-comment">//=&gt; 2147483647</span>
+<span class="hljs-number">2147483648</span> &gt;&gt; <span class="hljs-number">0</span> <span class="hljs-comment">//=&gt; -2147483648</span>
+<span class="hljs-number">2147483649</span> &gt;&gt; <span class="hljs-number">0</span> <span class="hljs-comment">//=&gt; -2147483647</span>
+</code></pre>
+        </li>
+        <li>
+          <p>Booleans:</p>
+          <pre><code class="language-javascript"><span class="hljs-keyword">var</span> age = <span class="hljs-number">0</span>;
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> hasAge = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Boolean</span>(age);
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> hasAge = <span class="hljs-built_in">Boolean</span>(age);
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> hasAge = !!age;
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Naming_Conventions_1128"></a>Naming Conventions</h2>
+      <ul>
+        <li>
+          <p>Avoid single letter names. Be descriptive with your naming.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">q</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// ...stuff...</span>
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// ..stuff..</span>
+}
+</code></pre>
+        </li>
+        <li>
+          <p>Use camelCase when naming objects, functions, and instances.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> OBJEcttsssss = {};
+<span class="hljs-keyword">var</span> this_is_my_object = {};
+<span class="hljs-keyword">var</span> o = {};
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">c</span>(<span class="hljs-params"></span>) </span>{}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> thisIsMyObject = {};
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">thisIsMyFunction</span>(<span class="hljs-params"></span>) </span>{}
+</code></pre>
+        </li>
+        <li>
+          <p>Use PascalCase when naming constructors or classes.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">user</span>(<span class="hljs-params">options</span>) </span>{
+  <span class="hljs-keyword">this</span>.name = options.name;
+}
+
+<span class="hljs-keyword">var</span> bad = <span class="hljs-keyword">new</span> user({
+  name: <span class="hljs-string">'nope'</span>
+});
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">User</span>(<span class="hljs-params">options</span>) </span>{
+  <span class="hljs-keyword">this</span>.name = options.name;
+}
+
+<span class="hljs-keyword">var</span> good = <span class="hljs-keyword">new</span> User({
+  name: <span class="hljs-string">'yup'</span>
+});
+</code></pre>
+        </li>
+        <li>
+          <p>Do not use trailing or leading underscores.</p>
+        </li>
+      </ul>
+      <blockquote>
+        <p>Why? JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won’t count as breaking, or that tests aren’t needed. tl;dr: if you want something to be “private”, it must not be observably present.</p>
+      </blockquote>
+      <pre><code>```javascript
+// bad
+this.__firstName__ = 'Panda';
+this.firstName_ = 'Panda';
+this._firstName = 'Panda';
+
+// good
+this.firstName = 'Panda';
+```
+</code></pre>
+      <ul>
+        <li>
+          <p>Don’t save references to this. Use Function#bind.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>;
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(self);
+  };
+}
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>;
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(that);
+  };
+}
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> _this = <span class="hljs-keyword">this</span>;
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(_this);
+  };
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>);
+  }.bind(<span class="hljs-keyword">this</span>);
+}
+</code></pre>
+        </li>
+        <li>
+          <p>Name your functions. This is helpful for stack traces.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> log = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">msg</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(msg);
+};
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> log = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">log</span>(<span class="hljs-params">msg</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(msg);
+};
+</code></pre>
+        </li>
+        <li>
+          <p><strong>Note:</strong> IE8 and below exhibit some quirks with named function expressions. See <a href="http://kangax.github.io/nfe/">http://kangax.github.io/nfe/</a> for more info.</p>
+        </li>
+        <li>
+          <p>If your file exports a single class, your filename should be exactly the name of the class.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// file contents</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CheckBox</span> </span>{
+  <span class="hljs-comment">// ...</span>
+}
+<span class="hljs-built_in">module</span>.exports = CheckBox;
+
+<span class="hljs-comment">// in some other file</span>
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> CheckBox = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./checkBox'</span>);
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> CheckBox = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./check_box'</span>);
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> CheckBox = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./CheckBox'</span>);
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Accessors_1267"></a>Accessors</h2>
+      <ul>
+        <li>
+          <p>Accessor functions for properties are not required.</p>
+        </li>
+        <li>
+          <p>If you do make accessor functions use getVal() and setVal(‘hello’).</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+dragon.age();
+
+<span class="hljs-comment">// good</span>
+dragon.getAge();
+
+<span class="hljs-comment">// bad</span>
+dragon.age(<span class="hljs-number">25</span>);
+
+<span class="hljs-comment">// good</span>
+dragon.setAge(<span class="hljs-number">25</span>);
+</code></pre>
+        </li>
+        <li>
+          <p>If the property is a boolean, use isVal() or hasVal().</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">if</span> (!dragon.age()) {
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">if</span> (!dragon.hasAge()) {
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+}
+</code></pre>
+        </li>
+        <li>
+          <p>It’s okay to create get() and set() functions, but be consistent.</p>
+          <pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Jedi</span>(<span class="hljs-params">options</span>) </span>{
+  options || (options = {});
+  <span class="hljs-keyword">var</span> lightsaber = options.lightsaber || <span class="hljs-string">'blue'</span>;
+  <span class="hljs-keyword">this</span>.set(<span class="hljs-string">'lightsaber'</span>, lightsaber);
+}
+
+Jedi.prototype.set = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span>(<span class="hljs-params">key, val</span>) </span>{
+  <span class="hljs-keyword">this</span>[key] = val;
+};
+
+Jedi.prototype.get = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span>(<span class="hljs-params">key</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>[key];
+};
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Constructors_1321"></a>Constructors</h2>
+      <ul>
+        <li>
+          <p>Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you’ll overwrite the base!</p>
+          <pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Jedi</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'new jedi'</span>);
+}
+
+<span class="hljs-comment">// bad</span>
+Jedi.prototype = {
+  fight: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fight</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'fighting'</span>);
+  },
+
+  block: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">block</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'blocking'</span>);
+  }
+};
+
+<span class="hljs-comment">// good</span>
+Jedi.prototype.fight = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fight</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'fighting'</span>);
+};
+
+Jedi.prototype.block = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">block</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'blocking'</span>);
+};
+</code></pre>
+        </li>
+        <li>
+          <p>Methods can return <code>this</code> to help with method chaining.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+Jedi.prototype.jump = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">jump</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">this</span>.jumping = <span class="hljs-literal">true</span>;
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+};
+
+Jedi.prototype.setHeight = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setHeight</span>(<span class="hljs-params">height</span>) </span>{
+  <span class="hljs-keyword">this</span>.height = height;
+};
+
+<span class="hljs-keyword">var</span> luke = <span class="hljs-keyword">new</span> Jedi();
+luke.jump(); <span class="hljs-comment">// =&gt; true</span>
+luke.setHeight(<span class="hljs-number">20</span>); <span class="hljs-comment">// =&gt; undefined</span>
+
+<span class="hljs-comment">// good</span>
+Jedi.prototype.jump = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">jump</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">this</span>.jumping = <span class="hljs-literal">true</span>;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+};
+
+Jedi.prototype.setHeight = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setHeight</span>(<span class="hljs-params">height</span>) </span>{
+  <span class="hljs-keyword">this</span>.height = height;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+};
+
+<span class="hljs-keyword">var</span> luke = <span class="hljs-keyword">new</span> Jedi();
+
+luke.jump()
+  .setHeight(<span class="hljs-number">20</span>);
+</code></pre>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <p>It’s okay to write a custom toString() method, just make sure it works successfully and causes no side effects.</p>
+          <pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Jedi</span>(<span class="hljs-params">options</span>) </span>{
+  options || (options = {});
+  <span class="hljs-keyword">this</span>.name = options.name || <span class="hljs-string">'no name'</span>;
+}
+
+Jedi.prototype.getName = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getName</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name;
+};
+
+Jedi.prototype.toString = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toString</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">'Jedi - '</span> + <span class="hljs-keyword">this</span>.getName();
+};
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Events_1406"></a>Events</h2>
+      <ul>
+        <li>
+          <p>When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:</p>
+          <pre><code class="language-js"><span class="hljs-comment">// bad</span>
+$(<span class="hljs-keyword">this</span>).trigger(<span class="hljs-string">'listingUpdated'</span>, listing.id);
+
+...
+
+$(<span class="hljs-keyword">this</span>).on(<span class="hljs-string">'listingUpdated'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e, listingId</span>) </span>{
+  <span class="hljs-comment">// do something with listingId</span>
+});
+</code></pre>
+          <p>prefer:</p>
+          <pre><code class="language-js"><span class="hljs-comment">// good</span>
+$(<span class="hljs-keyword">this</span>).trigger(<span class="hljs-string">'listingUpdated'</span>, { listingId : listing.id });
+
+...
+
+$(<span class="hljs-keyword">this</span>).on(<span class="hljs-string">'listingUpdated'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e, data</span>) </span>{
+  <span class="hljs-comment">// do something with data.listingId</span>
+});
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Modules_1437"></a>Modules</h2>
+      <ul>
+        <li>
+          <p>The module should start with a <code>!</code>. This ensures that if a malformed module forgets to include a final semicolon there aren’t errors in production when the scripts get concatenated. <a href="https://github.com/airbnb/javascript/issues/44#issuecomment-13063933">Explanation</a></p>
+        </li>
+        <li>
+          <p>The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.</p>
+        </li>
+        <li>
+          <p>Add a method called <code>noConflict()</code> that sets the exported module to the previous version and returns this one.</p>
+        </li>
+        <li>
+          <p>Always declare <code>'use strict';</code> at the top of the module.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// fancyInput/fancyInput.js</span>
+
+!<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">global</span>) </span>{
+<span class="hljs-pi">  'use strict'</span>;
+
+  <span class="hljs-keyword">var</span> previousFancyInput = global.FancyInput;
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">FancyInput</span>(<span class="hljs-params">options</span>) </span>{
+    <span class="hljs-keyword">this</span>.options = options || {};
+  }
+
+  FancyInput.noConflict = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">noConflict</span>(<span class="hljs-params"></span>) </span>{
+    global.FancyInput = previousFancyInput;
+    <span class="hljs-keyword">return</span> FancyInput;
+  };
+
+  global.FancyInput = FancyInput;
+}(<span class="hljs-keyword">this</span>);
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="jQuery_1468"></a>jQuery</h2>
+      <ul>
+        <li>
+          <p>Prefix jQuery object variables with a <code>$</code>.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">var</span> sidebar = $(<span class="hljs-string">'.sidebar'</span>);
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-keyword">var</span> $sidebar = $(<span class="hljs-string">'.sidebar'</span>);
+</code></pre>
+        </li>
+        <li>
+          <p>Cache jQuery lookups.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setSidebar</span>(<span class="hljs-params"></span>) </span>{
+  $(<span class="hljs-string">'.sidebar'</span>).hide();
+
+  <span class="hljs-comment">// ...stuff...</span>
+
+  $(<span class="hljs-string">'.sidebar'</span>).css({
+    <span class="hljs-string">'background-color'</span>: <span class="hljs-string">'pink'</span>
+  });
+}
+
+<span class="hljs-comment">// good</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setSidebar</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> $sidebar = $(<span class="hljs-string">'.sidebar'</span>);
+  $sidebar.hide();
+
+  <span class="hljs-comment">// ...stuff...</span>
+
+  $sidebar.css({
+    <span class="hljs-string">'background-color'</span>: <span class="hljs-string">'pink'</span>
+  });
+}
+</code></pre>
+        </li>
+        <li>
+          <p>For DOM queries use Cascading <code>$('.sidebar ul')</code> or parent &gt; child <code>$('.sidebar &gt; ul')</code>. <a href="http://jsperf.com/jquery-find-vs-context-sel/16">jsPerf</a></p>
+        </li>
+        <li>
+          <p>Use <code>find</code> with scoped jQuery object queries.</p>
+          <pre><code class="language-javascript"><span class="hljs-comment">// bad</span>
+$(<span class="hljs-string">'ul'</span>, <span class="hljs-string">'.sidebar'</span>).hide();
+
+<span class="hljs-comment">// bad</span>
+$(<span class="hljs-string">'.sidebar'</span>).find(<span class="hljs-string">'ul'</span>).hide();
+
+<span class="hljs-comment">// good</span>
+$(<span class="hljs-string">'.sidebar ul'</span>).hide();
+
+<span class="hljs-comment">// good</span>
+$(<span class="hljs-string">'.sidebar &gt; ul'</span>).hide();
+
+<span class="hljs-comment">// good</span>
+$sidebar.find(<span class="hljs-string">'ul'</span>).hide();
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="ECMAScript_5_Compatibility_1530"></a>ECMAScript 5 Compatibility</h2>
+      <ul>
+        <li>Refer to <a href="https://twitter.com/kangax/">Kangax</a>'s ES5 <a href="http://kangax.github.com/es5-compat-table/">compatibility table</a>.</li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Testing_1537"></a>Testing</h2>
+      <ul>
+        <li>
+          <p><strong>Yup.</strong></p>
+          <pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+</code></pre>
+        </li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Performance_1550"></a>Performance</h2>
+      <ul>
+        <li><a href="http://kellegous.com/j/2013/01/26/layout-performance/">On Layout &amp; Web Performance</a></li>
+        <li><a href="http://jsperf.com/string-vs-array-concat/2">String vs Array Concat</a></li>
+        <li><a href="http://jsperf.com/try-catch-in-loop-cost">Try/Catch Cost In a Loop</a></li>
+        <li><a href="http://jsperf.com/bang-function">Bang Function</a></li>
+        <li><a href="http://jsperf.com/jquery-find-vs-context-sel/13">jQuery Find vs Context, Selector</a></li>
+        <li><a href="http://jsperf.com/innerhtml-vs-textcontent-for-script-text">innerHTML vs textContent for script text</a></li>
+        <li><a href="http://jsperf.com/ya-string-concat">Long String Concatenation</a></li>
+        <li>Loading…</li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="Resources_1564"></a>Resources</h2>
+      <p><strong>Read This</strong></p>
+      <ul>
+        <li><a href="http://es5.github.com/">Annotated ECMAScript 5.1</a></li>
+      </ul>
+      <p><strong>Tools</strong></p>
+      <ul>
+        <li>Code Style Linters
+          <ul>
+            <li><a href="http://www.jshint.com/">JSHint</a> - <a href="https://github.com/airbnb/javascript/blob/master/linters/.jshintrc">Airbnb Style .jshintrc</a></li>
+            <li><a href="https://github.com/jscs-dev/node-jscs">JSCS</a> - <a href="https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json">Airbnb Style Preset</a></li>
+          </ul>
+        </li>
+      </ul>
+      <p><strong>Other Style Guides</strong></p>
+      <ul>
+        <li><a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml">Google JavaScript Style Guide</a></li>
+        <li><a href="http://docs.jquery.com/JQuery_Core_Style_Guidelines">jQuery Core Style Guidelines</a></li>
+        <li><a href="https://github.com/rwldrn/idiomatic.js/">Principles of Writing Consistent, Idiomatic JavaScript</a></li>
+        <li><a href="https://github.com/feross/standard">JavaScript Standard Style</a></li>
+      </ul>
+      <p><strong>Other Styles</strong></p>
+      <ul>
+        <li><a href="https://gist.github.com/4135065">Naming this in nested functions</a> - Christian Johansen</li>
+        <li><a href="https://github.com/airbnb/javascript/issues/52">Conditional Callbacks</a> - Ross Allen</li>
+        <li><a href="http://sideeffect.kr/popularconvention/#javascript">Popular JavaScript Coding Conventions on Github</a> - JeongHoon Byun</li>
+        <li><a href="http://benalman.com/news/2012/05/multiple-var-statements-javascript/">Multiple var statements in JavaScript, not superfluous</a> - Ben Alman</li>
+      </ul>
+      <p><strong>Further Reading</strong></p>
+      <ul>
+        <li><a href="http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/">Understanding JavaScript Closures</a> - Angus Croll</li>
+        <li><a href="http://www.2ality.com/2013/06/basic-javascript.html">Basic JavaScript for the impatient programmer</a> - Dr. Axel Rauschmayer</li>
+        <li><a href="http://youmightnotneedjquery.com/">You Might Not Need jQuery</a> - Zack Bloom &amp; Adam Schwartz</li>
+        <li><a href="https://github.com/lukehoban/es6features">ES6 Features</a> - Luke Hoban</li>
+        <li><a href="https://github.com/bendc/frontend-guidelines">Frontend Guidelines</a> - Benjamin De Cock</li>
+      </ul>
+      <p><strong>Books</strong></p>
+      <ul>
+        <li><a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742">JavaScript: The Good Parts</a> - Douglas Crockford</li>
+        <li><a href="http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752">JavaScript Patterns</a> - Stoyan Stefanov</li>
+        <li><a href="http://www.amazon.com/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X">Pro JavaScript Design Patterns</a> - Ross Harmes and Dustin Diaz</li>
+        <li><a href="http://www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309">High Performance Web Sites: Essential Knowledge for Front-End Engineers</a> - Steve Souders</li>
+        <li><a href="http://www.amazon.com/Maintainable-JavaScript-Nicholas-C-Zakas/dp/1449327680">Maintainable JavaScript</a> - Nicholas C. Zakas</li>
+        <li><a href="http://www.amazon.com/JavaScript-Web-Applications-Alex-MacCaw/dp/144930351X">JavaScript Web Applications</a> - Alex MacCaw</li>
+        <li><a href="http://www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273">Pro JavaScript Techniques</a> - John Resig</li>
+        <li><a href="http://www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595">Smashing Node.js: JavaScript Everywhere</a> - Guillermo Rauch</li>
+        <li><a href="http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X">Secrets of the JavaScript Ninja</a> - John Resig and Bear Bibeault</li>
+        <li><a href="http://humanjavascript.com/">Human JavaScript</a> - Henrik Joreteg</li>
+        <li><a href="http://superherojs.com/">Superhero.js</a> - Kim Joar Bekkelund, Mads Mobæk, &amp; Olav Bjorkoy</li>
+        <li><a href="http://jsbooks.revolunet.com/">JSBooks</a> - Julien Bouquillon</li>
+        <li><a href="http://manning.com/vinegar/">Third Party JavaScript</a> - Ben Vinegar and Anton Kovalyov</li>
+        <li><a href="http://amzn.com/0321812182">Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript</a> - David Herman</li>
+        <li><a href="http://eloquentjavascript.net">Eloquent JavaScript</a> - Marijn Haverbeke</li>
+        <li><a href="https://github.com/getify/You-Dont-Know-JS">You Don’t Know JS</a> - Kyle Simpson</li>
+      </ul>
+      <p><strong>Blogs</strong></p>
+      <ul>
+        <li><a href="http://dailyjs.com/">DailyJS</a></li>
+        <li><a href="http://javascriptweekly.com/">JavaScript Weekly</a></li>
+        <li><a href="http://javascriptweblog.wordpress.com/">JavaScript, JavaScript…</a></li>
+        <li><a href="http://weblog.bocoup.com/">Bocoup Weblog</a></li>
+        <li><a href="http://www.adequatelygood.com/">Adequately Good</a></li>
+        <li><a href="http://www.nczonline.net/">NCZOnline</a></li>
+        <li><a href="http://perfectionkills.com/">Perfection Kills</a></li>
+        <li><a href="http://benalman.com/">Ben Alman</a></li>
+        <li><a href="http://dmitry.baranovskiy.com/">Dmitry Baranovskiy</a></li>
+        <li><a href="http://dustindiaz.com/">Dustin Diaz</a></li>
+        <li><a href="http://net.tutsplus.com/?s=javascript">nettuts</a></li>
+      </ul>
+      <p><strong>Podcasts</strong></p>
+      <ul>
+        <li><a href="http://devchat.tv/js-jabber/">JavaScript Jabber</a></li>
+      </ul>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h2><a id="In_the_Wild_1639"></a>In the Wild</h2>
+      <p>This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we’ll add you to the list.</p>
+      <ul>
+        <li><strong>Aan Zee</strong>: <a href="https://github.com/AanZee/javascript">AanZee/javascript</a></li>
+        <li><strong>Adult Swim</strong>: <a href="https://github.com/adult-swim/javascript">adult-swim/javascript</a></li>
+        <li><strong>Airbnb</strong>: <a href="https://github.com/airbnb/javascript">airbnb/javascript</a></li>
+        <li><strong>Apartmint</strong>: <a href="https://github.com/apartmint/javascript">apartmint/javascript</a></li>
+        <li><strong>Avalara</strong>: <a href="https://github.com/avalara/javascript">avalara/javascript</a></li>
+        <li><strong>Billabong</strong>: <a href="https://github.com/billabong/javascript">billabong/javascript</a></li>
+        <li><strong>Compass Learning</strong>: <a href="https://github.com/compasslearning/javascript-style-guide">compasslearning/javascript-style-guide</a></li>
+        <li><strong>DailyMotion</strong>: <a href="https://github.com/dailymotion/javascript">dailymotion/javascript</a></li>
+        <li><strong>Digitpaint</strong> <a href="https://github.com/digitpaint/javascript">digitpaint/javascript</a></li>
+        <li><strong>Evernote</strong>: <a href="https://github.com/evernote/javascript-style-guide">evernote/javascript-style-guide</a></li>
+        <li><strong>ExactTarget</strong>: <a href="https://github.com/ExactTarget/javascript">ExactTarget/javascript</a></li>
+        <li><strong>Flexberry</strong>: <a href="https://github.com/Flexberry/javascript-style-guide">Flexberry/javascript-style-guide</a></li>
+        <li><strong>Gawker Media</strong>: <a href="https://github.com/gawkermedia/javascript">gawkermedia/javascript</a></li>
+        <li><strong>General Electric</strong>: <a href="https://github.com/GeneralElectric/javascript">GeneralElectric/javascript</a></li>
+        <li><strong>GoodData</strong>: <a href="https://github.com/gooddata/gdc-js-style">gooddata/gdc-js-style</a></li>
+        <li><strong>Grooveshark</strong>: <a href="https://github.com/grooveshark/javascript">grooveshark/javascript</a></li>
+        <li><strong>How About We</strong>: <a href="https://github.com/howaboutwe/javascript">howaboutwe/javascript</a></li>
+        <li><strong>InfoJobs</strong>: <a href="https://github.com/InfoJobs/JavaScript-Style-Guide">InfoJobs/JavaScript-Style-Guide</a></li>
+        <li><strong>Intent Media</strong>: <a href="https://github.com/intentmedia/javascript">intentmedia/javascript</a></li>
+        <li><strong>Jam3</strong>: <a href="https://github.com/Jam3/Javascript-Code-Conventions">Jam3/Javascript-Code-Conventions</a></li>
+        <li><strong>JSSolutions</strong>: <a href="https://github.com/JSSolutions/javascript">JSSolutions/javascript</a></li>
+        <li><strong>Kinetica Solutions</strong>: <a href="https://github.com/kinetica/javascript">kinetica/javascript</a></li>
+        <li><strong>Mighty Spring</strong>: <a href="https://github.com/mightyspring/javascript">mightyspring/javascript</a></li>
+        <li><strong>MinnPost</strong>: <a href="https://github.com/MinnPost/javascript">MinnPost/javascript</a></li>
+        <li><strong>ModCloth</strong>: <a href="https://github.com/modcloth/javascript">modcloth/javascript</a></li>
+        <li><strong>Money Advice Service</strong>: <a href="https://github.com/moneyadviceservice/javascript">moneyadviceservice/javascript</a></li>
+        <li><strong>Muber</strong>: <a href="https://github.com/muber/javascript">muber/javascript</a></li>
+        <li><strong>National Geographic</strong>: <a href="https://github.com/natgeo/javascript">natgeo/javascript</a></li>
+        <li><strong>National Park Service</strong>: <a href="https://github.com/nationalparkservice/javascript">nationalparkservice/javascript</a></li>
+        <li><strong>Nimbl3</strong>: <a href="https://github.com/nimbl3/javascript">nimbl3/javascript</a></li>
+        <li><strong>Nordic Venture Family</strong>: <a href="https://github.com/CodeDistillery/javascript">CodeDistillery/javascript</a></li>
+        <li><strong>Orion Health</strong>: <a href="https://github.com/orionhealth/javascript">orionhealth/javascript</a></li>
+        <li><strong>Peerby</strong>: <a href="https://github.com/Peerby/javascript">Peerby/javascript</a></li>
+        <li><strong>Razorfish</strong>: <a href="https://github.com/razorfish/javascript-style-guide">razorfish/javascript-style-guide</a></li>
+        <li><strong>reddit</strong>: <a href="https://github.com/reddit/styleguide/tree/master/javascript">reddit/styleguide/javascript</a></li>
+        <li><strong>REI</strong>: <a href="https://github.com/reidev/js-style-guide">reidev/js-style-guide</a></li>
+        <li><strong>Ripple</strong>: <a href="https://github.com/ripple/javascript-style-guide">ripple/javascript-style-guide</a></li>
+        <li><strong>SeekingAlpha</strong>: <a href="https://github.com/seekingalpha/javascript-style-guide">seekingalpha/javascript-style-guide</a></li>
+        <li><strong>Shutterfly</strong>: <a href="https://github.com/shutterfly/javascript">shutterfly/javascript</a></li>
+        <li><strong>StudentSphere</strong>: <a href="https://github.com/studentsphere/javascript">studentsphere/javascript</a></li>
+        <li><strong>Super</strong>: <a href="https://github.com/SuperJobs/javascript">SuperJobs/javascript</a></li>
+        <li><strong>SysGarage</strong>: <a href="https://github.com/sysgarage/javascript-style-guide">sysgarage/javascript-style-guide</a></li>
+        <li><strong>Target</strong>: <a href="https://github.com/target/javascript">target/javascript</a></li>
+        <li><strong>TheLadders</strong>: <a href="https://github.com/TheLadders/javascript">TheLadders/javascript</a></li>
+        <li><strong>T4R Technology</strong>: <a href="https://github.com/T4R-Technology/javascript">T4R-Technology/javascript</a></li>
+        <li><strong>VoxFeed</strong>: <a href="https://github.com/VoxFeed/javascript-style-guide">VoxFeed/javascript-style-guide</a></li>
+        <li><strong>Weggo</strong>: <a href="https://github.com/Weggo/javascript">Weggo/javascript</a></li>
+        <li><strong>Zillow</strong>: <a href="https://github.com/zillow/javascript">zillow/javascript</a></li>
+        <li><strong>ZocDoc</strong>: <a href="https://github.com/ZocDoc/javascript">ZocDoc/javascript</a></li>
+      </ul>
+      <h2><a id="Translation_1693"></a>Translation</h2>
+      <p>This style guide is also available in other languages:</p>
+      <ul>
+        <li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png" alt="br"> <strong>Brazilian Portuguese</strong>: <a href="https://github.com/armoucar/javascript-style-guide">armoucar/javascript-style-guide</a></li>
+        <li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png" alt="bg"> <strong>Bulgarian</strong>: <a href="https://github.com/borislavvv/javascript">borislavvv/javascript</a></li>
+        <li><img src="https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png" alt="ca"> <strong>Catalan</strong>: <a href="https://github.com/fpmweb/javascript-style-guide">fpmweb/javascript-style-guide</a></li>
+        <li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png" alt="tw"> <strong>Chinese(Traditional)</strong>: <a href="https://github.com/jigsawye/javascript">jigsawye/javascript</a></li>
+        <li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png" alt="cn"> <strong>Chinese(Simplified)</strong>: <a href="https://github.com/sivan/javascript-style-guide">sivan/javascript-style-guide</a></li>
+        <li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/France.png" alt="fr"> <strong>French</strong>: <a href="https://github.com/nmussy/javascript-style-guide">nmussy/javascript-style-guide</a></li>
+        <li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png" alt="de"> <strong>German</strong>: <a href="https://github.com/timofurrer/javascript-style-guide">timofurrer/javascript-style-guide</a></li>
+        <li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png" alt="it"> <strong>Italian</strong>: <a href="https://github.com/sinkswim/javascript-style-guide">sinkswim/javascript-style-guide</a></li>
+        <li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png" alt="jp"> <strong>Japanese</strong>: <a href="https://github.com/mitsuruog/javacript-style-guide">mitsuruog/javacript-style-guide</a></li>
+        <li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png" alt="kr"> <strong>Korean</strong>: <a href="https://github.com/tipjs/javascript-style-guide">tipjs/javascript-style-guide</a></li>
+        <li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png" alt="pl"> <strong>Polish</strong>: <a href="https://github.com/mjurczyk/javascript">mjurczyk/javascript</a></li>
+        <li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png" alt="ru"> <strong>Russian</strong>: <a href="https://github.com/uprock/javascript">uprock/javascript</a></li>
+        <li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png" alt="es"> <strong>Spanish</strong>: <a href="https://github.com/paolocarrasco/javascript-style-guide">paolocarrasco/javascript-style-guide</a></li>
+        <li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png" alt="th"> <strong>Thai</strong>: <a href="https://github.com/lvarayut/javascript-style-guide">lvarayut/javascript-style-guide</a></li>
+      </ul>
+      <h2><a id="The_JavaScript_Style_Guide_Guide_1712"></a>The JavaScript Style Guide Guide</h2>
+      <ul>
+        <li><a href="https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide">Reference</a></li>
+      </ul>
+      <h2><a id="Chat_With_Us_About_JavaScript_1716"></a>Chat With Us About JavaScript</h2>
+      <ul>
+        <li>Find us on <a href="https://gitter.im/airbnb/javascript">gitter</a>.</li>
+      </ul>
+      <h2><a id="Contributors_1720"></a>Contributors</h2>
+      <ul>
+        <li><a href="https://github.com/airbnb/javascript/graphs/contributors">View Contributors</a></li>
+      </ul>
+      <h2><a id="License_1725"></a>License</h2>
+      <p>(The MIT License)</p>
+      <p>Copyright © 2014 Airbnb</p>
+      <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the ‘Software’), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+      <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+      <p>THE SOFTWARE IS PROVIDED ‘AS IS’, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+      <p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+      <h1><a id="_1752"></a>};</h1>
+    </section>
+  </body>
+</html>
