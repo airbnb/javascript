@@ -1887,10 +1887,10 @@ Diğer Rehberler
   <a name="comparison--switch-blocks"></a><a name="15.5"></a>
   - [15.5](#comparison--switch-blocks) Lexical tanımlar barındıran (`let`, `const`, `function`, ve `class` gibi) `case` ve `default` bloklarında süslü parantez kullanın. eslint: [`no-case-declarations`](https://eslint.org/docs/rules/no-case-declarations.html)
 
-    > Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
+    > Neden? Lexical tanımlamalar tüm `switch` bloğunda görünür durumdadır ve herhangi bir `case` çalıştığında uygulanır. Bu durum birden fazla `case` bulunması halinde aynı tanımlamanın çalışmasına neden olur.
 
     ```javascript
-    // bad
+    // kötü
     switch (foo) {
       case 1:
         let x = 1;
@@ -1907,7 +1907,7 @@ Diğer Rehberler
         class C {}
     }
 
-    // good
+    // iyi
     switch (foo) {
       case 1: {
         let x = 1;
@@ -1933,10 +1933,10 @@ Diğer Rehberler
     ```
 
   <a name="comparison--nested-ternaries"></a><a name="15.6"></a>
-  - [15.6](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions. eslint: [`no-nested-ternary`](https://eslint.org/docs/rules/no-nested-ternary.html)
+  - [15.6](#comparison--nested-ternaries) Ternary operatorler tek satırda yazılmalıdır ve nested kullanımdan kaçınılmalıdır. eslint: [`no-nested-ternary`](https://eslint.org/docs/rules/no-nested-ternary.html)
 
     ```javascript
-    // bad
+    // kötü
     const foo = maybe1 > maybe2
       ? "bar"
       : value1 > value2 ? "baz" : null;
@@ -1944,97 +1944,97 @@ Diğer Rehberler
     // split into 2 separated ternary expressions
     const maybeNull = value1 > value2 ? 'baz' : null;
 
-    // better
+    // iyi
     const foo = maybe1 > maybe2
       ? 'bar'
       : maybeNull;
 
-    // best
+    // çok iyi
     const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
     ```
 
   <a name="comparison--unneeded-ternary"></a><a name="15.7"></a>
-  - [15.7](#comparison--unneeded-ternary) Avoid unneeded ternary statements. eslint: [`no-unneeded-ternary`](https://eslint.org/docs/rules/no-unneeded-ternary.html)
+  - [15.7](#comparison--unneeded-ternary) Gerektis ternary ifadelerden kaçınılmalıdır. eslint: [`no-unneeded-ternary`](https://eslint.org/docs/rules/no-unneeded-ternary.html)
 
     ```javascript
-    // bad
+    // kötü
     const foo = a ? a : b;
     const bar = c ? true : false;
     const baz = c ? false : true;
 
-    // good
+    // iyi
     const foo = a || b;
     const bar = !!c;
     const baz = !c;
     ```
 
   <a name="comparison--no-mixed-operators"></a>
-  - [15.8](#comparison--no-mixed-operators) When mixing operators, enclose them in parentheses. The only exception is the standard arithmetic operators (`+`, `-`, `*`, & `/`) since their precedence is broadly understood. eslint: [`no-mixed-operators`](https://eslint.org/docs/rules/no-mixed-operators.html)
+  - [15.8](#comparison--no-mixed-operators) Operatörlerin karışması durumunda parantez kullanın. Standard aritmatik operatörlerde (`+`, `-`, `*`, & `/`) öncelik bilindiği için kullanılmasına gerek yoktur. eslint: [`no-mixed-operators`](https://eslint.org/docs/rules/no-mixed-operators.html)
 
-    > Why? This improves readability and clarifies the developer’s intention.
+    > Neden? Bu kullanım okunabilirliği artırır ve ifadeyi daha anlaşılır kılar.
 
     ```javascript
-    // bad
+    // kötü
     const foo = a && b < 0 || c > 0 || d + 1 === 0;
 
-    // bad
+    // kötü
     const bar = a ** b - 5 % d;
 
-    // bad
+    // kötü
     // one may be confused into thinking (a || b) && c
     if (a || b && c) {
       return d;
     }
 
-    // good
+    // iyi
     const foo = (a && b < 0) || c > 0 || (d + 1 === 0);
 
-    // good
+    // iyi
     const bar = (a ** b) - (5 % d);
 
-    // good
+    // iyi
     if (a || (b && c)) {
       return d;
     }
 
-    // good
+    // iyi
     const bar = a + b / c * d;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
 ## Blocks
 
   <a name="blocks--braces"></a><a name="16.1"></a>
-  - [16.1](#blocks--braces) Use braces with all multi-line blocks. eslint: [`nonblock-statement-body-position`](https://eslint.org/docs/rules/nonblock-statement-body-position)
+  - [16.1](#blocks--braces) Çok satırlı blokların tamamında süslü parantez kullanın. eslint: [`nonblock-statement-body-position`](https://eslint.org/docs/rules/nonblock-statement-body-position)
 
     ```javascript
-    // bad
+    // kötü
     if (test)
       return false;
 
-    // good
+    // iyi
     if (test) return false;
 
-    // good
+    // iyi
     if (test) {
       return false;
     }
 
-    // bad
+    // kötü
     function foo() { return false; }
 
-    // good
+    // iyi
     function bar() {
       return false;
     }
     ```
 
   <a name="blocks--cuddled-elses"></a><a name="16.2"></a>
-  - [16.2](#blocks--cuddled-elses) If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your `if` block’s closing brace. eslint: [`brace-style`](https://eslint.org/docs/rules/brace-style.html) jscs:  [`disallowNewlineBeforeBlockStatements`](http://jscs.info/rule/disallowNewlineBeforeBlockStatements)
+  - [16.2](#blocks--cuddled-elses) `if` ve `else` içeren çok satırlı bloklarda, `else`', `if` bloğunun kapandığı satırda başlatın. eslint: [`brace-style`](https://eslint.org/docs/rules/brace-style.html) jscs:  [`disallowNewlineBeforeBlockStatements`](http://jscs.info/rule/disallowNewlineBeforeBlockStatements)
 
     ```javascript
-    // bad
+    // kötü
     if (test) {
       thing1();
       thing2();
@@ -2043,7 +2043,7 @@ Diğer Rehberler
       thing3();
     }
 
-    // good
+    // iyi
     if (test) {
       thing1();
       thing2();
@@ -2053,10 +2053,10 @@ Diğer Rehberler
     ```
 
   <a name="blocks--no-else-return"></a><a name="16.3"></a>
-  - [16.3](#blocks--no-else-return) If an `if` block always executes a `return` statement, the subsequent `else` block is unnecessary. A `return` in an `else if` block following an `if` block that contains a `return` can be separated into multiple `if` blocks. eslint: [`no-else-return`](https://eslint.org/docs/rules/no-else-return)
+  - [16.3](#blocks--no-else-return) Eğer `if` bloğu daima bir `return` barındırıyorsa, `else` bloğunu kullanmayın. `return` barındıran `if` bloğunu takip eden, `return` barındıran `else if` blokları birden fazla `if` bloğuna dönüştürülebilir. eslint: [`no-else-return`](https://eslint.org/docs/rules/no-else-return)
 
     ```javascript
-    // bad
+    // kötü
     function foo() {
       if (x) {
         return x;
@@ -2065,7 +2065,7 @@ Diğer Rehberler
       }
     }
 
-    // bad
+    // kötü
     function cats() {
       if (x) {
         return x;
@@ -2074,7 +2074,7 @@ Diğer Rehberler
       }
     }
 
-    // bad
+    // kötü
     function dogs() {
       if (x) {
         return x;
@@ -2085,7 +2085,7 @@ Diğer Rehberler
       }
     }
 
-    // good
+    // iyi
     function foo() {
       if (x) {
         return x;
@@ -2094,7 +2094,7 @@ Diğer Rehberler
       return y;
     }
 
-    // good
+    // iyi
     function cats() {
       if (x) {
         return x;
@@ -2105,7 +2105,7 @@ Diğer Rehberler
       }
     }
 
-    //good
+    //iyi
     function dogs(x) {
       if (x) {
         if (z) {
@@ -2117,7 +2117,7 @@ Diğer Rehberler
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
 ## Control Statements
 
