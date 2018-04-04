@@ -2299,10 +2299,10 @@ Diğer Rehberler
     ```
 
   <a name="comments--actionitems"></a><a name="17.3"></a>
-  - [18.4](#comments--actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
+  - [18.4](#comments--actionitems) `FIXME` veya `TODO` kullanarak, geliştiricilere sorun hakkında bilgi verebilir ya da geliştiricilerin ilgili bölümde yapması gerekenler konusunda notlar bırakabilirsiniz. Bu kullanım standart yorumların aksine bir görevi işaret eder. Görevler; `FIXME: -- bu sorunun çözülmesi gerekiyor` veya `TODO: -- bu işlevin implemente edilmesi gerekiyor`.
 
   <a name="comments--fixme"></a><a name="17.4"></a>
-  - [18.5](#comments--fixme) Use `// FIXME:` to annotate problems.
+  - [18.5](#comments--fixme) Sorunlara dikkat çekmek için `// FIXME:` kullanın.
 
     ```javascript
     class Calculator extends Abacus {
@@ -2316,7 +2316,7 @@ Diğer Rehberler
     ```
 
   <a name="comments--todo"></a><a name="17.5"></a>
-  - [18.6](#comments--todo) Use `// TODO:` to annotate solutions to problems.
+  - [18.6](#comments--todo) Sorunlara çözüm önermek için `// TODO:` kullanın.
 
     ```javascript
     class Calculator extends Abacus {
@@ -2329,51 +2329,51 @@ Diğer Rehberler
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
 ## Whitespace
 
   <a name="whitespace--spaces"></a><a name="18.1"></a>
-  - [19.1](#whitespace--spaces) Use soft tabs (space character) set to 2 spaces. eslint: [`indent`](https://eslint.org/docs/rules/indent.html) jscs: [`validateIndentation`](http://jscs.info/rule/validateIndentation)
+  - [19.1](#whitespace--spaces) Soft tab'ı(boşluk karakteri) 2 boşluğa ayarlayın. eslint: [`indent`](https://eslint.org/docs/rules/indent.html) jscs: [`validateIndentation`](http://jscs.info/rule/validateIndentation)
 
     ```javascript
-    // bad
+    // kötü
     function foo() {
     ∙∙∙∙let name;
     }
 
-    // bad
+    // kötü
     function bar() {
     ∙let name;
     }
 
-    // good
+    // iyi
     function baz() {
     ∙∙let name;
     }
     ```
 
   <a name="whitespace--before-blocks"></a><a name="18.2"></a>
-  - [19.2](#whitespace--before-blocks) Place 1 space before the leading brace. eslint: [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
+  - [19.2](#whitespace--before-blocks) Bloğu kapsayan süslü parantez öncesinde bir adet boşluk karakteri kullanın. eslint: [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
 
     ```javascript
-    // bad
+    // kötü
     function test(){
       console.log('test');
     }
 
-    // good
+    // iyi
     function test() {
       console.log('test');
     }
 
-    // bad
+    // kötü
     dog.set('attr',{
       age: '1 year',
       breed: 'Bernese Mountain Dog',
     });
 
-    // good
+    // iyi
     dog.set('attr', {
       age: '1 year',
       breed: 'Bernese Mountain Dog',
@@ -2381,53 +2381,53 @@ Diğer Rehberler
     ```
 
   <a name="whitespace--around-keywords"></a><a name="18.3"></a>
-  - [19.3](#whitespace--around-keywords) Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`keyword-spacing`](https://eslint.org/docs/rules/keyword-spacing.html) jscs: [`requireSpaceAfterKeywords`](http://jscs.info/rule/requireSpaceAfterKeywords)
+  - [19.3](#whitespace--around-keywords) Kontrol ifadelerindeki (`if`, `while` vb.) parantez öncesinde bir adet boşluk karakteri kullanın. Fonksiyon çağrıları ve fonksiyon tanımlarındaki parametreler arasında ya da adlarda boşluk kullanmayın. eslint: [`keyword-spacing`](https://eslint.org/docs/rules/keyword-spacing.html) jscs: [`requireSpaceAfterKeywords`](http://jscs.info/rule/requireSpaceAfterKeywords)
 
     ```javascript
-    // bad
+    // kötü
     if(isJedi) {
       fight ();
     }
 
-    // good
+    // iyi
     if (isJedi) {
       fight();
     }
 
-    // bad
+    // kötü
     function fight () {
       console.log ('Swooosh!');
     }
 
-    // good
+    // iyi
     function fight() {
       console.log('Swooosh!');
     }
     ```
 
   <a name="whitespace--infix-ops"></a><a name="18.4"></a>
-  - [19.4](#whitespace--infix-ops) Set off operators with spaces. eslint: [`space-infix-ops`](https://eslint.org/docs/rules/space-infix-ops.html) jscs: [`requireSpaceBeforeBinaryOperators`](http://jscs.info/rule/requireSpaceBeforeBinaryOperators), [`requireSpaceAfterBinaryOperators`](http://jscs.info/rule/requireSpaceAfterBinaryOperators)
+  - [19.4](#whitespace--infix-ops) Operatörleri boşluk karakteri ile ayırın. eslint: [`space-infix-ops`](https://eslint.org/docs/rules/space-infix-ops.html) jscs: [`requireSpaceBeforeBinaryOperators`](http://jscs.info/rule/requireSpaceBeforeBinaryOperators), [`requireSpaceAfterBinaryOperators`](http://jscs.info/rule/requireSpaceAfterBinaryOperators)
 
     ```javascript
-    // bad
+    // kötü
     const x=y+5;
 
-    // good
+    // iyi
     const x = y + 5;
     ```
 
   <a name="whitespace--newline-at-end"></a><a name="18.5"></a>
-  - [19.5](#whitespace--newline-at-end) End files with a single newline character. eslint: [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md)
+  - [19.5](#whitespace--newline-at-end) Dosya sonlarında yeni satır karakterini kullanın. eslint: [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md)
 
     ```javascript
-    // bad
+    // kötü
     import { es6 } from './AirbnbStyleGuide';
       // ...
     export default es6;
     ```
 
     ```javascript
-    // bad
+    // kötü
     import { es6 } from './AirbnbStyleGuide';
       // ...
     export default es6;↵
@@ -2435,21 +2435,20 @@ Diğer Rehberler
     ```
 
     ```javascript
-    // good
+    // iyi
     import { es6 } from './AirbnbStyleGuide';
       // ...
     export default es6;↵
     ```
 
   <a name="whitespace--chains"></a><a name="18.6"></a>
-  - [19.6](#whitespace--chains) Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which
-    emphasizes that the line is a method call, not a new statement. eslint: [`newline-per-chained-call`](https://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](https://eslint.org/docs/rules/no-whitespace-before-property)
+  - [19.6](#whitespace--chains) Uzun metod chain'lerinde (2 den fazla) girintiler oluşturun. Nokta ile başlayan satırlar satırın bir ifade değil bir metod çağrısı olduğunu belirtecektir. eslint: [`newline-per-chained-call`](https://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](https://eslint.org/docs/rules/no-whitespace-before-property)
 
     ```javascript
-    // bad
+    // kötü
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
-    // bad
+    // kötü
     $('#items').
       find('.selected').
         highlight().
@@ -2457,7 +2456,7 @@ Diğer Rehberler
       find('.open').
         updateCount();
 
-    // good
+    // iyi
     $('#items')
       .find('.selected')
         .highlight()
@@ -2465,13 +2464,13 @@ Diğer Rehberler
       .find('.open')
         .updateCount();
 
-    // bad
+    // kötü
     const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
         .attr('width', (radius + margin) * 2).append('svg:g')
         .attr('transform', `translate(${radius + margin},${radius + margin})`)
         .call(tron.led);
 
-    // good
+    // iyi
     const leds = stage.selectAll('.led')
         .data(data)
       .enter().append('svg:svg')
@@ -2481,28 +2480,28 @@ Diğer Rehberler
         .attr('transform', `translate(${radius + margin},${radius + margin})`)
         .call(tron.led);
 
-    // good
+    // iyi
     const leds = stage.selectAll('.led').data(data);
     ```
 
   <a name="whitespace--after-blocks"></a><a name="18.7"></a>
-  - [19.7](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement. jscs: [`requirePaddingNewLinesAfterBlocks`](http://jscs.info/rule/requirePaddingNewLinesAfterBlocks)
+  - [19.7](#whitespace--after-blocks) Bloklardan sonra yeni ifadeye geçmeden önce bir adet boş satır bırakın. jscs: [`requirePaddingNewLinesAfterBlocks`](http://jscs.info/rule/requirePaddingNewLinesAfterBlocks)
 
     ```javascript
-    // bad
+    // kötü
     if (foo) {
       return bar;
     }
     return baz;
 
-    // good
+    // iyi
     if (foo) {
       return bar;
     }
 
     return baz;
 
-    // bad
+    // kötü
     const obj = {
       foo() {
       },
@@ -2511,7 +2510,7 @@ Diğer Rehberler
     };
     return obj;
 
-    // good
+    // iyi
     const obj = {
       foo() {
       },
@@ -2522,7 +2521,7 @@ Diğer Rehberler
 
     return obj;
 
-    // bad
+    // kötü
     const arr = [
       function foo() {
       },
@@ -2531,7 +2530,7 @@ Diğer Rehberler
     ];
     return arr;
 
-    // good
+    // iyi
     const arr = [
       function foo() {
       },
@@ -2544,17 +2543,17 @@ Diğer Rehberler
     ```
 
   <a name="whitespace--padded-blocks"></a><a name="18.8"></a>
-  - [19.8](#whitespace--padded-blocks) Do not pad your blocks with blank lines. eslint: [`padded-blocks`](https://eslint.org/docs/rules/padded-blocks.html) jscs:  [`disallowPaddingNewlinesInBlocks`](http://jscs.info/rule/disallowPaddingNewlinesInBlocks)
+  - [19.8](#whitespace--padded-blocks) Bloklarda boş satır aralıkları bırakmayın. eslint: [`padded-blocks`](https://eslint.org/docs/rules/padded-blocks.html) jscs:  [`disallowPaddingNewlinesInBlocks`](http://jscs.info/rule/disallowPaddingNewlinesInBlocks)
 
     ```javascript
-    // bad
+    // kötü
     function bar() {
 
       console.log(foo);
 
     }
 
-    // bad
+    // kötü
     if (baz) {
 
       console.log(qux);
@@ -2563,7 +2562,7 @@ Diğer Rehberler
 
     }
 
-    // bad
+    // kötü
     class Foo {
 
       constructor(bar) {
@@ -2571,12 +2570,12 @@ Diğer Rehberler
       }
     }
 
-    // good
+    // iyi
     function bar() {
       console.log(foo);
     }
 
-    // good
+    // iyi
     if (baz) {
       console.log(qux);
     } else {
@@ -2585,67 +2584,67 @@ Diğer Rehberler
     ```
 
   <a name="whitespace--in-parens"></a><a name="18.9"></a>
-  - [19.9](#whitespace--in-parens) Do not add spaces inside parentheses. eslint: [`space-in-parens`](https://eslint.org/docs/rules/space-in-parens.html) jscs: [`disallowSpacesInsideParentheses`](http://jscs.info/rule/disallowSpacesInsideParentheses)
+  - [19.9](#whitespace--in-parens) Parantez içlerinde boşluk kullanmayın. eslint: [`space-in-parens`](https://eslint.org/docs/rules/space-in-parens.html) jscs: [`disallowSpacesInsideParentheses`](http://jscs.info/rule/disallowSpacesInsideParentheses)
 
     ```javascript
-    // bad
+    // kötü
     function bar( foo ) {
       return foo;
     }
 
-    // good
+    // iyi
     function bar(foo) {
       return foo;
     }
 
-    // bad
+    // kötü
     if ( foo ) {
       console.log(foo);
     }
 
-    // good
+    // iyi
     if (foo) {
       console.log(foo);
     }
     ```
 
   <a name="whitespace--in-brackets"></a><a name="18.10"></a>
-  - [19.10](#whitespace--in-brackets) Do not add spaces inside brackets. eslint: [`array-bracket-spacing`](https://eslint.org/docs/rules/array-bracket-spacing.html) jscs: [`disallowSpacesInsideArrayBrackets`](http://jscs.info/rule/disallowSpacesInsideArrayBrackets)
+  - [19.10](#whitespace--in-brackets) Köşeli parantez içinde boşluk kullanmayın. eslint: [`array-bracket-spacing`](https://eslint.org/docs/rules/array-bracket-spacing.html) jscs: [`disallowSpacesInsideArrayBrackets`](http://jscs.info/rule/disallowSpacesInsideArrayBrackets)
 
     ```javascript
-    // bad
+    // kötü
     const foo = [ 1, 2, 3 ];
     console.log(foo[ 0 ]);
 
-    // good
+    // iyi
     const foo = [1, 2, 3];
     console.log(foo[0]);
     ```
 
   <a name="whitespace--in-braces"></a><a name="18.11"></a>
-  - [19.11](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](https://eslint.org/docs/rules/object-curly-spacing.html) jscs: [`requireSpacesInsideObjectBrackets`](http://jscs.info/rule/requireSpacesInsideObjectBrackets)
+  - [19.11](#whitespace--in-braces) Süslü parantez içinde boşluk kullanın. eslint: [`object-curly-spacing`](https://eslint.org/docs/rules/object-curly-spacing.html) jscs: [`requireSpacesInsideObjectBrackets`](http://jscs.info/rule/requireSpacesInsideObjectBrackets)
 
     ```javascript
-    // bad
+    // kötü
     const foo = {clark: 'kent'};
 
-    // good
+    // iyi
     const foo = { clark: 'kent' };
     ```
 
   <a name="whitespace--max-len"></a><a name="18.12"></a>
-  - [19.12](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](https://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
+  - [19.12](#whitespace--max-len) 100 karakterden uzun satırlar yazmayın. (whitespace dahil). Not: Uzun stringler [yukarıda](#strings--line-length) belirtildiği gibi bu kuraldan muaftır. eslint: [`max-len`](https://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
 
-    > Why? This ensures readability and maintainability.
+    > Neden? Geliştirilebilirliği ve okunabilirliği artırmaktadır.
 
     ```javascript
-    // bad
+    // kötü
     const foo = jsonData && jsonData.foo && jsonData.foo.bar && jsonData.foo.bar.baz && jsonData.foo.bar.baz.quux && jsonData.foo.bar.baz.quux.xyzzy;
 
-    // bad
+    // kötü
     $.ajax({ method: 'POST', url: 'https://airbnb.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
 
-    // good
+    // iyi
     const foo = jsonData
       && jsonData.foo
       && jsonData.foo.bar
@@ -2653,7 +2652,7 @@ Diğer Rehberler
       && jsonData.foo.bar.baz.quux
       && jsonData.foo.bar.baz.quux.xyzzy;
 
-    // good
+    // iyi
     $.ajax({
       method: 'POST',
       url: 'https://airbnb.com/',
@@ -2663,7 +2662,7 @@ Diğer Rehberler
       .fail(() => console.log('You have failed this city.'));
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
 ## Commas
 
