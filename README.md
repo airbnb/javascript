@@ -2122,29 +2122,29 @@ Diğer Rehberler
 ## Control Statements
 
   <a name="control-statements"></a>
-  - [17.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition could be put into a new line. The logical operator should begin the line.
+  - [17.1](#control-statements) Kontrol ifadelerinizin (`if`, `while` etc.) uzun olması ya da maksimum karakter sayısını aşması durumunda her ifade grubunu ayrı satıra yazın. Mantıksal operatörler satır başında yer almalıdır.
 
-    > Why? Requiring operators at the beginning of the line keeps the operators aligned and follows a pattern similar to method chaining. This also improves readability by making it easier to visually follow complex logic.
+    > Neden? Karmaşık yapıyı sadeleştirerek okunabilirliği artıracaktır. Ayrıca metod chaining'e benzer bir kalıptır.
 
     ```javascript
-    // bad
+    // kötü
     if ((foo === 123 || bar === 'abc') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
       thing1();
     }
 
-    // bad
+    // kötü
     if (foo === 123 &&
       bar === 'abc') {
       thing1();
     }
 
-    // bad
+    // kötü
     if (foo === 123
       && bar === 'abc') {
       thing1();
     }
 
-    // bad
+    // kötü
     if (
       foo === 123 &&
       bar === 'abc'
@@ -2152,7 +2152,7 @@ Diğer Rehberler
       thing1();
     }
 
-    // good
+    // iyi
     if (
       foo === 123
       && bar === 'abc'
@@ -2160,7 +2160,7 @@ Diğer Rehberler
       thing1();
     }
 
-    // good
+    // iyi
     if (
       (foo === 123 || bar === 'abc')
       && doesItLookGoodWhenItBecomesThatLong()
@@ -2169,34 +2169,34 @@ Diğer Rehberler
       thing1();
     }
 
-    // good
+    // iyi
     if (foo === 123 && bar === 'abc') {
       thing1();
     }
     ```
 
   <a name="control-statement--value-selection"></a>
-  - [17.2](#control-statements--value-selection) Don't use selection operators in place of control statements.
+  - [17.2](#control-statements--value-selection) Selection operatörülerini kontrol ifadeleri içerisinde kullanmayın.
 
     ```javascript
-    // bad
+    // kötü
     !isRunning && startRunning();
 
-    // good
+    // iyi
     if (!isRunning) {
       startRunning();
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
 ## Comments
 
   <a name="comments--multiline"></a><a name="17.1"></a>
-  - [18.1](#comments--multiline) Use `/** ... */` for multi-line comments.
+  - [18.1](#comments--multiline) Çok satırlı yorumlarda `/** ... */` kullanın.
 
     ```javascript
-    // bad
+    // kötü
     // make() returns a new element
     // based on the passed in tag name
     //
@@ -2209,7 +2209,7 @@ Diğer Rehberler
       return element;
     }
 
-    // good
+    // iyi
     /**
      * make() returns a new element
      * based on the passed-in tag name
@@ -2223,17 +2223,17 @@ Diğer Rehberler
     ```
 
   <a name="comments--singleline"></a><a name="17.2"></a>
-  - [18.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it’s on the first line of a block.
-
+  - [18.2](#comments--singleline) Tek satırlı yorumlarda `//` kullanın. Yorumu, yorum yapılan betiğin üst satırına gelecek şekilde yazın. Eğer yorum bloğun en üstünde yer almıyorsa daima yorumdan önce boş bir satır bırakın.
+  
     ```javascript
-    // bad
+    // kötü
     const active = true;  // is current tab
 
-    // good
+    // iyi
     // is current tab
     const active = true;
 
-    // bad
+    // kötü
     function getType() {
       console.log('fetching type...');
       // set the default type to 'no type'
@@ -2242,7 +2242,7 @@ Diğer Rehberler
       return type;
     }
 
-    // good
+    // iyi
     function getType() {
       console.log('fetching type...');
 
@@ -2252,7 +2252,7 @@ Diğer Rehberler
       return type;
     }
 
-    // also good
+    // iyi
     function getType() {
       // set the default type to 'no type'
       const type = this.type || 'no type';
@@ -2262,18 +2262,18 @@ Diğer Rehberler
     ```
 
   <a name="comments--spaces"></a>
-  - [18.3](#comments--spaces) Start all comments with a space to make it easier to read. eslint: [`spaced-comment`](https://eslint.org/docs/rules/spaced-comment)
+  - [18.3](#comments--spaces) Yorumlardan önce okunabilirliği artırmak için bir boşluk karakteri kullanın. eslint: [`spaced-comment`](https://eslint.org/docs/rules/spaced-comment)
 
     ```javascript
-    // bad
+    // kötü
     //is current tab
     const active = true;
 
-    // good
+    // iyi
     // is current tab
     const active = true;
 
-    // bad
+    // kötü
     /**
      *make() returns a new element
      *based on the passed-in tag name
@@ -2285,7 +2285,7 @@ Diğer Rehberler
       return element;
     }
 
-    // good
+    // iyi
     /**
      * make() returns a new element
      * based on the passed-in tag name
