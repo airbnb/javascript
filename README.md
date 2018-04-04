@@ -2106,7 +2106,7 @@ Other Style Guides
       }
     }
 
-    //good
+    // good
     function dogs(x) {
       if (x) {
         if (z) {
@@ -2267,7 +2267,7 @@ Other Style Guides
 
     ```javascript
     // bad
-    //is current tab
+    // is current tab
     const active = true;
 
     // good
