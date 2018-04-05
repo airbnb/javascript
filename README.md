@@ -2667,24 +2667,24 @@ Diğer Rehberler
 ## Commas
 
   <a name="commas--leading-trailing"></a><a name="19.1"></a>
-  - [20.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](https://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
+  - [20.1](#commas--leading-trailing) **Asla** virgül ile başlamayın. eslint: [`comma-style`](https://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
 
     ```javascript
-    // bad
+    // kötü
     const story = [
         once
       , upon
       , aTime
     ];
 
-    // good
+    // iyi
     const story = [
       once,
       upon,
       aTime,
     ];
 
-    // bad
+    // kötü
     const hero = {
         firstName: 'Ada'
       , lastName: 'Lovelace'
@@ -2692,7 +2692,7 @@ Diğer Rehberler
       , superPower: 'computers'
     };
 
-    // good
+    // iyi
     const hero = {
       firstName: 'Ada',
       lastName: 'Lovelace',
@@ -2702,12 +2702,12 @@ Diğer Rehberler
     ```
 
   <a name="commas--dangling"></a><a name="19.2"></a>
-  - [20.2](#commas--dangling) Additional trailing comma: **Yup.** eslint: [`comma-dangle`](https://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
+  - [20.2](#commas--dangling) Liste sonlarında da kullanın. eslint: [`comma-dangle`](https://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
 
-    > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don’t have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
+    > Neden? Git diff'lerini daha doğru şekilde gösterir. Ayrıca Babel gibi transpiler'lar fazladan virgülleri sileceği için tarayıcılardaki [ilave virgül sorunu](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas)'nu düşünmenize gerek kalmayacaktır.
 
     ```diff
-    // bad - git diff without trailing comma
+    // kötü - git diff without trailing comma
     const hero = {
          firstName: 'Florence',
     -    lastName: 'Nightingale'
@@ -2715,7 +2715,7 @@ Diğer Rehberler
     +    inventorOf: ['coxcomb chart', 'modern nursing']
     };
 
-    // good - git diff with trailing comma
+    // iyi - git diff with trailing comma
     const hero = {
          firstName: 'Florence',
          lastName: 'Nightingale',
@@ -2724,7 +2724,7 @@ Diğer Rehberler
     ```
 
     ```javascript
-    // bad
+    // kötü
     const hero = {
       firstName: 'Dana',
       lastName: 'Scully'
@@ -2735,7 +2735,7 @@ Diğer Rehberler
       'Superman'
     ];
 
-    // good
+    // iyi
     const hero = {
       firstName: 'Dana',
       lastName: 'Scully',
@@ -2746,7 +2746,7 @@ Diğer Rehberler
       'Superman',
     ];
 
-    // bad
+    // kötü
     function createHero(
       firstName,
       lastName,
@@ -2755,7 +2755,7 @@ Diğer Rehberler
       // does nothing
     }
 
-    // good
+    // iyi
     function createHero(
       firstName,
       lastName,
@@ -2764,7 +2764,7 @@ Diğer Rehberler
       // does nothing
     }
 
-    // good (note that a comma must not appear after a "rest" element)
+    // iyi (note that a comma must not appear after a "rest" element)
     function createHero(
       firstName,
       lastName,
@@ -2774,7 +2774,7 @@ Diğer Rehberler
       // does nothing
     }
 
-    // bad
+    // kötü
     createHero(
       firstName,
       lastName,
@@ -2788,7 +2788,7 @@ Diğer Rehberler
       inventorOf,
     );
 
-    // good (note that a comma must not appear after a "rest" element)
+    // iyi (note that a comma must not appear after a "rest" element)
     createHero(
       firstName,
       lastName,
@@ -2802,7 +2802,7 @@ Diğer Rehberler
 ## Semicolons
 
   <a name="semicolons--required"></a><a name="20.1"></a>
-  - [21.1](#semicolons--required) **Yup.** eslint: [`semi`](https://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
+  - [21.1](#semicolons--required) Noktalı virgül kullanımına dikkat edilmelidir. eslint: [`semi`](https://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
 
     > Why? When JavaScript encounters a line break without a semicolon, it uses a set of rules called [Automatic Semicolon Insertion](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion) to determine whether or not it should regard that line break as the end of a statement, and (as the name implies) place a semicolon into your code before the line break if it thinks so. ASI contains a few eccentric behaviors, though, and your code will break if JavaScript misinterprets your line break. These rules will become more complicated as new features become a part of JavaScript. Explicitly terminating your statements and configuring your linter to catch missing semicolons will help prevent you from encountering issues.
 
