@@ -2267,7 +2267,7 @@ Other Style Guides
 
     ```javascript
     // bad
-    // is current tab
+    //is current tab
     const active = true;
 
     // good
