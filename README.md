@@ -2804,97 +2804,97 @@ Diğer Rehberler
   <a name="semicolons--required"></a><a name="20.1"></a>
   - [21.1](#semicolons--required) Noktalı virgül kullanımına dikkat edilmelidir. eslint: [`semi`](https://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
 
-    > Why? When JavaScript encounters a line break without a semicolon, it uses a set of rules called [Automatic Semicolon Insertion](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion) to determine whether or not it should regard that line break as the end of a statement, and (as the name implies) place a semicolon into your code before the line break if it thinks so. ASI contains a few eccentric behaviors, though, and your code will break if JavaScript misinterprets your line break. These rules will become more complicated as new features become a part of JavaScript. Explicitly terminating your statements and configuring your linter to catch missing semicolons will help prevent you from encountering issues.
+    > Neden? Javascript yorumlayıcıları noktalı virgül olmadan yeni satıra geçilen alanları [Otomatik Noktalı Virgül Ekleme](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion) kuralları ile kontrol eder. Yanlış yorumlamalara karşı daima noktalı virgül kullanmanız gerekir. Ayrıca linter'ınızı yapılandırarak hatalı satır sonlarının otomatik olarak düzeltilmesini sağlayabilirsiniz.
 
     ```javascript
-    // bad - raises exception
+    // kötü - raises exception
     const luke = {}
     const leia = {}
     [luke, leia].forEach(jedi => jedi.father = 'vader')
 
-    // bad - raises exception
+    // kötü- raises exception
     const reaction = "No! That's impossible!"
     (async function meanwhileOnTheFalcon() {
       // handle `leia`, `lando`, `chewie`, `r2`, `c3p0`
       // ...
     }())
 
-    // bad - returns `undefined` instead of the value on the next line - always happens when `return` is on a line by itself because of ASI!
+    // kötü - returns `undefined` instead of the value on the next line - always happens when `return` is on a line by itself because of ASI!
     function foo() {
       return
         'search your feelings, you know it to be foo'
     }
 
-    // good
+    // iyi
     const luke = {};
     const leia = {};
     [luke, leia].forEach((jedi) => {
       jedi.father = 'vader';
     });
 
-    // good
+    // iyi
     const reaction = "No! That's impossible!";
     (async function meanwhileOnTheFalcon() {
       // handle `leia`, `lando`, `chewie`, `r2`, `c3p0`
       // ...
     }());
 
-    // good
+    // iyi
     function foo() {
       return 'search your feelings, you know it to be foo';
     }
     ```
 
-    [Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214#7365214).
+    [Daha fazla](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214#7365214).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
 ## Type Casting & Coercion
 
   <a name="coercion--explicit"></a><a name="21.1"></a>
-  - [22.1](#coercion--explicit) Perform type coercion at the beginning of the statement.
+  - [22.1](#coercion--explicit) Zorlama (coercion) işlemini ifadenin başında uygulayın.
 
   <a name="coercion--strings"></a><a name="21.2"></a>
-  - [22.2](#coercion--strings)  Strings: eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
+  - [22.2](#coercion--strings)  String için: eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
 
     ```javascript
     // => this.reviewScore = 9;
 
-    // bad
+    // kötü
     const totalScore = new String(this.reviewScore); // typeof totalScore is "object" not "string"
 
-    // bad
+    // kötü
     const totalScore = this.reviewScore + ''; // invokes this.reviewScore.valueOf()
 
-    // bad
+    // kötü
     const totalScore = this.reviewScore.toString(); // isn’t guaranteed to return a string
 
-    // good
+    // iyi
     const totalScore = String(this.reviewScore);
     ```
 
   <a name="coercion--numbers"></a><a name="21.3"></a>
-  - [22.3](#coercion--numbers) Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings. eslint: [`radix`](https://eslint.org/docs/rules/radix) [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
+  - [22.3](#coercion--numbers) Number için: Type casting işlemlerinde `Number`'ı kullanın ve stringleri, sayılara parse ederken tabanlara `parseInt` kullanarak ulaşın. eslint: [`radix`](https://eslint.org/docs/rules/radix) [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
 
     ```javascript
     const inputValue = '4';
 
-    // bad
+    // kötü
     const val = new Number(inputValue);
 
-    // bad
+    // kötü
     const val = +inputValue;
 
-    // bad
+    // kötü
     const val = inputValue >> 0;
 
-    // bad
+    // kötü
     const val = parseInt(inputValue);
 
-    // good
+    // iyi
     const val = Number(inputValue);
 
-    // good
+    // iyi
     const val = parseInt(inputValue, 10);
     ```
 
