@@ -1,20 +1,20 @@
 # Airbnb JavaScript Style Guide() {
 
-*Javascript'e kabul edilebilir bir yaklaşım.*
+*JavaScript'e daha akıllıca bir yaklaşım*
 
-> **Not**: Bu rehber [Babel](https://babeljs.io) ile birlikte [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) ya da benzeri bir aracı kullandığınızı varsaymaktadır. Bununla birlikte uygulamanızda da [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) ya da bir benzeri araç ile shims/polyfills bulundurduğunuzu varsaymaktadır.
+> **Not**: Bu rehber [Babel](https://babeljs.io) ile birlikte [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) ya da benzeri bir derleyici kullandığınızı varsayar. Ayrıca tarayıcı uyumluluğu için uygulamalarınızda [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) veya benzer bir shims/polyfills kurmanız gerekecektir.
 
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-Bu rehber farklı dillerde de bulunmaktadır. [Çeviri](#ceviri)
+Bu rehbere farklı dillerden de erişilebilir. [Çeviri](#ceviri)
 
 Diğer Rehberler
 
   - [ES5 (Kullanımdan Kaldırıldı)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5)
-  - [React](react/)
-  - [CSS-in-JavaScript](css-in-javascript/)
+  - [React](https://github.com/airbnb/javascript/tree/master/react)
+  - [CSS-in-JavaScript](https://github.com/airbnb/javascript/tree/master/css-in-javascript)
   - [CSS & Sass](https://github.com/airbnb/css)
   - [Ruby](https://github.com/airbnb/ruby)
 
@@ -166,9 +166,9 @@ Diğer Rehberler
     ```
 
   <a name="es6-computed-properties"></a><a name="3.4"></a>
-  - [3.2](#es6-computed-properties) Nesne property isimlerini dinamik şekilde oluştururken, property'leri block içerisinde oluşturun.
+  - [3.2](#es6-computed-properties) Nesnelerin property isimlerini dinamik şekilde oluştururken, property'leri block içerisinde yaratın.
 
-    > Neden? Nesnenin tüm property'lerini aynı yerde tanımlayabilmenize olanak tanır.
+    > Neden? Nesnenin tüm property'lerini aynı yerde tanımlayabilmenizi sağlar.
 
     ```javascript
 
@@ -192,7 +192,7 @@ Diğer Rehberler
     ```
 
   <a name="es6-object-shorthand"></a><a name="3.5"></a>
-  - [3.3](#es6-object-shorthand) Metodlarda shorthand yöntemini kullanın. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
+  - [3.3](#es6-object-shorthand) Metodlarda shorthand tekniğini kullanın. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
 
     ```javascript
     // kötü
@@ -215,28 +215,28 @@ Diğer Rehberler
     ```
 
   <a name="es6-object-concise"></a><a name="3.6"></a>
-  - [3.4](#es6-object-concise) Property'lerde shorthand yöntemini kullanın. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
+  - [3.4](#es6-object-concise) Property'lerde de shorthand tekniğini kullanın. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
 
-    > Why? It is shorter to write and descriptive.
+    > Neden? Hem yazması hem de anlaşılması daha az zaman alır.
 
     ```javascript
     const lukeSkywalker = 'Luke Skywalker';
 
-    // bad
+    // kötü
     const obj = {
       lukeSkywalker: lukeSkywalker,
     };
 
-    // good
+    // iyi
     const obj = {
       lukeSkywalker,
     };
     ```
 
   <a name="objects--grouped-shorthand"></a><a name="3.7"></a>
-  - [3.5](#objects--grouped-shorthand) Shortend property'lerinize objenin en başında yer verin.
+  - [3.5](#objects--grouped-shorthand) Shorthand property'lerinize nesnenin en başında yer verin.
 
-    > Neden? Bu şekilde hangi property'nin shorthand'i kullandığını anlamak kolaylaşacaktır.
+    > Neden? Bu şekilde hangi property'nin shorthand tekniği kullandığını anlamak kolaylaşacaktır.
 
     ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
@@ -264,9 +264,9 @@ Diğer Rehberler
     ```
 
   <a name="objects--quoted-props"></a><a name="3.8"></a>
-  - [3.6](#objects--quoted-props) Sadece geçersiz tanımları tırnak içine alın. eslint: [`quote-props`](https://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
+  - [3.6](#objects--quoted-props) Sadece uygunsuz tanımlarda tırnak kullanın. eslint: [`quote-props`](https://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
 
-    > Neden? Genelde bu şekilde okunmasının daha kolay olacağını düşünüyoruz. Ayrıca sözdizimi vurgusunun artmasını ve JS engine'ler tarafından daha kolay optimize edilmesini sağlayacaktır.
+    > Neden? Genelde bu şekilde okunmasının daha kolay olacağını düşünüyoruz. Ayrıca sözdizimi vurgusunun artmasını sağlayacak ve JS motorları tarafından daha kolay optimize edilmesini sağlayacaktır.
 
     ```javascript
     // kötü
@@ -285,7 +285,7 @@ Diğer Rehberler
     ```
 
   <a name="objects--prototype-builtins"></a>
-  - [3.7](#objects--prototype-builtins) `hasOwnProperty`, `propertyIsEnumerable`, ve `isPrototypeOf` gibi `Object.prototype` metodlarını doğrudan kullanmayın.
+  - [3.7](#objects--prototype-builtins) `hasOwnProperty`, `propertyIsEnumerable` ve `isPrototypeOf` gibi `Object.prototype` metodlarını doğrudan kullanmayın.
 
     > Neden? Bu metodlar nesnedeki property'ler tarafından gölgelenebilirler (`{ hasOwnProperty: false }`) ya da nesne null olabilir (`Object.create(null)`).
 
@@ -305,7 +305,7 @@ Diğer Rehberler
     ```
 
   <a name="objects--rest-spread"></a>
-  - [3.8](#objects--rest-spread) Sığ nesne kopyalamada [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) yerine spread operatorünü kullanın. Yeni bir nesne oluştururken dahil etmek istemediğiniz property'ler ile birlikte rest operatorünü kullanın.
+  - [3.8](#objects--rest-spread) Sığ kopyalamada [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) yerine spread operatorünü kullanın. Yeni bir nesne oluştururken dahil etmek istemediğiniz property'ler ile birlikte rest operatorünü kullanın.
 
     ```javascript
     // çok kötü
@@ -324,7 +324,7 @@ Diğer Rehberler
     const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
     ```
 
-**[⬆ başa dön](#içindekiler)**
+**[⬆ başa dön](#İçindekiler)**
 
 ## Diziler
 
