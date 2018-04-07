@@ -3102,53 +3102,53 @@ Diğer Rehberler
     ```
 
   <a name="naming--Acronyms-and-Initialisms"></a>
-  - [23.9](#naming--Acronyms-and-Initialisms) Acronyms and initialisms should always be all capitalized, or all lowercased.
+  - [23.9](#naming--Acronyms-and-Initialisms) Kısaltma isimlerin tümü büyük harfle ya da küçük harfle yazılmalıdır.
 
-    > Why? Names are for readability, not to appease a computer algorithm.
+    > Neden? İsimler bilgisayar algoritması değildir ve okunabilirliğe göre seçilmelidir.
 
     ```javascript
-    // bad
+    // kötü
     import SmsContainer from './containers/SmsContainer';
 
-    // bad
+    // kötü
     const HttpRequests = [
       // ...
     ];
 
-    // good
+    // iyi
     import SMSContainer from './containers/SMSContainer';
 
-    // good
+    // iyi
     const HTTPRequests = [
       // ...
     ];
 
-    // also good
+    // iyi
     const httpRequests = [
       // ...
     ];
 
-    // best
+    // çok iyi
     import TextMessageContainer from './containers/TextMessageContainer';
 
-    // best
+    // çok iyi
     const requests = [
       // ...
     ];
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
 ## Accessors
 
   <a name="accessors--not-required"></a><a name="23.1"></a>
-  - [24.1](#accessors--not-required) Accessor functions for properties are not required.
+  - [24.1](#accessors--not-required) Propertylerde accessor fonksiyon kullanımı gerekli değildir.
 
   <a name="accessors--no-getters-setters"></a><a name="23.2"></a>
-  - [24.2](#accessors--no-getters-setters) Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use getVal() and setVal('hello').
+  - [24.2](#accessors--no-getters-setters) Get/set fonksiyonlarını javascript'de kullanmayın. Beklenmeyen yan etkiler oluşturabilir ve test edilmesi, geliştirilmesi zordur. Bunun yerine gerekirse getVal() ve setVal('hello') şeklinde kullanın.
 
     ```javascript
-    // bad
+    // kötü
     class Dragon {
       get age() {
         // ...
@@ -3159,7 +3159,7 @@ Diğer Rehberler
       }
     }
 
-    // good
+    // iyi
     class Dragon {
       getAge() {
         // ...
@@ -3172,22 +3172,22 @@ Diğer Rehberler
     ```
 
   <a name="accessors--boolean-prefix"></a><a name="23.3"></a>
-  - [24.3](#accessors--boolean-prefix) If the property/method is a `boolean`, use `isVal()` or `hasVal()`.
+  - [24.3](#accessors--boolean-prefix) Eğer property/metod `boolean` ise, `isVal()` veya `hasVal()` kullanın.
 
     ```javascript
-    // bad
+    // kötü
     if (!dragon.age()) {
       return false;
     }
 
-    // good
+    // iyi
     if (!dragon.hasAge()) {
       return false;
     }
     ```
 
   <a name="accessors--consistent"></a><a name="23.4"></a>
-  - [24.4](#accessors--consistent) It’s okay to create get() and set() functions, but be consistent.
+  - [24.4](#accessors--consistent) get() ve set() fonksiyonları oluşturabilirsiniz fakat daima tutarlı olun.
 
     ```javascript
     class Jedi {
@@ -3206,15 +3206,15 @@ Diğer Rehberler
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
 ## Events
 
   <a name="events--hash"></a><a name="24.1"></a>
-  - [25.1](#events--hash) When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass an object literal (also known as a "hash")  instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+  - [25.1](#events--hash) Verileri eventlere attach ederken (DOM event'i ya da Backbone event'i gibi daha özel bir event), ham bir değer yerine sabit bir nesne kullanın. ("hash" olarak bilinir) Bu sayede sonraki akışlarda event için tüm handler'ların çalışmasının önüne geçilir.
 
     ```javascript
-    // bad
+    // kötü
     $(this).trigger('listingUpdated', listing.id);
 
     // ...
@@ -3224,10 +3224,8 @@ Diğer Rehberler
     });
     ```
 
-    prefer:
-
     ```javascript
-    // good
+    // iyi
     $(this).trigger('listingUpdated', { listingID: listing.id });
 
     // ...
@@ -3237,29 +3235,29 @@ Diğer Rehberler
     });
     ```
 
-  **[⬆ back to top](#table-of-contents)**
+  **[⬆ başa dön](#table-of-contents)**
 
 ## jQuery
 
   <a name="jquery--dollar-prefix"></a><a name="25.1"></a>
-  - [26.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$`. jscs: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment)
+  - [26.1](#jquery--dollar-prefix) jQuery değişkenlerinde `$` öneki kullanın. jscs: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment)
 
     ```javascript
-    // bad
+    // kötü
     const sidebar = $('.sidebar');
 
-    // good
+    // iyi
     const $sidebar = $('.sidebar');
 
-    // good
+    // iyi
     const $sidebarBtn = $('.sidebar-btn');
     ```
 
   <a name="jquery--cache"></a><a name="25.2"></a>
-  - [26.2](#jquery--cache) Cache jQuery lookups.
+  - [26.2](#jquery--cache)  jQuery lookup'larını cache'leyin.
 
     ```javascript
-    // bad
+    // kötü
     function setSidebar() {
       $('.sidebar').hide();
 
@@ -3270,7 +3268,7 @@ Diğer Rehberler
       });
     }
 
-    // good
+    // iyi
     function setSidebar() {
       const $sidebar = $('.sidebar');
       $sidebar.hide();
@@ -3284,42 +3282,42 @@ Diğer Rehberler
     ```
 
   <a name="jquery--queries"></a><a name="25.3"></a>
-  - [26.3](#jquery--queries) For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - [26.3](#jquery--queries) DOM query'lerde cascading `$('.sidebar ul')` ya da parent > child `$('.sidebar > ul')` yöntemini kullanın. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
 
   <a name="jquery--find"></a><a name="25.4"></a>
-  - [26.4](#jquery--find) Use `find` with scoped jQuery object queries.
+  - [26.4](#jquery--find) Scope içerisinde çalışan jQuery sorgularında `find` kullanın.
 
     ```javascript
-    // bad
+    // kötü
     $('ul', '.sidebar').hide();
 
-    // bad
+    // kötü
     $('.sidebar').find('ul').hide();
 
-    // good
+    // iyi
     $('.sidebar ul').hide();
 
-    // good
+    // iyi
     $('.sidebar > ul').hide();
 
-    // good
+    // iyi
     $sidebar.find('ul').hide();
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
 ## ECMAScript 5 Compatibility
 
   <a name="es5-compat--kangax"></a><a name="26.1"></a>
   - [27.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)’s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
 <a name="ecmascript-6-styles"></a>
 ## ECMAScript 6+ (ES 2015+) Styles
 
   <a name="es6-styles"></a><a name="27.1"></a>
-  - [28.1](#es6-styles) This is a collection of links to the various ES6+ features.
+  - [28.1](#es6-styles) Aşağıda çeşitli ES6+ özelliklerinin bir listesini bulabilirsiniz.
 
 1. [Arrow Functions](#arrow-functions)
 1. [Classes](#classes--constructors)
@@ -3341,7 +3339,7 @@ Diğer Rehberler
 
     > Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#table-of-contents)**
 
 ## Standard Library
 
