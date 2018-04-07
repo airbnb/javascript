@@ -150,7 +150,7 @@ Diğer Rehberler
     console.log(b); // ReferenceError (Referans Hatası)
     ```
 
-**[⬆ başa dön](İçindekiler)**
+**[⬆ başa dön](#İçindekiler)**
 
 ## Nesneler
 
