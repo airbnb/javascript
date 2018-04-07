@@ -2,7 +2,7 @@
 
 *JavaScript'e daha akıllıca bir yaklaşım*
 
-> **Not**: Bu rehber [Babel](https://babeljs.io) ile birlikte [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) ya da benzeri bir derleyici kullandığınızı varsayar. Ayrıca tarayıcı uyumluluğu için uygulamalarınızda [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) veya benzer bir shims/polyfills kurmanız gerekecektir.
+> **Not**: Bu rehber [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) ile birlikte [Babel](https://babeljs.io) ya da benzeri bir derleyici kullandığınızı varsayar. Ayrıca tarayıcı uyumluluğu için uygulamalarınızda [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) veya benzer bir shims/polyfills kurmanız gerekecektir.
 
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
@@ -340,7 +340,7 @@ Diğer Rehberler
     ```
 
   <a name="arrays--push"></a><a name="4.2"></a>
-  - [4.2](#arrays--push) Dizilere doğrudan eleman atamak yerine [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push)'u kullanın.
+  - [4.2](#arrays--push) Dizilere yeni elemanları doğrudan eklemek yerine [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push)'u kullanın.
 
     ```javascript
     const someStack = [];
@@ -375,21 +375,21 @@ Diğer Rehberler
     ```javascript
     const foo = document.querySelectorAll('.foo');
 
-    // good
+    // iyi
     const nodes = Array.from(foo);
 
-    // best
+    // çok iyi
     const nodes = [...foo];
     ```
 
   <a name="arrays--mapping"></a>
-  - [4.5](#arrays--mapping) Use [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) instead of spread `...` for mapping over iterables, because it avoids creating an intermediate array.
+  - [4.5](#arrays--mapping) Geçici bir dizi oluşturmamak için dizi elemanlarında map kullanırken spread operatörü `...` yerine [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) kullanın.
 
     ```javascript
-    // bad
+    // kötü
     const baz = [...foo].map(bar);
 
-    // good
+    // iyi
     const baz = Array.from(foo, bar);
     ```
 
@@ -429,7 +429,7 @@ Diğer Rehberler
       }
     });
 
-    // good
+    // iyi
     inbox.filter((msg) => {
       const { subject, author } = msg;
       if (subject === 'Mockingbird') {
@@ -477,7 +477,7 @@ Diğer Rehberler
     ];
     ```
 
-**[⬆ başa dön](#icindekiler)**
+**[⬆ başa dön](#İçindekiler)**
 
 ## Destructuring
 
