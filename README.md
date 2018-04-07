@@ -20,7 +20,7 @@ Diğer Rehberler
 
 ## İçindekiler
 
-  1. [Türler](#turler)
+  1. [Veri Türleri](#turler)
   1. [Referanslar](#referanslar)
   1. [Nesneler](#nesneler)
   1. [Diziler](#diziler)
@@ -60,10 +60,10 @@ Diğer Rehberler
   1. [License](#license)
   1. [Amendments](#amendments)
 
-## Türler
+## Veri Türleri
 
   <a name="types--primitives"></a><a name="1.1"></a>
-  - [1.1](#types--primitives) **İlkel**: İlkel bir türe eriştiğinizde doğrudan değer ile karşılaşırsınız.
+  - [1.1](#types--primitives) **Birincil**: Birincil(İlkel) bir türe eriştiğinizde doğrudan değer ile karşılaşırsınız.
 
     - `string`
     - `number`
@@ -81,10 +81,10 @@ Diğer Rehberler
     console.log(foo, bar); // => 1, 9
     ```
 
-    - Symbol türü kararlı polyfill edilemez. Bu yüzden doğal olarak türü desteklemeyen tarayıcı ve benzeri ortamlarda kullanılmamalıdır.
+    - Symbol türünde polyfill stabil çalışmaz. Bu yüzden bu veri türünü desteklemeyen tarayıcı ve benzeri ortamlarda kullanılmamalıdır.
 
   <a name="types--complex"></a><a name="1.2"></a>
-  - [1.2](#types--complex)  **Karmaşık**: Karmaşık türlere eriştiğinizde değeri işaret eden referans ile karşılaşırsınız.
+  - [1.2](#types--complex)  **Bileşik**: Bileşik(başvuru) türlerde değere erişmek için referans değerler ile çalışırsınız.
 
     - `object`
     - `array`
@@ -99,7 +99,7 @@ Diğer Rehberler
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ başa dön](#icindekiler)**
+**[⬆ başa dön](#İcindekiler)**
 
 ## Referanslar
 
