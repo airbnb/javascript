@@ -20,7 +20,7 @@ Diğer Rehberler
 
 ## İçindekiler
 
-  1. [Veri Türleri](#Veri-Türleri)
+  1. [Veri Türleri](#veri-türleri)
   1. [Referanslar](#referanslar)
   1. [Nesneler](#nesneler)
   1. [Diziler](#diziler)
@@ -99,7 +99,7 @@ Diğer Rehberler
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ başa dön](#İcindekiler)**
+**[⬆ başa dön](#İçindekiler)**
 
 ## Referanslar
 
