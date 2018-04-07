@@ -20,7 +20,7 @@ Diğer Rehberler
 
 ## İçindekiler
 
-  1. [Veri Türleri](#turler)
+  1. [Veri Türleri](#Veri-Türleri)
   1. [Referanslar](#referanslar)
   1. [Nesneler](#nesneler)
   1. [Diziler](#diziler)
