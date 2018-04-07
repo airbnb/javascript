@@ -21,7 +21,7 @@ Diğer Rehberler
 ## İçindekiler
 
   1. [Veri Türleri](#veri-türleri)
-  1. [Referanslar](#referanslar)
+  1. [Değişkenler](#değişkenler)
   1. [Nesneler](#nesneler)
   1. [Diziler](#diziler)
   1. [Destructuring](#destructuring)
@@ -101,7 +101,7 @@ Diğer Rehberler
 
 **[⬆ başa dön](#İçindekiler)**
 
-## Referanslar
+## Değişkenler
 
   <a name="references--prefer-const"></a><a name="2.1"></a>
   - [2.1](#references--prefer-const) Tüm referanslarda `const` kullanın. `var` kullanmaktan kaçının. eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
