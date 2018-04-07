@@ -25,8 +25,8 @@ Diğer Rehberler
   1. [Nesneler](#nesneler)
   1. [Diziler](#diziler)
   1. [Destructuring](#destructuring)
-  1. [Strings](#strings)
-  1. [Functions](#functions)
+  1. [String](#string)
+  1. [Fonksiyonlar](#fonksiyonlar)
   1. [Arrow Functions](#arrow-functions)
   1. [Classes & Constructors](#classes--constructors)
   1. [Modules](#modules)
@@ -482,9 +482,9 @@ Diğer Rehberler
 ## Destructuring
 
   <a name="destructuring--object"></a><a name="5.1"></a>
-  - [5.1](#destructuring--object) Bir nesnede birden fazla property'e erişirken destructuring yöntemini kullanın. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring) jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
+  - [5.1](#destructuring--object) Bir nesneden birden fazla property'e erişirken destructuring tekniğini kullanın. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring) jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
 
-    > Neden ? Destructuring, property'ler için geçici referanslar oluşturmanızın önüne geçer.
+    > Neden ? Destructuring, property'ler için geçici değişkenler oluşturmanızı önler.
 
     ```javascript
     // kötü
@@ -508,7 +508,7 @@ Diğer Rehberler
     ```
 
   <a name="destructuring--array"></a><a name="5.2"></a>
-  - [5.2](#destructuring--array) Dizilerde de destructuring yöntemini kullanın. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring) jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
+  - [5.2](#destructuring--array) Dizilerde de destructuring tekniğini kullanın. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring) jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
 
     ```javascript
     const arr = [1, 2, 3, 4];
@@ -522,9 +522,9 @@ Diğer Rehberler
     ```
 
   <a name="destructuring--object-over-array"></a><a name="5.3"></a>
-  - [5.3](#destructuring--object-over-array) Birden fazla dönen değer olması durumunda diziler yerine nesneler ile destructuring yapın. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
+  - [5.3](#destructuring--object-over-array) Birden fazla değer dönmesi durumunda diziler yerine nesneler ile destructuring yapın. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
 
-    > Neden? Zamanla yeni property'ler eklendiğinde ya da sıralama değiştiğinde çağrıyı yapan kod betikleri bozulmayacaktır.
+    > Neden? Bu sayede zamanla yeni property'ler eklendiğinde ya da sıralama değiştiğinde çağrıyı yapan kod betikleri bozulmayacaktır.
 
     ```javascript
     // kötü
@@ -546,12 +546,12 @@ Diğer Rehberler
     const { left, top } = processInput(input);
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#İçerikler)**
 
-## Strings
+## String
 
   <a name="strings--quotes"></a><a name="6.1"></a>
-  - [6.1](#strings--quotes) Stringlerde tek tırnak `''` kullanın. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
+  - [6.1](#strings--quotes) String'lerde tek tırnak `''` kullanın. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
 
     ```javascript
     // kötü
@@ -565,9 +565,9 @@ Diğer Rehberler
     ```
 
   <a name="strings--line-length"></a><a name="6.2"></a>
-  - [6.2](#strings--line-length) 100 karakterden uzun stringler satırlara bölünüp birbirine bağlanmamalıdır.
+  - [6.2](#strings--line-length) 100 karakterden uzun string'ler satırlara bölünüp birbirine bağlanmamalıdır.
 
-    > Neden? Bölünmüş stringler ile çalışmak kodun okunabilirliğini düşürür. 
+    > Neden? Bölünmüş string'ler ile çalışmak kodun okunabilirliğini düşürür. 
 
     ```javascript
     // kötü
@@ -586,7 +586,7 @@ Diğer Rehberler
     ```
 
   <a name="es6-template-literals"></a><a name="6.4"></a>
-  - [6.3](#es6-template-literals) Programlanabilir stringler yaratırken string şablonlarını kullanın. eslint: [`prefer-template`](https://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](https://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
+  - [6.3](#es6-template-literals) Programlanabilir string'ler yaratırken string şablonlarını kullanın. eslint: [`prefer-template`](https://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](https://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
 
     > Neden? String şablonları; kısa, okunabilir, doğru sözdizimi ve string interpolasyon özelliklerine sahip bir kod betiği oluşturabilmenizi sağlar.
 
@@ -613,10 +613,10 @@ Diğer Rehberler
     ```
 
   <a name="strings--eval"></a><a name="6.5"></a>
-  - [6.4](#strings--eval) Stringler ile asla `eval()` fonksiyonunu kullanmayın. Bu durum pek çok açığa neden olabilir. eslint: [`no-eval`](https://eslint.org/docs/rules/no-eval)
+  - [6.4](#strings--eval) String'lerde asla `eval()` fonksiyonunu kullanmayın. Bu durum pek çok açığa neden olabilir. eslint: [`no-eval`](https://eslint.org/docs/rules/no-eval)
 
   <a name="strings--escaping"></a>
-  - [6.5](#strings--escaping) Stringlerde gereksiz yere escape karakterlerini kullanmayın. eslint: [`no-useless-escape`](https://eslint.org/docs/rules/no-useless-escape)
+  - [6.5](#strings--escaping) String'lerde gereksiz yere tersbölü karakterlerini kullanmayın. eslint: [`no-useless-escape`](https://eslint.org/docs/rules/no-useless-escape)
 
     > Neden? Tersbölüler okunabilirliği düşürür ve sadece gerektiğinde kullanılmalıdır.
 
@@ -629,7 +629,7 @@ Diğer Rehberler
     const foo = `my name is '${name}'`;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#İçerikler)**
 
 ## Fonksiyonlar
 
@@ -650,7 +650,7 @@ Diğer Rehberler
     };
 
     // iyi
-    // lexical name distinguished from the variable-referenced invocation(s)
+    // Açıklayıcı isimlendirmeye değişken üzerinden ulaşılabilir
     const short = function longUniqueMoreDescriptiveLexicalFoo() {
       // ...
     };
@@ -707,18 +707,18 @@ Diğer Rehberler
     ```
 
   <a name="es6-rest"></a><a name="7.6"></a>
-  - [7.6](#es6-rest) Never use `arguments`, opt to use rest syntax `...` instead. eslint: [`prefer-rest-params`](https://eslint.org/docs/rules/prefer-rest-params)
+  - [7.6](#es6-rest) `arguments` yerine içeriğe rest `...` ile ulaşın. eslint: [`prefer-rest-params`](https://eslint.org/docs/rules/prefer-rest-params)
 
-    > Why? `...` is explicit about which arguments you want pulled. Plus, rest arguments are a real Array, and not merely Array-like like `arguments`.
+    > Neden? `...` ile sadece istenen argümanlara erişebilirsiniz. Atrıca rest argümanlar dizi-benzeri `arguments`'in aksine gerçek bir dizidir.
 
     ```javascript
-    // bad
+    // kötü
     function concatenateAll() {
       const args = Array.prototype.slice.call(arguments);
       return args.join('');
     }
 
-    // good
+    // iyi
     function concatenateAll(...args) {
       return args.join('');
     }
@@ -796,9 +796,9 @@ Diğer Rehberler
     ```
 
   <a name="functions--signature-spacing"></a><a name="7.11"></a>
-  - [7.11](#functions--signature-spacing) Fonksiyon yapısında boşlukları doğru kullanın. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
+  - [7.11](#functions--signature-spacing) Fonksiyon ifadelerinde boşlukları doğru şekilde kullanın. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
 
-    > Neden? Tutarlılık iyidir ve bu şekilde bir isim eklerken veya silerken boşluk eklemenize, silmenize gerek kalmaz.
+    > Neden? Tutarlılık iyidir ve bu şekilde bir isim eklerken veya silerken boşluk eklemenizede silmenizede gerek kalmaz.
 
     ```javascript
     // kötü
@@ -814,7 +814,7 @@ Diğer Rehberler
   <a name="functions--mutate-params"></a><a name="7.12"></a>
   - [7.12](#functions--mutate-params) Asla parametreleri değiştirmeyin. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Neden? Gelen nesneleri değiştirmek çağrıyı yapan bölümde istenmeyen yan etkilere neden olabilir.
+    > Neden? Gelen nesneleri değiştirmek çağrıyı yapan betikte beklenmeyen yan etkilere neden olabilir.
 
     ```javascript
     // kötü
@@ -857,7 +857,7 @@ Diğer Rehberler
     ```
 
   <a name="functions--spread-vs-apply"></a><a name="7.14"></a>
-  - [7.14](#functions--spread-vs-apply) Variadic fonksiyonlarda spread operatörünü `...` kullanmaya özen gösterin. eslint: [`prefer-spread`](https://eslint.org/docs/rules/prefer-spread)
+  - [7.14](#functions--spread-vs-apply) Değişken sayıda argüman alabilen (Variadic) fonksiyonlarda spread operatörünü `...` kullanmaya özen gösterin. eslint: [`prefer-spread`](https://eslint.org/docs/rules/prefer-spread)
 
     > Neden? Daha temiz bir kullanım şeklidir. İçeriği oluşturmanıza ve `new` ile `apply` kullanmanıza gerek kalmaz.
 
@@ -878,7 +878,7 @@ Diğer Rehberler
     ```
 
   <a name="functions--signature-invocation-indentation"></a>
-  - [7.15](#functions--signature-invocation-indentation) Çok satırlı tanımlardaki ve çağrılardaki argümanlar, bu kılavuzdaki diğer çok satırlı listeler gibi girintili olmalıdır; her öğe bir satırda, son öğe sonunda bir virgülle birlikte.
+  - [7.15](#functions--signature-invocation-indentation) Çok satırlı tanımlamalardaki ve çok satırlı çağrılardaki parametreler, bu kılavuzdaki diğer çok satırlı listeler gibi girintili olmalıdır; her öğe bir satırda, son öğe sonunda bir virgül ile birlikte.
 
     ```javascript
     // kötü
@@ -910,7 +910,7 @@ Diğer Rehberler
     );
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
 ## Arrow Functions
 
