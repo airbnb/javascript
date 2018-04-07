@@ -104,9 +104,9 @@ Diğer Rehberler
 ## Değişkenler
 
   <a name="references--prefer-const"></a><a name="2.1"></a>
-  - [2.1](#references--prefer-const) Tüm referanslarda `const` kullanın. `var` kullanmaktan kaçının. eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
+  - [2.1](#references--prefer-const) Tüm değişkenlerde `const` kullanın. `var` kullanmaktan kaçının. eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
 
-    > Neden? Bu şekilde referansların değiştirilmesi engellenecek; bunun sonucu olarak hatalar önlenecek ve kodun anlaşılabilirliği artacaktır.
+    > Neden? Bu sayede değişkenlerin sonradan değiştirilmesi engellenir; olası hataların önüne geçilir, kodun anlaşılabilirliği artar.
 
     ```javascript
     // kötü
@@ -119,9 +119,9 @@ Diğer Rehberler
     ```
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
-  - [2.2](#references--disallow-var) Eğer referansları yeniden tanımlayacaksanız, `var` yerine `let` kullanın. eslint: [`no-var`](https://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
+  - [2.2](#references--disallow-var) Eğer değişkenleri yeniden tanımlayacaksanız, `var` yerine `let` kullanın. eslint: [`no-var`](https://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
 
-    > Neden? `let` function-scope `var`'ın aksine block-scope'dur.
+    > Neden? `let` block-scope `var` function-scope'dur.
 
     ```javascript
     // kötü
@@ -130,7 +130,7 @@ Diğer Rehberler
       count += 1;
     }
 
-    // iyi, let'i kullan.
+    // iyi
     let count = 1;
     if (true) {
       count += 1;
@@ -150,7 +150,7 @@ Diğer Rehberler
     console.log(b); // ReferenceError (Referans Hatası)
     ```
 
-**[⬆ başa dön](icindekiler)**
+**[⬆ başa dön](İçindekiler)**
 
 ## Nesneler
 
