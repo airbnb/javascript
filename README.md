@@ -629,7 +629,7 @@ Diğer Rehberler
     const foo = `my name is '${name}'`;
     ```
 
-**[⬆ başa dön](#İçerikler)**
+**[⬆ başa dön](#İçindekiler)**
 
 ## Fonksiyonlar
 
