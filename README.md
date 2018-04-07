@@ -546,7 +546,7 @@ Diğer Rehberler
     const { left, top } = processInput(input);
     ```
 
-**[⬆ başa dön](#İçerikler)**
+**[⬆ başa dön](#İçindekiler)**
 
 ## String
 
