@@ -42,7 +42,7 @@ Diğer Rehberler
   1. [Virgüller](#virgüller)
   1. [Noktalı Virgüller](#noktalı-virgüller)
   1. [Tip Dönüştürme](#tip-dönüştürme)
-  1. [İsimlendirme](#isimlendirme)
+  1. [İsimlendirme](#İsimlendirme)
   1. [Accessor](#accessors)
   1. [Olaylar](#olaylar)
   1. [jQuery](#jquery)
