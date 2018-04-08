@@ -29,7 +29,7 @@ Diğer Rehberler
   1. [Fonksiyonlar](#fonksiyonlar)
   1. [Arrow Fonksiyonlar](#arrow-fonksiyonlar)
   1. [Sınıflar & Constructor](#sınıflar--constructor)
-  1. [Modules](#modules)
+  1. [Modüller](#modüller)
   1. [Iterators and Generators](#iterators-and-generators)
   1. [Properties](#properties)
   1. [Variables](#variables)
@@ -1219,12 +1219,12 @@ Diğer Rehberler
 
 **[⬆ başa dön](#İçindekiler)**
 
-## Modules
+## Modüller
 
   <a name="modules--use-them"></a><a name="10.1"></a>
-  - [10.1](#modules--use-them) Standart bir yapıya sahip olmayan modül sistemlerinizde daima (`import`/`export`) kullanın. İstediğinizde tercih ettiğiniz modül sistemine transpile edebilirsiniz.
+  - [10.1](#modules--use-them) Standart bir yapıya sahip olmayan modül sistemlerinizde daima (`import`/`export`) kullanın. İstediğinizde tercih ettiğiniz modül sistemine (transpile) çevirebilirsiniz.
 
-    > Neden? Modüller geleceğin teknolojisidir. Şimdiden kullanmaya başlamalıyız.
+    > Neden? Modüller geleceğin teknolojisidir. Şimdiden kullanmaya başlamalısınız.
 
     ```javascript
     // kötü
@@ -1256,7 +1256,7 @@ Diğer Rehberler
   <a name="modules--no-export-from-import"></a><a name="10.3"></a>
   - [10.3](#modules--no-export-from-import) Import üzerinden direkt export etmeyin.
 
-    > Why? Tek satırda kullanmak daha sade gözüksede, import ve exportu farklı satırlara ayırmak daha temiz ve tutarlıdır.
+    > Neden? Tek satırda kullanmak daha sade gözüksede, import ve export'u farklı satırlara ayırmak daha temiz ve tutarlıdır.
 
     ```javascript
     // kötü
@@ -1270,14 +1270,14 @@ Diğer Rehberler
     ```
 
   <a name="modules--no-duplicate-imports"></a>
-  - [10.4](#modules--no-duplicate-imports) Aynı path üzerinden tüm importları aynı yerde yapın.
+  - [10.4](#modules--no-duplicate-imports) Aynı path üzerindeki tüm import'ları aynı yerde yapın.
  eslint: [`no-duplicate-imports`](https://eslint.org/docs/rules/no-duplicate-imports)
     > Neden? Aynı path üzerinden farklı konumlarda import kullanmak kodun geliştirilmesini zorlaştıracaktır.
 
     ```javascript
     // kötü
     import foo from 'foo';
-    // … some other imports … //
+    // … diğer import'lar … //
     import { named1, named2 } from 'foo';
 
     // iyi
@@ -1293,7 +1293,7 @@ Diğer Rehberler
   <a name="modules--no-mutable-exports"></a>
   - [10.5](#modules--no-mutable-exports) Değiştirilebilir binding'leri export etmeyin.
  eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
-    > Neden? Değiştirmelerden genel olarak kaçınılmalıdır, özellikle de binding'lerde. Zaman zaman bu teknik görmezden gelinebilir ancak genellikle değişmeyen/sabit referanslar export edilmelidir.
+    > Neden? Değiştirmelerden genel olarak kaçınılmalıdır, özellikle de binding'lerde. Zaman zaman bu teknik görmezden gelinebilir ancak genellikle değişmeyen/sabit değişkenler export edilmelidir.
 
     ```javascript
     // kötü
@@ -1308,7 +1308,7 @@ Diğer Rehberler
   <a name="modules--prefer-default-export"></a>
   - [10.6](#modules--prefer-default-export) Tek bir export'a sahip modüllerde isimlendirilmiş export yerine default export kullanın.
  eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
-    > Why? Tek bir export kullandığınız modüllerde default kullanımı okunabilirliği ve geliştirilebilirliği artırır.
+    > Neden? Tek bir export kullandığınız modüllerde default kullanımı okunabilirliği ve geliştirilebilirliği artırır.
 
     ```javascript
     // bad
@@ -1338,7 +1338,7 @@ Diğer Rehberler
     ```
 
   <a name="modules--multiline-imports-over-newlines"></a>
-  - [10.8](#modules--multiline-imports-over-newlines) Import'larda çok satırlı diziler ve sabitler gibi kullanılmalıdır.
+  - [10.8](#modules--multiline-imports-over-newlines) Import'lar tıpkı çok satırlı diziler ve çok satırlı sabitler gibi kullanılmalıdır.
 
     > Neden? Süslü paramntezlere sahip bloklar stil rehberinin tamamında aynı yazım kurallarına sahiptir.
 
@@ -1371,7 +1371,7 @@ Diğer Rehberler
     import barCss from 'bar.css';
     ```
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
 ## Iterators and Generators
 
