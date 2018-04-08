@@ -49,16 +49,16 @@ Diğer Rehberler
   1. [ECMAScript 5 Uyumluluğu](#ecmascript-5-uyumluluğu)
   1. [ECMAScript 6+ (ES 2015+) Özellikleri](#ecmascript-6-es-2015-özellikleri)
   1. [Yerleşik Kütüphaneler](#yerleşik-kütüphaneler)
-  1. [Testing](#testing)
+  1. [Test](#test)
   1. [Performans](#performans)
   1. [Kaynaklar](#kaynaklar)
-  1. [In the Wild](#in-the-wild)
-  1. [Translation](#translation)
-  1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
-  1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
-  1. [Contributors](#contributors)
-  1. [License](#license)
-  1. [Amendments](#amendments)
+  1. [Organizasyonlar](#organizasyonlar)
+  1. [Çeviri](#çeviri)
+  1. [Kılavuz Kılavuzu](#kılavuz-kılavuzu)
+  1. [JavaScript Sohbet Kanalı](#javascript-sohbet-kanalı)
+  1. [Katkıda Bulunanlar](#katkıda-bulunanlar)
+  1. [Lisans](#lisans)
+  1. [Değişiklikler](#değişiklikler)
 
 ## Veri Türleri
 
@@ -3497,7 +3497,7 @@ Diğer Rehberler
 
 **[⬆ başa dön](#İçindekiler)**
 
-## Kimler Bizimle
+## Organizasyonlar
 
   Kılavuzumuzu kullanan organizasyonların listesi. Pull request göndererek eklemelerde bulunabilirsiniz.
   
@@ -3593,7 +3593,7 @@ Diğer Rehberler
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
 ## Çeviri
 
@@ -3616,11 +3616,11 @@ Diğer Rehberler
   - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Ukrainian**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript)
   - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnam**: [hngiang/javascript-style-guide](https://github.com/hngiang/javascript-style-guide)
 
-## JavaScript Style Kılavuzunun da Kılavuzu
+## Kılavuz Kılavuzu
 
   - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
-## Bizimle JavaScript üzerine sohbet edin
+## JavaScript Sohbet Kanalı
 
   - [gitter](https://gitter.im/airbnb/javascript)'dan ulaşabilirsiniz.
 
