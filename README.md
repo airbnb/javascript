@@ -36,12 +36,12 @@ Diğer Rehberler
   1. [Hoisting](#hoisting)
   1. [Karşılaştırma Operatörleri](#karşılaştırma-operatörleri)
   1. [Bloklar](#bloklar)
-  1. [Control Statements](#control-statements)
-  1. [Comments](#comments)
+  1. [Koşul İfadeleri](#koşul-ifadeleri)
+  1. [Yorumlar](#yorumlar)
   1. [Whitespace](#whitespace)
-  1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-casting--coercion)
+  1. [Virgüller](#virgüller)
+  1. [Noktalı Virgüller](#noktalı-virgüller)
+  1. [Tip Dönüştürme](#tip-dönüştürme)
   1. [Naming Conventions](#naming-conventions)
   1. [Accessors](#accessors)
   1. [Events](#events)
@@ -2119,12 +2119,12 @@ Diğer Rehberler
 
 **[⬆ başa dön](#İçindekiler)**
 
-## Control Statements
+## Koşul İfadeleri
 
   <a name="control-statements"></a>
-  - [17.1](#control-statements) Kontrol ifadelerinizin (`if`, `while` etc.) uzun olması ya da maksimum karakter sayısını aşması durumunda her ifade grubunu ayrı satıra yazın. Mantıksal operatörler satır başında yer almalıdır.
+  - [17.1](#control-statements) Koşul ifadelerinizin (`if`, `while` etc.) uzun olması ya da maksimum karakter sayısını aşması durumunda her ifade grubunu ayrı satıra yazın. Mantıksal operatörler satır başında yer almalıdır.
 
-    > Neden? Karmaşık yapıyı sadeleştirerek okunabilirliği artıracaktır. Ayrıca metod chaining'e benzer bir kalıptır.
+    > Neden? Karmaşık yapıyı sadeleştirerek okunabilirliği artıracaktır. Ayrıca metod zincirlerine benzer bir kalıptır.
 
     ```javascript
     // kötü
@@ -2188,17 +2188,17 @@ Diğer Rehberler
     }
     ```
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
-## Comments
+## Yorumlar
 
   <a name="comments--multiline"></a><a name="17.1"></a>
   - [18.1](#comments--multiline) Çok satırlı yorumlarda `/** ... */` kullanın.
 
     ```javascript
     // kötü
-    // make() returns a new element
-    // based on the passed in tag name
+    // make() aktarılan tag'a göre
+    // yeni bir element return eder
     //
     // @param {String} tag
     // @return {Element} element
@@ -2211,8 +2211,8 @@ Diğer Rehberler
 
     // iyi
     /**
-     * make() returns a new element
-     * based on the passed-in tag name
+     * make() aktarılan tag'a göre
+     * yeni bir element return eder
      */
     function make(tag) {
 
@@ -2223,11 +2223,11 @@ Diğer Rehberler
     ```
 
   <a name="comments--singleline"></a><a name="17.2"></a>
-  - [18.2](#comments--singleline) Tek satırlı yorumlarda `//` kullanın. Yorumu, yorum yapılan betiğin üst satırına gelecek şekilde yazın. Eğer yorum bloğun en üstünde yer almıyorsa daima yorumdan önce boş bir satır bırakın.
+  - [18.2](#comments--singleline) Tek satırlı yorumlarda `//` kullanın. Yorumu, yorum yapılan betiğin üst satırına gelecek şekilde yazın. Eğer yorum, bloğun en üstünde yer almıyorsa daima yorumdan önce boş bir satır bırakın.
   
     ```javascript
     // kötü
-    const active = true;  // is current tab
+    const active = true;  // aktif bölüm
 
     // iyi
     // is current tab
@@ -2236,7 +2236,7 @@ Diğer Rehberler
     // kötü
     function getType() {
       console.log('fetching type...');
-      // set the default type to 'no type'
+      // varsayılanı 'no type' ayarlanır
       const type = this.type || 'no type';
 
       return type;
@@ -2246,7 +2246,7 @@ Diğer Rehberler
     function getType() {
       console.log('fetching type...');
 
-      // set the default type to 'no type'
+      // varsayılanı 'no type' ayarlanır
       const type = this.type || 'no type';
 
       return type;
@@ -2254,7 +2254,7 @@ Diğer Rehberler
 
     // iyi
     function getType() {
-      // set the default type to 'no type'
+      // varsayılanı 'no type' ayarlanır
       const type = this.type || 'no type';
 
       return type;
@@ -2266,17 +2266,17 @@ Diğer Rehberler
 
     ```javascript
     // kötü
-    //is current tab
+    //aktif bölüm
     const active = true;
 
     // iyi
-    // is current tab
+    // aktif bölüm
     const active = true;
 
     // kötü
     /**
-     *make() returns a new element
-     *based on the passed-in tag name
+     *make() aktarılan tag'a göre
+     *yeni bir element return eder
      */
     function make(tag) {
 
@@ -2287,8 +2287,8 @@ Diğer Rehberler
 
     // iyi
     /**
-     * make() returns a new element
-     * based on the passed-in tag name
+     * make() aktarılan tag'a göre
+     * yeni bir element return eder
      */
     function make(tag) {
 
@@ -2309,7 +2309,7 @@ Diğer Rehberler
       constructor() {
         super();
 
-        // FIXME: shouldn’t use a global here
+        // FIXME: burada global kullanılmamalı
         total = 0;
       }
     }
@@ -2323,7 +2323,7 @@ Diğer Rehberler
       constructor() {
         super();
 
-        // TODO: total should be configurable by an options param
+        // TODO: total, options parametresi ile ayarlanabilmeli
         this.total = 0;
       }
     }
@@ -2354,7 +2354,7 @@ Diğer Rehberler
     ```
 
   <a name="whitespace--before-blocks"></a><a name="18.2"></a>
-  - [19.2](#whitespace--before-blocks) Bloğu kapsayan süslü parantez öncesinde bir adet boşluk karakteri kullanın. eslint: [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
+  - [19.2](#whitespace--before-blocks) Bloğu kapsayan süslü parantezini açmadan önce bir adet boşluk karakteri kullanın. eslint: [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
 
     ```javascript
     // kötü
@@ -2381,7 +2381,7 @@ Diğer Rehberler
     ```
 
   <a name="whitespace--around-keywords"></a><a name="18.3"></a>
-  - [19.3](#whitespace--around-keywords) Kontrol ifadelerindeki (`if`, `while` vb.) parantez öncesinde bir adet boşluk karakteri kullanın. Fonksiyon çağrıları ve fonksiyon tanımlarındaki parametreler arasında ya da adlarda boşluk kullanmayın. eslint: [`keyword-spacing`](https://eslint.org/docs/rules/keyword-spacing.html) jscs: [`requireSpaceAfterKeywords`](http://jscs.info/rule/requireSpaceAfterKeywords)
+  - [19.3](#whitespace--around-keywords) Koşul ifadelerindeki (`if`, `while` vb.) parantez öncesinde bir adet boşluk karakteri kullanın. Fonksiyon çağrıları ve fonksiyon bildirimlerindeki parametreler arasında ya da isimlerde boşluk kullanmayın. eslint: [`keyword-spacing`](https://eslint.org/docs/rules/keyword-spacing.html) jscs: [`requireSpaceAfterKeywords`](http://jscs.info/rule/requireSpaceAfterKeywords)
 
     ```javascript
     // kötü
@@ -2442,7 +2442,7 @@ Diğer Rehberler
     ```
 
   <a name="whitespace--chains"></a><a name="18.6"></a>
-  - [19.6](#whitespace--chains) Uzun metod chain'lerinde (2 den fazla) girintiler oluşturun. Nokta ile başlayan satırlar satırın bir ifade değil bir metod çağrısı olduğunu belirtecektir. eslint: [`newline-per-chained-call`](https://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](https://eslint.org/docs/rules/no-whitespace-before-property)
+  - [19.6](#whitespace--chains) Uzun metod zincirlerinde (2 den fazla) girintiler oluşturun. Nokta ile başlayan satırlar, satırın bir ifade değil bir metod çağrısı olduğunu belirtecektir. eslint: [`newline-per-chained-call`](https://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](https://eslint.org/docs/rules/no-whitespace-before-property)
 
     ```javascript
     // kötü
@@ -2543,7 +2543,7 @@ Diğer Rehberler
     ```
 
   <a name="whitespace--padded-blocks"></a><a name="18.8"></a>
-  - [19.8](#whitespace--padded-blocks) Bloklarda boş satır aralıkları bırakmayın. eslint: [`padded-blocks`](https://eslint.org/docs/rules/padded-blocks.html) jscs:  [`disallowPaddingNewlinesInBlocks`](http://jscs.info/rule/disallowPaddingNewlinesInBlocks)
+  - [19.8](#whitespace--padded-blocks) Blokların içinde boş satırlar bırakmayın. eslint: [`padded-blocks`](https://eslint.org/docs/rules/padded-blocks.html) jscs:  [`disallowPaddingNewlinesInBlocks`](http://jscs.info/rule/disallowPaddingNewlinesInBlocks)
 
     ```javascript
     // kötü
@@ -2584,7 +2584,7 @@ Diğer Rehberler
     ```
 
   <a name="whitespace--in-parens"></a><a name="18.9"></a>
-  - [19.9](#whitespace--in-parens) Parantez içlerinde boşluk kullanmayın. eslint: [`space-in-parens`](https://eslint.org/docs/rules/space-in-parens.html) jscs: [`disallowSpacesInsideParentheses`](http://jscs.info/rule/disallowSpacesInsideParentheses)
+  - [19.9](#whitespace--in-parens) Parantez içinde boşluk kullanmayın. eslint: [`space-in-parens`](https://eslint.org/docs/rules/space-in-parens.html) jscs: [`disallowSpacesInsideParentheses`](http://jscs.info/rule/disallowSpacesInsideParentheses)
 
     ```javascript
     // kötü
@@ -2633,7 +2633,7 @@ Diğer Rehberler
     ```
 
   <a name="whitespace--max-len"></a><a name="18.12"></a>
-  - [19.12](#whitespace--max-len) 100 karakterden uzun satırlar yazmayın. (whitespace dahil). Not: Uzun stringler [yukarıda](#strings--line-length) belirtildiği gibi bu kuraldan muaftır. eslint: [`max-len`](https://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
+  - [19.12](#whitespace--max-len) 100 karakterden uzun satırlar yazmayın. (whitespace dahil). Not: Uzun string'ler [yukarıda](#strings--line-length) belirtildiği gibi bu kuraldan muaftır. eslint: [`max-len`](https://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
 
     > Neden? Geliştirilebilirliği ve okunabilirliği artırmaktadır.
 
@@ -2662,9 +2662,9 @@ Diğer Rehberler
       .fail(() => console.log('You have failed this city.'));
     ```
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
-## Commas
+## Virgüller
 
   <a name="commas--leading-trailing"></a><a name="19.1"></a>
   - [20.1](#commas--leading-trailing) **Asla** virgül ile başlamayın. eslint: [`comma-style`](https://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
@@ -2707,7 +2707,7 @@ Diğer Rehberler
     > Neden? Git diff'lerini daha doğru şekilde gösterir. Ayrıca Babel gibi transpiler'lar fazladan virgülleri sileceği için tarayıcılardaki [ilave virgül sorunu](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas)'nu düşünmenize gerek kalmayacaktır.
 
     ```diff
-    // kötü - git diff without trailing comma
+    // kötü - sonda virgül olmadığında git diff
     const hero = {
          firstName: 'Florence',
     -    lastName: 'Nightingale'
@@ -2715,7 +2715,7 @@ Diğer Rehberler
     +    inventorOf: ['coxcomb chart', 'modern nursing']
     };
 
-    // iyi - git diff with trailing comma
+    // iyi - sonda virgül olduğunda git diff
     const hero = {
          firstName: 'Florence',
          lastName: 'Nightingale',
@@ -2764,7 +2764,7 @@ Diğer Rehberler
       // does nothing
     }
 
-    // iyi (note that a comma must not appear after a "rest" element)
+    // iyi (unutmayın rest elemanından sonra virgül kullanılmamalıdır)
     function createHero(
       firstName,
       lastName,
@@ -2788,7 +2788,7 @@ Diğer Rehberler
       inventorOf,
     );
 
-    // iyi (note that a comma must not appear after a "rest" element)
+    // iyi (unutmayın rest elemanından sonra virgül kullanılmamalıdır)
     createHero(
       firstName,
       lastName,
@@ -2797,29 +2797,29 @@ Diğer Rehberler
     );
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
-## Semicolons
+## Noktalı Virgüller
 
   <a name="semicolons--required"></a><a name="20.1"></a>
   - [21.1](#semicolons--required) Noktalı virgül kullanımına dikkat edilmelidir. eslint: [`semi`](https://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
 
-    > Neden? Javascript yorumlayıcıları noktalı virgül olmadan yeni satıra geçilen alanları [Otomatik Noktalı Virgül Ekleme](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion) kuralları ile kontrol eder. Yanlış yorumlamalara karşı daima noktalı virgül kullanmanız gerekir. Ayrıca linter'ınızı yapılandırarak hatalı satır sonlarının otomatik olarak düzeltilmesini sağlayabilirsiniz.
+    > Neden? Javascript yorumlayıcıları noktalı virgül olmadan yeni satıra geçilen bölümleri [Otomatik Noktalı Virgül Ekleme](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion) kuralları ile kontrol eder. Yanlış yorumlamalara karşı daima noktalı virgül kullanmanız gerekir. Ayrıca linter'ınızı yapılandırarak hatalı satır sonlarının otomatik olarak düzeltilmesini sağlayabilirsiniz.
 
     ```javascript
-    // kötü - raises exception
+    // kötü - hata verir
     const luke = {}
     const leia = {}
     [luke, leia].forEach(jedi => jedi.father = 'vader')
 
-    // kötü- raises exception
+    // kötü - hata verir
     const reaction = "No! That's impossible!"
     (async function meanwhileOnTheFalcon() {
       // handle `leia`, `lando`, `chewie`, `r2`, `c3p0`
       // ...
     }())
 
-    // kötü - returns `undefined` instead of the value on the next line - always happens when `return` is on a line by itself because of ASI!
+    // kötü - değeri döndürmek yerine `undefined` döndürür - ASI'den ötürü return tek başına satırda olduğunda gerçekleşir!
     function foo() {
       return
         'search your feelings, you know it to be foo'
@@ -2847,34 +2847,34 @@ Diğer Rehberler
 
     [Daha fazla](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214#7365214).
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
-## Type Casting & Coercion
+## Tip Dönüştürme
 
   <a name="coercion--explicit"></a><a name="21.1"></a>
-  - [22.1](#coercion--explicit) Zorlama (coercion) işlemini ifadenin başında uygulayın.
+  - [22.1](#coercion--explicit) Dönüştürme işlemlerini ifadelerin en başında uygulayın.
 
   <a name="coercion--strings"></a><a name="21.2"></a>
-  - [22.2](#coercion--strings)  String için: eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
+  - [22.2](#coercion--strings)  String için; eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
 
     ```javascript
     // => this.reviewScore = 9;
 
     // kötü
-    const totalScore = new String(this.reviewScore); // typeof totalScore is "object" not "string"
+    const totalScore = new String(this.reviewScore); // totalScore'un typeof değeri "object"'dir. "string" değil.
 
     // kötü
-    const totalScore = this.reviewScore + ''; // invokes this.reviewScore.valueOf()
+    const totalScore = this.reviewScore + ''; // this.reviewScore.valueOf()'u uygular
 
     // kötü
-    const totalScore = this.reviewScore.toString(); // isn’t guaranteed to return a string
+    const totalScore = this.reviewScore.toString(); // string döneceğini garanti etmez
 
     // iyi
     const totalScore = String(this.reviewScore);
     ```
 
   <a name="coercion--numbers"></a><a name="21.3"></a>
-  - [22.3](#coercion--numbers) Number için: Type casting işlemlerinde `Number`'ı kullanın ve stringleri, sayılara parse ederken tabanlara `parseInt` kullanarak ulaşın. eslint: [`radix`](https://eslint.org/docs/rules/radix) [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
+  - [22.3](#coercion--numbers) Number için; Tip dönüştürme (Type Casting) işlemlerinde `Number`'ı kullanın ve stringleri, sayılara parse ederken tabanlara `parseInt` kullanarak ulaşın. eslint: [`radix`](https://eslint.org/docs/rules/radix) [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
 
     ```javascript
     const inputValue = '4';
@@ -2904,9 +2904,9 @@ Diğer Rehberler
     ```javascript
     // iyi
     /**
-     * parseInt was the reason my code was slow.
-     * Bitshifting the String to coerce it to a
-     * Number made it a lot faster.
+     * parseInt yüzünden kodum yavaş çalışıyordu
+     * Bitshifting String'i Number'a 
+     * daha hızlı çeviriyor
      */
     const val = inputValue >> 0;
     ```
@@ -2921,7 +2921,7 @@ Diğer Rehberler
     ```
 
   <a name="coercion--booleans"></a><a name="21.6"></a>
-  - [22.6](#coercion--booleans) Boolean: eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
+  - [22.6](#coercion--booleans) Boolean için; eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
 
     ```javascript
     const age = 0;
@@ -2936,7 +2936,7 @@ Diğer Rehberler
     const hasAge = !!age;
     ```
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
 ## Naming Conventions
 
