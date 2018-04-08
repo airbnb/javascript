@@ -47,7 +47,7 @@ Diğer Rehberler
   1. [Olaylar](#olaylar)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Uyumluluğu](#ecmascript-5-uyumluluğu)
-  1. [ECMAScript 6+ (ES 2015+) Özellikleri](#ecmascript-6-es-2015-özellikleri)
+  1. [ECMAScript 6+ (ES 2015+) Özellikleri](#ecmascript-6-es-2015-Özellikleri)
   1. [Yerleşik Kütüphaneler](#yerleşik-kütüphaneler)
   1. [Test](#test)
   1. [Performans](#performans)
