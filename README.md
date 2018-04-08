@@ -34,8 +34,8 @@ Diğer Rehberler
   1. [Property](#properties)
   1. [Değişkenler](#değişkenler)
   1. [Hoisting](#hoisting)
-  1. [Comparison Operators & Equality](#comparison-operators--equality)
-  1. [Blocks](#blocks)
+  1. [Karşılaştırma Operatörleri](#karşılaştırma-operatörleri)
+  1. [Bloklar](#bloklar)
   1. [Control Statements](#control-statements)
   1. [Comments](#comments)
   1. [Whitespace](#whitespace)
@@ -1824,7 +1824,7 @@ Diğer Rehberler
 
 **[⬆ başa dön](#İçindekiler)**
 
-## Comparison Operators & Equality
+## Karşılaştırma Operatörleri
 
   <a name="comparison--eqeqeq"></a><a name="15.1"></a>
   - [15.1](#comparison--eqeqeq) `==` ve `!=` yerine `===` ve `!==` kullanın. eslint: [`eqeqeq`](https://eslint.org/docs/rules/eqeqeq.html)
@@ -1842,12 +1842,12 @@ Diğer Rehberler
     ```javascript
     if ([0] && []) {
       // true
-      // an array (even an empty one) is an object, objects will evaluate to true
+      // dizi (boş dahi olsa) bir nesnedir, nesneler true ile değerlenir.
     }
     ```
 
   <a name="comparison--shortcuts"></a><a name="15.3"></a>
-  - [15.3](#comparison--shortcuts) Boolean için kısayolları kullanabilirsiniz ancak strings ve number türlerinde kullanmamalısınız.
+  - [15.3](#comparison--shortcuts) Boolean için kısayolları kullanabilirsiniz ancak string ve number türlerinde kullanmamalısınız.
 
     ```javascript
     // kötü
@@ -1882,7 +1882,7 @@ Diğer Rehberler
     ```
 
   <a name="comparison--moreinfo"></a><a name="15.4"></a>
-  - [15.4](#comparison--moreinfo) Daha fazla bilgi için Angus Croll tarafından kaleme alınan [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) adlı yazısı inceleyin.
+  - [15.4](#comparison--moreinfo) Daha fazla bilgi için Angus Croll tarafından kaleme alınan [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) adlı yazısını inceleyin.
 
   <a name="comparison--switch-blocks"></a><a name="15.5"></a>
   - [15.5](#comparison--switch-blocks) Lexical tanımlar barındıran (`let`, `const`, `function`, ve `class` gibi) `case` ve `default` bloklarında süslü parantez kullanın. eslint: [`no-case-declarations`](https://eslint.org/docs/rules/no-case-declarations.html)
@@ -1933,7 +1933,7 @@ Diğer Rehberler
     ```
 
   <a name="comparison--nested-ternaries"></a><a name="15.6"></a>
-  - [15.6](#comparison--nested-ternaries) Ternary operatorler tek satırda yazılmalıdır ve nested kullanımdan kaçınılmalıdır. eslint: [`no-nested-ternary`](https://eslint.org/docs/rules/no-nested-ternary.html)
+  - [15.6](#comparison--nested-ternaries) Ternary operatörler tek satırda yazılmalıdır ve nested kullanımdan kaçınılmalıdır. eslint: [`no-nested-ternary`](https://eslint.org/docs/rules/no-nested-ternary.html)
 
     ```javascript
     // kötü
@@ -1941,7 +1941,7 @@ Diğer Rehberler
       ? "bar"
       : value1 > value2 ? "baz" : null;
 
-    // split into 2 separated ternary expressions
+    // 2 ayrı ifadeye bölünür
     const maybeNull = value1 > value2 ? 'baz' : null;
 
     // iyi
@@ -1954,7 +1954,7 @@ Diğer Rehberler
     ```
 
   <a name="comparison--unneeded-ternary"></a><a name="15.7"></a>
-  - [15.7](#comparison--unneeded-ternary) Gerektis ternary ifadelerden kaçınılmalıdır. eslint: [`no-unneeded-ternary`](https://eslint.org/docs/rules/no-unneeded-ternary.html)
+  - [15.7](#comparison--unneeded-ternary) Gereksiz ternary ifadelerden kaçınılmalıdır. eslint: [`no-unneeded-ternary`](https://eslint.org/docs/rules/no-unneeded-ternary.html)
 
     ```javascript
     // kötü
@@ -1969,7 +1969,7 @@ Diğer Rehberler
     ```
 
   <a name="comparison--no-mixed-operators"></a>
-  - [15.8](#comparison--no-mixed-operators) Operatörlerin karışması durumunda parantez kullanın. Standard aritmatik operatörlerde (`+`, `-`, `*`, & `/`) öncelik bilindiği için kullanılmasına gerek yoktur. eslint: [`no-mixed-operators`](https://eslint.org/docs/rules/no-mixed-operators.html)
+  - [15.8](#comparison--no-mixed-operators) Operatörlerin karışması durumunda parantez kullanın. Standart aritmatik operatörlerde (`+`, `-`, `*`, & `/`) öncelik bilindiği için kullanılmasına gerek yoktur. eslint: [`no-mixed-operators`](https://eslint.org/docs/rules/no-mixed-operators.html)
 
     > Neden? Bu kullanım okunabilirliği artırır ve ifadeyi daha anlaşılır kılar.
 
@@ -1981,7 +1981,7 @@ Diğer Rehberler
     const bar = a ** b - 5 % d;
 
     // kötü
-    // one may be confused into thinking (a || b) && c
+    // karıştırılabilir (a || b) && c
     if (a || b && c) {
       return d;
     }
@@ -2001,9 +2001,9 @@ Diğer Rehberler
     const bar = a + b / c * d;
     ```
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
-## Blocks
+## Bloklar
 
   <a name="blocks--braces"></a><a name="16.1"></a>
   - [16.1](#blocks--braces) Çok satırlı blokların tamamında süslü parantez kullanın. eslint: [`nonblock-statement-body-position`](https://eslint.org/docs/rules/nonblock-statement-body-position)
@@ -2031,7 +2031,7 @@ Diğer Rehberler
     ```
 
   <a name="blocks--cuddled-elses"></a><a name="16.2"></a>
-  - [16.2](#blocks--cuddled-elses) `if` ve `else` içeren çok satırlı bloklarda, `else`', `if` bloğunun kapandığı satırda başlatın. eslint: [`brace-style`](https://eslint.org/docs/rules/brace-style.html) jscs:  [`disallowNewlineBeforeBlockStatements`](http://jscs.info/rule/disallowNewlineBeforeBlockStatements)
+  - [16.2](#blocks--cuddled-elses) `if` ve `else` içeren çok satırlı bloklarda, `else`'i `if` bloğunun kapandığı satırda başlatın. eslint: [`brace-style`](https://eslint.org/docs/rules/brace-style.html) jscs:  [`disallowNewlineBeforeBlockStatements`](http://jscs.info/rule/disallowNewlineBeforeBlockStatements)
 
     ```javascript
     // kötü
@@ -2053,7 +2053,7 @@ Diğer Rehberler
     ```
 
   <a name="blocks--no-else-return"></a><a name="16.3"></a>
-  - [16.3](#blocks--no-else-return) Eğer `if` bloğu daima bir `return` barındırıyorsa, `else` bloğunu kullanmayın. `return` barındıran `if` bloğunu takip eden, `return` barındıran `else if` blokları birden fazla `if` bloğuna dönüştürülebilir. eslint: [`no-else-return`](https://eslint.org/docs/rules/no-else-return)
+  - [16.3](#blocks--no-else-return) Eğer `if` bloğu daima bir `return` içeriyorsa, `else` bloğunu kullanmayın. `return` barındıran `if` bloğunu takip eden, `return` barındıran `else if` blokları birden fazla `if` bloğuna dönüştürülebilir. eslint: [`no-else-return`](https://eslint.org/docs/rules/no-else-return)
 
     ```javascript
     // kötü
@@ -2117,7 +2117,7 @@ Diğer Rehberler
     }
     ```
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
 ## Control Statements
 
