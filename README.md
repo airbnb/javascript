@@ -8,7 +8,7 @@
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-Bu rehbere farklı dillerden de erişilebilir. [Çeviri](#ceviri)
+Bu rehbere farklı dillerden de erişilebilir. [Çeviri](#Çeviri)
 
 Diğer Rehberler
 
@@ -53,7 +53,7 @@ Diğer Rehberler
   1. [Performans](#performans)
   1. [Kaynaklar](#kaynaklar)
   1. [Organizasyonlar](#organizasyonlar)
-  1. [Çeviri](#çeviri)
+  1. [Çeviri](#Çeviri)
   1. [Kılavuz Kılavuzu](#kılavuz-kılavuzu)
   1. [JavaScript Sohbet Kanalı](#javascript-sohbet-kanalı)
   1. [Katkıda Bulunanlar](#katkıda-bulunanlar)
