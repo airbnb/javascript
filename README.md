@@ -27,7 +27,7 @@ Diğer Rehberler
   1. [Destructuring](#destructuring)
   1. [String](#string)
   1. [Fonksiyonlar](#fonksiyonlar)
-  1. [Arrow Functions](#arrow-functions)
+  1. [Arrow Fonksiyonlar](#arrow-fonksiyonlar)
   1. [Classes & Constructors](#classes--constructors)
   1. [Modules](#modules)
   1. [Iterators and Generators](#iterators-and-generators)
@@ -636,7 +636,7 @@ Diğer Rehberler
   <a name="functions--declarations"></a><a name="7.1"></a>
   - [7.1](#functions--declarations) Klasik fonksiyon tanımları yerine isimlendirilmiş fonksiyon ifadeleri kullanın. eslint: [`func-style`](https://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
 
-    > Neden? Fonksiyon tanımlamaları fazla basite kaçan bir çözümdür. Bu kullanım şekli okunabilirliği ve geliştirilebilirliği düşürür. Eğer fonksiyon kapsamlı ya da dosyadaki diğer betikler ile karışabilecek durumda ise ayrı bir modül haline getirin. Fonksiyon ifadesini açıklayıcı bir şekilde isimlendirmeyi unutmayın. ([Discussion](https://github.com/airbnb/javascript/issues/794))
+    > Neden? Fonksiyon tanımlamaları fazla basite kaçan bir çözümdür. Bu kullanım şekli okunabilirliği ve geliştirilebilirliği düşürür. Eğer fonksiyon kapsamlı ya da dosyadaki diğer betikler ile karışabilecek durumda ise ayrı bir modül haline getirin. Fonksiyon ifadesini açıklayıcı bir şekilde isimlendirmeyi unutmayın. ([Tartışma](https://github.com/airbnb/javascript/issues/794))
 
     ```javascript
     // kötü
@@ -796,7 +796,7 @@ Diğer Rehberler
     ```
 
   <a name="functions--signature-spacing"></a><a name="7.11"></a>
-  - [7.11](#functions--signature-spacing) Fonksiyon ifadelerinde boşlukları doğru şekilde kullanın. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
+  - [7.11](#functions--signature-spacing) Fonksiyonlarda boşlukları doğru şekilde kullanın. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
 
     > Neden? Tutarlılık iyidir ve bu şekilde bir isim eklerken veya silerken boşluk eklemenizede silmenizede gerek kalmaz.
 
@@ -912,7 +912,7 @@ Diğer Rehberler
 
 **[⬆ başa dön](#İçindekiler)**
 
-## Arrow Functions
+## Arrow Fonksiyonlar
 
   <a name="arrows--use-them"></a><a name="8.1"></a>
   - [8.1](#arrows--use-them) İsimsiz bir fonksiyon kullanırken (fonksiyon içi bir callback olarak) arrow (ok) fonksiyon notasyonunu kullanın. eslint: [`prefer-arrow-callback`](https://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](https://eslint.org/docs/rules/arrow-spacing.html) jscs: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions)
@@ -936,9 +936,9 @@ Diğer Rehberler
     ```
 
   <a name="arrows--implicit-return"></a><a name="8.2"></a>
-  - [8.2](#arrows--implicit-return) Eğer fonksiyon içeriği yan etkisi bulunmayan tek bir ifadeyi [expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) geri döndürüyorsa süslü parantez kullanmadan satır içinde ifadeyi kullanın (implicit return). Aksi durumlarda süslü parantez ve `return` kullanın. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](https://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
+  - [8.2](#arrows--implicit-return) Eğer fonksiyon içeriği yan etkisi bulunmayan tek bir [ifadeyi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) geri döndürüyorsa süslü parantez kullanmadan satır içinde ifadeyi kullanın (implicit return). Aksi durumlarda süslü parantez ve `return` kullanın. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](https://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
 
-    > Neden? Birden fazla fonksiyon zincir halinde kullanıldığında okunabilirliği artırır. 
+    > Neden? Fonksiyon zincirleri okunabilirliği artırır. 
 
     ```javascript
     // kötü
@@ -965,7 +965,7 @@ Diğer Rehberler
     function foo(callback) {
       const val = callback();
       if (val === true) {
-        // Do something if callback returns true
+        // callback true döndüğünde çalışan betik
       }
     }
 
@@ -983,7 +983,7 @@ Diğer Rehberler
   <a name="arrows--paren-wrap"></a><a name="8.3"></a>
   - [8.3](#arrows--paren-wrap) İfade birden fazla satır içeriyorsa okunabilirliği artırmak için parantez kullanın.
 
-    > Neden? Fonksiyonun nerede başlayıp bittiğini daha net şekilde gösterir.
+    > Neden? Fonksiyonun nerede başlayıp nerede bittiğini daha net şekilde gösterir.
 
     ```javascript
     // kötü
@@ -1003,7 +1003,7 @@ Diğer Rehberler
     ```
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) Fonksiyonunuz tek bir parametre alıyorsa ve süslü parantez kullanmıyorsa, parantez de kullanmayın. Diğer durumlarda sadelik ve tutarlılık için daima parametreleri parantez içine alın. Not: Parantezlerin sürekli kullanımı da kabul edilebilirdir. Bunun için eslint de [“always” option](https://eslint.org/docs/rules/arrow-parens#always)  kullanın ya da jscs de [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam) dahil etmeyin. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
+  - [8.4](#arrows--one-arg-parens) Fonksiyonunuz tek bir parametre alıyorsa ve süslü parantez kullanmıyorsa, parantez de kullanmayın. Diğer durumlarda sadelik ve tutarlılık için daima parametreleri parantez içine alın. Not: Parantezlerin sürekli kullanımı da kabul edilebilirdir. Bunun için eslint de [“always” option](https://eslint.org/docs/rules/arrow-parens#always) kullanın ya da jscs de [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)'ı dahil etmeyin. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
 
     > Neden? Daha az görsel karmaşa.
 
@@ -1052,7 +1052,7 @@ Diğer Rehberler
     };
     ```
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
 ## Sınıflar & Yapılandırıcılar
 
@@ -1764,7 +1764,7 @@ Diğer Rehberler
     ```
 
   <a name="hoisting--anon-expressions"></a><a name="14.2"></a>
-  - [14.2](#hoisting--anon-expressions) İsimsiz fonksiyon ifadelerinde isim yukarı taşınsada içerik taşınmaz.
+  - [14.2](#hoisting--anon-expressions) Anonim fonksiyon ifadelerinde isim yukarı taşınsada içerik taşınmaz.
 
     ```javascript
     function example() {
