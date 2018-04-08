@@ -30,7 +30,7 @@ Diğer Rehberler
   1. [Arrow Fonksiyonlar](#arrow-fonksiyonlar)
   1. [Sınıflar & Constructor](#sınıflar--constructor)
   1. [Modüller](#modüller)
-  1. [Yineleyiciler ve oluşturucular](#yineleyiciler-ve-oluşturucular)
+  1. [Yineleyiciler ve Oluşturucular](#yineleyiciler-ve-oluşturucular)
   1. [Property](#properties)
   1. [Değişkenler](#değişkenler)
   1. [Hoisting](#hoisting)
@@ -2329,7 +2329,7 @@ Diğer Rehberler
     }
     ```
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
 ## Whitespace
 
