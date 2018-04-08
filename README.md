@@ -28,7 +28,7 @@ Diğer Rehberler
   1. [String](#string)
   1. [Fonksiyonlar](#fonksiyonlar)
   1. [Arrow Fonksiyonlar](#arrow-fonksiyonlar)
-  1. [Classes & Constructors](#classes--constructors)
+  1. [Sınıflar & Constructor](#sınıflar--constructor)
   1. [Modules](#modules)
   1. [Iterators and Generators](#iterators-and-generators)
   1. [Properties](#properties)
@@ -1054,10 +1054,10 @@ Diğer Rehberler
 
 **[⬆ başa dön](#İçindekiler)**
 
-## Sınıflar & Yapılandırıcılar
+## Sınıflar & Constructor
 
   <a name="constructors--use-class"></a><a name="9.1"></a>
-  - [9.1](#constructors--use-class) Daima `class` kullanın. Direkt `prototype` manipulasyonundan kaçının.
+  - [9.1](#constructors--use-class) Daima `class` kullanın. Doğrudan `prototype` manipulasyonundan kaçının.
 
     > Neden? `class` sözdizimi daha doğru ve kolaydır.
 
@@ -1110,7 +1110,7 @@ Diğer Rehberler
     ```
 
   <a name="constructors--chaining"></a><a name="9.3"></a>
-  - [9.3](#constructors--chaining) Metodlar 'method chaining' için `this`'i return edebilir.
+  - [9.3](#constructors--chaining) Metodlar, metod zincirleri için `this` return edebilir.
 
     ```javascript
     // kötü
@@ -1166,7 +1166,7 @@ Diğer Rehberler
     ```
 
   <a name="constructors--no-useless"></a><a name="9.5"></a>
-  - [9.5](#constructors--no-useless) Eğer bir yapılandırıcı tanımlanmadıysa sınıfların varsayılan bir yapılandırıcısı bulunur. Boş bir yapılandırıcı ya da üst sınıfı temsil eden bir yapılandırıcı gereksizdir. eslint: [`no-useless-constructor`](https://eslint.org/docs/rules/no-useless-constructor)
+  - [9.5](#constructors--no-useless) Eğer bir constructor tanımlanmadıysa sınıflarda varsayılan bir constructor bulunur. Boş bir constructor ya da üst sınıfı temsil eden bir constructor gereksizdir. eslint: [`no-useless-constructor`](https://eslint.org/docs/rules/no-useless-constructor)
 
     ```javascript
     // kötü
@@ -1217,7 +1217,7 @@ Diğer Rehberler
     }
     ```
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
 ## Modules
 
