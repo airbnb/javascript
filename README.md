@@ -21,7 +21,7 @@ Diğer Rehberler
 ## İçindekiler
 
   1. [Veri Türleri](#veri-türleri)
-  1. [Değişkenler](#değişkenler)
+  1. [Referanslar](#referanslar)
   1. [Nesneler](#nesneler)
   1. [Diziler](#diziler)
   1. [Destructuring](#destructuring)
@@ -30,9 +30,9 @@ Diğer Rehberler
   1. [Arrow Fonksiyonlar](#arrow-fonksiyonlar)
   1. [Sınıflar & Constructor](#sınıflar--constructor)
   1. [Modüller](#modüller)
-  1. [Iterators and Generators](#iterators-and-generators)
-  1. [Properties](#properties)
-  1. [Variables](#variables)
+  1. [Yineleyiciler ve oluşturucular](#yineleyiciler-ve-oluşturucular)
+  1. [Property](#properties)
+  1. [Değişkenler](#değişkenler)
   1. [Hoisting](#hoisting)
   1. [Comparison Operators & Equality](#comparison-operators--equality)
   1. [Blocks](#blocks)
@@ -101,12 +101,12 @@ Diğer Rehberler
 
 **[⬆ başa dön](#İçindekiler)**
 
-## Değişkenler
+## Referanslar
 
   <a name="references--prefer-const"></a><a name="2.1"></a>
-  - [2.1](#references--prefer-const) Tüm değişkenlerde `const` kullanın. `var` kullanmaktan kaçının. eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
+  - [2.1](#references--prefer-const) Tüm referanslarda `const` kullanın. `var` kullanmaktan kaçının. eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
 
-    > Neden? Bu sayede değişkenlerin sonradan değiştirilmesi engellenir; olası hataların önüne geçilir, kodun anlaşılabilirliği artar.
+    > Neden? Bu sayede referansların sonradan değiştirilmesi engellenir; olası hataların önüne geçilir, kodun anlaşılabilirliği artar.
 
     ```javascript
     // kötü
@@ -119,7 +119,7 @@ Diğer Rehberler
     ```
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
-  - [2.2](#references--disallow-var) Eğer değişkenleri yeniden tanımlayacaksanız, `var` yerine `let` kullanın. eslint: [`no-var`](https://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
+  - [2.2](#references--disallow-var) Eğer referansları yeniden tanımlayacaksanız, `var` yerine `let` kullanın. eslint: [`no-var`](https://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
 
     > Neden? `let` block-scope `var` function-scope'dur.
 
@@ -1373,10 +1373,10 @@ Diğer Rehberler
 
 **[⬆ başa dön](#İçindekiler)**
 
-## Iterators and Generators
+## Yineleyiciler ve Oluşturucular
 
   <a name="iterators--nope"></a><a name="11.1"></a>
-  - [11.1](#iterators--nope) Iterator kullanmayın. `for-in` ve `for-of` gibi döngülerde higher-order fonksiyonları tercih edin.. eslint: [`no-iterator`](https://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](https://eslint.org/docs/rules/no-restricted-syntax)
+  - [11.1](#iterators--nope) Yineleyici (Iterator) kullanmayın. `for-in` ve `for-of` gibi döngülerde higher-order fonksiyonları tercih edin. eslint: [`no-iterator`](https://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](https://eslint.org/docs/rules/no-restricted-syntax)
 
     > Neden? Değerleri return eden sade fonksiyonların kullanılması yan etkileri önler ve bu kullanım şekli en önemli kurallardandır.
 
@@ -1420,14 +1420,14 @@ Diğer Rehberler
     ```
 
   <a name="generators--nope"></a><a name="11.2"></a>
-  - [11.2](#generators--nope) Şimdilik generator kullanmayın.
+  - [11.2](#generators--nope) Şimdilik oluşturucu (generator) kullanmayın.
 
     > Neden? ES5'e doğru şekilde transpile edilemezler.
 
   <a name="generators--spacing"></a>
-  - [11.3](#generators--spacing) Eğer generator kullanmanız gerekiyorsa, ya da [önerimizi](#generators--nope) görmezden gelmek istiyorsanız fonksiyon tanımınızda boşluk karakterini doğru şekilde kullandığınıza emin olun. eslint: [`generator-star-spacing`](https://eslint.org/docs/rules/generator-star-spacing)
+  - [11.3](#generators--spacing) Eğer oluşturucu kullanmanız gerekiyorsa, ya da [önerimizi](#generators--nope) görmezden gelmek istiyorsanız fonksiyon tanımınızda boşluk karakterini doğru şekilde kullandığınıza emin olun. eslint: [`generator-star-spacing`](https://eslint.org/docs/rules/generator-star-spacing)
 
-    > Neden? `function` ve `*` kavramsal terimlerdir. `*`, `function` için ir niteleyici değildir., `function*`, `function`'ın aksine eşsiz bir construct'tır.
+    > Neden? `function` ve `*` kavramsal terimlerdir. `*`, `function` için bir niteleyici değildir. `function*`, `function`'ın aksine eşsiz bir construct'tır.
 
     ```javascript
     // kötü
@@ -1485,9 +1485,9 @@ Diğer Rehberler
     };
     ```
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
-## Properties
+## Property
 
   <a name="properties--dot"></a><a name="12.1"></a>
   - [12.1](#properties--dot) Property'lere erişirken nokta notasyonunu kullanın. eslint: [`dot-notation`](https://eslint.org/docs/rules/dot-notation.html) jscs: [`requireDotNotation`](http://jscs.info/rule/requireDotNotation)
@@ -1531,9 +1531,9 @@ Diğer Rehberler
     const binary = 2 ** 10;
     ```
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
-## Variables
+## Değişkenler
 
   <a name="variables--const"></a><a name="13.1"></a>
   - [13.1](#variables--const) Değişken tanımlarında daima `const` ve `let` kullanın. Aksi halde global değişkenler oluşacaktır ve global namespace'i kirletmekten kaçınmalısınız. eslint: [`no-undef`](https://eslint.org/docs/rules/no-undef) [`prefer-const`](https://eslint.org/docs/rules/prefer-const)
@@ -1547,7 +1547,7 @@ Diğer Rehberler
     ```
 
   <a name="variables--one-const"></a><a name="13.2"></a>
-  - [13.2](#variables--one-const) Her değişkenke bir adet `const` ya da `let` kullanın. eslint: [`one-var`](https://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
+  - [13.2](#variables--one-const) Her değişken ayrı ayrı `const` ya da `let` kullanın. eslint: [`one-var`](https://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
 
     > Neden? Bu şekilde yeni değişkenler tanımlamak kolaydır ve hata yapma olasılığınız daha azdır. Ayrıca bu şekilde değişkenler tek tek debug edilebilir.
 
@@ -1558,7 +1558,7 @@ Diğer Rehberler
         dragonball = 'z';
 
     // kötü
-    // (compare to above, and try to spot the mistake)
+    // (yukarıdaki ile kıyaslayarak yazım hatasını bulun)
     const items = getItems(),
         goSportsTeam = true;
         dragonball = 'z';
@@ -1598,7 +1598,7 @@ Diğer Rehberler
   <a name="variables--define-where-used"></a><a name="13.4"></a>
   - [13.4](#variables--define-where-used) Değişkenleri kullanmanız gereken yerlerde tanımlayın ancak kabul edilebilir bir alanda oluşturun.
 
-    > Neden? `let` ve `const` fonksiyon scope'da değil blok scope'da çalışır.
+    > Neden? `let` ve `const` fonksiyon scope'da değil block scope'da çalışır.
 
     ```javascript
     // kötü
@@ -1634,21 +1634,21 @@ Diğer Rehberler
     }
     ```
   <a name="variables--no-chain-assignment"></a><a name="13.5"></a>
-  - [13.5](#variables--no-chain-assignment) Değişken tanımlarında chain kullanmayın. eslint: [`no-multi-assign`](https://eslint.org/docs/rules/no-multi-assign)
+  - [13.5](#variables--no-chain-assignment) Değişken tanımlarında zincir tekniğini kullanmayın. eslint: [`no-multi-assign`](https://eslint.org/docs/rules/no-multi-assign)
 
-    > Neden? Chain kullanımı global değişkenler üretir.
+    > Neden? Zincirleyerek oluşturmak, global değişkenler üretir.
 
     ```javascript
     // kötü
     (function example() {
-      // JavaScript interprets this as
+      // JavaScript işlemi aşağıdaki gibi ele alır.
       // let a = ( b = ( c = 1 ) );
-      // The let keyword only applies to variable a; variables b and c become
-      // global variables.
+      // let, sadece a'da uygulanır; b ve c
+      // global değişkenler olacaktır.
       let a = b = c = 1;
     }());
 
-    console.log(a); // throws ReferenceError
+    console.log(a); // ReferenceError
     console.log(b); // 1
     console.log(c); // 1
 
@@ -1659,17 +1659,17 @@ Diğer Rehberler
       let c = a;
     }());
 
-    console.log(a); // throws ReferenceError
-    console.log(b); // throws ReferenceError
-    console.log(c); // throws ReferenceError
+    console.log(a); // ReferenceError
+    console.log(b); // ReferenceError
+    console.log(c); // ReferenceError
 
-    // the same applies for `const`
+    // aynı şey `const` için de geçerlidir
     ```
 
   <a name="variables--unary-increment-decrement"></a><a name="13.6"></a>
   - [13.6](#variables--unary-increment-decrement) Eksiltme ve artırma operatörlerini kullanmaktan kaçının. (++, --). eslint [`no-plusplus`](https://eslint.org/docs/rules/no-plusplus)
 
-    > Neden? Eslint dökümanın göre bu kullanım şeklinde otomatik noktalı virgüller eklenmekte ve gizli hataların oluşmasına neden olabilmektedir. Ayrıca `num++` ya da `num ++` yerine `num += 1` şeklinde bir kullanım daha anlamlıdır. Ayrıca bu kullanım öncül artırma ve azaltmaya neden olabilecek hatalarında önüne geçer.
+    > Neden? Eslint dökümanına göre bu kullanım şeklinde otomatik noktalı virgüller eklenmekte ve gizli hataların oluşmasına neden olabilmektedir. Ayrıca `num++` ya da `num ++` yerine `num += 1` şeklinde bir kullanım daha anlamlıdır. Ayrıca bu kullanım öncül artırma ve azaltmaya neden olabilecek hatalarında önüne geçer.
 
     ```javascript
     // kötü
@@ -1723,39 +1723,39 @@ Diğer Rehberler
     const foo = 'superLongLongLongLongLongLongLongLongString';
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
 ## Hoisting
 
   <a name="hoisting--about"></a><a name="14.1"></a>
-  - [14.1](#hoisting--about) `var` tanımlamaları en yakın fonksiyon scope'unun üstüne taşınır ancak atanan değerleri taşınmaz. `const` ve `let` ise [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_Dead_Zone_and_errors_with_let) adlı yeni bir konsept ile çalışır. [typeof kullanımı artık sağlıklı değildir](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15) .
+  - [14.1](#hoisting--about) `var` tanımlamaları en yakın fonksiyon scope'unun üstüne taşınır ancak karşılık olarak atanan değeri taşınmaz. `const` ve `let` ise [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_Dead_Zone_and_errors_with_let) adlı yeni bir konsept ile çalışır. [typeof kullanımı artık sağlıklı değildir](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15) .
 
     ```javascript
-    // we know this wouldn’t work (assuming there
-    // is no notDefined global variable)
+    // bu bölüm çalışmayacaktır (notDefined adlı
+    // bir global değişken olmadığı için)
     function example() {
-      console.log(notDefined); // => throws a ReferenceError
+      console.log(notDefined); // => ReferenceError
     }
 
-    // creating a variable declaration after you
-    // reference the variable will work due to
-    // variable hoisting. Note: the assignment
-    // value of `true` is not hoisted.
+    // referansı atanmış değişkenler 
+    // hoisting'den ötürü çalışırlar. Not: atanan değer
+    // hoisted edilmeyecektir.
     function example() {
       console.log(declaredButNotAssigned); // => undefined
       var declaredButNotAssigned = true;
     }
 
-    // the interpreter is hoisting the variable
-    // declaration to the top of the scope,
-    // which means our example could be rewritten as:
+    // interpreter değişkeni hoist edecek ve
+    // tanımı scope'un tepesine çıkaracaktır.
+    // yani yukarıdaki örnek aşağıdaki şekilde 
+    // yeniden yazılabilir.
     function example() {
       let declaredButNotAssigned;
       console.log(declaredButNotAssigned); // => undefined
       declaredButNotAssigned = true;
     }
 
-    // using const and let
+    // let ve const ile
     function example() {
       console.log(declaredButNotAssigned); // => throws a ReferenceError
       console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
@@ -1794,8 +1794,8 @@ Diğer Rehberler
       };
     }
 
-    // the same is true when the function name
-    // is the same as the variable name.
+    // fonksiyon ile değişken adı aynı olduğunda da
+    // aynı durum geçerlidir.
     function example() {
       console.log(named); // => undefined
 
@@ -1808,7 +1808,7 @@ Diğer Rehberler
     ```
 
   <a name="hoisting--declarations"></a><a name="14.4"></a>
-  - [14.4](#hoisting--declarations) Fonksiyon tanımlarında içerik ve isim yukarı taşınır.
+  - [14.4](#hoisting--declarations) Fonksiyon bildirimlerinde (tanımlarında) içerik ve isim yukarı taşınır.
 
     ```javascript
     function example() {
@@ -1822,7 +1822,7 @@ Diğer Rehberler
 
   - Daha fazla bilgi için [Ben Cherry](http://www.adequatelygood.com/)'nin kaleme aldığı [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) yazısı okunabilir.
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
 ## Comparison Operators & Equality
 
