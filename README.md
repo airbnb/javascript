@@ -42,16 +42,16 @@ Diğer Rehberler
   1. [Virgüller](#virgüller)
   1. [Noktalı Virgüller](#noktalı-virgüller)
   1. [Tip Dönüştürme](#tip-dönüştürme)
-  1. [Naming Conventions](#naming-conventions)
-  1. [Accessors](#accessors)
-  1. [Events](#events)
+  1. [İsimlendirme](#isimlendirme)
+  1. [Accessor](#accessors)
+  1. [Olaylar](#olaylar)
   1. [jQuery](#jquery)
-  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
-  1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
-  1. [Standard Library](#standard-library)
+  1. [ECMAScript 5 Uyumluluğu](#ecmascript-5-uyumluluğu)
+  1. [ECMAScript 6+ (ES 2015+) Özellikleri](#ecmascript-6-es-2015-özellikleri)
+  1. [Yerleşik Kütüphaneler](#yerleşik-kütüphaneler)
   1. [Testing](#testing)
-  1. [Performance](#performance)
-  1. [Resources](#resources)
+  1. [Performans](#performans)
+  1. [Kaynaklar](#kaynaklar)
   1. [In the Wild](#in-the-wild)
   1. [Translation](#translation)
   1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
@@ -2938,7 +2938,7 @@ Diğer Rehberler
 
 **[⬆ başa dön](#İçindekiler)**
 
-## Naming Conventions
+## İsimlendirme
 
   <a name="naming--descriptive"></a><a name="22.1"></a>
   - [23.1](#naming--descriptive) Tek harfli isimlendirmelerden kaçının. İsimlerde açıklayıcı olun. eslint: [`id-length`](https://eslint.org/docs/rules/id-length)
@@ -2956,7 +2956,7 @@ Diğer Rehberler
     ```
 
   <a name="naming--camelCase"></a><a name="22.2"></a>
-  - [23.2](#naming--camelCase)  Obje, fonksiyon, ve instance'larda camelCase isimlendirme yapın. eslint: [`camelcase`](https://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
+  - [23.2](#naming--camelCase)  Nesne, fonksiyon, ve instance'larda camelCase isimlendirme yapın. eslint: [`camelcase`](https://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
 
     ```javascript
     // kötü
@@ -2970,7 +2970,7 @@ Diğer Rehberler
     ```
 
   <a name="naming--PascalCase"></a><a name="22.3"></a>
-  - [23.3](#naming--PascalCase) Class ve constructor'larda pascalCase kullanın. eslint: [`new-cap`](https://eslint.org/docs/rules/new-cap.html) jscs: [`requireCapitalizedConstructors`](http://jscs.info/rule/requireCapitalizedConstructors)
+  - [23.3](#naming--PascalCase) Sınıf ve constructor'larda pascalCase kullanın. eslint: [`new-cap`](https://eslint.org/docs/rules/new-cap.html) jscs: [`requireCapitalizedConstructors`](http://jscs.info/rule/requireCapitalizedConstructors)
 
     ```javascript
     // kötü
@@ -2997,7 +2997,7 @@ Diğer Rehberler
   <a name="naming--leading-underscore"></a><a name="22.4"></a>
   - [23.4](#naming--leading-underscore) Sonlarda ve başlarda alt çizgi kullanmayın. eslint: [`no-underscore-dangle`](https://eslint.org/docs/rules/no-underscore-dangle.html) jscs: [`disallowDanglingUnderscores`](http://jscs.info/rule/disallowDanglingUnderscores)
 
-    > Neden? JavaScript property ve metodlarında private konsepti yoktur. Alt çizgi kullanımı genel olarak “private”'e karşılık kullanılır fakat tüm propertyler tümüyle public'dir. Bu şekilde bir kullanım geliştiricileri yanıltabilir.
+    > Neden? JavaScript property ve metodlarında private konsepti yoktur. Alt çizgi kullanımı genel olarak “private”'e karşılık kullanılır fakat propertyler tümüyle public'dir. Bu şekilde bir kullanım geliştiricileri yanıltabilir.
 
     ```javascript
     // kötü
@@ -3008,7 +3008,7 @@ Diğer Rehberler
     // iyi
     this.firstName = 'Panda';
 
-    // iyi, in environments where WeakMaps are available
+    // iyi
     // see https://kangax.github.io/compat-table/es6/#test-WeakMap
     const firstNames = new WeakMap();
     firstNames.set(this, 'Panda');
@@ -3060,22 +3060,22 @@ Diğer Rehberler
 
     // in some other file
     // kötü
-    import CheckBox from './checkBox'; // PascalCase import/export, camelCase filename
-    import FortyTwo from './FortyTwo'; // PascalCase import/filename, camelCase export
-    import InsideDirectory from './InsideDirectory'; // PascalCase import/filename, camelCase export
+    import CheckBox from './checkBox'; // PascalCase import/export, camelCase dosya adı
+    import FortyTwo from './FortyTwo'; // PascalCase import/dosya adı, camelCase export
+    import InsideDirectory from './InsideDirectory'; // PascalCase import/dosya adı, camelCase export
 
     // kötü
-    import CheckBox from './check_box'; // PascalCase import/export, snake_case filename
-    import forty_two from './forty_two'; // snake_case import/filename, camelCase export
+    import CheckBox from './check_box'; // PascalCase import/export, snake_case dosya adı
+    import forty_two from './forty_two'; // snake_case import/dosya adı, camelCase export
     import inside_directory from './inside_directory'; // snake_case import, camelCase export
-    import index from './inside_directory/index'; // requiring the index file explicitly
-    import insideDirectory from './insideDirectory/index'; // requiring the index file explicitly
+    import index from './inside_directory/index'; // index dosyasını zorunlu kılar
+    import insideDirectory from './insideDirectory/index'; // index dosyasını zorunlu kılar
 
     // iyi
-    import CheckBox from './CheckBox'; // PascalCase export/import/filename
-    import fortyTwo from './fortyTwo'; // camelCase export/import/filename
-    import insideDirectory from './insideDirectory'; // camelCase export/import/directory name/implicit "index"
-    // ^ supports both insideDirectory.js and insideDirectory/index.js
+    import CheckBox from './CheckBox'; // PascalCase export/import/dosya adı
+    import fortyTwo from './fortyTwo'; // camelCase export/import/dosya adı
+    import insideDirectory from './insideDirectory'; // camelCase export/import/klasör name/implicit "index"
+    // ^ hem insideDirectory.js hem de insideDirectory/index.js için geçerlidir
     ```
 
   <a name="naming--camelCase-default-export"></a><a name="22.7"></a>
@@ -3090,7 +3090,7 @@ Diğer Rehberler
     ```
 
   <a name="naming--PascalCase-singleton"></a><a name="22.8"></a>
-  - [23.8](#naming--PascalCase-singleton) Constructor / class / singleton / function library / bare object export ederken PascalCase kullanın.
+  - [23.8](#naming--PascalCase-singleton) Constructor / class / singleton / function library / bare object; export ederken PascalCase kullanın.
 
     ```javascript
     const AirbnbStyleGuide = {
@@ -3137,9 +3137,9 @@ Diğer Rehberler
     ];
     ```
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
-## Accessors
+## Accessor
 
   <a name="accessors--not-required"></a><a name="23.1"></a>
   - [24.1](#accessors--not-required) Propertylerde accessor fonksiyon kullanımı gerekli değildir.
@@ -3206,12 +3206,12 @@ Diğer Rehberler
     }
     ```
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
-## Events
+## Olaylar
 
   <a name="events--hash"></a><a name="24.1"></a>
-  - [25.1](#events--hash) Verileri eventlere attach ederken (DOM event'i ya da Backbone event'i gibi daha özel bir event), ham bir değer yerine sabit bir nesne kullanın. ("hash" olarak bilinir) Bu sayede sonraki akışlarda event için tüm handler'ların çalışmasının önüne geçilir.
+  - [25.1](#events--hash) Verileri olaylara (event) bağlarken (DOM event'i ya da Backbone event'i gibi daha özel bir event farketmez), ham bir değer yerine sabit bir nesne kullanın. ("hash" olarak bilinir) Bu sayede sonraki akışlarda olay için tüm olay tutucuların (event handler) çalışmasının önüne geçilir.
 
     ```javascript
     // kötü
@@ -3235,7 +3235,7 @@ Diğer Rehberler
     });
     ```
 
-  **[⬆ başa dön](#table-of-contents)**
+  **[⬆ başa dön](#İçindekiler)**
 
 ## jQuery
 
@@ -3254,7 +3254,7 @@ Diğer Rehberler
     ```
 
   <a name="jquery--cache"></a><a name="25.2"></a>
-  - [26.2](#jquery--cache)  jQuery lookup'larını cache'leyin.
+  - [26.2](#jquery--cache)  jQuery lookup'larını önbelleğe alın.
 
     ```javascript
     // kötü
@@ -3304,87 +3304,87 @@ Diğer Rehberler
     $sidebar.find('ul').hide();
     ```
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
-## ECMAScript 5 Compatibility
+## ECMAScript 5 Uyumluluğu
 
   <a name="es5-compat--kangax"></a><a name="26.1"></a>
-  - [27.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)’s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
+  - [27.1](#es5-compat--kangax) [Kangax](https://twitter.com/kangax/)'ın ES5 [uyumluluk tablosu](https://kangax.github.io/es5-compat-table/)'nu inceleyin.
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
 <a name="ecmascript-6-styles"></a>
-## ECMAScript 6+ (ES 2015+) Styles
+## ECMAScript 6+ (ES 2015+) Özellikleri
 
   <a name="es6-styles"></a><a name="27.1"></a>
   - [28.1](#es6-styles) Aşağıda çeşitli ES6+ özelliklerinin bir listesini bulabilirsiniz.
 
-1. [Arrow Functions](#arrow-functions)
-1. [Classes](#classes--constructors)
-1. [Object Shorthand](#es6-object-shorthand)
-1. [Object Concise](#es6-object-concise)
-1. [Object Computed Properties](#es6-computed-properties)
-1. [Template Strings](#es6-template-literals)
+1. [Arrow Fonksiyonlar](#arrow-functions)
+1. [Sınıflar](#classes--constructors)
+1. [Nesnelerde Shorthand](#es6-object-shorthand)
+1. [Nesnelerde Concise](#es6-object-concise)
+1. [Dinamik Şekilde Oluşturulan Nesne Property'leri](#es6-computed-properties)
+1. [String Şablonları](#es6-template-literals)
 1. [Destructuring](#destructuring)
-1. [Default Parameters](#es6-default-parameters)
+1. [Varsayılan Parametreler](#es6-default-parameters)
 1. [Rest](#es6-rest)
-1. [Array Spreads](#es6-array-spreads)
-1. [Let and Const](#references)
-1. [Exponentiation Operator](#es2016-properties--exponentiation-operator)
-1. [Iterators and Generators](#iterators-and-generators)
-1. [Modules](#modules)
+1. [Dizilerde Spread](#es6-array-spreads)
+1. [Let ve Const](#references)
+1. [Üsalma operatörü](#es2016-properties--exponentiation-operator)
+1. [Yineleyiciler ve Oluşturucular](#iterators-and-generators)
+1. [Modüller](#modules)
 
   <a name="tc39-proposals"></a>
-  - [28.2](#tc39-proposals) Do not use [TC39 proposals](https://github.com/tc39/proposals) that have not reached stage 3.
+  - [28.2](#tc39-proposals) 3. aşamaya ulaşmamış [TC39 önerileri](https://github.com/tc39/proposals)'ni kullanmayın.
 
-    > Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
+    > Neden? [Henüz tamamlanmadı](https://tc39.github.io/process-document/) ve halen baştan aşağı değiştirilebilir.
 
-**[⬆ başa dön](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
-## Standard Library
+## Yerleşik Kütüphaneler
 
-  The [Standard Library](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects)
-  contains utilities that are functionally broken but remain for legacy reasons.
+  [Yerleşik Kütüphaneler](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects)
+  fonksiyonel açıdan hatalı olsada legacy sebebiyle varlığını koruyan araçlar içerir.
 
   <a name="standard-library--isnan"></a>
-  - [29.1](#standard-library--isnan) Use `Number.isNaN` instead of global `isNaN`.
+  - [29.1](#standard-library--isnan) Global `isNaN` yerine `Number.isNaN` kullanın.
     eslint: [`no-restricted-globals`](https://eslint.org/docs/rules/no-restricted-globals)
 
-    > Why? The global `isNaN` coerces non-numbers to numbers, returning true for anything that coerces to NaN.
-    > If this behavior is desired, make it explicit.
+    > Neden? Global `isNaN` sayı-olmayan değerlerde de true döndürebilir.
+    > Eğer bu davranışı görmezden gelecekseniz bunu belli edin.
 
     ```javascript
-    // bad
+    // kötü
     isNaN('1.2'); // false
     isNaN('1.2.3'); // true
 
-    // good
+    // iyi
     Number.isNaN('1.2.3'); // false
     Number.isNaN(Number('1.2.3')); // true
     ```
 
   <a name="standard-library--isfinite"></a>
-  - [29.2](#standard-library--isfinite) Use `Number.isFinite` instead of global `isFinite`.
+  - [29.2](#standard-library--isfinite) Global `isFinite` yerine `Number.isFinite` kullanın.
     eslint: [`no-restricted-globals`](https://eslint.org/docs/rules/no-restricted-globals)
 
-    > Why? The global `isFinite` coerces non-numbers to numbers, returning true for anything that coerces to a finite number.
-    > If this behavior is desired, make it explicit.
+    > Neden? Global `isFinite` sayı-olmayan değerlerde de true döndürebilir.
+    > Eğer bu davranışı görmezden gelecekseniz bunu belli edin.
 
     ```javascript
-    // bad
+    // kötü
     isFinite('2e3'); // true
 
-    // good
+    // iyi
     Number.isFinite('2e3'); // false
     Number.isFinite(parseInt('2e3', 10)); // true
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
-## Testing
+## Test
 
   <a name="testing--yup"></a><a name="28.1"></a>
-  - [30.1](#testing--yup) **Yup.**
+  - [30.1](#testing--yup) **Daima** test yazılmalıdır.
 
     ```javascript
     function foo() {
@@ -3393,17 +3393,17 @@ Diğer Rehberler
     ```
 
   <a name="testing--for-real"></a><a name="28.2"></a>
-  - [30.2](#testing--for-real) **No, but seriously**:
-    - Whichever testing framework you use, you should be writing tests!
-    - Strive to write many small pure functions, and minimize where mutations occur.
-    - Be cautious about stubs and mocks - they can make your tests more brittle.
-    - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Airbnb. [`tape`](https://www.npmjs.com/package/tape) is also used occasionally for small, separate modules.
-    - 100% test coverage is a good goal to strive for, even if it’s not always practical to reach it.
-    - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
+  - [30.2](#testing--for-real) **Dikkat** edeceğiniz bazı kurallar:
+    - Hangi test framework'ünü kullanırsanız kullanın mutlaka test yazın!
+    - Sade ve kısa fonksiyonlar ile mutasyonları minimize edin.
+    - Stub ve mock'lara karşı dikkatli olun - testlerinizi kırılgan hale getirebilirler.
+    - Airbnb'de genel de [`mocha`](https://www.npmjs.com/package/mocha) kullanıyoruz. Zaman zaman küçük ve harici modüllerde [`tape`](https://www.npmjs.com/package/tape) de kullanıyoruz.
+    - Pratikte ulaşması güç olsada test kapsamında (test coverage) %100, iyi bir hedeftir.
+    - Her bug düzeltildiğinde bir _regresyon testi yazın_ Regresyon testi yapılmadan düzeltilen bir hatanın yeniden oluşması olasıdır.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
-## Performance
+## Performans
 
   - [On Layout & Web Performance](https://www.kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](https://jsperf.com/string-vs-array-concat/2)
@@ -3415,22 +3415,22 @@ Diğer Rehberler
   - [Are Javascript functions like `map()`, `reduce()`, and `filter()` optimized for traversing arrays?](https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta)
   - Loading...
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
-## Resources
+## Kaynaklar
 
-**Learning ES6+**
+**ES6+ Öğrenin**
 
   - [Latest ECMA spec](https://tc39.github.io/ecma262/)
   - [ExploringJS](http://exploringjs.com/)
   - [ES6 Compatibility Table](https://kangax.github.io/compat-table/es6/)
   - [Comprehensive Overview of ES6 Features](http://es6-features.org/)
 
-**Read This**
+**Okuyun**
 
   - [Standard ECMA-262](http://www.ecma-international.org/ecma-262/6.0/index.html)
 
-**Tools**
+**Araçlar**
 
   - Code Style Linters
     - [ESlint](https://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/airbnb/javascript/blob/master/linters/.eslintrc)
@@ -3438,20 +3438,20 @@ Diğer Rehberler
     - [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json) (Deprecated, please use [ESlint](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base))
   - Neutrino preset - [neutrino-preset-airbnb-base](https://neutrino.js.org/presets/neutrino-preset-airbnb-base/)
 
-**Other Style Guides**
+**Diğer Stil Kılavuzları**
 
   - [Google JavaScript Style Guide](https://google.github.io/styleguide/javascriptguide.xml)
   - [jQuery Core Style Guidelines](https://contribute.jquery.org/style-guide/js/)
   - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwaldron/idiomatic.js)
 
-**Other Styles**
+**Diğer Stiller**
 
   - [Naming this in nested functions](https://gist.github.com/cjohansen/4135065) - Christian Johansen
   - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52) - Ross Allen
   - [Popular JavaScript Coding Conventions on GitHub](http://sideeffect.kr/popularconvention/#javascript) - JeongHoon Byun
   - [Multiple var statements in JavaScript, not superfluous](http://benalman.com/news/2012/05/multiple-var-statements-javascript/) - Ben Alman
 
-**Further Reading**
+**İlave Okumalar**
 
   - [Understanding JavaScript Closures](https://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
   - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
@@ -3459,7 +3459,7 @@ Diğer Rehberler
   - [ES6 Features](https://github.com/lukehoban/es6features) - Luke Hoban
   - [Frontend Guidelines](https://github.com/bendc/frontend-guidelines) - Benjamin De Cock
 
-**Books**
+**Kitaplar**
 
   - [JavaScript: The Good Parts](https://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
   - [JavaScript Patterns](https://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
@@ -3478,7 +3478,7 @@ Diğer Rehberler
   - [Eloquent JavaScript](http://eloquentjavascript.net/) - Marijn Haverbeke
   - [You Don’t Know JS: ES6 & Beyond](http://shop.oreilly.com/product/0636920033769.do) - Kyle Simpson
 
-**Blogs**
+**Bloglar**
 
   - [JavaScript Weekly](http://javascriptweekly.com/)
   - [JavaScript, JavaScript...](https://javascriptweblog.wordpress.com/)
@@ -3490,17 +3490,17 @@ Diğer Rehberler
   - [Dmitry Baranovskiy](http://dmitry.baranovskiy.com/)
   - [nettuts](http://code.tutsplus.com/?s=javascript)
 
-**Podcasts**
+**Podcastler**
 
   - [JavaScript Air](https://javascriptair.com/)
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
-## In the Wild
+## Kimler Bizimle
 
-  This is a list of organizations that are using this style guide. Send us a pull request and we'll add you to the list.
-
+  Kılavuzumuzu kullanan organizasyonların listesi. Pull request göndererek eklemelerde bulunabilirsiniz.
+  
   - **123erfasst**: [123erfasst/javascript](https://github.com/123erfasst/javascript)
   - **3blades**: [3Blades](https://github.com/3blades)
   - **4Catalyzer**: [4Catalyzer/javascript](https://github.com/4Catalyzer/javascript)
@@ -3595,9 +3595,9 @@ Diğer Rehberler
 
 **[⬆ back to top](#table-of-contents)**
 
-## Translation
+## Çeviri
 
-  This style guide is also available in other languages:
+  Bu rehbere farklı dillerden de erişilebilir:
 
   - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
   - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
@@ -3616,19 +3616,19 @@ Diğer Rehberler
   - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Ukrainian**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript)
   - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnam**: [hngiang/javascript-style-guide](https://github.com/hngiang/javascript-style-guide)
 
-## The JavaScript Style Guide Guide
+## JavaScript Style Kılavuzunun da Kılavuzu
 
   - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
-## Chat With Us About JavaScript
+## Bizimle JavaScript üzerine sohbet edin
 
-  - Find us on [gitter](https://gitter.im/airbnb/javascript).
+  - [gitter](https://gitter.im/airbnb/javascript)'dan ulaşabilirsiniz.
 
-## Contributors
+## Katkıda Bulunanlar
 
-  - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
+  - [Katkıda Bulunanları Görüntüle](https://github.com/airbnb/javascript/graphs/contributors)
 
-## License
+## Lisans
 
 (The MIT License)
 
@@ -3653,10 +3653,10 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ başa dön](#İçindekiler)**
 
-## Amendments
+## Değişiklikler
 
-We encourage you to fork this guide and change the rules to fit your team’s style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
+Bu kılavuzu fork'layıp takımınıza uygun hale getirmenizden memnuniyet duyarız. Buraya size özel değişiklikleri eklerseniz yapacağınız güncellemelerde merge conflict'leri daha rahat çözebilirsiniz.
 
 # };
