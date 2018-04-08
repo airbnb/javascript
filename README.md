@@ -43,7 +43,7 @@ Diğer Rehberler
   1. [Noktalı Virgüller](#noktalı-virgüller)
   1. [Tip Dönüştürme](#tip-dönüştürme)
   1. [İsimlendirme](#İsimlendirme)
-  1. [Accessor](#accessors)
+  1. [Accessor](#accessor)
   1. [Olaylar](#olaylar)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Uyumluluğu](#ecmascript-5-uyumluluğu)
