@@ -115,7 +115,7 @@ module.exports = {
 
     // disallow non-import statements appearing before import statements
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md
-    'import/first': ['error', 'absolute-first'],
+    'import/first': 'error',
 
     // disallow non-import statements appearing before import statements
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/imports-first.md
@@ -139,13 +139,10 @@ module.exports = {
       jsx: 'never',
     }],
 
-    // Enforce a convention in module import order
+    // ensure absolute imports are above relative imports and that unassigned imports are ignored
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
-    // TODO: enable?
-    'import/order': ['off', {
-      groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-      'newlines-between': 'never',
-    }],
+    // TODO: enforce a stricter convention in module import order?
+    'import/order': ['error', { groups: [['builtin', 'external', 'internal']] }],
 
     // Require a newline after the last import/require in a group
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/newline-after-import.md
