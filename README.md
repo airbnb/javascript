@@ -198,16 +198,20 @@ Other Style Guides
     // bad
     const atom = {
       value: 1,
-
       addValue: function (value) {
         return atom.value + value;
       },
     };
 
+    // very good
+    const atom = {
+      value: 1,
+      addValue: (value = 0) => (atom.value + value),
+    };
+
     // good
     const atom = {
       value: 1,
-
       addValue(value) {
         return atom.value + value;
       },
@@ -254,8 +258,8 @@ Other Style Guides
 
     // good
     const obj = {
+      anakinSkywalker,// keep up with declare order
       lukeSkywalker,
-      anakinSkywalker,
       episodeOne: 1,
       twoJediWalkIntoACantina: 2,
       episodeThree: 3,
@@ -313,7 +317,7 @@ Other Style Guides
     const copy = Object.assign(original, { c: 3 }); // this mutates `original` ಠ_ಠ
     delete copy.a; // so does this
 
-    // bad
+    // not too bad
     const original = { a: 1, b: 2 };
     const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
 
@@ -321,7 +325,7 @@ Other Style Guides
     const original = { a: 1, b: 2 };
     const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
 
-    const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
+    const { a, ...restA } = copy; // rest => { b: 2, c: 3 }
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -505,6 +509,9 @@ Other Style Guides
     function getFullName({ firstName, lastName }) {
       return `${firstName} ${lastName}`;
     }
+    // perfect
+    const getFullName = ({firstName, lastName}) => `${firstName} ${lastName}`;
+    
     ```
 
   <a name="destructuring--array"></a><a name="5.2"></a>
@@ -519,6 +526,9 @@ Other Style Guides
 
     // good
     const [first, second] = arr;
+    
+    // very good
+    const [first, second, ...rest] = arr;
     ```
 
   <a name="destructuring--object-over-array"></a><a name="5.3"></a>
@@ -551,16 +561,16 @@ Other Style Guides
 ## Strings
 
   <a name="strings--quotes"></a><a name="6.1"></a>
-  - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
+  - [6.1](#strings--quotes) Use double quotes `""` for strings. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
 
     ```javascript
-    // bad
+    // good
     const name = "Capt. Janeway";
 
-    // bad - template literals should contain interpolation or newlines
+    // perfect - template literals can contain interpolation or newlines
     const name = `Capt. Janeway`;
 
-    // good
+    // bad
     const name = 'Capt. Janeway';
     ```
 
@@ -581,8 +591,12 @@ Other Style Guides
       'of Batman. When you stop to think about how Batman had anything to do ' +
       'with this, you would get nowhere fast.';
 
-    // good
+    // not too good
     const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+     // very good
+    const errorMessage = `This is a super long error that was thrown because of Batman. 
+    When you stop to think about how Batman had anything to do with this, you would get nowhere fast.`;
+    
     ```
 
   <a name="es6-template-literals"></a><a name="6.4"></a>
