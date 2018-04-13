@@ -59,7 +59,7 @@
     "editorconfig-tools": "^0.1.1",
     "eslint": "^4.19.1",
     "eslint-find-rules": "^3.2.2",
-    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "in-publish": "^2.0.0",
@@ -69,7 +69,7 @@
   },
   "peerDependencies": {
     "eslint": "^4.19.1",
-    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0"
   },
