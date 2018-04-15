@@ -1,0 +1,2 @@
+.idea
+.DS_Store
