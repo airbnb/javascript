@@ -1,4 +1,4 @@
-# Airbnb React/JSX Style Guide
+# Hướng dẫn mẫu Airbnb React/JSX
 
 Bản hướng dẫn này dựa trên những chuẩn phổ biến của Javascript. Được dịch từ bản gốc [tại đây](https://github.com/airbnb/javascript/tree/master/react)
 
