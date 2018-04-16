@@ -1,4 +1,4 @@
-**Alignment**
+# Alignment
 - Thực hiện theo các kiểu sắp xếp này cho cú pháp JSX. eslint: `react/jsx-closing-bracket-location` `react/jsx-closing-tag-location`
 ```sh
 // Chưa chuẩn
