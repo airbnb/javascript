@@ -1,17 +1,17 @@
-Spacing 
-1.Luôn luôn có một khoảng trắng duy nhất trong thẻ tự đóng 
-    // không có khoảng trắng  => không tốt
-    <Foo/>
-    // quá nhiều khoảng trắng  => không tốt một chút nào 
-    <Foo                 />
-    // khong có ký tự khoảng trắng trước dấu / => không tốt
-    <Foo
-    />
-    // chuẩn
-    <Foo />
-  2. Không cho phép dùng khoảng trắng giữa giá trị bên trong ngoặc nhọn và nó
-      // có 2 khoảng trắng giữa giá trị bên trong ngoặc nhọn và ngoặc nhọn => không tốt
-      <Foo bar={ baz } />
+ ## Spacing
+ - Luôn luôn có một khoảng trắng duy nhất trong thẻ tự đóng. eslint: [`no-multi-spaces`](https://eslint.org/docs/rules/no-multi-spaces), [`react/jsx-tag-spacing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-tag-spacing.md)
 
-      // chuẩn 
-      <Foo bar={baz} />
+    ```jsx
+    // tệ
+    <Foo/>
+
+    // rất tệ
+    <Foo                 />
+
+    // tệ
+    <Foo
+     />
+
+    // tốt
+    <Foo />
+    ```
