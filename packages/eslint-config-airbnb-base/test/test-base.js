@@ -11,9 +11,9 @@ fs.readdirSync(path.join(__dirname, '../rules')).forEach((name) => {
   files[name] = require(`../rules/${name}`); // eslint-disable-line global-require
 });
 
-Object.keys(files).forEach(( // eslint-disable-line function-paren-newline
+Object.keys(files).forEach((
   name, // trailing function comma is to test parsing
-) => { // eslint-disable-line function-paren-newline
+) => {
   const config = files[name];
 
   test(`${name}: does not reference react`, (t) => {
