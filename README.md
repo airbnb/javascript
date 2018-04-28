@@ -2,13 +2,13 @@
 
 *Uma abordagem mais razoável para JavaScript*
 
-> **Nota**: este guia assume que está a usar o [Babel](https://babeljs.io), e requer que use a regra [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) ou equivalente. Também presume que tenha instalado shims/polyfills na sua aplicação com a regra [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) ou equivalente.
+> **Nota**: este guia assume que está a usar o [Babel](https://babeljs.io), e requer que use o módulo [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) ou equivalente. Também presume que tenha instalado shims/polyfills na sua aplicação com o módulo [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) ou equivalente.
 
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-This guide is available in other languages too. See [Translation](#translation)
+Este guia está também disponível noutros idiomas. Ver em [Tradução] (#tradução)
 
 Other Style Guides
 
@@ -3637,7 +3637,7 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
-## Translation
+## Tradução
 
   This style guide is also available in other languages:
 
