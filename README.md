@@ -10,9 +10,9 @@
 
 Este guia está também disponível noutros idiomas. Ver em [Tradução](#tradução)
 
-Other Style Guides
+Outros Guias de estilo
 
-  - [ES5 (Deprecated)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5)
+  - [ES5 (Obsoleto)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5)
   - [React](react/)
   - [CSS-in-JavaScript](css-in-javascript/)
   - [CSS & Sass](https://github.com/airbnb/css)
