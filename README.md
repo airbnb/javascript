@@ -18,49 +18,49 @@ Outros Guias de estilo
   - [CSS & Sass](https://github.com/airbnb/css)
   - [Ruby](https://github.com/airbnb/ruby)
 
-## Table of Contents
+## Índice
 
-  1. [Types](#types)
-  1. [References](#references)
-  1. [Objects](#objects)
+  1. [Tipos](#tipos)
+  1. [Referências](#referências)
+  1. [Objetos](#objetos)
   1. [Arrays](#arrays)
-  1. [Destructuring](#destructuring)
+  1. [Desestruturação](#desestruturação)
   1. [Strings](#strings)
-  1. [Functions](#functions)
+  1. [Funções](#funções)
   1. [Arrow Functions](#arrow-functions)
-  1. [Classes & Constructors](#classes--constructors)
-  1. [Modules](#modules)
-  1. [Iterators and Generators](#iterators-and-generators)
-  1. [Properties](#properties)
-  1. [Variables](#variables)
+  1. [Classes e Construtores](#classes-e-construtores)
+  1. [Módulos](#módulos)
+  1. [Iteratores e Geradores](#iteratores-e-geradores)
+  1. [Propriedades](#propriedades)
+  1. [Variáveis](#variáveis)
   1. [Hoisting](#hoisting)
-  1. [Comparison Operators & Equality](#comparison-operators--equality)
-  1. [Blocks](#blocks)
-  1. [Control Statements](#control-statements)
-  1. [Comments](#comments)
-  1. [Whitespace](#whitespace)
-  1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-casting--coercion)
-  1. [Naming Conventions](#naming-conventions)
+  1. [Operadores de Comparação e Igualdade](#operadores-de-comparação-e-igualdade)
+  1. [Blocos](#blocos)
+  1. [Instruções de Controlo](#instruções-de-controlo)
+  1. [Comentários](#comentários)
+  1. [Espaços em branco](#espaços-em-branco)
+  1. [Vírgulas](#vírgulas)
+  1. [Pontos e Vírgulas](#pontos-e-vírgulas)
+  1. [Conversão de tipos e coerção](#conversão-de-tipos-e-coerção)
+  1. [Convenções de Nomenclatura](#convenções-de-nomenclatura)
   1. [Accessors](#accessors)
-  1. [Events](#events)
+  1. [Eventos](#eventos)
   1. [jQuery](#jquery)
-  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
-  1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
-  1. [Standard Library](#standard-library)
-  1. [Testing](#testing)
+  1. [Compatibilidade ECMAScript 5](#compatibilidade-ecmascript-5)
+  1. [Estilos ECMAScript 6+ (ES 2015+)](#estilos-ecmascript-6-es-2015)
+  1. [Biblioteca Padrão](#biblioteca-padrão)
+  1. [Testes](#testes)
   1. [Performance](#performance)
-  1. [Resources](#resources)
-  1. [In the Wild](#in-the-wild)
-  1. [Translation](#translation)
-  1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
-  1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
-  1. [Contributors](#contributors)
-  1. [License](#license)
-  1. [Amendments](#amendments)
+  1. [Recursos](#recursos)
+  1. [Na natureza](#na-natureza)
+  1. [Tradução](#tradução)
+  1. [Guia para o Guia de estilo JavaScript da Airbnb](#guia-para-o-guia-de-estilo-javascript-da-airbnb)
+  1. [Converse connosco sobre JavaScript](#converse-connosco-sobre-javascript)
+  1. [Contribuidores](#contribuidores)
+  1. [Licença](#licença)
+  1. [Emendas](#emendas)
 
-## Types
+## Tipos
 
   <a name="types--primitives"></a><a name="1.1"></a>
   - [1.1](#types--primitives) **Primitives**: When you access a primitive type you work directly on its value.
@@ -101,7 +101,7 @@ Outros Guias de estilo
 
 **[⬆ back to top](#table-of-contents)**
 
-## References
+## Referências
 
   <a name="references--prefer-const"></a><a name="2.1"></a>
   - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
@@ -152,7 +152,7 @@ Outros Guias de estilo
 
 **[⬆ back to top](#table-of-contents)**
 
-## Objects
+## Objetos
 
   <a name="objects--no-new"></a><a name="3.1"></a>
   - [3.1](#objects--no-new) Use the literal syntax for object creation. eslint: [`no-new-object`](https://eslint.org/docs/rules/no-new-object.html)
@@ -2120,7 +2120,7 @@ Outros Guias de estilo
 
 **[⬆ back to top](#table-of-contents)**
 
-## Control Statements
+## Instruções de Controlo
 
   <a name="control-statements"></a>
   - [17.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition could be put into a new line. The logical operator should begin the line.
