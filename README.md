@@ -1053,6 +1053,24 @@ Other Style Guides
     };
     ```
 
+  - [8.6](#whitespace--implicit-arrow-linebreak) Enforce the location of arrow function bodies with implicit returns. eslint: [`implicit-arrow-linebreak`](https://eslint.org/docs/rules/implicit-arrow-linebreak)
+
+    ```javascript
+    // bad
+    (foo) =>
+      bar;
+
+    (foo) =>
+      (bar);
+
+    // good
+    (foo) => bar;
+    (foo) => (bar);
+    (foo) => (
+       bar
+    )
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Classes & Constructors
@@ -2663,6 +2681,90 @@ Other Style Guides
       .done(() => console.log('Congratulations!'))
       .fail(() => console.log('You have failed this city.'));
     ```
+
+  - [19.13](#whitespace--block-spacing) Require consistent spacing inside an open block token and the next token on the same line. This rule also enforces consistent spacing inside a close block token and previous token on the same line. eslint: [`block-spacing`](https://eslint.org/docs/rules/block-spacing)
+
+    ```javascript
+    // bad
+    function foo() {return true;}
+    if (foo) { bar = 0;}
+
+    // good
+    function foo() { return true; }
+    if (foo) { bar = 0; }
+    ```
+
+  - [19.14](#whitespace--comma-spacing) Avoid spaces before commas and require a space after commas. eslint: [`comma-spacing`](https://eslint.org/docs/rules/comma-spacing)
+
+    ```javascript
+    // bad
+    var foo = 1,bar = 2;
+    var arr = [1 , 2];
+
+    // good
+    var foo = 1, bar = 2;
+    var arr = [1, 2];
+    ```
+
+  - [19.15](#whitespace--computed-property-spacing) Avoid spaces before commas and require a space after commas. eslint: [`computed-property-spacing`](https://eslint.org/docs/rules/computed-property-spacing)
+
+    ```javascript
+    // bad
+    obj[foo ]
+    obj[ 'foo']
+    var x = {[ b ]: a}
+    obj[foo[ bar ]]
+
+    // good
+    obj[foo]
+    obj['foo']
+    var x = { [b]: a }
+    obj[foo[bar]]
+    ```
+
+  - [19.16](#whitespace--func-call-spacing) Enforce spacing between functions and their invocations. eslint: [`func-call-spacing`](https://eslint.org/docs/rules/func-call-spacing)
+
+    ```javascript
+    // bad
+    func ();
+
+    func
+    ();
+
+    // good
+    func();
+    ```
+
+  - [19.17](#whitespace--key-spacing) Enforce spacing between keys and values in object literal properties. eslint: [`key-spacing`](https://eslint.org/docs/rules/key-spacing)
+
+    ```javascript
+    // bad
+    var obj = { "foo" : 42 };
+    var obj2 = { "foo":42 };
+
+    // good
+    var obj = { "foo": 42 };
+    ```
+
+  - [19.18](#whitespace--no-trailing-spaces) Avoid trailing spaces at the end of lines. eslint: [`no-trailing-spaces`](https://eslint.org/docs/rules/no-trailing-spaces)
+
+  - [19.19](#whitespace--no-multiple-empty-lines) Avoid multiple empty lines and only allow one newline at the end of files. eslint: [`no-multiple-empty-lines`](https://eslint.org/docs/rules/no-multiple-empty-lines)
+
+    <!-- markdownlint-disable MD012 -->
+    ```javascript
+    // bad
+    var x = 1;
+
+
+
+    var y = 2;
+
+    // good
+    var x = 1;
+
+    var y = 2;
+    ```
+    <!-- markdownlint-enable MD012 -->
 
 **[⬆ back to top](#table-of-contents)**
 
