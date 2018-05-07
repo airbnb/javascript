@@ -36,6 +36,7 @@ Outros Guias de estilo
   1. [Hoisting](#hoisting)
   1. [Blocos](#blocos)
   1. [Operadores de Comparação e Igualdade](#operadores-de-comparação-e-igualdade)
+  1. [Blocos2](#blocos2)
   1. [Instruções de Controlo](#instruções-de-controlo)
   1. [Comentários](#comentários)
   1. [Espaços em branco](#espaços-em-branco)
