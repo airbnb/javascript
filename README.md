@@ -99,7 +99,7 @@ Outros Guias de estilo
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Referências
 
@@ -150,7 +150,7 @@ Outros Guias de estilo
     console.log(b); // ReferenceError
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Objetos
 
@@ -324,7 +324,7 @@ Outros Guias de estilo
     const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Arrays
 
@@ -477,7 +477,7 @@ Outros Guias de estilo
     ];
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Destructuring
 
@@ -546,7 +546,7 @@ Outros Guias de estilo
     const { left, top } = processInput(input);
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Strings
 
@@ -629,7 +629,7 @@ Outros Guias de estilo
     const foo = `my name is '${name}'`;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Functions
 
@@ -911,7 +911,7 @@ Outros Guias de estilo
     );
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Arrow Functions
 
@@ -1053,7 +1053,7 @@ Outros Guias de estilo
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Classes & Constructors
 
@@ -1218,7 +1218,7 @@ Outros Guias de estilo
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Modules
 
@@ -1372,7 +1372,7 @@ Outros Guias de estilo
     import barCss from 'bar.css';
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Iterators and Generators
 
@@ -1486,7 +1486,7 @@ Outros Guias de estilo
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Properties
 
@@ -1532,7 +1532,7 @@ Outros Guias de estilo
     const binary = 2 ** 10;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Variables
 
@@ -1724,7 +1724,7 @@ Outros Guias de estilo
     const foo = 'superLongLongLongLongLongLongLongLongString';
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Hoisting
 
@@ -1823,7 +1823,7 @@ Outros Guias de estilo
 
   - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) by [Ben Cherry](http://www.adequatelygood.com/).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Comparison Operators & Equality
 
@@ -2002,7 +2002,7 @@ Outros Guias de estilo
     const bar = a + b / c * d;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Blocks
 
@@ -2118,7 +2118,7 @@ Outros Guias de estilo
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Instruções de Controlo
 
@@ -2189,7 +2189,7 @@ Outros Guias de estilo
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Comments
 
@@ -2330,7 +2330,7 @@ Outros Guias de estilo
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Whitespace
 
@@ -2664,7 +2664,7 @@ Outros Guias de estilo
       .fail(() => console.log('You have failed this city.'));
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Commas
 
@@ -2799,7 +2799,7 @@ Outros Guias de estilo
     );
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Semicolons
 
@@ -2849,7 +2849,7 @@ Outros Guias de estilo
 
     [Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214#7365214).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Type Casting & Coercion
 
@@ -2938,7 +2938,7 @@ Outros Guias de estilo
     const hasAge = !!age;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Naming Conventions
 
@@ -3177,7 +3177,7 @@ Outros Guias de estilo
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Accessors
 
@@ -3246,7 +3246,7 @@ Outros Guias de estilo
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Events
 
@@ -3277,7 +3277,7 @@ Outros Guias de estilo
     });
     ```
 
-  **[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## jQuery
 
@@ -3346,14 +3346,14 @@ Outros Guias de estilo
     $sidebar.find('ul').hide();
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## ECMAScript 5 Compatibility
 
   <a name="es5-compat--kangax"></a><a name="26.1"></a>
   - [27.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)’s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 <a name="ecmascript-6-styles"></a>
 ## ECMAScript 6+ (ES 2015+) Styles
@@ -3381,7 +3381,7 @@ Outros Guias de estilo
 
     > Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Standard Library
 
@@ -3421,7 +3421,7 @@ Outros Guias de estilo
     Number.isFinite(parseInt('2e3', 10)); // true
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Testing
 
@@ -3443,7 +3443,7 @@ Outros Guias de estilo
     - 100% test coverage is a good goal to strive for, even if it’s not always practical to reach it.
     - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Performance
 
@@ -3457,7 +3457,7 @@ Outros Guias de estilo
   - [Are Javascript functions like `map()`, `reduce()`, and `filter()` optimized for traversing arrays?](https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta)
   - Loading...
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Resources
 
@@ -3537,7 +3537,7 @@ Outros Guias de estilo
   - [JavaScript Air](https://javascriptair.com/)
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## In the Wild
 
@@ -3635,7 +3635,7 @@ Outros Guias de estilo
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Tradução
 
@@ -3695,7 +3695,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ voltar ao início](#Índice)**
 
 ## Amendments
 
