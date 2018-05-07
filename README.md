@@ -35,6 +35,7 @@ Outros Guias de estilo
   1. [Variáveis](#variáveis)
   1. [Hoisting](#hoisting)
   1. [Operadores de Comparação e Igualdade](#operadores-de-comparação-e-igualdade)
+  
   1. [Blocos](#blocos)
   1. [Instruções de Controlo](#instruções-de-controlo)
   1. [Comentários](#comentários)
