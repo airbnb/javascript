@@ -53,15 +53,15 @@
     "babel-tape-runner": "^2.0.1",
     "editorconfig-tools": "^0.1.1",
     "eslint": "^4.19.1",
-    "eslint-find-rules": "^3.2.2",
-    "eslint-plugin-import": "^2.11.0",
+    "eslint-find-rules": "^3.2.3",
+    "eslint-plugin-import": "^2.12.0",
     "in-publish": "^2.0.0",
     "safe-publish-latest": "^1.1.1",
     "tape": "^4.9.0"
   },
   "peerDependencies": {
     "eslint": "^4.19.1",
-    "eslint-plugin-import": "^2.11.0"
+    "eslint-plugin-import": "^2.12.0"
   },
   "engines": {
     "node": ">= 4"
