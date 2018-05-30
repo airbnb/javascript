@@ -62,8 +62,8 @@ Outros Guias de estilo
 
 ## Tipos
 
-  <a name="types--primitives"></a><a name="1.1"></a>
-  - [1.1](#types--primitives) **Primitives**: When you access a primitive type you work directly on its value.
+  <a name="tipos--primitivos"></a><a name="1.1"></a>
+  - [1.1](#tipos--primitivos) **Primitivos**: Quando se aceder a um tipo primitivo, está-se a trabalhar diretamente com o seu valor.
 
     - `string`
     - `number`
@@ -81,10 +81,10 @@ Outros Guias de estilo
     console.log(foo, bar); // => 1, 9
     ```
 
-    - Symbols cannot be faithfully polyfilled, so they should not be used when targeting browsers/environments that don't support them natively.
+    - Os símbolos não podem ser fielmente "polyfilled", portanto, não devem ser usados em navegadores/ambientes que não os suportam nativamente.
 
-  <a name="types--complex"></a><a name="1.2"></a>
-  - [1.2](#types--complex)  **Complex**: When you access a complex type you work on a reference to its value.
+  <a name="tipos--complexos"></a><a name="1.2"></a>
+  - [1.2](#tipos--complexos)  **Complexos**: Quando se acede um tipo complexo, está-se a trabalhar com a referência para o seu valor.
 
     - `object`
     - `array`
