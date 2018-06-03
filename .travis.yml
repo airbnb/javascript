@@ -12,6 +12,9 @@ install:
   - 'if [ -n "${PACKAGE-}" ]; then cd "packages/${PACKAGE}"; fi'
   - 'if [ "${TRAVIS_NODE_VERSION}" = "0.6" ] || [ "${TRAVIS_NODE_VERSION}" = "0.9" ]; then nvm install --latest-npm 0.8 && npm install && nvm use "${TRAVIS_NODE_VERSION}"; else npm install; fi;'
   - 'if [ -n "${ESLINT}" ]; then npm install --no-save "eslint@${ESLINT}"; fi'
+before_script:
+  npx peer-version-check packages/eslint-config-airbnb/package.json
+  npx peer-version-check packages/eslint-config-airbnb-base/package.json
 script:
   - 'if [ -n "${PREPUBLISH-}" ]; then npm run pretravis && npm run prepublish && npm run posttravis; elif [ -n "${LINT-}" ]; then npm run lint; else npm run travis; fi'
 sudo: false
