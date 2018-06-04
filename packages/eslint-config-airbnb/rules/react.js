@@ -290,8 +290,8 @@ module.exports = {
     'react/jsx-indent': ['error', 2],
 
     // Disallow target="_blank" on links
-    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md
-    'react/jsx-no-target-blank': 'error',
+    // https://github.com/yannickcr/eslint-plugin-react/blob/ac102885765be5ff37847a871f239c6703e1c7cc/docs/rules/jsx-no-target-blank.md
+    'react/jsx-no-target-blank': ['error', { enforceDynamicLinks: 'always' }],
 
     // only .jsx files may have JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
@@ -436,6 +436,10 @@ module.exports = {
     // Validate JSX maximum depth
     // https://github.com/yannickcr/eslint-plugin-react/blob/abe8381c0d6748047224c430ce47f02e40160ed0/docs/rules/jsx-max-depth.md
     'react/jsx-max-depth': 'off',
+
+    // Disallow multiple spaces between inline JSX props
+    // https://github.com/yannickcr/eslint-plugin-react/blob/ac102885765be5ff37847a871f239c6703e1c7cc/docs/rules/jsx-props-no-multi-spaces.md
+    'react/jsx-props-no-multi-spaces': 'error',
   },
 
   settings: {
