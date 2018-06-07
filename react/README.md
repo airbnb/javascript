@@ -80,8 +80,8 @@ This style guide is mostly based on the standards that are currently prevalent i
 
 ## Naming
 
-  - **Extensions**: Use `.jsx` extension for React components.
-  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
+  - **Extensions**: Use `.js` extension for React components.
+  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.js`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
     ```jsx
@@ -98,7 +98,7 @@ This style guide is mostly based on the standards that are currently prevalent i
     const reservationItem = <ReservationCard />;
     ```
 
-  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.js` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.js` as the filename and use the directory name as the component name:
 
     ```jsx
     // bad

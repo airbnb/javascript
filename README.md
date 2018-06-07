@@ -324,6 +324,26 @@ Other Style Guides
     const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
     ```
 
+  <a name="sort-keys"></a>
+  - [3.8](#objects--sort-keys) Prefer to sort property names alphabetically (case sensitive) to find necessary property easier at the later time. eslint: [`sort-keys`](http://eslint.org/docs/rules/sort-keys.html).
+
+    ```javascript
+    // bad
+    let obj = {a: 1, c: 3, b: 2};
+
+    // bad
+    // Case-sensitive
+    let obj = {a: 1, b: 2, C: 3};
+
+    // good
+    let obj = {a: 1, b: 2, c: 3};
+
+    // good
+    let obj = {C: 3, a: 1, b: 2};
+    ```
+
+    **Note:** There are also [some cases](sort-keys-invalid-cases.md) that sort by importance makes more sense then sort by keys. Feel free to use `eslint-disable sort-keys` or `eslint-disable-next-line` for these cases.
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrays
