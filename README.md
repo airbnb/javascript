@@ -1743,6 +1743,45 @@ Other Style Guides
     const foo = 'superLongLongLongLongLongLongLongLongString';
     ```
 
+  - [13.8](#variables--no-unused-vars) Disallow unused variables. eslint: [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars)
+
+    > Why? Variables that are declared and not used anywhere in the code are most likely an error due to incomplete refactoring. Such variables take up space in the code and can lead to confusion by readers.
+
+    ```javascript
+    // bad
+
+    var some_unused_var = 42;
+
+    // Write-only variables are not considered as used.
+    var y = 10;
+    y = 5;
+
+    // A read for a modification of itself is not considered as used.
+    var z = 0;
+    z = z + 1;
+
+    // Unused function arguments.
+    function getX(x, y) {
+        return x;
+    }
+
+    // good
+
+    function getXPlusY(x, y) {
+      return x + y;
+    }
+
+    var x = 1;
+    var y = a + 2;
+
+    alert(getXPlusY(x, y));
+
+    // 'type' is ignored even if unused because it has a rest property sibling.
+    // This is a form of extracting an object that omits the specified keys.
+    var { type, ...coords } = data;
+    // 'coords' is now the 'data' object without its 'type' property.
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Hoisting
