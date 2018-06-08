@@ -1743,6 +1743,7 @@ Other Style Guides
     const foo = 'superLongLongLongLongLongLongLongLongString';
     ```
 
+<a name="variables--no-unused-vars"></a>
   - [13.8](#variables--no-unused-vars) Disallow unused variables. eslint: [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars)
 
     > Why? Variables that are declared and not used anywhere in the code are most likely an error due to incomplete refactoring. Such variables take up space in the code and can lead to confusion by readers.
