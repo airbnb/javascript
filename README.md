@@ -119,9 +119,10 @@ Outros Guias de estilo
     ```
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
-  - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](https://eslint.org/docs/rules/no-var.html)
+  - [2.2](#references--disallow-var) Se for necessário reatribuir referências, use `let` em vez de `var`. eslint: 
+  [`no-var`](https://eslint.org/docs/rules/no-var.html)
 
-    > Why? `let` is block-scoped rather than function-scoped like `var`.
+    > Porquê? `let` tem o escopo de bloco em vez de escopo de função como `var`.
 
     ```javascript
     // bad
