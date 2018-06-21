@@ -1,3 +1,37 @@
+13.0.0 / 2018-06-21
+==================
+ - [breaking] order of import statements is ignored for unassigned imports (#1782)
+ - [breaking] enable `import/no-cycle`: warn on cyclical dependencies (#1779)
+ - [breaking] Change import/no-self-import from "off" to "error" (#1770)
+ - [breaking] Update `object-curly-newline` to match eslint 4.18.0 (#1761)
+ - [breaking] enable `no-useless-path-segments` (#1743)
+ - [breaking] Prevent line breaks before and after `=` (#1710)
+ - [breaking] Add .mjs extension support (#1634)
+ - [breaking] enable `implicit-arrow-linebreak`
+ - [breaking] Enables `nonblock-statement-body-position` rule and adds link to guide (#1618)
+ - [breaking] `no-mixed-operators`: only warn on `**` and `%` mixed with arithmetic operators; removes violation against mixing common math operators. (#1611)
+ - [breaking] `import/named`: enable
+ - [breaking] `lines-between-class-members`: set to “always”
+ - [breaking] `no-else-return`: disallow else-if (#1595)
+ - [breaking] Enables eslint rule for operator-linebreak
+ - [new] Adds config entry point with only whitespace rules enabled (#1749, #1751)
+ - [minor] only allow one newline at the end (#1794)
+ - [patch] Adjust imports for vue-cli (#1809)
+ - [patch] Allow devDependencies for `foo_spec.js` naming style (#1732)
+ - [patch] `function-paren-newline`: change to "consistent"
+ - [patch] avoid `__mocks__` `no-extraneous-dependencies` check (#1772)
+ - [patch] Include 'accumulator' exception for `no-param-reassign` (#1768)
+ - [patch] Set import/extensions to ignorePackages (#1652)
+ - [patch] properly ignore indentation on jsx
+ - [patch] `array-callback-return`: enable `allowImplicit` option (#1668)
+ - [deps] update `eslint`, `eslint-plugin-import`
+ - [dev deps] update `babel-preset-airbnb`, `tape`, `eslint-find-rules`
+ - [meta] add ES2015-2018 in npm package keywords (#1587)
+ - [meta] Add licenses to sub packages (#1746)
+ - [docs] add `npx` shortcut (#1694)
+ - [docs] Use HTTPS for links to ESLint documentation (#1628)
+ - [tests] ensure all entry points parse
+
 12.1.0 / 2017-10-16
 ==================
  - [deps] update `eslint` to `v4.9`
