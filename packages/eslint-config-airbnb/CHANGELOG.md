@@ -1,3 +1,22 @@
+17.0.0 / 2018-06-21
+==================
+- [breaking] update `eslint-config-airbnb-base` to v13
+- [breaking] enable `no-useless-path-segments` (#1743)
+- [breaking] update `eslint-plugin-react` to `v7.6`; update rule configs (#1737)
+- [breaking] bump react pragma to v16; update `class-methods-use-this`'s `exceptMethods` to include `componentDidCatch` (#1704)
+- [new] Adds config entry point with only whitespace rules enabled (#1749, #1751)
+- [patch] set `forbid-foreign-prop-types` to "warn"
+- [patch] Add new methods introduced in react@16.3 (#1831)
+- [patch] `label-has-for`: Remove redundant component (#1802)
+- [patch] Add 'to' as a specialLink to the 'anchor-is-valid' a11y rule (#1648)
+- [patch] disable `no-did-mount-set-state`, since it’s necessary for server-rendering.
+- [deps] update `eslint`, `eslint-plugin-react`, `eslint-plugin-import`,
+- [dev deps] update `babel-preset-airbnb`, `tape`, `eslint-find-rules`
+- [meta] add ES2015-2018 in npm package keywords (#1587)
+- [meta] Add licenses to sub packages (#1746)
+- [docs] add `npx` shortcut (#1694)
+- [docs] Use HTTPS for links to ESLint documentation (#1628)
+
 16.1.0 / 2017-10-16
 ==================
 - [deps] update `eslint-config-airbnb-base`, `eslint` to v4.9
