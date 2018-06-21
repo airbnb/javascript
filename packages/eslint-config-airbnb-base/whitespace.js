@@ -1,7 +1,8 @@
-const baseConfig = require('.');
 const assign = require('object.assign');
 const entries = require('object.entries');
 const CLIEngine = require('eslint').CLIEngine;
+
+const baseConfig = require('.');
 
 function onlyErrorOnRules(rulesToError, config) {
   const errorsOnly = assign({}, config);
