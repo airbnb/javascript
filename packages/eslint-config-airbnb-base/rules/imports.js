@@ -89,6 +89,7 @@ module.exports = {
         '**/Gruntfile{,.js}', // grunt config
         '**/protractor.conf.js', // protractor config
         '**/protractor.conf.*.js', // protractor config
+        'scripts/**', // DEV/CI scripts, not for production
       ],
       optionalDependencies: false,
     }],
