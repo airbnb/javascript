@@ -1,8 +1,8 @@
 module.exports = {
   plugins: [
-    'jsx-a11y',
-    'react'
-  ],
+    'eslint-plugin-jsx-a11y',
+    'eslint-plugin-react'
+  ].map(require.resolve),
 
   parserOptions: {
     ecmaFeatures: {

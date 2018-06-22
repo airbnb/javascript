@@ -1,7 +1,7 @@
 module.exports = {
   plugins: [
-    'react',
-  ],
+    'eslint-plugin-react',
+  ].map(require.resolve),
 
   parserOptions: {
     ecmaFeatures: {
