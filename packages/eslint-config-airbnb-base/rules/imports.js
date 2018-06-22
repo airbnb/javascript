@@ -7,8 +7,8 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
-    'import'
-  ],
+    'eslint-plugin-import'
+  ].map(require.resolve),
 
   settings: {
     'import/resolver': {
