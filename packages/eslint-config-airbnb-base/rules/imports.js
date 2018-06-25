@@ -239,5 +239,9 @@ module.exports = {
       importFunctions: [],
       webpackChunknameFormat: '[0-9a-zA-Z-_/.]+',
     }],
+
+    // Use this rule to prevent imports to folders in relative parent paths.
+    // https://github.com/benmosher/eslint-plugin-import/blob/c34f14f67f077acd5a61b3da9c0b0de298d20059/docs/rules/no-relative-parent-imports.md
+    'import/no-relative-parent-imports': 'off',
   },
 };
