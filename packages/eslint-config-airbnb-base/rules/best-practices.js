@@ -42,6 +42,11 @@ module.exports = {
     // make sure for-in loops have an if statement
     'guard-for-in': 'error',
 
+    // enforce a maximum number of classes per file
+    // https://eslint.org/docs/rules/max-classes-per-file
+    // TODO: semver-major (eslint 5): enable
+    'max-classes-per-file': ['off', 1],
+
     // disallow the use of alert, confirm, and prompt
     'no-alert': 'warn',
 
@@ -243,7 +248,10 @@ module.exports = {
 
     // disallow self assignment
     // https://eslint.org/docs/rules/no-self-assign
-    'no-self-assign': 'error',
+    // TODO: semver-major: props -> true
+    'no-self-assign': ['error', {
+      props: false,
+    }],
 
     // disallow comparisons where both sides are exactly the same
     'no-self-compare': 'error',

@@ -18,20 +18,37 @@ script:
 sudo: false
 env:
   matrix:
-    - 'TEST=true ESLINT=4 PACKAGE=eslint-config-airbnb'
+    - 'TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb-base'
+    - 'TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb'
     - 'TEST=true ESLINT=4 PACKAGE=eslint-config-airbnb-base'
+    - 'TEST=true ESLINT=4 PACKAGE=eslint-config-airbnb'
 matrix:
   fast_finish: true
   include:
     - node_js: "lts/*"
-      env: PREPUBLISH=true ESLINT=4 PACKAGE=eslint-config-airbnb
+      env: PREPUBLISH=true ESLINT=5 PACKAGE=eslint-config-airbnb-base
+    - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=5 PACKAGE=eslint-config-airbnb
     - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=4 PACKAGE=eslint-config-airbnb-base
     - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=4 PACKAGE=eslint-config-airbnb
+    - node_js: "lts/*"
       env: LINT=true
+  exclude:
+    - node_js: "5"
+      env: TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb-base
+    - node_js: "5"
+      env: TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb
+    - node_js: "4"
+      env: TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb-base
+    - node_js: "4"
+      env: TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb
   allow_failures:
     - node_js: "9"
     - node_js: "7"
     - node_js: "5"
-    - env: PREPUBLISH=true ESLINT=4 PACKAGE=eslint-config-airbnb
+    - env: PREPUBLISH=true ESLINT=5 PACKAGE=eslint-config-airbnb-base
+    - env: PREPUBLISH=true ESLINT=5 PACKAGE=eslint-config-airbnb
     - env: PREPUBLISH=true ESLINT=4 PACKAGE=eslint-config-airbnb-base
+    - env: PREPUBLISH=true ESLINT=4 PACKAGE=eslint-config-airbnb
