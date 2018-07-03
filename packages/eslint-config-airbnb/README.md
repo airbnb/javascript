@@ -57,7 +57,7 @@ If you use yarn, run `npm info "eslint-config-airbnb@latest" peerDependencies` t
 
 ### eslint-config-airbnb/whitespace
 
-This entry point that only warns on whitespace rules and sets all other rules to warnings. View the list of whitespace rules [here](https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/whitespace.js).
+This entry point only warns on whitespace rules and sets all other rules to warnings. View the list of whitespace rules [here](https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/whitespace.js).
 
 ### eslint-config-airbnb/base
 
