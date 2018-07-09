@@ -232,6 +232,7 @@
     "no-inferrable-types": false,
     "no-empty": true,
     "no-eval": true,
+    "no-focused-test": true,
     "no-parameter-properties": false,
     "no-reference": true,
     "no-shadowed-variable": true,
