@@ -418,7 +418,7 @@ Other Style Guides
     });
 
     // good
-    [1, 2, 3].map(x => x + 1);
+    [1, 2, 3].map((x) => x + 1);
 
     // bad - no returned value means `acc` becomes undefined after the first iteration
     [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
@@ -955,13 +955,16 @@ Other Style Guides
 
     ```javascript
     // bad
-    [1, 2, 3].map(number => {
+    [1, 2, 3].map((number) => {
       const nextNumber = number + 1;
       `A string containing the ${nextNumber}.`;
     });
 
+    // bad
+    [1, 2, 3].map((number) => `A string containing the ${number}.`);
+
     // good
-    [1, 2, 3].map(number => `A string containing the ${number + 1}.`);
+    [1, 2, 3].map((number) => `A string containing the ${number + 1}.`);
 
     // good
     [1, 2, 3].map((number) => {
@@ -1000,14 +1003,14 @@ Other Style Guides
 
     ```javascript
     // bad
-    ['get', 'post', 'put'].map(httpMethod => Object.prototype.hasOwnProperty.call(
+    ['get', 'post', 'put'].map((httpMethod) => Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
         httpMethod,
       )
     );
 
     // good
-    ['get', 'post', 'put'].map(httpMethod => (
+    ['get', 'post', 'put'].map((httpMethod) => (
       Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
         httpMethod,
@@ -1016,19 +1019,24 @@ Other Style Guides
     ```
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments for clarity and consistency. Note: it is also acceptable to always use parentheses, in which case use the [“always” option](https://eslint.org/docs/rules/arrow-parens#always) for eslint. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html)
+  - [8.4](#arrows--one-arg-parens) Always include parentheses around arguments for clarity and consistency. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html)
 
-    > Why? Less visual clutter.
+    > Why? Minimizes diff churn when adding or removing arguments.
 
     ```javascript
     // bad
-    [1, 2, 3].map((x) => x * x);
-
-    // good
     [1, 2, 3].map(x => x * x);
 
     // good
+    [1, 2, 3].map((x) => x * x);
+
+    // bad
     [1, 2, 3].map(number => (
+      `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
+    ));
+
+    // good
+    [1, 2, 3].map((number) => (
       `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
     ));
 
@@ -1050,13 +1058,13 @@ Other Style Guides
 
     ```javascript
     // bad
-    const itemHeight = item => item.height <= 256 ? item.largeSize : item.smallSize;
+    const itemHeight = (item) => item.height <= 256 ? item.largeSize : item.smallSize;
 
     // bad
     const itemHeight = (item) => item.height >= 256 ? item.largeSize : item.smallSize;
 
     // good
-    const itemHeight = item => (item.height <= 256 ? item.largeSize : item.smallSize);
+    const itemHeight = (item) => (item.height <= 256 ? item.largeSize : item.smallSize);
 
     // good
     const itemHeight = (item) => {
@@ -1070,16 +1078,16 @@ Other Style Guides
 
     ```javascript
     // bad
-    foo =>
+    (foo) =>
       bar;
 
-    foo =>
+    (foo) =>
       (bar);
 
     // good
-    foo => bar;
-    foo => (bar);
-    foo => (
+    (foo) => bar;
+    (foo) => (bar);
+    (foo) => (
        bar
     )
     ```
@@ -1448,7 +1456,7 @@ Other Style Guides
     });
 
     // best (keeping it functional)
-    const increasedByOne = numbers.map(num => num + 1);
+    const increasedByOne = numbers.map((num) => num + 1);
     ```
 
   <a name="generators--nope"></a><a name="11.2"></a>
@@ -3028,7 +3036,7 @@ Other Style Guides
     // bad - raises exception
     const luke = {}
     const leia = {}
-    [luke, leia].forEach(jedi => jedi.father = 'vader')
+    [luke, leia].forEach((jedi) => jedi.father = 'vader')
 
     // bad - raises exception
     const reaction = "No! That’s impossible!"

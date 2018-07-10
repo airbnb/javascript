@@ -26,7 +26,7 @@ Object.keys(files).forEach((
 
     // scan rules for react/ and fail if any exist
     const reactRuleIds = Object.keys(config.rules)
-      .filter(ruleId => ruleId.indexOf('react/') === 0);
+      .filter((ruleId) => ruleId.indexOf('react/') === 0);
     t.deepEquals(reactRuleIds, [], 'there are no react/ rules');
   });
 });
