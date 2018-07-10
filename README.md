@@ -2049,7 +2049,8 @@ Other Style Guides
     ```
 
   <a name="comparison--no-mixed-operators"></a>
-  - [15.8](#comparison--no-mixed-operators) When mixing operators, enclose them in parentheses. The only exception is the standard arithmetic operators (`+`, `-`, `*`, & `/`) since their precedence is broadly understood. eslint: [`no-mixed-operators`](https://eslint.org/docs/rules/no-mixed-operators.html)
+  - [15.8](#comparison--no-mixed-operators) When mixing operators, enclose them in parentheses. The only exception is the standard arithmetic operators: `+`, `-`, and `**` since their precedence is broadly understood. We recommend enclosing `/` and `*` in parentheses because their precedence can be ambiguous when they are mixed.
+  eslint: [`no-mixed-operators`](https://eslint.org/docs/rules/no-mixed-operators.html)
 
     > Why? This improves readability and clarifies the developer’s intention.
 
@@ -2066,11 +2067,14 @@ Other Style Guides
       return d;
     }
 
+    // bad
+    const bar = a + b / c * d;
+
     // good
     const foo = (a && b < 0) || c > 0 || (d + 1 === 0);
 
     // good
-    const bar = (a ** b) - (5 % d);
+    const bar = a ** b - (5 % d);
 
     // good
     if (a || (b && c)) {
@@ -2078,7 +2082,7 @@ Other Style Guides
     }
 
     // good
-    const bar = a + b / c * d;
+    const bar = a + (b / c) * d;
     ```
 
 **[⬆ back to top](#table-of-contents)**
