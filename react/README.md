@@ -193,6 +193,25 @@ This style guide is mostly based on the standards that are currently prevalent i
     >
       <Quux />
     </Foo>
+
+    // bad
+    {showButton &&
+      <Button />
+    }
+
+    // bad
+    {
+      showButton &&
+        <Button />
+    }
+
+    // good
+    {showButton && (
+      <Button />
+    )}
+
+    // good
+    {showButton && <Button />}
     ```
 
 ## Quotes
