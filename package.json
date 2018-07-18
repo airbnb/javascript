@@ -16,7 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "shelljs": "0.8.1",
-    "tslint": "5.9.1",
+    "tslint": "5.11.0",
     "typescript": "2.6.2",
     "yargs": "10.1.1",
     "typescript-formatter": "7.1.0"
