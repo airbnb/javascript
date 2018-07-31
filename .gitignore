@@ -1,5 +1,5 @@
 # gitignore
-
+.idea
 node_modules
 
 # Only apps should have lockfiles
