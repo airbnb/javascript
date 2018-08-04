@@ -313,6 +313,10 @@ module.exports = {
     // https://eslint.org/docs/rules/require-await
     'require-await': 'off',
 
+    // Enforce the use of u flag on RegExp
+    // https://eslint.org/docs/rules/require-unicode-regexp
+    'require-unicode-regexp': 'off',
+
     // requires to declare all vars on top of their containing scope
     'vars-on-top': 'error',
 
