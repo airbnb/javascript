@@ -15,8 +15,8 @@ const tempTsLintFile = '.tslint.temp.json';
 const tempTsfmtFile = '.tsfmt.temp.json';
 const tempTsConfigFile = '.tsconfig.lint.temp.json';
 let tsConfigFile = argv.tsconfig || 'tsconfig.json';
-
-const excludeOptionArray = argv.exclude || [];
+let tsConfigLint = {exclude: []};
+const tsLintExcludeOptionArray = argv.exclude || [];
 
 process.on('exit', () => {
     fs.unlinkSync(tempTsConfigFile);
@@ -28,15 +28,22 @@ try {
     fs.writeFileSync(tempTsfmtFile, JSON.stringify(require(tsfmtPath)));
     fs.writeFileSync(tempTsLintFile, JSON.stringify(require(tslintPath)));
     if (argv.all) {
-        const tsConfigLint = require(tsconfigPath);
-        tsConfigLint.exclude = [...tsConfigLint.exclude, ...excludeOptionArray];
+        tsConfigLint = require(tsconfigPath);
+        tsConfigLint.exclude = [...tsConfigLint.exclude, ...tsLintExcludeOptionArray];
         fs.writeFileSync(tempTsConfigFile, JSON.stringify(tsConfigLint));
         tsConfigFile = tempTsConfigFile;
     }
 
-    const program = Linter.createProgram(tsConfigFile, ".");
+    const program = Linter.createProgram(tsConfigFile, '.');
     const linter = new Linter({fix: true}, program);
 
+    [
+        'Starting tslint with the following configuration:',
+        `tsconfig: ${tsConfigFile}`,
+        'tslint: tsjs configuration',
+        'excluded files and/or folders:',
+        `  ${[...tsConfigLint.exclude, ...tsLintExcludeOptionArray].join('\n  ')}\n`,
+    ].forEach((line) => console.log(line));
     const files = Linter.getFileNames(program);
     files.forEach((file) => {
         const fileContents = program.getSourceFile(file).getFullText();
@@ -44,6 +51,14 @@ try {
         linter.lint(file, fileContents, configuration);
     });
 
+    [
+        'Starting tsfmt with the following configuration:',
+        'tslint: tsjs configuration',
+        'tsfmt: tsjs configuration',
+        `tsconfig: ${tsConfigFile}`,
+        'excluded files and/or folders:',
+        `  ${[...tsConfigLint.exclude, ...tsLintExcludeOptionArray].join('\n  ')}\n`,
+    ].forEach((line) => console.log(line));
     tsfmt.processFiles(files, {
         replace: true,
         tsconfig: true,
@@ -56,10 +71,12 @@ try {
         tsfmt: true,
         tsfmtFile: tempTsfmtFile,
     })
-        .then(() => console.log('done'));
+        .then(() => console.log('Tsjs linting and formatting completed successfully. See additional logs above for details.'));
 
 } catch (e) {
     console.log(e);
+
+    console.log('\nSomething went wrong while running tsjs. See error below and additional logs above for details.\n');
 
     process.exit(1);
 }
