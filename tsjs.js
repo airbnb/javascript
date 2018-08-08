@@ -34,16 +34,19 @@ try {
         tsConfigFile = tempTsConfigFile;
     }
 
+    [
+        'Starting tsjs with the following configuration:',
+        'tslint: tsjs configuration',
+        'tsfmt: tsjs configuration',
+        `tsconfig: ${tsConfigFile}`,
+        'excluded files and/or folders:',
+        `  ${tsConfigLint.exclude.join('\n  ')}\n`,
+    ].forEach((line) => console.log(line));
+
+    console.log('\nRunning tslint...\n');
     const program = Linter.createProgram(tsConfigFile, '.');
     const linter = new Linter({fix: true}, program);
 
-    [
-        'Starting tslint with the following configuration:',
-        `tsconfig: ${tsConfigFile}`,
-        'tslint: tsjs configuration',
-        'excluded files and/or folders:',
-        `  ${[...tsConfigLint.exclude, ...tsLintExcludeOptionArray].join('\n  ')}\n`,
-    ].forEach((line) => console.log(line));
     const files = Linter.getFileNames(program);
     files.forEach((file) => {
         const fileContents = program.getSourceFile(file).getFullText();
@@ -51,14 +54,7 @@ try {
         linter.lint(file, fileContents, configuration);
     });
 
-    [
-        'Starting tsfmt with the following configuration:',
-        'tslint: tsjs configuration',
-        'tsfmt: tsjs configuration',
-        `tsconfig: ${tsConfigFile}`,
-        'excluded files and/or folders:',
-        `  ${[...tsConfigLint.exclude, ...tsLintExcludeOptionArray].join('\n  ')}\n`,
-    ].forEach((line) => console.log(line));
+    console.log('\nRunning tsfmt...\n');
     tsfmt.processFiles(files, {
         replace: true,
         tsconfig: true,
