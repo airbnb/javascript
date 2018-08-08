@@ -6,4 +6,4 @@ node_modules
 yarn.lock
 
 # package-lock
-packasge-lock.json
+package-lock.json
