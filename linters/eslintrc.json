@@ -85,7 +85,8 @@
           "**/gulpfile.*.js",
           "**/Gruntfile{,.js}",
           "**/protractor.conf.js",
-          "**/protractor.conf.*.js"
+          "**/protractor.conf.*.js",
+          "**/setupTests.js"
         ],
         "optionalDependencies": false
       }
