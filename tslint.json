@@ -97,8 +97,8 @@
     "no-unsafe-finally": true,
     "no-unused-expression": false,
     "no-unused-variable": [
-      false,
-      "react"
+      true,
+      {"ignore-pattern": "([Rr]eact|Store)"}
     ],
     "no-var-keyword": true,
     "no-var-requires": true,
@@ -241,10 +241,6 @@
     "no-unnecessary-initializer": true,
     "no-unsafe-finally": true,
     "no-unused-expression": false,
-    "no-unused-variable": [
-      false,
-      "react"
-    ],
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "one-line": [
