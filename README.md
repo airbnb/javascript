@@ -1,5 +1,7 @@
 # Airbnb JavaScript Style Guide() {
 
+**See [Amendments Section](#amendments) for our changes**
+
 *A mostly reasonable approach to JavaScript*
 
 > **Note**: this guide assumes you are using [Babel](https://babeljs.io), and requires that you use [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) or the equivalent. It also assumes you are installing shims/polyfills in your app, with [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) or the equivalent.
@@ -3690,5 +3692,6 @@ We encourage you to fork this guide and change the rules to fit your team’s st
 - Prevent this from being used in stateless functional components
 - AirBnb prefers to enforce only `.jsx` file extension files may contain JSX. We prefer all our files to allow JSX.
 - Validate JSX has key prop when in array or iterator
+- We added `**/setupTests.js` to our list of `import/no-extraneous-dependencies` matchers.
 
 # };
