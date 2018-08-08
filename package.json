@@ -14,7 +14,8 @@
     "pretravis": "npm run --silent lint",
     "travis": "npm run --silent travis:config && npm run --silent travis:config:base",
     "travis:config": "cd packages/eslint-config-airbnb; npm run travis",
-    "travis:config:base": "cd packages/eslint-config-airbnb-base; npm run travis"
+    "travis:config:base": "cd packages/eslint-config-airbnb-base; npm run travis",
+    "print": "node print > ./linters/eslintrc.json"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
   },
   "homepage": "https://github.com/airbnb/javascript",
   "devDependencies": {
+    "lodash": "^4.17.5",
     "markdownlint-cli": "^0.3.1"
   }
 }

@@ -15,18 +15,19 @@ module.exports = {
 
     // enforce that class methods use "this"
     // https://eslint.org/docs/rules/class-methods-use-this
-    'class-methods-use-this': ['error', {
-      exceptMethods: [],
-    }],
+    // Overridden by react rules
+    // 'class-methods-use-this': ['error', {
+    //   exceptMethods: [],
+    // }],
 
     // require return statements to either always or never specify values
     'consistent-return': 'error',
 
     // specify curly brace conventions for all control statements
-    curly: ['error', 'multi-line'],
+    curly: 'error',
 
     // require default case in switch statements
-    'default-case': ['error', { commentPattern: '^no default$' }],
+    'default-case': 'error',
 
     // encourages use of dot notation whenever possible
     'dot-notation': ['error', { allowKeywords: true }],
@@ -37,7 +38,7 @@ module.exports = {
 
     // require the use of === and !==
     // https://eslint.org/docs/rules/eqeqeq
-    eqeqeq: ['error', 'always', { null: 'ignore' }],
+    eqeqeq: ['error', 'always', { null: 'always' }],
 
     // make sure for-in loops have an if statement
     'guard-for-in': 'error',
@@ -75,7 +76,7 @@ module.exports = {
     'no-empty-pattern': 'error',
 
     // disallow comparisons to null without a type-checking operator
-    'no-eq-null': 'off',
+    'no-eq-null': 'error',
 
     // disallow use of eval()
     'no-eval': 'error',
@@ -91,7 +92,7 @@ module.exports = {
     'no-extra-label': 'error',
 
     // disallow fallthrough of case statements
-    'no-fallthrough': 'error',
+    'no-fallthrough': ['error', { 'commentPattern': '[\\s\\w]*fall(through|thru)[\\s\\w]*}' }],
 
     // disallow the use of leading or trailing decimal points in numeric literals
     'no-floating-decimal': 'error',
@@ -113,7 +114,7 @@ module.exports = {
 
     // disallow var and named functions in global scope
     // https://eslint.org/docs/rules/no-implicit-globals
-    'no-implicit-globals': 'off',
+    'no-implicit-globals': 'error',
 
     // disallow use of eval()-like methods
     'no-implied-eval': 'error',
@@ -169,19 +170,7 @@ module.exports = {
     // disallow reassignment of function parameters
     // disallow parameter object manipulation except for specific exclusions
     // rule: https://eslint.org/docs/rules/no-param-reassign.html
-    'no-param-reassign': ['error', {
-      props: true,
-      ignorePropertyModificationsFor: [
-        'acc', // for reduce accumulators
-        'e', // for e.returnvalue
-        'ctx', // for Koa routing
-        'req', // for Express requests
-        'request', // for Express requests
-        'res', // for Express responses
-        'response', // for Express responses
-        '$scope', // for Angular 1 scopes
-      ]
-    }],
+    'no-param-reassign': 'off',
 
     // disallow usage of __proto__ property
     'no-proto': 'error',
@@ -259,7 +248,7 @@ module.exports = {
 
     // disallow usage of expressions in statement position
     'no-unused-expressions': ['error', {
-      allowShortCircuit: false,
+      allowShortCircuit: true,
       allowTernary: false,
       allowTaggedTemplates: false,
     }],

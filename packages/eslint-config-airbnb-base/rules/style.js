@@ -2,13 +2,11 @@ module.exports = {
   rules: {
     // enforce line breaks after opening and before closing array brackets
     // https://eslint.org/docs/rules/array-bracket-newline
-    // TODO: enable? semver-major
-    'array-bracket-newline': ['off', 'consistent'], // object option alternative: { multiline: true, minItems: 3 }
+    'array-bracket-newline': ['error', { multiline: true }],
 
     // enforce line breaks between array elements
     // https://eslint.org/docs/rules/array-element-newline
-    // TODO: enable? semver-major
-    'array-element-newline': ['off', { multiline: true, minItems: 3 }],
+    'array-element-newline': ['error', 'always'],
 
     // enforce spacing inside array brackets
     'array-bracket-spacing': ['error', 'never'],
@@ -18,7 +16,7 @@ module.exports = {
     'block-spacing': ['error', 'always'],
 
     // enforce one true brace style
-    'brace-style': ['error', '1tbs', { allowSingleLine: true }],
+    'brace-style': ['error', '1tbs', { allowSingleLine: false }],
 
     // require camel case names
     camelcase: ['error', { properties: 'never' }],
@@ -93,8 +91,7 @@ module.exports = {
 
     // enforces use of function declarations or expressions
     // https://eslint.org/docs/rules/func-style
-    // TODO: enable
-    'func-style': ['off', 'expression'],
+    'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
 
     // enforce consistent line breaks inside function parentheses
     // https://eslint.org/docs/rules/function-paren-newline
@@ -144,7 +141,8 @@ module.exports = {
 
     // specify whether double or single quotes should be used in JSX attributes
     // https://eslint.org/docs/rules/jsx-quotes
-    'jsx-quotes': ['off', 'prefer-double'],
+    // Overridden by react rules
+    // 'jsx-quotes': ['error', 'prefer-double'],
 
     // enforces spacing between keys and values in object literal properties
     'key-spacing': ['error', { beforeColon: false, afterColon: true }],
@@ -175,24 +173,21 @@ module.exports = {
 
     // require or disallow an empty line between class members
     // https://eslint.org/docs/rules/lines-between-class-members
-    'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: false }],
+    'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
 
     // enforces empty lines around comments
     'lines-around-comment': 'off',
 
     // require or disallow newlines around directives
     // https://eslint.org/docs/rules/lines-around-directive
-    'lines-around-directive': ['error', {
-      before: 'always',
-      after: 'always',
-    }],
+    'lines-around-directive': 'off',
 
     // specify the maximum depth that blocks can be nested
     'max-depth': ['off', 4],
 
     // specify the maximum length of a line in your program
     // https://eslint.org/docs/rules/max-len
-    'max-len': ['error', 100, 2, {
+    'max-len': ['error', 120, 2, {
       ignoreUrls: true,
       ignoreComments: false,
       ignoreRegExpLiterals: true,
@@ -227,8 +222,7 @@ module.exports = {
 
     // require multiline ternary
     // https://eslint.org/docs/rules/multiline-ternary
-    // TODO: enable?
-    'multiline-ternary': ['off', 'never'],
+    'multiline-ternary': ['error', 'always-multiline'],
 
     // require a capital letter for constructors
     'new-cap': ['error', {
@@ -316,7 +310,7 @@ module.exports = {
 
     // disallow use of unary operators, ++ and --
     // https://eslint.org/docs/rules/no-plusplus
-    'no-plusplus': 'error',
+    'no-plusplus': 'off',
 
     // disallow certain syntax forms
     // https://eslint.org/docs/rules/no-restricted-syntax
@@ -341,7 +335,7 @@ module.exports = {
     ],
 
     // disallow space between function identifier and application
-    'no-spaced-func': 'error',
+    'no-spaced-func': 'off',
 
     // disallow tab characters entirely
     'no-tabs': 'error',
@@ -356,12 +350,7 @@ module.exports = {
     }],
 
     // disallow dangling underscores in identifiers
-    'no-underscore-dangle': ['error', {
-      allow: [],
-      allowAfterThis: false,
-      allowAfterSuper: false,
-      enforceInMethodNames: false,
-    }],
+    'no-underscore-dangle': 'off',
 
     // disallow the use of Boolean literals in conditional expressions
     // also, prefer `a || b` over `a ? a : b`
@@ -412,11 +401,14 @@ module.exports = {
 
     // Require or disallow padding lines between statements
     // https://eslint.org/docs/rules/padding-line-between-statements
-    'padding-line-between-statements': 'off',
+    'padding-line-between-statements': ['error', 
+      { blankLine: 'always', prev: '*', next: 'directive' },
+      { blankLine: 'always', prev: 'directive', next: '*' }
+    ],
 
     // require quotes around object literal property names
     // https://eslint.org/docs/rules/quote-props.html
-    'quote-props': ['error', 'as-needed', { keywords: false, unnecessary: true, numbers: false }],
+    'quote-props': ['error', 'consistent-as-needed', { keywords: false, unnecessary: false, numbers: false }],
 
     // specify whether double or single quotes should be used
     quotes: ['error', 'single', { avoidEscape: true }],

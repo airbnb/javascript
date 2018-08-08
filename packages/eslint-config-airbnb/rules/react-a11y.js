@@ -1,7 +1,8 @@
 module.exports = {
   plugins: [
     'jsx-a11y',
-    'react'
+    // Commenting to de-dupe against react rules
+    // 'react'
   ],
 
   parserOptions: {

@@ -33,13 +33,17 @@ module.exports = {
       ],
     }],
 
+    // Enforce consistent usage of destructuring assignment of props, state, and context
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md
+    'react/destructuring-assignment': ['error', 'always'],
+
     // Prevent missing displayName in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
     'react/display-name': ['off', { ignoreTranspilerName: false }],
 
     // Forbid certain propTypes (any, array, object)
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md
-    'react/forbid-prop-types': ['error', { forbid: ['any', 'array', 'object'] }],
+    'react/forbid-prop-types': 'off',
 
     // Enforce boolean attributes notation in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md
@@ -70,7 +74,7 @@ module.exports = {
 
     // Validate JSX has key prop when in array or iterator
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-key.md
-    'react/jsx-key': 'off',
+    'react/jsx-key': 'error',
 
     // Limit maximum of props on a single line in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
@@ -133,6 +137,10 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md
     'react/jsx-uses-vars': 'error',
 
+    // Prevent using this.state within a this.setState
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-access-state-in-setstate.md
+    'react/no-access-state-in-setstate': 'error',
+
     // Prevent usage of dangerous JSX properties
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-danger.md
     'react/no-danger': 'warn',
@@ -156,7 +164,7 @@ module.exports = {
 
     // Prevent direct mutation of this.state
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-direct-mutation-state.md
-    'react/no-direct-mutation-state': 'off',
+    'react/no-direct-mutation-state': 'error',
 
     // Prevent usage of isMounted
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md
@@ -173,6 +181,10 @@ module.exports = {
     // Prevent using string references
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md
     'react/no-string-refs': 'error',
+
+    // Prevent this from being used in stateless functional components
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-this-in-sfc.md
+    'react/no-this-in-sfc': 'error',
 
     // Prevent usage of unknown DOM property
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md
@@ -249,7 +261,7 @@ module.exports = {
 
     // only .jsx files may have JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
-    'react/jsx-filename-extension': ['error', { extensions: ['.jsx'] }],
+    'react/jsx-filename-extension': 'off',
 
     // prevent accidental JS comments from being injected into JSX as text
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md

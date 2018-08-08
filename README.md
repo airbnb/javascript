@@ -3661,4 +3661,34 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 We encourage you to fork this guide and change the rules to fit your team’s style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
 
+- Require all control statements to be wrapped in curly braces. AirBnb allows single line ifs, where we prefer the default behavior: every control statement has curlies
+- Require all switch statements to have a default case or a comment matching /^no default$/i (case insensitive). AirBnb prefers forcing lower case.
+- Require `===` and `!==` always. AirBnb allows `==` and `!=` when comparing against `null`, we prefer to always require `===` or `!==`
+- Disallow allowing case statements to fallthrough, unless we comment to explicitly allow it. AirBnb prefers to disallow falling through entirely
+- We prefer to enforce a clean global scope, where AirBnb turns off this enforcement
+- We allow reassignment of function parameters, where AirBnb disallows it save for some exceptions
+- We want to prevent unused expressions, while allowing short circuiting. AirBnb prefers to disallow short circuiting, as well
+- Disallow use of undefined variable
+- We prefer to use `import` statements to retrieve our module code, restricting usage of `require` to only cases where we specifically want to conditionally or synchronously require a module. An example of this use case can be seen in [SliceLink's router](https://github.com/mypizza/slice_hub/blob/master/src/routes.js#L16-L27). We use `require` specifically to allow both importing and mounting sandbox routes only in development, so they are not included in the production bundle due to dead code elminiation. AirBnb prefers to force require statements be in the top level of modules.
+- Enforce line breaks after opening and before closing array brackets
+- Enforce line breaks between array elements
+- AirBnb prefers to allow single-line blocks. We prefer to disallow them
+- We prefer enforcing function declarations and allowing arrow functions
+- We prefer to use double quotes in JSX to allow strings to have apostrophes
+- AirBnb prefers to enforce spaces between single line class members, while we prefer to allow no lines between single line class members
+- AirBnb prefers to limit the max len to 100 characters, while we prefer to make the max len 120
+- Unsure what rule they would set, but we prefer to enforce a multiline if the expression spans multiple lines
+- AirBnb disallows `++` and `--`, while we prefer to alllow them. We can safely allow `++` and `--` because we require semicolons, so we are not subject to ASI induced errors
+- AirBnb prefers to disallow dangling underscores, while we prefer to allow them as ref-holder- and pseudo-private-members of React Element Classes
+- Quote props: AirBnb prefers as-needed, but we prefer consistent-as-needed to allow for consistent props
+- We prefer to ensure our imports exist
+- We prefer to export default a named entity
+- Enforce consistent usage of destructuring assignment of props, state, and context
+- AirBnb prefers to forbid the proptypes `any`, `array`, and `object`. We prefer to allow these proptype types
+- Prevent using this.state within a this.setState
+- Directly mutating this.state is dangerous and can lead to some very bad things. We prefer to disallow it.
+- Prevent this from being used in stateless functional components
+- AirBnb prefers to enforce only `.jsx` file extension files may contain JSX. We prefer all our files to allow JSX.
+- Validate JSX has key prop when in array or iterator
+
 # };
