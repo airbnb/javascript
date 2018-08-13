@@ -1,14 +1,14 @@
 {
-  "name": "eslint-config-airbnb-base",
-  "version": "13.1.0",
-  "description": "Airbnb's base JS ESLint config, following our styleguide",
+  "name": "@postmates/eslint-config-base",
+  "version": "2.0.0",
+  "description": "Postmates' base JS ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
     "prelint": "editorconfig-tools check * rules/* test/*",
     "lint": "eslint --report-unused-disable-directives .",
     "pretests-only": "node ./test/requires",
     "tests-only": "babel-tape-runner ./test/test-*.js",
-    "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test) && safe-publish-latest",
+    "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test)",
     "pretest": "npm run --silent lint",
     "test": "npm run --silent tests-only",
     "pretravis": ":",
@@ -17,13 +17,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airbnb/javascript"
+    "url": "https://github.com/postmates/javascript"
   },
   "keywords": [
     "eslint",
     "eslintconfig",
     "config",
-    "airbnb",
+    "postmates",
     "javascript",
     "styleguide",
     "es2015",
@@ -31,27 +31,12 @@
     "es2017",
     "es2018"
   ],
-  "author": "Jake Teton-Landis (https://twitter.com/@jitl)",
-  "contributors": [
-    {
-      "name": "Jake Teton-Landis",
-      "url": "https://twitter.com/jitl"
-    },
-    {
-      "name": "Jordan Harband",
-      "email": "ljharb@gmail.com",
-      "url": "http://ljharb.codes"
-    },
-    {
-      "name": "Harrison Shoff",
-      "url": "https://twitter.com/hshoff"
-    }
-  ],
+  "author": "Kristen Mills",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/airbnb/javascript/issues"
+    "url": "https://github.com/postmates/javascript/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript",
+  "homepage": "https://github.com/postmates/javascript",
   "devDependencies": {
     "babel-preset-airbnb": "^2.5.3",
     "babel-tape-runner": "^2.0.1",

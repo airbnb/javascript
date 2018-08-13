@@ -1,4 +1,4 @@
-# Airbnb React/JSX Style Guide
+# Postmates React/JSX Style Guide
 
 *A mostly reasonable approach to React and JSX*
 
@@ -351,7 +351,21 @@ This style guide is mostly based on the standards that are currently prevalent i
   <div />
   ```
 
-  - Avoid using an array index as `key` prop, prefer a unique ID. ([why?](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318))
+  - Always include a `key` prop on elements when in an array or iterator. eslint: [`react/jsx-key`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-key.md)
+
+  ```jsx
+  // bad
+  [<Hello />, <Hello />, <Hello />];
+
+  data.map(({ name }) => <Hello>name</Hello>);
+
+  // good
+  [<Hello key="first" />, <Hello key="second" />, <Hello key="third" />];
+
+  data.map(({ id, name }) => <Hello key={id}>name</Hello>);
+  ```
+
+  - Avoid using an array index as `key` prop, prefer a unique ID if possible. ([why?](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318))
 
   ```jsx
   // bad

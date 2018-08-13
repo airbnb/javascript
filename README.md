@@ -1,4 +1,4 @@
-# Airbnb JavaScript Style Guide() {
+# Postmates JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
@@ -12,11 +12,8 @@ This guide is available in other languages too. See [Translation](#translation)
 
 Other Style Guides
 
-  - [ES5 (Deprecated)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5)
   - [React](react/)
   - [CSS-in-JavaScript](css-in-javascript/)
-  - [CSS & Sass](https://github.com/airbnb/css)
-  - [Ruby](https://github.com/airbnb/ruby)
 
 ## Table of Contents
 
@@ -1337,19 +1334,6 @@ Other Style Guides
     // good
     const foo = 3;
     export { foo };
-    ```
-
-  <a name="modules--prefer-default-export"></a>
-  - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
- eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
-    > Why? To encourage more files that only ever export one thing, which is better for readability and maintainability.
-
-    ```javascript
-    // bad
-    export function foo() {}
-
-    // good
-    export default function foo() {}
     ```
 
   <a name="modules--imports-first"></a>
@@ -3158,26 +3142,6 @@ Other Style Guides
     const good = new User({
       name: 'yup',
     });
-    ```
-
-  <a name="naming--leading-underscore"></a><a name="22.4"></a>
-  - [23.4](#naming--leading-underscore) Do not use trailing or leading underscores. eslint: [`no-underscore-dangle`](https://eslint.org/docs/rules/no-underscore-dangle.html)
-
-    > Why? JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won’t count as breaking, or that tests aren’t needed. tl;dr: if you want something to be “private”, it must not be observably present.
-
-    ```javascript
-    // bad
-    this.__firstName__ = 'Panda';
-    this.firstName_ = 'Panda';
-    this._firstName = 'Panda';
-
-    // good
-    this.firstName = 'Panda';
-
-    // good, in environments where WeakMaps are available
-    // see https://kangax.github.io/compat-table/es6/#test-WeakMap
-    const firstNames = new WeakMap();
-    firstNames.set(this, 'Panda');
     ```
 
   <a name="naming--self-this"></a><a name="22.5"></a>
