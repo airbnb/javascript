@@ -1,3 +1,11 @@
+17.1.0 / 2018-08-13
+==================
+- [new] add eslint v5 support
+- [minor] enable `label-has-associated-control` rule
+- [patch] re-enabling `jsx-one-expression-per-line` allowing single children, ignore DOM components on `jsx-no-bind`
+- [deps] update `eslint`, `eslint-config-airbnb-base`, `eslint-plugin-react`, `eslint-plugin-import`, `safe-publish-latest`, `eslint-plugin-jsx-a11y`, `eslint-find-rules`
+- [docs] fix readme typo (#1855)
+
 17.0.0 / 2018-06-21
 ==================
 - [breaking] update `eslint-config-airbnb-base` to v13
