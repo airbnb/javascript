@@ -31,7 +31,7 @@
 
   "comment": "MD009: Disallow trailing spaces",
   "no-trailing-spaces": {
-    "br-spaces": 0,
+    "br_spaces": 0,
     "comment": "Empty lines inside list items should not be indented",
     "list_item_empty_lines": false
   },

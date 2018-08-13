@@ -1,18 +1,20 @@
 {
   "name": "@postmates/eslint-config",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Postmates' ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
     "prelint": "editorconfig-tools check * rules/* test/*",
     "lint": "eslint .",
+    "pretests-only": "node ./test/requires",
     "tests-only": "babel-tape-runner ./test/test-*.js",
     "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test)",
     "pretest": "npm run --silent lint",
     "test": "npm run --silent tests-only",
-    "pretravis": "cd ../eslint-config-base && npm install && npm link && cd - && npm link --no-save @postmates/eslint-config-base",
+    "link:eslint": "cd node_modules/eslint && npm link && cd -",
+    "pretravis": "npm run link:eslint && cd ../eslint-config-base && npm link eslint && npm install && npm link && cd - && npm link --no-save @postmates/eslint-config-base",
     "travis": "npm run --silent test",
-    "posttravis": "npm unlink @postmates/eslint-config-base >/dev/null &"
+    "posttravis": "npm unlink --no-save @postmates/eslint-config-base eslint >/dev/null &"
   },
   "repository": {
     "type": "git",
@@ -24,7 +26,11 @@
     "config",
     "postmates",
     "javascript",
-    "styleguide"
+    "styleguide",
+    "es2015",
+    "es2016",
+    "es2017",
+    "es2018"
   ],
   "author": "Kristen Mills",
   "license": "MIT",
@@ -33,26 +39,29 @@
   },
   "homepage": "https://github.com/postmates/javascript",
   "dependencies": {
-    "@postmates/eslint-config-base": "^1.0.0"
+    "@postmates/eslint-config-base": "^2.0.0",
+    "object.assign": "^4.1.0",
+    "object.entries": "^1.0.4"
   },
   "devDependencies": {
-    "babel-preset-airbnb": "^2.4.0",
+    "babel-preset-airbnb": "^2.5.3",
     "babel-tape-runner": "^2.0.1",
     "editorconfig-tools": "^0.1.1",
-    "eslint": "^3.19.0 || ^4.3.0",
-    "eslint-find-rules": "^3.1.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.1.0",
+    "eslint": "^4.19.1 || ^5.3.0",
+    "eslint-find-rules": "^3.3.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0",
     "in-publish": "^2.0.0",
     "react": ">= 0.13.0",
-    "tape": "^4.7.0"
+    "safe-publish-latest": "^1.1.2",
+    "tape": "^4.9.1"
   },
   "peerDependencies": {
-    "eslint": "^3.19.0 || ^4.3.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-react": "^7.1.0"
+    "eslint": "^4.19.1 || ^5.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0"
   },
   "engines": {
     "node": ">= 4"

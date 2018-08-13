@@ -13,7 +13,7 @@ module.exports = {
   rules: {
     // Enforce that anchors have content
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-has-content.md
-    'jsx-a11y/anchor-has-content': ['error', { components: [''] }],
+    'jsx-a11y/anchor-has-content': ['error', { components: [] }],
 
     // Require ARIA roles to be valid and non-abstract
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md
@@ -32,10 +32,6 @@ module.exports = {
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-unsupported-elements.md
     'jsx-a11y/aria-unsupported-elements': 'error',
 
-    // disallow href "#"
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/href-no-hash.md
-    'jsx-a11y/href-no-hash': ['error', { components: ['a'] }],
-
     // Enforce that all elements that require alternative text have meaningful information
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/alt-text.md
     'jsx-a11y/alt-text': ['error', {
@@ -52,12 +48,27 @@ module.exports = {
 
     // require that JSX labels use "htmlFor"
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md
-    'jsx-a11y/label-has-for': ['error', { components: ['label'] }],
+    'jsx-a11y/label-has-for': ['error', {
+      components: [],
+      required: {
+        every: ['nesting', 'id'],
+      },
+      allowChildren: false,
+    }],
+
+    // Enforce that a label tag has a text label and an associated control.
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/b800f40a2a69ad48015ae9226fbe879f946757ed/docs/rules/label-has-associated-control.md
+    'jsx-a11y/label-has-associated-control': ['error', {
+      labelComponents: [],
+      labelAttributes: [],
+      controlComponents: [],
+      assert: 'both',
+      depth: 25
+    }],
 
     // require that mouseover/out come with focus/blur, for keyboard-only users
-    // TODO: evaluate
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/mouse-events-have-key-events.md
-    'jsx-a11y/mouse-events-have-key-events': 'off',
+    'jsx-a11y/mouse-events-have-key-events': 'error',
 
     // Prevent use of `accessKey`
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md
@@ -109,8 +120,7 @@ module.exports = {
 
     // require onClick be accompanied by onKeyUp/onKeyDown/onKeyPress
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/click-events-have-key-events.md
-    // TODO: enable?
-    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/click-events-have-key-events': 'error',
 
     // Enforce that DOM elements without semantic behavior not have interaction handlers
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-static-element-interactions.md
@@ -191,10 +201,9 @@ module.exports = {
 
     // ensure <a> tags are valid
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/0745af376cdc8686d85a361ce36952b1fb1ccf6e/docs/rules/anchor-is-valid.md
-    // TODO: enable, semver-major
-    'jsx-a11y/anchor-is-valid': ['off', {
+    'jsx-a11y/anchor-is-valid': ['error', {
       components: ['Link'],
-      specialLink: [],
+      specialLink: ['to'],
       aspects: ['noHref', 'invalidHref', 'preferButton'],
     }],
   },

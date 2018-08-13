@@ -26,6 +26,9 @@
     "postmates",
     "es6",
     "es2015",
+    "es2016",
+    "es2017",
+    "es2018",
     "react",
     "jsx"
   ],
@@ -36,6 +39,6 @@
   },
   "homepage": "https://github.com/postmates/javascript",
   "devDependencies": {
-    "markdownlint-cli": "^0.3.1"
+    "markdownlint-cli": "^0.10.0"
   }
 }

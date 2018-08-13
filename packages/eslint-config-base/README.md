@@ -1,4 +1,4 @@
-# eslint-config-airbnb-base
+# eslint-config-base
 
 [![npm version](https://badge.fury.io/js/%40postmates%2Feslint-config-base.svg)](https://badge.fury.io/js/%40postmates%2Feslint-config-base)
 
@@ -12,7 +12,7 @@ We export two ESLint configurations for your usage.
 
 Our default export contains all of our ESLint rules, including ECMAScript 6+. It requires `eslint` and `eslint-plugin-import`.
 
-If you use yarn, run `yarn add --dev @postmates/eslint-config-base eslint-plugin-import`, or see below for npm instructions.
+If you use yarn, run `npm info "@postmates/eslint-config-base@latest" peerDependencies` to list the peer dependencies and versions, then run `yarn add --dev <dependency>@<version>` for each listed peer dependency. See below for npm instructions.
 
 1. Install the correct versions of each package, which are listed by the command:
 
@@ -20,7 +20,14 @@ If you use yarn, run `yarn add --dev @postmates/eslint-config-base eslint-plugin
   npm info "@postmates/eslint-config-base@latest" peerDependencies
   ```
 
-  Linux/OSX users can run
+  If using **npm 5+**, use this shortcut
+
+  ```sh
+  npx install-peerdeps --dev eslint-config-airbnb-base
+  ```
+
+  If using **npm < 5**, Linux/OSX users can run
+
   ```sh
   (
     export PKG=@postmates/eslint-config-base;
@@ -34,7 +41,7 @@ If you use yarn, run `yarn add --dev @postmates/eslint-config-base eslint-plugin
     npm install --save-dev @postmates/eslint-config-base eslint@^#.#.# eslint-plugin-import@^#.#.#
   ```
 
-  Windows users can either install all the peer dependencies manually, or use the [install-peerdeps](https://github.com/nathanhleung/install-peerdeps) cli tool.
+  If using **npm < 5**, Windows users can either install all the peer dependencies manually, or use the [install-peerdeps](https://github.com/nathanhleung/install-peerdeps) cli tool.
 
   ```sh
   npm install -g install-peerdeps
@@ -75,7 +82,11 @@ Lints ES5 and below. Requires `eslint` and `eslint-plugin-import`.
 
 2. Add `"extends": "@postmates/eslint-config-base/legacy"` to your .eslintrc
 
-See [Postmates' overarching ESLint config](https://npmjs.com/@postmates/eslint-config), [Postmates' Javascript styleguide](https://github.com/postmates/javascript), and the [ESlint config docs](http://eslint.org/docs/user-guide/configuring#extending-configuration-files) for more information.
+See [Postmates' overarching ESLint config](https://npmjs.com/@postmates/eslint-config), [Postmates' Javascript styleguide](https://github.com/postmates/javascript), and the [ESlint config docs](https://eslint.org/docs/user-guide/configuring#extending-configuration-files) for more information.
+
+### eslint-config-base/whitespace
+
+This entry point only warns on whitespace rules and sets all other rules to warnings. View the list of whitespace rules [here](https://github.com/postmates/javascript/blob/master/packages/eslint-config-base/whitespace.js).
 
 ## Improving this config
 

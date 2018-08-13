@@ -1,11 +1,12 @@
 {
   "name": "@postmates/eslint-config-base",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Postmates' base JS ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
     "prelint": "editorconfig-tools check * rules/* test/*",
-    "lint": "eslint .",
+    "lint": "eslint --report-unused-disable-directives .",
+    "pretests-only": "node ./test/requires",
     "tests-only": "babel-tape-runner ./test/test-*.js",
     "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test)",
     "pretest": "npm run --silent lint",
@@ -24,7 +25,11 @@
     "config",
     "postmates",
     "javascript",
-    "styleguide"
+    "styleguide",
+    "es2015",
+    "es2016",
+    "es2017",
+    "es2018"
   ],
   "author": "Kristen Mills",
   "license": "MIT",
@@ -33,23 +38,26 @@
   },
   "homepage": "https://github.com/postmates/javascript",
   "devDependencies": {
-    "babel-preset-airbnb": "^2.4.0",
+    "babel-preset-airbnb": "^2.5.3",
     "babel-tape-runner": "^2.0.1",
     "editorconfig-tools": "^0.1.1",
-    "eslint": "^4.3.0",
-    "eslint-find-rules": "^3.1.1",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint": "^4.19.1 || ^5.3.0",
+    "eslint-find-rules": "^3.3.1",
+    "eslint-plugin-import": "^2.14.0",
     "in-publish": "^2.0.0",
-    "tape": "^4.7.0"
+    "safe-publish-latest": "^1.1.2",
+    "tape": "^4.9.1"
   },
   "peerDependencies": {
-    "eslint": "^3.19.0 || ^4.3.0",
-    "eslint-plugin-import": "^2.7.0"
+    "eslint": "^4.19.1 || ^5.3.0",
+    "eslint-plugin-import": "^2.14.0"
   },
   "engines": {
     "node": ">= 4"
   },
   "dependencies": {
-    "eslint-restricted-globals": "^0.1.1"
+    "eslint-restricted-globals": "^0.1.1",
+    "object.assign": "^4.1.0",
+    "object.entries": "^1.0.4"
   }
 }
