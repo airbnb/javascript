@@ -2,7 +2,7 @@
 const path = require('path');
 const fs = require('fs');
 const yargs = require('yargs');
-const {Linter, Configuration} = require('tslint');
+const { Linter, Configuration } = require('tslint');
 const tsfmt = require('typescript-formatter');
 
 yargs.array('exclude');
@@ -15,7 +15,7 @@ const tempTsLintFile = '.tslint.temp.json';
 const tempTsfmtFile = '.tsfmt.temp.json';
 const tempTsConfigFile = '.tsconfig.lint.temp.json';
 let tsConfigFile = argv.tsconfig || 'tsconfig.json';
-let tsConfigLint = {exclude: []};
+let tsConfigLint = { exclude: [] };
 const tsLintExcludeOptionArray = argv.exclude || [];
 
 process.on('exit', () => {
@@ -26,7 +26,20 @@ process.on('exit', () => {
 
 try {
     fs.writeFileSync(tempTsfmtFile, JSON.stringify(require(tsfmtPath)));
+
+    let tslintJSON = require(tslintPath);
+    const defaultIgnorePattern = tslintJSON['no-unused-variable'][1]['ignore-pattern'];
+    tslintJSON = {
+        ...tslintJSON,
+        'no-unused-variable': [
+            true,
+            {
+                'ignore-pattern': argv.ignorepattern || defaultIgnorePattern,
+            },
+        ],
+    };
     fs.writeFileSync(tempTsLintFile, JSON.stringify(require(tslintPath)));
+
     if (argv.all) {
         tsConfigLint = require(tsconfigPath);
         tsConfigLint.exclude = [...tsConfigLint.exclude, ...tsLintExcludeOptionArray];
@@ -45,7 +58,7 @@ try {
 
     console.log('\nRunning tslint...\n');
     const program = Linter.createProgram(tsConfigFile, '.');
-    const linter = new Linter({fix: true}, program);
+    const linter = new Linter({ fix: true }, program);
 
     const files = Linter.getFileNames(program);
     files.forEach((file) => {
