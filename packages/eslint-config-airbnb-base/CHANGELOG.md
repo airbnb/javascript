@@ -1,3 +1,10 @@
+13.1.0 / 2018-08-13
+==================
+ - [new] add eslint v5 support (#1834)
+ - [deps] update `eslint-plugin-import`, `eslint`, `babel-preset-airbnb`, `safe-publish-latest`, `eslint-find-rules`
+ - [docs] fix typo in readme (#1855)
+ - [new] update base ecmaVersion to 2018; remove deprecated experimentalObjectRestSpread option
+
 13.0.0 / 2018-06-21
 ==================
  - [breaking] order of import statements is ignored for unassigned imports (#1782)
