@@ -15,9 +15,10 @@
   },
   "license": "MIT",
   "dependencies": {
+    "lodash": "4.17.10",
     "tslint": "5.11.0",
     "typescript": "2.6.2",
-    "yargs": "10.1.1",
-    "typescript-formatter": "7.1.0"
+    "typescript-formatter": "7.1.0",
+    "yargs": "10.1.1"
   }
 }
