@@ -2,6 +2,7 @@
 const path = require('path');
 const fs = require('fs');
 const yargs = require('yargs');
+const {flow, update} = require('lodash/fp');
 const {Linter, Configuration} = require('tslint');
 const tsfmt = require('typescript-formatter');
 
@@ -26,7 +27,14 @@ process.on('exit', () => {
 
 try {
     fs.writeFileSync(tempTsfmtFile, JSON.stringify(require(tsfmtPath)));
-    fs.writeFileSync(tempTsLintFile, JSON.stringify(require(tslintPath)));
+    fs.writeFileSync(
+        tempTsLintFile,
+        flow(
+            update('no-unused-variable[1].ignore-pattern', (val) => argv.ignorepattern || val),
+            JSON.stringify,
+        )(require(tslintPath)),
+    );
+
     if (argv.all) {
         tsConfigLint = require(tsconfigPath);
         tsConfigLint.exclude = [...tsConfigLint.exclude, ...tsLintExcludeOptionArray];
