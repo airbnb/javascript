@@ -31,8 +31,9 @@ try {
         tempTsLintFile,
         flow(
             update('no-unused-variable[1].ignore-pattern', (val) => argv.ignorepattern || val),
-            JSON.stringify,
-        )(require(tslintPath)),
+            update('no-unused-variable', (val) => argv.nounusedvar && val || undefined),
+            JSON.stringify
+        )(require(tslintPath))
     );
 
     if (argv.all) {
