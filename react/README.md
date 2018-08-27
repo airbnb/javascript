@@ -351,7 +351,11 @@ This style guide is mostly based on the standards that are currently prevalent i
   <div />
   ```
 
-  - Avoid using an array index as `key` prop, prefer a unique ID. ([why?](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318))
+  - Avoid using an array index as `key` prop, prefer a stable ID.
+
+> Why? Not using a stable ID [is an anti-pattern](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318) because it can negatively impact performance and cause issues with component state.
+
+We don’t recommend using indexes for keys if the order of items may change.
 
   ```jsx
   // bad
