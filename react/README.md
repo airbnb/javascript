@@ -440,16 +440,16 @@ This style guide is mostly based on the standards that are currently prevalent i
   Filter out unnecessary props when possible. Also, use [prop-types-exact](https://www.npmjs.com/package/prop-types-exact) to help prevent bugs.
 
   ```jsx
-  // good
-  render() {
-    const { irrelevantProp, ...relevantProps  } = this.props;
-    return <WrappedComponent {...relevantProps} />
-  }
-
   // bad
   render() {
     const { irrelevantProp, ...relevantProps  } = this.props;
     return <WrappedComponent {...this.props} />
+  }
+
+  // good
+  render() {
+    const { irrelevantProp, ...relevantProps  } = this.props;
+    return <WrappedComponent {...relevantProps} />
   }
   ```
 
