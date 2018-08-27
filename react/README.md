@@ -7,6 +7,7 @@ This style guide is mostly based on the standards that are currently prevalent i
 ## Table of Contents
 
   1. [Basic Rules](#basic-rules)
+  1. [High-Order Components](#high-ordered-components)
   1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
   1. [Mixins](#mixins)
   1. [Naming](#naming)
@@ -28,6 +29,81 @@ This style guide is mostly based on the standards that are currently prevalent i
     - However, multiple [Stateless, or Pure, Components](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) are allowed per file. eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless).
   - Always use JSX syntax.
   - Do not use `React.createElement` unless you're initializing the app from a file that is not JSX.
+  
+## High-Order Components
+
+  - For [Higher-Order Components](https://facebook.github.io/react/docs/higher-order-components.html) define static property `WrappedComponent` as a reference to decorated component.   
+  
+    If your High-Order Components don't provide access to decorated components, you can get faced with issue of [`import/no-named-as-default`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default.md)
+    
+    ```jsx
+    // Title.jsx
+    import bindBreakpoint from './utils/bindBreakpoint';
+    // bad: using named export
+    export function Title({ breakpoint, children }) {
+      const sizeSmall = '16px';
+      const sizeRegular = '21px';
+      const style = {};
+      
+      switch(breakpoint) {
+        case 'xn':
+          style.fontSize = sizeSmall;
+          break;
+        case 'n':
+        case 'm:
+        case 'w':
+        default:
+          style.fontSize = sizeRegular;
+          break;
+      }
+      return (
+        <h1 style={style}>{children}</h1>
+      );
+    }
+    export default bindBreakpoint(Title);
+    ```
+    
+    We are using export non-decorated `<Title />` component ONLY for testing purposes.
+
+    If we try to import `<Title />` throughout application in this way:
+    
+    ```jsx
+    import Title from './Title';
+    ```
+    
+    We definitely will get an error: [`import/no-named-as-default`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default.md)
+    
+    ```jsx
+    // utils/bindBreakpoint.jsx
+    export default function bindBreakpoint(WrappedComponent) {
+      function WithBreakpoint(props) {
+        return <WrappedComponent {...props} />;
+      }
+           
+      WithBreakpoint.WrappedComponent = WrappedComponent;
+      return WithBreakpoint;
+    }
+    ```
+    
+    Now, we do have reference to the decorated component, so that, we can get rid of named export:
+    
+    ```jsx
+    // Title.jsx
+    import bindBreakpoint from './utils/bindBreakpoint';
+    // good: no named export
+    function Title({ breakpoint, children }) {
+      // impementation  
+    }
+    export default bindBreakpoint(Title);
+    ```
+    
+    In our tests, we can get access to Pure, non-decorated `<Title />` component in this way:
+    
+    ```jsx
+    // Title.test.jsx
+    import Title from './Title';
+    shallow(<Title.WrappedComponent>Hello, World!</Title.WrappedComponent>
+    ```
 
 ## Class vs `React.createClass` vs stateless
 
