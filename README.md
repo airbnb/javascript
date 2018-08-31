@@ -353,7 +353,6 @@ Other Style Guides
     };
     ```
 
-
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrays
