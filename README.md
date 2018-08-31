@@ -203,7 +203,7 @@ Other Style Guides
         return this.value + value;
       },
     };
-    
+
     // bad
     const atom = {
       value: 1,
