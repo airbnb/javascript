@@ -200,6 +200,15 @@ Other Style Guides
       value: 1,
 
       addValue: function (value) {
+        return this.value + value;
+      },
+    };
+    
+    // bad
+    const atom = {
+      value: 1,
+
+      addValue: function (value) {
         return atom.value + value;
       },
     };
