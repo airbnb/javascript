@@ -324,6 +324,37 @@ Other Style Guides
     const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
     ```
 
+
+  <a name="objects--attributes-attributes"></a>
+  - [3.9](#objects--attributes-attributes) Use javascript declaration attributes mapping without values firstly in object
+
+    ```javascript
+    // bad
+    const foo = 'foo string';
+    const obj = {
+       bar1: 'bar1',
+       bar2: 2,
+       foo: foo,
+    };
+
+    // good
+    const foo = 'foo string';
+    const obj = {
+       bar1: 'bar1',
+       bar2: 2,
+       foo,
+    };
+
+    // best
+    const foo = 'foo string';
+    const obj = {
+       foo,
+       bar1: 'bar1',
+       bar2: 2,
+    };
+    ```
+
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrays
