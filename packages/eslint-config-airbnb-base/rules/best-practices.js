@@ -179,13 +179,15 @@ module.exports = {
       ignorePropertyModificationsFor: [
         'acc', // for reduce accumulators
         'accumulator', // for reduce accumulators
-        'e', // for e.returnvalue
+        'e', // for e.returnValue
         'ctx', // for Koa routing
         'req', // for Express requests
         'request', // for Express requests
         'res', // for Express responses
         'response', // for Express responses
         '$scope', // for Angular 1 scopes
+        'draft', // for immer
+        'draftState', // for immer
       ]
     }],
 
