@@ -53,8 +53,8 @@
   },
   "homepage": "https://github.com/airbnb/javascript",
   "devDependencies": {
-    "babel-preset-airbnb": "^2.5.3",
-    "babel-tape-runner": "^2.0.1",
+    "babel-preset-airbnb": "^3.0.1",
+    "babel-tape-runner": "^3.0.0",
     "editorconfig-tools": "^0.1.1",
     "eslint": "^4.19.1 || ^5.3.0",
     "eslint-find-rules": "^3.3.1",
