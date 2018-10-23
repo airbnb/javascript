@@ -1,0 +1,9 @@
+ Referensi Belajar HTML style tag. Tutorial dan panduan mengenai element <style>...</style> yang digunakan untuk menyisipkan kode css dalam dokumen HTML. Mencakup pembahasan lebih detail dan lengkap yang disertai contoh kode penggunaan sebagai rujukan untuk materi belajar HTML elemen <style>.
+Deskripsi
+Penjelasan HTML style tag
+
+HTML <style> element digunakan untuk menyisipkan kode style atau CSS ke dalam sebuah dokumen web (HTML).
+
+<style> element ditulis di dalam element <head>..</head> yang merupakan bagian kepala sebuah dokumen HTML. Apabila dituliskan attribute scoped, maka penempatannya boleh ditulis di bagian manapun di dalam element HTML, yang mana style tersebut hanya berlaku dalam lingkup element itu sendiri (element yang menaunginya).
+
+Elemen style merupakan satu dari berbagai cara yang dapat digunakan untuk mengaplikasikan style atau kode CSS kedalam HTML.
