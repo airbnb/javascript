@@ -48,6 +48,7 @@ matrix:
     - node_js: "9"
     - node_js: "7"
     - node_js: "5"
+    
     - env: PREPUBLISH=true ESLINT=5 PACKAGE=eslint-config-airbnb-base
     - env: PREPUBLISH=true ESLINT=5 PACKAGE=eslint-config-airbnb
     - env: PREPUBLISH=true ESLINT=4 PACKAGE=eslint-config-airbnb-base
