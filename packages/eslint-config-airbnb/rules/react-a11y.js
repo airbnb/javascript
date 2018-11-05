@@ -51,7 +51,7 @@ module.exports = {
     'jsx-a11y/label-has-for': ['error', {
       components: [],
       required: {
-        every: ['nesting', 'id'],
+        some: ['nesting', 'id'],
       },
       allowChildren: false,
     }],
@@ -62,7 +62,7 @@ module.exports = {
       labelComponents: [],
       labelAttributes: [],
       controlComponents: [],
-      assert: 'both',
+      assert: 'either',
       depth: 25
     }],
 
