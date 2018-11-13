@@ -217,7 +217,7 @@ Other Style Guides
   <a name="es6-object-concise"></a><a name="3.6"></a>
   - [3.4](#es6-object-concise) Use property value shorthand. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html)
 
-    > Why? It is shorter to write and descriptive.
+    > Why? It is shorter and descriptive.
 
     ```javascript
     const lukeSkywalker = 'Luke Skywalker';
