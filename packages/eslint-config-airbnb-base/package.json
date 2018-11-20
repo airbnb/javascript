@@ -71,7 +71,7 @@
     "node": ">= 4"
   },
   "dependencies": {
-    "eslint-restricted-globals": "^0.1.1",
+    "confusing-browser-globals": "^1.0.5",
     "object.assign": "^4.1.0",
     "object.entries": "^1.0.4"
   }
