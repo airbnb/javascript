@@ -27,6 +27,7 @@ module.exports = {
       property: '__defineSetter__',
       message: 'Please use Object.defineProperty instead.',
     }],
-    'no-var': 'off'
+    'no-var': 'off',
+    strict: ['error', 'safe'],
   }
 };
