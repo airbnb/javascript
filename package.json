@@ -1,6 +1,6 @@
 {
-  "name": "airbnb-style",
-  "version": "2.0.0",
+  "name": "@chartiq/eslint-config-chartiq-base",
+  "version": "1.0.0",
   "description": "A mostly reasonable approach to JavaScript.",
   "scripts": {
     "preinstall": "npm run install:config && npm run install:config:base",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airbnb/javascript.git"
+    "url": "https://github.com/ChartIQ/javascript.git"
   },
   "keywords": [
     "style guide",
@@ -35,9 +35,9 @@
   "author": "Harrison Shoff <hi@hshoff.com> (https://twitter.com/hshoff)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/airbnb/javascript/issues"
+    "url": "https://github.com/ChartIQ/javascript/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript",
+  "homepage": "https://github.com/ChartIQ/javascript",
   "devDependencies": {
     "markdownlint-cli": "^0.10.0"
   }
