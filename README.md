@@ -1072,16 +1072,16 @@ Other Style Guides
 
     ```javascript
     // bad
-    (foo) =>
+    foo =>
       bar;
 
-    (foo) =>
+    foo =>
       (bar);
 
     // good
-    (foo) => bar;
-    (foo) => (bar);
-    (foo) => (
+    foo => bar;
+    foo => (bar);
+    foo => (
        bar
     )
     ```
