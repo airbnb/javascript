@@ -1,7 +1,8 @@
 {
   "name": "@chartiq/eslint-config-chartiq-base",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A mostly reasonable approach to JavaScript.",
+  "main": "index.js",
   "scripts": {
     "preinstall": "npm run install:config && npm run install:config:base",
     "install:config": "cd packages/eslint-config-airbnb && npm prune && npm install",

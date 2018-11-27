@@ -1,0 +1,1 @@
+module.exports = require('./packages/eslint-config-airbnb-base/index');
