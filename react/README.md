@@ -387,7 +387,7 @@ We don’t recommend using indexes for keys if the order of items may change.
   SFC.propTypes = {
     foo: PropTypes.number.isRequired,
     bar: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node
   };
 
   // good
@@ -397,11 +397,11 @@ We don’t recommend using indexes for keys if the order of items may change.
   SFC.propTypes = {
     foo: PropTypes.number.isRequired,
     bar: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node
   };
   SFC.defaultProps = {
     bar: '',
-    children: null,
+    children: null
   };
   ```
 
@@ -646,11 +646,11 @@ We don’t recommend using indexes for keys if the order of items may change.
     const propTypes = {
       id: PropTypes.number.isRequired,
       url: PropTypes.string.isRequired,
-      text: PropTypes.string,
+      text: PropTypes.string
     };
 
     const defaultProps = {
-      text: 'Hello World',
+      text: 'Hello World'
     };
 
     class Link extends React.Component {
