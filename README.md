@@ -3795,6 +3795,7 @@ Other Style Guides
   - **SysGarage**: [sysgarage/javascript-style-guide](https://github.com/sysgarage/javascript-style-guide)
   - **Syzygy Warsaw**: [syzygypl/javascript](https://github.com/syzygypl/javascript)
   - **Target**: [target/javascript](https://github.com/target/javascript)
+  - **Terra**: [terra](https://github.com/cerner?utf8=%E2%9C%93&q=terra&type=&language=)
   - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
   - **The Nerdery**: [thenerdery/javascript-standards](https://github.com/thenerdery/javascript-standards)
   - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
