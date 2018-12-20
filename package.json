@@ -1,6 +1,6 @@
 {
   "name": "@chartiq/eslint-config-chartiq-base",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A mostly reasonable approach to JavaScript.",
   "main": "index.js",
   "scripts": {
