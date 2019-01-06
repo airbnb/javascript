@@ -436,7 +436,7 @@ We don’t recommend using indexes for keys if the order of items may change.
       isPublished: false
     }
 
-    return (<div {...props} />);
+    return <div {...props} />;
   }
   ```
 
