@@ -180,7 +180,13 @@ module.exports = {
     'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: false }],
 
     // enforces empty lines around comments
-    'lines-around-comment': 'off',
+    'lines-around-comment': ['error', {
+      beforeLineComment: true,
+      allowBlockStart: true,
+      allowObjectStart: true,
+      allowArrayStart: true,
+      allowClassStart: true,
+    }],
 
     // require or disallow newlines around directives
     // https://eslint.org/docs/rules/lines-around-directive
