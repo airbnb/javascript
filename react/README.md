@@ -627,8 +627,11 @@ We don’t recommend using indexes for keys if the order of items may change.
   1. optional `static` methods
   1. `constructor`
   1. `getChildContext`
+  1. `componentWillMount`
   1. `componentDidMount`
+  1. `componentWillReceiveProps`
   1. `shouldComponentUpdate`
+  1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
   1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
@@ -680,8 +683,11 @@ We don’t recommend using indexes for keys if the order of items may change.
   1. `getDefaultProps`
   1. `getInitialState`
   1. `getChildContext`
+  1. `componentWillMount`
   1. `componentDidMount`
+  1. `componentWillReceiveProps`
   1. `shouldComponentUpdate`
+  1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
   1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
