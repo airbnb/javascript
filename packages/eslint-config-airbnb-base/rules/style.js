@@ -369,7 +369,7 @@ module.exports = {
     // disallow dangling underscores in identifiers
     // https://eslint.org/docs/rules/no-underscore-dangle
     'no-underscore-dangle': ['error', {
-      allow: ['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'],
+      allow: [],
       allowAfterThis: false,
       allowAfterSuper: false,
       enforceInMethodNames: true,
