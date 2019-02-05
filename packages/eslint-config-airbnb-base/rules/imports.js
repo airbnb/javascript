@@ -221,6 +221,10 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/blob/44a038c06487964394b1e15b64f3bd34e5d40cde/docs/rules/no-default-export.md
     'import/no-default-export': 'off',
 
+    // Prohibit named exports. this is a terrible rule, do not use it.
+    // https://github.com/benmosher/eslint-plugin-import/blob/1ec80fa35fa1819e2d35a70e68fb6a149fb57c5e/docs/rules/no-named-export.md
+    'import/no-named-export': 'off',
+
     // Forbid a module from importing itself
     // https://github.com/benmosher/eslint-plugin-import/blob/44a038c06487964394b1e15b64f3bd34e5d40cde/docs/rules/no-self-import.md
     'import/no-self-import': 'error',

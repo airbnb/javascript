@@ -58,14 +58,14 @@
     "editorconfig-tools": "^0.1.1",
     "eslint": "^4.19.1 || ^5.3.0",
     "eslint-find-rules": "^3.3.1",
-    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-import": "^2.15.0",
     "in-publish": "^2.0.0",
     "safe-publish-latest": "^1.1.2",
     "tape": "^4.9.1"
   },
   "peerDependencies": {
     "eslint": "^4.19.1 || ^5.3.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.15.0"
   },
   "engines": {
     "node": ">= 4"
@@ -73,6 +73,6 @@
   "dependencies": {
     "confusing-browser-globals": "^1.0.5",
     "object.assign": "^4.1.0",
-    "object.entries": "^1.0.4"
+    "object.entries": "^1.1.0"
   }
 }
