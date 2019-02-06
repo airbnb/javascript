@@ -963,7 +963,7 @@ Other Style Guides
     });
 
     // good
-    [1, 2, 3].map(number => `A string containing the ${number}.`);
+    [1, 2, 3].map(number => `A string containing the ${number + 1}.`);
 
     // good
     [1, 2, 3].map((number) => {
