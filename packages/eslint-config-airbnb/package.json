@@ -64,13 +64,13 @@
     "editorconfig-tools": "^0.1.1",
     "eslint": "^4.19.1 || ^5.3.0",
     "eslint-find-rules": "^3.3.1",
-    "eslint-plugin-import": "^2.15.0",
-    "eslint-plugin-jsx-a11y": "^6.2.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "in-publish": "^2.0.0",
     "react": ">= 0.13.0",
     "safe-publish-latest": "^1.1.2",
-    "tape": "^4.9.1"
+    "tape": "^4.10.1"
   },
   "peerDependencies": {
     "eslint": "^4.19.1 || ^5.3.0",
