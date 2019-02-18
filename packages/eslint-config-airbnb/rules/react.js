@@ -194,7 +194,7 @@ module.exports = {
 
     // Prevent multiple component definition per file
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md
-    'react/no-multi-comp': ['error', { ignoreStateless: true }],
+    'react/no-multi-comp': 'off',
 
     // Prevent usage of setState
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-set-state.md
@@ -460,6 +460,11 @@ module.exports = {
     // Prevent usage of UNSAFE_ methods
     // https://github.com/yannickcr/eslint-plugin-react/blob/157cc932be2cfaa56b3f5b45df6f6d4322a2f660/docs/rules/no-unsafe.md
     'react/no-unsafe': 'off',
+
+    // Enforce shorthand or standard form for React fragments
+    // https://github.com/yannickcr/eslint-plugin-react/blob/bc976b837abeab1dffd90ac6168b746a83fc83cc/docs/rules/jsx-fragments.md
+    // TODO: enable, semver-major
+    'react/jsx-fragments': ['off', 'syntax'],
   },
 
   settings: {
