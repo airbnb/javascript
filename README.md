@@ -675,7 +675,7 @@ Other Style Guides
 
     ```javascript
     // immediately-invoked function expression (IIFE)
-    (function () {
+    (function() {
       console.log('Welcome to the Internet. Please follow me.');
     }());
     ```
