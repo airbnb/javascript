@@ -531,7 +531,7 @@ We don’t recommend using indexes for keys if the order of items may change.
 
 ## Methods
 
-  - Use arrow functions to close over local variables.
+  - Use arrow functions to close over local variables. It is handy when you need to pass additional data to an event handler. Although, make sure they [do not massively hurt performance](https://www.bignerdranch.com/blog/choosing-the-best-approach-for-react-event-handlers/), in particular when passed to custom components that might be PureComponents, because they will trigger a possibly needless rerender every time.
 
     ```jsx
     function ItemList(props) {
@@ -540,7 +540,7 @@ We don’t recommend using indexes for keys if the order of items may change.
           {props.items.map((item, index) => (
             <Item
               key={item.key}
-              onClick={() => doSomethingWith(item.name, index)}
+              onClick={(event) => doSomethingWith(event, item.name, index)}
             />
           ))}
         </ul>
@@ -550,7 +550,7 @@ We don’t recommend using indexes for keys if the order of items may change.
 
   - Bind event handlers for the render method in the constructor. eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
 
-    > Why? A bind call in the render path creates a brand new function on every single render.
+    > Why? A bind call in the render path creates a brand new function on every single render. Do not use arrow functions in class fields, because it makes them [challenging to test and debug, and can negatively impact performance](https://medium.com/@charpeni/arrow-functions-in-class-properties-might-not-be-as-great-as-we-think-3b3551c440b1), and because conceptually, class fields are for data, not logic.
 
     ```jsx
     // bad
@@ -561,6 +561,17 @@ We don’t recommend using indexes for keys if the order of items may change.
 
       render() {
         return <div onClick={this.onClickDiv.bind(this)} />;
+      }
+    }
+
+    // very bad
+    class extends React.Component {
+      onClickDiv = () => {
+        // do stuff
+      }
+
+      render() {
+        return <div onClick={this.onClickDiv} />
       }
     }
 
