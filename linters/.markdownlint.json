@@ -1,0 +1,154 @@
+{
+  "comment": "Be explicit by listing every available rule. https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md",
+  "comment": "Note that there will be numeric gaps, not every MD number is implemented in markdownlint.",
+
+  "comment": "MD001: Header levels should only increment by one level at a time.",
+  "header-increment": true,
+
+  "comment": "MD002: First header should be a top level header.",
+  "first-header-h1": true,
+
+  "comment": "MD003: Header style: start with hashes.",
+  "header-style": {
+    "style": "atx"
+  },
+
+  "comment": "MD004: Unordered list style",
+  "ul-style": {
+    "style": "dash"
+  },
+
+  "comment": "MD005: Consistent indentation for list items at the same level.",
+  "list-indent": true,
+
+  "comment": "MD006: Consider starting bulleted lists at the beginning of the line.",
+  "ul-start-left": false,
+
+  "comment": "MD007: Unordered list indentation: 2 spaces.",
+  "ul-indent": {
+    "indent": 2
+  },
+
+  "comment": "MD009: Disallow trailing spaces!",
+  "no-trailing-spaces": {
+    "br_spaces": 0,
+    "comment": "Empty lines inside list items should not be indented.",
+    "list_item_empty_lines": false
+  },
+
+  "comment": "MD010: No hard tabs, not even in code blocks.",
+  "no-hard-tabs": {
+    "code_blocks": true
+  },
+
+  "comment": "MD011: Prevent reversed link syntax",
+  "no-reversed-links": true,
+
+  "comment": "MD012: Disallow multiple consecutive blank lines.",
+  "no-multiple-blanks": {
+    "maximum": 1
+   },
+
+  "comment": "MD013: Line length",
+  "line-length": false,
+
+  "comment": "MD014: Disallow use of dollar signs($) before commands without showing output.",
+  "commands-show-output": true,
+
+  "comment": "MD018: Disallow space after hash on atx style header.",
+  "no-missing-space-atx": true,
+
+  "comment": "MD019: Disallow multiple spaces after hash on atx style header.",
+  "no-multiple-space-atx": true,
+
+  "comment": "MD020: No space should be inside hashes on closed atx style header.",
+  "no-missing-space-closed-atx": true,
+
+  "comment": "MD021: Disallow multiple spaces inside hashes on closed atx style header.",
+  "no-multiple-space-closed-atx": true,
+
+  "comment": "MD022: Headers should be surrounded by blank lines.",
+  "comment": "Some headers have preceeding HTML anchors. Unfortunate that we have to disable this, as it otherwise catches a real problem that trips up some Markdown renderers",
+  "blanks-around-headers": false,
+
+  "comment": "MD023: Headers must start at the beginning of the line.",
+  "header-start-left": true,
+
+  "comment": "MD024: Disallow multiple headers with the same content.",
+  "no-duplicate-header": true,
+
+  "comment": "MD025: Disallow multiple top level headers in the same document.",
+  "comment": "Gotta have a matching closing brace at the end.",
+  "single-h1": false,
+
+  "comment": "MD026: Disallow trailing punctuation in header.",
+  "comment": "You must have a semicolon after the ending closing brace.",
+  "no-trailing-punctuation": {
+    "punctuation" : ".,:!?"
+  },
+  "comment": "MD027: Dissalow multiple spaces after blockquote symbol",
+  "no-multiple-space-blockquote": true,
+
+  "comment": "MD028: Blank line inside blockquote",
+  "comment": "Some 'Why?' and 'Why not?' blocks are separated by a blank line",
+  "no-blanks-blockquote": false,
+
+  "comment": "MD029: Ordered list item prefix",
+  "ol-prefix": {
+    "style": "one"
+  },
+
+  "comment": "MD030: Spaces after list markers",
+  "list-marker-space": {
+    "ul_single": 1,
+    "ol_single": 1,
+    "ul_multi": 1,
+    "ol_multi": 1
+  },
+
+  "comment": "MD031: Fenced code blocks should be surrounded by blank lines",
+  "blanks-around-fences": true,
+
+  "comment": "MD032: Lists should be surrounded by blank lines",
+  "comment": "Some lists have preceeding HTML anchors. Unfortunate that we have to disable this, as it otherwise catches a real problem that trips up some Markdown renderers",
+  "blanks-around-lists": false,
+
+  "comment": "MD033: Disallow inline HTML",
+  "comment": "HTML is needed for explicit anchors",
+  "no-inline-html": false,
+
+  "comment": "MD034: No bare URLs should be used",
+  "no-bare-urls": true,
+
+  "comment": "MD035: Horizontal rule style",
+  "hr-style": {
+    "style": "consistent"
+  },
+
+  "comment": "MD036: Do not use emphasis instead of a header.",
+  "no-emphasis-as-header": false,
+
+  "comment": "MD037: Disallow spaces inside emphasis markers.",
+  "no-space-in-emphasis": true,
+
+  "comment": "MD038: Disallow spaces inside code span elements.",
+  "no-space-in-code": true,
+
+  "comment": "MD039: Disallow spaces inside link text.",
+  "no-space-in-links": true,
+
+  "comment": "MD040: Fenced code blocks should have a language specified.",
+  "fenced-code-language": true,
+
+  "comment": "MD041: First line in file should be a top level header.",
+  "first-line-h1": true,
+
+  "comment": "MD042: No empty links",
+  "no-empty-links": true,
+
+  "comment": "MD043: Required header structure.",
+  "required-headers": false,
+
+  "comment": "MD044: Proper names should have the correct capitalization.",
+  "proper-names": false
+}

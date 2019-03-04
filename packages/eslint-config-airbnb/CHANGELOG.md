@@ -1,3 +1,67 @@
+17.1.0 / 2018-08-13
+==================
+- [new] add eslint v5 support
+- [minor] enable `label-has-associated-control` rule
+- [patch] re-enabling `jsx-one-expression-per-line` allowing single children, ignore DOM components on `jsx-no-bind`
+- [deps] update `eslint`, `eslint-config-airbnb-base`, `eslint-plugin-react`, `eslint-plugin-import`, `safe-publish-latest`, `eslint-plugin-jsx-a11y`, `eslint-find-rules`
+- [docs] fix readme typo (#1855)
+
+17.0.0 / 2018-06-21
+==================
+- [breaking] update `eslint-config-airbnb-base` to v13
+- [breaking] enable `no-useless-path-segments` (#1743)
+- [breaking] update `eslint-plugin-react` to `v7.6`; update rule configs (#1737)
+- [breaking] bump react pragma to v16; update `class-methods-use-this`'s `exceptMethods` to include `componentDidCatch` (#1704)
+- [new] Adds config entry point with only whitespace rules enabled (#1749, #1751)
+- [patch] set `forbid-foreign-prop-types` to "warn"
+- [patch] Add new methods introduced in react@16.3 (#1831)
+- [patch] `label-has-for`: Remove redundant component (#1802)
+- [patch] Add 'to' as a specialLink to the 'anchor-is-valid' a11y rule (#1648)
+- [patch] disable `no-did-mount-set-state`, since it’s necessary for server-rendering.
+- [deps] update `eslint`, `eslint-plugin-react`, `eslint-plugin-import`,
+- [dev deps] update `babel-preset-airbnb`, `tape`, `eslint-find-rules`
+- [meta] add ES2015-2018 in npm package keywords (#1587)
+- [meta] Add licenses to sub packages (#1746)
+- [docs] add `npx` shortcut (#1694)
+- [docs] Use HTTPS for links to ESLint documentation (#1628)
+
+16.1.0 / 2017-10-16
+==================
+- [deps] update `eslint-config-airbnb-base`, `eslint` to v4.9
+
+16.0.0 / 2017-10-06
+==================
+- [breaking] [deps] require `eslint` `v4`, update `eslint-config-airbnb-base`
+- [breaking] [deps] Upgrade `eslint-plugin-jsx-a11y` to `v6`; enable more a11y rules (#1482)
+- [breaking] enable/add react rules: `react/jsx-curly-brace-presence`, `react/no-typos`, `react/no-unused-state`, `react/no-redundant-should-component-update`, `react/default-props-match-prop-types`
+- [new] add `propWrapperFunctions` default settings for `eslint-plugin-react`
+- [new] Enable `react/jsx-closing-tag-location` (#1533)
+- [deps] update `eslint` v4, `eslint-plugin-react`, `tape`
+- [docs] Specify yarn-specific install instructions (#1511)
+
+15.1.0 / 2017-07-24
+==================
+- [deps] allow eslint v3 or v4 (#1447)
+- [deps] update `eslint-plugin-import`, `eslint-config-airbnb-base`
+
+15.0.2 / 2017-07-04
+==================
+- [fix] jsx should be enabled via parserOptions, not via a root ecmaFeatures
+- [deps] update `babel-preset-airbnb`, `eslint-find-rules`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y`, `eslint-plugin-react`, `tape`
+
+15.0.1 / 2017-05-15
+==================
+- [fix] set default React version to 15.0 (#1415)
+
+15.0.0 / 2017-05-14
+==================
+- [breaking] set default React version to 0.15
+- [breaking] `update eslint-plugin-jsx-a11y` to v5, enable new rules
+- [breaking] `update eslint-plugin-react` to v7, enable new rules
+- [minor] enable rules: `jsx-max-props-per-line`, `void-dom-elements-no-children`
+- [patch] Turn `ignorePureComponents` option on for react/prefer-stateless-function (#1378, #1398)
+- [deps] update `eslint`, `eslint-plugin-react`, `eslint-config-airbnb-base`
+
 14.1.0 / 2017-02-05
 ==================
 - [patch] allow `eslint-plugin-jsx-a11y` to be v3 or v4. Remove `no-marquee` rule temporarily.
@@ -271,36 +335,36 @@
 [pr-modular]: https://github.com/airbnb/javascript/pull/526
 [pr-legacy]: https://github.com/airbnb/javascript/pull/527
 
-[array-bracket-spacing]: http://eslint.org/docs/rules/array-bracket-spacing
-[array-callback-return]: http://eslint.org/docs/rules/array-callback-return
-[arrow-body-style]: http://eslint.org/docs/rules/arrow-body-style
-[arrow-spacing]: http://eslint.org/docs/rules/arrow-spacing
-[computed-property-spacing]: http://eslint.org/docs/rules/computed-property-spacing
-[id-length]: http://eslint.org/docs/rules/id-length
-[indent]: http://eslint.org/docs/rules/indent
-[max-len]: http://eslint.org/docs/rules/max-len
-[newline-per-chained-call]: http://eslint.org/docs/rules/newline-per-chained-call
-[no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
-[no-const-assign]: http://eslint.org/docs/rules/no-const-assign
-[no-mixed-spaces-and-tabs]: http://eslint.org/docs/rules/no-mixed-spaces-and-tabs
-[no-multiple-empty-lines]: http://eslint.org/docs/rules/no-multiple-empty-lines
-[no-new-symbol]: http://eslint.org/docs/rules/no-new-symbol
-[no-restricted-imports]: http://eslint.org/docs/rules/no-restricted-imports
-[no-self-assign]: http://eslint.org/docs/rules/no-self-assign
-[no-undef]: http://eslint.org/docs/rules/no-undef
-[no-useless-constructor]: http://eslint.org/docs/rules/no-useless-constructor
-[no-whitespace-before-property]: http://eslint.org/docs/rules/no-whitespace-before-property
-[object-curly-spacing]: http://eslint.org/docs/rules/object-curly-spacing
-[object-shorthand]: http://eslint.org/docs/rules/object-shorthand
-[one-var-declaration-per-line]: http://eslint.org/docs/rules/one-var-declaration-per-line
-[prefer-arrow-callback]: http://eslint.org/docs/rules/prefer-arrow-callback
-[prefer-rest-params]: http://eslint.org/docs/rules/prefer-rest-params
-[prefer-template]: http://eslint.org/docs/rules/prefer-template
-[quote-props]: http://eslint.org/docs/rules/quote-props
-[space-before-function-paren]: http://eslint.org/docs/rules/space-before-function-paren
-[space-before-keywords]: http://eslint.org/docs/rules/space-before-keywords
-[space-in-parens]: http://eslint.org/docs/rules/space-in-parens
-[template-curly-spacing]: http://eslint.org/docs/rules/template-curly-spacing
+[array-bracket-spacing]: https://eslint.org/docs/rules/array-bracket-spacing
+[array-callback-return]: https://eslint.org/docs/rules/array-callback-return
+[arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
+[arrow-spacing]: https://eslint.org/docs/rules/arrow-spacing
+[computed-property-spacing]: https://eslint.org/docs/rules/computed-property-spacing
+[id-length]: https://eslint.org/docs/rules/id-length
+[indent]: https://eslint.org/docs/rules/indent
+[max-len]: https://eslint.org/docs/rules/max-len
+[newline-per-chained-call]: https://eslint.org/docs/rules/newline-per-chained-call
+[no-confusing-arrow]: https://eslint.org/docs/rules/no-confusing-arrow
+[no-const-assign]: https://eslint.org/docs/rules/no-const-assign
+[no-mixed-spaces-and-tabs]: https://eslint.org/docs/rules/no-mixed-spaces-and-tabs
+[no-multiple-empty-lines]: https://eslint.org/docs/rules/no-multiple-empty-lines
+[no-new-symbol]: https://eslint.org/docs/rules/no-new-symbol
+[no-restricted-imports]: https://eslint.org/docs/rules/no-restricted-imports
+[no-self-assign]: https://eslint.org/docs/rules/no-self-assign
+[no-undef]: https://eslint.org/docs/rules/no-undef
+[no-useless-constructor]: https://eslint.org/docs/rules/no-useless-constructor
+[no-whitespace-before-property]: https://eslint.org/docs/rules/no-whitespace-before-property
+[object-curly-spacing]: https://eslint.org/docs/rules/object-curly-spacing
+[object-shorthand]: https://eslint.org/docs/rules/object-shorthand
+[one-var-declaration-per-line]: https://eslint.org/docs/rules/one-var-declaration-per-line
+[prefer-arrow-callback]: https://eslint.org/docs/rules/prefer-arrow-callback
+[prefer-rest-params]: https://eslint.org/docs/rules/prefer-rest-params
+[prefer-template]: https://eslint.org/docs/rules/prefer-template
+[quote-props]: https://eslint.org/docs/rules/quote-props
+[space-before-function-paren]: https://eslint.org/docs/rules/space-before-function-paren
+[space-before-keywords]: https://eslint.org/docs/rules/space-before-keywords
+[space-in-parens]: https://eslint.org/docs/rules/space-in-parens
+[template-curly-spacing]: https://eslint.org/docs/rules/template-curly-spacing
 
 [react/jsx-space-before-closing]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-space-before-closing.md
 [react/sort-comp]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md

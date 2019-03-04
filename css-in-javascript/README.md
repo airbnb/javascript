@@ -1,6 +1,6 @@
 # Airbnb CSS-in-JavaScript Style Guide
 
-*A mostly reasonable approach to CSS-in-JavaScript
+*A mostly reasonable approach to CSS-in-JavaScript*
 
 ## Table of Contents
 
@@ -175,7 +175,6 @@
     }
 
     export default withStyles(() => styles)(MyComponent);
-
 
     // good
     function MyComponent({ styles }) {
@@ -430,4 +429,4 @@
 
 ---
 
-CSS puns adapted from [Saijo George](http://saijogeorge.com/css-puns/).
+CSS puns adapted from [Saijo George](https://saijogeorge.com/css-puns/).

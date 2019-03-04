@@ -3,13 +3,17 @@ module.exports = {
     'jsx-a11y',
     'react'
   ],
-  ecmaFeatures: {
-    jsx: true
+
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
+
   rules: {
     // Enforce that anchors have content
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-has-content.md
-    'jsx-a11y/anchor-has-content': ['error', { components: [''] }],
+    'jsx-a11y/anchor-has-content': ['error', { components: [] }],
 
     // Require ARIA roles to be valid and non-abstract
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md
@@ -28,13 +32,15 @@ module.exports = {
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-unsupported-elements.md
     'jsx-a11y/aria-unsupported-elements': 'error',
 
-    // disallow href "#"
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/href-no-hash.md
-    'jsx-a11y/href-no-hash': ['error', { components: ['a'] }],
-
-    // Require <img> to have a non-empty `alt` prop, or role="presentation"
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-has-alt.md
-    'jsx-a11y/img-has-alt': 'error',
+    // Enforce that all elements that require alternative text have meaningful information
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/alt-text.md
+    'jsx-a11y/alt-text': ['error', {
+      elements: ['img', 'object', 'area', 'input[type="image"]'],
+      img: [],
+      object: [],
+      area: [],
+      'input[type="image"]': [],
+    }],
 
     // Prevent img alt text from containing redundant words like "image", "picture", or "photo"
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md
@@ -42,12 +48,27 @@ module.exports = {
 
     // require that JSX labels use "htmlFor"
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md
-    'jsx-a11y/label-has-for': ['error', { components: ['label'] }],
+    'jsx-a11y/label-has-for': ['error', {
+      components: [],
+      required: {
+        every: ['nesting', 'id'],
+      },
+      allowChildren: false,
+    }],
+
+    // Enforce that a label tag has a text label and an associated control.
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/b800f40a2a69ad48015ae9226fbe879f946757ed/docs/rules/label-has-associated-control.md
+    'jsx-a11y/label-has-associated-control': ['error', {
+      labelComponents: [],
+      labelAttributes: [],
+      controlComponents: [],
+      assert: 'both',
+      depth: 25
+    }],
 
     // require that mouseover/out come with focus/blur, for keyboard-only users
-    // TODO: evaluate
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/mouse-events-have-key-events.md
-    'jsx-a11y/mouse-events-have-key-events': 'off',
+    'jsx-a11y/mouse-events-have-key-events': 'error',
 
     // Prevent use of `accessKey`
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md
@@ -57,14 +78,9 @@ module.exports = {
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-onchange.md
     'jsx-a11y/no-onchange': 'off',
 
-    // Enforce that elements with onClick handlers must be focusable.
-    // TODO: evaluate
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/onclick-has-focus.md
-    'jsx-a11y/onclick-has-focus': 'off',
-
-    // require things with onClick to have an aria role
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/onclick-has-role.md
-    'jsx-a11y/onclick-has-role': 'off',
+    // Elements with an interactive role and interaction handlers must be focusable
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/interactive-supports-focus.md
+    'jsx-a11y/interactive-supports-focus': 'error',
 
     // Enforce that elements with ARIA roles must have all required attributes
     // for that role.
@@ -104,12 +120,33 @@ module.exports = {
 
     // require onClick be accompanied by onKeyUp/onKeyDown/onKeyPress
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/click-events-have-key-events.md
-    // TODO: enable?
-    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/click-events-have-key-events': 'error',
 
     // Enforce that DOM elements without semantic behavior not have interaction handlers
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-static-element-interactions.md
-    'jsx-a11y/no-static-element-interactions': 'error',
+    'jsx-a11y/no-static-element-interactions': ['error', {
+      handlers: [
+        'onClick',
+        'onMouseDown',
+        'onMouseUp',
+        'onKeyPress',
+        'onKeyDown',
+        'onKeyUp',
+      ]
+    }],
+
+    // A non-interactive element does not support event handlers (mouse and key handlers)
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-noninteractive-element-interactions.md
+    'jsx-a11y/no-noninteractive-element-interactions': ['error', {
+      handlers: [
+        'onClick',
+        'onMouseDown',
+        'onMouseUp',
+        'onKeyPress',
+        'onKeyDown',
+        'onKeyUp',
+      ]
+    }],
 
     // ensure emoji are accessible
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
@@ -125,10 +162,49 @@ module.exports = {
 
     // prohibit autoFocus prop
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-autofocus.md
-    'jsx-a11y/no-autofocus': 'error',
+    'jsx-a11y/no-autofocus': ['error', { ignoreNonDOM: true }],
 
     // ensure HTML elements do not specify redundant ARIA roles
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-redundant-roles.md
     'jsx-a11y/no-redundant-roles': 'error',
+
+    // media elements must have captions
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/media-has-caption.md
+    'jsx-a11y/media-has-caption': ['error', {
+      audio: [],
+      video: [],
+      track: [],
+    }],
+
+    // WAI-ARIA roles should not be used to convert an interactive element to non-interactive
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-interactive-element-to-noninteractive-role.md
+    'jsx-a11y/no-interactive-element-to-noninteractive-role': ['error', {
+      tr: ['none', 'presentation'],
+    }],
+
+    // WAI-ARIA roles should not be used to convert a non-interactive element to interactive
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-noninteractive-element-to-interactive-role.md
+    'jsx-a11y/no-noninteractive-element-to-interactive-role': ['error', {
+      ul: ['listbox', 'menu', 'menubar', 'radiogroup', 'tablist', 'tree', 'treegrid'],
+      ol: ['listbox', 'menu', 'menubar', 'radiogroup', 'tablist', 'tree', 'treegrid'],
+      li: ['menuitem', 'option', 'row', 'tab', 'treeitem'],
+      table: ['grid'],
+      td: ['gridcell'],
+    }],
+
+    // Tab key navigation should be limited to elements on the page that can be interacted with.
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-noninteractive-tabindex.md
+    'jsx-a11y/no-noninteractive-tabindex': ['error', {
+      tags: [],
+      roles: ['tabpanel'],
+    }],
+
+    // ensure <a> tags are valid
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/0745af376cdc8686d85a361ce36952b1fb1ccf6e/docs/rules/anchor-is-valid.md
+    'jsx-a11y/anchor-is-valid': ['error', {
+      components: ['Link'],
+      specialLink: ['to'],
+      aspects: ['noHref', 'invalidHref', 'preferButton'],
+    }],
   },
 };
