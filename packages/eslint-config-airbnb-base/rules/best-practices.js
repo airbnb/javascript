@@ -311,6 +311,10 @@ module.exports = {
     // https://eslint.org/docs/rules/prefer-promise-reject-errors
     'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
 
+    // Suggest using named capture group in regular expression
+    // https://eslint.org/docs/rules/prefer-named-capture-group
+    'prefer-named-capture-group': 'off',
+
     // require use of the second argument for parseInt()
     radix: 'error',
 

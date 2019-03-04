@@ -422,7 +422,13 @@ module.exports = {
     'operator-linebreak': ['error', 'before', { overrides: { '=': 'none' } }],
 
     // disallow padding within blocks
-    'padded-blocks': ['error', { blocks: 'never', classes: 'never', switches: 'never' }],
+    // TODO, semver-major: uncomment option
+    'padded-blocks': ['error', {
+      blocks: 'never',
+      classes: 'never',
+      switches: 'never',
+      // allowSingleLineBlocks: true,
+    }],
 
     // Require or disallow padding lines between statements
     // https://eslint.org/docs/rules/padding-line-between-statements
