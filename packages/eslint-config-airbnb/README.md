@@ -10,7 +10,7 @@ We export three ESLint configurations for your usage.
 
 ### eslint-config-airbnb
 
-Our default export contains all of our ESLint rules, including ECMAScript 6+ and React. It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, and `eslint-plugin-jsx-a11y`. If you don't need React, see [eslint-config-airbnb-base](https://npmjs.com/eslint-config-airbnb-base).
+Our default export contains all of our ESLint rules, including ECMAScript 6+ and React. It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, `eslint-plugin-react-hooks`, and `eslint-plugin-jsx-a11y`. If you don't need React, see [eslint-config-airbnb-base](https://npmjs.com/eslint-config-airbnb-base).
 
 1. Install the correct versions of each package, which are listed by the command:
 
@@ -39,7 +39,7 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+ and
   Which produces and runs a command like:
 
   ```sh
-  npm install --save-dev eslint-config-airbnb eslint@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-react@^#.#.#
+  npm install --save-dev eslint-config-airbnb eslint@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-react@^#.#.# eslint-plugin-react-hooks@^#.#.#
   ```
 
   If using **npm < 5**, Windows users can either install all the peer dependencies manually, or use the [install-peerdeps](https://github.com/nathanhleung/install-peerdeps) cli tool.
@@ -51,10 +51,14 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+ and
   The cli will produce and run a command like:
 
   ```sh
-  npm install --save-dev eslint-config-airbnb eslint@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-react@^#.#.#
+  npm install --save-dev eslint-config-airbnb eslint@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-react@^#.#.# eslint-plugin-react-hooks@^#.#.#
   ```
 
-2. Add `"extends": "airbnb"` to your .eslintrc
+2. Add `"extends": "airbnb"` to your `.eslintrc`
+
+### eslint-config/airbnb/hooks
+
+This entry point enables the linting rules for React hooks (requires v16.8+). To use, add `"extends": "airbnb/hooks"` to your `.eslintrc`
 
 ### eslint-config-airbnb/whitespace
 
