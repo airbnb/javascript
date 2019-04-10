@@ -2698,7 +2698,6 @@ Other Style Guides
         this.setAge(birthday);
       }
 
-
       setAge(birthday) {
         const today = new Date();
         const age = getAge(today, birthday);
