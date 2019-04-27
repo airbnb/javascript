@@ -186,6 +186,7 @@ module.exports = {
         'res', // for Express responses
         'response', // for Express responses
         '$scope', // for Angular 1 scopes
+        'staticContext', // for ReactRouter context
       ]
     }],
 
