@@ -248,5 +248,14 @@ module.exports = {
     // Use this rule to prevent imports to folders in relative parent paths.
     // https://github.com/benmosher/eslint-plugin-import/blob/c34f14f67f077acd5a61b3da9c0b0de298d20059/docs/rules/no-relative-parent-imports.md
     'import/no-relative-parent-imports': 'off',
+
+    // Reports modules without any exports, or with unused exports
+    // https://github.com/benmosher/eslint-plugin-import/blob/f63dd261809de6883b13b6b5b960e6d7f42a7813/docs/rules/no-unused-modules.md
+    // TODO: enable, semver-major
+    'import/no-unused-modules': ['off', {
+      ignoreExports: [],
+      missingExports: true,
+      unusedExports: true,
+    }],
   },
 };
