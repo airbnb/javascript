@@ -3308,7 +3308,7 @@ Other Style Guides
     ```
 
   <a name="naming--PascalCase-singleton"></a><a name="22.8"></a>
-  - [23.8](#naming--PascalCase-singleton) Use PascalCase when you export a constructor / class / singleton / function library / bare object.
+  - [23.8](#naming--PascalCase-singleton) Use PascalCase when you export-default a constructor / class / singleton / function library / bare object.
 
     ```javascript
     const AirbnbStyleGuide = {
