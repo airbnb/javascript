@@ -3028,7 +3028,7 @@ Other Style Guides
     // bad - raises exception
     const luke = {}
     const leia = {}
-    [luke, leia].forEach(jedi => jedi.father = 'vader')
+    [luke, leia].forEach(rebel => rebel.surname = 'skywalker')
 
     // bad - raises exception
     const reaction = "No! That’s impossible!"
