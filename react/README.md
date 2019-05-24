@@ -447,13 +447,13 @@ We don’t recommend using indexes for keys if the order of items may change.
   ```jsx
   // bad
   render() {
-    const { irrelevantProp, ...relevantProps  } = this.props;
+    const { irrelevantProp, ...relevantProps } = this.props;
     return <WrappedComponent {...this.props} />
   }
 
   // good
   render() {
-    const { irrelevantProp, ...relevantProps  } = this.props;
+    const { irrelevantProp, ...relevantProps } = this.props;
     return <WrappedComponent {...relevantProps} />
   }
   ```
