@@ -84,7 +84,7 @@ Lints ES5 and below. Requires `eslint` and `eslint-plugin-import`.
 
 2. Add `"extends": "airbnb-base/legacy"` to your .eslintrc
 
-See [Airbnb's overarching ESLint config](https://npmjs.com/eslint-config-airbnb), [Airbnb's Javascript styleguide](https://github.com/airbnb/javascript), and the [ESlint config docs](https://eslint.org/docs/user-guide/configuring#extending-configuration-files) for more information.
+See [Airbnb's overarching ESLint config](https://npmjs.com/eslint-config-airbnb), [Airbnb's JavaScript styleguide](https://github.com/airbnb/javascript), and the [ESlint config docs](https://eslint.org/docs/user-guide/configuring#extending-configuration-files) for more information.
 
 ### eslint-config-airbnb-base/whitespace
 
