@@ -1,3 +1,13 @@
+17.1.1 / 2019-07-01
+==================
+ - [patch] Turn off `react/no-multi-comp` (#2006)
+ - [patch] extend `no-underscore-dangle` to allow for redux dev tools in the main config instead (#1996)
+ - [meta] add disabled `jsx-fragments` rule
+ - [deps] update `eslint-config-airbnb-base`, `object.entries`, `eslint-plugin-import`, `eslint-plugin-react`, `eslint-plugin-jsx-a11y`, `babel-preset-airbnb`, `tape` (#2005, etc)
+ - [docs] correct JavaScript capitalization (#2046)
+ - [docs] fix docs for whitespace config (#1914, #1871)
+ - [readme] Improve eslint config setup instructions for yarn (#2001)
+
 17.1.0 / 2018-08-13
 ==================
 - [new] add eslint v5 support
