@@ -1,3 +1,17 @@
+13.2.0 / 2019-07-01
+==================
+ - [minor] Enforce dangling underscores in method names (#1907)
+ - [fix] disable `no-var` in legacy entry point
+ - [patch] Ignore property modifications of `staticContext` params (#2029)
+ - [patch] `no-extraneous-dependencies`: Add jest.setup.js to devDeps (#1998)
+ - [meta] add disabled `prefer-named-capture-group` rule
+ - [meta] add disabled `no-useless-catch` config
+ - [deps] Switch to confusing-browser-globals (#1961)
+ - [deps] update `object.entries`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y`, `eslint-plugin-react`, `tape`
+ - [docs] correct JavaScript capitalization (#2046)
+ - [readme] Improve eslint config setup instructions for yarn (#2001)
+ - [docs] fix docs for whitespace config (#1914, #1871)
+
 13.1.0 / 2018-08-13
 ==================
  - [new] add eslint v5 support (#1834)
