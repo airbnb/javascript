@@ -66,6 +66,36 @@ module.exports = {
       depth: 25
     }],
 
+    // Enforce that a control (an interactive element) has a text label.
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/control-has-associated-label.md
+    // TODO, semver-major: enable
+    'jsx-a11y/control-has-associated-label': ['off', {
+      labelAttributes: ['label'],
+      controlComponents: [],
+      ignoreElements: [
+        'audio',
+        'canvas',
+        'embed',
+        'input',
+        'textarea',
+        'tr',
+        'video',
+      ],
+      ignoreRoles: [
+        'grid',
+        'listbox',
+        'menu',
+        'menubar',
+        'radiogroup',
+        'row',
+        'tablist',
+        'toolbar',
+        'tree',
+        'treegrid',
+      ],
+      depth: 5,
+    }],
+
     // require that mouseover/out come with focus/blur, for keyboard-only users
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/mouse-events-have-key-events.md
     'jsx-a11y/mouse-events-have-key-events': 'error',

@@ -465,6 +465,39 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/bc976b837abeab1dffd90ac6168b746a83fc83cc/docs/rules/jsx-fragments.md
     // TODO: enable, semver-major
     'react/jsx-fragments': ['off', 'syntax'],
+
+    // Enforce linebreaks in curly braces in JSX attributes and expressions.
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-newline.md
+    // TODO: enable, semver-minor
+    'react/jsx-curly-newline': ['off', {
+      multiline: 'consistent',
+      single: 'consistent',
+    }],
+
+    // Enforce state initialization style
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
+    // TODO: enable, semver-minor
+    // TODO: set to "always" once babel-preset-airbnb supports public class fields
+    'react/state-in-constructor': ['off', 'never'],
+
+    // Enforces where React component static properties should be positioned
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/static-property-placement.md
+    // TODO: enable, semver-minor
+    // TODO: set to "static public field" once babel-preset-airbnb supports public class fields
+    'react/static-property-placement': ['off', 'property assignment'],
+
+    // Disallow JSX props spreading
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
+    // TODO: enable, semver-major
+    'react/jsx-props-no-spreading': ['off', {
+      html: 'enforce',
+      custom: 'enforce',
+      exceptions: [],
+    }],
+
+    // Enforce that props are read-only
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-read-only-props.md
+    'react/prefer-read-only-props': 'off',
   },
 
   settings: {
