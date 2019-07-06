@@ -540,7 +540,7 @@ We don’t recommend using indexes for keys if the order of items may change.
           {props.items.map((item, index) => (
             <Item
               key={item.key}
-              onClick={(event) => doSomethingWith(event, item.name, index)}
+              onClick={(event) => { doSomethingWith(event, item.name, index); }}
             />
           ))}
         </ul>
