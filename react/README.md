@@ -21,6 +21,7 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [Methods](#methods)
   1. [Ordering](#ordering)
   1. [`isMounted`](#ismounted)
+  1. [`Fragments`](#fragments)
 
 ## Basic Rules
 
@@ -712,6 +713,41 @@ We don’t recommend using indexes for keys if the order of items may change.
   > Why? [`isMounted` is an anti-pattern][anti-pattern], is not available when using ES6 classes, and is on its way to being officially deprecated.
 
   [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
+
+## `Fragments`
+
+  - Fragments look like empty JSX tags. They let you group a list of children without adding extra nodes to the DOM:
+
+  ```jsx
+  // bad
+  render() {
+    return (
+      // Extraneous div element :(
+      <div>
+        Some text.
+        <h2>A heading</h2>
+        More text.
+        <h2>Another heading</h2>
+        Even more text.
+      </div>
+    );
+  }
+
+  // good
+  render() {
+    return (
+      <Fragment>
+        Some text.
+        <h2>A heading</h2>
+        More text.
+        <h2>Another heading</h2>
+        Even more text.
+      </Fragment>
+    );
+  }
+  ```
+
+  Ref: https://reactjs.org/blog/2017/11/28/react-v16.2.0-fragment-support.html
 
 ## Translation
 
