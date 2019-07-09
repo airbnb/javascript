@@ -23,6 +23,7 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [`isMounted`](#ismounted)
   1. [`Fragments`](#fragments)
   1. [`Async Rendering`](#async-rendering)
+  1. [`Context API`](#context-api)
 
 
 ## Basic Rules
@@ -784,6 +785,41 @@ We don’t recommend using indexes for keys if the order of items may change.
 
   Ref: https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html
   Ref: https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
+
+## `Context-API`
+
+  - Official Context API
+  For many years, React has offered an experimental API for context. Although it was a powerful tool, its use was discouraged because of inherent problems in the API, and because we always intended to replace the experimental API with a better one.
+
+  Version 16.3 introduces a new context API that is more efficient and supports both static type checking and deep updates.
+
+  ```jsx
+  const ThemeContext = React.createContext('light');
+
+  class ThemeProvider extends React.Component {
+    state = {theme: 'light'};
+
+    render() {
+      return (
+        <ThemeContext.Provider value={this.state.theme}>
+          {this.props.children}
+        </ThemeContext.Provider>
+      );
+    }
+  }
+
+  class ThemedButton extends React.Component {
+    render() {
+      return (
+        <ThemeContext.Consumer>
+          {theme => <Button theme={theme} />}
+        </ThemeContext.Consumer>
+      );
+    }
+  }
+  ```
+
+  Ref: https://reactjs.org/blog/2018/03/29/react-v-16-3.html
 
 ## Translation
 
