@@ -22,6 +22,8 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [Ordering](#ordering)
   1. [`isMounted`](#ismounted)
   1. [`Fragments`](#fragments)
+  1. [`Async Rendering`](#async-rendering)
+
 
 ## Basic Rules
 
@@ -638,11 +640,9 @@ We don’t recommend using indexes for keys if the order of items may change.
   1. optional `static` methods
   1. `constructor`
   1. `getChildContext`
-  1. `componentWillMount`
+  1. `getDerivedStateFromProps`
   1. `componentDidMount`
-  1. `componentWillReceiveProps`
   1. `shouldComponentUpdate`
-  1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
   1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
@@ -694,11 +694,10 @@ We don’t recommend using indexes for keys if the order of items may change.
   1. `getDefaultProps`
   1. `getInitialState`
   1. `getChildContext`
-  1. `componentWillMount`
+  1. `getDerivedStateFromProps`
   1. `componentDidMount`
-  1. `componentWillReceiveProps`
   1. `shouldComponentUpdate`
-  1. `componentWillUpdate`
+  1. `getSnapshotBeforeUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
   1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
@@ -748,6 +747,43 @@ We don’t recommend using indexes for keys if the order of items may change.
   ```
 
   Ref: https://reactjs.org/blog/2017/11/28/react-v16.2.0-fragment-support.html
+
+## `Async-Rendering`
+
+  - One of the biggest lessons we’ve learned is that some of our legacy component lifecycles tend to encourage unsafe coding practices. They are:
+
+  1. componentWillMount
+  2. componentWillReceiveProps
+  3. componentWillUpdate
+
+  - New lifecycle: getDerivedStateFromProps
+  The new static getDerivedStateFromProps lifecycle is invoked after a component is instantiated as well as before it is re-rendered. It can return an object to update state, or null to indicate that the new props do not require any state updates.
+
+  Together with componentDidUpdate, this new lifecycle should cover all use cases for the legacy componentWillReceiveProps.
+
+  ```jsx
+  class Example extends React.Component {
+    static getDerivedStateFromProps(props, state) {
+      // ...
+    }
+  }
+  ```
+
+  - New lifecycle: getSnapshotBeforeUpdate
+  The new getSnapshotBeforeUpdate lifecycle is called right before mutations are made (e.g. before the DOM is updated). The return value for this lifecycle will be passed as the third parameter to componentDidUpdate. (This lifecycle isn’t often needed, but can be useful in cases like manually preserving scroll position during rerenders.)
+
+  Together with componentDidUpdate, this new lifecycle should cover all use cases for the legacy componentWillUpdate.
+
+  ```jsx
+  class Example extends React.Component {
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+      // ...
+    }
+  }
+  ```
+
+  Ref: https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html
+  Ref: https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
 
 ## Translation
 
