@@ -24,6 +24,7 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [`Fragments`](#fragments)
   1. [`Async Rendering`](#async-rendering)
   1. [`Context API`](#context-api)
+  1. [`Hooks`](#hooks)
 
 
 ## Basic Rules
@@ -820,6 +821,31 @@ We don’t recommend using indexes for keys if the order of items may change.
   ```
 
   Ref: https://reactjs.org/blog/2018/03/29/react-v-16-3.html
+
+## `Hooks`
+
+  - Hooks let you use state and other React features without writing a class. You can also build your own Hooks to share reusable stateful logic between components.
+
+  ```jsx
+  import React from 'react';
+
+  function Example() {
+    // Declare a new state variable, which we'll call "count"
+    const [count, setCount] = React.useState(0);
+
+    return (
+      <div>
+        <p>You clicked {count} times</p>
+        <button onClick={() => setCount(count + 1)}>
+          Click me
+        </button>
+      </div>
+    );
+  }
+  ```
+
+  Ref: https://reactjs.org/blog/2019/02/06/react-v16.8.0.html
+  Ref: https://reactjs.org/docs/hooks-intro.html
 
 ## Translation
 
