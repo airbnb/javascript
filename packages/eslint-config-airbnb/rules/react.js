@@ -272,6 +272,7 @@ module.exports = {
           'componentWillUpdate',
           'componentDidUpdate',
           'componentWillUnmount',
+          'componentDidCatch'
         ],
         rendering: [
           '/^render.+$/',
