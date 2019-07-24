@@ -298,10 +298,10 @@ Other Style Guides
 
     // best
     const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
+    console.log(has.call(object, key));
     /* or */
     import has from 'has'; // https://www.npmjs.com/package/has
-    // ...
-    console.log(has.call(object, key));
+    console.log(has(object, key));
     ```
 
   <a name="objects--rest-spread"></a>
