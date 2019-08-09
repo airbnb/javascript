@@ -7,7 +7,7 @@ const baseConfig = require('.');
 function onlyErrorOnRules(rulesToError, config) {
   const errorsOnly = assign({}, config);
   const cli = new CLIEngine({ baseConfig: config, useEslintrc: false });
-  const baseRules = cli.getConfigForFile('./').rules;
+  const baseRules = cli.getConfigForFile(require.resolve('./')).rules;
 
   entries(baseRules).forEach((rule) => {
     const ruleName = rule[0];
