@@ -12,7 +12,7 @@
     "pretest": "npm run --silent lint",
     "test": "npm run --silent tests-only",
     "pretravis": ":",
-    "travis": "npm run --silent test",
+    "travis": "npm run --silent tests-only",
     "posttravis": ":"
   },
   "repository": {

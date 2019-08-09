@@ -13,7 +13,7 @@
     "test": "npm run --silent tests-only",
     "link:eslint": "cd node_modules/eslint && npm link --production && cd -",
     "pretravis": "npm run link:eslint && cd ../eslint-config-airbnb-base && npm link eslint && npm install && npm link && cd - && npm link --no-save eslint-config-airbnb-base",
-    "travis": "npm run --silent test",
+    "travis": "npm run --silent tests-only",
     "posttravis": "npm unlink --no-save eslint-config-airbnb-base eslint >/dev/null &"
   },
   "repository": {
