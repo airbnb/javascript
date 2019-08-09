@@ -4,7 +4,7 @@
   "description": "Airbnb's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
-    "prelint": "editorconfig-tools check * rules/* test/*",
+    "prelint": "eclint check * rules/* test/*",
     "lint": "eslint .",
     "pretests-only": "node ./test/requires",
     "tests-only": "babel-tape-runner ./test/test-*.js",
@@ -61,7 +61,7 @@
   "devDependencies": {
     "babel-preset-airbnb": "^2.6.0",
     "babel-tape-runner": "^2.0.1",
-    "editorconfig-tools": "^0.1.1",
+    "eclint": "^2.8.1",
     "eslint": "^4.19.1 || ^5.3.0",
     "eslint-find-rules": "^3.4.0",
     "eslint-plugin-import": "^2.18.2",

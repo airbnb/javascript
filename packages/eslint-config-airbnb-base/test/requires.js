@@ -1,7 +1,4 @@
-/* eslint
-   strict: 0,
-   global-require: 0,
- */
+/* eslint strict: 0, global-require: 0 */
 
 'use strict';
 
