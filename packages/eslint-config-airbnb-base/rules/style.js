@@ -21,8 +21,7 @@ module.exports = {
     'brace-style': ['error', '1tbs', { allowSingleLine: true }],
 
     // require camel case names
-    // TODO: semver-major (eslint 5): add ignoreDestructuring: false option
-    camelcase: ['error', { properties: 'never' }],
+    camelcase: ['error', { properties: 'never', ignoreDestructuring: false }],
 
     // enforce or disallow capitalization of the first letter of a comment
     // https://eslint.org/docs/rules/capitalized-comments
