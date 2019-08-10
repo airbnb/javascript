@@ -10,8 +10,7 @@ module.exports = {
 
     // disallow using an async function as a Promise executor
     // https://eslint.org/docs/rules/no-async-promise-executor
-    // TODO: enable, semver-major
-    'no-async-promise-executor': 'off',
+    'no-async-promise-executor': 'error',
 
     // Disallow await inside of loops
     // https://eslint.org/docs/rules/no-await-in-loop
