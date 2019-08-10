@@ -282,8 +282,7 @@ module.exports = {
 
     // Disallow unnecessary catch clauses
     // https://eslint.org/docs/rules/no-useless-catch
-    // TODO: enable, semver-major
-    'no-useless-catch': 'off',
+    'no-useless-catch': 'error',
 
     // disallow useless string concatenation
     // https://eslint.org/docs/rules/no-useless-concat
