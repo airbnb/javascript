@@ -486,9 +486,8 @@ module.exports = {
 
     // Enforces where React component static properties should be positioned
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/static-property-placement.md
-    // TODO: enable, semver-minor
     // TODO: set to "static public field" once babel-preset-airbnb supports public class fields
-    'react/static-property-placement': ['off', 'property assignment'],
+    'react/static-property-placement': ['error', 'property assignment'],
 
     // Disallow JSX props spreading
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
