@@ -1,3 +1,24 @@
+18.0.0 / 2019-08-10
+==================
+ - [breaking] add eslint v6, drop eslint v4
+ - [deps] [breaking] update `eslint-config-airbnb-base`, `eslint-plugin-react`, `eslint-find-rules`, `eslint-plugin-import`
+ - [breaking] Remove rules/strict from 'extends' (#1962)
+ - [breaking] set react version to "detect"
+ - [breaking] disable `label-has-for`; enable `control-has-associated-label`
+ - [breaking] enable `react/jsx-props-no-spreading`
+ - [breaking] enable `react/jsx-fragments`
+ - [minor] enable `react/static-property-placement`
+ - [minor] enable `react/state-in-constructor`
+ - [minor] enable `react/jsx-curly-newline`
+ - [react] Add missing/unsafe lifecycle methods to react/sort-comp rule (#2043)
+ - [react] add componentDidCatch to lifecycle for react/sort-comp (#2060)
+ - [react] add `react-hooks` plugin (#2022)
+ - [dev deps] update babel-related deps to latest
+ - [tests] only run tests in non-lint per-package travis job
+ - [tests] use `eclint` instead of `editorconfig-tools`
+ - [meta] add disabled config for new react and a11y rules
+
+
 17.1.1 / 2019-07-01
 ==================
  - [patch] Turn off `react/no-multi-comp` (#2006)
