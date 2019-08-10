@@ -84,8 +84,7 @@ module.exports = {
 
     // Disallow characters which are made with multiple code points in character class syntax
     // https://eslint.org/docs/rules/no-misleading-character-class
-    // TODO: enable, semver-major
-    'no-misleading-character-class': 'off',
+    'no-misleading-character-class': 'error',
 
     // disallow the use of object properties of the global object (Math and JSON) as functions
     'no-obj-calls': 'error',
