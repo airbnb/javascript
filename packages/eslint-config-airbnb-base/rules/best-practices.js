@@ -248,9 +248,8 @@ module.exports = {
 
     // disallow self assignment
     // https://eslint.org/docs/rules/no-self-assign
-    // TODO: semver-major: props -> true
     'no-self-assign': ['error', {
-      props: false,
+      props: true,
     }],
 
     // disallow comparisons where both sides are exactly the same
