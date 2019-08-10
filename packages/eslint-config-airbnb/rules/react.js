@@ -515,7 +515,7 @@ module.exports = {
     },
     react: {
       pragma: 'React',
-      version: '16.0'
+      version: 'detect',
     },
     propWrapperFunctions: [
       'forbidExtraProps', // https://www.npmjs.com/package/airbnb-prop-types
