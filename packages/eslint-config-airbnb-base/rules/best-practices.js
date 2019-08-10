@@ -44,8 +44,7 @@ module.exports = {
 
     // enforce a maximum number of classes per file
     // https://eslint.org/docs/rules/max-classes-per-file
-    // TODO: semver-major (eslint 5): enable
-    'max-classes-per-file': ['off', 1],
+    'max-classes-per-file': ['error', 1],
 
     // disallow the use of alert, confirm, and prompt
     'no-alert': 'warn',
