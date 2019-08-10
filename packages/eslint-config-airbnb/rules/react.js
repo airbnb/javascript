@@ -474,10 +474,9 @@ module.exports = {
 
     // Enforce linebreaks in curly braces in JSX attributes and expressions.
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-newline.md
-    // TODO: enable, semver-minor
-    'react/jsx-curly-newline': ['off', {
+    'react/jsx-curly-newline': ['error', {
       multiline: 'consistent',
-      single: 'consistent',
+      singleline: 'consistent',
     }],
 
     // Enforce state initialization style
