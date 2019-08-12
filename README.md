@@ -2192,7 +2192,7 @@ Other Style Guides
     // good
     function dogs(x) {
       if (x) {
-        if (z) {
+        if (y) {
           return y;
         }
       } else {
