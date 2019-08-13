@@ -481,8 +481,8 @@ module.exports = {
 
     // Enforce state initialization style
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
-    // TODO: set to "always" once babel-preset-airbnb supports public class fields
-    'react/state-in-constructor': ['error', 'never'],
+    // TODO: set to "never" once babel-preset-airbnb supports public class fields
+    'react/state-in-constructor': ['error', 'always'],
 
     // Enforces where React component static properties should be positioned
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/static-property-placement.md
