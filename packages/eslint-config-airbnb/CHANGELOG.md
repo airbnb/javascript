@@ -1,3 +1,7 @@
+18.0.1 / 2019-08-13
+==================
+ - [patch] `react/state-in-constructor`: fix incorrect configuration
+
 18.0.0 / 2019-08-10
 ==================
  - [breaking] add eslint v6, drop eslint v4
