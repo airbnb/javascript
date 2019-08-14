@@ -960,9 +960,6 @@ Other Style Guides
       `A string containing the ${nextNumber}.`;
     });
 
-    // bad
-    [1, 2, 3].map((number) => `A string containing the ${number}.`);
-
     // good
     [1, 2, 3].map((number) => `A string containing the ${number + 1}.`);
 
