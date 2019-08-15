@@ -432,24 +432,17 @@ Other Style Guides
     });
 
     // bad
-    inbox.filter((msg) => {
-      const { subject, author } = msg;
-      if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
-      } else {
-        return false;
-      }
-    });
+    var indexMap = myArray.reduce(function(memo, item, index) {
+    memo[item] = index;
+	}, {});
+
 
     // good
-    inbox.filter((msg) => {
-      const { subject, author } = msg;
-      if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
-      }
+    var indexMap = myArray.reduce(function(memo, item, index) {
+    memo[item] = index;
+    return memo;
+	}, {});
 
-      return false;
-    });
     ```
 
   <a name="arrays--bracket-newline"></a>
