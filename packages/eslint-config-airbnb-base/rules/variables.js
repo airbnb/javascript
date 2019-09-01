@@ -1,4 +1,4 @@
-const restrictedGlobals = require('eslint-restricted-globals');
+const confusingBrowserGlobals = require('confusing-browser-globals');
 
 module.exports = {
   rules: {
@@ -16,7 +16,7 @@ module.exports = {
     'no-label-var': 'error',
 
     // disallow specific globals
-    'no-restricted-globals': ['error', 'isFinite', 'isNaN'].concat(restrictedGlobals),
+    'no-restricted-globals': ['error', 'isFinite', 'isNaN'].concat(confusingBrowserGlobals),
 
     // disallow declaration of variables already declared in the outer scope
     'no-shadow': 'error',

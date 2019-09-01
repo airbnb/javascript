@@ -79,6 +79,7 @@ module.exports = {
         'test-*.{js,jsx}', // repos with multiple top-level test files
         '**/*{.,_}{test,spec}.{js,jsx}', // tests where the extension or filename suffix denotes that it is a test
         '**/jest.config.js', // jest config
+        '**/jest.setup.js', // jest setup
         '**/vue.config.js', // vue-cli config
         '**/webpack.config.js', // webpack config
         '**/webpack.config.*.js', // webpack config
@@ -221,6 +222,10 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/blob/44a038c06487964394b1e15b64f3bd34e5d40cde/docs/rules/no-default-export.md
     'import/no-default-export': 'off',
 
+    // Prohibit named exports. this is a terrible rule, do not use it.
+    // https://github.com/benmosher/eslint-plugin-import/blob/1ec80fa35fa1819e2d35a70e68fb6a149fb57c5e/docs/rules/no-named-export.md
+    'import/no-named-export': 'off',
+
     // Forbid a module from importing itself
     // https://github.com/benmosher/eslint-plugin-import/blob/44a038c06487964394b1e15b64f3bd34e5d40cde/docs/rules/no-self-import.md
     'import/no-self-import': 'error',
@@ -243,5 +248,14 @@ module.exports = {
     // Use this rule to prevent imports to folders in relative parent paths.
     // https://github.com/benmosher/eslint-plugin-import/blob/c34f14f67f077acd5a61b3da9c0b0de298d20059/docs/rules/no-relative-parent-imports.md
     'import/no-relative-parent-imports': 'off',
+
+    // Reports modules without any exports, or with unused exports
+    // https://github.com/benmosher/eslint-plugin-import/blob/f63dd261809de6883b13b6b5b960e6d7f42a7813/docs/rules/no-unused-modules.md
+    // TODO: enable, semver-major
+    'import/no-unused-modules': ['off', {
+      ignoreExports: [],
+      missingExports: true,
+      unusedExports: true,
+    }],
   },
 };

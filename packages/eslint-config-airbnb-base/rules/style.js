@@ -21,8 +21,7 @@ module.exports = {
     'brace-style': ['error', '1tbs', { allowSingleLine: true }],
 
     // require camel case names
-    // TODO: semver-major (eslint 5): add ignoreDestructuring: false option
-    camelcase: ['error', { properties: 'never' }],
+    camelcase: ['error', { properties: 'never', ignoreDestructuring: false }],
 
     // enforce or disallow capitalization of the first letter of a comment
     // https://eslint.org/docs/rules/capitalized-comments
@@ -84,9 +83,9 @@ module.exports = {
     // requires function names to match the name of the variable or property to which they are
     // assigned
     // https://eslint.org/docs/rules/func-name-matching
-    // TODO: semver-major (eslint 5): add considerPropertyDescriptor: true
     'func-name-matching': ['off', 'always', {
-      includeCommonJSModuleExports: false
+      includeCommonJSModuleExports: false,
+      considerPropertyDescriptor: true,
     }],
 
     // require function expressions to have a name
@@ -293,14 +292,10 @@ module.exports = {
         ['%', '-'],
         ['%', '*'],
         ['%', '/'],
-        ['**', '+'],
-        ['**', '-'],
-        ['**', '*'],
-        ['**', '/'],
-        ['&', '|', '^', '~', '<<', '>>', '>>>'],
-        ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
+        ['/', '*'],
+        ['&', '|', '<<', '>>', '>>>'],
+        ['==', '!=', '===', '!=='],
         ['&&', '||'],
-        ['in', 'instanceof']
       ],
       allowSamePrecedence: false
     }],
@@ -312,8 +307,9 @@ module.exports = {
     // https://eslint.org/docs/rules/no-multi-assign
     'no-multi-assign': ['error'],
 
-    // disallow multiple empty lines and only one newline at the end
-    'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 0 }],
+    // disallow multiple empty lines, only one newline at the end, and no new lines at the beginning
+    // https://eslint.org/docs/rules/no-multiple-empty-lines
+    'no-multiple-empty-lines': ['error', { max: 2, maxBOF: 1, maxEOF: 0 }],
 
     // disallow negated conditions
     // https://eslint.org/docs/rules/no-negated-condition
@@ -422,7 +418,13 @@ module.exports = {
     'operator-linebreak': ['error', 'before', { overrides: { '=': 'none' } }],
 
     // disallow padding within blocks
-    'padded-blocks': ['error', { blocks: 'never', classes: 'never', switches: 'never' }],
+    'padded-blocks': ['error', {
+      blocks: 'never',
+      classes: 'never',
+      switches: 'never',
+    }, {
+      allowSingleLineBlocks: true,
+    }],
 
     // Require or disallow padding lines between statements
     // https://eslint.org/docs/rules/padding-line-between-statements
@@ -430,8 +432,7 @@ module.exports = {
 
     // Prefer use of an object spread over Object.assign
     // https://eslint.org/docs/rules/prefer-object-spread
-    // TODO: semver-major (eslint 5): enable
-    'prefer-object-spread': 'off',
+    'prefer-object-spread': 'error',
 
     // require quotes around object literal property names
     // https://eslint.org/docs/rules/quote-props.html
@@ -495,7 +496,7 @@ module.exports = {
       },
       block: {
         exceptions: ['-', '+'],
-        markers: ['=', '!'], // space here to support sprockets directives
+        markers: ['=', '!', ':', '::'], // space here to support sprockets directives and flow comment types
         balanced: true,
       }
     }],

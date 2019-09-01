@@ -1,10 +1,10 @@
 {
   "name": "eslint-config-airbnb-base",
-  "version": "13.1.0",
+  "version": "14.0.0",
   "description": "Airbnb's base JS ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
-    "prelint": "editorconfig-tools check * rules/* test/*",
+    "prelint": "eclint check * rules/* test/*",
     "lint": "eslint --report-unused-disable-directives .",
     "pretests-only": "node ./test/requires",
     "tests-only": "babel-tape-runner ./test/test-*.js",
@@ -12,7 +12,7 @@
     "pretest": "npm run --silent lint",
     "test": "npm run --silent tests-only",
     "pretravis": ":",
-    "travis": "npm run --silent test",
+    "travis": "npm run --silent tests-only",
     "posttravis": ":"
   },
   "repository": {
@@ -53,26 +53,27 @@
   },
   "homepage": "https://github.com/airbnb/javascript",
   "devDependencies": {
-    "babel-preset-airbnb": "^2.5.3",
-    "babel-tape-runner": "^2.0.1",
-    "editorconfig-tools": "^0.1.1",
-    "eslint": "^4.19.1 || ^5.3.0",
-    "eslint-find-rules": "^3.3.1",
-    "eslint-plugin-import": "^2.14.0",
+    "@babel/runtime": "^7.5.5",
+    "babel-preset-airbnb": "^4.0.1",
+    "babel-tape-runner": "^3.0.0",
+    "eclint": "^2.8.1",
+    "eslint": "^5.16.0 || ^6.1.0",
+    "eslint-find-rules": "^3.4.0",
+    "eslint-plugin-import": "^2.18.2",
     "in-publish": "^2.0.0",
     "safe-publish-latest": "^1.1.2",
-    "tape": "^4.9.1"
+    "tape": "^4.11.0"
   },
   "peerDependencies": {
-    "eslint": "^4.19.1 || ^5.3.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint": "^5.16.0 || ^6.1.0",
+    "eslint-plugin-import": "^2.18.2"
   },
   "engines": {
-    "node": ">= 4"
+    "node": ">= 6"
   },
   "dependencies": {
-    "eslint-restricted-globals": "^0.1.1",
+    "confusing-browser-globals": "^1.0.7",
     "object.assign": "^4.1.0",
-    "object.entries": "^1.0.4"
+    "object.entries": "^1.1.0"
   }
 }

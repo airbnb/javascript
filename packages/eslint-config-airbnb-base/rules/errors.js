@@ -10,8 +10,7 @@ module.exports = {
 
     // disallow using an async function as a Promise executor
     // https://eslint.org/docs/rules/no-async-promise-executor
-    // TODO: enable, semver-major
-    'no-async-promise-executor': 'off',
+    'no-async-promise-executor': 'error',
 
     // Disallow await inside of loops
     // https://eslint.org/docs/rules/no-await-in-loop
@@ -85,8 +84,7 @@ module.exports = {
 
     // Disallow characters which are made with multiple code points in character class syntax
     // https://eslint.org/docs/rules/no-misleading-character-class
-    // TODO: enable, semver-major
-    'no-misleading-character-class': 'off',
+    'no-misleading-character-class': 'error',
 
     // disallow the use of object properties of the global object (Math and JSON) as functions
     'no-obj-calls': 'error',

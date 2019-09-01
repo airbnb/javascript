@@ -44,8 +44,7 @@ module.exports = {
 
     // enforce a maximum number of classes per file
     // https://eslint.org/docs/rules/max-classes-per-file
-    // TODO: semver-major (eslint 5): enable
-    'max-classes-per-file': ['off', 1],
+    'max-classes-per-file': ['error', 1],
 
     // disallow the use of alert, confirm, and prompt
     'no-alert': 'warn',
@@ -186,6 +185,7 @@ module.exports = {
         'res', // for Express responses
         'response', // for Express responses
         '$scope', // for Angular 1 scopes
+        'staticContext', // for ReactRouter context
       ]
     }],
 
@@ -248,9 +248,8 @@ module.exports = {
 
     // disallow self assignment
     // https://eslint.org/docs/rules/no-self-assign
-    // TODO: semver-major: props -> true
     'no-self-assign': ['error', {
-      props: false,
+      props: true,
     }],
 
     // disallow comparisons where both sides are exactly the same
@@ -280,6 +279,10 @@ module.exports = {
     // disallow unnecessary .call() and .apply()
     'no-useless-call': 'off',
 
+    // Disallow unnecessary catch clauses
+    // https://eslint.org/docs/rules/no-useless-catch
+    'no-useless-catch': 'error',
+
     // disallow useless string concatenation
     // https://eslint.org/docs/rules/no-useless-concat
     'no-useless-concat': 'error',
@@ -305,6 +308,10 @@ module.exports = {
     // require using Error objects as Promise rejection reasons
     // https://eslint.org/docs/rules/prefer-promise-reject-errors
     'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
+
+    // Suggest using named capture group in regular expression
+    // https://eslint.org/docs/rules/prefer-named-capture-group
+    'prefer-named-capture-group': 'off',
 
     // require use of the second argument for parseInt()
     radix: 'error',

@@ -48,7 +48,8 @@ module.exports = {
 
     // require that JSX labels use "htmlFor"
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md
-    'jsx-a11y/label-has-for': ['error', {
+    // deprecated: replaced by `label-has-associated-control` rule
+    'jsx-a11y/label-has-for': ['off', {
       components: [],
       required: {
         every: ['nesting', 'id'],
@@ -64,6 +65,35 @@ module.exports = {
       controlComponents: [],
       assert: 'both',
       depth: 25
+    }],
+
+    // Enforce that a control (an interactive element) has a text label.
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/control-has-associated-label.md
+    'jsx-a11y/control-has-associated-label': ['error', {
+      labelAttributes: ['label'],
+      controlComponents: [],
+      ignoreElements: [
+        'audio',
+        'canvas',
+        'embed',
+        'input',
+        'textarea',
+        'tr',
+        'video',
+      ],
+      ignoreRoles: [
+        'grid',
+        'listbox',
+        'menu',
+        'menubar',
+        'radiogroup',
+        'row',
+        'tablist',
+        'toolbar',
+        'tree',
+        'treegrid',
+      ],
+      depth: 5,
     }],
 
     // require that mouseover/out come with focus/blur, for keyboard-only users
