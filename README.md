@@ -3871,6 +3871,8 @@ Other Style Guides
   - **Terra**: [terra](https://github.com/cerner?utf8=%E2%9C%93&q=terra&type=&language=)
   - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
   - **The Nerdery**: [thenerdery/javascript-standards](https://github.com/thenerdery/javascript-standards)
+  - **Tomify**: [tomprats](https://github.com/tomprats)
+  - **Traitify**: [traitify/eslint-config-traitify](https://github.com/traitify/eslint-config-traitify)
   - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
   - **UrbanSim**: [urbansim](https://github.com/urbansim/)
   - **VoxFeed**: [VoxFeed/javascript-style-guide](https://github.com/VoxFeed/javascript-style-guide)
