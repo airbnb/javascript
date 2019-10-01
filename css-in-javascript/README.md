@@ -1,4 +1,5 @@
 # Airbnb CSS-in-JavaScript Style Guide
+# Css is a way of making the webpage more beautiful. (Eg - Just like icing the butter cake)
 
 *A mostly reasonable approach to CSS-in-JavaScript*
 
@@ -52,7 +53,7 @@
     // good
     {
       bruceBanner: {
-        color: 'pink',
+        color: 'blue',
         transition: 'color 10s',
       },
 
