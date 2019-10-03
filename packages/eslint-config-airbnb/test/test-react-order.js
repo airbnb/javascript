@@ -29,8 +29,7 @@ import React from 'react';
 
 export default class MyComponent extends React.Component {
 /* eslint no-empty-function: 0, class-methods-use-this: 0 */
-${body}
-}
+${body}}
 `;
 }
 
@@ -44,25 +43,24 @@ test('validate react prop order', (t) => {
   t.test('passes a good component', (t) => {
     t.plan(3);
     const result = lint(wrapComponent(`
-  componentWillMount() {}
   componentDidMount() {}
   setFoo() {}
   getFoo() {}
   setBar() {}
   someMethod() {}
   renderDogs() {}
-  render() { return <div />; }`));
+  render() { return <div />; }
+`));
 
     t.notOk(result.warningCount, 'no warnings');
-    t.notOk(result.errorCount, 'no errors');
     t.deepEquals(result.messages, [], 'no messages in results');
+    t.notOk(result.errorCount, 'no errors');
   });
 
   t.test('order: when random method is first', (t) => {
     t.plan(2);
     const result = lint(wrapComponent(`
   someMethod() {}
-  componentWillMount() {}
   componentDidMount() {}
   setFoo() {}
   getFoo() {}
@@ -72,13 +70,12 @@ test('validate react prop order', (t) => {
 `));
 
     t.ok(result.errorCount, 'fails');
-    t.equal(result.messages[0].ruleId, 'react/sort-comp', 'fails due to sort');
+    t.deepEqual(result.messages.map(x => x.ruleId), ['react/sort-comp'], 'fails due to sort');
   });
 
   t.test('order: when random method after lifecycle methods', (t) => {
     t.plan(2);
     const result = lint(wrapComponent(`
-  componentWillMount() {}
   componentDidMount() {}
   someMethod() {}
   setFoo() {}
@@ -89,6 +86,6 @@ test('validate react prop order', (t) => {
 `));
 
     t.ok(result.errorCount, 'fails');
-    t.equal(result.messages[0].ruleId, 'react/sort-comp', 'fails due to sort');
+    t.deepEqual(result.messages.map(x => x.ruleId), ['react/sort-comp'], 'fails due to sort');
   });
 });
