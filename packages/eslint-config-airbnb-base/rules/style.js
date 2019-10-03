@@ -76,6 +76,10 @@ module.exports = {
     // enforce newline at the end of file, with no multiple empty lines
     'eol-last': ['error', 'always'],
 
+    // https://eslint.org/docs/rules/function-call-argument-newline
+    // TODO: enable, semver-minor, once eslint v6.2 is required (which is a major)
+    'function-call-argument-newline': ['off', 'consistent'],
+
     // enforce spacing between functions and their invocations
     // https://eslint.org/docs/rules/func-call-spacing
     'func-call-spacing': ['error', 'never'],

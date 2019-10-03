@@ -28,6 +28,10 @@ module.exports = {
     // require default case in switch statements
     'default-case': ['error', { commentPattern: '^no default$' }],
 
+    // https://eslint.org/docs/rules/default-param-last
+    // TODO: enable, semver-minor, when eslint v6.4 is required (which is a major)
+    'default-param-last': 'off',
+
     // encourages use of dot notation whenever possible
     'dot-notation': ['error', { allowKeywords: true }],
 
@@ -312,6 +316,10 @@ module.exports = {
     // Suggest using named capture group in regular expression
     // https://eslint.org/docs/rules/prefer-named-capture-group
     'prefer-named-capture-group': 'off',
+
+    // https://eslint.org/docs/rules/prefer-regex-literals
+    // TODO; enable, semver-minor, once eslint v6.4 is required (which is a major)
+    'prefer-regex-literals': 'off',
 
     // require use of the second argument for parseInt()
     radix: 'error',
