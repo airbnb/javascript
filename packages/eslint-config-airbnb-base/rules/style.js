@@ -73,6 +73,9 @@ module.exports = {
     // enforces consistent naming when capturing the current execution context
     'consistent-this': 'off',
 
+    // enforce that default parameters should come last
+    'default-param-last': ['error'],
+
     // enforce newline at the end of file, with no multiple empty lines
     'eol-last': ['error', 'always'],
 
