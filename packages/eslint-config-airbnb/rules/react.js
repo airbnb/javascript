@@ -277,8 +277,7 @@ module.exports = {
           'getSnapshotBeforeUpdate',
           'componentDidUpdate',
           'componentDidCatch',
-          'componentWillUnmount',
-          'componentDidCatch'
+          'componentWillUnmount'
         ],
         rendering: [
           '/^render.+$/',
