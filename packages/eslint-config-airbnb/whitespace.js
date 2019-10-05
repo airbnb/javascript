@@ -1,11 +1,10 @@
-const assign = require('object.assign');
 const entries = require('object.entries');
 const CLIEngine = require('eslint').CLIEngine;
 
 const baseConfig = require('.');
 
 function onlyErrorOnRules(rulesToError, config) {
-  const errorsOnly = assign({}, config);
+  const errorsOnly = Object.assign({}, config);
   const cli = new CLIEngine({ baseConfig: config, useEslintrc: false });
   const baseRules = cli.getConfigForFile(require.resolve('./')).rules;
 

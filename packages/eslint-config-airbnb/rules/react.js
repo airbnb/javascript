@@ -1,4 +1,3 @@
-const assign = require('object.assign');
 const baseStyleRules = require('eslint-config-airbnb-base/rules/style').rules;
 
 const dangleRules = baseStyleRules['no-underscore-dangle'];
@@ -17,7 +16,7 @@ module.exports = {
   // View link below for react rules documentation
   // https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
   rules: {
-    'no-underscore-dangle': [dangleRules[0], assign({}, dangleRules[1], {
+    'no-underscore-dangle': [dangleRules[0], Object.assign({}, dangleRules[1], {
       allow: dangleRules[1].allow.concat(['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__']),
     })],
 

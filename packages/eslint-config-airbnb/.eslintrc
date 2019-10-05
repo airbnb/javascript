@@ -6,5 +6,7 @@
     "comma-dangle": 0,
     // we support node 4
     "prefer-destructuring": 0,
+    // we support node 6
+    "prefer-object-spread": 0,
   },
 }
