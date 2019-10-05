@@ -70,7 +70,7 @@ test('validate react prop order', (t) => {
 `));
 
     t.ok(result.errorCount, 'fails');
-    t.deepEqual(result.messages.map(x => x.ruleId), ['react/sort-comp'], 'fails due to sort');
+    t.deepEqual(result.messages.map((msg) => msg.ruleId), ['react/sort-comp'], 'fails due to sort');
   });
 
   t.test('order: when random method after lifecycle methods', (t) => {
@@ -86,6 +86,6 @@ test('validate react prop order', (t) => {
 `));
 
     t.ok(result.errorCount, 'fails');
-    t.deepEqual(result.messages.map(x => x.ruleId), ['react/sort-comp'], 'fails due to sort');
+    t.deepEqual(result.messages.map((msg) => msg.ruleId), ['react/sort-comp'], 'fails due to sort');
   });
 });
