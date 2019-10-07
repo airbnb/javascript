@@ -19,7 +19,7 @@ Other Style Guides
   - [Ruby](https://github.com/airbnb/ruby)
 
 ## Table of Contents
-
+  1. [Introduction](#intro)
   1. [Types](#types)
   1. [References](#references)
   1. [Objects](#objects)
@@ -59,6 +59,9 @@ Other Style Guides
   1. [Contributors](#contributors)
   1. [License](#license)
   1. [Amendments](#amendments)
+
+## intro
+  JavaScript, often abbreviated as JS, is a high-level, interpreted scripting language that conforms to the ECMAScript specification.
 
 ## Types
 
