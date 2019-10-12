@@ -1,6 +1,6 @@
 const assign = require('object.assign');
 const entries = require('object.entries');
-const CLIEngine = require('eslint').CLIEngine;
+const { CLIEngine } = require('eslint');
 
 const baseConfig = require('.');
 
