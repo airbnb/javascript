@@ -73,6 +73,10 @@ module.exports = {
     // disallow overwriting functions written as function declarations
     'no-func-assign': 'error',
 
+    // https://eslint.org/docs/rules/no-import-assign
+    // TODO: enable, semver-minor, once eslint v6.4 is required (which is a major)
+    'no-import-assign': 'off',
+
     // disallow function or variable declarations in nested blocks
     'no-inner-declarations': 'error',
 
