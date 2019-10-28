@@ -90,6 +90,7 @@ module.exports = {
         '**/Gruntfile{,.js}', // grunt config
         '**/protractor.conf.js', // protractor config
         '**/protractor.conf.*.js', // protractor config
+        '**/karma.conf.js' // karma config
       ],
       optionalDependencies: false,
     }],
