@@ -60,13 +60,15 @@
     "eslint": "^5.16.0 || ^6.1.0",
     "eslint-find-rules": "^3.4.0",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-promise": "^4.2.1",
     "in-publish": "^2.0.0",
     "safe-publish-latest": "^1.1.3",
     "tape": "^4.11.0"
   },
   "peerDependencies": {
     "eslint": "^5.16.0 || ^6.1.0",
-    "eslint-plugin-import": "^2.18.2"
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-promise": "^4.2.1"
   },
   "engines": {
     "node": ">= 6"

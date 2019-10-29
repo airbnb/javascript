@@ -7,6 +7,7 @@ module.exports = {
     './rules/variables',
     './rules/es6',
     './rules/imports',
+    './rules/promises',
     './rules/strict',
   ].map(require.resolve),
   parserOptions: {
