@@ -4,5 +4,8 @@ module.exports = {
     './rules/react',
     './rules/react-a11y',
   ].map(require.resolve),
+  env: {
+    browser: true
+  },
   rules: {}
 };
