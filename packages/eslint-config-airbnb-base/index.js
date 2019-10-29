@@ -6,6 +6,7 @@ module.exports = {
     './rules/style',
     './rules/variables',
     './rules/es6',
+    './rules/filenames',
     './rules/imports',
     './rules/strict',
   ].map(require.resolve),
