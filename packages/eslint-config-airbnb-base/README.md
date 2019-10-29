@@ -10,7 +10,7 @@ We export two ESLint configurations for your usage.
 
 ### eslint-config-airbnb-base
 
-Our default export contains all of our ESLint rules, including ECMAScript 6+. It requires `eslint` and `eslint-plugin-import`.
+Our default export contains all of our ESLint rules, including ECMAScript 6+. It requires `eslint`, `eslint-plugin-import` and `eslint-plugin-simple-import-sort`.
 
 1. Install the correct versions of each package, which are listed by the command:
 
@@ -40,7 +40,7 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+. It
   Which produces and runs a command like:
 
   ```sh
-    npm install --save-dev eslint-config-airbnb-base eslint@^#.#.# eslint-plugin-import@^#.#.#
+    npm install --save-dev eslint-config-airbnb-base eslint@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-simple-import-sort@^#.#.#
   ```
 
   If using **npm < 5**, Windows users can either install all the peer dependencies manually, or use the [install-peerdeps](https://github.com/nathanhleung/install-peerdeps) cli tool.
@@ -53,7 +53,7 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+. It
   The cli will produce and run a command like:
 
   ```sh
-  npm install --save-dev eslint-config-airbnb-base eslint@^#.#.# eslint-plugin-import@^#.#.#
+  npm install --save-dev eslint-config-airbnb-base eslint@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-simple-import-sort@^#.#.#
   ```
 
 2. Add `"extends": "airbnb-base"` to your .eslintrc.
