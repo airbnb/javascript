@@ -60,6 +60,8 @@
   },
   "devDependencies": {
     "@babel/runtime": "^7.6.2",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
     "babel-preset-airbnb": "^4.1.0",
     "babel-tape-runner": "^3.0.0",
     "eclint": "^2.8.1",
