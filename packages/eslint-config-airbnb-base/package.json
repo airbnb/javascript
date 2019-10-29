@@ -66,11 +66,15 @@
   },
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
     "eslint": "^5.16.0 || ^6.1.0",
     "eslint-plugin-import": "^2.18.2"
   },
   "peerDependenciesMeta": {
     "@typescript-eslint/eslint-plugin": {
+      "optional": true
+    },
+    "@typescript-eslint/parser": {
       "optional": true
     }
   },
