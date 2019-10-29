@@ -58,6 +58,12 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+. It
 
 2. Add `"extends": "airbnb-base"` to your .eslintrc.
 
+### eslint-config-airbnb-base/typescript
+
+This entry point enables the linting rules for TypeScript (requires v2.8+). To use, add `"extends": ["airbnb-base", "airbnb-base/typescript"]` to your `.eslintrc`
+
+Additional, slower linting rules which require type checking may be enabled through `"airbnb-base/typescript/requiring-type-checking"`
+
 ### eslint-config-airbnb-base/legacy
 
 Lints ES5 and below. Requires `eslint` and `eslint-plugin-import`.
