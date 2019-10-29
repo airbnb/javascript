@@ -3279,7 +3279,7 @@ Other Style Guides
     ```
 
   <a name="naming--filename-matches-export"></a><a name="22.6"></a>
-  - [23.6](#naming--filename-matches-export) A base filename should exactly match the name of its default export.
+  - [23.6](#naming--filename-matches-export) A base filename should exactly match the name of its default export. eslint: [`filenames/match-exported`](https://github.com/selaux/eslint-plugin-filenames/blob/master/README.md#matching-exported-values-match-exported)
 
     ```javascript
     // file 1 contents
