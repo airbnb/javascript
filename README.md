@@ -1265,7 +1265,7 @@ Other Style Guides
       }
     }
 
-    // good - this i used
+    // good - this is used
     class Foo {
       bar() {
         console.log(this.bar);
