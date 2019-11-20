@@ -3226,6 +3226,20 @@ Other Style Guides
     const hasAge = !!age;
     ```
 
+  <a name="coercion--math"></a>
+  - [22.7](#coercion--math) When rounding data, it is recommended to use methods under `Math` for operation of pure numeric data, and "parseInt" for string type numbers, which is more semantic and more in line with the definition of function parameters
+
+    ```javascript
+    const num = 12.6;
+    const strNum = '12.6';
+
+    const val = Math.floor(num); // 12
+
+    const val = Math.ceil(num); // 13
+
+    const val = Number.parseInt(strNum, 10); // 12
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Naming Conventions
