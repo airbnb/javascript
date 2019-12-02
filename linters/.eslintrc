@@ -7,6 +7,7 @@
     "max-len": [1, 80, 2, {
       "ignorePattern": "^import\\s.+\\sfrom\\s.+;$",
       "ignoreUrls": true
-    }]
+    }],
+    "no-multiple-empty-lines": [2, { "max": 1, "maxEOF": 1 }]
   }
 }
