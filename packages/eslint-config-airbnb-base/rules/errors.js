@@ -38,6 +38,11 @@ module.exports = {
     // disallow duplicate arguments in functions
     'no-dupe-args': 'error',
 
+    // Disallow duplicate conditions in if-else-if chains
+    // https://eslint.org/docs/rules/no-dupe-else-if
+    // TODO: enable, semver-major
+    'no-dupe-else-if': 'off',
+
     // disallow duplicate keys when creating object literals
     'no-dupe-keys': 'error',
 
@@ -99,6 +104,11 @@ module.exports = {
 
     // disallow multiple spaces in a regular expression literal
     'no-regex-spaces': 'error',
+
+    // Disallow returning values from setters
+    // https://eslint.org/docs/rules/no-setter-return
+    // TODO: enable, semver-major (altho the guide forbids getters/setters already)
+    'no-setter-return': 'off',
 
     // disallow sparse arrays
     'no-sparse-arrays': 'error',

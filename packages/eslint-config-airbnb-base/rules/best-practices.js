@@ -43,6 +43,11 @@ module.exports = {
     // https://eslint.org/docs/rules/eqeqeq
     eqeqeq: ['error', 'always', { null: 'ignore' }],
 
+    // Require grouped accessor pairs in object literals and classes
+    // https://eslint.org/docs/rules/grouped-accessor-pairs
+    // TODO: enable in next major, altho the guide forbids getters/setters anyways
+    'grouped-accessor-pairs': 'off',
+
     // make sure for-in loops have an if statement
     'guard-for-in': 'error',
 
@@ -59,6 +64,11 @@ module.exports = {
     // disallow lexical declarations in case/default clauses
     // https://eslint.org/docs/rules/no-case-declarations.html
     'no-case-declarations': 'error',
+
+    // Disallow returning value in constructor
+    // https://eslint.org/docs/rules/no-constructor-return
+    // TODO: enable, semver-major
+    'no-constructor-return': 'off',
 
     // disallow division operators explicitly at beginning of regular expression
     // https://eslint.org/docs/rules/no-div-regex

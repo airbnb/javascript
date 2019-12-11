@@ -434,6 +434,11 @@ module.exports = {
     // https://eslint.org/docs/rules/padding-line-between-statements
     'padding-line-between-statements': 'off',
 
+    // Disallow the use of Math.pow in favor of the ** operator
+    // https://eslint.org/docs/rules/prefer-exponentiation-operator
+    // TODO: enable, semver-major when eslint 5 is dropped
+    'prefer-exponentiation-operator': 'off',
+
     // Prefer use of an object spread over Object.assign
     // https://eslint.org/docs/rules/prefer-object-spread
     'prefer-object-spread': 'error',
