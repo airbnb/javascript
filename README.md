@@ -757,8 +757,16 @@ Other Style Guides
       // ...
     }
 
-    // good
+    // bad
+    // Invoke 'handleThings' function by passing null as an argument it will give you an error if you access property of opts object by using dot(.) notation in the body of 'handleThings' function. 
     function handleThings(opts = {}) {
+      // ...
+    }
+
+    //good
+    //It is good because it won't give you TypeError if you access any property of 'newOpts' by using dot(.) notation.
+    function handleThings(opts) {
+      const newOpts = opts || {}
       // ...
     }
     ```
