@@ -9,5 +9,8 @@
       "ignoreUrls": true
     }],
     "no-multiple-empty-lines": [2, { "max": 1, "maxEOF": 1 }]
+  },
+  "env": {
+   "jest": true
   }
 }
