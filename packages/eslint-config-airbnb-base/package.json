@@ -59,14 +59,14 @@
     "eclint": "^2.8.1",
     "eslint": "^5.16.0 || ^6.7.2",
     "eslint-find-rules": "^3.4.0",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-import": "^2.20.1",
     "in-publish": "^2.0.0",
     "safe-publish-latest": "^1.1.4",
     "tape": "^5.0.0-next.4"
   },
   "peerDependencies": {
     "eslint": "^5.16.0 || ^6.7.2",
-    "eslint-plugin-import": "^2.18.2"
+    "eslint-plugin-import": "^2.20.1"
   },
   "engines": {
     "node": ">= 6"
