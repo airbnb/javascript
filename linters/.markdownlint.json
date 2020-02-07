@@ -26,7 +26,8 @@
 
   "comment": "MD007: Unordered list indentation: 2 spaces.",
   "ul-indent": {
-    "indent": 2
+    "indent": 2,
+    "start_indented": true
   },
 
   "comment": "MD009: Disallow trailing spaces!",
