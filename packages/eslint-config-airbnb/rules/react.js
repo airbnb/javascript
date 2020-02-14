@@ -500,6 +500,35 @@ module.exports = {
     // Enforce that props are read-only
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-read-only-props.md
     'react/prefer-read-only-props': 'off',
+
+    // Prevent usage of `javascript:` URLs
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-script-url.md
+    // TODO: enable, semver-major
+    'react/jsx-no-script-url': ['off', [
+      {
+        name: 'Link',
+        props: ['to'],
+      },
+    ]],
+
+    // Disallow unnecessary fragments
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
+    // TODO: enable, semver-major
+    'react/jsx-no-useless-fragment': 'off',
+
+    // Prevent adjacent inline elements not separated by whitespace
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-adjacent-inline-elements.md
+    // TODO: enable? semver-major
+    'react/no-adjacent-inline-elements': 'off',
+
+    // Enforce a specific function type for function components
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
+    // TODO: enable! semver-minor, but do it in a major to be safe
+    // TODO: investigate if setting namedComponents to expression vs declaration is problematic
+    'react/function-component-definition': ['off', {
+      namedComponents: 'function-expression',
+      unnamedComponents: 'function-expression',
+    }],
   },
 
   settings: {
