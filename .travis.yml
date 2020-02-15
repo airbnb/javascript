@@ -17,9 +17,11 @@ script:
 sudo: false
 env:
   matrix:
+    - 'TEST=true ESLINT=6 PACKAGE=eslint-config-airbnb-prettier'
     - 'TEST=true ESLINT=6 PACKAGE=eslint-config-airbnb-base'
     - 'TEST=true ESLINT=6 PACKAGE=eslint-config-airbnb'
     - 'TEST=true ESLINT=6 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb'
+    - 'TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb-prettier'
     - 'TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb-base'
     - 'TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb'
     - 'TEST=true ESLINT=5 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb'
@@ -27,11 +29,15 @@ matrix:
   fast_finish: true
   include:
     - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=6 PACKAGE=eslint-config-airbnb-prettier
+    - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=6 PACKAGE=eslint-config-airbnb-base
     - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=6 PACKAGE=eslint-config-airbnb
     - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=6 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb
+    - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=5 PACKAGE=eslint-config-airbnb-prettier
     - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=5 PACKAGE=eslint-config-airbnb-base
     - node_js: "lts/*"
