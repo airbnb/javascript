@@ -24,7 +24,7 @@ function lint(text) {
 }
 
 function wrapComponent(body) {
-  return `
+  return `\
 import React from 'react';
 
 export default class MyComponent extends React.Component {
