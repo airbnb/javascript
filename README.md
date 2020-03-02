@@ -450,6 +450,12 @@ Other Style Guides
 
       return false;
     });
+
+    // best
+    inbox.filter((msg) => {
+      const { subject, author } = msg;
+      return subject === 'Mockingbird' && author === 'Harper Lee');
+    });
     ```
 
   <a name="arrays--bracket-newline"></a>
