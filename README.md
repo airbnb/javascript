@@ -3915,6 +3915,7 @@ Other Style Guides
   - **Weggo**: [Weggo/javascript](https://github.com/Weggo/javascript)
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
+  - **eCommerce Umbrella**: [E-Commerce-Umbrella/coding-standards](https://github.com/E-Commerce-Umbrella/coding-standards)
 
 **[⬆ back to top](#table-of-contents)**
 
