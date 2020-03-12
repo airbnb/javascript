@@ -1,3 +1,15 @@
+14.1.0 / 2020-03-12
+==================
+ - [minor] add new disabled rules, update eslint
+ - [minor] enable `import/no-useless-path-segments` for commonjs (#2113)
+ - [fix] `whitespace`: only set erroring rules to "warn"
+ - Fix indentation with JSX Fragments (#2157)
+ - [patch] `import/no-extraneous-dependencies`: Support karma config files (#2121)
+ - [readme] normalize multiline word according to merriam-webster (#2138)
+ - [deps] update `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, `object.entries`, `confusing-browser-globals`
+ - [dev deps] update `@babel/runtime`, `babel-preset-airbnb`, `safe-publish-latest`, `tape`
+ - [tests] re-enable eslint rule `prefer-destructuring` internally (#2110)
+
 14.0.0 / 2019-08-09
 ==================
  - [breaking] `no-self-assign`: enable `props` option
