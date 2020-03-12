@@ -71,6 +71,7 @@ Other Style Guides
     - `null`
     - `undefined`
     - `symbol`
+    - `bigint`
 
     ```javascript
     const foo = 1;
@@ -81,7 +82,7 @@ Other Style Guides
     console.log(foo, bar); // => 1, 9
     ```
 
-    - Symbols cannot be faithfully polyfilled, so they should not be used when targeting browsers/environments that don’t support them natively.
+    - Symbols and BigInts cannot be faithfully polyfilled, so they should not be used when targeting browsers/environments that don’t support them natively.
 
   <a name="types--complex"></a><a name="1.2"></a>
   - [1.2](#types--complex)  **Complex**: When you access a complex type you work on a reference to its value.
@@ -1409,6 +1410,7 @@ Other Style Guides
 
   <a name="modules--multiline-imports-over-newlines"></a>
   - [10.8](#modules--multiline-imports-over-newlines) Multiline imports should be indented just like multiline array and object literals.
+ eslint: [`object-curly-newline`](https://eslint.org/docs/rules/object-curly-newline)
 
     > Why? The curly braces follow the same indentation rules as every other curly brace block in the style guide, as do the trailing commas.
 
@@ -1439,6 +1441,23 @@ Other Style Guides
     // good
     import fooSass from 'foo.scss';
     import barCss from 'bar.css';
+    ```
+
+  <a name="modules--import-extensions"></a>
+  - [10.10](#modules--import-extensions) Do not include JavaScript filename extensions
+ eslint: [`import/extensions`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md)
+    > Why? Including extensions inhibits refactoring, and inappropriately hardcodes implementation details of the module you're importing in every consumer.
+
+    ```javascript
+    // bad
+    import foo from './foo.js';
+    import bar from './bar.jsx';
+    import baz from './baz/index.jsx';
+
+    // good
+    import foo from './foo';
+    import bar from './bar';
+    import baz from './baz';
     ```
 
 **[⬆ back to top](#table-of-contents)**
