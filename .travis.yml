@@ -40,6 +40,10 @@ matrix:
       env: PREPUBLISH=true ESLINT=5 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb
     - node_js: "lts/*"
       env: LINT=true
+    - node_js: "lts/*"
+      env: LINT=true PACKAGE=eslint-config-airbnb
+    - node_js: "lts/*"
+      env: LINT=true PACKAGE=eslint-config-airbnb-base
     - node_js: "7"
       env: TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb-base
     - node_js: "7"
