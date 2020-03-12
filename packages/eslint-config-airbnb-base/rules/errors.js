@@ -64,13 +64,17 @@ module.exports = {
 
     // disallow unnecessary parentheses
     // https://eslint.org/docs/rules/no-extra-parens
-    'no-extra-parens': ['off', 'all', {
-      conditionalAssign: true,
-      nestedBinaryExpressions: false,
-      returnAssign: false,
-      ignoreJSX: 'all', // delegate to eslint-plugin-react
-      enforceForArrowConditionals: false,
-    }],
+    'no-extra-parens': [
+      'off',
+      'all',
+      {
+        conditionalAssign: true,
+        nestedBinaryExpressions: false,
+        returnAssign: false,
+        ignoreJSX: 'all', // delegate to eslint-plugin-react
+        enforceForArrowConditionals: false,
+      },
+    ],
 
     // disallow unnecessary semicolons
     'no-extra-semi': 'error',
@@ -150,5 +154,5 @@ module.exports = {
     // ensure that the results of typeof are compared against a valid string
     // https://eslint.org/docs/rules/valid-typeof
     'valid-typeof': ['error', { requireStringLiterals: true }],
-  }
+  },
 };
