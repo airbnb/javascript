@@ -1,3 +1,16 @@
+18.1.0 / 2020-03-12
+==================
+ - [minor] Support eslint-plugin-react-hooks@2 (#2090)
+ - [minor] add new disabled rules, update eslint
+ - [fix] `whitespace`: only set erroring rules to "warn"
+ - [patch] Remove duplicate `componentDidCatch` (#2108)
+ - [patch] Add `static-variables` to `sort-comp` rule (#2109)
+ - [readme] clarify hooks section in readme (#2074)
+ - [deps] update `eslint`, `eslint-plugin-react`, `eslint-plugin-react-hooks`, `eslint-config-airbnb-base`, `eslint-plugin-import`, `object.entries`
+ - [dev deps] update `@babel/runtime`, `babel-preset-airbnb`, `safe-publish-latest`, `tape`
+ - [tests] re-enable eslint rule `prefer-destructuring` internally (#2110)
+ - [tests] fix eslint errors from c66cfc3 (#2112)
+
 18.0.1 / 2019-08-13
 ==================
  - [patch] `react/state-in-constructor`: fix incorrect configuration
