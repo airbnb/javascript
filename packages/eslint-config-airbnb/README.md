@@ -56,7 +56,7 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+ and
 
 2. Add `"extends": "airbnb"` to your `.eslintrc`
 
-### eslint-config/airbnb/hooks
+### eslint-config-airbnb/hooks
 
 This entry point enables the linting rules for React hooks (requires v16.8+). To use, add `"extends": ["airbnb", "airbnb/hooks"]` to your `.eslintrc`
 
