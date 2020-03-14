@@ -68,7 +68,7 @@
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^2.5.0 || ^1.7.0",
+    "eslint-plugin-react-hooks": "^2.3.0 || ^1.7.0",
     "in-publish": "^2.0.0",
     "react": ">= 0.13.0",
     "safe-publish-latest": "^1.1.4",
@@ -79,7 +79,7 @@
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^2.5.0 || ^1.7.0"
+    "eslint-plugin-react-hooks": "^2.3.0 || ^1.7.0"
   },
   "engines": {
     "node": ">= 6"
