@@ -957,8 +957,7 @@ Other Style Guides
     ```javascript
     // bad
     [1, 2, 3].map((number) => {
-      const nextNumber = number + 1;
-      `A string containing the ${nextNumber}.`;
+      return `A string containing the ${number + 1}.`;
     });
 
     // good
@@ -975,11 +974,11 @@ Other Style Guides
       [index]: number,
     }));
 
-    // No implicit return with side effects
+    // no implicit return with side effects
     function foo(callback) {
-      const val = callback();
-      if (val === true) {
-        // Do something if callback returns true
+      const value = callback();
+      if (value === true) {
+        // do something if callback returns true
       }
     }
 
