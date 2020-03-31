@@ -2914,11 +2914,11 @@ Other Style Guides
 
     ```javascript
     // bad
-    var obj = { "foo" : 42 };
-    var obj2 = { "foo":42 };
+    var obj = { foo : 42 };
+    var obj2 = { foo:42 };
 
     // good
-    var obj = { "foo": 42 };
+    var obj = { foo: 42 };
     ```
 
   <a name="whitespace--no-trailing-spaces"></a>
