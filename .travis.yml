@@ -18,9 +18,13 @@ env:
   matrix:
     - 'TEST=true ESLINT=6 PACKAGE=eslint-config-airbnb-base'
     - 'TEST=true ESLINT=6 PACKAGE=eslint-config-airbnb'
+    - 'TEST=true ESLINT=6 REACT_HOOKS=3 PACKAGE=eslint-config-airbnb'
+    - 'TEST=true ESLINT=6 REACT_HOOKS=2.3 PACKAGE=eslint-config-airbnb'
     - 'TEST=true ESLINT=6 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb'
     - 'TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb-base'
     - 'TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb'
+    - 'TEST=true ESLINT=5 REACT_HOOKS=3 PACKAGE=eslint-config-airbnb'
+    - 'TEST=true ESLINT=5 REACT_HOOKS=2.3 PACKAGE=eslint-config-airbnb'
     - 'TEST=true ESLINT=5 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb'
 matrix:
   fast_finish: true
@@ -30,11 +34,19 @@ matrix:
     - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=6 PACKAGE=eslint-config-airbnb
     - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=6 REACT_HOOKS=3 PACKAGE=eslint-config-airbnb
+    - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=6 REACT_HOOKS=2.3 PACKAGE=eslint-config-airbnb
+    - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=6 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb
     - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=5 PACKAGE=eslint-config-airbnb-base
     - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=5 PACKAGE=eslint-config-airbnb
+    - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=5 REACT_HOOKS=3 PACKAGE=eslint-config-airbnb
+    - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=5 REACT_HOOKS=2.3 PACKAGE=eslint-config-airbnb
     - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=5 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb
     - node_js: "lts/*"
@@ -47,6 +59,10 @@ matrix:
       env: TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb-base
     - node_js: "6"
       env: TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb
+    - node_js: "6"
+      env: TEST=true ESLINT=5 REACT_HOOKS=3 PACKAGE=eslint-config-airbnb
+    - node_js: "6"
+      env: TEST=true ESLINT=5 REACT_HOOKS=2.3 PACKAGE=eslint-config-airbnb
     - node_js: "6"
       env: TEST=true ESLINT=5 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb
   exclude:
