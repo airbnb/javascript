@@ -194,6 +194,7 @@ module.exports = {
         'accumulator', // for reduce accumulators
         'e', // for e.returnvalue
         'ctx', // for Koa routing
+        'context', // for Koa routing
         'req', // for Express requests
         'request', // for Express requests
         'res', // for Express responses
