@@ -494,6 +494,7 @@ module.exports = {
     'react/jsx-props-no-spreading': ['error', {
       html: 'enforce',
       custom: 'enforce',
+      explicitSpread: 'ignore',
       exceptions: [],
     }],
 
