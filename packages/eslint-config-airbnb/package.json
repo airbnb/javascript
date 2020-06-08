@@ -56,7 +56,7 @@
   "dependencies": {
     "eslint-config-airbnb-base": "^14.1.0",
     "object.assign": "^4.1.0",
-    "object.entries": "^1.1.1"
+    "object.entries": "^1.1.2"
   },
   "devDependencies": {
     "@babel/runtime": "^7.8.7",
