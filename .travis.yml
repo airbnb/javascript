@@ -6,8 +6,8 @@ node_js:
   - "9"
   - "8"
 before_install:
-  - 'nvm install-latest-npm'
-install:
+  - 'nvm install-latest-npm' 
+   install:
   - 'if [ -n "${PACKAGE-}" ]; then cd "packages/${PACKAGE}"; fi'
   - 'if [ "${TRAVIS_NODE_VERSION}" = "0.6" ] || [ "${TRAVIS_NODE_VERSION}" = "0.9" ]; then nvm install --latest-npm 0.8 && npm install && nvm use "${TRAVIS_NODE_VERSION}"; else npm install; fi;'
   - 'if [ -n "${ESLINT}" ]; then npm install --no-save "eslint@${ESLINT}"; fi'
