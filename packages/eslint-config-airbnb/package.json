@@ -63,7 +63,7 @@
     "babel-preset-airbnb": "^4.5.0",
     "babel-tape-runner": "^3.0.0",
     "eclint": "^2.8.1",
-    "eslint": "^5.16.0 || ^6.8.0",
+    "eslint": "^5.16.0 || ^6.8.0 || ^7.2.0",
     "eslint-find-rules": "^3.5.0",
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -75,7 +75,7 @@
     "tape": "^5.0.1"
   },
   "peerDependencies": {
-    "eslint": "^5.16.0 || ^6.8.0",
+    "eslint": "^5.16.0 || ^6.8.0 || ^7.2.0",
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.20.0",

@@ -91,6 +91,11 @@ module.exports = {
     // disallow irregular whitespace outside of strings and comments
     'no-irregular-whitespace': 'error',
 
+    // Disallow Number Literals That Lose Precision
+    // https://eslint.org/docs/rules/no-loss-of-precision
+    // TODO: enable, semver-minor, once eslint v7.1 is required (which is major)
+    'no-loss-of-precision': 'off',
+
     // Disallow characters which are made with multiple code points in character class syntax
     // https://eslint.org/docs/rules/no-misleading-character-class
     'no-misleading-character-class': 'error',
@@ -131,13 +136,19 @@ module.exports = {
     // disallow negating the left operand of relational operators
     // https://eslint.org/docs/rules/no-unsafe-negation
     'no-unsafe-negation': 'error',
+
+    // Disallow useless backreferences in regular expressions
+    // https://eslint.org/docs/rules/no-useless-backreference
+    // TODO: enable, semver-minor, once eslint v7 is required (which is major)
+    'no-useless-backreference': 'off',
+
     // disallow negation of the left operand of an in expression
     // deprecated in favor of no-unsafe-negation
     'no-negated-in-lhs': 'off',
 
     // Disallow assignments that can lead to race conditions due to usage of await or yield
     // https://eslint.org/docs/rules/require-atomic-updates
-    // TODO: enable, semver-major
+    // note: not enabled because it is very buggy
     'require-atomic-updates': 'off',
 
     // disallow comparisons with the value NaN

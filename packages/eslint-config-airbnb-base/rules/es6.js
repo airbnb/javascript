@@ -60,6 +60,16 @@ module.exports = {
     // https://eslint.org/docs/rules/no-new-symbol
     'no-new-symbol': 'error',
 
+    // Disallow specified names in exports
+    // https://eslint.org/docs/rules/no-restricted-exports
+    // TODO enable, semver-minor, once eslint v7 is required (which is major)
+    'no-restricted-exports': ['off', {
+      restrictedNamedExports: [
+        'default', // use `export default` to provide a default export
+        'then', // this will cause tons of confusion when your module is dynamically `import()`ed
+      ],
+    }],
+
     // disallow specific imports
     // https://eslint.org/docs/rules/no-restricted-imports
     'no-restricted-imports': ['off', {
