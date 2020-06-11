@@ -1,3 +1,13 @@
+14.2.0 / 2020-06-10
+==================
+ - [new] add `eslint` `v7`
+ - [minor] Disallow multiple empty lines (#2238)
+ - [minor] Fix typo in no-multiple-empty-lines rule (#2168)
+ - [patch] Include 'context' exception for `no-param-reassign` (#2230)
+ - [patch] Allow triple-slash (///) comments (#2197)
+ - [patch] Disable `prefer-object-spread` for `airbnb-base/legacy` (#2198)
+ - [deps] update `eslint-plugin-import`, `eslint-plugin-react`, `babel-preset-airbnb`, `eslint-find-rules`, `in-publish`, `tape`, `object.entries`
+
 14.1.0 / 2020-03-12
 ==================
  - [minor] add new disabled rules, update eslint
