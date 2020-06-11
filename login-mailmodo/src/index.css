@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.navbar-top {
+  display: flex;
+  margin: 20px;
+  min-height: 50px;
+  box-shadow: 0 0 8px 0 #0009;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-image {
+  width: 150px;
+  margin: 10px;
+  height: 30px;
+}
+.list-items {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+.list-items > li {
+  margin: 10px;
+}
+.list-items > li > a {
+  text-decoration: none;
+  color: #000;
+  padding: 20px;
+}
+.active {
+  background: lightgrey;
+}
+.welcome-heading {
+  font-size: 2rem;
+  font-family: "baskerville old face";
+  margin: 20px auto;
+  filter: drop-shadow(-5px 5px 10px #0009);
+}
+.login-box-container {
+  min-height: 250px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding: 50px;
+  margin: 20px auto;
+  border: 1px solid lightgrey;
+  box-shadow: 0 0 8px 0 grey;
+}
+.register-box-container {
+  min-height: 400px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding: 50px;
+  margin: 20px auto;
+  border: 1px solid lightgrey;
+  box-shadow: 0 0 8px 0 grey;
+}
+.login-box-container > label,
+.register-box-container > label {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.login-box-container > input,
+.register-box-container > input {
+  height: 40px;
+  width: 90%;
+  padding-left: 10px;
+  outline: none;
+  border: 1px solid lightgrey;
+  box-shadow: inset 0 0 3px 0 grey;
+}
+
+.login-box-container > button,
+.register-box-container > button {
+  width: 90%;
+  font-size: 1rem;
+  padding: 5px;
+  height: 35px;
+  outline: none;
+  color: grey;
+  background-color: #fff;
+  border: 1px solid lightgrey;
+  box-shadow: 0 0 5px 0 grey;
+  margin-top: 20px;
+}

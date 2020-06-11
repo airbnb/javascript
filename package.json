@@ -42,5 +42,9 @@
   "devDependencies": {
     "markdownlint": "^0.19.0",
     "markdownlint-cli": "^0.21.0"
+  },
+  "dependencies": {
+    "antd": "^4.3.3",
+    "react-router-dom": "^5.2.0"
   }
 }
