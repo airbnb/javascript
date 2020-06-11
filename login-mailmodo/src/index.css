@@ -75,6 +75,7 @@ body {
   width: 90%;
   padding-left: 10px;
   outline: none;
+  border-radius: 10px;
   border: 1px solid lightgrey;
   box-shadow: inset 0 0 3px 0 grey;
 }
@@ -89,6 +90,5 @@ body {
   color: grey;
   background-color: #fff;
   border: 1px solid lightgrey;
-  box-shadow: 0 0 5px 0 grey;
-  margin-top: 20px;
+  border-radius: 10px;
 }
