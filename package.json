@@ -40,7 +40,7 @@
   },
   "homepage": "https://github.com/airbnb/javascript",
   "devDependencies": {
-    "markdownlint": "^0.19.0",
-    "markdownlint-cli": "^0.21.0"
+    "markdownlint": "^0.20.3",
+    "markdownlint-cli": "^0.23.1"
   }
 }
