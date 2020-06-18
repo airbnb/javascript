@@ -1,10 +1,10 @@
 import test from 'tape';
-import { CLIEngine } from 'eslint';
+import { CLIEngine, ESLint } from 'eslint';
 import eslintrc from '..';
 import reactRules from '../rules/react';
 import reactA11yRules from '../rules/react-a11y';
 
-const cli = new CLIEngine({
+const cli = new (CLIEngine || ESLint)({
   useEslintrc: false,
   baseConfig: eslintrc,
 
@@ -19,7 +19,7 @@ const cli = new CLIEngine({
 function lint(text) {
   // @see https://eslint.org/docs/developer-guide/nodejs-api.html#executeonfiles
   // @see https://eslint.org/docs/developer-guide/nodejs-api.html#executeontext
-  const linter = cli.executeOnText(text);
+  const linter = CLIEngine ? cli.executeOnText(text) : cli.lintText(text);
   return linter.results[0];
 }
 
