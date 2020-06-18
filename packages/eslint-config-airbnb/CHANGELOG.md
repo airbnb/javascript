@@ -1,3 +1,14 @@
+18.2.0 / 2020-06-18
+==================
+ - [new] add `eslint` `v7` (#2240)
+ - [minor] Allow using `eslint-plugin-react-hooks` v3 and v4 (#2235, #2207)
+ - [minor] Fix typo in no-multiple-empty-lines rule (#2168)
+ - [patch] set `explicitSpread` to ignore for `react/jsx-props-no-spreading` (#2237)
+ - [patch] relax `eslint-plugin-react-hooks` down to v2.3, due to a controversial change in v2.5
+ - [readme] fix typo (#2194)
+ - [deps] update `eslint-config-airbnb-base`, `eslint-plugin-jsx-a11y`, `eslint-plugin-import`, `eslint-plugin-react`, `babel-preset-airbnb`, `eslint-find-rules`, `in-publish`, `tape`, `object.entries`
+ - [tests] fix for eslint 7
+
 18.1.0 / 2020-03-12
 ==================
  - [minor] Support eslint-plugin-react-hooks@2 (#2090)
