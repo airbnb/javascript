@@ -236,5 +236,11 @@ module.exports = {
       specialLink: ['to'],
       aspects: ['noHref', 'invalidHref', 'preferButton'],
     }],
+
+    // Ensure the autocomplete attribute is correct and suitable for the form field it is used with
+    // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/29c68596b15c4ff0a40daae6d4a2670e36e37d35/docs/rules/autocomplete-valid.md
+    'jsx-a11y/autocomplete-valid': ['off', {
+      inputComponents: [],
+    }],
   },
 };
