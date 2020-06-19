@@ -377,10 +377,10 @@ Other Style Guides
     ```javascript
     const foo = document.querySelectorAll('.foo');
 
-    // good
+    // bad
     const nodes = Array.from(foo);
 
-    // best
+    // good
     const nodes = [...foo];
     ```
 
