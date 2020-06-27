@@ -103,6 +103,11 @@ module.exports = {
     // disallow the use of object properties of the global object (Math and JSON) as functions
     'no-obj-calls': 'error',
 
+    // Disallow returning values from Promise executor functions
+    // https://eslint.org/docs/rules/no-promise-executor-return
+    // TODO: enable, semver-minor, once eslint v7.3 is required (which is major)
+    'no-promise-executor-return': 'off',
+
     // disallow use of Object.prototypes builtins directly
     // https://eslint.org/docs/rules/no-prototype-builtins
     'no-prototype-builtins': 'error',
@@ -128,6 +133,13 @@ module.exports = {
 
     // disallow unreachable statements after a return, throw, continue, or break statement
     'no-unreachable': 'error',
+
+    // Disallow loops with a body that allows only one iteration
+    // https://eslint.org/docs/rules/no-unreachable-loop
+    // TODO: enable, semver-minor, once eslint v7.3 is required (which is major)
+    'no-unreachable-loop': ['off', {
+      ignore: [], // WhileStatement, DoWhileStatement, ForStatement, ForInStatement, ForOfStatement
+    }],
 
     // disallow return/throw/break/continue inside finally blocks
     // https://eslint.org/docs/rules/no-unsafe-finally
