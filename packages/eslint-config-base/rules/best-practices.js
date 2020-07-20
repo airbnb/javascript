@@ -30,10 +30,10 @@ module.exports = {
 
     // Enforce default clauses in switch statements to be last
     // https://eslint.org/docs/rules/default-case-last
-    'default-case-last': 'on',
+    'default-case-last': 'error',
 
     // https://eslint.org/docs/rules/default-param-last
-    'default-param-last': 'on',
+    'default-param-last': 'error',
 
     // encourages use of dot notation whenever possible
     'dot-notation': ['error', { allowKeywords: true }],
@@ -119,6 +119,7 @@ module.exports = {
     // disallow reassignments of native objects or read-only globals
     // https://eslint.org/docs/rules/no-global-assign
     'no-global-assign': ['error', { exceptions: [] }],
+
     // deprecated in favor of no-global-assign
     'no-native-reassign': 'off',
 
@@ -139,7 +140,7 @@ module.exports = {
     'no-implied-eval': 'error',
 
     // disallow this keywords outside of classes or class-like objects
-    'no-invalid-this': 'on',
+    'no-invalid-this': 'error',
 
     // disallow usage of __iterator__ property
     'no-iterator': 'error',

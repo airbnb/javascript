@@ -67,7 +67,7 @@ module.exports = {
       conditionalAssign: true,
       nestedBinaryExpressions: false,
       returnAssign: false,
-      ignoreJSX: 'all', // delegate to eslint-plugin-react
+      ignoreJSX: 'all', // delegate to eslint-config-react
       enforceForArrowConditionals: false,
     }],
 

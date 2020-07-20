@@ -163,7 +163,7 @@ module.exports = {
 
     // import sorting
     // https://eslint.org/docs/rules/sort-imports
-    'sort-imports': ['error', {
+    'sort-imports': ['warn', {
       ignoreCase: false,
       ignoreDeclarationSort: false,
       ignoreMemberSort: false,

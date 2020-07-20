@@ -1,0 +1,80 @@
+{
+  "name": "@elegantthemes/eslint-config-base",
+  "version": "1.0.0-beta.1",
+  "description": "Elegant Themes' base JS ESLint config, following our style guide",
+  "main": "index.js",
+  "scripts": {
+    "prelint": "(in-install && eclint check * rules/* test/*) || true",
+    "lint": "eslint --report-unused-disable-directives .",
+    "pretests-only": "node ./test/requires",
+    "tests-only": "babel-tape-runner ./test/test-*.js",
+    "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test) && safe-publish-latest",
+    "pretest": "npm run lint",
+    "test": "npm run --silent tests-only",
+    "pretravis": ":",
+    "travis": "npm run --silent tests-only",
+    "posttravis": ":"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elegantthemes/javascript"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "config",
+    "airbnb",
+    "elegantthemes",
+    "javascript",
+    "styleguide",
+    "es2015",
+    "es2016",
+    "es2017",
+    "es2018"
+  ],
+  "author": "Elegant Themes <dustin@elegantthemes.com>",
+  "contributors": [
+    {
+      "name": "Jake Teton-Landis",
+      "url": "https://twitter.com/jitl"
+    },
+    {
+      "name": "Jordan Harband",
+      "email": "ljharb@gmail.com",
+      "url": "http://ljharb.codes"
+    },
+    {
+      "name": "Harrison Shoff",
+      "url": "https://twitter.com/hshoff"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elegantthemes/javascript/issues"
+  },
+  "homepage": "https://github.com/elegantthemes/javascript",
+  "devDependencies": {
+    "@babel/runtime": "7.10.5",
+    "babel-preset-airbnb": "4.5.0",
+    "babel-tape-runner": "3.0.0",
+    "eclint": "2.8.1",
+    "eslint": "5.16.0 || 6.8.0 || 7.5.0",
+    "eslint-find-rules": "3.6.0",
+    "eslint-plugin-import": "2.22.0",
+    "in-publish": "2.0.1",
+    "safe-publish-latest": "1.1.4",
+    "tape": "5.0.1"
+  },
+  "peerDependencies": {
+    "eslint": "5.16.0 || 6.8.0 || 7.5.0",
+    "eslint-plugin-import": "2.22.0"
+  },
+  "engines": {
+    "node": ">= 6"
+  },
+  "dependencies": {
+    "confusing-browser-globals": "1.0.9",
+    "object.assign": "4.1.0",
+    "object.entries": "1.1.2"
+  }
+}

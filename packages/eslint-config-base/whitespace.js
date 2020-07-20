@@ -10,7 +10,7 @@ function getSeverity(ruleConfig) {
   if (Array.isArray(ruleConfig)) {
     return getSeverity(ruleConfig[0]);
   }
-  if (typeof ruleConfig === 'number') {
+  if ('number' === typeof ruleConfig) {
     return severities[ruleConfig];
   }
   return ruleConfig;
@@ -21,15 +21,15 @@ function onlyErrorOnRules(rulesToError, config) {
   const cli = new CLIEngine({ baseConfig: config, useEslintrc: false });
   const baseRules = cli.getConfigForFile(require.resolve('./')).rules;
 
-  entries(baseRules).forEach((rule) => {
+  entries(baseRules).forEach(rule => {
     const ruleName = rule[0];
     const ruleConfig = rule[1];
     const severity = getSeverity(ruleConfig);
 
-    if (rulesToError.indexOf(ruleName) === -1 && severity === 'error') {
+    if (- 1 === rulesToError.indexOf(ruleName) && 'error' === severity) {
       if (Array.isArray(ruleConfig)) {
         errorsOnly.rules[ruleName] = ['warn'].concat(ruleConfig.slice(1));
-      } else if (typeof ruleConfig === 'number') {
+      } else if ('number' === typeof ruleConfig) {
         errorsOnly.rules[ruleName] = 1;
       } else {
         errorsOnly.rules[ruleName] = 'warn';

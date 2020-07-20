@@ -5,17 +5,17 @@
   "scripts": {
     "preinstall": "npm run install:config && npm run install:config:base",
     "postinstall": "rm -rf node_modules/markdownlint-cli/node_modules/markdownlint",
-    "install:config": "cd packages/eslint-plugin && npm prune && npm install",
-    "install:config:base": "cd packages/eslint-plugin-base && npm prune && npm install",
+    "install:config": "cd packages/eslint-config && npm prune && npm install",
+    "install:config:base": "cd packages/eslint-config-base && npm prune && npm install",
     "lint": "markdownlint --config linters/.markdownlint.json README.md */README.md",
     "pretest": "npm run --silent lint",
     "test": "npm run --silent test:config && npm run --silent test:config:base",
-    "test:config": "cd packages/eslint-plugin; npm test",
-    "test:config:base": "cd packages/eslint-plugin-base; npm test",
+    "test:config": "cd packages/eslint-config; npm test",
+    "test:config:base": "cd packages/eslint-config-base; npm test",
     "pretravis": "npm run --silent lint",
     "travis": "npm run --silent travis:config && npm run --silent travis:config:base",
-    "travis:config": "cd packages/eslint-plugin; npm run travis",
-    "travis:config:base": "cd packages/eslint-plugin-base; npm run travis"
+    "travis:config": "cd packages/eslint-config; npm run travis",
+    "travis:config:base": "cd packages/eslint-config-base; npm run travis"
   },
   "repository": {
     "type": "git",

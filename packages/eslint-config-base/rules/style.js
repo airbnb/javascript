@@ -102,9 +102,9 @@ module.exports = {
     // https://eslint.org/docs/rules/function-paren-newline
     'function-paren-newline': ['error', 'never'],
 
-    // Blacklist certain identifiers to prevent them being used
-    // https://eslint.org/docs/rules/id-blacklist
-    'id-blacklist': 'off',
+    // Prevent certain identifiers from being used
+    // https://eslint.org/docs/rules/id-denylist
+    'id-denylist': 'off',
 
     // this option enforces minimum and maximum identifier lengths
     // (variable names, property names etc.)
@@ -123,6 +123,7 @@ module.exports = {
       SwitchCase: 1,
       VariableDeclarator: 1,
       outerIIFEBody: 1,
+
       // MemberExpression: null,
       FunctionDeclaration: {
         parameters: 1,
@@ -139,6 +140,7 @@ module.exports = {
       ObjectExpression: 1,
       ImportDeclaration: 1,
       flatTernaryExpressions: false,
+
       // list derived from https://github.com/benjamn/ast-types/blob/HEAD/def/jsx.js
       ignoredNodes: ['JSXElement', 'JSXElement > *', 'JSXAttribute', 'JSXIdentifier', 'JSXNamespacedName', 'JSXMemberExpression', 'JSXSpreadAttribute', 'JSXExpressionContainer', 'JSXOpeningElement', 'JSXClosingElement', 'JSXFragment', 'JSXOpeningFragment', 'JSXClosingFragment', 'JSXText', 'JSXEmptyExpression', 'JSXSpreadChild'],
       ignoreComments: false

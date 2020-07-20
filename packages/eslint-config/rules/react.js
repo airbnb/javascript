@@ -1,8 +1,3 @@
-const assign = require('object.assign');
-const baseStyleRules = require('eslint-plugin-base/rules/style').rules;
-
-const dangleRules = baseStyleRules['no-underscore-dangle'];
-
 module.exports = {
   plugins: [
     'react',
@@ -17,10 +12,6 @@ module.exports = {
   // View link below for react rules documentation
   // https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
   rules: {
-    'no-underscore-dangle': [dangleRules[0], assign({}, dangleRules[1], {
-      allow: dangleRules[1].allow.concat(['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__']),
-    })],
-
     // Specify whether double or single quotes should be used in JSX attributes
     // https://eslint.org/docs/rules/jsx-quotes
     'jsx-quotes': ['error', 'prefer-double'],
@@ -240,13 +231,9 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/sort-comp.md
     'react/sort-comp': ['error', {
       order: [
-        'static-variables',
-        'static-methods',
         'instance-variables',
         'lifecycle',
-        '/^on.+$/',
-        'getters',
-        'setters',
+        '/^_?on.+$/',
         '/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/',
         'instance-methods',
         'everything-else',
@@ -281,7 +268,7 @@ module.exports = {
           'componentWillUnmount'
         ],
         rendering: [
-          '/^render.+$/',
+          '/^_?render.+$/',
           'render'
         ],
       },

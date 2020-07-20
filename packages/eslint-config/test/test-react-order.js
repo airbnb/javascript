@@ -11,8 +11,10 @@ const cli = new (CLIEngine || ESLint)({
   rules: {
     // It is okay to import devDependencies in tests.
     'import/no-extraneous-dependencies': [2, { devDependencies: true }],
+
     // this doesn't matter for tests
     'lines-between-class-members': 0,
+    'require-jsdoc': 'off',
   },
 });
 
@@ -33,14 +35,14 @@ ${body}}
 `;
 }
 
-test('validate react prop order', (t) => {
-  t.test('make sure our eslintrc has React and JSX linting dependencies', (t) => {
+test('validate react prop order', t => {
+  t.test('make sure our eslintrc has React and JSX linting dependencies', t => {
     t.plan(2);
     t.deepEqual(reactRules.plugins, ['react']);
     t.deepEqual(reactA11yRules.plugins, ['jsx-a11y', 'react']);
   });
 
-  t.test('passes a good component', (t) => {
+  t.test('passes a good component', t => {
     t.plan(3);
     const result = lint(wrapComponent(`
   componentDidMount() {}
@@ -57,7 +59,7 @@ test('validate react prop order', (t) => {
     t.notOk(result.errorCount, 'no errors');
   });
 
-  t.test('order: when random method is first', (t) => {
+  t.test('order: when random method is first', t => {
     t.plan(2);
     const result = lint(wrapComponent(`
   someMethod() {}
@@ -70,10 +72,10 @@ test('validate react prop order', (t) => {
 `));
 
     t.ok(result.errorCount, 'fails');
-    t.deepEqual(result.messages.map((msg) => msg.ruleId), ['react/sort-comp'], 'fails due to sort');
+    t.deepEqual(result.messages.map(msg => msg.ruleId), ['react/sort-comp'], 'fails due to sort');
   });
 
-  t.test('order: when random method after lifecycle methods', (t) => {
+  t.test('order: when random method after lifecycle methods', t => {
     t.plan(2);
     const result = lint(wrapComponent(`
   componentDidMount() {}
@@ -86,6 +88,6 @@ test('validate react prop order', (t) => {
 `));
 
     t.ok(result.errorCount, 'fails');
-    t.deepEqual(result.messages.map((msg) => msg.ruleId), ['react/sort-comp'], 'fails due to sort');
+    t.deepEqual(result.messages.map(msg => msg.ruleId), ['react/sort-comp'], 'fails due to sort');
   });
 });
