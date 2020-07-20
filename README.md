@@ -2,10 +2,10 @@
 
 *A truly reasonable approach to JavaScript*
 
-> **Note**: this guide assumes you are using [Babel](https://babeljs.io), and requires that you use [@elegantthemes/babel-preset](https://npmjs.com/package/@elegantthemes/babel-preset) or the equivalent. It also assumes you are installing shims/polyfills in your app, with [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) or the equivalent.
+> **Note**: this guide assumes you are using [Babel](https://babeljs.io), and requires that you use [babel-preset-airbnb](https://npmjs.com/package/babel-preset-airbnb) or the equivalent. It also assumes you are installing shims/polyfills in your app, with [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) or the equivalent.
 
-[![Downloads](https://img.shields.io/npm/dm/elegantthemes/eslint-plugin.svg)](https://www.npmjs.com/package/@elegantthemes/eslint-plugin)
-[![Downloads](https://img.shields.io/npm/dm/elegantthemes/eslint-plugin-base.svg)](https://www.npmjs.com/package/@elegantthemes/eslint-config-base)
+[![Downloads](https://img.shields.io/npm/dm/@elegantthemes/eslint-config.svg)](https://www.npmjs.com/package/@elegantthemes/eslint-config)
+[![Downloads](https://img.shields.io/npm/dm/@elegantthemes/eslint-config-base.svg)](https://www.npmjs.com/package/@elegantthemes/eslint-config-base)
 
 This guide is available in other languages too. See [Translation](#translation)
 
