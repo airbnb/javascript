@@ -1,22 +1,19 @@
-# Airbnb JavaScript Style Guide() {
+# Elegant Themes JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript*
+*A truly reasonable approach to JavaScript*
 
-> **Note**: this guide assumes you are using [Babel](https://babeljs.io), and requires that you use [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) or the equivalent. It also assumes you are installing shims/polyfills in your app, with [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) or the equivalent.
+> **Note**: this guide assumes you are using [Babel](https://babeljs.io), and requires that you use [@elegantthemes/babel-preset](https://npmjs.com/package/@elegantthemes/babel-preset) or the equivalent. It also assumes you are installing shims/polyfills in your app, with [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) or the equivalent.
 
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Downloads](https://img.shields.io/npm/dm/elegantthemes/eslint-plugin.svg)](https://www.npmjs.com/package/@elegantthemes/eslint-plugin)
+[![Downloads](https://img.shields.io/npm/dm/elegantthemes/eslint-plugin-base.svg)](https://www.npmjs.com/package/@elegantthemes/eslint-plugin-base)
 
 This guide is available in other languages too. See [Translation](#translation)
 
 Other Style Guides
 
-  - [ES5 (Deprecated)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5)
   - [React](react/)
   - [CSS-in-JavaScript](css-in-javascript/)
   - [CSS & Sass](https://github.com/airbnb/css)
-  - [Ruby](https://github.com/airbnb/ruby)
 
 ## Table of Contents
 
@@ -105,9 +102,9 @@ Other Style Guides
 ## References
 
   <a name="references--prefer-const"></a><a name="2.1"></a>
-  - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
+  - [2.1](#references--prefer-const) Use `const` for all of your references that don't need to be reassigned; avoid using `var`. eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
 
-    > Why? This ensures that you can’t reassign your references, which can lead to bugs and difficult to comprehend code.
+    > Why? It makes clear to the reader whether or not a reference will be reassigned later.
 
     ```javascript
     // bad
@@ -647,15 +644,15 @@ Other Style Guides
 ## Functions
 
   <a name="functions--declarations"></a><a name="7.1"></a>
-  - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](https://eslint.org/docs/rules/func-style)
+  - [7.1](#functions--declarations) Use function declarations instead of named function expressions. eslint: [`func-style`](https://eslint.org/docs/rules/func-style)
 
-    > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to explicitly name the expression, regardless of whether or not the name is inferred from the containing variable (which is often the case in modern browsers or when using compilers such as Babel). This eliminates any assumptions made about the Error’s call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
+    > Why? The primary difference between function declarations and function expressions is that declarations are hoisted to the top of the scope in which they are defined. Due to those different behaviors, it is common to have guidelines as to which style of function should be used. There is really no correct or incorrect choice here, it is just a preference.
 
     ```javascript
     // bad
-    function foo() {
+    const short = function someFunction() {
       // ...
-    }
+    };
 
     // bad
     const foo = function () {
@@ -663,22 +660,24 @@ Other Style Guides
     };
 
     // good
-    // lexical name distinguished from the variable-referenced invocation(s)
-    const short = function longUniqueMoreDescriptiveLexicalFoo() {
+    function foo() {
       // ...
-    };
+    }
+
+    // Also good
+    const foo = () => something;
     ```
 
   <a name="functions--iife"></a><a name="7.2"></a>
   - [7.2](#functions--iife) Wrap immediately invoked function expressions in parentheses. eslint: [`wrap-iife`](https://eslint.org/docs/rules/wrap-iife.html)
 
-    > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
+    > Why? Why not? :smirk:
 
     ```javascript
     // immediately-invoked function expression (IIFE)
     (function () {
       console.log('Welcome to the Internet. Please follow me.');
-    }());
+    })();
     ```
 
   <a name="functions--in-blocks"></a><a name="7.3"></a>
@@ -812,43 +811,45 @@ Other Style Guides
   <a name="functions--signature-spacing"></a><a name="7.11"></a>
   - [7.11](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
 
-    > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
+    > Why? Consistency is good.
 
     ```javascript
     // bad
-    const f = function(){};
-    const g = function (){};
-    const h = function() {};
+    function(){};
+    function (){};
+    function () {};
 
     // good
-    const x = function () {};
-    const y = function a() {};
+    function() {};
+
+    // better
+    function a() {};
     ```
 
   <a name="functions--mutate-params"></a><a name="7.12"></a>
-  - [7.12](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.12](#functions--mutate-params) When mutating parameters make sure its clear either through the code itself or code comments. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+    > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller when its not expected.
 
     ```javascript
-    // bad
+    // fine
     function f1(obj) {
       obj.key = 1;
     }
 
-    // good
+    // probably better, but silly
     function f2(obj) {
       const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
     }
     ```
 
   <a name="functions--reassign-params"></a><a name="7.13"></a>
-  - [7.13](#functions--reassign-params) Never reassign parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.13](#functions--reassign-params) Its okay to reassign parameters so long as its not confusing in context. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
+    > Why? How many times have you been confused by a parameter being reassigned? Zero, right? That's why.
 
     ```javascript
-    // bad
+    // fine
     function f1(a) {
       a = 1;
       // ...
@@ -892,17 +893,12 @@ Other Style Guides
     ```
 
   <a name="functions--signature-invocation-indentation"></a>
-  - [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item. eslint: [`function-paren-newline`](https://eslint.org/docs/rules/function-paren-newline)
+  - [7.15](#functions--signature-invocation-indentation) Function signatures and invocations should ***ALWAYS*** be on a single line. eslint: [`function-paren-newline`](https://eslint.org/docs/rules/function-paren-newline)
+
+    > Why? Multiline function signatures and invocations make the code less readable and harder to grok.
 
     ```javascript
     // bad
-    function foo(bar,
-                 baz,
-                 quux) {
-      // ...
-    }
-
-    // good
     function foo(
       bar,
       baz,
@@ -911,17 +907,20 @@ Other Style Guides
       // ...
     }
 
-    // bad
-    console.log(foo,
-      bar,
-      baz);
-
     // good
+    function foo(bar, baz, quux) {
+          // ...
+    }
+
+    // bad
     console.log(
       foo,
       bar,
       baz,
     );
+
+    // good
+    console.log(foo, bar, baz);
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -956,16 +955,16 @@ Other Style Guides
 
     ```javascript
     // bad
-    [1, 2, 3].map((number) => {
+    [1, 2, 3].map(number => {
       const nextNumber = number + 1;
       `A string containing the ${nextNumber}.`;
     });
 
     // good
-    [1, 2, 3].map((number) => `A string containing the ${number + 1}.`);
+    [1, 2, 3].map(number => `A string containing the ${number + 1}.`);
 
     // good
-    [1, 2, 3].map((number) => {
+    [1, 2, 3].map(number => {
       const nextNumber = number + 1;
       return `A string containing the ${nextNumber}.`;
     });
@@ -974,78 +973,50 @@ Other Style Guides
     [1, 2, 3].map((number, index) => ({
       [index]: number,
     }));
-
-    // No implicit return with side effects
-    function foo(callback) {
-      const val = callback();
-      if (val === true) {
-        // Do something if callback returns true
-      }
-    }
-
-    let bool = false;
-
-    // bad
-    foo(() => bool = true);
-
-    // good
-    foo(() => {
-      bool = true;
-    });
     ```
 
   <a name="arrows--paren-wrap"></a><a name="8.3"></a>
-  - [8.3](#arrows--paren-wrap) In case the expression spans over multiple lines, wrap it in parentheses for better readability.
+  - [8.3](#arrows--paren-wrap) The expression should not span over multiple lines as that is almost never necessary.
 
-    > Why? It shows clearly where the function starts and ends.
+    > Why? Improved code readability.
 
     ```javascript
     // bad
-    ['get', 'post', 'put'].map((httpMethod) => Object.prototype.hasOwnProperty.call(
+    ['get', 'post', 'put'].map(httpMethod => Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
         httpMethod,
       )
     );
 
     // good
-    ['get', 'post', 'put'].map((httpMethod) => (
-      Object.prototype.hasOwnProperty.call(
-        httpMagicObjectWithAVeryLongName,
-        httpMethod,
-      )
-    ));
+    ['get', 'post', 'put'].map(httpMethod => Object.prototype.hasOwnProperty.call(httpMagicObjectWithAVeryLongName, httpMethod));
+
+    // better
+    ['get', 'post', 'put'].map(httpMethod => {
+      return Object.prototype.hasOwnProperty.call(httpMagicObjectWithAVeryLongName, httpMethod);
+    });
     ```
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) Always include parentheses around arguments for clarity and consistency. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html)
+  - [8.4](#arrows--one-arg-parens) Only include parentheses around arguments when there are multiple arguments. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html)
 
-    > Why? Minimizes diff churn when adding or removing arguments.
+    > Why? Avoid unnecessary parentheses for cleaner code.
 
     ```javascript
     // bad
-    [1, 2, 3].map(x => x * x);
-
-    // good
     [1, 2, 3].map((x) => x * x);
 
-    // bad
-    [1, 2, 3].map(number => (
-      `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
-    ));
-
     // good
-    [1, 2, 3].map((number) => (
-      `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
-    ));
+    [1, 2, 3].map(x => x * x);
 
     // bad
-    [1, 2, 3].map(x => {
+    [1, 2, 3].map((x) => {
       const y = x + 1;
       return x * y;
     });
 
     // good
-    [1, 2, 3].map((x) => {
+    [1, 2, 3].map(x => {
       const y = x + 1;
       return x * y;
     });
@@ -1076,18 +1047,15 @@ Other Style Guides
 
     ```javascript
     // bad
-    (foo) =>
+    foo =>
       bar;
 
-    (foo) =>
+    foo =>
       (bar);
 
     // good
-    (foo) => bar;
-    (foo) => (bar);
-    (foo) => (
-       bar
-    )
+    foo => bar;
+    foo => (bar);
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1324,22 +1292,6 @@ Other Style Guides
     import AirbnbStyleGuide from './AirbnbStyleGuide';
     ```
 
-  <a name="modules--no-export-from-import"></a><a name="10.3"></a>
-  - [10.3](#modules--no-export-from-import) And do not export directly from an import.
-
-    > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
-
-    ```javascript
-    // bad
-    // filename es6.js
-    export { es6 as default } from './AirbnbStyleGuide';
-
-    // good
-    // filename es6.js
-    import { es6 } from './AirbnbStyleGuide';
-    export default es6;
-    ```
-
   <a name="modules--no-duplicate-imports"></a>
   - [10.4](#modules--no-duplicate-imports) Only import from a path in one place.
  eslint: [`no-duplicate-imports`](https://eslint.org/docs/rules/no-duplicate-imports)
@@ -1535,7 +1487,7 @@ Other Style Guides
     };
 
     // bad
-    const quux = function*() {
+    const quux = function* () {
       // ...
     };
 
@@ -1569,7 +1521,7 @@ Other Style Guides
     }
 
     // good
-    const foo = function* () {
+    const foo = function*() {
       // ...
     };
     ```
@@ -1654,9 +1606,9 @@ Other Style Guides
         dragonball = 'z';
 
     // good
-    const items = getItems();
+    const items        = getItems();
     const goSportsTeam = true;
-    const dragonball = 'z';
+    const dragonball   = 'z';
     ```
 
   <a name="variables--const-let-group"></a><a name="13.3"></a>
@@ -1679,7 +1631,8 @@ Other Style Guides
 
     // good
     const goSportsTeam = true;
-    const items = getItems();
+    const items        = getItems();
+
     let dragonball;
     let i;
     let length;
@@ -1758,13 +1711,12 @@ Other Style Guides
     ```
 
   <a name="variables--unary-increment-decrement"></a><a name="13.6"></a>
-  - [13.6](#variables--unary-increment-decrement) Avoid using unary increments and decrements (`++`, `--`). eslint [`no-plusplus`](https://eslint.org/docs/rules/no-plusplus)
+  - [13.6](#variables--unary-increment-decrement) It's okay to use unary increments and decrements (`++`, `--`). eslint [`no-plusplus`](https://eslint.org/docs/rules/no-plusplus)
 
-    > Why? Per the eslint documentation, unary increment and decrement statements are subject to automatic semicolon insertion and can cause silent errors with incrementing or decrementing values within an application. It is also more expressive to mutate your values with statements like `num += 1` instead of `num++` or `num ++`. Disallowing unary increment and decrement statements also prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
+    > Why? Because they are part of the language and there is not one sensible reason not to use them.
 
     ```javascript
-    // bad
-
+    // fine
     const array = [1, 2, 3];
     let num = 1;
     num++;
@@ -1781,7 +1733,6 @@ Other Style Guides
     }
 
     // good
-
     const array = [1, 2, 3];
     let num = 1;
     num += 1;
@@ -1903,7 +1854,7 @@ Other Style Guides
 
       anonymous(); // => TypeError anonymous is not a function
 
-      var anonymous = function () {
+      var anonymous = function() {
         console.log('anonymous function expression');
       };
     }
@@ -2257,9 +2208,9 @@ Other Style Guides
 ## Control Statements
 
   <a name="control-statements"></a>
-  - [17.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition could be put into a new line. The logical operator should begin the line.
+  - [17.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition should be put into a semantically named variable.
 
-    > Why? Requiring operators at the beginning of the line keeps the operators aligned and follows a pattern similar to method chaining. This also improves readability by making it easier to visually follow complex logic.
+    > Why? This improves readability by making it easier to visually follow complex logic.
 
     ```javascript
     // bad
@@ -2287,7 +2238,7 @@ Other Style Guides
       thing1();
     }
 
-    // good
+    // bad
     if (
       foo === 123
       && bar === 'abc'
@@ -2295,7 +2246,7 @@ Other Style Guides
       thing1();
     }
 
-    // good
+    // bad
     if (
       (foo === 123 || bar === 'abc')
       && doesItLookGoodWhenItBecomesThatLong()
@@ -2305,20 +2256,30 @@ Other Style Guides
     }
 
     // good
+    const is_some_condition = doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening();
+
+    if ((foo === 123 || bar === 'abc') && is_some_condition) {
+      thing();
+    }
+
+    // good
     if (foo === 123 && bar === 'abc') {
       thing1();
     }
     ```
 
   <a name="control-statement--value-selection"></a><a name="control-statements--value-selection"></a>
-  - [17.2](#control-statements--value-selection) Don't use selection operators in place of control statements.
+  - [17.2](#control-statements--value-selection) It's okay to use selection operators in place of control statements so long as you don't negate them with `!`.
 
     ```javascript
     // bad
-    !isRunning && startRunning();
+    ! isRunning && startRunning();
 
     // good
-    if (!isRunning) {
+    shouldStart && startRunning();
+
+    // good
+    if (! isRunning) {
       startRunning();
     }
     ```
@@ -2328,37 +2289,36 @@ Other Style Guides
 ## Comments
 
   <a name="comments--multiline"></a><a name="17.1"></a>
-  - [18.1](#comments--multiline) Use `/** ... */` for multiline comments.
+  - [18.1](#comments--multiline) Use `//` for all comments regardless of the number of lines.
+
+    > Why? Makes doc comments easily distinguishable from non-doc comments.
 
     ```javascript
     // bad
-    // make() returns a new element
-    // based on the passed in tag name
-    //
-    // @param {String} tag
-    // @return {Element} element
-    function make(tag) {
+    /**
+     * Explain something that is important to know
+     * at this point in the code execution. Make sure its
+     * a better example than this example comment.
+     */
+    doSomething();
 
-      // ...
-
-      return element;
-    }
+    // bad
+    /*
+     * Explain something that is important to know
+     * at this point in the code execution. Make sure its
+     * a better example than this example comment.
+     */
+    doSomething();
 
     // good
-    /**
-     * make() returns a new element
-     * based on the passed-in tag name
-     */
-    function make(tag) {
-
-      // ...
-
-      return element;
-    }
+    // Explain something that is important to know
+    // at this point in the code execution. Make sure its
+    // a better example than this example comment.
+    doSOmething();
     ```
 
   <a name="comments--singleline"></a><a name="17.2"></a>
-  - [18.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it’s on the first line of a block.
+  - [18.2](#comments--singleline) Place single comments on a newline above the subject of the comment in most cases. Put an empty line before the comment unless it’s on the first line of a block.
 
     ```javascript
     // bad
@@ -2367,6 +2327,20 @@ Other Style Guides
     // good
     // is current tab
     const active = true;
+
+    // also good
+    [item1, item2].forEach(i => {
+      if (something) {
+        return false; // break
+      }
+    });
+
+    // also good
+    [item1, item2].forEach(i => {
+      if (something) {
+        return; // continue
+      }
+    });
 
     // bad
     function getType() {
@@ -2814,6 +2788,8 @@ Other Style Guides
   <a name="whitespace--in-braces"></a><a name="18.11"></a>
   - [19.12](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](https://eslint.org/docs/rules/object-curly-spacing.html)
 
+    > Why add spaces for these and not brackets? We may never know, but probably because it was some guy's personal preference with no other logical reason to back it up :shrug:
+
     ```javascript
     // bad
     const foo = {clark: 'kent'};
@@ -2994,7 +2970,7 @@ Other Style Guides
   <a name="commas--dangling"></a><a name="19.2"></a>
   - [20.2](#commas--dangling) Additional trailing comma: **Yup.** eslint: [`comma-dangle`](https://eslint.org/docs/rules/comma-dangle.html)
 
-    > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don’t have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
+    > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don’t have to worry about the [trailing comma problem](https://github.com/elegantthemes/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
 
     ```diff
     // bad - git diff without trailing comma
@@ -3045,7 +3021,7 @@ Other Style Guides
       // does nothing
     }
 
-    // good
+    // bad (See: Section 7.15)
     function createHero(
       firstName,
       lastName,
@@ -3054,7 +3030,7 @@ Other Style Guides
       // does nothing
     }
 
-    // good (note that a comma must not appear after a "rest" element)
+    // bad (See: Section 7.15, but do note that a comma must not appear after a "rest" element)
     function createHero(
       firstName,
       lastName,
@@ -3071,14 +3047,14 @@ Other Style Guides
       inventorOf
     );
 
-    // good
+    // bad (See: Section 7.15)
     createHero(
       firstName,
       lastName,
       inventorOf,
     );
 
-    // good (note that a comma must not appear after a "rest" element)
+    // bad (See: Section 7.15, but do note that a comma must not appear after a "rest" element)
     createHero(
       firstName,
       lastName,
@@ -3193,16 +3169,14 @@ Other Style Guides
 
     ```javascript
     // good
-    /**
-     * parseInt was the reason my code was slow.
-     * Bitshifting the String to coerce it to a
-     * Number made it a lot faster.
-     */
+    // parseInt was the reason my code was slow.
+    // Bitshifting the String to coerce it to a
+    // Number made it a lot faster.
     const val = inputValue >> 0;
     ```
 
   <a name="coercion--bitwise"></a><a name="21.5"></a>
-  - [22.5](#coercion--bitwise) **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](https://es5.github.io/#x4.3.19), but bitshift operations always return a 32-bit integer ([source](https://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
+  - [22.5](#coercion--bitwise) **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](https://es5.github.io/#x4.3.19), but bitshift operations always return a 32-bit integer ([source](https://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/elegantthemes/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
 
     ```javascript
     2147483647 >> 0; // => 2147483647
@@ -3246,16 +3220,19 @@ Other Style Guides
     ```
 
   <a name="naming--camelCase"></a><a name="22.2"></a>
-  - [23.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. eslint: [`camelcase`](https://eslint.org/docs/rules/camelcase.html)
+  - [23.2](#naming--camelCase) Use camelCase when naming callables (functions/methods). Use snake_case when naming non-callables. eslint: [`camelcase`](https://eslint.org/docs/rules/camelcase.html)
+
+    > Why? This convention allows you to immediately understand more about a variable just by reading its name which saves you time and effort. You will know whether a variable or an argument is a callable, a class, or neither just from its name.
 
     ```javascript
     // bad
-    const OBJEcttsssss = {};
-    const this_is_my_object = {};
-    function c() {}
+    const OBJEcttsssss   = {};
+    const thisIsMyObject = {};
+    function this_is_my_function() {}
 
     // good
-    const thisIsMyObject = {};
+    const objecttsssss      = {};
+    const this_is_my_object = {};
     function thisIsMyFunction() {}
     ```
 
@@ -3264,44 +3241,38 @@ Other Style Guides
 
     ```javascript
     // bad
-    function user(options) {
+    function userGroup(options) {
       this.name = options.name;
     }
 
-    const bad = new user({
+    const bad = new userGroup({
       name: 'nope',
     });
 
     // good
-    class User {
+    class UserGroup {
       constructor(options) {
         this.name = options.name;
       }
     }
 
-    const good = new User({
+    const good = new UserGroup({
       name: 'yup',
     });
     ```
 
   <a name="naming--leading-underscore"></a><a name="22.4"></a>
-  - [23.4](#naming--leading-underscore) Do not use trailing or leading underscores. eslint: [`no-underscore-dangle`](https://eslint.org/docs/rules/no-underscore-dangle.html)
+  - [23.4](#naming--leading-underscore) Do not use trailing underscores. Use a leading underscore for properties and methods that are not intended to be used from outside of the class instance. eslint: [`no-underscore-dangle`](https://eslint.org/docs/rules/no-underscore-dangle.html)
 
-    > Why? JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won’t count as breaking, or that tests aren’t needed. tl;dr: if you want something to be “private”, it must not be observably present.
+    > Why? JavaScript does not have the concept of privacy in terms of properties or methods. A leading underscore is a common convention to signify that a property or method is not intended to be used from outside a class instance. It makes comprehending the code easier and faster.
 
     ```javascript
     // bad
-    this.__firstName__ = 'Panda';
-    this.firstName_ = 'Panda';
-    this._firstName = 'Panda';
+    this.__first_name__ = 'Panda';
+    this.first_name_    = 'Panda';
 
     // good
-    this.firstName = 'Panda';
-
-    // good, in environments where WeakMaps are available
-    // see https://kangax.github.io/compat-table/es6/#test-WeakMap
-    const firstNames = new WeakMap();
-    firstNames.set(this, 'Panda');
+    this._first_name = 'Panda';
     ```
 
   <a name="naming--self-this"></a><a name="22.5"></a>
@@ -3409,12 +3380,7 @@ Other Style Guides
     import SMSContainer from './containers/SMSContainer';
 
     // good
-    const HTTPRequests = [
-      // ...
-    ];
-
-    // also good
-    const httpRequests = [
+    const http_requests = [
       // ...
     ];
 
@@ -3473,21 +3439,10 @@ Other Style Guides
   - [24.1](#accessors--not-required) Accessor functions for properties are not required.
 
   <a name="accessors--no-getters-setters"></a><a name="23.2"></a>
-  - [24.2](#accessors--no-getters-setters) Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use `getVal()` and `setVal('hello')`.
+  - [24.2](#accessors--no-getters-setters) It's okay to use JavaScript getters/setters.
 
     ```javascript
     // bad
-    class Dragon {
-      get age() {
-        // ...
-      }
-
-      set age(value) {
-        // ...
-      }
-    }
-
-    // good
     class Dragon {
       getAge() {
         // ...
@@ -3497,40 +3452,41 @@ Other Style Guides
         // ...
       }
     }
+
+    // good
+    class Dragon {
+      get age() {
+        // ...
+      }
+
+      set age(value) {
+        // ...
+      }
+    }
     ```
 
   <a name="accessors--boolean-prefix"></a><a name="23.3"></a>
-  - [24.3](#accessors--boolean-prefix) If the property/method is a `boolean`, use `isVal()` or `hasVal()`.
+  - [24.3](#accessors--boolean-prefix) If the property/method is a `boolean`, then its name should be a yes or no question (starting with is, can, has, should, was, had, must, or will).
 
     ```javascript
     // bad
-    if (!dragon.age()) {
+    if (! dragon.age()) {
       return false;
     }
 
     // good
-    if (!dragon.hasAge()) {
+    if (! dragon.hasAge()) {
       return false;
     }
-    ```
 
-  <a name="accessors--consistent"></a><a name="23.4"></a>
-  - [24.4](#accessors--consistent) It’s okay to create `get()` and `set()` functions, but be consistent.
+    // bad
+    if (! thing.loading) {
+      return false;
+    }
 
-    ```javascript
-    class Jedi {
-      constructor(options = {}) {
-        const lightsaber = options.lightsaber || 'blue';
-        this.set('lightsaber', lightsaber);
-      }
-
-      set(key, val) {
-        this[key] = val;
-      }
-
-      get(key) {
-        return this[key];
-      }
+    // good
+    if (! thing.is_loading) {
+      return false;
     }
     ```
 
@@ -3547,8 +3503,8 @@ Other Style Guides
 
     // ...
 
-    $(this).on('listingUpdated', (e, listingID) => {
-      // do something with listingID
+    $(this).on('listingUpdated', (e, listing_id) => {
+      // do something with listing_id
     });
     ```
 
@@ -3556,12 +3512,12 @@ Other Style Guides
 
     ```javascript
     // good
-    $(this).trigger('listingUpdated', { listingID: listing.id });
+    $(this).trigger('listingUpdated', { listing_id });
 
     // ...
 
     $(this).on('listingUpdated', (e, data) => {
-      // do something with data.listingID
+      // do something with data.listing_id
     });
     ```
 
@@ -3681,7 +3637,7 @@ Other Style Guides
     eslint: [`no-restricted-globals`](https://eslint.org/docs/rules/no-restricted-globals)
 
     > Why? The global `isNaN` coerces non-numbers to numbers, returning true for anything that coerces to NaN.
-    > If this behavior is desired, make it explicit.
+      If this behavior is desired, make it explicit.
 
     ```javascript
     // bad
@@ -3763,8 +3719,8 @@ Other Style Guides
 **Tools**
 
   - Code Style Linters
-    - [ESlint](https://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/airbnb/javascript/blob/master/linters/.eslintrc)
-    - [JSHint](http://jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/.jshintrc)
+    - [ESlint](https://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/elegantthemes/javascript/blob/master/linters/.eslintrc)
+    - [JSHint](http://jshint.com/) - [Airbnb Style .jshintrc](https://github.com/elegantthemes/javascript/blob/master/linters/.jshintrc)
   - Neutrino Preset - [@neutrinojs/airbnb](https://neutrinojs.org/packages/airbnb/)
 
 **Other Style Guides**
@@ -3778,7 +3734,7 @@ Other Style Guides
 **Other Styles**
 
   - [Naming this in nested functions](https://gist.github.com/cjohansen/4135065) - Christian Johansen
-  - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52) - Ross Allen
+  - [Conditional Callbacks](https://github.com/elegantthemes/javascript/issues/52) - Ross Allen
   - [Popular JavaScript Coding Conventions on GitHub](http://sideeffect.kr/popularconvention/#javascript) - JeongHoon Byun
   - [Multiple var statements in JavaScript, not superfluous](http://benalman.com/news/2012/05/multiple-var-statements-javascript/) - Ben Alman
 
@@ -3832,108 +3788,7 @@ Other Style Guides
 
   This is a list of organizations that are using this style guide. Send us a pull request and we'll add you to the list.
 
-  - **123erfasst**: [123erfasst/javascript](https://github.com/123erfasst/javascript)
-  - **3blades**: [3Blades](https://github.com/3blades)
-  - **4Catalyzer**: [4Catalyzer/javascript](https://github.com/4Catalyzer/javascript)
-  - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
-  - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
-  - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
-  - **AltSchool**: [AltSchool/javascript](https://github.com/AltSchool/javascript)
-  - **Apartmint**: [apartmint/javascript](https://github.com/apartmint/javascript)
-  - **Ascribe**: [ascribe/javascript](https://github.com/ascribe/javascript)
-  - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
-  - **Avant**: [avantcredit/javascript](https://github.com/avantcredit/javascript)
-  - **Axept**: [axept/javascript](https://github.com/axept/javascript)
-  - **BashPros**: [BashPros/javascript](https://github.com/BashPros/javascript)
-  - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
-  - **Bisk**: [bisk](https://github.com/Bisk/)
-  - **Bonhomme**: [bonhommeparis/javascript](https://github.com/bonhommeparis/javascript)
-  - **Brainshark**: [brainshark/javascript](https://github.com/brainshark/javascript)
-  - **CaseNine**: [CaseNine/javascript](https://github.com/CaseNine/javascript)
-  - **Cerner**: [Cerner](https://github.com/cerner/)
-  - **Chartboost**: [ChartBoost/javascript-style-guide](https://github.com/ChartBoost/javascript-style-guide)
-  - **Coeur d'Alene Tribe**: [www.cdatribe-nsn.gov](https://www.cdatribe-nsn.gov)
-  - **ComparaOnline**: [comparaonline/javascript](https://github.com/comparaonline/javascript-style-guide)
-  - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
-  - **DailyMotion**: [dailymotion/javascript](https://github.com/dailymotion/javascript)
-  - **DoSomething**: [DoSomething/eslint-config](https://github.com/DoSomething/eslint-config)
-  - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
-  - **Drupal**: [www.drupal.org](https://www.drupal.org/project/drupal)
-  - **Ecosia**: [ecosia/javascript](https://github.com/ecosia/javascript)
-  - **Evernote**: [evernote/javascript-style-guide](https://github.com/evernote/javascript-style-guide)
-  - **Evolution Gaming**: [evolution-gaming/javascript](https://github.com/evolution-gaming/javascript)
-  - **EvozonJs**: [evozonjs/javascript](https://github.com/evozonjs/javascript)
-  - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
-  - **Expensify** [Expensify/Style-Guide](https://github.com/Expensify/Style-Guide/blob/master/javascript.md)
-  - **Flexberry**: [Flexberry/javascript-style-guide](https://github.com/Flexberry/javascript-style-guide)
-  - **Gawker Media**: [gawkermedia](https://github.com/gawkermedia/)
-  - **General Electric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
-  - **Generation Tux**: [GenerationTux/javascript](https://github.com/generationtux/styleguide)
-  - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
-  - **GreenChef**: [greenchef/javascript](https://github.com/greenchef/javascript)
-  - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
-  - **Grupo-Abraxas**: [Grupo-Abraxas/javascript](https://github.com/Grupo-Abraxas/javascript)
-  - **Happeo**: [happeo/javascript](https://github.com/happeo/javascript)
-  - **Honey**: [honeyscience/javascript](https://github.com/honeyscience/javascript)
-  - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript-style-guide)
-  - **Huballin**: [huballin](https://github.com/huballin/)
-  - **HubSpot**: [HubSpot/javascript](https://github.com/HubSpot/javascript)
-  - **Hyper**: [hyperoslo/javascript-playbook](https://github.com/hyperoslo/javascript-playbook/blob/master/style.md)
-  - **InterCity Group**: [intercitygroup/javascript-style-guide](https://github.com/intercitygroup/javascript-style-guide)
-  - **Jam3**: [Jam3/Javascript-Code-Conventions](https://github.com/Jam3/Javascript-Code-Conventions)
-  - **JeopardyBot**: [kesne/jeopardy-bot](https://github.com/kesne/jeopardy-bot/blob/master/STYLEGUIDE.md)
-  - **JSSolutions**: [JSSolutions/javascript](https://github.com/JSSolutions/javascript)
-  - **Kaplan Komputing**: [kaplankomputing/javascript](https://github.com/kaplankomputing/javascript)
-  - **KickorStick**: [kickorstick](https://github.com/kickorstick/)
-  - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/Javascript-style-guide)
-  - **LEINWAND**: [LEINWAND/javascript](https://github.com/LEINWAND/javascript)
-  - **Lonely Planet**: [lonelyplanet/javascript](https://github.com/lonelyplanet/javascript)
-  - **M2GEN**: [M2GEN/javascript](https://github.com/M2GEN/javascript)
-  - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
-  - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
-  - **MitocGroup**: [MitocGroup/javascript](https://github.com/MitocGroup/javascript)
-  - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
-  - **Money Advice Service**: [moneyadviceservice/javascript](https://github.com/moneyadviceservice/javascript)
-  - **Muber**: [muber](https://github.com/muber/)
-  - **National Geographic**: [natgeo](https://github.com/natgeo/)
-  - **Nimbl3**: [nimbl3/javascript](https://github.com/nimbl3/javascript)
-  - **NullDev**: [NullDevCo/JavaScript-Styleguide](https://github.com/NullDevCo/JavaScript-Styleguide)
-  - **Nulogy**: [nulogy/javascript](https://github.com/nulogy/javascript)
-  - **Orange Hill Development**: [orangehill/javascript](https://github.com/orangehill/javascript)
-  - **Orion Health**: [orionhealth/javascript](https://github.com/orionhealth/javascript)
-  - **OutBoxSoft**: [OutBoxSoft/javascript](https://github.com/OutBoxSoft/javascript)
-  - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
-  - **Pier 1**: [Pier1/javascript](https://github.com/pier1/javascript)
-  - **Qotto**: [Qotto/javascript-style-guide](https://github.com/Qotto/javascript-style-guide)
-  - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
-  - **reddit**: [reddit/styleguide/javascript](https://github.com/reddit/styleguide/tree/master/javascript)
-  - **React**: [facebook.github.io/react/contributing/how-to-contribute.html#style-guide](https://facebook.github.io/react/contributing/how-to-contribute.html#style-guide)
-  - **REI**: [reidev/js-style-guide](https://github.com/rei/code-style-guides/)
-  - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
-  - **Sainsbury’s Supermarkets**: [jsainsburyplc](https://github.com/jsainsburyplc)
-  - **SeekingAlpha**: [seekingalpha/javascript-style-guide](https://github.com/seekingalpha/javascript-style-guide)
-  - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
-  - **Sourcetoad**: [sourcetoad/javascript](https://github.com/sourcetoad/javascript)
-  - **Springload**: [springload](https://github.com/springload/)
-  - **StratoDem Analytics**: [stratodem/javascript](https://github.com/stratodem/javascript)
-  - **SteelKiwi Development**: [steelkiwi/javascript](https://github.com/steelkiwi/javascript)
-  - **StudentSphere**: [studentsphere/javascript](https://github.com/studentsphere/guide-javascript)
-  - **SwoopApp**: [swoopapp/javascript](https://github.com/swoopapp/javascript)
-  - **SysGarage**: [sysgarage/javascript-style-guide](https://github.com/sysgarage/javascript-style-guide)
-  - **Syzygy Warsaw**: [syzygypl/javascript](https://github.com/syzygypl/javascript)
-  - **Target**: [target/javascript](https://github.com/target/javascript)
-  - **Terra**: [terra](https://github.com/cerner?utf8=%E2%9C%93&q=terra&type=&language=)
-  - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
-  - **The Nerdery**: [thenerdery/javascript-standards](https://github.com/thenerdery/javascript-standards)
-  - **Tomify**: [tomprats](https://github.com/tomprats)
-  - **Traitify**: [traitify/eslint-config-traitify](https://github.com/traitify/eslint-config-traitify)
-  - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
-  - **UrbanSim**: [urbansim](https://github.com/urbansim/)
-  - **VoxFeed**: [VoxFeed/javascript-style-guide](https://github.com/VoxFeed/javascript-style-guide)
-  - **WeBox Studio**: [weboxstudio/javascript](https://github.com/weboxstudio/javascript)
-  - **Weggo**: [Weggo/javascript](https://github.com/Weggo/javascript)
-  - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
-  - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
+  -
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -3941,39 +3796,21 @@ Other Style Guides
 
   This style guide is also available in other languages:
 
-  - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
-  - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
-  - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
-  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese (Simplified)**: [lin-123/javascript](https://github.com/lin-123/javascript)
-  - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chinese (Traditional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript)
-  - ![fr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/France.png) **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
-  - ![de](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png) **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
-  - ![it](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png) **Italian**: [sinkswim/javascript-style-guide](https://github.com/sinkswim/javascript-style-guide)
-  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javascript-style-guide](https://github.com/mitsuruog/javascript-style-guide)
-  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [ParkSB/javascript-style-guide](https://github.com/ParkSB/javascript-style-guide)
-  - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [leonidlebedev/javascript-airbnb](https://github.com/leonidlebedev/javascript-airbnb)
-  - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
-  - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
-  - ![tr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Turkey.png) **Turkish**: [eraycetinay/javascript](https://github.com/eraycetinay/javascript)
-  - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Ukrainian**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript)
-  - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnam**: [dangkyokhoang/javascript-style-guide](https://github.com/dangkyokhoang/javascript-style-guide)
-
-## The JavaScript Style Guide Guide
-
-  - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
+  -
 
 ## Chat With Us About JavaScript
 
-  - Find us on [gitter](https://gitter.im/airbnb/javascript).
+  - Coming soon with GitHub Discussions feature.
 
 ## Contributors
 
-  - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
+  - [View Contributors](https://github.com/elegantthemes/javascript/graphs/contributors)
 
 ## License
 
 (The MIT License)
 
+Copyright (c) 2020 Elegant Themes
 Copyright (c) 2012 Airbnb
 
 Permission is hereby granted, free of charge, to any person obtaining
