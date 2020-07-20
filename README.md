@@ -3719,12 +3719,11 @@ Other Style Guides
 **Tools**
 
   - Code Style Linters
-    - [ESlint](https://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/elegantthemes/javascript/blob/master/linters/.eslintrc)
-    - [JSHint](http://jshint.com/) - [Airbnb Style .jshintrc](https://github.com/elegantthemes/javascript/blob/master/linters/.jshintrc)
-  - Neutrino Preset - [@neutrinojs/airbnb](https://neutrinojs.org/packages/airbnb/)
+    - [ESlint](https://eslint.org/) - [Elegant Themes Style .eslintrc](https://github.com/elegantthemes/javascript/blob/master/linters/.eslintrc)
 
 **Other Style Guides**
 
+  - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
   - [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
   - [Google JavaScript Style Guide (Old)](https://google.github.io/styleguide/javascriptguide.xml)
   - [jQuery Core Style Guidelines](https://contribute.jquery.org/style-guide/js/)
