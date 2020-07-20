@@ -25,6 +25,7 @@
     "style guide",
     "lint",
     "airbnb",
+    "elegantthemes",
     "es6",
     "es2015",
     "es2016",
@@ -33,14 +34,14 @@
     "react",
     "jsx"
   ],
-  "author": "Harrison Shoff <hi@hshoff.com> (https://twitter.com/hshoff)",
+  "author": "Elegant Themes <dustin@elegantthemes.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/airbnb/javascript/issues"
+    "url": "https://github.com/elegantthemes/javascript/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript",
+  "homepage": "https://github.com/elegantthemes/javascript",
   "devDependencies": {
-    "markdownlint": "^0.20.3",
-    "markdownlint-cli": "^0.23.1"
+    "markdownlint": "0.20.3",
+    "markdownlint-cli": "0.23.1"
   }
 }

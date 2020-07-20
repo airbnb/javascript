@@ -23,19 +23,17 @@ module.exports = {
     'consistent-return': 'error',
 
     // specify curly brace conventions for all control statements
-    curly: ['error', 'multi-line'], // multiline
+    curly: ['error', 'multi-line', 'consistent'], // multiline
 
     // require default case in switch statements
     'default-case': ['error', { commentPattern: '^no default$' }],
 
     // Enforce default clauses in switch statements to be last
     // https://eslint.org/docs/rules/default-case-last
-    // TODO: enable, semver-minor, when eslint v7 is required (which is a major)
-    'default-case-last': 'off',
+    'default-case-last': 'on',
 
     // https://eslint.org/docs/rules/default-param-last
-    // TODO: enable, semver-minor, when eslint v6.4 is required (which is a major)
-    'default-param-last': 'off',
+    'default-param-last': 'on',
 
     // encourages use of dot notation whenever possible
     'dot-notation': ['error', { allowKeywords: true }],
@@ -51,7 +49,7 @@ module.exports = {
     // Require grouped accessor pairs in object literals and classes
     // https://eslint.org/docs/rules/grouped-accessor-pairs
     // TODO: enable in next major, altho the guide forbids getters/setters anyways
-    'grouped-accessor-pairs': 'off',
+    'grouped-accessor-pairs': ['error', 'getBeforeSet'],
 
     // make sure for-in loops have an if statement
     'guard-for-in': 'error',
@@ -72,7 +70,6 @@ module.exports = {
 
     // Disallow returning value in constructor
     // https://eslint.org/docs/rules/no-constructor-return
-    // TODO: enable, semver-major
     'no-constructor-return': 'off',
 
     // disallow division operators explicitly at beginning of regular expression
@@ -142,7 +139,7 @@ module.exports = {
     'no-implied-eval': 'error',
 
     // disallow this keywords outside of classes or class-like objects
-    'no-invalid-this': 'off',
+    'no-invalid-this': 'on',
 
     // disallow usage of __iterator__ property
     'no-iterator': 'error',
@@ -192,22 +189,7 @@ module.exports = {
     // disallow reassignment of function parameters
     // disallow parameter object manipulation except for specific exclusions
     // rule: https://eslint.org/docs/rules/no-param-reassign.html
-    'no-param-reassign': ['error', {
-      props: true,
-      ignorePropertyModificationsFor: [
-        'acc', // for reduce accumulators
-        'accumulator', // for reduce accumulators
-        'e', // for e.returnvalue
-        'ctx', // for Koa routing
-        'context', // for Koa routing
-        'req', // for Express requests
-        'request', // for Express requests
-        'res', // for Express responses
-        'response', // for Express responses
-        '$scope', // for Angular 1 scopes
-        'staticContext', // for ReactRouter context
-      ]
-    }],
+    'no-param-reassign': 'off',
 
     // disallow usage of __proto__ property
     'no-proto': 'error',
@@ -258,7 +240,7 @@ module.exports = {
     }],
 
     // disallow use of assignment in return statement
-    'no-return-assign': ['error', 'always'],
+    'no-return-assign': 'off',
 
     // disallow redundant `return await`
     'no-return-await': 'error',
@@ -335,10 +317,10 @@ module.exports = {
 
     // https://eslint.org/docs/rules/prefer-regex-literals
     // TODO; enable, semver-minor, once eslint v6.4 is required (which is a major)
-    'prefer-regex-literals': 'off',
+    'prefer-regex-literals': 'warn',
 
     // require use of the second argument for parseInt()
-    radix: 'error',
+    radix: 'off',
 
     // require `await` in `async function` (note: this is a horrible rule that should never be used)
     // https://eslint.org/docs/rules/require-await
@@ -353,9 +335,9 @@ module.exports = {
 
     // require immediate function invocation to be wrapped in parentheses
     // https://eslint.org/docs/rules/wrap-iife.html
-    'wrap-iife': ['error', 'outside', { functionPrototypeMethods: false }],
+    'wrap-iife': ['error', 'inside', { functionPrototypeMethods: false }],
 
     // require or disallow Yoda conditions
-    yoda: 'error'
+    yoda: ['error', 'always'],
   }
 };

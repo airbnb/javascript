@@ -21,7 +21,7 @@ module.exports = {
     'no-compare-neg-zero': 'error',
 
     // disallow assignment in conditional expressions
-    'no-cond-assign': ['error', 'always'],
+    'no-cond-assign': 'off',
 
     // disallow use of console
     'no-console': 'warn',
@@ -40,8 +40,7 @@ module.exports = {
 
     // Disallow duplicate conditions in if-else-if chains
     // https://eslint.org/docs/rules/no-dupe-else-if
-    // TODO: enable, semver-major
-    'no-dupe-else-if': 'off',
+    'no-dupe-else-if': 'error',
 
     // disallow duplicate keys when creating object literals
     'no-dupe-keys': 'error',
@@ -105,8 +104,7 @@ module.exports = {
 
     // Disallow returning values from Promise executor functions
     // https://eslint.org/docs/rules/no-promise-executor-return
-    // TODO: enable, semver-minor, once eslint v7.3 is required (which is major)
-    'no-promise-executor-return': 'off',
+    'no-promise-executor-return': 'error',
 
     // disallow use of Object.prototypes builtins directly
     // https://eslint.org/docs/rules/no-prototype-builtins
@@ -117,8 +115,7 @@ module.exports = {
 
     // Disallow returning values from setters
     // https://eslint.org/docs/rules/no-setter-return
-    // TODO: enable, semver-major (altho the guide forbids getters/setters already)
-    'no-setter-return': 'off',
+    'no-setter-return': 'error',
 
     // disallow sparse arrays
     'no-sparse-arrays': 'error',

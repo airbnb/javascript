@@ -26,7 +26,7 @@ module.exports = {
 
     // disallow string concatenation with __dirname and __filename
     // https://eslint.org/docs/rules/no-path-concat
-    'no-path-concat': 'error',
+    'no-path-concat': 'off',
 
     // disallow use of process.env
     'no-process-env': 'off',

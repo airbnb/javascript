@@ -20,7 +20,6 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [Tags](#tags)
   1. [Methods](#methods)
   1. [Ordering](#ordering)
-  1. [`isMounted`](#ismounted)
 
 ## Basic Rules
 

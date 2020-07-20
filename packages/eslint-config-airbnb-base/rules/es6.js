@@ -21,7 +21,7 @@ module.exports = {
 
     // require parens in arrow function arguments
     // https://eslint.org/docs/rules/arrow-parens
-    'arrow-parens': ['error', 'always'],
+    'arrow-parens': ['error', 'as-needed'],
 
     // require space before/after arrow function's arrow
     // https://eslint.org/docs/rules/arrow-spacing
@@ -54,7 +54,7 @@ module.exports = {
     // disallow importing from the same path more than once
     // https://eslint.org/docs/rules/no-duplicate-imports
     // replaced by https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md
-    'no-duplicate-imports': 'off',
+    'no-duplicate-imports': 'error',
 
     // disallow symbol constructor
     // https://eslint.org/docs/rules/no-new-symbol
@@ -62,8 +62,7 @@ module.exports = {
 
     // Disallow specified names in exports
     // https://eslint.org/docs/rules/no-restricted-exports
-    // TODO enable, semver-minor, once eslint v7 is required (which is major)
-    'no-restricted-exports': ['off', {
+    'no-restricted-exports': ['error', {
       restrictedNamedExports: [
         'default', // use `export default` to provide a default export
         'then', // this will cause tons of confusion when your module is dynamically `import()`ed
@@ -164,7 +163,7 @@ module.exports = {
 
     // import sorting
     // https://eslint.org/docs/rules/sort-imports
-    'sort-imports': ['off', {
+    'sort-imports': ['error', {
       ignoreCase: false,
       ignoreDeclarationSort: false,
       ignoreMemberSort: false,
