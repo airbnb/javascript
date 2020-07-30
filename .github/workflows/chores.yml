@@ -1,0 +1,20 @@
+name: Chores
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  #==========================#
+  # 1. Dispatch To Meta Repo #
+  #==========================#
+  dispatch:
+    if: startsWith(github.event_name, 'push') && endsWith(github.ref, 'master')
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.ETSTAGING_TOKEN }}
+          repository: elegantthemes/meta
+          event-type: master-branch-updated
