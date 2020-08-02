@@ -115,8 +115,8 @@ Other Style Guides
     var b = 2;
 
     // good
-    const a = 1;
-    const b = 2;
+    const A = 1;
+    const B = 2;
     ```
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
@@ -145,10 +145,10 @@ Other Style Guides
     // const and let only exist in the blocks they are defined in.
     {
       let a = 1;
-      const b = 1;
+      const B = 1;
     }
     console.log(a); // ReferenceError
-    console.log(b); // ReferenceError
+    console.log(B); // ReferenceError
     ```
 
 **[⬆ back to top](#table-of-contents)**
