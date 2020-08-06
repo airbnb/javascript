@@ -107,7 +107,12 @@ module.exports = {
 
     // Blacklist certain identifiers to prevent them being used
     // https://eslint.org/docs/rules/id-blacklist
+    // TODO: semver-major, remove once eslint v7.4+ is required
     'id-blacklist': 'off',
+
+    // disallow specified identifiers
+    // https://eslint.org/docs/rules/id-denylist
+    'id-denylist': 'off',
 
     // this option enforces minimum and maximum identifier lengths
     // (variable names, property names etc.)
