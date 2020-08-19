@@ -1,7 +1,13 @@
 const confusingBrowserGlobals = require('confusing-browser-globals');
 
 module.exports = {
+  plugins: [
+    'align-assignments',
+  ],
   rules: {
+    // align variable assignments
+    'align-assignments/align-assignments': 'error',
+
     // enforce or disallow variable initializations at definition
     'init-declarations': 'off',
 

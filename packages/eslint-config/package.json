@@ -1,6 +1,6 @@
 {
   "name": "@elegantthemes/eslint-config",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "Elegant Themes' ESLint config, following our style guide",
   "main": "index.js",
   "scripts": {

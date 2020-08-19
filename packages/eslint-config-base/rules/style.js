@@ -1,4 +1,7 @@
 module.exports = {
+  plugins: [
+    'jsdoc',
+  ],
   rules: {
     // enforce line breaks after opening and before closing array brackets
     // https://eslint.org/docs/rules/array-bracket-newline
@@ -440,15 +443,18 @@ module.exports = {
     // specify whether double or single quotes should be used
     quotes: ['error', 'single', { avoidEscape: true }],
 
-    // do not require jsdoc
-    // https://eslint.org/docs/rules/require-jsdoc
-    'require-jsdoc': ['warn', {
-      require: {
-        FunctionDeclaration: true,
-        MethodDefinition: true,
-        ClassDeclaration: true,
-      },
-    }],
+    'jsdoc/check-examples':                        'error',
+    'jsdoc/check-param-names':                     'error',
+    'jsdoc/check-tag-names':                       'error',
+    'jsdoc/check-types':                           'error',
+    'jsdoc/newline-after-description':             'error',
+    'jsdoc/require-description-complete-sentence': 'error',
+    'jsdoc/require-param':                         'error',
+    'jsdoc/require-param-description':             'warn',
+    'jsdoc/require-param-name':                    'error',
+    'jsdoc/require-param-type':                    'error',
+    'jsdoc/require-returns-type':                  'error',
+    'jsdoc/valid-types':                           'error',
 
     // require or disallow use of semicolons instead of ASI
     semi: ['error', 'always'],
