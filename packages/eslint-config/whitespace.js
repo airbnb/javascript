@@ -1,5 +1,5 @@
-const assign = require('object.assign');
-const entries = require('object.entries');
+const assign        = require('object.assign');
+const entries       = require('object.entries');
 const { CLIEngine } = require('eslint');
 
 const baseConfig = require('.');
@@ -18,13 +18,13 @@ function getSeverity(ruleConfig) {
 
 function onlyErrorOnRules(rulesToError, config) {
   const errorsOnly = assign({}, config);
-  const cli = new CLIEngine({ baseConfig: config, useEslintrc: false });
-  const baseRules = cli.getConfigForFile(require.resolve('./')).rules;
+  const cli        = new CLIEngine({ baseConfig: config, useEslintrc: false });
+  const baseRules  = cli.getConfigForFile(require.resolve('./')).rules;
 
   entries(baseRules).forEach(rule => {
-    const ruleName = rule[0];
+    const ruleName   = rule[0];
     const ruleConfig = rule[1];
-    const severity = getSeverity(ruleConfig);
+    const severity   = getSeverity(ruleConfig);
 
     if (- 1 === rulesToError.indexOf(ruleName) && 'error' === severity) {
       if (Array.isArray(ruleConfig)) {

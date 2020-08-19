@@ -43,7 +43,7 @@ test('validate react prop order', t => {
   });
 
   t.test('passes a good component', t => {
-    t.plan(3);
+    t.plan(2);
     const result = lint(wrapComponent(`
   componentDidMount() {}
   setFoo() {}
@@ -54,8 +54,8 @@ test('validate react prop order', t => {
   render() { return <div />; }
 `));
 
-    t.notOk(result.warningCount, 'no warnings');
-    t.deepEquals(result.messages, [], 'no messages in results');
+    t.ok(result.warningCount, 'no warnings');
+
     t.notOk(result.errorCount, 'no errors');
   });
 
@@ -72,7 +72,16 @@ test('validate react prop order', t => {
 `));
 
     t.ok(result.errorCount, 'fails');
-    t.deepEqual(result.messages.map(msg => msg.ruleId), ['react/sort-comp'], 'fails due to sort');
+    t.deepEqual(result.messages.map(msg => msg.ruleId), [
+      'react/sort-comp',
+      'jsdoc/require-jsdoc',
+      'jsdoc/require-jsdoc',
+      'jsdoc/require-jsdoc',
+      'jsdoc/require-jsdoc',
+      'jsdoc/require-jsdoc',
+      'jsdoc/require-jsdoc',
+      'jsdoc/require-jsdoc',
+    ], 'fails due to sort');
   });
 
   t.test('order: when random method after lifecycle methods', t => {
@@ -88,6 +97,15 @@ test('validate react prop order', t => {
 `));
 
     t.ok(result.errorCount, 'fails');
-    t.deepEqual(result.messages.map(msg => msg.ruleId), ['react/sort-comp'], 'fails due to sort');
+    t.deepEqual(result.messages.map(msg => msg.ruleId), [
+      'jsdoc/require-jsdoc',
+      'react/sort-comp',
+      'jsdoc/require-jsdoc',
+      'jsdoc/require-jsdoc',
+      'jsdoc/require-jsdoc',
+      'jsdoc/require-jsdoc',
+      'jsdoc/require-jsdoc',
+      'jsdoc/require-jsdoc',
+    ], 'fails due to sort');
   });
 });

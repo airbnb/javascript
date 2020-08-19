@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "prelint": "(in-install && eclint check * rules/* test/*) || true",
-    "lint": "eslint .",
+    "lint": "eslint --fix .",
     "pretests-only": "node ./test/requires",
     "tests-only": "babel-tape-runner ./test/test-*.js",
-    "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test) && safe-publish-latest",
+    "prepublish": "(in-install || eslint-find-rules --unused || true) && (not-in-publish || npm test) && safe-publish-latest",
     "pretest": "npm run --silent lint",
     "test": "npm run --silent tests-only",
     "link:eslint": "cd node_modules/eslint && npm link --production && cd -",
@@ -55,7 +55,7 @@
   },
   "homepage": "https://github.com/elegantthemes/javascript",
   "dependencies": {
-    "@elegantthemes/eslint-config-base": "1.0.0-beta.1",
+    "@elegantthemes/eslint-config-base": "1.0.0-beta.2",
     "object.assign": "4.1.0",
     "object.entries": "1.1.2"
   },
@@ -67,6 +67,8 @@
     "eclint": "2.8.1",
     "eslint": "5.16.0 || 6.8.0 || 7.5.0",
     "eslint-find-rules": "3.6.0",
+    "eslint-plugin-align-assignments": "1.1.2",
+    "eslint-plugin-jsdoc": "30.2.4",
     "eslint-plugin-import": "2.22.0",
     "eslint-plugin-jsx-a11y": "6.3.1",
     "eslint-plugin-react": "7.20.3",

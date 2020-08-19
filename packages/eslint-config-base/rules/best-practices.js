@@ -165,6 +165,9 @@ module.exports = {
 
     // disallow use of multiple spaces
     'no-multi-spaces': ['error', {
+      exceptions: {
+        VariableDeclarator: true,
+      },
       ignoreEOLComments: false,
     }],
 
