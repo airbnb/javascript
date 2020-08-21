@@ -250,7 +250,7 @@ module.exports = {
     // require multiline ternary
     // https://eslint.org/docs/rules/multiline-ternary
     // TODO: enable?
-    'multiline-ternary': ['off', 'never'],
+    'multiline-ternary': ['error', 'always-multiline'],
 
     // require a capital letter for constructors
     'new-cap': ['error', {
