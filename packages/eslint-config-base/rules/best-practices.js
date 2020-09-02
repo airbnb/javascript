@@ -342,6 +342,6 @@ module.exports = {
     'wrap-iife': ['error', 'inside', { functionPrototypeMethods: false }],
 
     // require or disallow Yoda conditions
-    yoda: ['error', 'always'],
+    yoda: ['error', 'always', { onlyEquality: true }],
   }
 };
