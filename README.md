@@ -1662,7 +1662,7 @@ Other Style Guides
   <a name="variables--const-let-group"></a><a name="13.3"></a>
   - [13.3](#variables--const-let-group) Group all your `const`s and then group all your `let`s.
 
-    > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+    > Why? This is helpful when later on you might need to assign a variable depending on one of the previously assigned variables.
 
     ```javascript
     // bad
