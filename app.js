@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 
 const app = express()
 
-mongoose.connect('mongodb+srv://API-shop:apishop@cluster0-8dwj1.mongodb.net/chat?retryWrites=true&w=majority')
+mongoose.connect('')
 
 const authRoutes = require('./routes/auth')
 const chatRoutes = require('./routes/chat')
