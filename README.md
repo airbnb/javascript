@@ -437,7 +437,8 @@ Other Style Guides
       const { subject, author } = msg;
       if (subject === 'Mockingbird') {
         return author === 'Harper Lee';
-      } else {
+      } 
+      else {
         return false;
       }
     });

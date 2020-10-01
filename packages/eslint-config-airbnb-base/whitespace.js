@@ -29,9 +29,12 @@ function onlyErrorOnRules(rulesToError, config) {
     if (rulesToError.indexOf(ruleName) === -1 && severity === 'error') {
       if (Array.isArray(ruleConfig)) {
         errorsOnly.rules[ruleName] = ['warn'].concat(ruleConfig.slice(1));
-      } else if (typeof ruleConfig === 'number') {
+      }
+      // checking typeof ruleConfig to a number
+      else if (typeof ruleConfig === 'number') {
         errorsOnly.rules[ruleName] = 1;
-      } else {
+      }
+      else {
         errorsOnly.rules[ruleName] = 'warn';
       }
     }
