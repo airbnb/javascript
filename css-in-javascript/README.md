@@ -17,14 +17,14 @@
     > Why? We access these keys as properties on the `styles` object in the component, so it is most convenient to use camelCase.
 
     ```js
-    // bad
+    // bad practice
     {
       'bermuda-triangle': {
         display: 'none',
       },
     }
 
-    // good
+    // good practice
     {
       bermudaTriangle: {
         display: 'none',
@@ -37,7 +37,7 @@
     > Why? Similar to BEM, this naming convention makes it clear that the styles are intended to modify the element preceded by the underscore. Underscores do not need to be quoted, so they are preferred over other characters, such as dashes.
 
     ```js
-    // bad
+    // bad practice
     {
       bruceBanner: {
         color: 'pink',
@@ -49,7 +49,7 @@
       },
     }
 
-    // good
+    // good practice
     {
       bruceBanner: {
         color: 'pink',
@@ -67,7 +67,7 @@
     > Why? Similar to modifiers, keeping the naming consistent helps reveal the relationship of these styles to the styles that override them in more adequate browsers.
 
     ```js
-    // bad
+    // bad practice
     {
       muscles: {
         display: 'flex',
@@ -78,7 +78,7 @@
       },
     }
 
-    // good
+    // good practice
     {
       muscles: {
         display: 'flex',
@@ -95,7 +95,7 @@
     > Why? Keeping fallback styles contained in a separate object clarifies their purpose, which improves readability.
 
     ```js
-    // bad
+    // bad practice
     {
       muscles: {
         display: 'flex',
@@ -111,7 +111,7 @@
       },
     }
 
-    // good
+    // good practice
     {
       muscles: {
         display: 'flex',
@@ -136,14 +136,14 @@
     > Why? Commonly used names like "phone", "tablet", and "desktop" do not match the characteristics of the devices in the real world. Using these names sets the wrong expectations.
 
     ```js
-    // bad
+    // bad practice
     const breakpoints = {
       mobile: '@media (max-width: 639px)',
       tablet: '@media (max-width: 1047px)',
       desktop: '@media (min-width: 1048px)',
     };
 
-    // good
+    // good practice
     const breakpoints = {
       small: '@media (max-width: 639px)',
       medium: '@media (max-width: 1047px)',
@@ -158,7 +158,7 @@
     > Why? We use a higher-order component to theme our styles, which is naturally used after the component definition. Passing the styles object directly to this function reduces indirection.
 
     ```jsx
-    // bad
+    // bad practice
     const styles = {
       container: {
         display: 'inline-block',
@@ -176,7 +176,7 @@
 
     export default withStyles(() => styles)(MyComponent);
 
-    // good
+    // good practice
     function MyComponent({ styles }) {
       return (
         <div {...css(styles.container)}>
@@ -200,7 +200,7 @@
     > Why? The whitespace improves readability and reduces the likelihood of merge conflicts.
 
     ```js
-    // bad
+    // bad practice
     {
       bigBang: {
         display: 'inline-block',
@@ -213,7 +213,7 @@
       },
     }
 
-    // good
+    // good practice
     {
       bigBang: {
         display: 'inline-block',
@@ -236,14 +236,14 @@
     > Why? Generating themed stylesheets can be expensive, so they are best for discrete sets of styles.
 
     ```jsx
-    // bad
+    // bad practice
     export default function MyComponent({ spacing }) {
       return (
         <div style={{ display: 'table', margin: spacing }} />
       );
     }
 
-    // good
+    // good practice
     function MyComponent({ styles, spacing }) {
       return (
         <div {...css(styles.periodic, { margin: spacing })} />
@@ -265,14 +265,14 @@
   - Define colors only in themes.
 
     ```js
-    // bad
+    // bad practice
     export default withStyles(() => ({
       chuckNorris: {
         color: '#bada55',
       },
     }))(MyComponent);
 
-    // good
+    // good practice
     export default withStyles(({ color }) => ({
       chuckNorris: {
         color: color.badass,
@@ -283,14 +283,14 @@
   - Define fonts only in themes.
 
     ```js
-    // bad
+    // bad practice
     export default withStyles(() => ({
       towerOfPisa: {
         fontStyle: 'italic',
       },
     }))(MyComponent);
 
-    // good
+    // good practice
     export default withStyles(({ font }) => ({
       towerOfPisa: {
         fontStyle: font.italic,
@@ -301,7 +301,7 @@
   - Define fonts as sets of related styles.
 
     ```js
-    // bad
+    // bad practice
     export default withStyles(() => ({
       towerOfPisa: {
         fontFamily: 'Italiana, "Times New Roman", serif',
@@ -311,7 +311,7 @@
       },
     }))(MyComponent);
 
-    // good
+    // good practice
     export default withStyles(({ font }) => ({
       towerOfPisa: {
         ...font.italian,
@@ -322,21 +322,21 @@
   - Define base grid units in theme (either as a value or a function that takes a multiplier).
 
     ```js
-    // bad
+    // bad practice
     export default withStyles(() => ({
       rip: {
         bottom: '-6912px', // 6 feet
       },
     }))(MyComponent);
 
-    // good
+    // good practice
     export default withStyles(({ units }) => ({
       rip: {
         bottom: units(864), // 6 feet, assuming our unit is 8px
       },
     }))(MyComponent);
 
-    // good
+    // good practice
     export default withStyles(({ unit }) => ({
       rip: {
         bottom: 864 * unit, // 6 feet, assuming our unit is 8px
@@ -347,7 +347,7 @@
   - Define media queries only in themes.
 
     ```js
-    // bad
+    // bad practice
     export default withStyles(() => ({
       container: {
         width: '100%',
@@ -358,7 +358,7 @@
       },
     }))(MyComponent);
 
-    // good
+    // good practice
     export default withStyles(({ breakpoint }) => ({
       container: {
         width: '100%',
@@ -375,7 +375,7 @@
     > Why? Many CSS-in-JavaScript implementations merge style objects together which makes specifying fallbacks for the same property (e.g. `display`) a little tricky. To keep the approach unified, put these fallbacks in the theme.
 
     ```js
-    // bad
+    // bad practice
     export default withStyles(() => ({
       .muscles {
         display: 'flex',
@@ -386,7 +386,7 @@
       },
     }))(MyComponent);
 
-    // good
+    // good practice
     export default withStyles(({ fallbacks }) => ({
       .muscles {
         display: 'flex',
@@ -397,7 +397,7 @@
       },
     }))(MyComponent);
 
-    // good
+    // good practice
     export default withStyles(({ fallback }) => ({
       .muscles {
         display: 'flex',
@@ -414,12 +414,12 @@
   - Namespace custom theme settings under a nested object with a unique and descriptive key.
 
     ```js
-    // bad
+    // bad practice
     ThemedStyleSheet.registerTheme('mySection', {
       mySectionPrimaryColor: 'green',
     });
 
-    // good
+    // good practice
     ThemedStyleSheet.registerTheme('mySection', {
       mySection: {
         primaryColor: 'green',
