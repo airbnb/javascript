@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<script>
+			function largesstnum()
+			{
+				var num1, num2, num3;
+				num1 = Number(document.getElementById("fnum").value);
+				num2 = Number(document.getElementById("snum").value);
+
+				if(num1>num2)
+				{
+					window.alert(num1+"-is Larger");
+				}
+				else if(num2>num1)
+				{
+					window.alert(num2+"-is Larger");
+				}
+				else if(num2>num1 && num2>num1)
+				{
+					window.alert(num2+"is Larger");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Check largest number </h1>
+		<br>
+		Enter number 1: <input type="text" id="fnum"></input><br>
+		Enter number 2: <input type="text" id="snum"></input><br>
+<button onclick="largesstnum()">submit</button>
+	</body>
+</html>
