@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title> Question 2 </title>
+  <script>
+  function larger(var1,var2) {
+    var1 = parseInt(var1);
+    var2 = parseInt(var2);
+    var max = var1>var2 ? var1 : var2;
+    return max;
+    }
+    </script>
+</head>
+<body>
+    <form>
+        <label>First number:</label> <input type="text" name="num1"/><br/>
+        <label>Second number:</label> <input type="text" name="num2"/><br/>
+        <input type="button" value="Compute" onclick="myResult.value=larger(num1,num2)"/>
+        <input type="text" name="result" id="myResult"/>
+    </form>
+</body>
+</html>
