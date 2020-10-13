@@ -1253,7 +1253,7 @@ Other Style Guides
     class Foo {
       bar() { return 2; }
     }
-    
+
     // good
     class Foo {
       increase(x) { return x+1; }
