@@ -1258,7 +1258,7 @@ Other Style Guides
     class Foo {
       increase(x) { return x+1; }
       // overloading is allowed
-      increase(x, y) { retun x+y; }
+      increase(x, y) { return x+y; }
     }
     ```
 
