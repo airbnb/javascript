@@ -1253,6 +1253,13 @@ Other Style Guides
     class Foo {
       bar() { return 2; }
     }
+    
+    // good
+    class Foo {
+      increase(x) { return x+1; }
+      // overloading is allowed
+      increase(x, y) { retun x+y; }
+    }
     ```
 
   <a name="classes--methods-use-this"></a>
