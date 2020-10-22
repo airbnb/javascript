@@ -497,7 +497,7 @@ Other Style Guides
   <a name="destructuring--object"></a><a name="5.1"></a>
   - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)
 
-    > Why? Destructuring saves you from creating temporary references for those properties.
+    > Why? Destructuring saves you from creating temporary references for those properties, and from repetitive access of the object. Repeating object access creates more repetitive code, requires more reading, and creates more opportunities for mistakes. Destructuring objects also provides a single site of definition of the object structure that is used in the block, rather than requiring reading the entire block to determine what is used.
 
     ```javascript
     // bad
