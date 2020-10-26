@@ -224,10 +224,6 @@ module.exports = {
       skipUndeclared: false
     }],
 
-    // Prevent missing React when using JSX
-    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
-    'react/react-in-jsx-scope': 'error',
-
     // Require render() methods to return something
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md
     'react/require-render-return': 'error',
