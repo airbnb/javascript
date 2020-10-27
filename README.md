@@ -3857,6 +3857,7 @@ Other Style Guides
   - **Coeur d'Alene Tribe**: [www.cdatribe-nsn.gov](https://www.cdatribe-nsn.gov)
   - **ComparaOnline**: [comparaonline/javascript](https://github.com/comparaonline/javascript-style-guide)
   - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
+  - **Cihatdev**: [cihatdev/FullStackJavaScript-TheOdinProject](https://github.com/cihatdev/FullStackJavaScript-TheOdinProject/tree/master/JavaScript)
   - **DailyMotion**: [dailymotion/javascript](https://github.com/dailymotion/javascript)
   - **DoSomething**: [DoSomething/eslint-config](https://github.com/DoSomething/eslint-config)
   - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
