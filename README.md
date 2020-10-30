@@ -11,15 +11,14 @@
 This guide is available in other languages too. See [Translation](#translation)
 
 Other Style Guides
-
   - [ES5 (Deprecated)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5)
   - [React](react/)
   - [CSS-in-JavaScript](css-in-javascript/)
   - [CSS & Sass](https://github.com/airbnb/css)
   - [Ruby](https://github.com/airbnb/ruby)
 
-## Table of Contents
 
+## Table of Contents
   1. [Types](#types)
   1. [References](#references)
   1. [Objects](#objects)
@@ -60,7 +59,7 @@ Other Style Guides
   1. [License](#license)
   1. [Amendments](#amendments)
 
-## Types
+## Types:-
 
   <a name="types--primitives"></a><a name="1.1"></a>
   - [1.1](#types--primitives) **Primitives**: When you access a primitive type you work directly on its value.
@@ -101,6 +100,7 @@ Other Style Guides
     ```
 
 **[⬆ back to top](#table-of-contents)**
+
 
 ## References
 
@@ -490,9 +490,12 @@ Other Style Guides
     ];
     ```
 
+
 **[⬆ back to top](#table-of-contents)**
 
+
 ## Destructuring
+
 
   <a name="destructuring--object"></a><a name="5.1"></a>
   - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)
