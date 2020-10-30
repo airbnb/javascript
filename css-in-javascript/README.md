@@ -2,16 +2,14 @@
 
 *A mostly reasonable approach to CSS-in-JavaScript*
 
-## Table of Contents
-
+## Table of Contents:-
 1. [Naming](#naming)
 1. [Ordering](#ordering)
 1. [Nesting](#nesting)
 1. [Inline](#inline)
 1. [Themes](#themes)
 
-## Naming
-
+## Naming:-
   - Use camelCase for object keys (i.e. "selectors").
 
     > Why? We access these keys as properties on the `styles` object in the component, so it is most convenient to use camelCase.
@@ -194,7 +192,6 @@
     ```
 
 ## Nesting
-
   - Leave a blank line between adjacent blocks at the same indentation level.
 
     > Why? The whitespace improves readability and reduces the likelihood of merge conflicts.
@@ -430,3 +427,6 @@
 ---
 
 CSS puns adapted from [Saijo George](https://saijogeorge.com/css-puns/).
+
+
+/********************************END****************************************/
