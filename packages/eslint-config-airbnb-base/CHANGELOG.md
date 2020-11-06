@@ -1,3 +1,11 @@
+14.2.1 / 2020-11-06
+==================
+ - [base] `no-restricted-globals`: add better messages (#2320)
+ - [base] add new core eslint rules, set to off
+ - [deps] update `confusing-browser-globals`, `object.assign`
+ - [deps] update `eslint-plugin-import`, use valid `import/no-cycle` `maxDepth` option (#2250, #2249)
+ - [dev deps] update `@babel/runtime`, `eslint-find-rules`, `eslint-plugin-import`
+
 14.2.0 / 2020-06-10
 ==================
  - [new] add `eslint` `v7`
