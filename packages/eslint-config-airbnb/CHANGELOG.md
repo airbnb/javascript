@@ -1,3 +1,12 @@
+18.2.1 / 2020-11-06
+==================
+ - [patch] remove deprecated `jsx-a11y/accessible-emoji` rule (#2322)
+ - [patch] Fix ignoreNonDOM typo in jsx-a11y/aria-role rule (#2318)
+ - [patch] Fixed `handle` and `on` ordering in `sort-comp` rule (#2287)
+ - [deps] update `eslint-plugin-jsx-a11y`, `eslint-plugin-react`
+ - [deps] update `eslint-config-airbnb-base`, `object.assign`
+ - [dev deps] update `@babel/runtime`, `eslint-find-rules`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y`, `eslint-plugin-react`
+
 18.2.0 / 2020-06-18
 ==================
  - [new] add `eslint` `v7` (#2240)
