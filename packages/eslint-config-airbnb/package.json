@@ -55,7 +55,7 @@
   "homepage": "https://github.com/airbnb/javascript",
   "dependencies": {
     "eslint-config-airbnb-base": "^14.2.0",
-    "object.assign": "^4.1.0",
+    "object.assign": "^4.1.2",
     "object.entries": "^1.1.2"
   },
   "devDependencies": {

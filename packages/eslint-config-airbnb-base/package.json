@@ -72,8 +72,8 @@
     "node": ">= 6"
   },
   "dependencies": {
-    "confusing-browser-globals": "^1.0.9",
-    "object.assign": "^4.1.0",
+    "confusing-browser-globals": "^1.0.10",
+    "object.assign": "^4.1.2",
     "object.entries": "^1.1.2"
   }
 }
