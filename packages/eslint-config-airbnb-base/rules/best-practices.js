@@ -147,7 +147,7 @@ module.exports = {
     // disallow usage of __iterator__ property
     'no-iterator': 'error',
 
-    // disallow use of labels for anything other then loops and switches
+    // disallow use of labels for anything other than loops and switches
     'no-labels': ['error', { allowLoop: false, allowSwitch: false }],
 
     // disallow unnecessary nested blocks
@@ -217,7 +217,7 @@ module.exports = {
     // disallow usage of __proto__ property
     'no-proto': 'error',
 
-    // disallow declaring the same variable more then once
+    // disallow declaring the same variable more than once
     'no-redeclare': 'error',
 
     // disallow certain object properties
