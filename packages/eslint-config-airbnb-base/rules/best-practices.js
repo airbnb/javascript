@@ -182,6 +182,11 @@ module.exports = {
     // disallows creating new instances of String, Number, and Boolean
     'no-new-wrappers': 'error',
 
+    // Disallow \8 and \9 escape sequences in string literals
+    // https://eslint.org/docs/rules/no-nonoctal-decimal-escape
+    // todo: semver-major: enable when v7.14 is required
+    'no-nonoctal-decimal-escape': 'off',
+
     // disallow use of (old style) octal literals
     'no-octal': 'error',
 
