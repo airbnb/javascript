@@ -3908,7 +3908,6 @@ Other Style Guides
   - **Pier 1**: [Pier1/javascript](https://github.com/pier1/javascript)
   - **Qotto**: [Qotto/javascript-style-guide](https://github.com/Qotto/javascript-style-guide)
   - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
-  - **reddit**: [reddit/styleguide/javascript](https://github.com/reddit/styleguide/tree/master/javascript)
   - **React**: [facebook.github.io/react/contributing/how-to-contribute.html#style-guide](https://facebook.github.io/react/contributing/how-to-contribute.html#style-guide)
   - **REI**: [reidev/js-style-guide](https://github.com/rei/code-style-guides/)
   - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
