@@ -147,7 +147,7 @@ module.exports = {
     // disallow usage of __iterator__ property
     'no-iterator': 'error',
 
-    // disallow use of labels for anything other then loops and switches
+    // disallow use of labels for anything other than loops and switches
     'no-labels': ['error', { allowLoop: false, allowSwitch: false }],
 
     // disallow unnecessary nested blocks
@@ -182,6 +182,11 @@ module.exports = {
     // disallows creating new instances of String, Number, and Boolean
     'no-new-wrappers': 'error',
 
+    // Disallow \8 and \9 escape sequences in string literals
+    // https://eslint.org/docs/rules/no-nonoctal-decimal-escape
+    // todo: semver-major: enable when v7.14 is required
+    'no-nonoctal-decimal-escape': 'off',
+
     // disallow use of (old style) octal literals
     'no-octal': 'error',
 
@@ -212,7 +217,7 @@ module.exports = {
     // disallow usage of __proto__ property
     'no-proto': 'error',
 
-    // disallow declaring the same variable more then once
+    // disallow declaring the same variable more than once
     'no-redeclare': 'error',
 
     // disallow certain object properties

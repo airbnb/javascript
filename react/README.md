@@ -214,6 +214,27 @@ This style guide is mostly based on the standards that are currently prevalent i
 
     // good
     {showButton && <Button />}
+
+    // good
+    {someReallyLongConditional
+      && anotherLongConditional
+      && (
+        <Foo
+          superLongParam="bar"
+          anotherSuperLongParam="baz"
+        />
+      )
+    }
+
+    // good
+    {someConditional ? (
+      <Foo />
+    ) : (
+      <Foo
+        superLongParam="bar"
+        anotherSuperLongParam="baz"
+      />
+    )}
     ```
 
 ## Quotes
@@ -267,7 +288,7 @@ This style guide is mostly based on the standards that are currently prevalent i
 
 ## Props
 
-  - Always use camelCase for prop names.
+  - Always use camelCase for prop names, or PascalCase if the prop value is a React component.
 
     ```jsx
     // bad
@@ -280,6 +301,7 @@ This style guide is mostly based on the standards that are currently prevalent i
     <Foo
       userName="hello"
       phoneNumber={12345678}
+      Component={SomeComponent}
     />
     ```
 
@@ -645,7 +667,8 @@ We don’t recommend using indexes for keys if the order of items may change.
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
+  1. *event handlers starting with 'handle'* like `handleSubmit()` or `handleChangeDescription()`
+  1. *event handlers starting with 'on'* like `onClickSubmit()` or `onChangeDescription()`
   1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
   1. *optional render methods* like `renderNavigation()` or `renderProfilePicture()`
   1. `render`

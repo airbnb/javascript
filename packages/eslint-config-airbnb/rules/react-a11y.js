@@ -17,7 +17,7 @@ module.exports = {
 
     // Require ARIA roles to be valid and non-abstract
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md
-    'jsx-a11y/aria-role': ['error', { ignoreNonDom: false }],
+    'jsx-a11y/aria-role': ['error', { ignoreNonDOM: false }],
 
     // Enforce all aria-* props are valid.
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-props.md
@@ -180,7 +180,8 @@ module.exports = {
 
     // ensure emoji are accessible
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
-    'jsx-a11y/accessible-emoji': 'error',
+    // disabled; rule is deprecated
+    'jsx-a11y/accessible-emoji': 'off',
 
     // elements with aria-activedescendant must be tabbable
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-activedescendant-has-tabindex.md
