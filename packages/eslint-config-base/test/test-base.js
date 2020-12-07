@@ -4,6 +4,7 @@ import test from 'tape';
 
 import index from '..';
 
+
 const files = { ...{ index } }; // object spread is to test parsing
 
 fs.readdirSync(path.join(__dirname, '../rules')).forEach(name => {
