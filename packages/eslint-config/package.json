@@ -1,6 +1,6 @@
 {
   "name": "@elegantthemes/eslint-config",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "Elegant Themes' ESLint config, following our style guide",
   "main": "index.js",
   "scripts": {
@@ -55,7 +55,7 @@
   },
   "homepage": "https://github.com/elegantthemes/javascript",
   "dependencies": {
-    "@elegantthemes/eslint-config-base": "1.0.0-beta.2",
+    "@elegantthemes/eslint-config-base": "1.0.0-beta.3",
     "object.assign": "4.1.0",
     "object.entries": "1.1.2"
   },

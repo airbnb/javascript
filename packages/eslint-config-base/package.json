@@ -1,6 +1,6 @@
 {
   "name": "@elegantthemes/eslint-config-base",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "Elegant Themes' base JS ESLint config, following our style guide",
   "main": "index.js",
   "scripts": {
@@ -8,11 +8,11 @@
     "lint": "eslint --report-unused-disable-directives --fix .",
     "pretests-only": "node ./test/requires",
     "tests-only": "babel-tape-runner ./test/test-*.js",
-    "prepublish": "(in-install || eslint-find-rules --unused || true) && (not-in-publish || npm test) && safe-publish-latest",
-    "pretest": "npm run lint",
-    "test": "npm run --silent tests-only",
+    "prepublish": "(in-install || eslint-find-rules --unused || true) && (not-in-publish || yarn test) && safe-publish-latest",
+    "pretest": "yarn run lint",
+    "test": "yarn run --silent tests-only",
     "pretravis": ":",
-    "travis": "npm run --silent tests-only",
+    "travis": "yarn run --silent tests-only",
     "posttravis": ":"
   },
   "repository": {
