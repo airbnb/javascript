@@ -4,6 +4,7 @@ const { CLIEngine } = require('eslint');
 
 const baseConfig = require('.');
 
+
 const severities = ['off', 'warn', 'error'];
 
 function getSeverity(ruleConfig) {

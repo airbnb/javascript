@@ -168,6 +168,7 @@ module.exports = {
       ignoreDeclarationSort: false,
       ignoreMemberSort: false,
       memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+      allowSeparatedGroups: true,
     }],
 
     // require a Symbol description
