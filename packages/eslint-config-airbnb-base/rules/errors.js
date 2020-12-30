@@ -149,6 +149,11 @@ module.exports = {
     // https://eslint.org/docs/rules/no-unsafe-negation
     'no-unsafe-negation': 'error',
 
+    // disallow use of optional chaining in contexts where the undefined value is not allowed
+    // https://eslint.org/docs/rules/no-unsafe-optional-chaining
+    // TODO: enable, semver-minor, once eslint v7.15 is required (which is major)
+    'no-unsafe-optional-chaining': ['off', { disallowArithmeticOperators: true }],
+
     // Disallow useless backreferences in regular expressions
     // https://eslint.org/docs/rules/no-useless-backreference
     // TODO: enable, semver-minor, once eslint v7 is required (which is major)
