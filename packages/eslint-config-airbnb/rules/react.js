@@ -531,6 +531,15 @@ module.exports = {
       namedComponents: 'function-expression',
       unnamedComponents: 'function-expression',
     }],
+
+    // Enforce a new line after jsx elements and expressions
+    // https://github.com/yannickcr/eslint-plugin-react/blob/e2eaadae316f9506d163812a09424eb42698470a/docs/rules/jsx-newline.md
+    'react/jsx-newline': 'off',
+
+    // Prevent react contexts from taking non-stable values
+    // https://github.com/yannickcr/eslint-plugin-react/blob/e2eaadae316f9506d163812a09424eb42698470a/docs/rules/jsx-no-constructed-context-values.md
+    // TODO: enable, semver-minor
+    'react/jsx-no-constructed-context-values': 'off',
   },
 
   settings: {
