@@ -410,6 +410,7 @@ This style guide is mostly based on the standards that are currently prevalent i
     Exceptions:
 
     - HOCs that proxy down props and hoist propTypes
+
       ```jsx
       function HOC(WrappedComponent) {
         return class Proxy extends React.Component {
