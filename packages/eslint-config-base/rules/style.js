@@ -99,7 +99,7 @@ module.exports = {
 
     // enforces use of function declarations or expressions
     // https://eslint.org/docs/rules/func-style
-    'func-style': ['error', 'declaration'],
+    'func-style': ["error", "declaration", { "allowArrowFunctions": true }],
 
     // enforce consistent line breaks inside function parentheses
     // https://eslint.org/docs/rules/function-paren-newline
