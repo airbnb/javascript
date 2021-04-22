@@ -596,6 +596,11 @@ Other Style Guides
 
     // good
     const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+
+    // best
+    const errorMessage = `This is a super long error that was thrown because 
+      of Batman. When you stop to think about how Batman had anything to do 
+      with this, you would get nowhere fast.`;
     ```
 
   <a name="es6-template-literals"></a><a name="6.4"></a>
