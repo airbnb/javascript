@@ -916,6 +916,13 @@ Other Style Guides
       // ...
     }
 
+    // best
+    function foo(data) {
+      // This prevents the developer from confusing the order of the arguments.
+      const {bar, baz, quux} = data;
+      // ...
+    }
+
     // bad
     console.log(foo,
       bar,
