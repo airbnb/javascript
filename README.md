@@ -210,7 +210,11 @@ Other Style Guides
       value: 1,
 
       addValue(value) {
-        return atom.value + value;
+        return atom.value + value; // actually you can access with `this` like `return this.value + value`
+                                   // but, this not change `atom.value`, i think this should be:
+                                   // `return this.value += value;`
+                                   // if we use `atom.value` may be crash, be cause it is globally, but when you use
+                                   // `this`, it is objective 🤗 ❤️
       },
     };
     ```
