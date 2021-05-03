@@ -11,7 +11,7 @@ module.exports = {
     'block-scoped-var': 'error',
 
     // specify the maximum cyclomatic complexity allowed in a program
-    complexity: ['off', 11],
+    complexity: ['off', 20],
 
     // enforce that class methods use "this"
     // https://eslint.org/docs/rules/class-methods-use-this
