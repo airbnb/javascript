@@ -146,7 +146,7 @@ module.exports = {
     // https://eslint.org/docs/rules/prefer-rest-params
     'prefer-rest-params': 'error',
 
-    // suggest using the spread operator instead of .apply()
+    // suggest using the spread syntax instead of .apply()
     // https://eslint.org/docs/rules/prefer-spread
     'prefer-spread': 'error',
 

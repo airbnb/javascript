@@ -244,6 +244,7 @@ module.exports = {
         'static-methods',
         'instance-variables',
         'lifecycle',
+        '/^handle.+$/',
         '/^on.+$/',
         'getters',
         'setters',
@@ -530,6 +531,20 @@ module.exports = {
       namedComponents: 'function-expression',
       unnamedComponents: 'function-expression',
     }],
+
+    // Enforce a new line after jsx elements and expressions
+    // https://github.com/yannickcr/eslint-plugin-react/blob/e2eaadae316f9506d163812a09424eb42698470a/docs/rules/jsx-newline.md
+    'react/jsx-newline': 'off',
+
+    // Prevent react contexts from taking non-stable values
+    // https://github.com/yannickcr/eslint-plugin-react/blob/e2eaadae316f9506d163812a09424eb42698470a/docs/rules/jsx-no-constructed-context-values.md
+    // TODO: enable, semver-minor
+    'react/jsx-no-constructed-context-values': 'off',
+
+    // Prevent creating unstable components inside components
+    // https://github.com/yannickcr/eslint-plugin-react/blob/c2a790a3472eea0f6de984bdc3ee2a62197417fb/docs/rules/no-unstable-nested-components.md
+    // TODO: enable, semver-major
+    'react/no-unstable-nested-components': 'off',
   },
 
   settings: {

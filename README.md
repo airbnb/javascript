@@ -139,17 +139,21 @@ Other Style Guides
     ```
 
   <a name="references--block-scope"></a><a name="2.3"></a>
-  - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped.
+  - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped, whereas `var` is function-scoped.
 
     ```javascript
     // const and let only exist in the blocks they are defined in.
     {
       let a = 1;
       const b = 1;
+      var c = 1;
     }
     console.log(a); // ReferenceError
     console.log(b); // ReferenceError
+    console.log(c); // Prints 1
     ```
+
+    In the above code, you can see that referencing `a` and `b` will produce a ReferenceError, while `c` contains the number. This is because `a` and `b` are block scoped, while `c` is scoped to the containing function.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -306,7 +310,7 @@ Other Style Guides
     ```
 
   <a name="objects--rest-spread"></a>
-  - [3.8](#objects--rest-spread) Prefer the object spread operator over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted. eslint: [`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread)
+  - [3.8](#objects--rest-spread) Prefer the object spread syntax over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted. eslint: [`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread)
 
     ```javascript
     // very bad
@@ -871,7 +875,7 @@ Other Style Guides
     ```
 
   <a name="functions--spread-vs-apply"></a><a name="7.14"></a>
-  - [7.14](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions. eslint: [`prefer-spread`](https://eslint.org/docs/rules/prefer-spread)
+  - [7.14](#functions--spread-vs-apply) Prefer the use of the spread syntax `...` to call variadic functions. eslint: [`prefer-spread`](https://eslint.org/docs/rules/prefer-spread)
 
     > Why? It’s cleaner, you don’t need to supply a context, and you can not easily compose `new` with `apply`.
 
@@ -2618,6 +2622,10 @@ Other Style Guides
 
     // good
     const leds = stage.selectAll('.led').data(data);
+    const svg = leds.enter().append('svg:svg');
+    svg.classed('led', true).attr('width', (radius + margin) * 2);
+    const g = svg.append('svg:g');
+    g.attr('transform', `translate(${radius + margin},${radius + margin})`).call(tron.led);
     ```
 
   <a name="whitespace--after-blocks"></a><a name="18.7"></a>
@@ -3835,18 +3843,15 @@ Other Style Guides
   This is a list of organizations that are using this style guide. Send us a pull request and we'll add you to the list.
 
   - **123erfasst**: [123erfasst/javascript](https://github.com/123erfasst/javascript)
-  - **3blades**: [3Blades](https://github.com/3blades)
   - **4Catalyzer**: [4Catalyzer/javascript](https://github.com/4Catalyzer/javascript)
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
-  - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
   - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
+  - **AloPeyk**: [AloPeyk](https://github.com/AloPeyk)
   - **AltSchool**: [AltSchool/javascript](https://github.com/AltSchool/javascript)
   - **Apartmint**: [apartmint/javascript](https://github.com/apartmint/javascript)
   - **Ascribe**: [ascribe/javascript](https://github.com/ascribe/javascript)
-  - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
   - **Avant**: [avantcredit/javascript](https://github.com/avantcredit/javascript)
   - **Axept**: [axept/javascript](https://github.com/axept/javascript)
-  - **BashPros**: [BashPros/javascript](https://github.com/BashPros/javascript)
   - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
   - **Bisk**: [bisk](https://github.com/Bisk/)
   - **Bonhomme**: [bonhommeparis/javascript](https://github.com/bonhommeparis/javascript)
@@ -3867,7 +3872,6 @@ Other Style Guides
   - **Evolution Gaming**: [evolution-gaming/javascript](https://github.com/evolution-gaming/javascript)
   - **EvozonJs**: [evozonjs/javascript](https://github.com/evozonjs/javascript)
   - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
-  - **Expensify** [Expensify/Style-Guide](https://github.com/Expensify/Style-Guide/blob/master/javascript.md)
   - **Flexberry**: [Flexberry/javascript-style-guide](https://github.com/Flexberry/javascript-style-guide)
   - **Gawker Media**: [gawkermedia](https://github.com/gawkermedia/)
   - **General Electric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
@@ -3879,12 +3883,10 @@ Other Style Guides
   - **Happeo**: [happeo/javascript](https://github.com/happeo/javascript)
   - **Honey**: [honeyscience/javascript](https://github.com/honeyscience/javascript)
   - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript-style-guide)
-  - **Huballin**: [huballin](https://github.com/huballin/)
   - **HubSpot**: [HubSpot/javascript](https://github.com/HubSpot/javascript)
   - **Hyper**: [hyperoslo/javascript-playbook](https://github.com/hyperoslo/javascript-playbook/blob/master/style.md)
   - **InterCity Group**: [intercitygroup/javascript-style-guide](https://github.com/intercitygroup/javascript-style-guide)
   - **Jam3**: [Jam3/Javascript-Code-Conventions](https://github.com/Jam3/Javascript-Code-Conventions)
-  - **JeopardyBot**: [kesne/jeopardy-bot](https://github.com/kesne/jeopardy-bot/blob/master/STYLEGUIDE.md)
   - **JSSolutions**: [JSSolutions/javascript](https://github.com/JSSolutions/javascript)
   - **Kaplan Komputing**: [kaplankomputing/javascript](https://github.com/kaplankomputing/javascript)
   - **KickorStick**: [kickorstick](https://github.com/kickorstick/)
@@ -3895,11 +3897,8 @@ Other Style Guides
   - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
   - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
   - **MitocGroup**: [MitocGroup/javascript](https://github.com/MitocGroup/javascript)
-  - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
-  - **Money Advice Service**: [moneyadviceservice/javascript](https://github.com/moneyadviceservice/javascript)
   - **Muber**: [muber](https://github.com/muber/)
   - **National Geographic**: [natgeo](https://github.com/natgeo/)
-  - **Nimbl3**: [nimbl3/javascript](https://github.com/nimbl3/javascript)
   - **NullDev**: [NullDevCo/JavaScript-Styleguide](https://github.com/NullDevCo/JavaScript-Styleguide)
   - **Nulogy**: [nulogy/javascript](https://github.com/nulogy/javascript)
   - **Orange Hill Development**: [orangehill/javascript](https://github.com/orangehill/javascript)
@@ -3908,13 +3907,10 @@ Other Style Guides
   - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
   - **Pier 1**: [Pier1/javascript](https://github.com/pier1/javascript)
   - **Qotto**: [Qotto/javascript-style-guide](https://github.com/Qotto/javascript-style-guide)
-  - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
-  - **reddit**: [reddit/styleguide/javascript](https://github.com/reddit/styleguide/tree/master/javascript)
   - **React**: [facebook.github.io/react/contributing/how-to-contribute.html#style-guide](https://facebook.github.io/react/contributing/how-to-contribute.html#style-guide)
   - **REI**: [reidev/js-style-guide](https://github.com/rei/code-style-guides/)
   - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
   - **Sainsbury’s Supermarkets**: [jsainsburyplc](https://github.com/jsainsburyplc)
-  - **SeekingAlpha**: [seekingalpha/javascript-style-guide](https://github.com/seekingalpha/javascript-style-guide)
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
   - **Sourcetoad**: [sourcetoad/javascript](https://github.com/sourcetoad/javascript)
   - **Springload**: [springload](https://github.com/springload/)

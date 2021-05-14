@@ -667,7 +667,8 @@ We don’t recommend using indexes for keys if the order of items may change.
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
+  1. *event handlers starting with 'handle'* like `handleSubmit()` or `handleChangeDescription()`
+  1. *event handlers starting with 'on'* like `onClickSubmit()` or `onChangeDescription()`
   1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
   1. *optional render methods* like `renderNavigation()` or `renderProfilePicture()`
   1. `render`
