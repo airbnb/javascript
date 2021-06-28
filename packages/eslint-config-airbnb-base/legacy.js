@@ -28,6 +28,7 @@ module.exports = {
       message: 'Please use Object.defineProperty instead.',
     }],
     'no-var': 'off',
+    'prefer-object-spread': 'off',
     strict: ['error', 'safe'],
   }
 };

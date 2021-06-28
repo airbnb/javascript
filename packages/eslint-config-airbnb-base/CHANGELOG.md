@@ -1,3 +1,33 @@
+14.2.1 / 2020-11-06
+==================
+ - [base] `no-restricted-globals`: add better messages (#2320)
+ - [base] add new core eslint rules, set to off
+ - [deps] update `confusing-browser-globals`, `object.assign`
+ - [deps] update `eslint-plugin-import`, use valid `import/no-cycle` `maxDepth` option (#2250, #2249)
+ - [dev deps] update `@babel/runtime`, `eslint-find-rules`, `eslint-plugin-import`
+
+14.2.0 / 2020-06-10
+==================
+ - [new] add `eslint` `v7`
+ - [minor] Disallow multiple empty lines (#2238)
+ - [minor] Fix typo in no-multiple-empty-lines rule (#2168)
+ - [patch] Include 'context' exception for `no-param-reassign` (#2230)
+ - [patch] Allow triple-slash (///) comments (#2197)
+ - [patch] Disable `prefer-object-spread` for `airbnb-base/legacy` (#2198)
+ - [deps] update `eslint-plugin-import`, `eslint-plugin-react`, `babel-preset-airbnb`, `eslint-find-rules`, `in-publish`, `tape`, `object.entries`
+
+14.1.0 / 2020-03-12
+==================
+ - [minor] add new disabled rules, update eslint
+ - [minor] enable `import/no-useless-path-segments` for commonjs (#2113)
+ - [fix] `whitespace`: only set erroring rules to "warn"
+ - Fix indentation with JSX Fragments (#2157)
+ - [patch] `import/no-extraneous-dependencies`: Support karma config files (#2121)
+ - [readme] normalize multiline word according to merriam-webster (#2138)
+ - [deps] update `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, `object.entries`, `confusing-browser-globals`
+ - [dev deps] update `@babel/runtime`, `babel-preset-airbnb`, `safe-publish-latest`, `tape`
+ - [tests] re-enable eslint rule `prefer-destructuring` internally (#2110)
+
 14.0.0 / 2019-08-09
 ==================
  - [breaking] `no-self-assign`: enable `props` option

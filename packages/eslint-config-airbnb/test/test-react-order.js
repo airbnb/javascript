@@ -1,10 +1,10 @@
 import test from 'tape';
-import { CLIEngine } from 'eslint';
+import { CLIEngine, ESLint } from 'eslint';
 import eslintrc from '..';
 import reactRules from '../rules/react';
 import reactA11yRules from '../rules/react-a11y';
 
-const cli = new CLIEngine({
+const cli = new (CLIEngine || ESLint)({
   useEslintrc: false,
   baseConfig: eslintrc,
 
@@ -19,12 +19,12 @@ const cli = new CLIEngine({
 function lint(text) {
   // @see https://eslint.org/docs/developer-guide/nodejs-api.html#executeonfiles
   // @see https://eslint.org/docs/developer-guide/nodejs-api.html#executeontext
-  const linter = cli.executeOnText(text);
+  const linter = CLIEngine ? cli.executeOnText(text) : cli.lintText(text);
   return linter.results[0];
 }
 
 function wrapComponent(body) {
-  return `
+  return `\
 import React from 'react';
 
 export default class MyComponent extends React.Component {
@@ -33,7 +33,7 @@ ${body}}
 `;
 }
 
-test('validate react prop order', (t) => {
+test('validate react methods order', (t) => {
   t.test('make sure our eslintrc has React and JSX linting dependencies', (t) => {
     t.plan(2);
     t.deepEqual(reactRules.plugins, ['react']);
@@ -44,6 +44,8 @@ test('validate react prop order', (t) => {
     t.plan(3);
     const result = lint(wrapComponent(`
   componentDidMount() {}
+  handleSubmit() {}
+  onButtonAClick() {}
   setFoo() {}
   getFoo() {}
   setBar() {}
@@ -82,6 +84,49 @@ test('validate react prop order', (t) => {
   getFoo() {}
   setBar() {}
   renderDogs() {}
+  render() { return <div />; }
+`));
+
+    t.ok(result.errorCount, 'fails');
+    t.deepEqual(result.messages.map((msg) => msg.ruleId), ['react/sort-comp'], 'fails due to sort');
+  });
+
+  t.test('order: when handler method with `handle` prefix after method with `on` prefix', (t) => {
+    t.plan(2);
+    const result = lint(wrapComponent(`
+  componentDidMount() {}
+  onButtonAClick() {}
+  handleSubmit() {}
+  setFoo() {}
+  getFoo() {}
+  render() { return <div />; }
+`));
+
+    t.ok(result.errorCount, 'fails');
+    t.deepEqual(result.messages.map((msg) => msg.ruleId), ['react/sort-comp'], 'fails due to sort');
+  });
+
+  t.test('order: when lifecycle methods after event handler methods', (t) => {
+    t.plan(2);
+    const result = lint(wrapComponent(`
+  handleSubmit() {}
+  componentDidMount() {}
+  setFoo() {}
+  getFoo() {}
+  render() { return <div />; }
+`));
+
+    t.ok(result.errorCount, 'fails');
+    t.deepEqual(result.messages.map((msg) => msg.ruleId), ['react/sort-comp'], 'fails due to sort');
+  });
+
+  t.test('order: when event handler methods after getters and setters', (t) => {
+    t.plan(2);
+    const result = lint(wrapComponent(`
+  componentDidMount() {}
+  setFoo() {}
+  getFoo() {}
+  handleSubmit() {}
   render() { return <div />; }
 `));
 

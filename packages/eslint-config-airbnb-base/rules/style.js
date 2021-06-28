@@ -107,7 +107,12 @@ module.exports = {
 
     // Blacklist certain identifiers to prevent them being used
     // https://eslint.org/docs/rules/id-blacklist
+    // TODO: semver-major, remove once eslint v7.4+ is required
     'id-blacklist': 'off',
+
+    // disallow specified identifiers
+    // https://eslint.org/docs/rules/id-denylist
+    'id-denylist': 'off',
 
     // this option enforces minimum and maximum identifier lengths
     // (variable names, property names etc.)
@@ -288,7 +293,7 @@ module.exports = {
     // disallow un-paren'd mixes of different operators
     // https://eslint.org/docs/rules/no-mixed-operators
     'no-mixed-operators': ['error', {
-      // the list of arthmetic groups disallows mixing `%` and `**`
+      // the list of arithmetic groups disallows mixing `%` and `**`
       // with other arithmetic operators.
       groups: [
         ['%', '**'],
@@ -313,7 +318,7 @@ module.exports = {
 
     // disallow multiple empty lines, only one newline at the end, and no new lines at the beginning
     // https://eslint.org/docs/rules/no-multiple-empty-lines
-    'no-multiple-empty-lines': ['error', { max: 2, maxBOF: 1, maxEOF: 0 }],
+    'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
 
     // disallow negated conditions
     // https://eslint.org/docs/rules/no-negated-condition
@@ -501,7 +506,7 @@ module.exports = {
     'spaced-comment': ['error', 'always', {
       line: {
         exceptions: ['-', '+'],
-        markers: ['=', '!'], // space here to support sprockets directives
+        markers: ['=', '!', '/'], // space here to support sprockets directives, slash for TS /// comments
       },
       block: {
         exceptions: ['-', '+'],

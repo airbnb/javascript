@@ -214,6 +214,27 @@ This style guide is mostly based on the standards that are currently prevalent i
 
     // good
     {showButton && <Button />}
+
+    // good
+    {someReallyLongConditional
+      && anotherLongConditional
+      && (
+        <Foo
+          superLongParam="bar"
+          anotherSuperLongParam="baz"
+        />
+      )
+    }
+
+    // good
+    {someConditional ? (
+      <Foo />
+    ) : (
+      <Foo
+        superLongParam="bar"
+        anotherSuperLongParam="baz"
+      />
+    )}
     ```
 
 ## Quotes
@@ -267,7 +288,7 @@ This style guide is mostly based on the standards that are currently prevalent i
 
 ## Props
 
-  - Always use camelCase for prop names.
+  - Always use camelCase for prop names, or PascalCase if the prop value is a React component.
 
     ```jsx
     // bad
@@ -280,6 +301,7 @@ This style guide is mostly based on the standards that are currently prevalent i
     <Foo
       userName="hello"
       phoneNumber={12345678}
+      Component={SomeComponent}
     />
     ```
 
@@ -645,7 +667,8 @@ We don’t recommend using indexes for keys if the order of items may change.
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
+  1. *event handlers starting with 'handle'* like `handleSubmit()` or `handleChangeDescription()`
+  1. *event handlers starting with 'on'* like `onClickSubmit()` or `onChangeDescription()`
   1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
   1. *optional render methods* like `renderNavigation()` or `renderProfilePicture()`
   1. `render`
@@ -718,7 +741,7 @@ We don’t recommend using indexes for keys if the order of items may change.
 
   This JSX/React style guide is also available in other languages:
 
-  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese (Simplified)**: [JasonBoy/javascript](https://github.com/JasonBoy/javascript/tree/master/react)
+  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese (Simplified)**: [jhcccc/javascript](https://github.com/jhcccc/javascript/tree/master/react)
   - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chinese (Traditional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript/tree/master/react)
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Español**: [agrcrobles/javascript](https://github.com/agrcrobles/javascript/tree/master/react)
   - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javascript-style-guide](https://github.com/mitsuruog/javascript-style-guide/tree/master/react)

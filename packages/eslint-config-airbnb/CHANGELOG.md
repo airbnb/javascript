@@ -1,3 +1,36 @@
+18.2.1 / 2020-11-06
+==================
+ - [patch] remove deprecated `jsx-a11y/accessible-emoji` rule (#2322)
+ - [patch] Fix ignoreNonDOM typo in jsx-a11y/aria-role rule (#2318)
+ - [patch] Fixed `handle` and `on` ordering in `sort-comp` rule (#2287)
+ - [deps] update `eslint-plugin-jsx-a11y`, `eslint-plugin-react`
+ - [deps] update `eslint-config-airbnb-base`, `object.assign`
+ - [dev deps] update `@babel/runtime`, `eslint-find-rules`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y`, `eslint-plugin-react`
+
+18.2.0 / 2020-06-18
+==================
+ - [new] add `eslint` `v7` (#2240)
+ - [minor] Allow using `eslint-plugin-react-hooks` v3 and v4 (#2235, #2207)
+ - [minor] Fix typo in no-multiple-empty-lines rule (#2168)
+ - [patch] set `explicitSpread` to ignore for `react/jsx-props-no-spreading` (#2237)
+ - [patch] relax `eslint-plugin-react-hooks` down to v2.3, due to a controversial change in v2.5
+ - [readme] fix typo (#2194)
+ - [deps] update `eslint-config-airbnb-base`, `eslint-plugin-jsx-a11y`, `eslint-plugin-import`, `eslint-plugin-react`, `babel-preset-airbnb`, `eslint-find-rules`, `in-publish`, `tape`, `object.entries`
+ - [tests] fix for eslint 7
+
+18.1.0 / 2020-03-12
+==================
+ - [minor] Support eslint-plugin-react-hooks@2 (#2090)
+ - [minor] add new disabled rules, update eslint
+ - [fix] `whitespace`: only set erroring rules to "warn"
+ - [patch] Remove duplicate `componentDidCatch` (#2108)
+ - [patch] Add `static-variables` to `sort-comp` rule (#2109)
+ - [readme] clarify hooks section in readme (#2074)
+ - [deps] update `eslint`, `eslint-plugin-react`, `eslint-plugin-react-hooks`, `eslint-config-airbnb-base`, `eslint-plugin-import`, `object.entries`
+ - [dev deps] update `@babel/runtime`, `babel-preset-airbnb`, `safe-publish-latest`, `tape`
+ - [tests] re-enable eslint rule `prefer-destructuring` internally (#2110)
+ - [tests] fix eslint errors from c66cfc3 (#2112)
+
 18.0.1 / 2019-08-13
 ==================
  - [patch] `react/state-in-constructor`: fix incorrect configuration

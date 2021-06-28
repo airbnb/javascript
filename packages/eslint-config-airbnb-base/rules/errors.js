@@ -91,12 +91,22 @@ module.exports = {
     // disallow irregular whitespace outside of strings and comments
     'no-irregular-whitespace': 'error',
 
+    // Disallow Number Literals That Lose Precision
+    // https://eslint.org/docs/rules/no-loss-of-precision
+    // TODO: enable, semver-minor, once eslint v7.1 is required (which is major)
+    'no-loss-of-precision': 'off',
+
     // Disallow characters which are made with multiple code points in character class syntax
     // https://eslint.org/docs/rules/no-misleading-character-class
     'no-misleading-character-class': 'error',
 
     // disallow the use of object properties of the global object (Math and JSON) as functions
     'no-obj-calls': 'error',
+
+    // Disallow returning values from Promise executor functions
+    // https://eslint.org/docs/rules/no-promise-executor-return
+    // TODO: enable, semver-minor, once eslint v7.3 is required (which is major)
+    'no-promise-executor-return': 'off',
 
     // disallow use of Object.prototypes builtins directly
     // https://eslint.org/docs/rules/no-prototype-builtins
@@ -124,6 +134,13 @@ module.exports = {
     // disallow unreachable statements after a return, throw, continue, or break statement
     'no-unreachable': 'error',
 
+    // Disallow loops with a body that allows only one iteration
+    // https://eslint.org/docs/rules/no-unreachable-loop
+    // TODO: enable, semver-minor, once eslint v7.3 is required (which is major)
+    'no-unreachable-loop': ['off', {
+      ignore: [], // WhileStatement, DoWhileStatement, ForStatement, ForInStatement, ForOfStatement
+    }],
+
     // disallow return/throw/break/continue inside finally blocks
     // https://eslint.org/docs/rules/no-unsafe-finally
     'no-unsafe-finally': 'error',
@@ -131,13 +148,24 @@ module.exports = {
     // disallow negating the left operand of relational operators
     // https://eslint.org/docs/rules/no-unsafe-negation
     'no-unsafe-negation': 'error',
+
+    // disallow use of optional chaining in contexts where the undefined value is not allowed
+    // https://eslint.org/docs/rules/no-unsafe-optional-chaining
+    // TODO: enable, semver-minor, once eslint v7.15 is required (which is major)
+    'no-unsafe-optional-chaining': ['off', { disallowArithmeticOperators: true }],
+
+    // Disallow useless backreferences in regular expressions
+    // https://eslint.org/docs/rules/no-useless-backreference
+    // TODO: enable, semver-minor, once eslint v7 is required (which is major)
+    'no-useless-backreference': 'off',
+
     // disallow negation of the left operand of an in expression
     // deprecated in favor of no-unsafe-negation
     'no-negated-in-lhs': 'off',
 
     // Disallow assignments that can lead to race conditions due to usage of await or yield
     // https://eslint.org/docs/rules/require-atomic-updates
-    // TODO: enable, semver-major
+    // note: not enabled because it is very buggy
     'require-atomic-updates': 'off',
 
     // disallow comparisons with the value NaN

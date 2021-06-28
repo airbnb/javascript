@@ -1,10 +1,8 @@
 language: node_js
 node_js:
+  - "14"
   - "12"
-  - "11"
   - "10"
-  - "9"
-  - "8"
 before_install:
   - 'nvm install-latest-npm'
 install:
@@ -17,19 +15,43 @@ script:
 sudo: false
 env:
   matrix:
+    - 'TEST=true ESLINT=7 PACKAGE=eslint-config-airbnb-base'
+    - 'TEST=true ESLINT=7 PACKAGE=eslint-config-airbnb'
+    - 'TEST=true ESLINT=7 REACT_HOOKS=3 PACKAGE=eslint-config-airbnb'
+    - 'TEST=true ESLINT=7 REACT_HOOKS=2.3 PACKAGE=eslint-config-airbnb'
+    - 'TEST=true ESLINT=7 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb'
     - 'TEST=true ESLINT=6 PACKAGE=eslint-config-airbnb-base'
     - 'TEST=true ESLINT=6 PACKAGE=eslint-config-airbnb'
+    - 'TEST=true ESLINT=6 REACT_HOOKS=3 PACKAGE=eslint-config-airbnb'
+    - 'TEST=true ESLINT=6 REACT_HOOKS=2.3 PACKAGE=eslint-config-airbnb'
     - 'TEST=true ESLINT=6 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb'
     - 'TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb-base'
     - 'TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb'
+    - 'TEST=true ESLINT=5 REACT_HOOKS=3 PACKAGE=eslint-config-airbnb'
+    - 'TEST=true ESLINT=5 REACT_HOOKS=2.3 PACKAGE=eslint-config-airbnb'
     - 'TEST=true ESLINT=5 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb'
 matrix:
   fast_finish: true
   include:
     - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=7 PACKAGE=eslint-config-airbnb-base
+    - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=7 PACKAGE=eslint-config-airbnb
+    - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=7 REACT_HOOKS=3 PACKAGE=eslint-config-airbnb
+    - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=7 REACT_HOOKS=2.3 PACKAGE=eslint-config-airbnb
+    - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=7 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb
+    - node_js: "lts/*"
+    - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=6 PACKAGE=eslint-config-airbnb-base
     - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=6 PACKAGE=eslint-config-airbnb
+    - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=6 REACT_HOOKS=3 PACKAGE=eslint-config-airbnb
+    - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=6 REACT_HOOKS=2.3 PACKAGE=eslint-config-airbnb
     - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=6 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb
     - node_js: "lts/*"
@@ -37,26 +59,49 @@ matrix:
     - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=5 PACKAGE=eslint-config-airbnb
     - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=5 REACT_HOOKS=3 PACKAGE=eslint-config-airbnb
+    - node_js: "lts/*"
+      env: PREPUBLISH=true ESLINT=5 REACT_HOOKS=2.3 PACKAGE=eslint-config-airbnb
+    - node_js: "lts/*"
       env: PREPUBLISH=true ESLINT=5 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb
     - node_js: "lts/*"
       env: LINT=true
-    - node_js: "7"
+    - node_js: "lts/*"
+      env: LINT=true PACKAGE=eslint-config-airbnb
+    - node_js: "lts/*"
+      env: LINT=true PACKAGE=eslint-config-airbnb-base
+    - node_js: "8"
+      env: TEST=true ESLINT=6 PACKAGE=eslint-config-airbnb-base
+    - node_js: "8"
+      env: TEST=true ESLINT=6 PACKAGE=eslint-config-airbnb
+    - node_js: "8"
+      env: TEST=true ESLINT=6 REACT_HOOKS=3 PACKAGE=eslint-config-airbnb
+    - node_js: "8"
+      env: TEST=true ESLINT=6 REACT_HOOKS=2.3 PACKAGE=eslint-config-airbnb
+    - node_js: "8"
+      env: TEST=true ESLINT=6 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb
+    - node_js: "8"
       env: TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb-base
-    - node_js: "7"
+    - node_js: "8"
       env: TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb
-    - node_js: "7"
+    - node_js: "8"
+      env: TEST=true ESLINT=5 REACT_HOOKS=3 PACKAGE=eslint-config-airbnb
+    - node_js: "8"
+      env: TEST=true ESLINT=5 REACT_HOOKS=2.3 PACKAGE=eslint-config-airbnb
+    - node_js: "8"
       env: TEST=true ESLINT=5 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb
     - node_js: "6"
       env: TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb-base
     - node_js: "6"
       env: TEST=true ESLINT=5 PACKAGE=eslint-config-airbnb
+    - node_js: "6"
+      env: TEST=true ESLINT=5 REACT_HOOKS=3 PACKAGE=eslint-config-airbnb
+    - node_js: "6"
+      env: TEST=true ESLINT=5 REACT_HOOKS=2.3 PACKAGE=eslint-config-airbnb
     - node_js: "6"
       env: TEST=true ESLINT=5 REACT_HOOKS=1.7 PACKAGE=eslint-config-airbnb
   exclude:
   allow_failures:
-    - node_js: "11"
-    - node_js: "9"
-    - node_js: "7"
     - env: PREPUBLISH=true ESLINT=6 PACKAGE=eslint-config-airbnb-base
     - env: PREPUBLISH=true ESLINT=6 PACKAGE=eslint-config-airbnb
     - env: PREPUBLISH=true ESLINT=5 PACKAGE=eslint-config-airbnb-base
