@@ -36,12 +36,10 @@ module.exports = {
 
     // Enforce default clauses in switch statements to be last
     // https://eslint.org/docs/rules/default-case-last
-    // TODO: enable, semver-minor, when eslint v7 is required (which is a major)
-    'default-case-last': 'off',
+    'default-case-last': 'error',
 
     // https://eslint.org/docs/rules/default-param-last
-    // TODO: enable, semver-minor, when eslint v6.4 is required (which is a major)
-    'default-param-last': 'off',
+    'default-param-last': 'error',
 
     // encourages use of dot notation whenever possible
     // https://eslint.org/docs/rules/dot-notation
@@ -382,8 +380,7 @@ module.exports = {
     'prefer-named-capture-group': 'off',
 
     // https://eslint.org/docs/rules/prefer-regex-literals
-    // TODO; enable, semver-minor, once eslint v6.4 is required (which is a major)
-    'prefer-regex-literals': 'off',
+    'prefer-regex-literals': 'error',
 
     // require use of the second argument for parseInt()
     // https://eslint.org/docs/rules/radix

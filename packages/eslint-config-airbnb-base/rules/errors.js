@@ -79,8 +79,7 @@ module.exports = {
     'no-func-assign': 'error',
 
     // https://eslint.org/docs/rules/no-import-assign
-    // TODO: enable, semver-minor, once eslint v6.4 is required (which is a major)
-    'no-import-assign': 'off',
+    'no-import-assign': 'error',
 
     // disallow function or variable declarations in nested blocks
     'no-inner-declarations': 'error',
@@ -93,8 +92,7 @@ module.exports = {
 
     // Disallow Number Literals That Lose Precision
     // https://eslint.org/docs/rules/no-loss-of-precision
-    // TODO: enable, semver-minor, once eslint v7.1 is required (which is major)
-    'no-loss-of-precision': 'off',
+    'no-loss-of-precision': 'error',
 
     // Disallow characters which are made with multiple code points in character class syntax
     // https://eslint.org/docs/rules/no-misleading-character-class
@@ -156,8 +154,7 @@ module.exports = {
 
     // Disallow useless backreferences in regular expressions
     // https://eslint.org/docs/rules/no-useless-backreference
-    // TODO: enable, semver-minor, once eslint v7 is required (which is major)
-    'no-useless-backreference': 'off',
+    'no-useless-backreference': 'error',
 
     // disallow negation of the left operand of an in expression
     // deprecated in favor of no-unsafe-negation
