@@ -3962,7 +3962,7 @@ Other Style Guides
 
 ## Chat With Us About JavaScript
 
-  - Find us on [gitter](https://gitter.im/airbnb/javascript).
+  - Find us on [gitter](https://gitter.im/airbnb/javascript)
 
 ## Contributors
 
