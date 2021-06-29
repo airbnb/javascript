@@ -1,3 +1,4 @@
+![Figma Api Demo Logo](./logo.svg)
 # Airbnb JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
