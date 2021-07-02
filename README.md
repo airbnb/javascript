@@ -376,7 +376,7 @@ Other Style Guides
 
   <a name="arrays--from"></a>
   <a name="arrays--from-iterable"></a><a name="4.4"></a>
-  - [4.4](#arrays--from-iterable) To convert an iterable object to an array, use spreads `...` instead of [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+  - [4.4](#arrays--from-iterable) To convert an iterable object to an array, use spreads `...` instead of [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
