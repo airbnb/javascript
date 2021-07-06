@@ -83,6 +83,7 @@ module.exports = {
         '**/vue.config.js', // vue-cli config
         '**/webpack.config.js', // webpack config
         '**/webpack.config.*.js', // webpack config
+        '**/webpack.*.js', // webpack config
         '**/rollup.config.js', // rollup config
         '**/rollup.config.*.js', // rollup config
         '**/gulpfile.js', // gulp config
