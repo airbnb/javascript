@@ -243,6 +243,7 @@ This style guide is mostly based on the standards that are currently prevalent i
 
     > Why? Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
 
+    <!--- {% raw %} --->
     ```jsx
     // bad
     <Foo bar='bar' />
@@ -256,6 +257,7 @@ This style guide is mostly based on the standards that are currently prevalent i
     // good
     <Foo style={{ left: '20px' }} />
     ```
+    <!--- {% endraw %} --->
 
 ## Spacing
 
