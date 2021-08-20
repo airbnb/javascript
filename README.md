@@ -238,6 +238,7 @@ Other Style Guides
     };
     ```
 
+## DISAGREEMENT
   <a name="objects--grouped-shorthand"></a><a name="3.7"></a>
   - [3.5](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
 
@@ -289,6 +290,7 @@ Other Style Guides
     };
     ```
 
+## MEH
   <a name="objects--prototype-builtins"></a>
   - [3.7](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`. eslint: [`no-prototype-builtins`](https://eslint.org/docs/rules/no-prototype-builtins)
 
@@ -333,6 +335,7 @@ Other Style Guides
 
 ## Arrays
 
+## TODO: Add case where it is actually useful
   <a name="arrays--literals"></a><a name="4.1"></a>
   - [4.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor.html)
 
@@ -412,6 +415,8 @@ Other Style Guides
     const baz = Array.from(foo, bar);
     ```
 
+
+## DISAGREEMENT
   <a name="arrays--callback-return"></a><a name="4.5"></a>
   - [4.7](#arrays--callback-return) Use return statements in array method callbacks. It’s ok to omit the return if the function body consists of a single statement returning an expression without side effects, following [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](https://eslint.org/docs/rules/array-callback-return)
 
@@ -567,6 +572,7 @@ Other Style Guides
 
 ## Strings
 
+## DISAGREEMENT
   <a name="strings--quotes"></a><a name="6.1"></a>
   - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html)
 
@@ -650,6 +656,7 @@ Other Style Guides
 
 ## Functions
 
+## NOPE
   <a name="functions--declarations"></a><a name="7.1"></a>
   - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](https://eslint.org/docs/rules/func-style)
 
@@ -708,6 +715,7 @@ Other Style Guides
     }
     ```
 
+## COMBINE 7.5 and 7.6
   <a name="functions--arguments-shadow"></a><a name="7.5"></a>
   - [7.5](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
 
@@ -829,6 +837,7 @@ Other Style Guides
     const y = function a() {};
     ```
 
+## UPDATE EXAMPLE
   <a name="functions--mutate-params"></a><a name="7.12"></a>
   - [7.12](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
 
