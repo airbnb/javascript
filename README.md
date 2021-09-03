@@ -1324,6 +1324,7 @@ Other Style Guides
     export default es6;
     ```
 
+## REMOVE
   <a name="modules--no-wildcard"></a><a name="10.2"></a>
   - [10.2](#modules--no-wildcard) Do not use wildcard imports.
 
@@ -1337,6 +1338,7 @@ Other Style Guides
     import AirbnbStyleGuide from './AirbnbStyleGuide';
     ```
 
+## REMOVE
   <a name="modules--no-export-from-import"></a><a name="10.3"></a>
   - [10.3](#modules--no-export-from-import) And do not export directly from an import.
 
@@ -1389,6 +1391,7 @@ Other Style Guides
     export { foo };
     ```
 
+## KILL IT
   <a name="modules--prefer-default-export"></a>
   - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
  eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
@@ -1421,6 +1424,7 @@ Other Style Guides
     foo.init();
     ```
 
+## RECONCILE WITH PRETTIER
   <a name="modules--multiline-imports-over-newlines"></a>
   - [10.8](#modules--multiline-imports-over-newlines) Multiline imports should be indented just like multiline array and object literals.
  eslint: [`object-curly-newline`](https://eslint.org/docs/rules/object-curly-newline)
@@ -1477,6 +1481,7 @@ Other Style Guides
 
 ## Iterators and Generators
 
+## UPDATE - for-of is fine
   <a name="iterators--nope"></a><a name="11.1"></a>
   - [11.1](#iterators--nope) Don’t use iterators. Prefer JavaScript’s higher-order functions instead of loops like `for-in` or `for-of`. eslint: [`no-iterator`](https://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](https://eslint.org/docs/rules/no-restricted-syntax)
 
@@ -1521,6 +1526,7 @@ Other Style Guides
     const increasedByOne = numbers.map((num) => num + 1);
     ```
 
+## BYE
   <a name="generators--nope"></a><a name="11.2"></a>
   - [11.2](#generators--nope) Don’t use generators for now.
 
@@ -1607,6 +1613,7 @@ Other Style Guides
     const isJedi = luke.jedi;
     ```
 
+## THAT'S JUST HOW IT WORKS
   <a name="properties--bracket"></a><a name="12.2"></a>
   - [12.2](#properties--bracket) Use bracket notation `[]` when accessing properties with a variable.
 
@@ -1623,6 +1630,7 @@ Other Style Guides
     const isJedi = getProp('jedi');
     ```
 
+## NAH
   <a name="es2016-properties--exponentiation-operator"></a>
   - [12.3](#es2016-properties--exponentiation-operator) Use exponentiation operator `**` when calculating exponentiations. eslint: [`no-restricted-properties`](https://eslint.org/docs/rules/no-restricted-properties).
 
@@ -2028,6 +2036,7 @@ Other Style Guides
   <a name="comparison--moreinfo"></a><a name="15.4"></a>
   - [15.4](#comparison--moreinfo) For more information see [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
 
+## JUST BE CONSISTENT
   <a name="comparison--switch-blocks"></a><a name="15.5"></a>
   - [15.5](#comparison--switch-blocks) Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`). eslint: [`no-case-declarations`](https://eslint.org/docs/rules/no-case-declarations.html)
 
@@ -2153,6 +2162,7 @@ Other Style Guides
 
 ## Blocks
 
+## Prettier does this
   <a name="blocks--braces"></a><a name="16.1"></a>
   - [16.1](#blocks--braces) Use braces with all multiline blocks. eslint: [`nonblock-statement-body-position`](https://eslint.org/docs/rules/nonblock-statement-body-position)
 
@@ -2200,6 +2210,7 @@ Other Style Guides
     }
     ```
 
+## DISAGREEMENT
   <a name="blocks--no-else-return"></a><a name="16.3"></a>
   - [16.3](#blocks--no-else-return) If an `if` block always executes a `return` statement, the subsequent `else` block is unnecessary. A `return` in an `else if` block following an `if` block that contains a `return` can be separated into multiple `if` blocks. eslint: [`no-else-return`](https://eslint.org/docs/rules/no-else-return)
 
@@ -2869,6 +2880,7 @@ Other Style Guides
       .fail(() => console.log('You have failed this city.'));
     ```
 
+## CAN'T DO THIS ANYWAY
   <a name="whitespace--block-spacing"></a>
   - [19.14](#whitespace--block-spacing) Require consistent spacing inside an open block token and the next token on the same line. This rule also enforces consistent spacing inside a close block token and previous token on the same line. eslint: [`block-spacing`](https://eslint.org/docs/rules/block-spacing)
 
