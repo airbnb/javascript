@@ -3399,6 +3399,7 @@ Other Style Guides
     // ^ supports both insideDirectory.js and insideDirectory/index.js
     ```
 
+## REDUNDANT
   <a name="naming--camelCase-default-export"></a><a name="22.7"></a>
   - [23.7](#naming--camelCase-default-export) Use camelCase when you export-default a function. Your filename should be identical to your function’s name.
 
@@ -3569,6 +3570,7 @@ Other Style Guides
 
 ## Events
 
+## UPDATE EXAMPLES
   <a name="events--hash"></a><a name="24.1"></a>
   - [25.1](#events--hash) When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass an object literal (also known as a "hash") instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
 
@@ -3598,6 +3600,7 @@ Other Style Guides
 
   **[⬆ back to top](#table-of-contents)**
 
+## NO JQUERY
 ## jQuery
 
   <a name="jquery--dollar-prefix"></a><a name="25.1"></a>
@@ -3758,8 +3761,9 @@ Other Style Guides
     - Whichever testing framework you use, you should be writing tests!
     - Strive to write many small pure functions, and minimize where mutations occur.
     - Be cautious about stubs and mocks - they can make your tests more brittle.
+    ## UPDATE v
     - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) and [`jest`](https://www.npmjs.com/package/jest) at Airbnb. [`tape`](https://www.npmjs.com/package/tape) is also used occasionally for small, separate modules.
-    - 100% test coverage is a good goal to strive for, even if it’s not always practical to reach it.
+    - 100% test coverage is a good goal to strive for, even if it’s not always practical to reach it. Don't write crappy tests just to bump the number.
     - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
 
 **[⬆ back to top](#table-of-contents)**
