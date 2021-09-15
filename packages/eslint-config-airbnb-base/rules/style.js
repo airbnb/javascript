@@ -1,3 +1,6 @@
+const semver = require('semver');
+const eslintPkg = require('eslint/package.json');
+
 module.exports = {
   rules: {
     // enforce line breaks after opening and before closing array brackets
@@ -101,9 +104,9 @@ module.exports = {
     // TODO: enable
     'func-style': ['off', 'expression'],
 
-    // enforce consistent line breaks inside function parentheses
+    // require line breaks inside function parentheses if there are line breaks between parameters
     // https://eslint.org/docs/rules/function-paren-newline
-    'function-paren-newline': ['error', 'consistent'],
+    'function-paren-newline': ['error', semver.satisfies(eslintPkg.version, '>= 6') ? 'multiline-arguments' : 'consistent'],
 
     // Blacklist certain identifiers to prevent them being used
     // https://eslint.org/docs/rules/id-blacklist
