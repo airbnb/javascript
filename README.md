@@ -1,22 +1,13 @@
-# Airbnb JavaScript Style Guide() {
+# SPS Commerce TypeScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript*
+**TODO:** Write description
 
-> **Note**: this guide assumes you are using [Babel](https://babeljs.io), and requires that you use [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) or the equivalent. It also assumes you are installing shims/polyfills in your app, with [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) or the equivalent.
-
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
-This guide is available in other languages too. See [Translation](#translation)
+**TODO:** What about these other guides?
 
 Other Style Guides
-
-  - [ES5 (Deprecated)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5)
   - [React](react/)
-  - [CSS-in-JavaScript](css-in-javascript/)
+  - [CSS-in-JS](css-in-javascript/)
   - [CSS & Sass](https://github.com/airbnb/css)
-  - [Ruby](https://github.com/airbnb/ruby)
 
 ## Table of Contents
 
@@ -33,7 +24,6 @@ Other Style Guides
   1. [Iterators and Generators](#iterators-and-generators)
   1. [Properties](#properties)
   1. [Variables](#variables)
-  1. [Hoisting](#hoisting)
   1. [Comparison Operators & Equality](#comparison-operators--equality)
   1. [Blocks](#blocks)
   1. [Control Statements](#control-statements)
@@ -45,3983 +35,3769 @@ Other Style Guides
   1. [Naming Conventions](#naming-conventions)
   1. [Accessors](#accessors)
   1. [Events](#events)
-  1. [jQuery](#jquery)
-  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
-  1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
   1. [Standard Library](#standard-library)
+  1. [Language Proposals](#language-proposals)
   1. [Testing](#testing)
-  1. [Performance](#performance)
   1. [Resources](#resources)
-  1. [In the Wild](#in-the-wild)
-  1. [Translation](#translation)
-  1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
-  1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
-  1. [Contributors](#contributors)
-  1. [License](#license)
-  1. [Amendments](#amendments)
 
 ## Types
 
-  <a name="types--primitives"></a><a name="1.1"></a>
-  - [1.1](#types--primitives) **Primitives**: When you access a primitive type you work directly on its value.
+<a name="types--primitives"></a>
+[**1.1**](#types--primitives) ‣ Primitives: When you access a primitive type you work directly on its value.
 
-    - `string`
-    - `number`
-    - `boolean`
-    - `null`
-    - `undefined`
-    - `symbol`
-    - `bigint`
+- `string`
+- `number`
+- `boolean`
+- `null`
+- `undefined`
+- `symbol`
+- `bigint`
 
-    ```javascript
-    const foo = 1;
-    let bar = foo;
 
-    bar = 9;
 
-    console.log(foo, bar); // => 1, 9
-    ```
+```typescript
+const foo = 1;
+let bar = foo;
 
-    - Symbols and BigInts cannot be faithfully polyfilled, so they should not be used when targeting browsers/environments that don’t support them natively.
+bar = 9;
 
-  <a name="types--complex"></a><a name="1.2"></a>
-  - [1.2](#types--complex)  **Complex**: When you access a complex type you work on a reference to its value.
+console.log(foo, bar); // => 1, 9
+```
 
-    - `object`
-    - `array`
-    - `function`
+Symbols and BigInts cannot be faithfully polyfilled, so they should not be used when targeting browsers/environments that don’t support them natively.
 
-    ```javascript
-    const foo = [1, 2];
-    const bar = foo;
+---
 
-    bar[0] = 9;
+<a name="types--complex"></a>
+[**1.2**](#types--complex) ‣  Complex: When you access a complex type you work on a reference to its value.
 
-    console.log(foo[0], bar[0]); // => 9, 9
-    ```
+  - `object`
+  - `array`
+  - `function`
+
+  ```typescript
+  const foo = [1, 2];
+  const bar = foo;
+
+  bar[0] = 9;
+
+  console.log(foo[0], bar[0]); // => 9, 9
+  ```
 
 **[⬆ back to top](#table-of-contents)**
 
+
 ## References
 
-  <a name="references--prefer-const"></a><a name="2.1"></a>
-  - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
+<a name="references--prefer-const"></a>
+[**2.1**](#references--prefer-const) ‣ Use `const` for all of your references; avoid using `var`.
 
-    > Why? This ensures that you can’t reassign your references, which can lead to bugs and difficult to comprehend code.
+<img src="eslint.svg" height="18" align="center"/> [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
 
-    ```javascript
-    // bad
-    var a = 1;
-    var b = 2;
+> Why? This ensures that you can’t reassign your references, which can lead to bugs and difficult to comprehend code.
 
-    // good
-    const a = 1;
-    const b = 2;
-    ```
+```typescript
+// bad
+var a = 1;
+var b = 2;
 
-  <a name="references--disallow-var"></a><a name="2.2"></a>
-  - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](https://eslint.org/docs/rules/no-var.html)
+// good
+const a = 1;
+const b = 2;
+```
 
-    > Why? `let` is block-scoped rather than function-scoped like `var`.
+---
 
-    ```javascript
-    // bad
-    var count = 1;
-    if (true) {
-      count += 1;
-    }
+<a name="references--disallow-var"></a>
+[**2.2**](#references--disallow-var) ‣ If you must reassign references, use `let` instead of `var`.
 
-    // good, use the let.
-    let count = 1;
-    if (true) {
-      count += 1;
-    }
-    ```
+<img src="eslint.svg" height="18" align="center"/> [`no-var`](https://eslint.org/docs/rules/no-var.html)
 
-  <a name="references--block-scope"></a><a name="2.3"></a>
-  - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped, whereas `var` is function-scoped.
+> Why? `let` is block-scoped rather than function-scoped like `var`.
 
-    ```javascript
-    // const and let only exist in the blocks they are defined in.
-    {
-      let a = 1;
-      const b = 1;
-      var c = 1;
-    }
-    console.log(a); // ReferenceError
-    console.log(b); // ReferenceError
-    console.log(c); // Prints 1
-    ```
+```typescript
+// bad
+var count = 1;
+if (true) {
+  count += 1;
+}
 
-    In the above code, you can see that referencing `a` and `b` will produce a ReferenceError, while `c` contains the number. This is because `a` and `b` are block scoped, while `c` is scoped to the containing function.
+// good, use the let.
+let count = 1;
+if (true) {
+  count += 1;
+}
+```
+
+---
+
+<a name="references--block-scope"></a>
+[**2.3**](#references--block-scope) ‣ Note that both `let` and `const` are block-scoped, whereas `var` is function-scoped.
+
+```typescript
+// const and let only exist in the blocks they are defined in.
+{
+  let a = 1;
+  const b = 1;
+  var c = 1;
+}
+console.log(a); // ReferenceError
+console.log(b); // ReferenceError
+console.log(c); // Prints 1
+```
+
+In the above code, you can see that referencing `a` and `b` will produce a ReferenceError, while `c` contains the number. This is because `a` and `b` are block scoped, while `c` is scoped to the containing function.
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Objects
 
-  <a name="objects--no-new"></a><a name="3.1"></a>
-  - [3.1](#objects--no-new) Use the literal syntax for object creation. eslint: [`no-new-object`](https://eslint.org/docs/rules/no-new-object.html)
+<a name="objects--no-new"></a>
+[**3.1**](#objects--no-new) ‣ Use the literal syntax for object creation.
 
-    ```javascript
-    // bad
-    const item = new Object();
+<img src="eslint.svg" height="18" align="center"/> [`no-new-object`](https://eslint.org/docs/rules/no-new-object.html)
 
-    // good
-    const item = {};
-    ```
+```typescript
+// bad
+const item = new Object();
 
-  <a name="es6-computed-properties"></a><a name="3.4"></a>
-  - [3.2](#es6-computed-properties) Use computed property names when creating objects with dynamic property names.
+// good
+const item = {};
+```
 
-    > Why? They allow you to define all the properties of an object in one place.
+---
 
-    ```javascript
+<a name="es6-computed-properties"></a>
+[**3.2**](#es6-computed-properties) ‣ Use computed property names when creating objects with dynamic property names.
 
-    function getKey(k) {
-      return `a key named ${k}`;
-    }
+> Why? They allow you to define all the properties of an object in one place.
 
-    // bad
-    const obj = {
-      id: 5,
-      name: 'San Francisco',
-    };
-    obj[getKey('enabled')] = true;
+```typescript
+function getKey(k: string) {
+  return `a key named ${k}`;
+}
 
-    // good
-    const obj = {
-      id: 5,
-      name: 'San Francisco',
-      [getKey('enabled')]: true,
-    };
-    ```
+// bad
+const obj = {
+  id: 5,
+  name: 'San Francisco',
+};
+obj[getKey('enabled')] = true;
 
-  <a name="es6-object-shorthand"></a><a name="3.5"></a>
-  - [3.3](#es6-object-shorthand) Use object method shorthand. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html)
+// good
+const obj = {
+  id: 5,
+  name: 'San Francisco',
+  [getKey('enabled')]: true,
+};
+```
 
-    ```javascript
-    // bad
-    const atom = {
-      value: 1,
+---
 
-      addValue: function (value) {
-        return atom.value + value;
-      },
-    };
+<a name="es6-object-shorthand"></a>
+[**3.3**](#es6-object-shorthand) ‣ Use object method shorthand.
 
-    // good
-    const atom = {
-      value: 1,
+<img src="eslint.svg" height="18" align="center"/> [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html)
 
-      addValue(value) {
-        return atom.value + value;
-      },
-    };
-    ```
+```typescript
+// bad
+const atom = {
+  value: 1,
 
-  <a name="es6-object-concise"></a><a name="3.6"></a>
-  - [3.4](#es6-object-concise) Use property value shorthand. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html)
+  addValue: function (value: number) {
+    return atom.value + value;
+  },
+};
 
-    > Why? It is shorter and descriptive.
+// good
+const atom = {
+  value: 1,
 
-    ```javascript
-    const lukeSkywalker = 'Luke Skywalker';
+  addValue(value: number) {
+    return atom.value + value;
+  },
+};
+```
 
-    // bad
-    const obj = {
-      lukeSkywalker: lukeSkywalker,
-    };
+---
 
-    // good
-    const obj = {
-      lukeSkywalker,
-    };
-    ```
+<a name="es6-object-concise"></a>
+[**3.4**](#es6-object-concise) ‣ Use property value shorthand.
 
-## DISAGREEMENT
-  <a name="objects--grouped-shorthand"></a><a name="3.7"></a>
-  - [3.5](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
+<img src="eslint.svg" height="18" align="center"/> [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html)
 
-    > Why? It’s easier to tell which properties are using the shorthand.
+> Why? It is shorter and descriptive.
 
-    ```javascript
-    const anakinSkywalker = 'Anakin Skywalker';
-    const lukeSkywalker = 'Luke Skywalker';
+```typescript
+const lukeSkywalker = 'Luke Skywalker';
 
-    // bad
-    const obj = {
-      episodeOne: 1,
-      twoJediWalkIntoACantina: 2,
-      lukeSkywalker,
-      episodeThree: 3,
-      mayTheFourth: 4,
-      anakinSkywalker,
-    };
+// bad
+const obj = {
+  lukeSkywalker: lukeSkywalker,
+};
 
-    // good
-    const obj = {
-      lukeSkywalker,
-      anakinSkywalker,
-      episodeOne: 1,
-      twoJediWalkIntoACantina: 2,
-      episodeThree: 3,
-      mayTheFourth: 4,
-    };
-    ```
+// good
+const obj = {
+  lukeSkywalker,
+};
+```
 
-  <a name="objects--quoted-props"></a><a name="3.8"></a>
-  - [3.6](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](https://eslint.org/docs/rules/quote-props.html)
+---
 
-    > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
+**TODO:** Further discussion required
 
-    ```javascript
-    // bad
-    const bad = {
-      'foo': 3,
-      'bar': 4,
-      'data-blah': 5,
-    };
+<a name="objects--grouped-shorthand"></a>
+[**3.5**](#objects--grouped-shorthand) ‣ Group your shorthand properties at the beginning of your object declaration.
 
-    // good
-    const good = {
-      foo: 3,
-      bar: 4,
-      'data-blah': 5,
-    };
-    ```
+> Why? It’s easier to tell which properties are using the shorthand.
 
-## MEH
-  <a name="objects--prototype-builtins"></a>
-  - [3.7](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`. eslint: [`no-prototype-builtins`](https://eslint.org/docs/rules/no-prototype-builtins)
+```typescript
+const anakinSkywalker = 'Anakin Skywalker';
+const lukeSkywalker = 'Luke Skywalker';
 
-    > Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
+// bad
+const obj = {
+  episodeOne: 1,
+  twoJediWalkIntoACantina: 2,
+  lukeSkywalker,
+  episodeThree: 3,
+  mayTheFourth: 4,
+  anakinSkywalker,
+};
 
-    ```javascript
-    // bad
-    console.log(object.hasOwnProperty(key));
+// good
+const obj = {
+  lukeSkywalker,
+  anakinSkywalker,
+  episodeOne: 1,
+  twoJediWalkIntoACantina: 2,
+  episodeThree: 3,
+  mayTheFourth: 4,
+};
+```
 
-    // good
-    console.log(Object.prototype.hasOwnProperty.call(object, key));
+---
 
-    // best
-    const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
-    console.log(has.call(object, key));
-    /* or */
-    import has from 'has'; // https://www.npmjs.com/package/has
-    console.log(has(object, key));
-    ```
+<a name="objects--quoted-props"></a>
+[**3.6**](#objects--quoted-props) ‣ Only quote properties that are invalid identifiers.
 
-  <a name="objects--rest-spread"></a>
-  - [3.8](#objects--rest-spread) Prefer the object spread syntax over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted. eslint: [`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread)
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
 
-    ```javascript
-    // very bad
-    const original = { a: 1, b: 2 };
-    const copy = Object.assign(original, { c: 3 }); // this mutates `original` ಠ_ಠ
-    delete copy.a; // so does this
+<img src="eslint.svg" height="18" align="center"/> [`quote-props`](https://eslint.org/docs/rules/quote-props.html)
 
-    // bad
-    const original = { a: 1, b: 2 };
-    const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
+> Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
 
-    // good
-    const original = { a: 1, b: 2 };
-    const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
+```typescript
+// bad
+const bad = {
+  'foo': 3,
+  'bar': 4,
+  'data-blah': 5,
+};
 
-    const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
-    ```
+// good
+const good = {
+  foo: 3,
+  bar: 4,
+  'data-blah': 5,
+};
+```
+
+---
+
+<a name="objects--rest-spread"></a>
+[**3.7**](#objects--rest-spread) ‣ Prefer the object spread syntax over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
+
+<img src="eslint.svg" height="18" align="center"/> [`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread)
+
+```typescript
+// very bad
+const original = { a: 1, b: 2 };
+const copy = Object.assign(original, { c: 3 }); // this mutates `original` ಠ_ಠ
+delete copy.a; // so does this
+
+// bad
+const original = { a: 1, b: 2 };
+const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
+
+// good
+const original = { a: 1, b: 2 };
+const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
+
+const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrays
 
-## TODO: Add case where it is actually useful
-  <a name="arrays--literals"></a><a name="4.1"></a>
-  - [4.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor.html)
+<a name="arrays--literals"></a>
+[**4.1**](#arrays--literals) ‣ Use the literal syntax for array creation, except in the case of initializing a sparse array with a specific size.
 
-    ```javascript
-    // bad
-    const items = new Array();
+<img src="eslint.svg" height="18" align="center"/> [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor.html)
 
-    // good
-    const items = [];
-    ```
+```typescript
+// bad
+const items = new Array();
 
-  <a name="arrays--push"></a><a name="4.2"></a>
-  - [4.2](#arrays--push) Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to add items to an array.
+// good
+const items = [];
 
-    ```javascript
-    const someStack = [];
+// good
+const items = new Array(8);
+```
 
-    // bad
-    someStack[someStack.length] = 'abracadabra';
+---
 
-    // good
-    someStack.push('abracadabra');
-    ```
+<a name="arrays--push"></a>
+[**4.2**](#arrays--push) ‣ Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to add items to an array.
 
-  <a name="es6-array-spreads"></a><a name="4.3"></a>
-  - [4.3](#es6-array-spreads) Use array spreads `...` to copy arrays.
+```typescript
+const someStack = [];
 
-    ```javascript
-    // bad
-    const len = items.length;
-    const itemsCopy = [];
-    let i;
+// bad
+someStack[someStack.length] = 'abracadabra';
 
-    for (i = 0; i < len; i += 1) {
-      itemsCopy[i] = items[i];
-    }
+// good
+someStack.push('abracadabra');
+```
 
-    // good
-    const itemsCopy = [...items];
-    ```
+---
 
-  <a name="arrays--from"></a>
-  <a name="arrays--from-iterable"></a><a name="4.4"></a>
-  - [4.4](#arrays--from-iterable) To convert an iterable object to an array, use spreads `...` instead of [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+<a name="es6-array-spreads"></a>
+[**4.3**](#es6-array-spreads) ‣ Use array spreads `...` to copy arrays.
 
-    ```javascript
-    const foo = document.querySelectorAll('.foo');
+```typescript
+// bad
+const len = items.length;
+const itemsCopy = [];
+let i;
 
-    // good
-    const nodes = Array.from(foo);
+for (i = 0; i < len; i += 1) {
+  itemsCopy[i] = items[i];
+}
 
-    // best
-    const nodes = [...foo];
-    ```
+// good
+const itemsCopy = [...items];
+```
 
-  <a name="arrays--from-array-like"></a>
-  - [4.5](#arrays--from-array-like) Use [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) for converting an array-like object to an array.
+---
 
-    ```javascript
-    const arrLike = { 0: 'foo', 1: 'bar', 2: 'baz', length: 3 };
+<a name="arrays--from-iterable"></a>
+[**4.4**](#arrays--from-iterable) ‣ To convert an iterable object to an array, use spreads `...` instead of [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
 
-    // bad
-    const arr = Array.prototype.slice.call(arrLike);
+```typescript
+const foo = document.querySelectorAll('.foo');
 
-    // good
-    const arr = Array.from(arrLike);
-    ```
+// good
+const nodes = Array.from(foo);
 
-  <a name="arrays--mapping"></a>
-  - [4.6](#arrays--mapping) Use [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) instead of spread `...` for mapping over iterables, because it avoids creating an intermediate array.
+// best
+const nodes = [...foo];
+```
 
-    ```javascript
-    // bad
-    const baz = [...foo].map(bar);
+---
 
-    // good
-    const baz = Array.from(foo, bar);
-    ```
+<a name="arrays--from-array-like"></a>
+[**4.5**](#arrays--from-array-like) ‣ Use [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) for converting an array-like object to an array.
 
+```typescript
+const arrLike = { 0: 'foo', 1: 'bar', 2: 'baz', length: 3 };
 
-## DISAGREEMENT
-  <a name="arrays--callback-return"></a><a name="4.5"></a>
-  - [4.7](#arrays--callback-return) Use return statements in array method callbacks. It’s ok to omit the return if the function body consists of a single statement returning an expression without side effects, following [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](https://eslint.org/docs/rules/array-callback-return)
+// bad
+const arr = Array.prototype.slice.call(arrLike);
 
-    ```javascript
-    // good
-    [1, 2, 3].map((x) => {
-      const y = x + 1;
-      return x * y;
-    });
+// good
+const arr = Array.from(arrLike);
+```
 
-    // good
-    [1, 2, 3].map((x) => x + 1);
+---
 
-    // bad - no returned value means `acc` becomes undefined after the first iteration
-    [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
-      const flatten = acc.concat(item);
-    });
+<a name="arrays--mapping"></a>
+[**4.6**](#arrays--mapping) ‣ Use [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) instead of spread `...` for mapping over iterables, because it avoids creating an intermediate array.
 
-    // good
-    [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
-      const flatten = acc.concat(item);
-      return flatten;
-    });
+```typescript
+// bad
+const baz = [...foo].map(bar);
 
-    // bad
-    inbox.filter((msg) => {
-      const { subject, author } = msg;
-      if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
-      } else {
-        return false;
-      }
-    });
+// good
+const baz = Array.from(foo, bar);
+```
 
-    // good
-    inbox.filter((msg) => {
-      const { subject, author } = msg;
-      if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
-      }
+---
 
-      return false;
-    });
-    ```
+**TODO:** Further discussion required
 
-  <a name="arrays--bracket-newline"></a>
-  - [4.8](#arrays--bracket-newline) Use line breaks after open and before close array brackets if an array has multiple lines
+<a name="arrays--callback-return"></a>
+[**4.7**](#arrays--callback-return) ‣ Use return statements in array method callbacks. It’s ok to omit the return if the function body consists of a single statement returning an expression without side effects, following [**8.2**](#arrows--implicit-return).
 
-    ```javascript
-    // bad
-    const arr = [
-      [0, 1], [2, 3], [4, 5],
-    ];
+<img src="eslint.svg" height="18" align="center"/> [`array-callback-return`](https://eslint.org/docs/rules/array-callback-return)
 
-    const objectInArray = [{
-      id: 1,
-    }, {
-      id: 2,
-    }];
+```typescript
+// good
+[1, 2, 3].map((x) => {
+  const y = x + 1;
+  return x * y;
+});
 
-    const numberInArray = [
-      1, 2,
-    ];
+// good
+[1, 2, 3].map((x) => x + 1);
 
-    // good
-    const arr = [[0, 1], [2, 3], [4, 5]];
+// bad - no returned value means `acc` becomes undefined after the first iteration
+[[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
+  const flatten = acc.concat(item);
+});
 
-    const objectInArray = [
-      {
-        id: 1,
-      },
-      {
-        id: 2,
-      },
-    ];
+// good
+[[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
+  const flatten = acc.concat(item);
+  return flatten;
+});
 
-    const numberInArray = [
-      1,
-      2,
-    ];
-    ```
+// bad
+inbox.filter((msg) => {
+  const { subject, author } = msg;
+  if (subject === 'Mockingbird') {
+    return author === 'Harper Lee';
+  } else {
+    return false;
+  }
+});
+
+// good
+inbox.filter((msg) => {
+  const { subject, author } = msg;
+  if (subject === 'Mockingbird') {
+    return author === 'Harper Lee';
+  }
+
+  return false;
+});
+```
+
+---
+
+<a name="arrays--bracket-newline"></a>
+[**4.8**](#arrays--bracket-newline) ‣ Use line breaks after open and before close array brackets if an array has multiple lines.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+```typescript
+// bad
+const arr = [
+  [0, 1],
+];
+
+const objectInArray = [{
+  id: 1,
+}, {
+  id: 2,
+}];
+
+const numberInArray = [
+  1, 2,
+];
+
+// good
+const arr = [[0, 1]];
+
+const objectInArray = [
+  {
+    id: 1,
+  },
+  {
+    id: 2,
+  },
+];
+
+const stringInArray = [
+  'foofoofoofoofoofoofoofoo',
+  'foofoofoofoofoofoofoofoo',
+  'foofoofoofoofoofoofoofoo',
+];
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Destructuring
 
-  <a name="destructuring--object"></a><a name="5.1"></a>
-  - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)
+<a name="destructuring--object"></a>
+[**5.1**](#destructuring--object) ‣ Use object destructuring when accessing and using multiple properties of an object.
 
-    > Why? Destructuring saves you from creating temporary references for those properties, and from repetitive access of the object. Repeating object access creates more repetitive code, requires more reading, and creates more opportunities for mistakes. Destructuring objects also provides a single site of definition of the object structure that is used in the block, rather than requiring reading the entire block to determine what is used.
+<img src="eslint.svg" height="18" align="center"/> [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)
 
-    ```javascript
-    // bad
-    function getFullName(user) {
-      const firstName = user.firstName;
-      const lastName = user.lastName;
+> Why? Destructuring saves you from creating temporary references for those properties, and from repetitive access of the object. Repeating object access creates more repetitive code, requires more reading, and creates more opportunities for mistakes. Destructuring objects also provides a single site of definition of the object structure that is used in the block, rather than requiring reading the entire block to determine what is used.
 
-      return `${firstName} ${lastName}`;
-    }
+```typescript
+// bad
+function getFullName(user) {
+  const firstName = user.firstName;
+  const lastName = user.lastName;
 
-    // good
-    function getFullName(user) {
-      const { firstName, lastName } = user;
-      return `${firstName} ${lastName}`;
-    }
+  return `${firstName} ${lastName}`;
+}
 
-    // best
-    function getFullName({ firstName, lastName }) {
-      return `${firstName} ${lastName}`;
-    }
-    ```
+// good
+function getFullName(user) {
+  const { firstName, lastName } = user;
+  return `${firstName} ${lastName}`;
+}
 
-  <a name="destructuring--array"></a><a name="5.2"></a>
-  - [5.2](#destructuring--array) Use array destructuring. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)
+// best
+function getFullName({ firstName, lastName }) {
+  return `${firstName} ${lastName}`;
+}
+```
 
-    ```javascript
-    const arr = [1, 2, 3, 4];
+---
 
-    // bad
-    const first = arr[0];
-    const second = arr[1];
+<a name="destructuring--array"></a>
+[**5.2**](#destructuring--array) ‣ Use array destructuring.
 
-    // good
-    const [first, second] = arr;
-    ```
+<img src="eslint.svg" height="18" align="center"/> [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)
 
-  <a name="destructuring--object-over-array"></a><a name="5.3"></a>
-  - [5.3](#destructuring--object-over-array) Use object destructuring for multiple return values, not array destructuring.
+```typescript
+const arr = [1, 2, 3, 4];
 
-    > Why? You can add new properties over time or change the order of things without breaking call sites.
+// bad
+const first = arr[0];
+const second = arr[1];
 
-    ```javascript
-    // bad
-    function processInput(input) {
-      // then a miracle occurs
-      return [left, right, top, bottom];
-    }
+// good
+const [first, second] = arr;
+```
 
-    // the caller needs to think about the order of return data
-    const [left, __, top] = processInput(input);
+---
 
-    // good
-    function processInput(input) {
-      // then a miracle occurs
-      return { left, right, top, bottom };
-    }
+<a name="destructuring--object-over-array"></a>
+[**5.3**](#destructuring--object-over-array) ‣ Use object destructuring for multiple return values, not array destructuring.
 
-    // the caller selects only the data they need
-    const { left, top } = processInput(input);
-    ```
+> Why? You can add new properties over time or change the order of things without breaking call sites.
+
+```typescript
+// bad
+function processInput(input) {
+  // then a miracle occurs
+  return [left, right, top, bottom];
+}
+
+// the caller needs to think about the order of return data
+const [left, __, top] = processInput(input);
+
+// good
+function processInput(input) {
+  // then a miracle occurs
+  return { left, right, top, bottom };
+}
+
+// the caller selects only the data they need
+const { left, top } = processInput(input);
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Strings
 
-## DISAGREEMENT
-  <a name="strings--quotes"></a><a name="6.1"></a>
-  - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html)
+**TODO:** Further discussion required - Prettier does double quotes by default, but can be configured for single quotes.
 
-    ```javascript
-    // bad
-    const name = "Capt. Janeway";
+<a name="strings--quotes"></a>
+[**6.1**](#strings--quotes) ‣ Use single quotes `''` for strings.
 
-    // bad - template literals should contain interpolation or newlines
-    const name = `Capt. Janeway`;
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
 
-    // good
-    const name = 'Capt. Janeway';
-    ```
+<img src="eslint.svg" height="18" align="center"/> [`quotes`](https://eslint.org/docs/rules/quotes.html)
 
-  <a name="strings--line-length"></a><a name="6.2"></a>
-  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
+```typescript
+// bad
+const name = "Capt. Janeway";
 
-    > Why? Broken strings are painful to work with and make code less searchable.
+// bad - template literals should contain interpolation or newlines
+const name = `Capt. Janeway`;
 
-    ```javascript
-    // bad
-    const errorMessage = 'This is a super long error that was thrown because \
-    of Batman. When you stop to think about how Batman had anything to do \
-    with this, you would get nowhere \
-    fast.';
+// good
+const name = 'Capt. Janeway';
+```
 
-    // bad
-    const errorMessage = 'This is a super long error that was thrown because ' +
-      'of Batman. When you stop to think about how Batman had anything to do ' +
-      'with this, you would get nowhere fast.';
+---
 
-    // good
-    const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
-    ```
+<a name="strings--line-length"></a>
+[**6.2**](#strings--line-length) ‣ Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
 
-  <a name="es6-template-literals"></a><a name="6.4"></a>
-  - [6.3](#es6-template-literals) When programmatically building up strings, use template strings instead of concatenation. eslint: [`prefer-template`](https://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](https://eslint.org/docs/rules/template-curly-spacing)
+> Why? Broken strings are painful to work with and make code less searchable.
 
-    > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+```typescript
+// bad
+const errorMessage = 'This is a super long error that was thrown because \
+of Batman. When you stop to think about how Batman had anything to do \
+with this, you would get nowhere \
+fast.';
 
-    ```javascript
-    // bad
-    function sayHi(name) {
-      return 'How are you, ' + name + '?';
-    }
+// bad
+const errorMessage = 'This is a super long error that was thrown because ' +
+  'of Batman. When you stop to think about how Batman had anything to do ' +
+  'with this, you would get nowhere fast.';
 
-    // bad
-    function sayHi(name) {
-      return ['How are you, ', name, '?'].join();
-    }
+// good
+const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+```
 
-    // bad
-    function sayHi(name) {
-      return `How are you, ${ name }?`;
-    }
+---
 
-    // good
-    function sayHi(name) {
-      return `How are you, ${name}?`;
-    }
-    ```
+<a name="es6-template-literals"></a>
+[**6.3**](#es6-template-literals) ‣ When programmatically building up strings, use template strings instead of concatenation.
 
-  <a name="strings--eval"></a><a name="6.5"></a>
-  - [6.4](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities. eslint: [`no-eval`](https://eslint.org/docs/rules/no-eval)
+<img src="eslint.svg" height="18" align="center"/> [`prefer-template`](https://eslint.org/docs/rules/prefer-template.html), [`template-curly-spacing`](https://eslint.org/docs/rules/template-curly-spacing)
 
-  <a name="strings--escaping"></a>
-  - [6.5](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](https://eslint.org/docs/rules/no-useless-escape)
+> Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
 
-    > Why? Backslashes harm readability, thus they should only be present when necessary.
+```typescript
+// bad
+function sayHi(name) {
+  return 'How are you, ' + name + '?';
+}
 
-    ```javascript
-    // bad
-    const foo = '\'this\' \i\s \"quoted\"';
+// bad
+function sayHi(name) {
+  return ['How are you, ', name, '?'].join();
+}
 
-    // good
-    const foo = '\'this\' is "quoted"';
-    const foo = `my name is '${name}'`;
-    ```
+// bad
+function sayHi(name) {
+  return `How are you, ${ name }?`;
+}
+
+// good
+function sayHi(name) {
+  return `How are you, ${name}?`;
+}
+```
+
+---
+
+<a name="strings--eval"></a>
+[**6.4**](#strings--eval) ‣ Never use `eval()` on a string, it opens too many vulnerabilities.
+
+<img src="eslint.svg" height="18" align="center"/> [`no-eval`](https://eslint.org/docs/rules/no-eval)
+
+---
+
+<a name="strings--escaping"></a>
+[**6.5**](#strings--escaping) ‣ Do not unnecessarily escape characters in strings.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`no-useless-escape`](https://eslint.org/docs/rules/no-useless-escape)
+
+> Why? Backslashes harm readability, thus they should only be present when necessary.
+
+```typescript
+// bad
+const foo = '\'this\' \i\s \"quoted\"';
+
+// good
+const foo = '\'this\' is "quoted"';
+const foo = `my name is '${name}'`;
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Functions
 
-## NOPE
-  <a name="functions--declarations"></a><a name="7.1"></a>
-  - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](https://eslint.org/docs/rules/func-style)
+<a name="functions--in-blocks"></a>
+[**7.1**](#functions--in-blocks) ‣ Never declare a function in a non-function block (`if`, `while`, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
 
-    > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to explicitly name the expression, regardless of whether or not the name is inferred from the containing variable (which is often the case in modern browsers or when using compilers such as Babel). This eliminates any assumptions made about the Error’s call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
+<img src="eslint.svg" height="18" align="center"/> [`no-loop-func`](https://eslint.org/docs/rules/no-loop-func.html)
 
-    ```javascript
-    // bad
-    function foo() {
-      // ...
-    }
+---
 
-    // bad
-    const foo = function () {
-      // ...
-    };
+<a name="functions--note-on-blocks"></a>
+[**7.2**](#functions--note-on-blocks) ‣ **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement.
 
-    // good
-    // lexical name distinguished from the variable-referenced invocation(s)
-    const short = function longUniqueMoreDescriptiveLexicalFoo() {
-      // ...
-    };
-    ```
+```typescript
+// bad
+if (currentUser) {
+  function test() {
+    console.log('Nope.');
+  }
+}
 
-  <a name="functions--iife"></a><a name="7.2"></a>
-  - [7.2](#functions--iife) Wrap immediately invoked function expressions in parentheses. eslint: [`wrap-iife`](https://eslint.org/docs/rules/wrap-iife.html)
+// good
+let test;
+if (currentUser) {
+  test = () => {
+    console.log('Yup.');
+  };
+}
+```
 
-    > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
+---
 
-    ```javascript
-    // immediately-invoked function expression (IIFE)
-    (function () {
-      console.log('Welcome to the Internet. Please follow me.');
-    }());
-    ```
+<a name="es6-rest"></a>
+[**7.3**](#es6-rest) ‣ Never use `arguments`, opt to use rest syntax `...` instead.
 
-  <a name="functions--in-blocks"></a><a name="7.3"></a>
-  - [7.3](#functions--in-blocks) Never declare a function in a non-function block (`if`, `while`, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](https://eslint.org/docs/rules/no-loop-func.html)
+<img src="eslint.svg" height="18" align="center"/> [`prefer-rest-params`](https://eslint.org/docs/rules/prefer-rest-params)
 
-  <a name="functions--note-on-blocks"></a><a name="7.4"></a>
-  - [7.4](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement.
+> Why? `...` is explicit about which arguments you want pulled. Plus, rest arguments are a real Array, and not merely Array-like like `arguments`.
 
-    ```javascript
-    // bad
-    if (currentUser) {
-      function test() {
-        console.log('Nope.');
-      }
-    }
+```typescript
+// bad
+function concatenateAll() {
+  const args = Array.prototype.slice.call(arguments);
+  return args.join('');
+}
 
-    // good
-    let test;
-    if (currentUser) {
-      test = () => {
-        console.log('Yup.');
-      };
-    }
-    ```
+// good
+function concatenateAll(...args) {
+  return args.join('');
+}
+```
 
-## COMBINE 7.5 and 7.6
-  <a name="functions--arguments-shadow"></a><a name="7.5"></a>
-  - [7.5](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+---
 
-    ```javascript
-    // bad
-    function foo(name, options, arguments) {
-      // ...
-    }
+<a name="es6-default-parameters"></a>
+[**7.4**](#es6-default-parameters) ‣ Use default parameter syntax rather than mutating function arguments.
 
-    // good
-    function foo(name, options, args) {
-      // ...
-    }
-    ```
+```typescript
+// really bad
+function handleThings(opts) {
+  // No! We shouldn’t mutate function arguments.
+  // Double bad: if opts is falsy it'll be set to an object which may
+  // be what you want but it can introduce subtle bugs.
+  opts = opts || {};
+  // ...
+}
 
-  <a name="es6-rest"></a><a name="7.6"></a>
-  - [7.6](#es6-rest) Never use `arguments`, opt to use rest syntax `...` instead. eslint: [`prefer-rest-params`](https://eslint.org/docs/rules/prefer-rest-params)
+// still bad
+function handleThings(opts) {
+  if (opts === void 0) {
+    opts = {};
+  }
+  // ...
+}
 
-    > Why? `...` is explicit about which arguments you want pulled. Plus, rest arguments are a real Array, and not merely Array-like like `arguments`.
+// good
+function handleThings(opts = {}) {
+  // ...
+}
+```
 
-    ```javascript
-    // bad
-    function concatenateAll() {
-      const args = Array.prototype.slice.call(arguments);
-      return args.join('');
-    }
+---
 
-    // good
-    function concatenateAll(...args) {
-      return args.join('');
-    }
-    ```
+<a name="functions--default-side-effects"></a>
+[**7.5**](#functions--default-side-effects) ‣ Avoid side effects with default parameters.
 
-  <a name="es6-default-parameters"></a><a name="7.7"></a>
-  - [7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
+> Why? They are confusing to reason about.
 
-    ```javascript
-    // really bad
-    function handleThings(opts) {
-      // No! We shouldn’t mutate function arguments.
-      // Double bad: if opts is falsy it'll be set to an object which may
-      // be what you want but it can introduce subtle bugs.
-      opts = opts || {};
-      // ...
-    }
 
-    // still bad
-    function handleThings(opts) {
-      if (opts === void 0) {
-        opts = {};
-      }
-      // ...
-    }
+```typescript
+let b = 1;
 
-    // good
-    function handleThings(opts = {}) {
-      // ...
-    }
-    ```
+// bad
+function count(a = b++) {
+  console.log(a);
+}
+count();  // 1
+count();  // 2
+count(3); // 3
+count();  // 3
+```
 
-  <a name="functions--default-side-effects"></a><a name="7.8"></a>
-  - [7.8](#functions--default-side-effects) Avoid side effects with default parameters.
+---
 
-    > Why? They are confusing to reason about.
+<a name="functions--defaults-last"></a>
+[**7.6**](#functions--defaults-last) ‣ Always put default parameters last.
 
-    ```javascript
-    var b = 1;
-    // bad
-    function count(a = b++) {
-      console.log(a);
-    }
-    count();  // 1
-    count();  // 2
-    count(3); // 3
-    count();  // 3
-    ```
+<img src="eslint.svg" height="18" align="center"/> [`default-param-last`](https://eslint.org/docs/rules/default-param-last)
 
-  <a name="functions--defaults-last"></a><a name="7.9"></a>
-  - [7.9](#functions--defaults-last) Always put default parameters last. eslint: [`default-param-last`](https://eslint.org/docs/rules/default-param-last)
+```typescript
+// bad
+function handleThings(opts: IHandleThingsOpts = {}, name: string) {
+  // ...
+}
 
-    ```javascript
-    // bad
-    function handleThings(opts = {}, name) {
-      // ...
-    }
+// good
+function handleThings(name: string, opts: IHandleThingsOpts = {}) {
+  // ...
+}
+```
 
-    // good
-    function handleThings(name, opts = {}) {
-      // ...
-    }
-    ```
+---
 
-  <a name="functions--constructor"></a><a name="7.10"></a>
-  - [7.10](#functions--constructor) Never use the Function constructor to create a new function. eslint: [`no-new-func`](https://eslint.org/docs/rules/no-new-func)
+<a name="functions--constructor"></a>
+[**7.7**](#functions--constructor) ‣ Never use the Function constructor to create a new function.
 
-    > Why? Creating a function in this way evaluates a string similarly to `eval()`, which opens vulnerabilities.
+<img src="eslint.svg" height="18" align="center"/> [`no-new-func`](https://eslint.org/docs/rules/no-new-func)
 
-    ```javascript
-    // bad
-    var add = new Function('a', 'b', 'return a + b');
+> Why? Creating a function in this way evaluates a string similarly to `eval()`, which opens vulnerabilities.
 
-    // still bad
-    var subtract = Function('a', 'b', 'return a - b');
-    ```
+```typescript
+// bad
+const add = new Function('a', 'b', 'return a + b');
 
-  <a name="functions--signature-spacing"></a><a name="7.11"></a>
-  - [7.11](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
+// still bad
+const subtract = Function('a', 'b', 'return a - b');
+```
 
-    > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
+---
 
-    ```javascript
-    // bad
-    const f = function(){};
-    const g = function (){};
-    const h = function() {};
+<a name="functions--signature-spacing"></a>
+[**7.8**](#functions--signature-spacing) ‣ Spacing in a function signature.
 
-    // good
-    const x = function () {};
-    const y = function a() {};
-    ```
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
 
-## UPDATE EXAMPLE
-  <a name="functions--mutate-params"></a><a name="7.12"></a>
-  - [7.12](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
+<img src="eslint.svg" height="18" align="center"/> [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren), [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
 
-    > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+> Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
 
-    ```javascript
-    // bad
-    function f1(obj) {
-      obj.key = 1;
-    }
+```typescript
+// bad
+const f = function(){};
+const g = function (){};
+const h = function() {};
 
-    // good
-    function f2(obj) {
-      const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
-    }
-    ```
+// good
+const x = function () {};
+const y = function a() {};
+```
 
-  <a name="functions--reassign-params"></a><a name="7.13"></a>
-  - [7.13](#functions--reassign-params) Never reassign parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
+---
 
-    > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
+<a name="functions--mutate-params"></a>
+[**7.10**](#functions--mutate-params) ‣ Never mutate parameters.
 
-    ```javascript
-    // bad
-    function f1(a) {
-      a = 1;
-      // ...
-    }
+<img src="eslint.svg" height="18" align="center"/> [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
 
-    function f2(a) {
-      if (!a) { a = 1; }
-      // ...
-    }
+> Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
 
-    // good
-    function f3(a) {
-      const b = a || 1;
-      // ...
-    }
+```typescript
+// bad
+function f1(obj: ObjType) {
+  obj.key = 1;
+  // ...
+}
 
-    function f4(a = 1) {
-      // ...
-    }
-    ```
+// good
+function f2(obj: ObjType) {
+  const objCopy = {
+    ...obj,
+    key: 1,
+  };
+  // ...
+}
+```
 
-  <a name="functions--spread-vs-apply"></a><a name="7.14"></a>
-  - [7.14](#functions--spread-vs-apply) Prefer the use of the spread syntax `...` to call variadic functions. eslint: [`prefer-spread`](https://eslint.org/docs/rules/prefer-spread)
+---
 
-    > Why? It’s cleaner, you don’t need to supply a context, and you can not easily compose `new` with `apply`.
+<a name="functions--reassign-params"></a>
+[**7.11**](#functions--reassign-params) ‣ Never reassign parameters.
 
-    ```javascript
-    // bad
-    const x = [1, 2, 3, 4, 5];
-    console.log.apply(console, x);
+<img src="eslint.svg" height="18" align="center"/> [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
 
-    // good
-    const x = [1, 2, 3, 4, 5];
-    console.log(...x);
+> Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
 
-    // bad
-    new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));
+```typescript
+// bad
+function f1(a: number) {
+  a = 1;
+  // ...
+}
 
-    // good
-    new Date(...[2016, 8, 5]);
-    ```
+function f2(a: number) {
+  if (!a) { a = 1; }
+  // ...
+}
 
-  <a name="functions--signature-invocation-indentation"></a>
-  - [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item. eslint: [`function-paren-newline`](https://eslint.org/docs/rules/function-paren-newline)
+// good
+function f3(a: number) {
+  const b = a || 1;
+  // ...
+}
 
-    ```javascript
-    // bad
-    function foo(bar,
-                 baz,
-                 quux) {
-      // ...
-    }
+function f4(a: number = 1) {
+  // ...
+}
+```
 
-    // good
-    function foo(
-      bar,
-      baz,
-      quux,
-    ) {
-      // ...
-    }
+---
 
-    // bad
-    console.log(foo,
-      bar,
-      baz);
+<a name="functions--spread-vs-apply"></a>
+[**7.12**](#functions--spread-vs-apply) ‣ Prefer the use of the spread syntax `...` to call variadic functions.
 
-    // good
-    console.log(
-      foo,
-      bar,
-      baz,
-    );
-    ```
+<img src="eslint.svg" height="18" align="center"/> [`prefer-spread`](https://eslint.org/docs/rules/prefer-spread)
+
+> Why? It’s cleaner, you don’t need to supply a context, and you can not easily compose `new` with `apply`.
+
+```typescript
+// bad
+const x = [1, 2, 3, 4, 5];
+console.log.apply(console, x);
+
+// good
+const x = [1, 2, 3, 4, 5];
+console.log(...x);
+
+// bad
+new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));
+
+// good
+new Date(...[2016, 8, 5]);
+```
+
+---
+
+<a name="functions--signature-invocation-indentation"></a>
+[**7.13**](#functions--signature-invocation-indentation) ‣ Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`function-paren-newline`](https://eslint.org/docs/rules/function-paren-newline)
+
+```typescript
+// bad
+function foo(bar: string,
+              baz: number,
+              quux: boolean) {
+  // ...
+}
+
+// good
+function foo(
+  bar: string,
+  baz: number,
+  quux: boolean,
+) {
+  // ...
+}
+
+// bad
+console.log(foo,
+  bar,
+  baz);
+
+// good
+console.log(
+  foo,
+  bar,
+  baz,
+);
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrow Functions
 
-  <a name="arrows--use-them"></a><a name="8.1"></a>
-  - [8.1](#arrows--use-them) When you must use an anonymous function (as when passing an inline callback), use arrow function notation. eslint: [`prefer-arrow-callback`](https://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](https://eslint.org/docs/rules/arrow-spacing.html)
+<a name="arrows--use-them"></a>
+[**8.1**](#arrows--use-them) ‣ When you must use an anonymous function (as when passing an inline callback), use arrow function notation.
 
-    > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
+<img src="eslint.svg" height="18" align="center"/> [`prefer-arrow-callback`](https://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](https://eslint.org/docs/rules/arrow-spacing.html)
 
-    > Why not? If you have a fairly complicated function, you might move that logic out into its own named function expression.
+> Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
 
-    ```javascript
-    // bad
-    [1, 2, 3].map(function (x) {
-      const y = x + 1;
-      return x * y;
-    });
+> Why not? If you have a fairly complicated function, you might move that logic out into its own named function expression.
 
-    // good
-    [1, 2, 3].map((x) => {
-      const y = x + 1;
-      return x * y;
-    });
-    ```
+```typescript
+// bad
+[1, 2, 3].map(function (x) {
+  const y = x + 1;
+  return x * y;
+});
 
-  <a name="arrows--implicit-return"></a><a name="8.2"></a>
-  - [8.2](#arrows--implicit-return) If the function body consists of a single statement returning an [expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) without side effects, omit the braces and use the implicit return. Otherwise, keep the braces and use a `return` statement. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](https://eslint.org/docs/rules/arrow-body-style.html)
+// good
+[1, 2, 3].map((x) => {
+  const y = x + 1;
+  return x * y;
+});
+```
 
-    > Why? Syntactic sugar. It reads well when multiple functions are chained together.
+---
 
-    ```javascript
-    // bad
-    [1, 2, 3].map((number) => {
-      const nextNumber = number + 1;
-      `A string containing the ${nextNumber}.`;
-    });
+<a name="arrows--implicit-return"></a>
+[**8.2**](#arrows--implicit-return) ‣ If the function body consists of a single statement returning an [expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) without side effects, omit the braces and use the implicit return. Otherwise, keep the braces and use a `return` statement.
 
-    // good
-    [1, 2, 3].map((number) => `A string containing the ${number + 1}.`);
+<img src="eslint.svg" height="18" align="center"/> [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](https://eslint.org/docs/rules/arrow-body-style.html)
 
-    // good
-    [1, 2, 3].map((number) => {
-      const nextNumber = number + 1;
-      return `A string containing the ${nextNumber}.`;
-    });
+> Why? Syntactic sugar. It reads well when multiple functions are chained together.
 
-    // good
-    [1, 2, 3].map((number, index) => ({
-      [index]: number,
-    }));
+```typescript
+// bad
+[1, 2, 3].map((number) => {
+  const nextNumber = number + 1;
+  `A string containing the ${nextNumber}.`;
+});
 
-    // No implicit return with side effects
-    function foo(callback) {
-      const val = callback();
-      if (val === true) {
-        // Do something if callback returns true
-      }
-    }
+// good
+[1, 2, 3].map((number) => `A string containing the ${number + 1}.`);
 
-    let bool = false;
+// good
+[1, 2, 3].map((number) => {
+  const nextNumber = number + 1;
+  return `A string containing the ${nextNumber}.`;
+});
 
-    // bad
-    foo(() => bool = true);
+// good
+[1, 2, 3].map((number, index) => ({
+  [index]: number,
+}));
 
-    // good
-    foo(() => {
-      bool = true;
-    });
-    ```
+// No implicit return with side effects
+function foo(callback: () => boolean) {
+  const val = callback();
+  if (val === true) {
+    // Do something if callback returns true
+  }
+}
 
-  <a name="arrows--paren-wrap"></a><a name="8.3"></a>
-  - [8.3](#arrows--paren-wrap) In case the expression spans over multiple lines, wrap it in parentheses for better readability.
+let bool = false;
 
-    > Why? It shows clearly where the function starts and ends.
+// bad
+foo(() => bool = true);
 
-    ```javascript
-    // bad
-    ['get', 'post', 'put'].map((httpMethod) => Object.prototype.hasOwnProperty.call(
-        httpMagicObjectWithAVeryLongName,
-        httpMethod,
-      )
-    );
+// good
+foo(() => {
+  bool = true;
+});
+```
 
-    // good
-    ['get', 'post', 'put'].map((httpMethod) => (
-      Object.prototype.hasOwnProperty.call(
-        httpMagicObjectWithAVeryLongName,
-        httpMethod,
-      )
-    ));
-    ```
+---
 
-  <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) Always include parentheses around arguments for clarity and consistency. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html)
+<a name="arrows--paren-wrap"></a>
+[**8.3**](#arrows--paren-wrap) ‣ In case the expression spans over multiple lines, wrap it in parentheses for better readability.
 
-    > Why? Minimizes diff churn when adding or removing arguments.
+> Why? It shows clearly where the function starts and ends.
 
-    ```javascript
-    // bad
-    [1, 2, 3].map(x => x * x);
+```typescript
+// bad
+['get', 'post', 'put'].map((httpMethod) => Object.prototype.hasOwnProperty.call(
+    httpMagicObjectWithAVeryLongName,
+    httpMethod,
+  )
+);
 
-    // good
-    [1, 2, 3].map((x) => x * x);
+// good
+['get', 'post', 'put'].map((httpMethod) => (
+  Object.prototype.hasOwnProperty.call(
+    httpMagicObjectWithAVeryLongName,
+    httpMethod,
+  )
+));
+```
 
-    // bad
-    [1, 2, 3].map(number => (
-      `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
-    ));
+---
 
-    // good
-    [1, 2, 3].map((number) => (
-      `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
-    ));
+<a name="arrows--one-arg-parens"></a>
+[**8.4**](#arrows--one-arg-parens) ‣ Always include parentheses around arguments for clarity and consistency.
 
-    // bad
-    [1, 2, 3].map(x => {
-      const y = x + 1;
-      return x * y;
-    });
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
 
-    // good
-    [1, 2, 3].map((x) => {
-      const y = x + 1;
-      return x * y;
-    });
-    ```
+<img src="eslint.svg" height="18" align="center"/> [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html)
 
-  <a name="arrows--confusing"></a><a name="8.5"></a>
-  - [8.5](#arrows--confusing) Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`). eslint: [`no-confusing-arrow`](https://eslint.org/docs/rules/no-confusing-arrow)
+> Why? Minimizes diff churn when adding or removing arguments.
 
-    ```javascript
-    // bad
-    const itemHeight = (item) => item.height <= 256 ? item.largeSize : item.smallSize;
+```typescript
+// bad
+[1, 2, 3].map(x => x * x);
 
-    // bad
-    const itemHeight = (item) => item.height >= 256 ? item.largeSize : item.smallSize;
+// good
+[1, 2, 3].map((x) => x * x);
 
-    // good
-    const itemHeight = (item) => (item.height <= 256 ? item.largeSize : item.smallSize);
+// bad
+[1, 2, 3].map(number => (
+  `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
+));
 
-    // good
-    const itemHeight = (item) => {
-      const { height, largeSize, smallSize } = item;
-      return height <= 256 ? largeSize : smallSize;
-    };
-    ```
+// good
+[1, 2, 3].map((number) => (
+  `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
+));
 
-  <a name="whitespace--implicit-arrow-linebreak"></a>
-  - [8.6](#whitespace--implicit-arrow-linebreak) Enforce the location of arrow function bodies with implicit returns. eslint: [`implicit-arrow-linebreak`](https://eslint.org/docs/rules/implicit-arrow-linebreak)
+// bad
+[1, 2, 3].map(x => {
+  const y = x + 1;
+  return x * y;
+});
 
-    ```javascript
-    // bad
-    (foo) =>
-      bar;
+// good
+[1, 2, 3].map((x) => {
+  const y = x + 1;
+  return x * y;
+});
+```
 
-    (foo) =>
-      (bar);
+---
 
-    // good
-    (foo) => bar;
-    (foo) => (bar);
-    (foo) => (
-       bar
-    )
-    ```
+<a name="arrows--confusing"></a>
+[**8.5**](#arrows--confusing) ‣ Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`).
+
+<img src="eslint.svg" height="18" align="center"/> [`no-confusing-arrow`](https://eslint.org/docs/rules/no-confusing-arrow)
+
+```typescript
+// bad
+const itemHeight = (item: ItemType) => item.height <= 256 ? item.largeSize : item.smallSize;
+
+// bad
+const itemHeight = (item: ItemType) => item.height >= 256 ? item.largeSize : item.smallSize;
+
+// good
+const itemHeight = (item: ItemType) => (item.height <= 256 ? item.largeSize : item.smallSize);
+
+// good
+const itemHeight = (item: ItemType) => {
+  const { height, largeSize, smallSize } = item;
+  return height <= 256 ? largeSize : smallSize;
+};
+```
+
+---
+
+<a name="whitespace--implicit-arrow-linebreak"></a>
+[**8.6**](#whitespace--implicit-arrow-linebreak) ‣ Enforce the location of arrow function bodies with implicit returns.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`implicit-arrow-linebreak`](https://eslint.org/docs/rules/implicit-arrow-linebreak)
+
+```typescript
+// bad
+(foo) =>
+  bar;
+
+(foo) =>
+  (bar);
+
+// good
+(foo) => bar;
+(foo) => (bar);
+(foo) => (
+    bar
+)
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Classes & Constructors
 
-  <a name="constructors--use-class"></a><a name="9.1"></a>
-  - [9.1](#constructors--use-class) Always use `class`. Avoid manipulating `prototype` directly.
+<a name="constructors--use-class"></a>
+[**9.1**](#constructors--use-class) ‣ Always use `class`. Avoid manipulating `prototype` directly.
 
-    > Why? `class` syntax is more concise and easier to reason about.
+> Why? `class` syntax is more concise and easier to reason about.
 
-    ```javascript
-    // bad
-    function Queue(contents = []) {
-      this.queue = [...contents];
-    }
-    Queue.prototype.pop = function () {
-      const value = this.queue[0];
-      this.queue.splice(0, 1);
-      return value;
-    };
+```typescript
+// bad
+function Queue(contents = []) {
+  this.queue = [...contents];
+}
+Queue.prototype.pop = function () {
+  const value = this.queue[0];
+  this.queue.splice(0, 1);
+  return value;
+};
 
-    // good
-    class Queue {
-      constructor(contents = []) {
-        this.queue = [...contents];
-      }
-      pop() {
-        const value = this.queue[0];
-        this.queue.splice(0, 1);
-        return value;
-      }
-    }
-    ```
+// good
+class Queue<T> {
+  queue: T[];
 
-  <a name="constructors--extends"></a><a name="9.2"></a>
-  - [9.2](#constructors--extends) Use `extends` for inheritance.
+  constructor(contents: T[] = []) {
+    this.queue = [...contents];
+  }
 
-    > Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
+  pop(): T {
+    const value = this.queue[0];
+    this.queue.splice(0, 1);
+    return value;
+  }
+}
+```
 
-    ```javascript
-    // bad
-    const inherits = require('inherits');
-    function PeekableQueue(contents) {
-      Queue.apply(this, contents);
-    }
-    inherits(PeekableQueue, Queue);
-    PeekableQueue.prototype.peek = function () {
-      return this.queue[0];
-    };
+---
 
-    // good
-    class PeekableQueue extends Queue {
-      peek() {
-        return this.queue[0];
-      }
-    }
-    ```
+<a name="constructors--extends"></a>
+[**9.2**](#constructors--extends) ‣ Use `extends` for inheritance.
 
-  <a name="constructors--chaining"></a><a name="9.3"></a>
-  - [9.3](#constructors--chaining) Methods can return `this` to help with method chaining.
+> Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
 
-    ```javascript
-    // bad
-    Jedi.prototype.jump = function () {
-      this.jumping = true;
-      return true;
-    };
+```typescript
+// bad
+const inherits = require('inherits');
+function PeekableQueue(contents) {
+  Queue.apply(this, contents);
+}
+inherits(PeekableQueue, Queue);
+PeekableQueue.prototype.peek = function () {
+  return this.queue[0];
+};
 
-    Jedi.prototype.setHeight = function (height) {
-      this.height = height;
-    };
+// good
+class PeekableQueue<T> extends Queue<T> {
+  peek(): T {
+    return this.queue[0];
+  }
+}
+```
 
-    const luke = new Jedi();
-    luke.jump(); // => true
-    luke.setHeight(20); // => undefined
+---
 
-    // good
-    class Jedi {
-      jump() {
-        this.jumping = true;
-        return this;
-      }
+<a name="constructors--chaining"></a>
+[**9.3**](#constructors--chaining) ‣ Methods can return `this` to help with method chaining.
 
-      setHeight(height) {
-        this.height = height;
-        return this;
-      }
-    }
+```typescript
+// bad
+Jedi.prototype.jump = function () {
+  this.jumping = true;
+  return true;
+};
 
-    const luke = new Jedi();
+Jedi.prototype.setHeight = function (height) {
+  this.height = height;
+};
 
-    luke.jump()
-      .setHeight(20);
-    ```
+const luke = new Jedi();
+luke.jump(); // => true
+luke.setHeight(20); // => undefined
 
-  <a name="constructors--tostring"></a><a name="9.4"></a>
-  - [9.4](#constructors--tostring) It’s okay to write a custom `toString()` method, just make sure it works successfully and causes no side effects.
+// good
+class Jedi {
+  jumping = false;
+  height: number;
 
-    ```javascript
-    class Jedi {
-      constructor(options = {}) {
-        this.name = options.name || 'no name';
-      }
+  jump(): this {
+    this.jumping = true;
+    return this;
+  }
 
-      getName() {
-        return this.name;
-      }
+  setHeight(height: number): this {
+    this.height = height;
+    return this;
+  }
+}
 
-      toString() {
-        return `Jedi - ${this.getName()}`;
-      }
-    }
-    ```
+const luke = new Jedi();
 
-  <a name="constructors--no-useless"></a><a name="9.5"></a>
-  - [9.5](#constructors--no-useless) Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. eslint: [`no-useless-constructor`](https://eslint.org/docs/rules/no-useless-constructor)
+luke.jump()
+  .setHeight(20);
+```
 
-    ```javascript
-    // bad
-    class Jedi {
-      constructor() {}
+---
 
-      getName() {
-        return this.name;
-      }
-    }
+<a name="constructors--tostring"></a>
+[**9.4**](#constructors--tostring) ‣ It’s okay to write a custom `toString()` method, just make sure it works successfully and causes no side effects.
 
-    // bad
-    class Rey extends Jedi {
-      constructor(...args) {
-        super(...args);
-      }
-    }
+```typescript
+class Jedi {
+  name: string;
 
-    // good
-    class Rey extends Jedi {
-      constructor(...args) {
-        super(...args);
-        this.name = 'Rey';
-      }
-    }
-    ```
+  constructor(options: IJediOptions = {}) {
+    this.name = options.name || 'no name';
+  }
 
-  <a name="classes--no-duplicate-members"></a>
-  - [9.6](#classes--no-duplicate-members) Avoid duplicate class members. eslint: [`no-dupe-class-members`](https://eslint.org/docs/rules/no-dupe-class-members)
+  getName(): string {
+    return this.name;
+  }
 
-    > Why? Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
+  toString(): string {
+    return `Jedi - ${this.getName()}`;
+  }
+}
+```
 
-    ```javascript
-    // bad
-    class Foo {
-      bar() { return 1; }
-      bar() { return 2; }
-    }
+---
 
-    // good
-    class Foo {
-      bar() { return 1; }
-    }
+<a name="constructors--no-useless"></a>
+[**9.5**](#constructors--no-useless) ‣ Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary.
 
-    // good
-    class Foo {
-      bar() { return 2; }
-    }
-    ```
+<img src="eslint.svg" height="18" align="center"/> [`no-useless-constructor`](https://eslint.org/docs/rules/no-useless-constructor)
 
-  <a name="classes--methods-use-this"></a>
-  - [9.7](#classes--methods-use-this) Class methods should use `this` or be made into a static method unless an external library or framework requires using specific non-static methods. Being an instance method should indicate that it behaves differently based on properties of the receiver. eslint: [`class-methods-use-this`](https://eslint.org/docs/rules/class-methods-use-this)
+```typescript
+// bad
+class Jedi {
+  name: string;
 
-    ```javascript
-    // bad
-    class Foo {
-      bar() {
-        console.log('bar');
-      }
-    }
+  constructor() {}
 
-    // good - this is used
-    class Foo {
-      bar() {
-        console.log(this.bar);
-      }
-    }
+  getName() {
+    return this.name;
+  }
+}
 
-    // good - constructor is exempt
-    class Foo {
-      constructor() {
-        // ...
-      }
-    }
+// bad
+class Rey extends Jedi {
+  constructor(...args) {
+    super(...args);
+  }
+}
 
-    // good - static methods aren't expected to use this
-    class Foo {
-      static bar() {
-        console.log('bar');
-      }
-    }
-    ```
+// good
+class Rey extends Jedi {
+  constructor(...args) {
+    super(...args);
+    this.name = 'Rey';
+  }
+}
+```
+
+---
+
+<a name="classes--no-duplicate-members"></a>
+[**9.6**](#classes--no-duplicate-members) ‣ Avoid duplicate class members.
+
+<img src="eslint.svg" height="18" align="center"/> [`no-dupe-class-members`](https://eslint.org/docs/rules/no-dupe-class-members)
+
+> Why? Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
+
+```typescript
+// bad
+class Foo {
+  bar() { return 1; }
+  bar() { return 2; }
+}
+
+// good
+class Foo {
+  bar() { return 1; }
+}
+
+// good
+class Foo {
+  bar() { return 2; }
+}
+```
+
+---
+
+<a name="classes--methods-use-this"></a>
+[**9.7**](#classes--methods-use-this) ‣ Class methods should use `this` or be made into a static method unless an external library or framework requires using specific non-static methods. Being an instance method should indicate that it behaves differently based on properties of the receiver.
+
+<img src="eslint.svg" height="18" align="center"/> [`class-methods-use-this`](https://eslint.org/docs/rules/class-methods-use-this)
+
+```typescript
+// bad
+class Foo {
+  bar() {
+    console.log('bar');
+  }
+}
+
+// good - this is used
+class Foo {
+  bar() {
+    console.log(this.bar);
+  }
+}
+
+// good - constructor is exempt
+class Foo {
+  constructor() {
+    // ...
+  }
+}
+
+// good - static methods aren't expected to use this
+class Foo {
+  static bar() {
+    console.log('bar');
+  }
+}
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Modules
 
-  <a name="modules--use-them"></a><a name="10.1"></a>
-  - [10.1](#modules--use-them) Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
+<a name="modules--use-them"></a>
+[**10.1**](#modules--use-them) ‣ Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
 
-    > Why? Modules are the future, let’s start using the future now.
+> Why? Modules are the future, let’s start using the future now.
 
-    ```javascript
-    // bad
-    const AirbnbStyleGuide = require('./AirbnbStyleGuide');
-    module.exports = AirbnbStyleGuide.es6;
+```typescript
+// bad
+const AirbnbStyleGuide = require('./AirbnbStyleGuide');
+module.exports = AirbnbStyleGuide.es6;
 
-    // ok
-    import AirbnbStyleGuide from './AirbnbStyleGuide';
-    export default AirbnbStyleGuide.es6;
+// ok
+import AirbnbStyleGuide from './AirbnbStyleGuide';
+export default AirbnbStyleGuide.es6;
 
-    // best
-    import { es6 } from './AirbnbStyleGuide';
-    export default es6;
-    ```
+// best
+import { es6 } from './AirbnbStyleGuide';
+export default es6;
+```
 
-## REMOVE
-  <a name="modules--no-wildcard"></a><a name="10.2"></a>
-  - [10.2](#modules--no-wildcard) Do not use wildcard imports.
+---
 
-    > Why? This makes sure you have a single default export.
+<a name="modules--no-duplicate-imports"></a>
+[**10.2**](#modules--no-duplicate-imports) ‣ Only import from a path in one place.
 
-    ```javascript
-    // bad
-    import * as AirbnbStyleGuide from './AirbnbStyleGuide';
+<img src="eslint.svg" height="18" align="center"/> [`no-duplicate-imports`](https://eslint.org/docs/rules/no-duplicate-imports)
 
-    // good
-    import AirbnbStyleGuide from './AirbnbStyleGuide';
-    ```
+> Why? Having multiple lines that import from the same path can make code harder to maintain.
 
-## REMOVE
-  <a name="modules--no-export-from-import"></a><a name="10.3"></a>
-  - [10.3](#modules--no-export-from-import) And do not export directly from an import.
+```typescript
+// bad
+import foo from 'foo';
+// … some other imports … //
+import { named1, named2 } from 'foo';
 
-    > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
+// good
+import foo, { named1, named2 } from 'foo';
 
-    ```javascript
-    // bad
-    // filename es6.js
-    export { es6 as default } from './AirbnbStyleGuide';
+// good
+import foo, {
+  named1,
+  named2,
+} from 'foo';
+```
 
-    // good
-    // filename es6.js
-    import { es6 } from './AirbnbStyleGuide';
-    export default es6;
-    ```
+---
 
-  <a name="modules--no-duplicate-imports"></a>
-  - [10.4](#modules--no-duplicate-imports) Only import from a path in one place.
- eslint: [`no-duplicate-imports`](https://eslint.org/docs/rules/no-duplicate-imports)
-    > Why? Having multiple lines that import from the same path can make code harder to maintain.
+<a name="modules--no-mutable-exports"></a>
+[**10.3**](#modules--no-mutable-exports) ‣ Do not export mutable bindings.
 
-    ```javascript
-    // bad
-    import foo from 'foo';
-    // … some other imports … //
-    import { named1, named2 } from 'foo';
+<img src="eslint.svg" height="18" align="center"/> [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
 
-    // good
-    import foo, { named1, named2 } from 'foo';
+> Why? Mutation should be avoided in general, but in particular when exporting mutable bindings. While this technique may be needed for some special cases, in general, only constant references should be exported.
 
-    // good
-    import foo, {
-      named1,
-      named2,
-    } from 'foo';
-    ```
+```typescript
+// bad
+let foo = 3;
+export { foo };
 
-  <a name="modules--no-mutable-exports"></a>
-  - [10.5](#modules--no-mutable-exports) Do not export mutable bindings.
- eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
-    > Why? Mutation should be avoided in general, but in particular when exporting mutable bindings. While this technique may be needed for some special cases, in general, only constant references should be exported.
+// good
+const foo = 3;
+export { foo };
+```
 
-    ```javascript
-    // bad
-    let foo = 3;
-    export { foo };
+---
 
-    // good
-    const foo = 3;
-    export { foo };
-    ```
+<a name="modules--imports-first"></a>
+[**10.4**](#modules--imports-first) ‣ Put all `import`s above non-import statements.
 
-## KILL IT
-  <a name="modules--prefer-default-export"></a>
-  - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
- eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
-    > Why? To encourage more files that only ever export one thing, which is better for readability and maintainability.
+<img src="eslint.svg" height="18" align="center"/> [`import/first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md)
 
-    ```javascript
-    // bad
-    export function foo() {}
+> Why? Since `import`s are hoisted, keeping them all at the top prevents surprising behavior.
 
-    // good
-    export default function foo() {}
-    ```
+```typescript
+// bad
+import foo from 'foo';
+foo.init();
 
-  <a name="modules--imports-first"></a>
-  - [10.7](#modules--imports-first) Put all `import`s above non-import statements.
- eslint: [`import/first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md)
-    > Why? Since `import`s are hoisted, keeping them all at the top prevents surprising behavior.
+import bar from 'bar';
 
-    ```javascript
-    // bad
-    import foo from 'foo';
-    foo.init();
+// good
+import foo from 'foo';
+import bar from 'bar';
 
-    import bar from 'bar';
+foo.init();
+```
 
-    // good
-    import foo from 'foo';
-    import bar from 'bar';
+---
 
-    foo.init();
-    ```
+<a name="modules--multiline-imports-over-newlines"></a>
+[**10.5**](#modules--multiline-imports-over-newlines) ‣ Multiline imports should be indented just like multiline array and object literals.
 
-## RECONCILE WITH PRETTIER
-  <a name="modules--multiline-imports-over-newlines"></a>
-  - [10.8](#modules--multiline-imports-over-newlines) Multiline imports should be indented just like multiline array and object literals.
- eslint: [`object-curly-newline`](https://eslint.org/docs/rules/object-curly-newline)
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
 
-    > Why? The curly braces follow the same indentation rules as every other curly brace block in the style guide, as do the trailing commas.
+<img src="eslint.svg" height="18" align="center"/> [`object-curly-newline`](https://eslint.org/docs/rules/object-curly-newline)
 
-    ```javascript
-    // bad
-    import {longNameA, longNameB, longNameC, longNameD, longNameE} from 'path';
+> Why? The curly braces follow the same indentation rules as every other curly brace block in the style guide, as do the trailing commas.
 
-    // good
-    import {
-      longNameA,
-      longNameB,
-      longNameC,
-      longNameD,
-      longNameE,
-    } from 'path';
-    ```
+```typescript
+// bad
+import { longNameA, longNameB, longNameC,
+  longNameD, longNameE, longNameF } from 'path';
 
-  <a name="modules--no-webpack-loader-syntax"></a>
-  - [10.9](#modules--no-webpack-loader-syntax) Disallow Webpack loader syntax in module import statements.
- eslint: [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md)
-    > Why? Since using Webpack syntax in the imports couples the code to a module bundler. Prefer using the loader syntax in `webpack.config.js`.
+// good
+import {
+  longNameA,
+  longNameB,
+  longNameC,
+  longNameD,
+  longNameE,
+} from 'path';
+```
 
-    ```javascript
-    // bad
-    import fooSass from 'css!sass!foo.scss';
-    import barCss from 'style!css!bar.css';
+---
 
-    // good
-    import fooSass from 'foo.scss';
-    import barCss from 'bar.css';
-    ```
+<a name="modules--no-webpack-loader-syntax"></a>
+[**10.6**](#modules--no-webpack-loader-syntax) ‣ Disallow Webpack loader syntax in module import statements.
 
-  <a name="modules--import-extensions"></a>
-  - [10.10](#modules--import-extensions) Do not include JavaScript filename extensions
- eslint: [`import/extensions`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md)
-    > Why? Including extensions inhibits refactoring, and inappropriately hardcodes implementation details of the module you're importing in every consumer.
+<img src="eslint.svg" height="18" align="center"/> [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md)
 
-    ```javascript
-    // bad
-    import foo from './foo.js';
-    import bar from './bar.jsx';
-    import baz from './baz/index.jsx';
+> Why? Since using Webpack syntax in the imports couples the code to a module bundler. Prefer using the loader syntax in `webpack.config.js`.
 
-    // good
-    import foo from './foo';
-    import bar from './bar';
-    import baz from './baz';
-    ```
+```typescript
+// bad
+import fooSass from 'css!sass!foo.scss';
+import barCss from 'style!css!bar.css';
+
+// good
+import fooSass from 'foo.scss';
+import barCss from 'bar.css';
+```
+
+---
+
+<a name="modules--import-extensions"></a>
+[**10.7**](#modules--import-extensions) ‣ Do not include JavaScript filename extensions
+
+<img src="eslint.svg" height="18" align="center"/> [`import/extensions`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md)
+
+  > Why? Including extensions inhibits refactoring, and inappropriately hardcodes implementation details of the module you're importing in every consumer.
+
+  ```typescript
+  // bad
+  import foo from './foo.js';
+  import bar from './bar.jsx';
+  import baz from './baz/index.jsx';
+
+  // good
+  import foo from './foo';
+  import bar from './bar';
+  import baz from './baz';
+  ```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Iterators and Generators
 
-## UPDATE - for-of is fine
-  <a name="iterators--nope"></a><a name="11.1"></a>
-  - [11.1](#iterators--nope) Don’t use iterators. Prefer JavaScript’s higher-order functions instead of loops like `for-in` or `for-of`. eslint: [`no-iterator`](https://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](https://eslint.org/docs/rules/no-restricted-syntax)
+<a name="iterators--prefer-functional"></a>
+[**11.1**](#iterators--prefer-functional) ‣ Prefer JavaScript’s higher-order functions instead of `for`/`for-of` loops, particularly when iterating to build up a value.
 
-    > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
+> Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
 
-    > Use `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... to iterate over arrays, and `Object.keys()` / `Object.values()` / `Object.entries()` to produce arrays so you can iterate over objects.
+> Sometimes you genuinely will need to mutate or do something side-effecty in a loop, and in that case `for-of` or a traditional `for` loop are acceptable. But avoid this whenerever possible.
 
-    ```javascript
-    const numbers = [1, 2, 3, 4, 5];
+> Use `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... to iterate over arrays, and `Object.keys()` / `Object.values()` / `Object.entries()` to produce arrays so you can iterate over objects.
 
-    // bad
-    let sum = 0;
-    for (let num of numbers) {
-      sum += num;
-    }
-    sum === 15;
+```typescript
+const numbers = [1, 2, 3, 4, 5];
 
-    // good
-    let sum = 0;
-    numbers.forEach((num) => {
-      sum += num;
-    });
-    sum === 15;
+// bad
+let sum = 0;
+for (let num of numbers) {
+  sum += num;
+}
+sum === 15;
 
-    // best (use the functional force)
-    const sum = numbers.reduce((total, num) => total + num, 0);
-    sum === 15;
+// bad
+let sum = 0;
+numbers.forEach((num) => {
+  sum += num;
+});
+sum === 15;
 
-    // bad
-    const increasedByOne = [];
-    for (let i = 0; i < numbers.length; i++) {
-      increasedByOne.push(numbers[i] + 1);
-    }
+// good
+const sum = numbers.reduce((total, num) => total + num, 0);
+sum === 15;
 
-    // good
-    const increasedByOne = [];
-    numbers.forEach((num) => {
-      increasedByOne.push(num + 1);
-    });
+// bad
+const increasedByOne = [];
+for (let i = 0; i < numbers.length; i++) {
+  increasedByOne.push(numbers[i] + 1);
+}
 
-    // best (keeping it functional)
-    const increasedByOne = numbers.map((num) => num + 1);
-    ```
+// bad
+const increasedByOne = [];
+numbers.forEach((num) => {
+  increasedByOne.push(num + 1);
+});
 
-## BYE
-  <a name="generators--nope"></a><a name="11.2"></a>
-  - [11.2](#generators--nope) Don’t use generators for now.
+// good
+const increasedByOne = numbers.map((num) => num + 1);
+```
 
-    > Why? They don’t transpile well to ES5.
+---
 
-  <a name="generators--spacing"></a>
-  - [11.3](#generators--spacing) If you must use generators, or if you disregard [our advice](#generators--nope), make sure their function signature is spaced properly. eslint: [`generator-star-spacing`](https://eslint.org/docs/rules/generator-star-spacing)
+<a name="iterators--no-for-in"></a>
+[**11.2**](#iterators--no-for-in) ‣ Do not use `for-in`.
 
-    > Why? `function` and `*` are part of the same conceptual keyword - `*` is not a modifier for `function`, `function*` is a unique construct, different from `function`.
+<img src="eslint.svg" height="18" align="center"/> [`no-restricted-syntax`](https://eslint.org/docs/rules/no-restricted-syntax)
 
-    ```javascript
-    // bad
-    function * foo() {
-      // ...
-    }
+> Why? `for-in` has confusing and unexpected behavior. For this reason, `for-of` was added to the language and should be used instead.
 
-    // bad
-    const bar = function * () {
-      // ...
-    };
+```typescript
+const obj = { a: 'foo', b: 'bar' };
 
-    // bad
-    const baz = function *() {
-      // ...
-    };
+// bad
+for (const key in obj) {
+  console.log(key, obj[key]);
+}
 
-    // bad
-    const quux = function*() {
-      // ...
-    };
+// avoids the inherited properties issue, but still bad
+for (const key in obj) {
+  if (obj.hasOwnProperty(key)) {
+    console.log(key, obj[key]);
+  }
+}
 
-    // bad
-    function*foo() {
-      // ...
-    }
+// good
+for (const key of Object.keys(obj)) {
+  console.log(key, obj[key]);
+}
 
-    // bad
-    function *foo() {
-      // ...
-    }
+// best, if you're working on both the keys and values
+for (const [key, value] of Object.entries(obj)) {
+  console.log(key, value);
+}
+```
 
-    // very bad
-    function
-    *
-    foo() {
-      // ...
-    }
+---
 
-    // very bad
-    const wat = function
-    *
-    () {
-      // ...
-    };
+<a name="generators--spacing"></a>
+[**11.3**](#generators--spacing) ‣ A generator's function signature should be spaced with `function*` as a single unit surrounded by spaces.
 
-    // good
-    function* foo() {
-      // ...
-    }
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
 
-    // good
-    const foo = function* () {
-      // ...
-    };
-    ```
+<img src="eslint.svg" height="18" align="center"/> [`generator-star-spacing`](https://eslint.org/docs/rules/generator-star-spacing)
+
+> Why? `function` and `*` are part of the same conceptual keyword - `*` is not a modifier for `function`, `function*` is a unique construct, different from `function`.
+
+```typescript
+// bad
+function * foo() {
+  // ...
+}
+
+// bad
+const bar = function * () {
+  // ...
+};
+
+// bad
+const baz = function *() {
+  // ...
+};
+
+// bad
+const quux = function*() {
+  // ...
+};
+
+// bad
+function*foo() {
+  // ...
+}
+
+// bad
+function *foo() {
+  // ...
+}
+
+// very bad
+function
+*
+foo() {
+  // ...
+}
+
+// very bad
+const wat = function
+*
+() {
+  // ...
+};
+
+// good
+function* foo() {
+  // ...
+}
+
+// good
+const foo = function* () {
+  // ...
+};
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Properties
 
-  <a name="properties--dot"></a><a name="12.1"></a>
-  - [12.1](#properties--dot) Use dot notation when accessing properties. eslint: [`dot-notation`](https://eslint.org/docs/rules/dot-notation.html)
+<a name="properties--dot"></a>
+[**12.1**](#properties--dot) ‣ Use dot notation when accessing properties.
 
-    ```javascript
-    const luke = {
-      jedi: true,
-      age: 28,
-    };
+<img src="eslint.svg" height="18" align="center"/> [`dot-notation`](https://eslint.org/docs/rules/dot-notation.html)
 
-    // bad
-    const isJedi = luke['jedi'];
+```typescript
+const luke = {
+  jedi: true,
+  age: 28,
+};
 
-    // good
-    const isJedi = luke.jedi;
-    ```
+// bad
+const isJedi = luke['jedi'];
 
-## THAT'S JUST HOW IT WORKS
-  <a name="properties--bracket"></a><a name="12.2"></a>
-  - [12.2](#properties--bracket) Use bracket notation `[]` when accessing properties with a variable.
+// good
+const isJedi = luke.jedi;
+```
 
-    ```javascript
-    const luke = {
-      jedi: true,
-      age: 28,
-    };
-
-    function getProp(prop) {
-      return luke[prop];
-    }
-
-    const isJedi = getProp('jedi');
-    ```
-
-## NAH
-  <a name="es2016-properties--exponentiation-operator"></a>
-  - [12.3](#es2016-properties--exponentiation-operator) Use exponentiation operator `**` when calculating exponentiations. eslint: [`no-restricted-properties`](https://eslint.org/docs/rules/no-restricted-properties).
-
-    ```javascript
-    // bad
-    const binary = Math.pow(2, 10);
-
-    // good
-    const binary = 2 ** 10;
-    ```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Variables
 
-  <a name="variables--const"></a><a name="13.1"></a>
-  - [13.1](#variables--const) Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](https://eslint.org/docs/rules/no-undef) [`prefer-const`](https://eslint.org/docs/rules/prefer-const)
+<a name="variables--const"></a>
+[**13.1**](#variables--const) ‣ Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
 
-    ```javascript
-    // bad
-    superPower = new SuperPower();
+<img src="eslint.svg" height="18" align="center"/> [`no-undef`](https://eslint.org/docs/rules/no-undef), [`prefer-const`](https://eslint.org/docs/rules/prefer-const)
 
-    // good
-    const superPower = new SuperPower();
-    ```
+```typescript
+// bad
+superPower = new SuperPower();
 
-  <a name="variables--one-const"></a><a name="13.2"></a>
-  - [13.2](#variables--one-const) Use one `const` or `let` declaration per variable or assignment. eslint: [`one-var`](https://eslint.org/docs/rules/one-var.html)
+// good
+const superPower = new SuperPower();
+```
 
-    > Why? It’s easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
+---
 
-    ```javascript
-    // bad
-    const items = getItems(),
-        goSportsTeam = true,
-        dragonball = 'z';
+<a name="variables--one-const"></a>
+[**13.2**](#variables--one-const) ‣ Use one `const` or `let` declaration per variable or assignment.
 
-    // bad
-    // (compare to above, and try to spot the mistake)
-    const items = getItems(),
-        goSportsTeam = true;
-        dragonball = 'z';
+<img src="eslint.svg" height="18" align="center"/> [`one-var`](https://eslint.org/docs/rules/one-var.html)
 
-    // good
-    const items = getItems();
-    const goSportsTeam = true;
-    const dragonball = 'z';
-    ```
+> Why? It’s easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
 
-  <a name="variables--const-let-group"></a><a name="13.3"></a>
-  - [13.3](#variables--const-let-group) Group all your `const`s and then group all your `let`s.
+```typescript
+// bad
+const items = getItems(),
+    goSportsTeam = true,
+    dragonball = 'z';
 
-    > Why? This is helpful when later on you might need to assign a variable depending on one of the previously assigned variables.
+// bad
+// (compare to above, and try to spot the mistake)
+const items = getItems(),
+    goSportsTeam = true;
+    dragonball = 'z';
 
-    ```javascript
-    // bad
-    let i, len, dragonball,
-        items = getItems(),
-        goSportsTeam = true;
+// good
+const items = getItems();
+const goSportsTeam = true;
+const dragonball = 'z';
+```
 
-    // bad
-    let i;
-    const items = getItems();
-    let dragonball;
-    const goSportsTeam = true;
-    let len;
+---
 
-    // good
-    const goSportsTeam = true;
-    const items = getItems();
-    let dragonball;
-    let i;
-    let length;
-    ```
+<a name="variables--const-let-group"></a>
+[**13.3**](#variables--const-let-group) ‣ Group all your `const`s and then group all your `let`s.
 
-  <a name="variables--define-where-used"></a><a name="13.4"></a>
-  - [13.4](#variables--define-where-used) Assign variables where you need them, but place them in a reasonable place.
+> Why? This is helpful when later on you might need to assign a variable depending on one of the previously assigned variables.
 
-    > Why? `let` and `const` are block scoped and not function scoped.
+```typescript
+// bad
+let i, len, dragonball,
+    items = getItems(),
+    goSportsTeam = true;
 
-    ```javascript
-    // bad - unnecessary function call
-    function checkName(hasName) {
-      const name = getName();
+// bad
+let i: number;
+const items = getItems();
+let dragonball: Dragonball;
+const goSportsTeam = true;
+let len: number;
 
-      if (hasName === 'test') {
-        return false;
-      }
+// good
+const goSportsTeam = true;
+const items = getItems();
+let dragonball: Dragonball;
+let i: number;
+let length: number;
+```
 
-      if (name === 'test') {
-        this.setName('');
-        return false;
-      }
+---
 
-      return name;
-    }
+<a name="variables--define-where-used"></a>
+[**13.4**](#variables--define-where-used) ‣ Assign variables where you need them, but place them in a reasonable place.
 
-    // good
-    function checkName(hasName) {
-      if (hasName === 'test') {
-        return false;
-      }
+> Why? `let` and `const` are block scoped and not function scoped.
 
-      const name = getName();
+```typescript
+// bad - unnecessary function call
+function checkName(hasName) {
+  const name = getName();
 
-      if (name === 'test') {
-        this.setName('');
-        return false;
-      }
+  if (hasName === 'test') {
+    return false;
+  }
 
-      return name;
-    }
-    ```
+  if (name === 'test') {
+    this.setName('');
+    return false;
+  }
 
-  <a name="variables--no-chain-assignment"></a><a name="13.5"></a>
-  - [13.5](#variables--no-chain-assignment) Don’t chain variable assignments. eslint: [`no-multi-assign`](https://eslint.org/docs/rules/no-multi-assign)
+  return name;
+}
 
-    > Why? Chaining variable assignments creates implicit global variables.
+// good
+function checkName(hasName) {
+  if (hasName === 'test') {
+    return false;
+  }
 
-    ```javascript
-    // bad
-    (function example() {
-      // JavaScript interprets this as
-      // let a = ( b = ( c = 1 ) );
-      // The let keyword only applies to variable a; variables b and c become
-      // global variables.
-      let a = b = c = 1;
-    }());
+  const name = getName();
 
-    console.log(a); // throws ReferenceError
-    console.log(b); // 1
-    console.log(c); // 1
+  if (name === 'test') {
+    this.setName('');
+    return false;
+  }
 
-    // good
-    (function example() {
-      let a = 1;
-      let b = a;
-      let c = a;
-    }());
+  return name;
+}
+```
 
-    console.log(a); // throws ReferenceError
-    console.log(b); // throws ReferenceError
-    console.log(c); // throws ReferenceError
+<a name="variables--no-chain-assignment"></a>
+[**13.5**](#variables--no-chain-assignment) ‣ Don’t chain variable assignments.
 
-    // the same applies for `const`
-    ```
+<img src="eslint.svg" height="18" align="center"/> [`no-multi-assign`](https://eslint.org/docs/rules/no-multi-assign)
 
-  <a name="variables--unary-increment-decrement"></a><a name="13.6"></a>
-  - [13.6](#variables--unary-increment-decrement) Avoid using unary increments and decrements (`++`, `--`). eslint [`no-plusplus`](https://eslint.org/docs/rules/no-plusplus)
+> Why? Chaining variable assignments creates implicit global variables.
 
-    > Why? Per the eslint documentation, unary increment and decrement statements are subject to automatic semicolon insertion and can cause silent errors with incrementing or decrementing values within an application. It is also more expressive to mutate your values with statements like `num += 1` instead of `num++` or `num ++`. Disallowing unary increment and decrement statements also prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
+```typescript
+// bad
+(function example() {
+  // JavaScript interprets this as
+  // let a = ( b = ( c = 1 ) );
+  // The let keyword only applies to variable a; variables b and c become
+  // global variables.
+  let a = b = c = 1;
+}());
 
-    ```javascript
-    // bad
+console.log(a); // throws ReferenceError
+console.log(b); // 1
+console.log(c); // 1
 
-    const array = [1, 2, 3];
-    let num = 1;
-    num++;
-    --num;
+// good
+(function example() {
+  let a = 1;
+  let b = a;
+  let c = a;
+}());
 
-    let sum = 0;
-    let truthyCount = 0;
-    for (let i = 0; i < array.length; i++) {
-      let value = array[i];
-      sum += value;
-      if (value) {
-        truthyCount++;
-      }
-    }
+console.log(a); // throws ReferenceError
+console.log(b); // throws ReferenceError
+console.log(c); // throws ReferenceError
 
-    // good
+// the same applies for `const`
+```
 
-    const array = [1, 2, 3];
-    let num = 1;
-    num += 1;
-    num -= 1;
+---
 
-    const sum = array.reduce((a, b) => a + b, 0);
-    const truthyCount = array.filter(Boolean).length;
-    ```
+<a name="variables--unary-increment-decrement"></a>
+[**13.6**](#variables--unary-increment-decrement) ‣ Avoid using unary increments and decrements (`++`, `--`).
+
+<img src="eslint.svg" height="18" align="center"/> [`no-plusplus`](https://eslint.org/docs/rules/no-plusplus)
+
+> Why? Per the eslint documentation, unary increment and decrement statements are subject to automatic semicolon insertion and can cause silent errors with incrementing or decrementing values within an application. It is also more expressive to mutate your values with statements like `num += 1` instead of `num++` or `num ++`. Disallowing unary increment and decrement statements also prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
+
+```typescript
+// bad
+
+const array = [1, 2, 3];
+let num = 1;
+num++;
+--num;
+
+let sum = 0;
+let truthyCount = 0;
+for (let i = 0; i < array.length; i++) {
+  let value = array[i];
+  sum += value;
+  if (value) {
+    truthyCount++;
+  }
+}
+
+// good
+
+const array = [1, 2, 3];
+let num = 1;
+num += 1;
+num -= 1;
+
+const sum = array.reduce((a, b) => a + b, 0);
+const truthyCount = array.filter(Boolean).length;
+```
+
+---
 
 <a name="variables--linebreak"></a>
-  - [13.7](#variables--linebreak) Avoid linebreaks before or after `=` in an assignment. If your assignment violates [`max-len`](https://eslint.org/docs/rules/max-len.html), surround the value in parens. eslint [`operator-linebreak`](https://eslint.org/docs/rules/operator-linebreak.html).
+[**13.7**](#variables--linebreak) ‣ Avoid linebreaks before or after `=` in an assignment. If your assignment violates [`max-len`](https://eslint.org/docs/rules/max-len.html), surround the value in parens.
 
-    > Why? Linebreaks surrounding `=` can obfuscate the value of an assignment.
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
 
-    ```javascript
-    // bad
-    const foo =
-      superLongLongLongLongLongLongLongLongFunctionName();
+<img src="eslint.svg" height="18" align="center"/> [`operator-linebreak`](https://eslint.org/docs/rules/operator-linebreak.html)
 
-    // bad
-    const foo
-      = 'superLongLongLongLongLongLongLongLongString';
+> Why? Linebreaks surrounding `=` can obfuscate the value of an assignment.
 
-    // good
-    const foo = (
-      superLongLongLongLongLongLongLongLongFunctionName()
-    );
+```typescript
+// bad
+const foo =
+  superLongLongLongLongLongLongLongLongFunctionName();
 
-    // good
-    const foo = 'superLongLongLongLongLongLongLongLongString';
-    ```
+// bad
+const foo
+  = 'superLongLongLongLongLongLongLongLongString';
+
+// good
+const foo = (
+  superLongLongLongLongLongLongLongLongFunctionName()
+);
+
+// good
+const foo = 'superLongLongLongLongLongLongLongLongString';
+```
+
+---
 
 <a name="variables--no-unused-vars"></a>
-  - [13.8](#variables--no-unused-vars) Disallow unused variables. eslint: [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars)
+[**13.8**](#variables--no-unused-vars) ‣ Disallow unused variables.
 
-    > Why? Variables that are declared and not used anywhere in the code are most likely an error due to incomplete refactoring. Such variables take up space in the code and can lead to confusion by readers.
+<img src="eslint.svg" height="18" align="center"/> [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars)
 
-    ```javascript
-    // bad
+> Why? Variables that are declared and not used anywhere in the code are most likely an error due to incomplete refactoring. Such variables take up space in the code and can lead to confusion by readers.
 
-    var some_unused_var = 42;
+```typescript
+// bad
+const some_unused_var = 42;
 
-    // Write-only variables are not considered as used.
-    var y = 10;
-    y = 5;
+// Write-only variables are not considered as used.
+let y = 10;
+y = 5;
 
-    // A read for a modification of itself is not considered as used.
-    var z = 0;
-    z = z + 1;
+// A read for a modification of itself is not considered as used.
+let z = 0;
+z = z + 1;
 
-    // Unused function arguments.
-    function getX(x, y) {
-        return x;
-    }
+// Unused function arguments.
+function getX(x: number, y: number): number {
+    return x;
+}
 
-    // good
+// good
+function getXPlusY(x: number, y: number): number {
+  return x + y;
+}
 
-    function getXPlusY(x, y) {
-      return x + y;
-    }
+const x = 1;
+const y = a + 2;
 
-    var x = 1;
-    var y = a + 2;
+alert(getXPlusY(x, y));
 
-    alert(getXPlusY(x, y));
-
-    // 'type' is ignored even if unused because it has a rest property sibling.
-    // This is a form of extracting an object that omits the specified keys.
-    var { type, ...coords } = data;
-    // 'coords' is now the 'data' object without its 'type' property.
-    ```
-
-**[⬆ back to top](#table-of-contents)**
-
-## Hoisting
-
-  <a name="hoisting--about"></a><a name="14.1"></a>
-  - [14.1](#hoisting--about) `var` declarations get hoisted to the top of their closest enclosing function scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone). It’s important to know why [typeof is no longer safe](https://web.archive.org/web/20200121061528/http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
-
-    ```javascript
-    // we know this wouldn’t work (assuming there
-    // is no notDefined global variable)
-    function example() {
-      console.log(notDefined); // => throws a ReferenceError
-    }
-
-    // creating a variable declaration after you
-    // reference the variable will work due to
-    // variable hoisting. Note: the assignment
-    // value of `true` is not hoisted.
-    function example() {
-      console.log(declaredButNotAssigned); // => undefined
-      var declaredButNotAssigned = true;
-    }
-
-    // the interpreter is hoisting the variable
-    // declaration to the top of the scope,
-    // which means our example could be rewritten as:
-    function example() {
-      let declaredButNotAssigned;
-      console.log(declaredButNotAssigned); // => undefined
-      declaredButNotAssigned = true;
-    }
-
-    // using const and let
-    function example() {
-      console.log(declaredButNotAssigned); // => throws a ReferenceError
-      console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
-      const declaredButNotAssigned = true;
-    }
-    ```
-
-  <a name="hoisting--anon-expressions"></a><a name="14.2"></a>
-  - [14.2](#hoisting--anon-expressions) Anonymous function expressions hoist their variable name, but not the function assignment.
-
-    ```javascript
-    function example() {
-      console.log(anonymous); // => undefined
-
-      anonymous(); // => TypeError anonymous is not a function
-
-      var anonymous = function () {
-        console.log('anonymous function expression');
-      };
-    }
-    ```
-
-  <a name="hoisting--named-expresions"></a><a name="hoisting--named-expressions"></a><a name="14.3"></a>
-  - [14.3](#hoisting--named-expressions) Named function expressions hoist the variable name, not the function name or the function body.
-
-    ```javascript
-    function example() {
-      console.log(named); // => undefined
-
-      named(); // => TypeError named is not a function
-
-      superPower(); // => ReferenceError superPower is not defined
-
-      var named = function superPower() {
-        console.log('Flying');
-      };
-    }
-
-    // the same is true when the function name
-    // is the same as the variable name.
-    function example() {
-      console.log(named); // => undefined
-
-      named(); // => TypeError named is not a function
-
-      var named = function named() {
-        console.log('named');
-      };
-    }
-    ```
-
-  <a name="hoisting--declarations"></a><a name="14.4"></a>
-  - [14.4](#hoisting--declarations) Function declarations hoist their name and the function body.
-
-    ```javascript
-    function example() {
-      superPower(); // => Flying
-
-      function superPower() {
-        console.log('Flying');
-      }
-    }
-    ```
-
-  - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) by [Ben Cherry](http://www.adequatelygood.com/).
+// 'type' is ignored even if unused because it has a rest property sibling.
+// This is a form of extracting an object that omits the specified keys.
+const { type, ...coords } = data;
+// 'coords' is now the 'data' object without its 'type' property.
+```
 
 **[⬆ back to top](#table-of-contents)**
+
 
 ## Comparison Operators & Equality
 
-  <a name="comparison--eqeqeq"></a><a name="15.1"></a>
-  - [15.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`. eslint: [`eqeqeq`](https://eslint.org/docs/rules/eqeqeq.html)
+<a name="comparison--eqeqeq"></a>
+[**14.1**](#comparison--eqeqeq) ‣ Use `===` and `!==` over `==` and `!=`.
 
-  <a name="comparison--if"></a><a name="15.2"></a>
-  - [15.2](#comparison--if) Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
+<img src="eslint.svg" height="18" align="center"/> [`eqeqeq`](https://eslint.org/docs/rules/eqeqeq.html)
 
-    - **Objects** evaluate to **true**
-    - **Undefined** evaluates to **false**
-    - **Null** evaluates to **false**
-    - **Booleans** evaluate to **the value of the boolean**
-    - **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
-    - **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+---
 
-    ```javascript
-    if ([0] && []) {
-      // true
-      // an array (even an empty one) is an object, objects will evaluate to true
-    }
-    ```
+<a name="comparison--if"></a>
+[**14.2**](#comparison--if) ‣ Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
 
-  <a name="comparison--shortcuts"></a><a name="15.3"></a>
-  - [15.3](#comparison--shortcuts) Use shortcuts for booleans, but explicit comparisons for strings and numbers.
+- **Objects** evaluate to **true**
+- **Undefined** evaluates to **false**
+- **Null** evaluates to **false**
+- **Booleans** evaluate to **the value of the boolean**
+- **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
+- **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
-    ```javascript
-    // bad
-    if (isValid === true) {
-      // ...
-    }
+```typescript
+if ([0] && []) {
+  // true
+  // an array (even an empty one) is an object, objects will evaluate to true
+}
+```
 
-    // good
-    if (isValid) {
-      // ...
-    }
+---
 
-    // bad
-    if (name) {
-      // ...
-    }
+<a name="comparison--shortcuts"></a>
+[**14.3**](#comparison--shortcuts) ‣ Use shortcuts for booleans, but explicit comparisons for strings and numbers.
 
-    // good
-    if (name !== '') {
-      // ...
-    }
+```typescript
+// bad
+if (isValid === true) {
+  // ...
+}
 
-    // bad
-    if (collection.length) {
-      // ...
-    }
+// good
+if (isValid) {
+  // ...
+}
 
-    // good
-    if (collection.length > 0) {
-      // ...
-    }
-    ```
+// bad
+if (name) {
+  // ...
+}
 
-  <a name="comparison--moreinfo"></a><a name="15.4"></a>
-  - [15.4](#comparison--moreinfo) For more information see [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
+// good
+if (name !== '') {
+  // ...
+}
 
-## JUST BE CONSISTENT
-  <a name="comparison--switch-blocks"></a><a name="15.5"></a>
-  - [15.5](#comparison--switch-blocks) Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`). eslint: [`no-case-declarations`](https://eslint.org/docs/rules/no-case-declarations.html)
+// bad
+if (collection.length) {
+  // ...
+}
 
-    > Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
+// good
+if (collection.length > 0) {
+  // ...
+}
+```
 
-    ```javascript
-    // bad
-    switch (foo) {
-      case 1:
-        let x = 1;
-        break;
-      case 2:
-        const y = 2;
-        break;
-      case 3:
-        function f() {
-          // ...
-        }
-        break;
-      default:
-        class C {}
-    }
+---
 
-    // good
-    switch (foo) {
-      case 1: {
-        let x = 1;
-        break;
-      }
-      case 2: {
-        const y = 2;
-        break;
-      }
-      case 3: {
-        function f() {
-          // ...
-        }
-        break;
-      }
-      case 4:
-        bar();
-        break;
-      default: {
-        class C {}
-      }
-    }
-    ```
+<a name="comparison--moreinfo"></a>
+[**14.4**](#comparison--moreinfo) ‣ For more information, see [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
 
-  <a name="comparison--nested-ternaries"></a><a name="15.6"></a>
-  - [15.6](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions. eslint: [`no-nested-ternary`](https://eslint.org/docs/rules/no-nested-ternary.html)
+---
 
-    ```javascript
-    // bad
-    const foo = maybe1 > maybe2
-      ? "bar"
-      : value1 > value2 ? "baz" : null;
+<a name="comparison--switch-blocks"></a>
+[**14.5**](#comparison--switch-blocks) ‣ In switch statements, use braces to create blocks for all `case` and `default` clauses, or none of them. Be consistent.
 
-    // split into 2 separated ternary expressions
-    const maybeNull = value1 > value2 ? 'baz' : null;
+```typescript
+// bad
+switch (foo) {
+  case 1:
+    // ...
+    break;
+  case 2: {
+    // ...
+    break;
+  }
+  case 3:
+    // ...
+    break;
+  default: {
+    // ...
+  }
+}
 
-    // better
-    const foo = maybe1 > maybe2
-      ? 'bar'
-      : maybeNull;
+// good
+switch (foo) {
+  case 1:
+    // ...
+    break;
+  case 2:
+    // ...
+    break;
+  case 3:
+    // ...
+    break;
+  default:
+    // ...
+}
 
-    // best
-    const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
-    ```
+// good
+switch (foo) {
+  case 1: {
+    // ...
+    break;
+  }
+  case 2: {
+    // ...
+    break;
+  }
+  case 3: {
+    // ...
+    break;
+  }
+  default: {
+    // ...
+  }
+}
+```
 
-  <a name="comparison--unneeded-ternary"></a><a name="15.7"></a>
-  - [15.7](#comparison--unneeded-ternary) Avoid unneeded ternary statements. eslint: [`no-unneeded-ternary`](https://eslint.org/docs/rules/no-unneeded-ternary.html)
+---
 
-    ```javascript
-    // bad
-    const foo = a ? a : b;
-    const bar = c ? true : false;
-    const baz = c ? false : true;
+<a name="comparison--nested-ternaries"></a>
+[**14.6**](#comparison--nested-ternaries) ‣ Ternaries should not be nested and generally be single line expressions.
 
-    // good
-    const foo = a || b;
-    const bar = !!c;
-    const baz = !c;
-    ```
+<img src="eslint.svg" height="18" align="center"/> [`no-nested-ternary`](https://eslint.org/docs/rules/no-nested-ternary.html)
 
-  <a name="comparison--no-mixed-operators"></a>
-  - [15.8](#comparison--no-mixed-operators) When mixing operators, enclose them in parentheses. The only exception is the standard arithmetic operators: `+`, `-`, and `**` since their precedence is broadly understood. We recommend enclosing `/` and `*` in parentheses because their precedence can be ambiguous when they are mixed.
-  eslint: [`no-mixed-operators`](https://eslint.org/docs/rules/no-mixed-operators.html)
+```typescript
+// bad
+const foo = maybe1 > maybe2
+  ? "bar"
+  : value1 > value2 ? "baz" : null;
 
-    > Why? This improves readability and clarifies the developer’s intention.
+// split into 2 separated ternary expressions
+const maybeNull = value1 > value2 ? 'baz' : null;
 
-    ```javascript
-    // bad
-    const foo = a && b < 0 || c > 0 || d + 1 === 0;
+// better
+const foo = maybe1 > maybe2
+  ? 'bar'
+  : maybeNull;
 
-    // bad
-    const bar = a ** b - 5 % d;
+// best
+const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
+```
 
-    // bad
-    // one may be confused into thinking (a || b) && c
-    if (a || b && c) {
-      return d;
-    }
+---
 
-    // bad
-    const bar = a + b / c * d;
+<a name="comparison--unneeded-ternary"></a>
+[**14.7**](#comparison--unneeded-ternary) ‣ Avoid unneeded ternary statements.
 
-    // good
-    const foo = (a && b < 0) || c > 0 || (d + 1 === 0);
+<img src="eslint.svg" height="18" align="center"/> [`no-unneeded-ternary`](https://eslint.org/docs/rules/no-unneeded-ternary.html)
 
-    // good
-    const bar = a ** b - (5 % d);
+```typescript
+// bad
+const foo = a ? a : b;
+const bar = c ? true : false;
+const baz = c ? false : true;
 
-    // good
-    if (a || (b && c)) {
-      return d;
-    }
+// good
+const foo = a || b;
+const bar = !!c;
+const baz = !c;
+```
 
-    // good
-    const bar = a + (b / c) * d;
-    ```
+---
+
+<a name="comparison--no-mixed-operators"></a>
+[**14.8**](#comparison--no-mixed-operators) ‣ When mixing operators, enclose them in parentheses. The only exception is the standard arithmetic operators: `+`, `-`, and `**` since their precedence is broadly understood. We recommend enclosing `/` and `*` in parentheses because their precedence can be ambiguous when they are mixed.
+
+<img src="eslint.svg" height="18" align="center"/> [`no-mixed-operators`](https://eslint.org/docs/rules/no-mixed-operators.html)
+
+> Why? This improves readability and clarifies the developer’s intention.
+
+```typescript
+// bad
+const foo = a && b < 0 || c > 0 || d + 1 === 0;
+
+// bad
+const bar = a ** b - 5 % d;
+
+// bad
+// one may be confused into thinking (a || b) && c
+if (a || b && c) {
+  return d;
+}
+
+// bad
+const bar = a + b / c * d;
+
+// good
+const foo = (a && b < 0) || c > 0 || (d + 1 === 0);
+
+// good
+const bar = a ** b - (5 % d);
+
+// good
+if (a || (b && c)) {
+  return d;
+}
+
+// good
+const bar = a + (b / c) * d;
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Blocks
 
-## Prettier does this
-  <a name="blocks--braces"></a><a name="16.1"></a>
-  - [16.1](#blocks--braces) Use braces with all multiline blocks. eslint: [`nonblock-statement-body-position`](https://eslint.org/docs/rules/nonblock-statement-body-position)
+<a name="blocks--cuddled-elses"></a>
+[**15.1**](#blocks--cuddled-elses) ‣ If you’re using multiline blocks with `if` and `else`, put `else` on the same line as your `if` block’s closing brace.
 
-    ```javascript
-    // bad
-    if (test)
-      return false;
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
 
-    // good
-    if (test) return false;
+<img src="eslint.svg" height="18" align="center"/> [`brace-style`](https://eslint.org/docs/rules/brace-style.html)
 
-    // good
-    if (test) {
-      return false;
-    }
+```typescript
+// bad
+if (test) {
+  thing1();
+  thing2();
+}
+else {
+  thing3();
+}
 
-    // bad
-    function foo() { return false; }
+// good
+if (test) {
+  thing1();
+  thing2();
+} else {
+  thing3();
+}
+```
 
-    // good
-    function bar() {
-      return false;
-    }
-    ```
+---
 
-  <a name="blocks--cuddled-elses"></a><a name="16.2"></a>
-  - [16.2](#blocks--cuddled-elses) If you’re using multiline blocks with `if` and `else`, put `else` on the same line as your `if` block’s closing brace. eslint: [`brace-style`](https://eslint.org/docs/rules/brace-style.html)
+**TODO:** Further discussion required
 
-    ```javascript
-    // bad
-    if (test) {
-      thing1();
-      thing2();
-    }
-    else {
-      thing3();
-    }
+<a name="blocks--no-else-return"></a>
+[**15.2**](#blocks--no-else-return) ‣ If an `if` block always executes a `return` statement, the subsequent `else` block is unnecessary. A `return` in an `else if` block following an `if` block that contains a `return` can be separated into multiple `if` blocks.
 
-    // good
-    if (test) {
-      thing1();
-      thing2();
-    } else {
-      thing3();
-    }
-    ```
+<img src="eslint.svg" height="18" align="center"/> [`no-else-return`](https://eslint.org/docs/rules/no-else-return)
 
-## DISAGREEMENT
-  <a name="blocks--no-else-return"></a><a name="16.3"></a>
-  - [16.3](#blocks--no-else-return) If an `if` block always executes a `return` statement, the subsequent `else` block is unnecessary. A `return` in an `else if` block following an `if` block that contains a `return` can be separated into multiple `if` blocks. eslint: [`no-else-return`](https://eslint.org/docs/rules/no-else-return)
+```typescript
+// bad
+function foo() {
+  if (x) {
+    return x;
+  } else {
+    return y;
+  }
+}
 
-    ```javascript
-    // bad
-    function foo() {
-      if (x) {
-        return x;
-      } else {
-        return y;
-      }
-    }
+// bad
+function cats() {
+  if (x) {
+    return x;
+  } else if (y) {
+    return y;
+  }
+}
 
-    // bad
-    function cats() {
-      if (x) {
-        return x;
-      } else if (y) {
-        return y;
-      }
-    }
-
-    // bad
-    function dogs() {
-      if (x) {
-        return x;
-      } else {
-        if (y) {
-          return y;
-        }
-      }
-    }
-
-    // good
-    function foo() {
-      if (x) {
-        return x;
-      }
-
+// bad
+function dogs() {
+  if (x) {
+    return x;
+  } else {
+    if (y) {
       return y;
     }
+  }
+}
 
-    // good
-    function cats() {
-      if (x) {
-        return x;
-      }
+// good
+function foo() {
+  if (x) {
+    return x;
+  }
 
-      if (y) {
-        return y;
-      }
+  return y;
+}
+
+// good
+function cats() {
+  if (x) {
+    return x;
+  }
+
+  if (y) {
+    return y;
+  }
+}
+
+// good
+function dogs(x) {
+  if (x) {
+    if (z) {
+      return y;
     }
-
-    // good
-    function dogs(x) {
-      if (x) {
-        if (z) {
-          return y;
-        }
-      } else {
-        return z;
-      }
-    }
-    ```
+  } else {
+    return z;
+  }
+}
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Control Statements
 
-  <a name="control-statements"></a>
-  - [17.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition could be put into a new line. The logical operator should begin the line.
+<a name="control-statements"></a>
+[**16.1**](#control-statements) ‣ In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition could be put into a new line.
 
-    > Why? Requiring operators at the beginning of the line keeps the operators aligned and follows a pattern similar to method chaining. This also improves readability by making it easier to visually follow complex logic.
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
 
-    ```javascript
-    // bad
-    if ((foo === 123 || bar === 'abc') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
-      thing1();
-    }
+> Why? This improves readability by making it easier to visually follow complex logic.
 
-    // bad
-    if (foo === 123 &&
-      bar === 'abc') {
-      thing1();
-    }
+```typescript
+// bad
+if ((foo === 123 || bar === 'abc') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
+  thing1();
+}
 
-    // bad
-    if (foo === 123
-      && bar === 'abc') {
-      thing1();
-    }
+// bad
+if ((foo === 123 || bar === 'abc') &&
+  doesItLookGoodWhenItBecomesThatLong() &&
+  isThisReallyHappening()) {
+  thing1();
+}
 
-    // bad
-    if (
-      foo === 123 &&
-      bar === 'abc'
-    ) {
-      thing1();
-    }
+// good
+if (
+  (foo === 123 || bar === 'abc') &&
+  doesItLookGoodWhenItBecomesThatLong() &&
+  isThisReallyHappening()
+) {
+  thing1();
+}
 
-    // good
-    if (
-      foo === 123
-      && bar === 'abc'
-    ) {
-      thing1();
-    }
+// good
+if (
+  (foo === 123 ||
+    bar === 'abc' ||
+    someOtherReallyLongFunctionName()) &&
+  doesItLookGoodWhenItBecomesThatLong() &&
+  isThisReallyHappening()
+) {
+  thing1();
+}
 
-    // good
-    if (
-      (foo === 123 || bar === 'abc')
-      && doesItLookGoodWhenItBecomesThatLong()
-      && isThisReallyHappening()
-    ) {
-      thing1();
-    }
+// good
+if (foo === 123 && bar === 'abc') {
+  thing1();
+}
+```
 
-    // good
-    if (foo === 123 && bar === 'abc') {
-      thing1();
-    }
-    ```
+---
 
-  <a name="control-statement--value-selection"></a><a name="control-statements--value-selection"></a>
-  - [17.2](#control-statements--value-selection) Don't use selection operators in place of control statements.
+<a name="control-statements--value-selection"></a>
+[**16.2**](#control-statements--value-selection) ‣ Don't use selection operators in place of control statements.
 
-    ```javascript
-    // bad
-    !isRunning && startRunning();
+```typescript
+// bad
+!isRunning && startRunning();
 
-    // good
-    if (!isRunning) {
-      startRunning();
-    }
-    ```
+// good
+if (!isRunning) {
+  startRunning();
+}
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Comments
 
-  <a name="comments--multiline"></a><a name="17.1"></a>
-  - [18.1](#comments--multiline) Use `/** ... */` for multiline comments.
+<a name="comments--multiline"></a>
+[**17.1**](#comments--multiline) ‣ Use `/** ... */` for multiline comments.
 
-    ```javascript
-    // bad
-    // make() returns a new element
-    // based on the passed in tag name
-    //
-    // @param {String} tag
-    // @return {Element} element
-    function make(tag) {
+```typescript
+// bad
+// make() returns a new element
+// based on the passed in tag name
+function make(tag: string): Element {
 
-      // ...
+  // ...
 
-      return element;
-    }
+  return element;
+}
 
-    // good
-    /**
-     * make() returns a new element
-     * based on the passed-in tag name
-     */
-    function make(tag) {
+// good
+/**
+ * make() returns a new element
+ * based on the passed-in tag name
+ */
+function make(tag: string): Element {
 
-      // ...
+  // ...
 
-      return element;
-    }
-    ```
+  return element;
+}
+```
 
-  <a name="comments--singleline"></a><a name="17.2"></a>
-  - [18.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it’s on the first line of a block.
+---
 
-    ```javascript
-    // bad
-    const active = true;  // is current tab
+<a name="comments--singleline"></a>
+[**17.2**](#comments--singleline) ‣ Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it’s on the first line of a block.
 
-    // good
-    // is current tab
-    const active = true;
+```typescript
+// bad
+const active = true;  // is current tab
 
-    // bad
-    function getType() {
-      console.log('fetching type...');
-      // set the default type to 'no type'
-      const type = this.type || 'no type';
+// good
+// is current tab
+const active = true;
 
-      return type;
-    }
+// bad
+function getType() {
+  console.log('fetching type...');
+  // set the default type to 'no type'
+  const type = this.type || 'no type';
 
-    // good
-    function getType() {
-      console.log('fetching type...');
+  return type;
+}
 
-      // set the default type to 'no type'
-      const type = this.type || 'no type';
+// good
+function getType() {
+  console.log('fetching type...');
 
-      return type;
-    }
+  // set the default type to 'no type'
+  const type = this.type || 'no type';
 
-    // also good
-    function getType() {
-      // set the default type to 'no type'
-      const type = this.type || 'no type';
+  return type;
+}
 
-      return type;
-    }
-    ```
+// also good
+function getType() {
+  // set the default type to 'no type'
+  const type = this.type || 'no type';
 
-  <a name="comments--spaces"></a>
-  - [18.3](#comments--spaces) Start all comments with a space to make it easier to read. eslint: [`spaced-comment`](https://eslint.org/docs/rules/spaced-comment)
+  return type;
+}
+```
 
-    ```javascript
-    // bad
-    //is current tab
-    const active = true;
+---
 
-    // good
-    // is current tab
-    const active = true;
+<a name="comments--spaces"></a>
+[**17.3**](#comments--spaces) ‣ Start all comments with a space to make it easier to read.
 
-    // bad
-    /**
-     *make() returns a new element
-     *based on the passed-in tag name
-     */
-    function make(tag) {
+<img src="eslint.svg" height="18" align="center"/> [`spaced-comment`](https://eslint.org/docs/rules/spaced-comment)
 
-      // ...
+```typescript
+// bad
+//is current tab
+const active = true;
 
-      return element;
-    }
+// good
+// is current tab
+const active = true;
 
-    // good
-    /**
-     * make() returns a new element
-     * based on the passed-in tag name
-     */
-    function make(tag) {
+// bad
+/**
+ *make() returns a new element
+  *based on the passed-in tag name
+  */
+function make(tag: string): Element {
 
-      // ...
+  // ...
 
-      return element;
-    }
-    ```
+  return element;
+}
 
-  <a name="comments--actionitems"></a><a name="17.3"></a>
-  - [18.4](#comments--actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you’re pointing out a problem that needs to be revisited, or if you’re suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
+// good
+/**
+ * make() returns a new element
+ * based on the passed-in tag name
+ */
+function make(tag: string): Element {
 
-  <a name="comments--fixme"></a><a name="17.4"></a>
-  - [18.5](#comments--fixme) Use `// FIXME:` to annotate problems.
+  // ...
 
-    ```javascript
-    class Calculator extends Abacus {
-      constructor() {
-        super();
+  return element;
+}
+```
 
-        // FIXME: shouldn’t use a global here
-        total = 0;
-      }
-    }
-    ```
+---
 
-  <a name="comments--todo"></a><a name="17.5"></a>
-  - [18.6](#comments--todo) Use `// TODO:` to annotate solutions to problems.
+<a name="comments--actionitems"></a>
+[**17.4**](#comments--actionitems) ‣ Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you’re pointing out a problem that needs to be revisited, or if you’re suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
 
-    ```javascript
-    class Calculator extends Abacus {
-      constructor() {
-        super();
+```typescript
+class Calculator extends Abacus {
+  constructor() {
+    super();
 
-        // TODO: total should be configurable by an options param
-        this.total = 0;
-      }
-    }
-    ```
+    // FIXME: shouldn’t use a global here
+    total = 0;
+  }
+}
+```
+
+```typescript
+class Calculator extends Abacus {
+  constructor() {
+    super();
+
+    // TODO: total should be configurable by an options param
+    this.total = 0;
+  }
+}
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Whitespace
 
-  <a name="whitespace--spaces"></a><a name="18.1"></a>
-  - [19.1](#whitespace--spaces) Use soft tabs (space character) set to 2 spaces. eslint: [`indent`](https://eslint.org/docs/rules/indent.html)
-
-    ```javascript
-    // bad
-    function foo() {
-    ∙∙∙∙let name;
-    }
-
-    // bad
-    function bar() {
-    ∙let name;
-    }
-
-    // good
-    function baz() {
-    ∙∙let name;
-    }
-    ```
-
-  <a name="whitespace--before-blocks"></a><a name="18.2"></a>
-  - [19.2](#whitespace--before-blocks) Place 1 space before the leading brace. eslint: [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks.html)
-
-    ```javascript
-    // bad
-    function test(){
-      console.log('test');
-    }
-
-    // good
-    function test() {
-      console.log('test');
-    }
-
-    // bad
-    dog.set('attr',{
-      age: '1 year',
-      breed: 'Bernese Mountain Dog',
-    });
-
-    // good
-    dog.set('attr', {
-      age: '1 year',
-      breed: 'Bernese Mountain Dog',
-    });
-    ```
-
-  <a name="whitespace--around-keywords"></a><a name="18.3"></a>
-  - [19.3](#whitespace--around-keywords) Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: [`keyword-spacing`](https://eslint.org/docs/rules/keyword-spacing.html)
-
-    ```javascript
-    // bad
-    if(isJedi) {
-      fight ();
-    }
-
-    // good
-    if (isJedi) {
-      fight();
-    }
-
-    // bad
-    function fight () {
-      console.log ('Swooosh!');
-    }
-
-    // good
-    function fight() {
-      console.log('Swooosh!');
-    }
-    ```
-
-  <a name="whitespace--infix-ops"></a><a name="18.4"></a>
-  - [19.4](#whitespace--infix-ops) Set off operators with spaces. eslint: [`space-infix-ops`](https://eslint.org/docs/rules/space-infix-ops.html)
-
-    ```javascript
-    // bad
-    const x=y+5;
-
-    // good
-    const x = y + 5;
-    ```
-
-  <a name="whitespace--newline-at-end"></a><a name="18.5"></a>
-  - [19.5](#whitespace--newline-at-end) End files with a single newline character. eslint: [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md)
-
-    ```javascript
-    // bad
-    import { es6 } from './AirbnbStyleGuide';
-      // ...
-    export default es6;
-    ```
-
-    ```javascript
-    // bad
-    import { es6 } from './AirbnbStyleGuide';
-      // ...
-    export default es6;↵
-    ↵
-    ```
-
-    ```javascript
-    // good
-    import { es6 } from './AirbnbStyleGuide';
-      // ...
-    export default es6;↵
-    ```
-
-  <a name="whitespace--chains"></a><a name="18.6"></a>
-  - [19.6](#whitespace--chains) Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which
-    emphasizes that the line is a method call, not a new statement. eslint: [`newline-per-chained-call`](https://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](https://eslint.org/docs/rules/no-whitespace-before-property)
-
-    ```javascript
-    // bad
-    $('#items').find('.selected').highlight().end().find('.open').updateCount();
-
-    // bad
-    $('#items').
-      find('.selected').
-        highlight().
-        end().
-      find('.open').
-        updateCount();
-
-    // good
-    $('#items')
-      .find('.selected')
-        .highlight()
-        .end()
-      .find('.open')
-        .updateCount();
-
-    // bad
-    const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
-        .attr('width', (radius + margin) * 2).append('svg:g')
-        .attr('transform', `translate(${radius + margin},${radius + margin})`)
-        .call(tron.led);
-
-    // good
-    const leds = stage.selectAll('.led')
-        .data(data)
-      .enter().append('svg:svg')
-        .classed('led', true)
-        .attr('width', (radius + margin) * 2)
-      .append('svg:g')
-        .attr('transform', `translate(${radius + margin},${radius + margin})`)
-        .call(tron.led);
-
-    // good
-    const leds = stage.selectAll('.led').data(data);
-    const svg = leds.enter().append('svg:svg');
-    svg.classed('led', true).attr('width', (radius + margin) * 2);
-    const g = svg.append('svg:g');
-    g.attr('transform', `translate(${radius + margin},${radius + margin})`).call(tron.led);
-    ```
-
-  <a name="whitespace--after-blocks"></a><a name="18.7"></a>
-  - [19.7](#whitespace--after-blocks) Leave a blank line after blocks and before the next statement.
-
-    ```javascript
-    // bad
-    if (foo) {
-      return bar;
-    }
-    return baz;
-
-    // good
-    if (foo) {
-      return bar;
-    }
-
-    return baz;
-
-    // bad
-    const obj = {
-      foo() {
-      },
-      bar() {
-      },
-    };
-    return obj;
-
-    // good
-    const obj = {
-      foo() {
-      },
-
-      bar() {
-      },
-    };
-
-    return obj;
-
-    // bad
-    const arr = [
-      function foo() {
-      },
-      function bar() {
-      },
-    ];
-    return arr;
-
-    // good
-    const arr = [
-      function foo() {
-      },
-
-      function bar() {
-      },
-    ];
-
-    return arr;
-    ```
-
-  <a name="whitespace--padded-blocks"></a><a name="18.8"></a>
-  - [19.8](#whitespace--padded-blocks) Do not pad your blocks with blank lines. eslint: [`padded-blocks`](https://eslint.org/docs/rules/padded-blocks.html)
-
-    ```javascript
-    // bad
-    function bar() {
-
-      console.log(foo);
-
-    }
-
-    // bad
-    if (baz) {
-
-      console.log(qux);
-    } else {
-      console.log(foo);
-
-    }
-
-    // bad
-    class Foo {
-
-      constructor(bar) {
-        this.bar = bar;
-      }
-    }
-
-    // good
-    function bar() {
-      console.log(foo);
-    }
-
-    // good
-    if (baz) {
-      console.log(qux);
-    } else {
-      console.log(foo);
-    }
-    ```
-
-  <a name="whitespace--no-multiple-blanks"></a>
-  - [19.9](#whitespace--no-multiple-blanks) Do not use multiple blank lines to pad your code. eslint: [`no-multiple-empty-lines`](https://eslint.org/docs/rules/no-multiple-empty-lines)
-
-    <!-- markdownlint-disable MD012 -->
-    ```javascript
-    // bad
-    class Person {
-      constructor(fullName, email, birthday) {
-        this.fullName = fullName;
-
-
-        this.email = email;
-
-
-        this.setAge(birthday);
-      }
-
-
-      setAge(birthday) {
-        const today = new Date();
-
-
-        const age = this.getAge(today, birthday);
-
-
-        this.age = age;
-      }
-
-
-      getAge(today, birthday) {
-        // ..
-      }
-    }
-
-    // good
-    class Person {
-      constructor(fullName, email, birthday) {
-        this.fullName = fullName;
-        this.email = email;
-        this.setAge(birthday);
-      }
-
-      setAge(birthday) {
-        const today = new Date();
-        const age = getAge(today, birthday);
-        this.age = age;
-      }
-
-      getAge(today, birthday) {
-        // ..
-      }
-    }
-    ```
-
-  <a name="whitespace--in-parens"></a><a name="18.9"></a>
-  - [19.10](#whitespace--in-parens) Do not add spaces inside parentheses. eslint: [`space-in-parens`](https://eslint.org/docs/rules/space-in-parens.html)
-
-    ```javascript
-    // bad
-    function bar( foo ) {
-      return foo;
-    }
-
-    // good
-    function bar(foo) {
-      return foo;
-    }
-
-    // bad
-    if ( foo ) {
-      console.log(foo);
-    }
-
-    // good
-    if (foo) {
-      console.log(foo);
-    }
-    ```
-
-  <a name="whitespace--in-brackets"></a><a name="18.10"></a>
-  - [19.11](#whitespace--in-brackets) Do not add spaces inside brackets. eslint: [`array-bracket-spacing`](https://eslint.org/docs/rules/array-bracket-spacing.html)
-
-    ```javascript
-    // bad
-    const foo = [ 1, 2, 3 ];
-    console.log(foo[ 0 ]);
-
-    // good
-    const foo = [1, 2, 3];
-    console.log(foo[0]);
-    ```
-
-  <a name="whitespace--in-braces"></a><a name="18.11"></a>
-  - [19.12](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](https://eslint.org/docs/rules/object-curly-spacing.html)
-
-    ```javascript
-    // bad
-    const foo = {clark: 'kent'};
-
-    // good
-    const foo = { clark: 'kent' };
-    ```
-
-  <a name="whitespace--max-len"></a><a name="18.12"></a>
-  - [19.13](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](https://eslint.org/docs/rules/max-len.html)
-
-    > Why? This ensures readability and maintainability.
-
-    ```javascript
-    // bad
-    const foo = jsonData && jsonData.foo && jsonData.foo.bar && jsonData.foo.bar.baz && jsonData.foo.bar.baz.quux && jsonData.foo.bar.baz.quux.xyzzy;
-
-    // bad
-    $.ajax({ method: 'POST', url: 'https://airbnb.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
-
-    // good
-    const foo = jsonData
-      && jsonData.foo
-      && jsonData.foo.bar
-      && jsonData.foo.bar.baz
-      && jsonData.foo.bar.baz.quux
-      && jsonData.foo.bar.baz.quux.xyzzy;
-
-    // good
-    $.ajax({
-      method: 'POST',
-      url: 'https://airbnb.com/',
-      data: { name: 'John' },
-    })
-      .done(() => console.log('Congratulations!'))
-      .fail(() => console.log('You have failed this city.'));
-    ```
-
-## CAN'T DO THIS ANYWAY
-  <a name="whitespace--block-spacing"></a>
-  - [19.14](#whitespace--block-spacing) Require consistent spacing inside an open block token and the next token on the same line. This rule also enforces consistent spacing inside a close block token and previous token on the same line. eslint: [`block-spacing`](https://eslint.org/docs/rules/block-spacing)
-
-    ```javascript
-    // bad
-    function foo() {return true;}
-    if (foo) { bar = 0;}
-
-    // good
-    function foo() { return true; }
-    if (foo) { bar = 0; }
-    ```
-
-  <a name="whitespace--comma-spacing"></a>
-  - [19.15](#whitespace--comma-spacing) Avoid spaces before commas and require a space after commas. eslint: [`comma-spacing`](https://eslint.org/docs/rules/comma-spacing)
-
-    ```javascript
-    // bad
-    var foo = 1,bar = 2;
-    var arr = [1 , 2];
-
-    // good
-    var foo = 1, bar = 2;
-    var arr = [1, 2];
-    ```
-
-  <a name="whitespace--computed-property-spacing"></a>
-  - [19.16](#whitespace--computed-property-spacing) Enforce spacing inside of computed property brackets. eslint: [`computed-property-spacing`](https://eslint.org/docs/rules/computed-property-spacing)
-
-    ```javascript
-    // bad
-    obj[foo ]
-    obj[ 'foo']
-    var x = {[ b ]: a}
-    obj[foo[ bar ]]
-
-    // good
-    obj[foo]
-    obj['foo']
-    var x = { [b]: a }
-    obj[foo[bar]]
-    ```
-
-  <a name="whitespace--func-call-spacing"></a>
-  - [19.17](#whitespace--func-call-spacing) Avoid spaces between functions and their invocations. eslint: [`func-call-spacing`](https://eslint.org/docs/rules/func-call-spacing)
-
-    ```javascript
-    // bad
-    func ();
-
-    func
-    ();
-
-    // good
-    func();
-    ```
-
-  <a name="whitespace--key-spacing"></a>
-  - [19.18](#whitespace--key-spacing) Enforce spacing between keys and values in object literal properties. eslint: [`key-spacing`](https://eslint.org/docs/rules/key-spacing)
-
-    ```javascript
-    // bad
-    var obj = { foo : 42 };
-    var obj2 = { foo:42 };
-
-    // good
-    var obj = { foo: 42 };
-    ```
-
-  <a name="whitespace--no-trailing-spaces"></a>
-  - [19.19](#whitespace--no-trailing-spaces) Avoid trailing spaces at the end of lines. eslint: [`no-trailing-spaces`](https://eslint.org/docs/rules/no-trailing-spaces)
-
-  <a name="whitespace--no-multiple-empty-lines"></a>
-  - [19.20](#whitespace--no-multiple-empty-lines) Avoid multiple empty lines, only allow one newline at the end of files, and avoid a newline at the beginning of files. eslint: [`no-multiple-empty-lines`](https://eslint.org/docs/rules/no-multiple-empty-lines)
-
-    <!-- markdownlint-disable MD012 -->
-    ```javascript
-    // bad - multiple empty lines
-    var x = 1;
-
-
-    var y = 2;
-
-    // bad - 2+ newlines at end of file
-    var x = 1;
-    var y = 2;
-
-
-    // bad - 1+ newline(s) at beginning of file
-
-    var x = 1;
-    var y = 2;
-
-    // good
-    var x = 1;
-    var y = 2;
-
-    ```
-    <!-- markdownlint-enable MD012 -->
+<a name="whitespace--spaces"></a>
+[**18.1**](#whitespace--spaces) ‣ Use soft tabs (space character) set to 2 spaces.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`indent`](https://eslint.org/docs/rules/indent.html)
+
+```typescript
+// bad
+function foo() {
+∙∙∙∙let name;
+}
+
+// bad
+function bar() {
+∙let name;
+}
+
+// good
+function baz() {
+∙∙let name;
+}
+```
+
+---
+
+<a name="whitespace--before-blocks"></a>
+[**18.2**](#whitespace--before-blocks) ‣ Place 1 space before the leading brace.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks.html)
+
+```typescript
+// bad
+function test(){
+  console.log('test');
+}
+
+// good
+function test() {
+  console.log('test');
+}
+
+// bad
+dog.set('attr',{
+  age: '1 year',
+  breed: 'Bernese Mountain Dog',
+});
+
+// good
+dog.set('attr', {
+  age: '1 year',
+  breed: 'Bernese Mountain Dog',
+});
+```
+
+---
+
+<a name="whitespace--around-keywords"></a>
+[**18.3**](#whitespace--around-keywords) ‣ Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space between the argument list and the function name in function calls and declarations.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`keyword-spacing`](https://eslint.org/docs/rules/keyword-spacing.html)
+
+```typescript
+// bad
+if(isJedi) {
+  fight ();
+}
+
+// good
+if (isJedi) {
+  fight();
+}
+
+// bad
+function fight () {
+  console.log ('Swooosh!');
+}
+
+// good
+function fight() {
+  console.log('Swooosh!');
+}
+```
+
+---
+
+<a name="whitespace--infix-ops"></a>
+[**18.4**](#whitespace--infix-ops) ‣ Set off operators with spaces.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`space-infix-ops`](https://eslint.org/docs/rules/space-infix-ops.html)
+
+```typescript
+// bad
+const x=y+5;
+
+// good
+const x = y + 5;
+```
+
+---
+
+<a name="whitespace--newline-at-end"></a>
+[**18.5**](#whitespace--newline-at-end) ‣ End files with a single newline character.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md)
+
+```typescript
+// bad
+import { es6 } from './AirbnbStyleGuide';
+  // ...
+export default es6;
+```
+
+```typescript
+// bad
+import { es6 } from './AirbnbStyleGuide';
+  // ...
+export default es6;↵
+↵
+```
+
+```typescript
+// good
+import { es6 } from './AirbnbStyleGuide';
+  // ...
+export default es6;↵
+```
+
+---
+
+<a name="whitespace--chains"></a>
+[**18.6**](#whitespace--chains) ‣ Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which emphasizes that the line is a method call, not a new statement.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`newline-per-chained-call`](https://eslint.org/docs/rules/newline-per-chained-call), [`no-whitespace-before-property`](https://eslint.org/docs/rules/no-whitespace-before-property)
+
+```typescript
+// bad
+const foo = bar.qwer('.baz').tyui(data).op().asdf('beep').ghjkl('baz', true)
+    .zxc('substance', (ecto + plasm) * 2).asdf('green').
+    zxc('try', `contain(${ecto + plasm}, ${ecto + plasm})`)
+    .call(tron.baz);
+
+// good
+const foo = bar
+  .qwer('.baz')
+  .tyui(data)
+  .op()
+  .asdf('beep')
+  .ghjkl('baz', true)
+  .zxc('substance', (ecto + plasm) * 2)
+  .asdf('green')
+  .zxc('try', `contain(${ecto + plasm}, ${ecto + plasm})`)
+  .call(tron.baz);
+```
+
+---
+
+<a name="whitespace--after-blocks"></a>
+[**18.7**](#whitespace--after-blocks) ‣ Leave a blank line after blocks and before the next statement.
+
+```typescript
+// bad
+if (foo) {
+  return bar;
+}
+return baz;
+
+// good
+if (foo) {
+  return bar;
+}
+
+return baz;
+
+// bad
+const obj = {
+  foo() {
+  },
+  bar() {
+  },
+};
+return obj;
+
+// good
+const obj = {
+  foo() {
+  },
+
+  bar() {
+  },
+};
+
+return obj;
+
+// bad
+const arr = [
+  function foo() {
+  },
+  function bar() {
+  },
+];
+return arr;
+
+// good
+const arr = [
+  function foo() {
+  },
+
+  function bar() {
+  },
+];
+
+return arr;
+```
+
+---
+
+<a name="whitespace--padded-blocks"></a>
+[**18.8**](#whitespace--padded-blocks) ‣ Do not pad your blocks with blank lines.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`padded-blocks`](https://eslint.org/docs/rules/padded-blocks.html)
+
+```typescript
+// bad
+function bar() {
+
+  console.log(foo);
+
+}
+
+// bad
+if (baz) {
+
+  console.log(qux);
+} else {
+  console.log(foo);
+
+}
+
+// bad
+class Foo {
+  bar: Bar;
+
+  constructor(bar: Bar) {
+    this.bar = bar;
+  }
+}
+
+// good
+function bar() {
+  console.log(foo);
+}
+
+// good
+if (baz) {
+  console.log(qux);
+} else {
+  console.log(foo);
+}
+```
+
+---
+
+<a name="whitespace--no-multiple-blanks"></a>
+[**18.9**](#whitespace--no-multiple-blanks) ‣ Do not use multiple blank lines to pad your code.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`no-multiple-empty-lines`](https://eslint.org/docs/rules/no-multiple-empty-lines)
+
+```typescript
+// bad
+class Person {
+  fullName: string;
+  email: string;
+  birthday: Date;
+  age: number;
+
+  constructor(fullName: string, email: string, birthday: Date) {
+    this.fullName = fullName;
+
+
+    this.email = email;
+
+
+    this.setAge(birthday);
+  }
+
+
+  setAge(birthday: Date) {
+    const today = new Date();
+
+
+    const age = this.getAge(today, birthday);
+
+
+    this.age = age;
+  }
+
+
+  getAge(today: Date, birthday: Date): number {
+    // ..
+  }
+}
+
+// good
+class Person {
+  fullName: string;
+  email: string;
+  birthday: Date;
+  age: number;
+
+  constructor(fullName: string, email: string, birthday: Date) {
+    this.fullName = fullName;
+    this.email = email;
+    this.setAge(birthday);
+  }
+
+  setAge(birthday: Date) {
+    const today = new Date();
+    const age = getAge(today, birthday);
+    this.age = age;
+  }
+
+  getAge(today: Date, birthday: Date): number {
+    // ..
+  }
+}
+```
+
+---
+
+<a name="whitespace--in-parens"></a>
+[**18.10**](#whitespace--in-parens) ‣ Do not add spaces inside parentheses.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`space-in-parens`](https://eslint.org/docs/rules/space-in-parens.html)
+
+```typescript
+// bad
+function bar( foo ) {
+  return foo;
+}
+
+// good
+function bar(foo) {
+  return foo;
+}
+
+// bad
+if ( foo ) {
+  console.log(foo);
+}
+
+// good
+if (foo) {
+  console.log(foo);
+}
+```
+
+---
+
+<a name="whitespace--in-brackets"></a>
+[**18.11**](#whitespace--in-brackets) ‣ Do not add spaces inside brackets.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`array-bracket-spacing`](https://eslint.org/docs/rules/array-bracket-spacing.html)
+
+```typescript
+// bad
+const foo = [ 1, 2, 3 ];
+console.log(foo[ 0 ]);
+
+// good
+const foo = [1, 2, 3];
+console.log(foo[0]);
+```
+
+---
+
+<a name="whitespace--in-braces"></a>
+[**18.12**](#whitespace--in-braces) ‣ Add spaces inside curly braces.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`object-curly-spacing`](https://eslint.org/docs/rules/object-curly-spacing.html)
+
+```typescript
+// bad
+const foo = {clark: 'kent'};
+
+// good
+const foo = { clark: 'kent' };
+```
+
+---
+
+<a name="whitespace--max-len"></a>
+[**18.13**](#whitespace--max-len) ‣ Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up.
+
+Prettier does not enforce this specifically, but will wrap lines at _roughly_ 80 characters, meaning that after it has done its formatting your code will - except in extremely rare circumstances - fit within the 100 character limit. Please refer to [Prettier's documentation on the print width option](https://prettier.io/docs/en/options.html#print-width) for more information.
+
+<img src="eslint.svg" height="18" align="center"/> [`max-len`](https://eslint.org/docs/rules/max-len.html)
+
+> Why? This ensures readability and maintainability.
+
+```typescript
+// bad
+const foo = jsonData && jsonData.foo && jsonData.foo.bar && jsonData.foo.bar.baz && jsonData.foo.bar.baz.quux && jsonData.foo.bar.baz.quux.xyzzy;
+
+// good
+const foo = jsonData
+  && jsonData.foo
+  && jsonData.foo.bar
+  && jsonData.foo.bar.baz
+  && jsonData.foo.bar.baz.quux
+  && jsonData.foo.bar.baz.quux.xyzzy;
+```
+
+---
+
+<a name="whitespace--comma-spacing"></a>
+[**18.14**](#whitespace--comma-spacing) ‣ Avoid spaces before commas and require a space after commas.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`comma-spacing`](https://eslint.org/docs/rules/comma-spacing)
+
+```typescript
+// bad
+const arr = [1 , 2];
+
+// good
+const arr = [1, 2];
+```
+
+---
+
+<a name="whitespace--computed-property-spacing"></a>
+[**18.15**](#whitespace--computed-property-spacing) ‣ Enforce spacing inside of computed property brackets.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`computed-property-spacing`](https://eslint.org/docs/rules/computed-property-spacing)
+
+```typescript
+// bad
+obj[foo ]
+obj[ 'foo']
+const x = {[ b ]: a}
+obj[foo[ bar ]]
+
+// good
+obj[foo]
+obj['foo']
+const x = { [b]: a }
+obj[foo[bar]]
+```
+
+---
+
+<a name="whitespace--func-call-spacing"></a>
+[**18.16**](#whitespace--func-call-spacing) ‣ Avoid spaces between functions and their invocations.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`func-call-spacing`](https://eslint.org/docs/rules/func-call-spacing)
+
+```typescript
+// bad
+func ();
+
+func
+();
+
+// good
+func();
+```
+
+---
+
+<a name="whitespace--key-spacing"></a>
+[**18.17**](#whitespace--key-spacing) ‣ Enforce spacing between keys and values in object literal properties.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`key-spacing`](https://eslint.org/docs/rules/key-spacing)
+
+```typescript
+// bad
+const obj = { foo : 42 };
+const obj2 = { foo:42 };
+
+// good
+const obj = { foo: 42 };
+```
+
+---
+
+<a name="whitespace--no-trailing-spaces"></a>
+[**18.18**](#whitespace--no-trailing-spaces) ‣ Avoid trailing spaces at the end of lines.
+
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
+
+<img src="eslint.svg" height="18" align="center"/> [`no-trailing-spaces`](https://eslint.org/docs/rules/no-trailing-spaces)
+
+```typescript
+// bad
+const foo = 'bar';∙
+
+// good
+const foo = 'bar';
+```
+
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Commas
 
-  <a name="commas--leading-trailing"></a><a name="19.1"></a>
-  - [20.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](https://eslint.org/docs/rules/comma-style.html)
+<a name="commas--leading-trailing"></a>
+[**19.1**](#commas--leading-trailing) ‣ Leading commas: **Nope.**
 
-    ```javascript
-    // bad
-    const story = [
-        once
-      , upon
-      , aTime
-    ];
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
 
-    // good
-    const story = [
-      once,
-      upon,
-      aTime,
-    ];
+<img src="eslint.svg" height="18" align="center"/> [`comma-style`](https://eslint.org/docs/rules/comma-style.html)
 
-    // bad
-    const hero = {
-        firstName: 'Ada'
-      , lastName: 'Lovelace'
-      , birthYear: 1815
-      , superPower: 'computers'
-    };
+```typescript
+// bad
+const story = [
+    once
+  , upon
+  , aTime
+];
 
-    // good
-    const hero = {
-      firstName: 'Ada',
-      lastName: 'Lovelace',
-      birthYear: 1815,
-      superPower: 'computers',
-    };
-    ```
+// good
+const story = [
+  once,
+  upon,
+  aTime,
+];
 
-  <a name="commas--dangling"></a><a name="19.2"></a>
-  - [20.2](#commas--dangling) Additional trailing comma: **Yup.** eslint: [`comma-dangle`](https://eslint.org/docs/rules/comma-dangle.html)
+// bad
+const hero = {
+    firstName: 'Ada'
+  , lastName: 'Lovelace'
+  , birthYear: 1815
+  , superPower: 'computers'
+};
 
-    > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don’t have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
+// good
+const hero = {
+  firstName: 'Ada',
+  lastName: 'Lovelace',
+  birthYear: 1815,
+  superPower: 'computers',
+};
+```
 
-    ```diff
-    // bad - git diff without trailing comma
-    const hero = {
-         firstName: 'Florence',
-    -    lastName: 'Nightingale'
-    +    lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb chart', 'modern nursing']
-    };
+---
 
-    // good - git diff with trailing comma
-    const hero = {
-         firstName: 'Florence',
-         lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb chart', 'modern nursing'],
-    };
-    ```
+<a name="commas--dangling"></a>
+[**19.2**](#commas--dangling) ‣ Additional trailing comma: **Yup.**
 
-    ```javascript
-    // bad
-    const hero = {
-      firstName: 'Dana',
-      lastName: 'Scully'
-    };
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
 
-    const heroes = [
-      'Batman',
-      'Superman'
-    ];
+<img src="eslint.svg" height="18" align="center"/> [`comma-dangle`](https://eslint.org/docs/rules/comma-dangle.html)
 
-    // good
-    const hero = {
-      firstName: 'Dana',
-      lastName: 'Scully',
-    };
+> Why? This leads to cleaner git diffs.
 
-    const heroes = [
-      'Batman',
-      'Superman',
-    ];
+```diff
+// bad - git diff without trailing comma
+const hero = {
+      firstName: 'Florence',
+-    lastName: 'Nightingale'
++    lastName: 'Nightingale',
++    inventorOf: ['coxcomb chart', 'modern nursing']
+};
 
-    // bad
-    function createHero(
-      firstName,
-      lastName,
-      inventorOf
-    ) {
-      // does nothing
-    }
+// good - git diff with trailing comma
+const hero = {
+      firstName: 'Florence',
+      lastName: 'Nightingale',
++    inventorOf: ['coxcomb chart', 'modern nursing'],
+};
+```
 
-    // good
-    function createHero(
-      firstName,
-      lastName,
-      inventorOf,
-    ) {
-      // does nothing
-    }
+```typescript
+// bad
+const hero = {
+  firstName: 'Dana',
+  lastName: 'Scully'
+};
 
-    // good (note that a comma must not appear after a "rest" element)
-    function createHero(
-      firstName,
-      lastName,
-      inventorOf,
-      ...heroArgs
-    ) {
-      // does nothing
-    }
+const heroes = [
+  'Batman',
+  'Superman'
+];
 
-    // bad
-    createHero(
-      firstName,
-      lastName,
-      inventorOf
-    );
+// good
+const hero = {
+  firstName: 'Dana',
+  lastName: 'Scully',
+};
 
-    // good
-    createHero(
-      firstName,
-      lastName,
-      inventorOf,
-    );
+const heroes = [
+  'Batman',
+  'Superman',
+];
 
-    // good (note that a comma must not appear after a "rest" element)
-    createHero(
-      firstName,
-      lastName,
-      inventorOf,
-      ...heroArgs
-    );
-    ```
+// bad
+function createHero(
+  firstName: string,
+  lastName: string,
+  inventorOf: Invention
+) {
+  // does nothing
+}
+
+// good
+function createHero(
+  firstName: string,
+  lastName: string,
+  inventorOf: Invention,
+) {
+  // does nothing
+}
+
+// good (note that a comma must not appear after a "rest" element)
+function createHero(
+  firstName: string,
+  lastName: string,
+  inventorOf: Invention,
+  ...heroArgs
+) {
+  // does nothing
+}
+
+// bad
+createHero(
+  firstName,
+  lastName,
+  inventorOf
+);
+
+// good
+createHero(
+  firstName,
+  lastName,
+  inventorOf,
+);
+
+// good (note that a comma must not appear after a "rest" element)
+createHero(
+  firstName,
+  lastName,
+  inventorOf,
+  ...heroArgs
+);
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Semicolons
 
-  <a name="semicolons--required"></a><a name="20.1"></a>
-  - [21.1](#semicolons--required) **Yup.** eslint: [`semi`](https://eslint.org/docs/rules/semi.html)
+<a name="semicolons--required"></a>
+[**20.1**](#semicolons--required) ‣ **Yup.**
 
-    > Why? When JavaScript encounters a line break without a semicolon, it uses a set of rules called [Automatic Semicolon Insertion](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion) to determine whether it should regard that line break as the end of a statement, and (as the name implies) place a semicolon into your code before the line break if it thinks so. ASI contains a few eccentric behaviors, though, and your code will break if JavaScript misinterprets your line break. These rules will become more complicated as new features become a part of JavaScript. Explicitly terminating your statements and configuring your linter to catch missing semicolons will help prevent you from encountering issues.
+<img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
 
-    ```javascript
-    // bad - raises exception
-    const luke = {}
-    const leia = {}
-    [luke, leia].forEach((jedi) => jedi.father = 'vader')
+<img src="eslint.svg" height="18" align="center"/> [`semi`](https://eslint.org/docs/rules/semi.html)
 
-    // bad - raises exception
-    const reaction = "No! That’s impossible!"
-    (async function meanwhileOnTheFalcon() {
-      // handle `leia`, `lando`, `chewie`, `r2`, `c3p0`
-      // ...
-    }())
+> Why? When JavaScript encounters a line break without a semicolon, it uses a set of rules called [Automatic Semicolon Insertion](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion) to determine whether it should regard that line break as the end of a statement, and (as the name implies) place a semicolon into your code before the line break if it thinks so. ASI contains a few eccentric behaviors, though, and your code will break if JavaScript misinterprets your line break. These rules will become more complicated as new features become a part of JavaScript. Explicitly terminating your statements and configuring your linter to catch missing semicolons will help prevent you from encountering issues.
 
-    // bad - returns `undefined` instead of the value on the next line - always happens when `return` is on a line by itself because of ASI!
-    function foo() {
-      return
-        'search your feelings, you know it to be foo'
-    }
+```typescript
+// bad - raises exception
+const luke = {}
+const leia = {}
+[luke, leia].forEach((jedi) => jedi.father = 'vader')
 
-    // good
-    const luke = {};
-    const leia = {};
-    [luke, leia].forEach((jedi) => {
-      jedi.father = 'vader';
-    });
+// bad - raises exception
+const reaction = "No! That’s impossible!"
+(async function meanwhileOnTheFalcon() {
+  // handle `leia`, `lando`, `chewie`, `r2`, `c3p0`
+  // ...
+}())
 
-    // good
-    const reaction = "No! That’s impossible!";
-    (async function meanwhileOnTheFalcon() {
-      // handle `leia`, `lando`, `chewie`, `r2`, `c3p0`
-      // ...
-    }());
+// bad - returns `undefined` instead of the value on the next line - always happens when `return` is on a line by itself because of ASI!
+function foo() {
+  return
+    'search your feelings, you know it to be foo'
+}
 
-    // good
-    function foo() {
-      return 'search your feelings, you know it to be foo';
-    }
-    ```
+// good
+const luke = {};
+const leia = {};
+[luke, leia].forEach((jedi) => {
+  jedi.father = 'vader';
+});
 
-    [Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214#7365214).
+// good
+const reaction = "No! That’s impossible!";
+(async function meanwhileOnTheFalcon() {
+  // handle `leia`, `lando`, `chewie`, `r2`, `c3p0`
+  // ...
+}());
+
+// good
+function foo() {
+  return 'search your feelings, you know it to be foo';
+}
+```
+
+[Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214#7365214).
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Type Casting & Coercion
 
-  <a name="coercion--explicit"></a><a name="21.1"></a>
-  - [22.1](#coercion--explicit) Perform type coercion at the beginning of the statement.
+<a name="coercion--explicit"></a>
+[**21.1**](#coercion--explicit) ‣ Perform type coercion at the beginning of the statement.
 
-  <a name="coercion--strings"></a><a name="21.2"></a>
-  - [22.2](#coercion--strings) Strings: eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
+---
 
-    ```javascript
-    // => this.reviewScore = 9;
+<a name="coercion--strings"></a>
+[**21.2**](#coercion--strings) ‣ Strings:
 
-    // bad
-    const totalScore = new String(this.reviewScore); // typeof totalScore is "object" not "string"
+<img src="eslint.svg" height="18" align="center"/> [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
 
-    // bad
-    const totalScore = this.reviewScore + ''; // invokes this.reviewScore.valueOf()
+```typescript
+// => this.reviewScore = 9;
 
-    // bad
-    const totalScore = this.reviewScore.toString(); // isn’t guaranteed to return a string
+// bad
+const totalScore = new String(this.reviewScore); // typeof totalScore is "object" not "string"
 
-    // good
-    const totalScore = String(this.reviewScore);
-    ```
+// bad
+const totalScore = this.reviewScore + ''; // invokes this.reviewScore.valueOf()
 
-  <a name="coercion--numbers"></a><a name="21.3"></a>
-  - [22.3](#coercion--numbers) Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings. eslint: [`radix`](https://eslint.org/docs/rules/radix) [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
+// bad
+const totalScore = this.reviewScore.toString(); // isn’t guaranteed to return a string
 
-    > Why? The `parseInt` function produces an integer value dictated by interpretation of the contents of the string argument according to the specified radix. Leading whitespace in string is ignored. If radix is `undefined` or `0`, it is assumed to be `10` except when the number begins with the character pairs `0x` or `0X`, in which case a radix of 16 is assumed. This differs from ECMAScript 3, which merely discouraged (but allowed) octal interpretation. Many implementations have not adopted this behavior as of 2013. And, because older browsers must be supported, always specify a radix.
+// good
+const totalScore = String(this.reviewScore);
+```
 
-    ```javascript
-    const inputValue = '4';
+---
 
-    // bad
-    const val = new Number(inputValue);
+<a name="coercion--numbers"></a>
+[**21.3**](#coercion--numbers) ‣ Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings.
 
-    // bad
-    const val = +inputValue;
+<img src="eslint.svg" height="18" align="center"/> [`radix`](https://eslint.org/docs/rules/radix), [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
 
-    // bad
-    const val = inputValue >> 0;
+> Why? The `parseInt` function produces an integer value dictated by interpretation of the contents of the string argument according to the specified radix. Leading whitespace in string is ignored. If radix is `undefined` or `0`, it is assumed to be `10` except when the number begins with the character pairs `0x` or `0X`, in which case a radix of 16 is assumed. This differs from ECMAScript 3, which merely discouraged (but allowed) octal interpretation. Many implementations have not adopted this behavior as of 2013. And, because older browsers must be supported, always specify a radix.
 
-    // bad
-    const val = parseInt(inputValue);
+```typescript
+const inputValue = '4';
 
-    // good
-    const val = Number(inputValue);
+// bad
+const val = new Number(inputValue);
 
-    // good
-    const val = parseInt(inputValue, 10);
-    ```
+// bad
+const val = +inputValue;
 
-  <a name="coercion--comment-deviations"></a><a name="21.4"></a>
-  - [22.4](#coercion--comment-deviations) If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](https://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you’re doing.
+// bad
+const val = inputValue >> 0;
 
-    ```javascript
-    // good
-    /**
-     * parseInt was the reason my code was slow.
-     * Bitshifting the String to coerce it to a
-     * Number made it a lot faster.
-     */
-    const val = inputValue >> 0;
-    ```
+// bad
+const val = parseInt(inputValue);
 
-  <a name="coercion--bitwise"></a><a name="21.5"></a>
-  - [22.5](#coercion--bitwise) **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](https://es5.github.io/#x4.3.19), but bitshift operations always return a 32-bit integer ([source](https://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
+// good
+const val = Number(inputValue);
 
-    ```javascript
-    2147483647 >> 0; // => 2147483647
-    2147483648 >> 0; // => -2147483648
-    2147483649 >> 0; // => -2147483647
-    ```
+// good
+const val = parseInt(inputValue, 10);
+```
 
-  <a name="coercion--booleans"></a><a name="21.6"></a>
-  - [22.6](#coercion--booleans) Booleans: eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
+---
 
-    ```javascript
-    const age = 0;
+<a name="coercion--comment-deviations"></a>
+[**21.4**](#coercion--comment-deviations) ‣ If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](https://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you’re doing.
 
-    // bad
-    const hasAge = new Boolean(age);
+```typescript
+// good
+/**
+ * parseInt was the reason my code was slow.
+ * Bitshifting the String to coerce it to a
+ * Number made it a lot faster.
+ */
+const val = inputValue >> 0;
+```
 
-    // good
-    const hasAge = Boolean(age);
+---
 
-    // best
-    const hasAge = !!age;
-    ```
+<a name="coercion--bitwise"></a>
+[**21.5**](#coercion--bitwise) ‣ **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](https://es5.github.io/#x4.3.19), but bitshift operations always return a 32-bit integer ([source](https://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
+
+```typescript
+2147483647 >> 0; // => 2147483647
+2147483648 >> 0; // => -2147483648
+2147483649 >> 0; // => -2147483647
+```
+
+---
+
+<a name="coercion--booleans"></a>
+[**21.6**](#coercion--booleans) ‣ Booleans:
+
+<img src="eslint.svg" height="18" align="center"/> [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
+
+```typescript
+const age = 0;
+
+// bad
+const hasAge = new Boolean(age);
+
+// good
+const hasAge = Boolean(age);
+
+// best
+const hasAge = !!age;
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Naming Conventions
 
-  <a name="naming--descriptive"></a><a name="22.1"></a>
-  - [23.1](#naming--descriptive) Avoid single letter names. Be descriptive with your naming. eslint: [`id-length`](https://eslint.org/docs/rules/id-length)
+<a name="naming--descriptive"></a>
+[**22.1**](#naming--descriptive) ‣ Avoid single letter names. Be descriptive with your naming.
 
-    ```javascript
-    // bad
-    function q() {
-      // ...
-    }
+<img src="eslint.svg" height="18" align="center"/> [`id-length`](https://eslint.org/docs/rules/id-length)
 
-    // good
-    function query() {
-      // ...
-    }
-    ```
+```typescript
+// bad
+function q() {
+  // ...
+}
 
-  <a name="naming--camelCase"></a><a name="22.2"></a>
-  - [23.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. eslint: [`camelcase`](https://eslint.org/docs/rules/camelcase.html)
+// good
+function query() {
+  // ...
+}
+```
 
-    ```javascript
-    // bad
-    const OBJEcttsssss = {};
-    const this_is_my_object = {};
-    function c() {}
+---
 
-    // good
-    const thisIsMyObject = {};
-    function thisIsMyFunction() {}
-    ```
+<a name="naming--camelCase"></a>
+[**22.2**](#naming--camelCase) ‣ Use camelCase when naming objects, functions, and instances.
 
-  <a name="naming--PascalCase"></a><a name="22.3"></a>
-  - [23.3](#naming--PascalCase) Use PascalCase only when naming constructors or classes. eslint: [`new-cap`](https://eslint.org/docs/rules/new-cap.html)
+<img src="eslint.svg" height="18" align="center"/> [`camelcase`](https://eslint.org/docs/rules/camelcase.html)
 
-    ```javascript
-    // bad
-    function user(options) {
-      this.name = options.name;
-    }
+```typescript
+// bad
+const OBJEcttsssss = {};
+const this_is_my_object = {};
+function c() {}
 
-    const bad = new user({
-      name: 'nope',
-    });
+// good
+const thisIsMyObject = {};
+function thisIsMyFunction() {}
+```
 
-    // good
-    class User {
-      constructor(options) {
-        this.name = options.name;
-      }
-    }
+---
 
-    const good = new User({
-      name: 'yup',
-    });
-    ```
+<a name="naming--PascalCase"></a>
+[**22.3**](#naming--PascalCase) ‣ Use PascalCase only when naming constructors or classes.
 
-  <a name="naming--leading-underscore"></a><a name="22.4"></a>
-  - [23.4](#naming--leading-underscore) Do not use trailing or leading underscores. eslint: [`no-underscore-dangle`](https://eslint.org/docs/rules/no-underscore-dangle.html)
+<img src="eslint.svg" height="18" align="center"/> [`new-cap`](https://eslint.org/docs/rules/new-cap.html)
 
-    > Why? JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won’t count as breaking, or that tests aren’t needed. tl;dr: if you want something to be “private”, it must not be observably present.
+```typescript
+// bad
+function user(options) {
+  this.name = options.name;
+}
 
-    ```javascript
-    // bad
-    this.__firstName__ = 'Panda';
-    this.firstName_ = 'Panda';
-    this._firstName = 'Panda';
+const bad = new user({
+  name: 'nope',
+});
 
-    // good
-    this.firstName = 'Panda';
+// good
+class User {
+  constructor(options) {
+    this.name = options.name;
+  }
+}
 
-    // good, in environments where WeakMaps are available
-    // see https://kangax.github.io/compat-table/es6/#test-WeakMap
-    const firstNames = new WeakMap();
-    firstNames.set(this, 'Panda');
-    ```
+const good = new User({
+  name: 'yup',
+});
+```
 
-  <a name="naming--self-this"></a><a name="22.5"></a>
-  - [23.5](#naming--self-this) Don’t save references to `this`. Use arrow functions or [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind).
+---
 
-    ```javascript
-    // bad
-    function foo() {
-      const self = this;
-      return function () {
-        console.log(self);
-      };
-    }
+<a name="naming--leading-underscore"></a>
+[**22.4**](#naming--leading-underscore) ‣ Do not use trailing or leading underscores.
 
-    // bad
-    function foo() {
-      const that = this;
-      return function () {
-        console.log(that);
-      };
-    }
+<img src="eslint.svg" height="18" align="center"/> [`no-underscore-dangle`](https://eslint.org/docs/rules/no-underscore-dangle.html)
 
-    // good
-    function foo() {
-      return () => {
-        console.log(this);
-      };
-    }
-    ```
+> Why? JavaScript is only now, in ES2022, adding the concept of privacy in terms of properties or methods. Although a leading underscore has long been a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won’t count as breaking, or that tests aren’t needed. tl;dr: if you want something to be “private”, it must not be observably present.
 
-  <a name="naming--filename-matches-export"></a><a name="22.6"></a>
-  - [23.6](#naming--filename-matches-export) A base filename should exactly match the name of its default export.
+```typescript
+// bad
+this.__firstName__ = 'Panda';
+this.firstName_ = 'Panda';
+this._firstName = 'Panda';
 
-    ```javascript
-    // file 1 contents
-    class CheckBox {
-      // ...
-    }
-    export default CheckBox;
+// good
+this.firstName = 'Panda';
 
-    // file 2 contents
-    export default function fortyTwo() { return 42; }
+// good, in environments where WeakMaps are available
+// see https://kangax.github.io/compat-table/es6/#test-WeakMap
+const firstNames = new WeakMap();
+firstNames.set(this, 'Panda');
+```
 
-    // file 3 contents
-    export default function insideDirectory() {}
+---
 
-    // in some other file
-    // bad
-    import CheckBox from './checkBox'; // PascalCase import/export, camelCase filename
-    import FortyTwo from './FortyTwo'; // PascalCase import/filename, camelCase export
-    import InsideDirectory from './InsideDirectory'; // PascalCase import/filename, camelCase export
+<a name="naming--self-this"></a>
+[**22.5**](#naming--self-this) ‣ Don’t save references to `this`. Use arrow functions or [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind).
 
-    // bad
-    import CheckBox from './check_box'; // PascalCase import/export, snake_case filename
-    import forty_two from './forty_two'; // snake_case import/filename, camelCase export
-    import inside_directory from './inside_directory'; // snake_case import, camelCase export
-    import index from './inside_directory/index'; // requiring the index file explicitly
-    import insideDirectory from './insideDirectory/index'; // requiring the index file explicitly
+```typescript
+// bad
+function foo() {
+  const self = this;
+  return function () {
+    console.log(self);
+  };
+}
 
-    // good
-    import CheckBox from './CheckBox'; // PascalCase export/import/filename
-    import fortyTwo from './fortyTwo'; // camelCase export/import/filename
-    import insideDirectory from './insideDirectory'; // camelCase export/import/directory name/implicit "index"
-    // ^ supports both insideDirectory.js and insideDirectory/index.js
-    ```
+// bad
+function foo() {
+  const that = this;
+  return function () {
+    console.log(that);
+  };
+}
 
-## REDUNDANT
-  <a name="naming--camelCase-default-export"></a><a name="22.7"></a>
-  - [23.7](#naming--camelCase-default-export) Use camelCase when you export-default a function. Your filename should be identical to your function’s name.
+// good
+function foo() {
+  return () => {
+    console.log(this);
+  };
+}
+```
 
-    ```javascript
-    function makeStyleGuide() {
-      // ...
-    }
+---
 
-    export default makeStyleGuide;
-    ```
+<a name="naming--filename-matches-export"></a>
+[**22.6**](#naming--filename-matches-export) ‣ A base filename should exactly match the name of its default export.
 
-  <a name="naming--PascalCase-singleton"></a><a name="22.8"></a>
-  - [23.8](#naming--PascalCase-singleton) Use PascalCase when you export a constructor / class / singleton / function library / bare object.
+```typescript
+// file 1 contents
+class CheckBox {
+  // ...
+}
+export default CheckBox;
 
-    ```javascript
-    const AirbnbStyleGuide = {
-      es6: {
-      },
-    };
+// file 2 contents
+export default function fortyTwo() { return 42; }
 
-    export default AirbnbStyleGuide;
-    ```
+// file 3 contents
+export default function insideDirectory() {}
 
-  <a name="naming--Acronyms-and-Initialisms"></a>
-  - [23.9](#naming--Acronyms-and-Initialisms) Acronyms and initialisms should always be all uppercased, or all lowercased.
+// in some other file
+// bad
+import CheckBox from './checkBox'; // PascalCase import/export, camelCase filename
+import FortyTwo from './FortyTwo'; // PascalCase import/filename, camelCase export
+import InsideDirectory from './InsideDirectory'; // PascalCase import/filename, camelCase export
 
-    > Why? Names are for readability, not to appease a computer algorithm.
+// bad
+import CheckBox from './check_box'; // PascalCase import/export, snake_case filename
+import forty_two from './forty_two'; // snake_case import/filename, camelCase export
+import inside_directory from './inside_directory'; // snake_case import, camelCase export
+import index from './inside_directory/index'; // requiring the index file explicitly
+import insideDirectory from './insideDirectory/index'; // requiring the index file explicitly
 
-    ```javascript
-    // bad
-    import SmsContainer from './containers/SmsContainer';
+// good
+import CheckBox from './CheckBox'; // PascalCase export/import/filename
+import fortyTwo from './fortyTwo'; // camelCase export/import/filename
+import insideDirectory from './insideDirectory'; // camelCase export/import/directory name/implicit "index"
+// ^ supports both insideDirectory.js and insideDirectory/index.js
+```
 
-    // bad
-    const HttpRequests = [
-      // ...
-    ];
+---
 
-    // good
-    import SMSContainer from './containers/SMSContainer';
+<a name="naming--PascalCase-singleton"></a>
+[**22.7**](#naming--PascalCase-singleton) ‣ Use PascalCase when you export a constructor / class / singleton / function library / bare object.
 
-    // good
-    const HTTPRequests = [
-      // ...
-    ];
+```typescript
+const AirbnbStyleGuide = {
+  es6: {
+  },
+};
 
-    // also good
-    const httpRequests = [
-      // ...
-    ];
+export default AirbnbStyleGuide;
+```
 
-    // best
-    import TextMessageContainer from './containers/TextMessageContainer';
+---
 
-    // best
-    const requests = [
-      // ...
-    ];
-    ```
+<a name="naming--Acronyms-and-Initialisms"></a>
+[**22.8**](#naming--Acronyms-and-Initialisms) ‣ Acronyms and initialisms should always be all uppercased, or all lowercased.
 
-  <a name="naming--uppercase"></a>
-  - [23.10](#naming--uppercase) You may optionally uppercase a constant only if it (1) is exported, (2) is a `const` (it can not be reassigned), and (3) the programmer can trust it (and its nested properties) to never change.
+> Why? Names are for readability, not to appease a computer algorithm.
 
-    > Why? This is an additional tool to assist in situations where the programmer would be unsure if a variable might ever change. UPPERCASE_VARIABLES are letting the programmer know that they can trust the variable (and its properties) not to change.
-    - What about all `const` variables? - This is unnecessary, so uppercasing should not be used for constants within a file. It should be used for exported constants however.
-    - What about exported objects? - Uppercase at the top level of export (e.g. `EXPORTED_OBJECT.key`) and maintain that all nested properties do not change.
+```typescript
+// bad
+import SmsContainer from './containers/SmsContainer';
 
-    ```javascript
-    // bad
-    const PRIVATE_VARIABLE = 'should not be unnecessarily uppercased within a file';
+// bad
+const HttpRequests = [
+  // ...
+];
 
-    // bad
-    export const THING_TO_BE_CHANGED = 'should obviously not be uppercased';
+// good
+import SMSContainer from './containers/SMSContainer';
 
-    // bad
-    export let REASSIGNABLE_VARIABLE = 'do not use let with uppercase variables';
+// good
+const HTTPRequests = [
+  // ...
+];
 
-    // ---
+// also good
+const httpRequests = [
+  // ...
+];
 
-    // allowed but does not supply semantic value
-    export const apiKey = 'SOMEKEY';
+// best
+import TextMessageContainer from './containers/TextMessageContainer';
 
-    // better in most cases
-    export const API_KEY = 'SOMEKEY';
+// best
+const requests = [
+  // ...
+];
+```
 
-    // ---
+---
 
-    // bad - unnecessarily uppercases key while adding no semantic value
-    export const MAPPING = {
-      KEY: 'value'
-    };
+<a name="naming--uppercase"></a>
+[**22.9**](#naming--uppercase) ‣ You may optionally uppercase a constant only if it (1) is exported, (2) is a `const` (it can not be reassigned), and (3) the programmer can trust it (and its nested properties) to never change.
 
-    // good
-    export const MAPPING = {
-      key: 'value'
-    };
-    ```
+> Why? This is an additional tool to assist in situations where the programmer would be unsure if a variable might ever change. UPPERCASE_VARIABLES are letting the programmer know that they can trust the variable (and its properties) not to change.
+- What about all `const` variables? - This is unnecessary, so uppercasing should not be used for constants within a file. It should be used for exported constants however.
+- What about exported objects? - Uppercase at the top level of export (e.g. `EXPORTED_OBJECT.key`) and maintain that all nested properties do not change.
+
+```typescript
+// bad
+const PRIVATE_VARIABLE = 'should not be unnecessarily uppercased within a file';
+
+// bad
+export const THING_TO_BE_CHANGED = 'should obviously not be uppercased';
+
+// bad
+export let REASSIGNABLE_VARIABLE = 'do not use let with uppercase variables';
+
+// ---
+
+// allowed but does not supply semantic value
+export const apiKey = 'SOMEKEY';
+
+// better in most cases
+export const API_KEY = 'SOMEKEY';
+
+// ---
+
+// bad - unnecessarily uppercases key while adding no semantic value
+export const MAPPING = {
+  KEY: 'value'
+};
+
+// good
+export const MAPPING = {
+  key: 'value'
+};
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Accessors
 
-  <a name="accessors--not-required"></a><a name="23.1"></a>
-  - [24.1](#accessors--not-required) Accessor functions for properties are not required.
+<a name="accessors--not-required"></a>
+[**23.1**](#accessors--not-required) ‣ Accessor functions for properties are not required.
 
-  <a name="accessors--no-getters-setters"></a><a name="23.2"></a>
-  - [24.2](#accessors--no-getters-setters) Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use `getVal()` and `setVal('hello')`.
+---
 
-    ```javascript
-    // bad
-    class Dragon {
-      get age() {
-        // ...
-      }
+<a name="accessors--no-getters-setters"></a>
+[**23.2**](#accessors--no-getters-setters) ‣ Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use `getVal()` and `setVal('hello')`.
 
-      set age(value) {
-        // ...
-      }
-    }
+```typescript
+// bad
+class Dragon {
+  get age(): number {
+    // ...
+  }
 
-    // good
-    class Dragon {
-      getAge() {
-        // ...
-      }
+  set age(value: number) {
+    // ...
+  }
+}
 
-      setAge(value) {
-        // ...
-      }
-    }
-    ```
+// good
+class Dragon {
+  getAge(): number {
+    // ...
+  }
 
-  <a name="accessors--boolean-prefix"></a><a name="23.3"></a>
-  - [24.3](#accessors--boolean-prefix) If the property/method is a `boolean`, use `isVal()` or `hasVal()`.
+  setAge(value: number) {
+    // ...
+  }
+}
+```
 
-    ```javascript
-    // bad
-    if (!dragon.age()) {
-      return false;
-    }
+---
 
-    // good
-    if (!dragon.hasAge()) {
-      return false;
-    }
-    ```
+<a name="accessors--boolean-prefix"></a>
+[**23.3**](#accessors--boolean-prefix) ‣ If the property/method is a `boolean`, use `isVal()` or `hasVal()`.
 
-  <a name="accessors--consistent"></a><a name="23.4"></a>
-  - [24.4](#accessors--consistent) It’s okay to create `get()` and `set()` functions, but be consistent.
+```typescript
+// bad
+if (!dragon.age()) {
+  return false;
+}
 
-    ```javascript
-    class Jedi {
-      constructor(options = {}) {
-        const lightsaber = options.lightsaber || 'blue';
-        this.set('lightsaber', lightsaber);
-      }
+// good
+if (!dragon.hasAge()) {
+  return false;
+}
+```
 
-      set(key, val) {
-        this[key] = val;
-      }
+---
 
-      get(key) {
-        return this[key];
-      }
-    }
-    ```
+<a name="accessors--consistent"></a>
+[**23.4**](#accessors--consistent) ‣ It’s okay in rare cases to create `get()` and `set()` functions, but be consistent.
+
+```typescript
+class Jedi {
+  constructor(options: IJediOptions = {}) {
+    const lightsaber = options.lightsaber || 'blue';
+    this.set('lightsaber', lightsaber);
+  }
+
+  set(key: string, val: any) {
+    this[key] = val;
+  }
+
+  get<T>(key: string): T {
+    return this[key];
+  }
+}
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Events
 
-## UPDATE EXAMPLES
-  <a name="events--hash"></a><a name="24.1"></a>
-  - [25.1](#events--hash) When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass an object literal (also known as a "hash") instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+<a name="events--hash"></a>
+[**24.1**](#events--hash) ‣ When attaching data payloads to events, pass an object literal instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
 
-    ```javascript
-    // bad
-    $(this).trigger('listingUpdated', listing.id);
+```typescript
+// bad
+const event = new CustomEvent('listingUpdated', { detail: listing.id });
 
-    // ...
+someElement.addEventListener('listingUpdated', (event: CustomEvent<string>) => {
+  // do something with event.detail
+});
 
-    $(this).on('listingUpdated', (e, listingID) => {
-      // do something with listingID
-    });
-    ```
+someElement.dispatchEvent(event);
+```
 
-    prefer:
+prefer:
 
-    ```javascript
-    // good
-    $(this).trigger('listingUpdated', { listingID: listing.id });
+```typescript
+// good
+interface ListingUpdatedEventDetail {
+  listingId: string;
+}
+const event = new CustomEvent<ListingUpdatedEventDetail>(
+  'listingUpdated',
+  {
+    detail: {
+      listingId: listing.id,
+    },
+  },
+);
 
-    // ...
+someElement.addEventListener(
+  'listingUpdated',
+  (event: CustomEvent<ListingUpdatedEventDetail>) => {
+    // do something with event.detail.listingId
+  },
+);
 
-    $(this).on('listingUpdated', (e, data) => {
-      // do something with data.listingID
-    });
-    ```
-
-  **[⬆ back to top](#table-of-contents)**
-
-## NO JQUERY
-## jQuery
-
-  <a name="jquery--dollar-prefix"></a><a name="25.1"></a>
-  - [26.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$`.
-
-    ```javascript
-    // bad
-    const sidebar = $('.sidebar');
-
-    // good
-    const $sidebar = $('.sidebar');
-
-    // good
-    const $sidebarBtn = $('.sidebar-btn');
-    ```
-
-  <a name="jquery--cache"></a><a name="25.2"></a>
-  - [26.2](#jquery--cache) Cache jQuery lookups.
-
-    ```javascript
-    // bad
-    function setSidebar() {
-      $('.sidebar').hide();
-
-      // ...
-
-      $('.sidebar').css({
-        'background-color': 'pink',
-      });
-    }
-
-    // good
-    function setSidebar() {
-      const $sidebar = $('.sidebar');
-      $sidebar.hide();
-
-      // ...
-
-      $sidebar.css({
-        'background-color': 'pink',
-      });
-    }
-    ```
-
-  <a name="jquery--queries"></a><a name="25.3"></a>
-  - [26.3](#jquery--queries) For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-
-  <a name="jquery--find"></a><a name="25.4"></a>
-  - [26.4](#jquery--find) Use `find` with scoped jQuery object queries.
-
-    ```javascript
-    // bad
-    $('ul', '.sidebar').hide();
-
-    // bad
-    $('.sidebar').find('ul').hide();
-
-    // good
-    $('.sidebar ul').hide();
-
-    // good
-    $('.sidebar > ul').hide();
-
-    // good
-    $sidebar.find('ul').hide();
-    ```
-
-**[⬆ back to top](#table-of-contents)**
-
-## ECMAScript 5 Compatibility
-
-  <a name="es5-compat--kangax"></a><a name="26.1"></a>
-  - [27.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)’s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
-
-**[⬆ back to top](#table-of-contents)**
-
-<a name="ecmascript-6-styles"></a>
-## ECMAScript 6+ (ES 2015+) Styles
-
-  <a name="es6-styles"></a><a name="27.1"></a>
-  - [28.1](#es6-styles) This is a collection of links to the various ES6+ features.
-
-1. [Arrow Functions](#arrow-functions)
-1. [Classes](#classes--constructors)
-1. [Object Shorthand](#es6-object-shorthand)
-1. [Object Concise](#es6-object-concise)
-1. [Object Computed Properties](#es6-computed-properties)
-1. [Template Strings](#es6-template-literals)
-1. [Destructuring](#destructuring)
-1. [Default Parameters](#es6-default-parameters)
-1. [Rest](#es6-rest)
-1. [Array Spreads](#es6-array-spreads)
-1. [Let and Const](#references)
-1. [Exponentiation Operator](#es2016-properties--exponentiation-operator)
-1. [Iterators and Generators](#iterators-and-generators)
-1. [Modules](#modules)
-
-  <a name="tc39-proposals"></a>
-  - [28.2](#tc39-proposals) Do not use [TC39 proposals](https://github.com/tc39/proposals) that have not reached stage 3.
-
-    > Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
+someElement.dispatchEvent(event);
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Standard Library
 
-  The [Standard Library](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects)
-  contains utilities that are functionally broken but remain for legacy reasons.
+The [Standard Library](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects)
+contains utilities that are functionally broken but remain for legacy reasons.
 
-  <a name="standard-library--isnan"></a>
-  - [29.1](#standard-library--isnan) Use `Number.isNaN` instead of global `isNaN`.
-    eslint: [`no-restricted-globals`](https://eslint.org/docs/rules/no-restricted-globals)
+<a name="standard-library--isnan"></a>
+[**25.1**](#standard-library--isnan) ‣ Use `Number.isNaN` instead of global `isNaN`.
 
-    > Why? The global `isNaN` coerces non-numbers to numbers, returning true for anything that coerces to NaN.
-    > If this behavior is desired, make it explicit.
 
-    ```javascript
-    // bad
-    isNaN('1.2'); // false
-    isNaN('1.2.3'); // true
+<img src="eslint.svg" height="18" align="center"/> [`no-restricted-globals`](https://eslint.org/docs/rules/no-restricted-globals)
 
-    // good
-    Number.isNaN('1.2.3'); // false
-    Number.isNaN(Number('1.2.3')); // true
-    ```
+> Why? The global `isNaN` coerces non-numbers to numbers, returning true for anything that coerces to NaN.
+> If this behavior is desired, make it explicit.
 
-  <a name="standard-library--isfinite"></a>
-  - [29.2](#standard-library--isfinite) Use `Number.isFinite` instead of global `isFinite`.
-    eslint: [`no-restricted-globals`](https://eslint.org/docs/rules/no-restricted-globals)
+```typescript
+// bad
+isNaN('1.2'); // false
+isNaN('1.2.3'); // true
 
-    > Why? The global `isFinite` coerces non-numbers to numbers, returning true for anything that coerces to a finite number.
-    > If this behavior is desired, make it explicit.
+// good
+Number.isNaN('1.2.3'); // false
+Number.isNaN(Number('1.2.3')); // true
+```
 
-    ```javascript
-    // bad
-    isFinite('2e3'); // true
+---
 
-    // good
-    Number.isFinite('2e3'); // false
-    Number.isFinite(parseInt('2e3', 10)); // true
-    ```
+<a name="standard-library--isfinite"></a>
+[**25.2**](#standard-library--isfinite) ‣ Use `Number.isFinite` instead of global `isFinite`.
+
+<img src="eslint.svg" height="18" align="center"/> [`no-restricted-globals`](https://eslint.org/docs/rules/no-restricted-globals)
+
+> Why? The global `isFinite` coerces non-numbers to numbers, returning true for anything that coerces to a finite number.
+> If this behavior is desired, make it explicit.
+
+```typescript
+// bad
+isFinite('2e3'); // true
+
+// good
+Number.isFinite('2e3'); // false
+Number.isFinite(parseInt('2e3', 10)); // true
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+## Language Proposals
+
+<a name="tc39-proposals"></a>
+[**26.1**](#tc39-proposals) ‣ Do not use [TC39 proposals](https://github.com/tc39/proposals) that have not reached stage 3.
+
+> Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Testing
 
-  <a name="testing--yup"></a><a name="28.1"></a>
-  - [30.1](#testing--yup) **Yup.**
+<a name="testing--yup"></a>
+[**27.1**](#testing--yup) ‣ **Yup.**
 
-    ```javascript
-    function foo() {
-      return true;
-    }
-    ```
+```typescript
+function foo() {
+  return true;
+}
+```
 
-  <a name="testing--for-real"></a><a name="28.2"></a>
-  - [30.2](#testing--for-real) **No, but seriously**:
-    - Whichever testing framework you use, you should be writing tests!
-    - Strive to write many small pure functions, and minimize where mutations occur.
-    - Be cautious about stubs and mocks - they can make your tests more brittle.
-    ## UPDATE v
-    - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) and [`jest`](https://www.npmjs.com/package/jest) at Airbnb. [`tape`](https://www.npmjs.com/package/tape) is also used occasionally for small, separate modules.
-    - 100% test coverage is a good goal to strive for, even if it’s not always practical to reach it. Don't write crappy tests just to bump the number.
-    - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
+---
 
-**[⬆ back to top](#table-of-contents)**
-
-## Performance
-
-  - [On Layout & Web Performance](https://www.kellegous.com/j/2013/01/26/layout-performance/)
-  - [String vs Array Concat](https://jsperf.com/string-vs-array-concat/2)
-  - [Try/Catch Cost In a Loop](https://jsperf.com/try-catch-in-loop-cost/12)
-  - [Bang Function](https://jsperf.com/bang-function)
-  - [jQuery Find vs Context, Selector](https://jsperf.com/jquery-find-vs-context-sel/164)
-  - [innerHTML vs textContent for script text](https://jsperf.com/innerhtml-vs-textcontent-for-script-text)
-  - [Long String Concatenation](https://jsperf.com/ya-string-concat/38)
-  - [Are JavaScript functions like `map()`, `reduce()`, and `filter()` optimized for traversing arrays?](https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta)
-  - Loading...
+<a name="testing--for-real"></a>
+[**27.2**](#testing--for-real) ‣ **No, but seriously**:
+- Refer to the [Web UI Frameworks & Tools guardrail](https://atlassian.spscommerce.com/wiki/pages/viewpage.action?spaceKey=Guardrails&title=Web+UI+Frameworks+and+Tools) for guidance on what testing tools we use and what kinds of testing you should be doing.
+- Strive to write many small pure functions, and minimize where mutations occur.
+- Be cautious about stubs and mocks - they can make your tests more brittle.
+- 100% test coverage is a good goal to strive for, even if it’s not always practical to reach it. Don't write crappy tests just to bump the number.
+- Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Resources
 
-**Learning ES6+**
-
-  - [Latest ECMA spec](https://tc39.github.io/ecma262/)
-  - [ExploringJS](http://exploringjs.com/)
-  - [ES6 Compatibility Table](https://kangax.github.io/compat-table/es6/)
-  - [Comprehensive Overview of ES6 Features](http://es6-features.org/)
-
-**Read This**
-
-  - [Standard ECMA-262](http://www.ecma-international.org/ecma-262/6.0/index.html)
-
-**Tools**
-
-  - Code Style Linters
-    - [ESlint](https://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/airbnb/javascript/blob/master/linters/.eslintrc)
-    - [JSHint](http://jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/.jshintrc)
-  - Neutrino Preset - [@neutrinojs/airbnb](https://neutrinojs.org/packages/airbnb/)
-
-**Other Style Guides**
-
-  - [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
-  - [Google JavaScript Style Guide (Old)](https://google.github.io/styleguide/javascriptguide.xml)
-  - [jQuery Core Style Guidelines](https://contribute.jquery.org/style-guide/js/)
-  - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwaldron/idiomatic.js)
-  - [StandardJS](https://standardjs.com)
-
-**Other Styles**
-
-  - [Naming this in nested functions](https://gist.github.com/cjohansen/4135065) - Christian Johansen
-  - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52) - Ross Allen
-  - [Popular JavaScript Coding Conventions on GitHub](http://sideeffect.kr/popularconvention/#javascript) - JeongHoon Byun
-  - [Multiple var statements in JavaScript, not superfluous](http://benalman.com/news/2012/05/multiple-var-statements-javascript/) - Ben Alman
-
-**Further Reading**
-
-  - [Understanding JavaScript Closures](https://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
-  - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
-  - [You Might Not Need jQuery](http://youmightnotneedjquery.com/) - Zack Bloom & Adam Schwartz
-  - [ES6 Features](https://github.com/lukehoban/es6features) - Luke Hoban
-  - [Frontend Guidelines](https://github.com/bendc/frontend-guidelines) - Benjamin De Cock
-
-**Books**
-
-  - [JavaScript: The Good Parts](https://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
-  - [JavaScript Patterns](https://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
-  - [Pro JavaScript Design Patterns](https://www.amazon.com/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X) - Ross Harmes and Dustin Diaz
-  - [High Performance Web Sites: Essential Knowledge for Front-End Engineers](https://www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309) - Steve Souders
-  - [Maintainable JavaScript](https://www.amazon.com/Maintainable-JavaScript-Nicholas-C-Zakas/dp/1449327680) - Nicholas C. Zakas
-  - [JavaScript Web Applications](https://www.amazon.com/JavaScript-Web-Applications-Alex-MacCaw/dp/144930351X) - Alex MacCaw
-  - [Pro JavaScript Techniques](https://www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273) - John Resig
-  - [Smashing Node.js: JavaScript Everywhere](https://www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595) - Guillermo Rauch
-  - [Secrets of the JavaScript Ninja](https://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X) - John Resig and Bear Bibeault
-  - [Human JavaScript](http://humanjavascript.com/) - Henrik Joreteg
-  - [Superhero.js](http://superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy
-  - [JSBooks](http://jsbooks.revolunet.com/) - Julien Bouquillon
-  - [Third Party JavaScript](https://www.manning.com/books/third-party-javascript) - Ben Vinegar and Anton Kovalyov
-  - [Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript](http://amzn.com/0321812182) - David Herman
-  - [Eloquent JavaScript](http://eloquentjavascript.net/) - Marijn Haverbeke
-  - [You Don’t Know JS: ES6 & Beyond](http://shop.oreilly.com/product/0636920033769.do) - Kyle Simpson
-
-**Blogs**
-
-  - [JavaScript Weekly](http://javascriptweekly.com/)
-  - [JavaScript, JavaScript...](https://javascriptweblog.wordpress.com/)
-  - [Bocoup Weblog](https://bocoup.com/weblog)
-  - [Adequately Good](http://www.adequatelygood.com/)
-  - [NCZOnline](https://www.nczonline.net/)
-  - [Perfection Kills](http://perfectionkills.com/)
-  - [Ben Alman](http://benalman.com/)
-  - [Dmitry Baranovskiy](http://dmitry.baranovskiy.com/)
-  - [nettuts](http://code.tutsplus.com/?s=javascript)
-
-**Podcasts**
-
-  - [JavaScript Air](https://javascriptair.com/)
-  - [JavaScript Jabber](https://devchat.tv/js-jabber/)
+**TODO:** Create list of resources we recommend - blog posts, books, YouTube videos, etc
 
 **[⬆ back to top](#table-of-contents)**
-
-## In the Wild
-
-  This is a list of organizations that are using this style guide. Send us a pull request and we'll add you to the list.
-
-  - **123erfasst**: [123erfasst/javascript](https://github.com/123erfasst/javascript)
-  - **4Catalyzer**: [4Catalyzer/javascript](https://github.com/4Catalyzer/javascript)
-  - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
-  - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
-  - **AloPeyk**: [AloPeyk](https://github.com/AloPeyk)
-  - **AltSchool**: [AltSchool/javascript](https://github.com/AltSchool/javascript)
-  - **Apartmint**: [apartmint/javascript](https://github.com/apartmint/javascript)
-  - **Ascribe**: [ascribe/javascript](https://github.com/ascribe/javascript)
-  - **Avant**: [avantcredit/javascript](https://github.com/avantcredit/javascript)
-  - **Axept**: [axept/javascript](https://github.com/axept/javascript)
-  - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
-  - **Bisk**: [bisk](https://github.com/Bisk/)
-  - **Bonhomme**: [bonhommeparis/javascript](https://github.com/bonhommeparis/javascript)
-  - **Brainshark**: [brainshark/javascript](https://github.com/brainshark/javascript)
-  - **CaseNine**: [CaseNine/javascript](https://github.com/CaseNine/javascript)
-  - **Cerner**: [Cerner](https://github.com/cerner/)
-  - **Chartboost**: [ChartBoost/javascript-style-guide](https://github.com/ChartBoost/javascript-style-guide)
-  - **Coeur d'Alene Tribe**: [www.cdatribe-nsn.gov](https://www.cdatribe-nsn.gov)
-  - **ComparaOnline**: [comparaonline/javascript](https://github.com/comparaonline/javascript-style-guide)
-  - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
-  - **DailyMotion**: [dailymotion/javascript](https://github.com/dailymotion/javascript)
-  - **DoSomething**: [DoSomething/eslint-config](https://github.com/DoSomething/eslint-config)
-  - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
-  - **Drupal**: [www.drupal.org](https://git.drupalcode.org/project/drupal/blob/8.6.x/core/.eslintrc.json)
-  - **Ecosia**: [ecosia/javascript](https://github.com/ecosia/javascript)
-  - **Evernote**: [evernote/javascript-style-guide](https://github.com/evernote/javascript-style-guide)
-  - **Evolution Gaming**: [evolution-gaming/javascript](https://github.com/evolution-gaming/javascript)
-  - **EvozonJs**: [evozonjs/javascript](https://github.com/evozonjs/javascript)
-  - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
-  - **Flexberry**: [Flexberry/javascript-style-guide](https://github.com/Flexberry/javascript-style-guide)
-  - **Gawker Media**: [gawkermedia](https://github.com/gawkermedia/)
-  - **General Electric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
-  - **Generation Tux**: [GenerationTux/javascript](https://github.com/generationtux/styleguide)
-  - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
-  - **GreenChef**: [greenchef/javascript](https://github.com/greenchef/javascript)
-  - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
-  - **Grupo-Abraxas**: [Grupo-Abraxas/javascript](https://github.com/Grupo-Abraxas/javascript)
-  - **Happeo**: [happeo/javascript](https://github.com/happeo/javascript)
-  - **Honey**: [honeyscience/javascript](https://github.com/honeyscience/javascript)
-  - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript-style-guide)
-  - **HubSpot**: [HubSpot/javascript](https://github.com/HubSpot/javascript)
-  - **Hyper**: [hyperoslo/javascript-playbook](https://github.com/hyperoslo/javascript-playbook/blob/master/style.md)
-  - **InterCity Group**: [intercitygroup/javascript-style-guide](https://github.com/intercitygroup/javascript-style-guide)
-  - **Jam3**: [Jam3/Javascript-Code-Conventions](https://github.com/Jam3/Javascript-Code-Conventions)
-  - **JSSolutions**: [JSSolutions/javascript](https://github.com/JSSolutions/javascript)
-  - **Kaplan Komputing**: [kaplankomputing/javascript](https://github.com/kaplankomputing/javascript)
-  - **KickorStick**: [kickorstick](https://github.com/kickorstick/)
-  - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/Javascript-style-guide)
-  - **LEINWAND**: [LEINWAND/javascript](https://github.com/LEINWAND/javascript)
-  - **Lonely Planet**: [lonelyplanet/javascript](https://github.com/lonelyplanet/javascript)
-  - **M2GEN**: [M2GEN/javascript](https://github.com/M2GEN/javascript)
-  - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
-  - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
-  - **MitocGroup**: [MitocGroup/javascript](https://github.com/MitocGroup/javascript)
-  - **Muber**: [muber](https://github.com/muber/)
-  - **National Geographic**: [natgeo](https://github.com/natgeo/)
-  - **NullDev**: [NullDevCo/JavaScript-Styleguide](https://github.com/NullDevCo/JavaScript-Styleguide)
-  - **Nulogy**: [nulogy/javascript](https://github.com/nulogy/javascript)
-  - **Orange Hill Development**: [orangehill/javascript](https://github.com/orangehill/javascript)
-  - **Orion Health**: [orionhealth/javascript](https://github.com/orionhealth/javascript)
-  - **OutBoxSoft**: [OutBoxSoft/javascript](https://github.com/OutBoxSoft/javascript)
-  - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
-  - **Pier 1**: [Pier1/javascript](https://github.com/pier1/javascript)
-  - **Qotto**: [Qotto/javascript-style-guide](https://github.com/Qotto/javascript-style-guide)
-  - **React**: [facebook.github.io/react/contributing/how-to-contribute.html#style-guide](https://facebook.github.io/react/contributing/how-to-contribute.html#style-guide)
-  - **REI**: [reidev/js-style-guide](https://github.com/rei/code-style-guides/)
-  - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
-  - **Sainsbury’s Supermarkets**: [jsainsburyplc](https://github.com/jsainsburyplc)
-  - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
-  - **Sourcetoad**: [sourcetoad/javascript](https://github.com/sourcetoad/javascript)
-  - **Springload**: [springload](https://github.com/springload/)
-  - **StratoDem Analytics**: [stratodem/javascript](https://github.com/stratodem/javascript)
-  - **SteelKiwi Development**: [steelkiwi/javascript](https://github.com/steelkiwi/javascript)
-  - **StudentSphere**: [studentsphere/javascript](https://github.com/studentsphere/guide-javascript)
-  - **SwoopApp**: [swoopapp/javascript](https://github.com/swoopapp/javascript)
-  - **SysGarage**: [sysgarage/javascript-style-guide](https://github.com/sysgarage/javascript-style-guide)
-  - **Syzygy Warsaw**: [syzygypl/javascript](https://github.com/syzygypl/javascript)
-  - **Target**: [target/javascript](https://github.com/target/javascript)
-  - **Terra**: [terra](https://github.com/cerner?utf8=%E2%9C%93&q=terra&type=&language=)
-  - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
-  - **The Nerdery**: [thenerdery/javascript-standards](https://github.com/thenerdery/javascript-standards)
-  - **Tomify**: [tomprats](https://github.com/tomprats)
-  - **Traitify**: [traitify/eslint-config-traitify](https://github.com/traitify/eslint-config-traitify)
-  - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
-  - **UrbanSim**: [urbansim](https://github.com/urbansim/)
-  - **VoxFeed**: [VoxFeed/javascript-style-guide](https://github.com/VoxFeed/javascript-style-guide)
-  - **WeBox Studio**: [weboxstudio/javascript](https://github.com/weboxstudio/javascript)
-  - **Weggo**: [Weggo/javascript](https://github.com/Weggo/javascript)
-  - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
-  - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
-
-**[⬆ back to top](#table-of-contents)**
-
-## Translation
-
-  This style guide is also available in other languages:
-
-  - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
-  - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
-  - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
-  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese (Simplified)**: [lin-123/javascript](https://github.com/lin-123/javascript)
-  - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chinese (Traditional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript)
-  - ![fr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/France.png) **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
-  - ![de](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png) **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
-  - ![it](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png) **Italian**: [sinkswim/javascript-style-guide](https://github.com/sinkswim/javascript-style-guide)
-  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javascript-style-guide](https://github.com/mitsuruog/javascript-style-guide)
-  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [ParkSB/javascript-style-guide](https://github.com/ParkSB/javascript-style-guide)
-  - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [leonidlebedev/javascript-airbnb](https://github.com/leonidlebedev/javascript-airbnb)
-  - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
-  - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
-  - ![tr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Turkey.png) **Turkish**: [eraycetinay/javascript](https://github.com/eraycetinay/javascript)
-  - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Ukrainian**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript)
-  - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnam**: [dangkyokhoang/javascript-style-guide](https://github.com/dangkyokhoang/javascript-style-guide)
-
-## The JavaScript Style Guide Guide
-
-  - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
-
-## Chat With Us About JavaScript
-
-  - Find us on [gitter](https://gitter.im/airbnb/javascript).
-
-## Contributors
-
-  - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
-
-## License
-
-(The MIT License)
-
-Copyright (c) 2012 Airbnb
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-**[⬆ back to top](#table-of-contents)**
-
-## Amendments
-
-We encourage you to fork this guide and change the rules to fit your team’s style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
 
 # };
