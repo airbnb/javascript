@@ -91,6 +91,7 @@ module.exports = {
 
     // Validate JSX has key prop when in array or iterator
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-key.md
+    // Turned off because it has too many false positives
     'react/jsx-key': 'off',
 
     // Limit maximum of props on a single line in JSX
