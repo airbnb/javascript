@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "description": "SPS official style guides and lint configs for frontend development.",
   "private": true,
-  "scripts": {
-
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/SPSCommerce/javascript.git"
@@ -30,5 +28,11 @@
     "url": "https://github.com/SPSCommerce/javascript/issues"
   },
   "homepage": "https://github.com/SPSCommerce/javascript",
-  "workspaces": ["packages/@spscommerce/*"]
+  "workspaces": [
+    "packages/@spscommerce/*"
+  ],
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "typescript": "^4.4.3"
+  }
 }

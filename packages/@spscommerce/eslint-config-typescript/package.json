@@ -1,9 +1,11 @@
 {
-  "name": "@spscommerce/code-style-typescript",
+  "name": "@spscommerce/eslint-config-typescript",
   "version": "0.0.1",
   "description": "SPS official linter configuration for TypeScript.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc ."
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/SPSCommerce/javascript.git"

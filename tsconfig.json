@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "lib": ["ES2021"],
+        "target": "ES2021",
+        "module": "ES2020",
+        "strict": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "node"
+    },
+    "include": [],
+    "exclude": ["node_modules"]
+}
