@@ -2,8 +2,6 @@
 
 **TODO:** Write description
 
-**TODO:** What about these other guides?
-
 Other Style Guides
   - [React](react/)
   - [CSS-in-JS](css-in-javascript/)
@@ -84,7 +82,7 @@ Symbols and BigInts cannot be faithfully polyfilled, so they should not be used 
   console.log(foo[0], bar[0]); // => 9, 9
   ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 
 ## References
@@ -148,7 +146,7 @@ console.log(c); // Prints 1
 
 In the above code, you can see that referencing `a` and `b` will produce a ReferenceError, while `c` contains the number. This is because `a` and `b` are block scoped, while `c` is scoped to the containing function.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Objects
 
@@ -244,42 +242,8 @@ const obj = {
 
 ---
 
-**TODO:** Further discussion required
-
-<a name="objects--grouped-shorthand"></a>
-[**3.5**](#objects--grouped-shorthand) ‣ Group your shorthand properties at the beginning of your object declaration.
-
-> Why? It’s easier to tell which properties are using the shorthand.
-
-```typescript
-const anakinSkywalker = 'Anakin Skywalker';
-const lukeSkywalker = 'Luke Skywalker';
-
-// bad
-const obj = {
-  episodeOne: 1,
-  twoJediWalkIntoACantina: 2,
-  lukeSkywalker,
-  episodeThree: 3,
-  mayTheFourth: 4,
-  anakinSkywalker,
-};
-
-// good
-const obj = {
-  lukeSkywalker,
-  anakinSkywalker,
-  episodeOne: 1,
-  twoJediWalkIntoACantina: 2,
-  episodeThree: 3,
-  mayTheFourth: 4,
-};
-```
-
----
-
 <a name="objects--quoted-props"></a>
-[**3.6**](#objects--quoted-props) ‣ Only quote properties that are invalid identifiers.
+[**3.5**](#objects--quoted-props) ‣ Only quote properties that are invalid identifiers.
 
 <img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
 
@@ -306,7 +270,7 @@ const good = {
 ---
 
 <a name="objects--rest-spread"></a>
-[**3.7**](#objects--rest-spread) ‣ Prefer the object spread syntax over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
+[**3.6**](#objects--rest-spread) ‣ Prefer the object spread syntax over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
 
 <img src="eslint.svg" height="18" align="center"/> [`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread)
 
@@ -327,7 +291,7 @@ const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
 const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Arrays
 
@@ -426,8 +390,6 @@ const baz = Array.from(foo, bar);
 
 ---
 
-**TODO:** Further discussion required
-
 <a name="arrays--callback-return"></a>
 [**4.7**](#arrays--callback-return) ‣ Use return statements in array method callbacks. It’s ok to omit the return if the function body consists of a single statement returning an expression without side effects, following [**8.2**](#arrows--implicit-return).
 
@@ -459,8 +421,6 @@ inbox.filter((msg) => {
   const { subject, author } = msg;
   if (subject === 'Mockingbird') {
     return author === 'Harper Lee';
-  } else {
-    return false;
   }
 });
 
@@ -517,7 +477,7 @@ const stringInArray = [
 ];
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Destructuring
 
@@ -594,28 +554,28 @@ function processInput(input) {
 const { left, top } = processInput(input);
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Strings
 
-**TODO:** Further discussion required - Prettier does double quotes by default, but can be configured for single quotes.
-
 <a name="strings--quotes"></a>
-[**6.1**](#strings--quotes) ‣ Use single quotes `''` for strings.
+[**6.1**](#strings--quotes) ‣ Use double quotes `""` for strings.
 
 <img src="prettier.svg" height="18" align="center"/> **Enforced by Prettier**
 
 <img src="eslint.svg" height="18" align="center"/> [`quotes`](https://eslint.org/docs/rules/quotes.html)
 
+> Why? In a JSX world, double quotes result in your code needing fewer escapes than single quotes.
+
 ```typescript
 // bad
-const name = "Capt. Janeway";
+const name = 'Let\'s all go to the movies';
 
 // bad - template literals should contain interpolation or newlines
-const name = `Capt. Janeway`;
+const name = `Let's all go to the movies`;
 
 // good
-const name = 'Capt. Janeway';
+const name = "Let's all go to the movies";
 ```
 
 ---
@@ -699,7 +659,7 @@ const foo = '\'this\' is "quoted"';
 const foo = `my name is '${name}'`;
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Functions
 
@@ -982,7 +942,7 @@ console.log(
 );
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Arrow Functions
 
@@ -1172,7 +1132,7 @@ const itemHeight = (item: ItemType) => {
 )
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Classes & Constructors
 
@@ -1398,7 +1358,7 @@ class Foo {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Modules
 
@@ -1554,7 +1514,7 @@ import barCss from 'bar.css';
   import baz from './baz';
   ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Iterators and Generators
 
@@ -1706,7 +1666,7 @@ const foo = function* () {
 };
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Properties
 
@@ -1729,7 +1689,7 @@ const isJedi = luke.jedi;
 ```
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Variables
 
@@ -1986,7 +1946,7 @@ const { type, ...coords } = data;
 // 'coords' is now the 'data' object without its 'type' property.
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 
 ## Comparison Operators & Equality
@@ -2199,7 +2159,7 @@ if (a || (b && c)) {
 const bar = a + (b / c) * d;
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Blocks
 
@@ -2229,78 +2189,7 @@ if (test) {
 }
 ```
 
----
-
-**TODO:** Further discussion required
-
-<a name="blocks--no-else-return"></a>
-[**15.2**](#blocks--no-else-return) ‣ If an `if` block always executes a `return` statement, the subsequent `else` block is unnecessary. A `return` in an `else if` block following an `if` block that contains a `return` can be separated into multiple `if` blocks.
-
-<img src="eslint.svg" height="18" align="center"/> [`no-else-return`](https://eslint.org/docs/rules/no-else-return)
-
-```typescript
-// bad
-function foo() {
-  if (x) {
-    return x;
-  } else {
-    return y;
-  }
-}
-
-// bad
-function cats() {
-  if (x) {
-    return x;
-  } else if (y) {
-    return y;
-  }
-}
-
-// bad
-function dogs() {
-  if (x) {
-    return x;
-  } else {
-    if (y) {
-      return y;
-    }
-  }
-}
-
-// good
-function foo() {
-  if (x) {
-    return x;
-  }
-
-  return y;
-}
-
-// good
-function cats() {
-  if (x) {
-    return x;
-  }
-
-  if (y) {
-    return y;
-  }
-}
-
-// good
-function dogs(x) {
-  if (x) {
-    if (z) {
-      return y;
-    }
-  } else {
-    return z;
-  }
-}
-```
-
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Control Statements
 
@@ -2365,7 +2254,12 @@ if (!isRunning) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+---
+
+<a name="control-statements--no-labeled-statements"></a>
+[**16.3**](#control-statements--value-selection) ‣ Don't use labeled statements. Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.
+
+**[⬆  back to top](#table-of-contents)**
 
 ## Comments
 
@@ -2505,7 +2399,7 @@ class Calculator extends Abacus {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Whitespace
 
@@ -3038,7 +2932,7 @@ const foo = 'bar';
 ```
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Commas
 
@@ -3183,7 +3077,7 @@ createHero(
 );
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Semicolons
 
@@ -3237,7 +3131,7 @@ function foo() {
 
 [Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214#7365214).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Type Casting & Coercion
 
@@ -3344,7 +3238,7 @@ const hasAge = Boolean(age);
 const hasAge = !!age;
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Naming Conventions
 
@@ -3419,7 +3313,7 @@ const good = new User({
 
 <img src="eslint.svg" height="18" align="center"/> [`no-underscore-dangle`](https://eslint.org/docs/rules/no-underscore-dangle.html)
 
-> Why? JavaScript is only now, in ES2022, adding the concept of privacy in terms of properties or methods. Although a leading underscore has long been a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won’t count as breaking, or that tests aren’t needed. tl;dr: if you want something to be “private”, it must not be observably present.
+> Why? Although a leading underscore has long been a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won’t count as breaking, or that tests aren’t needed. tl;dr: if you want something to be “private”, it must not be observably present. With the addition of private class fields in ES2022, there is a genuine way to do this, so the informal convention is obsolete.
 
 ```typescript
 // bad
@@ -3596,7 +3490,7 @@ export const MAPPING = {
 };
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Accessors
 
@@ -3671,7 +3565,7 @@ class Jedi {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Events
 
@@ -3715,7 +3609,7 @@ someElement.addEventListener(
 someElement.dispatchEvent(event);
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Standard Library
 
@@ -3760,7 +3654,7 @@ Number.isFinite('2e3'); // false
 Number.isFinite(parseInt('2e3', 10)); // true
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Language Proposals
 
@@ -3769,7 +3663,7 @@ Number.isFinite(parseInt('2e3', 10)); // true
 
 > Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Testing
 
@@ -3792,12 +3686,12 @@ function foo() {
 - 100% test coverage is a good goal to strive for, even if it’s not always practical to reach it. Don't write crappy tests just to bump the number.
 - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 ## Resources
 
 **TODO:** Create list of resources we recommend - blog posts, books, YouTube videos, etc
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆  back to top](#table-of-contents)**
 
 # };

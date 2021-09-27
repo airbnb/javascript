@@ -1,11 +1,9 @@
 {
-  "name": "@spscommerce/code-style",
+  "name": "@spscommerce/code-style-typescript",
   "version": "0.0.1",
-  "description": "SPS official style guides and lint configs for frontend development.",
-  "private": true,
-  "scripts": {
-
-  },
+  "description": "SPS official linter configuration for TypeScript.",
+  "main": "index.js",
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/SPSCommerce/javascript.git"
@@ -30,5 +28,15 @@
     "url": "https://github.com/SPSCommerce/javascript/issues"
   },
   "homepage": "https://github.com/SPSCommerce/javascript",
-  "workspaces": ["packages/@spscommerce/*"]
+  "peerDependencies": {
+    "eslint": "^7.32.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
+    "eslint-plugin-import": "^2.24.2"
+  },
+  "devDependencies": {
+    "@types/eslint": "^7.28.0"
+  }
 }
