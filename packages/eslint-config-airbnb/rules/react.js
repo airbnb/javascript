@@ -545,6 +545,16 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/c2a790a3472eea0f6de984bdc3ee2a62197417fb/docs/rules/no-unstable-nested-components.md
     // TODO: enable, semver-major
     'react/no-unstable-nested-components': 'off',
+
+    // Enforce that namespaces are not used in React elements
+    // https://github.com/yannickcr/eslint-plugin-react/blob/8785c169c25b09b33c95655bf508cf46263bc53f/docs/rules/no-namespace.md
+    // TODO: enable, semver-minor
+    'react/no-namespace': 'off',
+
+    // Prefer exact proptype definitions
+    // https://github.com/yannickcr/eslint-plugin-react/blob/8785c169c25b09b33c95655bf508cf46263bc53f/docs/rules/prefer-exact-props.md
+    // TODO: enable, semver-major, just in case
+    'react/prefer-exact-props': 'off',
   },
 
   settings: {
