@@ -40,16 +40,20 @@ export const bestPractices: BestPractices = {
   'default-case-last': 'error',
 
   /** enforce default parameters to be last
-  * https://eslint.org/docs/rules/default-param-last */
-  'default-param-last': 'error',
+  * https://eslint.org/docs/rules/default-param-last
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/default-param-last.md */
+  'default-param-last': 'off',
+  '@typescript-eslint/default-param-last': 'error',
 
   /** enforces consistent newlines before or after dots
   * https://eslint.org/docs/rules/dot-location */
   'dot-location': ['error', 'property'],
 
   /** encourages use of dot notation whenever possible
-  * https://eslint.org/docs/rules/dot-notation */
-  'dot-notation': ['error', { allowKeywords: true }],
+  * https://eslint.org/docs/rules/dot-notation
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/dot-notation.md */
+  'dot-notation': 'off',
+  '@typescript-eslint/dot-notation': ['error', { allowKeywords: true }],
 
   /** require the use of === and !==
   * https://eslint.org/docs/rules/eqeqeq */
@@ -94,8 +98,10 @@ export const bestPractices: BestPractices = {
   'no-else-return': 'off',
 
   /** disallow empty functions
-  * https://eslint.org/docs/rules/no-empty-function */
+  * https://eslint.org/docs/rules/no-empty-function
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-empty-function.md */
   'no-empty-function': 'off',
+  '@typescript-eslint/no-empty-function': 'off',
 
   /** disallow empty destructuring patterns
   * https://eslint.org/docs/rules/no-empty-pattern */
@@ -150,12 +156,16 @@ export const bestPractices: BestPractices = {
   'no-implicit-globals': 'error',
 
   /** disallow use of eval()-like methods
-  * https://eslint.org/docs/rules/no-implied-eval */
-  'no-implied-eval': 'error',
+  * https://eslint.org/docs/rules/no-implied-eval
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-implied-eval.md */
+  'no-implied-eval': 'off',
+  '@typescript-eslint/no-implied-eval': 'error',
 
   /** disallow this keywords outside of classes or class-like objects
-  * https://eslint.org/docs/rules/no-invalid-this */
+  * https://eslint.org/docs/rules/no-invalid-this
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-invalid-this.md */
   'no-invalid-this': 'off',
+  '@typescript-eslint/no-invalid-this': 'off',
 
   /** disallow usage of __iterator__ property
   * https://eslint.org/docs/rules/no-iterator */
@@ -170,12 +180,16 @@ export const bestPractices: BestPractices = {
   'no-lone-blocks': 'error',
 
   /** disallow creation of functions within loops
-  * https://eslint.org/docs/rules/no-loop-func */
-  'no-loop-func': 'error',
+  * https://eslint.org/docs/rules/no-loop-func
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-loop-func.md */
+  'no-loop-func': 'off',
+  '@typescript-eslint/no-loop-func': 'error',
 
   /** disallow magic numbers
-  * https://eslint.org/docs/rules/no-magic-numbers */
-  'no-magic-numbers': ['error', { ignoreArrayIndexes: true }],
+  * https://eslint.org/docs/rules/no-magic-numbers
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-magic-numbers.md */
+  'no-magic-numbers': 'off',
+  '@typescript-eslint/no-magic-numbers': ['error', { ignoreArrayIndexes: true }],
 
   /** disallow use of multiple spaces
   * https://eslint.org/docs/rules/no-multi-spaces */
@@ -228,8 +242,10 @@ export const bestPractices: BestPractices = {
   'no-proto': 'error',
 
   /** disallow declaring the same variable more than once
-  * https://eslint.org/docs/rules/no-redeclare */
-  'no-redeclare': 'error',
+  * https://eslint.org/docs/rules/no-redeclare
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-redeclare.md */
+  'no-redeclare': 'off',
+  '@typescript-eslint/no-redeclare': 'error',
 
   /** disallow certain object properties
   * https://eslint.org/docs/rules/no-restricted-properties */
@@ -277,8 +293,10 @@ export const bestPractices: BestPractices = {
   'no-return-assign': 'error',
 
   /** disallow redundant `return await`
-  * https://eslint.org/docs/rules/no-return-await */
-  'no-return-await': 'error',
+  * https://eslint.org/docs/rules/no-return-await
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.md */
+  'no-return-await': 'off',
+  '@typescript-eslint/return-await': 'error',
 
   /** disallow use of `javascript:` urls.
   * https://eslint.org/docs/rules/no-script-url */
@@ -297,16 +315,20 @@ export const bestPractices: BestPractices = {
   'no-sequences': 'error',
 
   /** restrict what can be thrown as an exception
-  * https://eslint.org/docs/rules/no-throw-literal */
-  'no-throw-literal': 'error',
+  * https://eslint.org/docs/rules/no-throw-literal
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-throw-literal.md */
+  'no-throw-literal': 'off',
+  '@typescript-eslint/no-throw-literal': 'error',
 
   /** disallow unmodified conditions of loops
   * https://eslint.org/docs/rules/no-unmodified-loop-condition */
   'no-unmodified-loop-condition': 'off',
 
   /** disallow usage of expressions in statement position
-  * https://eslint.org/docs/rules/no-unused-expressions */
-  'no-unused-expressions': ['error', { allowTaggedTemplates: false }],
+  * https://eslint.org/docs/rules/no-unused-expressions
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md */
+  'no-unused-expressions': 'off',
+  '@typescript-eslint/no-unused-expressions': ['error', { allowTaggedTemplates: false }],
 
   /** disallow unused labels
   * https://eslint.org/docs/rules/no-unused-labels */
@@ -361,8 +383,10 @@ export const bestPractices: BestPractices = {
   radix: 'error',
 
   /** require `await` in `async function` (note: this is a horrible rule that should never be used)
-  * https://eslint.org/docs/rules/require-await */
+  * https://eslint.org/docs/rules/require-await
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/require-await.md */
   'require-await': 'off',
+  '@typescript-eslint/require-await': 'off',
 
   /** Enforce the use of u flag on RegExp
   * https://eslint.org/docs/rules/require-unicode-regexp */

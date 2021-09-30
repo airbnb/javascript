@@ -34,13 +34,18 @@ export const es6: ECMAScript6 = {
   'no-const-assign': 'error',
 
   /** disallow duplicate class members
-  * https://eslint.org/docs/rules/no-dupe-class-members */
-  'no-dupe-class-members': 'error',
+  * https://eslint.org/docs/rules/no-dupe-class-members
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dupe-class-members.md */
+  'no-dupe-class-members': 'off',
+  '@typescript-eslint/no-dupe-class-members': 'error',
 
   /** disallow importing from the same path more than once
   * https://eslint.org/docs/rules/no-duplicate-imports
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-duplicate-imports.md
   * superceded by eslint-plugin-import */
   'no-duplicate-import': 'off',
+  'no-duplicate-imports': 'off',
+  '@typescript-eslint/no-duplicate-imports': 'off',
 
   /** disallow symbol constructor
   * https://eslint.org/docs/rules/no-new-symbol */
@@ -51,8 +56,10 @@ export const es6: ECMAScript6 = {
   'no-restricted-exports': 'off',
 
   /** disallow specific imports
-  * https://eslint.org/docs/rules/no-restricted-imports */
+  * https://eslint.org/docs/rules/no-restricted-imports
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-restricted-imports.md */
   'no-restricted-imports': 'off',
+  '@typescript-eslint/no-restricted-imports': 'off',
 
   /** disallow to use this/super before super() calling in constructors.
   * https://eslint.org/docs/rules/no-this-before-super */
@@ -63,8 +70,10 @@ export const es6: ECMAScript6 = {
   'no-useless-computed-key': 'error',
 
   /** disallow unnecessary constructor
-  * https://eslint.org/docs/rules/no-useless-constructor */
-  'no-useless-constructor': 'error',
+  * https://eslint.org/docs/rules/no-useless-constructor
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-useless-constructor.md */
+  'no-useless-constructor': 'off',
+  '@typescript-eslint/no-useless-constructor': 'error',
 
   /** disallow renaming import, export, and destructured assignments to the same name
   * https://eslint.org/docs/rules/no-useless-rename */

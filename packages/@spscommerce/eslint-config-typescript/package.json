@@ -4,7 +4,7 @@
   "description": "SPS official linter configuration for TypeScript.",
   "main": "index.js",
   "scripts": {
-    "build": "tsc ."
+    "build": "tsc -p tsconfig.json"
   },
   "repository": {
     "type": "git",

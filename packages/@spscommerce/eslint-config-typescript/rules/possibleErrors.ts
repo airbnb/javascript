@@ -76,12 +76,16 @@ export const possibleErrors: PossibleErrors = {
   'no-extra-boolean-cast': 'error',
 
   /** disallow unnecessary parentheses
-  * https://eslint.org/docs/rules/no-extra-parens */
+  * https://eslint.org/docs/rules/no-extra-parens
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-parens.md */
   'no-extra-parens': 'off',
+  '@typescript-eslint/no-extra-parens': 'off',
 
   /** disallow unnecessary semicolons
-  * https://eslint.org/docs/rules/no-extra-semi */
-  'no-extra-semi': 'error',
+  * https://eslint.org/docs/rules/no-extra-semi
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-semi.md */
+  'no-extra-semi': 'off',
+  '@typescript-eslint/no-extra-semi': 'error',
 
   /** disallow overwriting functions written as function declarations
   * https://eslint.org/docs/rules/no-func-assign */
@@ -104,8 +108,10 @@ export const possibleErrors: PossibleErrors = {
   'no-irregular-whitespace': 'error',
 
   /** disallow literal numbers that lose precision
-  * https://eslint.org/docs/rules/no-loss-of-precision */
-  'no-loss-of-precision': 'error',
+  * https://eslint.org/docs/rules/no-loss-of-precision
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-loss-of-precision.md */
+  'no-loss-of-precision': 'off',
+  '@typescript-eslint/no-loss-of-precision': 'error',
 
   /** disallow characters which are made with multiple code points in character class syntax
   * https://eslint.org/docs/rules/no-misleading-character-class */

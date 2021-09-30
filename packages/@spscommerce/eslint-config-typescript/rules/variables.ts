@@ -2,8 +2,10 @@ import { Variables } from 'eslint/rules/variables';
 
 export const variables: Variables = {
   /** enforce or disallow variable initializations at definition
-  * https://eslint.org/docs/rules/init-declarations */
+  * https://eslint.org/docs/rules/init-declarations
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/init-declarations.md */
   'init-declarations': 'off',
+  '@typescript-eslint/init-declarations': 'off',
 
   /** disallow the catch clause parameter name being the same as a variable in the outer scope
   * https://eslint.org/docs/rules/no-catch-shadow */
@@ -34,8 +36,10 @@ export const variables: Variables = {
   ],
 
   /** disallow declaration of variables already declared in the outer scope
-  * https://eslint.org/docs/rules/no-shadow */
-  'no-shadow': 'error',
+  * https://eslint.org/docs/rules/no-shadow
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-shadow.md */
+  'no-shadow': 'off',
+  '@typescript-eslint/no-shadow': 'error',
 
   /** disallow shadowing of names such as arguments
   * https://eslint.org/docs/rules/no-shadow-restricted-names */
@@ -54,10 +58,14 @@ export const variables: Variables = {
   'no-undefined': 'off',
 
   /** disallow declaration of variables that are not used in the code
-  * https://eslint.org/docs/rules/no-unused-vars */
-  'no-unused-vars': ['error', { ignoreRestSiblings: true }],
+  * https://eslint.org/docs/rules/no-unused-vars
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md */
+  'no-unused-vars': 'off',
+  '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }],
 
   /** disallow use of variables before they are defined
-  * https://eslint.org/docs/rules/no-use-before-define */
-  'no-use-before-define': 'error',
+  * https://eslint.org/docs/rules/no-use-before-define
+  * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md */
+  'no-use-before-define': 'off',
+  '@typescript-eslint/no-use-before-define': 'error',
 };
