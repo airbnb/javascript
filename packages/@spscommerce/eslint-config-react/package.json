@@ -1,7 +1,7 @@
 {
-  "name": "@spscommerce/eslint-config-typescript",
-  "version": "0.0.2",
-  "description": "SPS official linter configuration for TypeScript.",
+  "name": "@spscommerce/eslint-config-react",
+  "version": "0.0.1",
+  "description": "SPS official linter configuration for React.",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.json"
@@ -31,20 +31,15 @@
   },
   "homepage": "https://github.com/SPSCommerce/javascript",
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.31.2",
-    "@typescript-eslint/parser": "^4.31.2",
-    "eslint": "^7.32.0",
-    "eslint-import-resolver-typescript": "^2.5.0",
-    "eslint-plugin-import": "^2.24.2"
+    "eslint": "^7.32.0"
   },
   "dependencies": {
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-prefer-function-component": "^0.0.7"
   },
   "devDependencies": {
-    "@types/eslint": "^7.28.0",
-    "@typescript-eslint/eslint-plugin": "^4.31.2",
-    "@typescript-eslint/parser": "^4.31.2",
-    "eslint": "^7.32.0",
-    "eslint-import-resolver-typescript": "^2.5.0",
-    "eslint-plugin-import": "^2.24.2"
+    "@types/eslint": "^7.28.0"
   }
 }

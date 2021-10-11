@@ -152,8 +152,9 @@ export const bestPractices: BestPractices = {
   ],
 
   /** disallow var and named functions in global scope
-  * https://eslint.org/docs/rules/no-implicit-globals */
-  'no-implicit-globals': 'error',
+  * https://eslint.org/docs/rules/no-implicit-globals
+  * disabled because it can't distinguish between a file with no imports and a browser script */
+  'no-implicit-globals': 'off',
 
   /** disallow use of eval()-like methods
   * https://eslint.org/docs/rules/no-implied-eval
