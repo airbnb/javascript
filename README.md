@@ -2,10 +2,10 @@
 
 **TODO:** Write description
 
-Other Style Guides
+<!-- Other Style Guides (Commented out until these are reviewed and updated for SPS)
   - [React](react/)
   - [CSS-in-JS](css-in-javascript/)
-  - [CSS & Sass](https://github.com/airbnb/css)
+  - [CSS & Sass](https://github.com/airbnb/css) -->
 
 ## Table of Contents
 

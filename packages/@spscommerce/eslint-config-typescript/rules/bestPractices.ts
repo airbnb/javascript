@@ -1,5 +1,6 @@
 import { BestPractices } from 'eslint/rules/best-practices';
 
+// ✅ = recommended, 🔧 = fixable
 export const bestPractices: BestPractices = {
   /** enforces getter/setter pairs in objects
   * https://eslint.org/docs/rules/accessor-pairs
@@ -27,7 +28,7 @@ export const bestPractices: BestPractices = {
   * https://eslint.org/docs/rules/consistent-return */
   'consistent-return': 'off',
 
-  /** specify curly brace conventions for all control statements
+  /** specify curly brace conventions for all control statements 🔧
   * https://eslint.org/docs/rules/curly */
   curly: ['error', 'multi-line'],
 
@@ -49,13 +50,13 @@ export const bestPractices: BestPractices = {
   * https://eslint.org/docs/rules/dot-location */
   'dot-location': ['error', 'property'],
 
-  /** encourages use of dot notation whenever possible
+  /** encourages use of dot notation whenever possible 🔧
   * https://eslint.org/docs/rules/dot-notation
   * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/dot-notation.md */
   'dot-notation': 'off',
   '@typescript-eslint/dot-notation': ['error', { allowKeywords: true }],
 
-  /** require the use of === and !==
+  /** require the use of === and !== 🔧
   * https://eslint.org/docs/rules/eqeqeq */
   eqeqeq: 'error',
 
@@ -81,7 +82,7 @@ export const bestPractices: BestPractices = {
   * https://eslint.org/docs/rules/no-caller */
   'no-caller': 'error',
 
-  /** disallow lexical declarations in case/default clauses
+  /** disallow lexical declarations in case/default clauses ✅
   * https://eslint.org/docs/rules/no-case-declarations */
   'no-case-declarations': 'error',
 
@@ -89,11 +90,11 @@ export const bestPractices: BestPractices = {
   * https://eslint.org/docs/rules/no-constructor-return */
   'no-constructor-return': 'error',
 
-  /** disallow division operators explicitly at beginning of regular expression
+  /** disallow division operators explicitly at beginning of regular expression 🔧
   * https://eslint.org/docs/rules/no-div-regex */
   'no-div-regex': 'off',
 
-  /** disallow else after a return in an if
+  /** disallow else after a return in an if 🔧
   * https://eslint.org/docs/rules/no-else-return */
   'no-else-return': 'off',
 
@@ -103,7 +104,7 @@ export const bestPractices: BestPractices = {
   'no-empty-function': 'off',
   '@typescript-eslint/no-empty-function': 'off',
 
-  /** disallow empty destructuring patterns
+  /** disallow empty destructuring patterns ✅
   * https://eslint.org/docs/rules/no-empty-pattern */
   'no-empty-pattern': 'error',
 
@@ -120,27 +121,27 @@ export const bestPractices: BestPractices = {
   * https://eslint.org/docs/rules/no-extend-native */
   'no-extend-native': 'error',
 
-  /** disallow unnecessary function binding
+  /** disallow unnecessary function binding 🔧
   * https://eslint.org/docs/rules/no-extra-bind */
   'no-extra-bind': 'error',
 
-  /** disallow Unnecessary Labels
+  /** disallow Unnecessary Labels 🔧
   * https://eslint.org/docs/rules/no-extra-label */
   'no-extra-label': 'error',
 
-  /** disallow fallthrough of case statements
+  /** disallow fallthrough of case statements ✅
   * https://eslint.org/docs/rules/no-fallthrough */
   'no-fallthrough': 'error',
 
-  /** disallow the use of leading or trailing decimal points in numeric literals
+  /** disallow the use of leading or trailing decimal points in numeric literals 🔧
   * https://eslint.org/docs/rules/no-floating-decimal */
   'no-floating-decimal': 'error',
 
-  /** disallow reassignments of native objects or read-only globals
+  /** disallow reassignments of native objects or read-only globals ✅
   * https://eslint.org/docs/rules/no-global-assign */
   'no-global-assign': 'error',
 
-  /** disallow implicit type conversions
+  /** disallow implicit type conversions 🔧
   * https://eslint.org/docs/rules/no-implicit-coercion */
   'no-implicit-coercion': [
     'error',
@@ -192,7 +193,7 @@ export const bestPractices: BestPractices = {
   'no-magic-numbers': 'off',
   '@typescript-eslint/no-magic-numbers': ['error', { ignoreArrayIndexes: true }],
 
-  /** disallow use of multiple spaces
+  /** disallow use of multiple spaces 🔧
   * https://eslint.org/docs/rules/no-multi-spaces */
   'no-multi-spaces': 'error',
 
@@ -212,11 +213,11 @@ export const bestPractices: BestPractices = {
   * https://eslint.org/docs/rules/no-new-wrappers */
   'no-new-wrappers': 'error',
 
-  /** Disallow \8 and \9 escape sequences in string literals
+  /** Disallow \8 and \9 escape sequences in string literals ✅
   * https://eslint.org/docs/rules/no-nonoctal-decimal-escape */
   'no-nonoctal-decimal-escape': 'error',
 
-  /** disallow use of (old style) octal literals
+  /** disallow use of (old style) octal literals ✅
   * https://eslint.org/docs/rules/no-octal */
   'no-octal': 'error',
 
@@ -242,7 +243,7 @@ export const bestPractices: BestPractices = {
   * https://eslint.org/docs/rules/no-proto */
   'no-proto': 'error',
 
-  /** disallow declaring the same variable more than once
+  /** disallow declaring the same variable more than once ✅
   * https://eslint.org/docs/rules/no-redeclare
   * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-redeclare.md */
   'no-redeclare': 'off',
@@ -303,7 +304,7 @@ export const bestPractices: BestPractices = {
   * https://eslint.org/docs/rules/no-script-url */
   'no-script-url': 'error',
 
-  /** disallow self assignment
+  /** disallow self assignment ✅
   * https://eslint.org/docs/rules/no-self-assign */
   'no-self-assign': 'error',
 
@@ -331,7 +332,7 @@ export const bestPractices: BestPractices = {
   'no-unused-expressions': 'off',
   '@typescript-eslint/no-unused-expressions': ['error', { allowTaggedTemplates: false }],
 
-  /** disallow unused labels
+  /** disallow unused labels ✅ 🔧
   * https://eslint.org/docs/rules/no-unused-labels */
   'no-unused-labels': 'error',
 
@@ -339,7 +340,7 @@ export const bestPractices: BestPractices = {
   * https://eslint.org/docs/rules/no-useless-call */
   'no-useless-call': 'off',
 
-  /** Disallow unnecessary catch clauses
+  /** Disallow unnecessary catch clauses ✅
   * https://eslint.org/docs/rules/no-useless-catch */
   'no-useless-catch': 'error',
 
@@ -347,11 +348,11 @@ export const bestPractices: BestPractices = {
   * https://eslint.org/docs/rules/no-useless-concat */
   'no-useless-concat': 'error',
 
-  /** disallow unnecessary string escaping
+  /** disallow unnecessary string escaping ✅
   * https://eslint.org/docs/rules/no-useless-escape */
   'no-useless-escape': 'error',
 
-  /** disallow redundant return; keywords
+  /** disallow redundant return; keywords 🔧
   * https://eslint.org/docs/rules/no-useless-return */
   'no-useless-return': 'error',
 
@@ -363,7 +364,7 @@ export const bestPractices: BestPractices = {
   * https://eslint.org/docs/rules/no-warning-comments */
   'no-warning-comments': 'off',
 
-  /** disallow use of the with statement
+  /** disallow use of the with statement ✅
   * https://eslint.org/docs/rules/no-with */
   'no-with': 'error',
 
@@ -402,7 +403,7 @@ export const bestPractices: BestPractices = {
   * https://eslint.org/docs/rules/wrap-iife.html */
   'wrap-iife': ['error', 'outside', { functionPrototypeMethods: false }],
 
-  /** require or disallow Yoda conditions
+  /** require or disallow Yoda conditions 🔧
   * https://eslint.org/docs/rules/yoda */
   yoda: 'error'
 };

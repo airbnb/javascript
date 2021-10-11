@@ -1,39 +1,40 @@
 import { ECMAScript6 } from 'eslint/rules/ecmascript-6';
 
+// ✅ = recommended, 🔧 = fixable
 export const es6: ECMAScript6 = {
-  /** enforces no braces where they can be omitted
+  /** enforces no braces where they can be omitted 🔧
   * https://eslint.org/docs/rules/arrow-body-style */
   'arrow-body-style': 'error',
 
-  /** require parens in arrow function arguments
+  /** require parens in arrow function arguments 🔧
   * https://eslint.org/docs/rules/arrow-parens */
   'arrow-parens': 'error',
 
-  /** require space before/after arrow function's arrow
+  /** require space before/after arrow function's arrow 🔧
   * https://eslint.org/docs/rules/arrow-spacing */
   'arrow-spacing': 'error',
 
-  /** verify super() callings in constructors
+  /** verify super() callings in constructors ✅
   * https://eslint.org/docs/rules/constructor-super */
   'constructor-super': 'error',
 
-  /** enforce the spacing around the * in generator functions
+  /** enforce the spacing around the * in generator functions 🔧
   * https://eslint.org/docs/rules/generator-star-spacing */
   'generator-star-spacing': ['error', { before: false, after: true }],
 
-  /** disallow modifying variables of class declarations
+  /** disallow modifying variables of class declarations ✅
   * https://eslint.org/docs/rules/no-class-assign */
   'no-class-assign': 'error',
 
-  /** disallow arrow functions where they could be confused with comparisons
+  /** disallow arrow functions where they could be confused with comparisons 🔧
   * https://eslint.org/docs/rules/no-confusing-arrow */
   'no-confusing-arrow': ['error', { allowParens: true }],
 
-  /** disallow modifying variables that are declared using const
+  /** disallow modifying variables that are declared using const ✅
   * https://eslint.org/docs/rules/no-const-assign */
   'no-const-assign': 'error',
 
-  /** disallow duplicate class members
+  /** disallow duplicate class members ✅
   * https://eslint.org/docs/rules/no-dupe-class-members
   * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dupe-class-members.md */
   'no-dupe-class-members': 'off',
@@ -47,7 +48,7 @@ export const es6: ECMAScript6 = {
   'no-duplicate-imports': 'off',
   '@typescript-eslint/no-duplicate-imports': 'off',
 
-  /** disallow symbol constructor
+  /** disallow symbol constructor ✅
   * https://eslint.org/docs/rules/no-new-symbol */
   'no-new-symbol': 'error',
 
@@ -61,11 +62,11 @@ export const es6: ECMAScript6 = {
   'no-restricted-imports': 'off',
   '@typescript-eslint/no-restricted-imports': 'off',
 
-  /** disallow to use this/super before super() calling in constructors.
+  /** disallow to use this/super before super() calling in constructors. ✅
   * https://eslint.org/docs/rules/no-this-before-super */
   'no-this-before-super': 'error',
 
-  /** disallow useless computed property keys
+  /** disallow useless computed property keys 🔧
   * https://eslint.org/docs/rules/no-useless-computed-key */
   'no-useless-computed-key': 'error',
 
@@ -75,27 +76,27 @@ export const es6: ECMAScript6 = {
   'no-useless-constructor': 'off',
   '@typescript-eslint/no-useless-constructor': 'error',
 
-  /** disallow renaming import, export, and destructured assignments to the same name
+  /** disallow renaming import, export, and destructured assignments to the same name 🔧
   * https://eslint.org/docs/rules/no-useless-rename */
   'no-useless-rename': 'error',
 
-  /** require let or const instead of var
+  /** require let or const instead of var 🔧
   * https://eslint.org/docs/rules/no-var */
   'no-var': 'error',
 
-  /** require method and property shorthand syntax for object literals
+  /** require method and property shorthand syntax for object literals 🔧
   * https://eslint.org/docs/rules/object-shorthand */
   'object-shorthand': ['error', 'always', { avoidQuotes: true }],
 
-  /** suggest using arrow functions as callbacks
+  /** suggest using arrow functions as callbacks 🔧
   * https://eslint.org/docs/rules/prefer-arrow-callback */
   'prefer-arrow-callback': 'error',
 
-  /** suggest using of const declaration for variables that are never modified after declared
+  /** suggest using of const declaration for variables that are never modified after declared 🔧
   * https://eslint.org/docs/rules/prefer-const */
   'prefer-const': ['error', { ignoreReadBeforeAssign: true }],
 
-  /** Prefer destructuring from arrays and objects
+  /** Prefer destructuring from arrays and objects 🔧
   * https://eslint.org/docs/rules/prefer-destructuring */
   'prefer-destructuring': ['error', {
     VariableDeclarator: {
@@ -110,7 +111,7 @@ export const es6: ECMAScript6 = {
     enforceForRenamedProperties: false,
   }],
 
-  /** disallow parseInt() in favor of binary, octal, and hexadecimal literals
+  /** disallow parseInt() in favor of binary, octal, and hexadecimal literals 🔧
   * https://eslint.org/docs/rules/prefer-numeric-literals */
   'prefer-numeric-literals': 'error',
 
@@ -126,19 +127,19 @@ export const es6: ECMAScript6 = {
   * https://eslint.org/docs/rules/prefer-spread */
   'prefer-spread': 'error',
 
-  /** suggest using template literals instead of string concatenation
+  /** suggest using template literals instead of string concatenation 🔧
   * https://eslint.org/docs/rules/prefer-template */
   'prefer-template': 'error',
 
-  /** disallow generator functions that do not have yield
+  /** disallow generator functions that do not have yield ✅
   * https://eslint.org/docs/rules/require-yield */
   'require-yield': 'error',
 
-  /** enforce spacing between object rest-spread
+  /** enforce spacing between object rest-spread 🔧
   * https://eslint.org/docs/rules/rest-spread-spacing */
   'rest-spread-spacing': 'error',
 
-  /** import sorting
+  /** import sorting 🔧
   * https://eslint.org/docs/rules/sort-imports */
   'sort-imports': 'off',
 
@@ -146,11 +147,11 @@ export const es6: ECMAScript6 = {
   * https://eslint.org/docs/rules/symbol-description */
   'symbol-description': 'error',
 
-  /** enforce usage of spacing in template strings
+  /** enforce usage of spacing in template strings 🔧
   * https://eslint.org/docs/rules/template-curly-spacing */
   'template-curly-spacing': 'error',
 
-  /** enforce spacing around the * in yield* expressions
+  /** enforce spacing around the * in yield* expressions 🔧
   * https://eslint.org/docs/rules/yield-star-spacing */
   'yield-star-spacing': 'error',
 };

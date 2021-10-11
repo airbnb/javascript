@@ -1,5 +1,6 @@
 import { Variables } from 'eslint/rules/variables';
 
+// ✅ = recommended, 🔧 = fixable
 export const variables: Variables = {
   /** enforce or disallow variable initializations at definition
   * https://eslint.org/docs/rules/init-declarations
@@ -11,7 +12,7 @@ export const variables: Variables = {
   * https://eslint.org/docs/rules/no-catch-shadow */
   'no-catch-shadow': 'off',
 
-  /** disallow deletion of variables
+  /** disallow deletion of variables ✅
   * https://eslint.org/docs/rules/no-delete-var */
   'no-delete-var': 'error',
 
@@ -41,15 +42,15 @@ export const variables: Variables = {
   'no-shadow': 'off',
   '@typescript-eslint/no-shadow': 'error',
 
-  /** disallow shadowing of names such as arguments
+  /** disallow shadowing of names such as arguments ✅
   * https://eslint.org/docs/rules/no-shadow-restricted-names */
   'no-shadow-restricted-names': 'error',
 
-  /** disallow use of undeclared variables unless mentioned in `/*global ` comments
+  /** disallow use of undeclared variables unless mentioned in `/*global ` comments ✅
   * https://eslint.org/docs/rules/no-undef */
   'no-undef': 'error',
 
-  /** disallow use of undefined when initializing variables
+  /** disallow use of undefined when initializing variables 🔧
   * https://eslint.org/docs/rules/no-undef-init */
   'no-undef-init': 'error',
 
@@ -57,7 +58,7 @@ export const variables: Variables = {
   * https://eslint.org/docs/rules/no-undefined */
   'no-undefined': 'off',
 
-  /** disallow declaration of variables that are not used in the code
+  /** disallow declaration of variables that are not used in the code ✅
   * https://eslint.org/docs/rules/no-unused-vars
   * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md */
   'no-unused-vars': 'off',
