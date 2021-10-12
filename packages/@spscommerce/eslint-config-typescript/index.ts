@@ -1,31 +1,30 @@
-import { Linter } from 'eslint';
+import type { Linter } from "eslint";
 
-import { possibleErrors } from './rules/possibleErrors';
-import { bestPractices } from './rules/bestPractices';
-import { strictMode } from './rules/strictMode';
-import { variables } from './rules/variables';
-import { stylisticIssues } from './rules/stylisticIssues';
-import { es6 } from './rules/es6';
-import * as imports from './rules/imports';
-import { typescript } from './rules/typescript';
+import { possibleErrors } from "./rules/possibleErrors";
+import { bestPractices } from "./rules/bestPractices";
+import { strictMode } from "./rules/strictMode";
+import { variables } from "./rules/variables";
+import { stylisticIssues } from "./rules/stylisticIssues";
+import { es6 } from "./rules/es6";
+import * as imports from "./rules/imports";
+import { typescript } from "./rules/typescript";
 
 const config: Linter.Config = {
-  parser: '@typescript-eslint/parser',
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: './tsconfig.json'
+    project: "./tsconfig.json",
   },
   plugins: [
-    '@typescript-eslint',
-    'import',
+    "@typescript-eslint", "import",
   ],
   settings: {
-    'import/extensions': ['.ts', '.tsx'],
-    'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    "import/extensions": [".ts", ".tsx"],
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"],
     },
     "import/resolver": {
-      "typescript": {},
-    }
+      typescript: {},
+    },
   },
   env: {
     browser: true,

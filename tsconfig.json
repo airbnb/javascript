@@ -8,6 +8,6 @@
         "forceConsistentCasingInFileNames": true,
         "moduleResolution": "node"
     },
-    "include": [],
+    "include": ["packages"],
     "exclude": ["node_modules"]
 }

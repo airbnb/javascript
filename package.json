@@ -32,7 +32,11 @@
     "packages/@spscommerce/*"
   ],
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^7.32.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "~2.24.0",
     "typescript": "^4.4.3"
   }
 }

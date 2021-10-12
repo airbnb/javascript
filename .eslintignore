@@ -1,0 +1,2 @@
+*.js
+node_modules

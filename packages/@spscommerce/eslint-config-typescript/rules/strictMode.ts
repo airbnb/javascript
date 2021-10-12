@@ -1,9 +1,12 @@
-import { StrictMode } from 'eslint/rules/strict-mode';
+// eslint-disable-next-line import/no-unresolved
+import type { StrictMode } from "eslint/rules/strict-mode";
 
 // ✅ = recommended, 🔧 = fixable
 export const strictMode: StrictMode = {
-  /** disallow the 'use strict' directive 🔧
+  /**
+   * disallow the 'use strict' directive 🔧
    * https://eslint.org/docs/rules/strict
-   * this is handled for you and does not need to be present in your source files */
-  strict: ['error', 'never'],
+   * this is handled for you and does not need to be present in your source files
+   */
+  strict: ["error", "never"],
 };
