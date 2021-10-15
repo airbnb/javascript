@@ -1,12 +1,12 @@
 {
-  "name": "@spscommerce/code-style",
-  "version": "0.0.1",
-  "description": "SPS official style guides and lint configs for frontend development.",
+  "name": "@spscommerce/typescript",
+  "version": "0.0.3",
+  "description": "SPS official style guides and lint configs for frontend development, forked from airbnb/javascript",
   "private": true,
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/SPSCommerce/javascript.git"
+    "url": "https://github.com/SPSCommerce/typescript.git"
   },
   "keywords": [
     "style guide",
@@ -25,9 +25,9 @@
   "author": "SPS Commerce",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SPSCommerce/javascript/issues"
+    "url": "https://github.com/SPSCommerce/typescript/issues"
   },
-  "homepage": "https://github.com/SPSCommerce/javascript",
+  "homepage": "https://github.com/SPSCommerce/typescript",
   "workspaces": [
     "packages/@spscommerce/*"
   ],

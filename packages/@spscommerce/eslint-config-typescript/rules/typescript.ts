@@ -99,13 +99,13 @@ export const typescript: Linter.RulesRecord = {
    * Require a consistent member declaration order
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/member-ordering.md
    */
-  "@typescript-eslint/member-ordering": "off",
+  "@typescript-eslint/member-ordering": "error",
 
   /**
    * Enforces using a particular method signature syntax 🔧
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/method-signature-style.md
    */
-  "@typescript-eslint/method-signature-style": "off",
+  "@typescript-eslint/method-signature-style": "error",
 
   /**
    * Enforces naming conventions for everything across a codebase 💭
@@ -118,25 +118,28 @@ export const typescript: Linter.RulesRecord = {
    * which provide useful information when stringified 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-base-to-string.md
    */
-  "@typescript-eslint/no-base-to-string": "off",
+  "@typescript-eslint/no-base-to-string": "error",
 
   /**
    * Disallow non-null assertion in locations that may be confusing 🔧
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-confusing-non-null-assertion.md
    */
-  "@typescript-eslint/no-confusing-non-null-assertion": "off",
+  "@typescript-eslint/no-confusing-non-null-assertion": "error",
 
   /**
    * Requires expressions of type void to appear in statement position 🔧 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-confusing-void-expression.md
    */
-  "@typescript-eslint/no-confusing-void-expression": "off",
+  "@typescript-eslint/no-confusing-void-expression": [
+    "error",
+    { "ignoreArrowShorthand": true }
+  ],
 
   /**
    * Disallow the delete operator with computed key expressions 🔧
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dynamic-delete.md
    */
-  "@typescript-eslint/no-dynamic-delete": "off",
+  "@typescript-eslint/no-dynamic-delete": "error",
 
   /**
    * Disallow the declaration of empty interfaces ✅ 🔧
@@ -160,7 +163,7 @@ export const typescript: Linter.RulesRecord = {
    * Forbids the use of classes as namespaces
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extraneous-class.md
    */
-  "@typescript-eslint/no-extraneous-class": "off",
+  "@typescript-eslint/no-extraneous-class": "error",
 
   /**
    * Requires Promise-like values to be handled appropriately ✅ 💭
@@ -178,7 +181,7 @@ export const typescript: Linter.RulesRecord = {
    * Disallow usage of the implicit `any` type in catch clauses 🔧
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-implicit-any-catch.md
    */
-  "@typescript-eslint/no-implicit-any-catch": "off",
+  "@typescript-eslint/no-implicit-any-catch": "warn",
 
   /**
    * Disallows explicit type declarations for variables or
@@ -191,13 +194,13 @@ export const typescript: Linter.RulesRecord = {
    * Disallows usage of `void` type outside of generic or return types
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-invalid-void-type.md
    */
-  "@typescript-eslint/no-invalid-void-type": "off",
+  "@typescript-eslint/no-invalid-void-type": "warn",
 
   /**
    * Disallow the `void` operator except when used to discard a value 🔧 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-meaningless-void-operator.md
    */
-  "@typescript-eslint/no-meaningless-void-operator": "off",
+  "@typescript-eslint/no-meaningless-void-operator": "error",
 
   /**
    * Enforce valid definition of `new` and `constructor` ✅
@@ -221,7 +224,7 @@ export const typescript: Linter.RulesRecord = {
    * Disallows using a non-null assertion in the left operand of the nullish coalescing operator
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-non-null-asserted-nullish-coalescing.md
    */
-  "@typescript-eslint/no-non-null-asserted-nullish-coalescing": "off",
+  "@typescript-eslint/no-non-null-asserted-nullish-coalescing": "error",
 
   /**
    * Disallows using a non-null assertion after an optional chain expression ✅
@@ -245,7 +248,7 @@ export const typescript: Linter.RulesRecord = {
    * Disallows invocation of `require()`
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-require-imports.md
    */
-  "@typescript-eslint/no-require-imports": "off",
+  "@typescript-eslint/no-require-imports": "error",
 
   /**
    * Disallow aliasing `this` ✅
