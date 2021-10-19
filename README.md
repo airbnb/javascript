@@ -3235,7 +3235,17 @@ Other Style Guides
     // best
     const hasAge = !!age;
     ```
-
+<a name="automatic--type--change"></a><a name="22.7"></a>
+  - [22.1](#automatic--type--change) JavaScript is a dynamically typed language. It changes its type based on need in the program
+  ```javascript
+    const age = "2";
+    age += 1;
+    console.log(age); //"21"
+    
+    //but
+    age -= 1
+    console.log(age); //20
+    ```
 **[⬆ back to top](#table-of-contents)**
 
 ## Naming Conventions
