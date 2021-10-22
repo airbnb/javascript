@@ -266,25 +266,25 @@ export const typescript: Linter.RulesRecord = {
    * Flags unnecessary equality comparisons against boolean literals 🔧 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-boolean-literal-compare.md
    */
-  "@typescript-eslint/no-unnecessary-boolean-literal-compare": "off",
+  "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
 
   /**
    * Prevents conditionals where the type is always truthy or always falsy 🔧 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-condition.md
    */
-  "@typescript-eslint/no-unnecessary-condition": "off",
+  "@typescript-eslint/no-unnecessary-condition": "error",
 
   /**
    * Warns when a namespace qualifier is unnecessary 🔧 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-qualifier.md
    */
-  "@typescript-eslint/no-unnecessary-qualifier": "off",
+  "@typescript-eslint/no-unnecessary-qualifier": "warn",
 
   /**
    * Enforces that type arguments will not be used if not required 🔧 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-type-arguments.md
    */
-  "@typescript-eslint/no-unnecessary-type-arguments": "off",
+  "@typescript-eslint/no-unnecessary-type-arguments": "error",
 
   /**
    * Warns if a type assertion does not change the type of an expression ✅ 🔧 💭
@@ -296,13 +296,13 @@ export const typescript: Linter.RulesRecord = {
    * Disallows unnecessary constraints on generic types 🔧
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-type-constraint.md
    */
-  "@typescript-eslint/no-unnecessary-type-constraint": "off",
+  "@typescript-eslint/no-unnecessary-type-constraint": "error",
 
   /**
    * Disallows calling an function with an `any` type value 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unsafe-argument.md
    */
-  "@typescript-eslint/no-unsafe-argument": "off",
+  "@typescript-eslint/no-unsafe-argument": "error",
 
   /**
    * Disallows assigning `any` to variables and properties ✅ 💭
@@ -338,7 +338,7 @@ export const typescript: Linter.RulesRecord = {
    * Prefers a non-null assertion over explicit type cast when possible 🔧 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/non-nullable-type-assertion-style.md
    */
-  "@typescript-eslint/non-nullable-type-assertion-style": "off",
+  "@typescript-eslint/non-nullable-type-assertion-style": "error",
 
   /**
    * Prefer usage of as const over literal type ✅ 🔧
@@ -350,33 +350,33 @@ export const typescript: Linter.RulesRecord = {
    * Prefer initializing each enums member value
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-enum-initializers.md
    */
-  "@typescript-eslint/prefer-enum-initializers": "off",
+  "@typescript-eslint/prefer-enum-initializers": "error",
 
   /**
    * Prefer a ‘for-of’ loop over a standard ‘for’ loop if the
    * index is only used to access the array being iterated
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-for-of.md
    */
-  "@typescript-eslint/prefer-for-of": "off",
+  "@typescript-eslint/prefer-for-of": "error",
 
   /**
    * Use function types instead of interfaces with call signatures 🔧
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-function-type.md
    */
-  "@typescript-eslint/prefer-function-type": "off",
+  "@typescript-eslint/prefer-function-type": "error",
 
   /**
    * Enforce includes method over indexOf method 🔧 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-includes.md
    */
-  "@typescript-eslint/prefer-includes": "off",
+  "@typescript-eslint/prefer-includes": "error",
 
   /**
    * Require that all enum members be literal values to
    * prevent unintended enum member name shadow issues
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-literal-enum-member.md
    */
-  "@typescript-eslint/prefer-literal-enum-member": "off",
+  "@typescript-eslint/prefer-literal-enum-member": "error",
 
   /**
    * Require the use of the `namespace` keyword instead of the
