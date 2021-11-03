@@ -1,6 +1,6 @@
 # eslint-config-airbnb-base
 
-[![npm version](https://badge.fury.io/js/eslint-config-airbnb-base.svg)](http://badge.fury.io/js/eslint-config-airbnb-base)
+[![npm version](https://badge.fury.io/js/eslint-config-airbnb-base.svg)](https://badge.fury.io/js/eslint-config-airbnb-base)
 
 This package provides Airbnb's base JS .eslintrc (without React plugins) as an extensible shared config.
 
