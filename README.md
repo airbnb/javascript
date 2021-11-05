@@ -1507,6 +1507,11 @@ Other Style Guides
     numbers.forEach((num) => {
       increasedByOne.push(num + 1);
     });
+   
+    // good (or better? )
+    for (const num of numbers) {
+      increasedByOne.push(num + 1);
+    }
 
     // best (keeping it functional)
     const increasedByOne = numbers.map((num) => num + 1);
