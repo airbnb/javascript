@@ -119,7 +119,7 @@ jobs:
       - run: node -pe "require('eslint/package.json').version"
         name: 'eslint version'
       - run: npm run pretravis
-      - run: npm run prepublish
+      - run: npm run prepublishOnly
       - run: npm run posttravis
 
   prepublish-react:
@@ -158,7 +158,7 @@ jobs:
       - run: node -pe "require('eslint/package.json').version"
         name: 'eslint version'
       - run: npm run pretravis
-      - run: npm run prepublish
+      - run: npm run prepublishOnly
       - run: npm run posttravis
 
   node:
