@@ -13,7 +13,7 @@ jobs:
         with:
           versionsAsRoot: true
           type: 'majors'
-          preset: '^10 || ^12 || ^14 || ^16 || >= 17'
+          preset: '^12 || ^14 || ^16 || >= 17'
 
   base:
     needs: [matrix]
@@ -25,11 +25,14 @@ jobs:
       matrix:
         node-version: ${{ fromJson(needs.matrix.outputs.latest) }}
         eslint:
+          - 8
           - 7
-          - 6
-          - 5
         package:
           - eslint-config-airbnb-base
+        exclude:
+          - node-version: 10
+            eslint: 8
+            package: eslint-config-airbnb-base
 
     defaults:
       run:
@@ -60,15 +63,15 @@ jobs:
         node-version: ${{ fromJson(needs.matrix.outputs.latest) }}
         eslint:
           - 7
-          - 6
-          - 5
+          # - 6
+          # - 5
         package:
           - eslint-config-airbnb
         react-hooks:
           - ''
-          - 3
-          - 2.3
-          - 1.7
+          # - 3 # TODO: re-enable these once the react config uses eslint 8
+          # - 2.3
+          # - 1.7
 
     defaults:
       run:
@@ -97,9 +100,8 @@ jobs:
       fail-fast: false
       matrix:
         eslint:
+          - 8
           - 7
-          - 6
-          - 5
         package:
           - eslint-config-airbnb-base
 
@@ -130,15 +132,15 @@ jobs:
       matrix:
         eslint:
           - 7
-          - 6
-          - 5
+          # - 6
+          # - 5
         package:
           - eslint-config-airbnb
         react-hooks:
           - ''
-          - 3
-          - 2.3
-          - 1.7
+          # - 3 # TODO: re-enable these once the react config uses eslint 8
+          # - 2.3
+          # - 1.7
 
     defaults:
       run:

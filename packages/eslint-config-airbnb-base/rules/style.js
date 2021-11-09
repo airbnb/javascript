@@ -80,8 +80,7 @@ module.exports = {
     'eol-last': ['error', 'always'],
 
     // https://eslint.org/docs/rules/function-call-argument-newline
-    // TODO: enable, semver-minor, once eslint v6.2 is required (which is a major)
-    'function-call-argument-newline': ['off', 'consistent'],
+    'function-call-argument-newline': ['error', 'consistent'],
 
     // enforce spacing between functions and their invocations
     // https://eslint.org/docs/rules/func-call-spacing
@@ -107,11 +106,6 @@ module.exports = {
     // require line breaks inside function parentheses if there are line breaks between parameters
     // https://eslint.org/docs/rules/function-paren-newline
     'function-paren-newline': ['error', semver.satisfies(eslintPkg.version, '>= 6') ? 'multiline-arguments' : 'consistent'],
-
-    // Blacklist certain identifiers to prevent them being used
-    // https://eslint.org/docs/rules/id-blacklist
-    // TODO: semver-major, remove once eslint v7.4+ is required
-    'id-blacklist': 'off',
 
     // disallow specified identifiers
     // https://eslint.org/docs/rules/id-denylist
@@ -444,8 +438,7 @@ module.exports = {
 
     // Disallow the use of Math.pow in favor of the ** operator
     // https://eslint.org/docs/rules/prefer-exponentiation-operator
-    // TODO: enable, semver-major when eslint 5 is dropped
-    'prefer-exponentiation-operator': 'off',
+    'prefer-exponentiation-operator': 'error',
 
     // Prefer use of an object spread over Object.assign
     // https://eslint.org/docs/rules/prefer-object-spread
