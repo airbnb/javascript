@@ -59,14 +59,14 @@
     "eclint": "^2.8.1",
     "eslint": "^5.16.0 || ^6.8.0 || ^7.2.0",
     "eslint-find-rules": "^3.6.1",
-    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-import": "^2.25.2",
     "in-publish": "^2.0.1",
     "safe-publish-latest": "^1.1.4",
     "tape": "^5.3.1"
   },
   "peerDependencies": {
     "eslint": "^5.16.0 || ^6.8.0 || ^7.2.0",
-    "eslint-plugin-import": "^2.24.2"
+    "eslint-plugin-import": "^2.25.2"
   },
   "engines": {
     "node": ">= 6"
@@ -74,7 +74,7 @@
   "dependencies": {
     "confusing-browser-globals": "^1.0.10",
     "object.assign": "^4.1.2",
-    "object.entries": "^1.1.4",
+    "object.entries": "^1.1.5",
     "semver": "^6.3.0"
   }
 }
