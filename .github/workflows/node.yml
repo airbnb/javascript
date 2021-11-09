@@ -40,7 +40,12 @@ jobs:
       - uses: ljharb/actions/node/install@main
         name: 'nvm install ${{ matrix.node-version }} && npm install'
         with:
+          before_install: cd "packages/${{ matrix.package }}"
           node-version: ${{ matrix.node-version }}
+          after_install: |
+            npm install --no-save "eslint@${{ matrix.eslint }}"
+      - run: node -pe "require('eslint/package.json').version"
+        name: 'eslint version'
       - run: npm run travis
       - uses: codecov/codecov-action@v2
 
@@ -74,9 +79,12 @@ jobs:
       - uses: ljharb/actions/node/install@main
         name: 'nvm install ${{ matrix.node-version }} && npm install'
         with:
+          before_install: cd "packages/${{ matrix.package }}"
           node-version: ${{ matrix.node-version }}
           after_install: |
             npm install --no-save "eslint@${{ matrix.eslint }}"
+      - run: node -pe "require('eslint/package.json').version"
+        name: 'eslint version'
       - run: npm install --no-save "eslint-plugin-react-hooks@${{ matrix.react-hooks }}"
         if: ${{ matrix.react-hooks > 0}}
       - run: npm run travis
@@ -102,11 +110,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ljharb/actions/node/install@main
-        name: 'nvm install ${{ matrix.node-version }} && npm install'
+        name: 'nvm install lts/* && npm install'
         with:
+          before_install: cd "packages/${{ matrix.package }}"
           node-version: lts/*
           after_install: |
             npm install --no-save "eslint@${{ matrix.eslint }}"
+      - run: node -pe "require('eslint/package.json').version"
+        name: 'eslint version'
       - run: npm run pretravis
       - run: npm run prepublish
       - run: npm run posttravis
@@ -136,13 +147,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ljharb/actions/node/install@main
-        name: 'nvm install ${{ matrix.node-version }} && npm install'
+        name: 'nvm install lts/* && npm install'
         with:
+          before_install: cd "packages/${{ matrix.package }}"
           node-version: lts/*
           after_install: |
             npm install --no-save "eslint@${{ matrix.eslint }}"
       - run: npm install --no-save "eslint-plugin-react-hooks@${{ matrix.react-hooks }}"
         if: ${{ matrix.react-hooks > 0}}
+      - run: node -pe "require('eslint/package.json').version"
+        name: 'eslint version'
       - run: npm run pretravis
       - run: npm run prepublish
       - run: npm run posttravis
