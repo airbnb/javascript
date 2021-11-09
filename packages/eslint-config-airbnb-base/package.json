@@ -3,6 +3,20 @@
   "version": "14.2.1",
   "description": "Airbnb's base JS ESLint config, following our styleguide",
   "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./legacy": "./legacy.js",
+    "./whitespace": "./whitespace.js",
+    "./rules/best-practices": "./rules/best-practices.js",
+    "./rules/es6": "./rules/es6.js",
+    "./rules/node": "./rules/node.js",
+    "./rules/style": "./rules/style.js",
+    "./rules/errors": "./rules/errors.js",
+    "./rules/imports": "./rules/imports.js",
+    "./rules/strict": "./rules/strict.js",
+    "./rules/variables": "./rules/variables.js",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "prelint": "eclint check * rules/* test/*",
     "lint": "eslint --report-unused-disable-directives .",
