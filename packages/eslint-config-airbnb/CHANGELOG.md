@@ -1,3 +1,16 @@
+19.0.0 / 2021-11-10
+==================
+ - [breaking] support `eslint` 8; drop `eslint` < 7
+ - [patch] Explain why `react/jsx-key` is turned off (#2474)
+ - [fix] bump eslint-plugin-react-hooks peer dependency version (#2356)
+ - [patch] Alphabetize the rules for react-a11y.js (#2407)
+ - [Docs] HTTP => HTTPS (#2489)
+ - [readme] clarify hooks requirement (#2482)
+ - [deps] update `eslint-config-airbnb-base`, `eslint-plugin-jsx-a11y`, `eslint-plugin-react`, `eslint-plugin-react-hooks`, `safe-publish-latest`,  `eslint-plugin-import`, `object.entries`
+ - [meta] add `--no-save` to link scripts
+ - [meta] use `prepublishOnly` script for npm 7+
+ - [dev deps] update `@babel/runtime`, `tape`
+
 18.2.1 / 2020-11-06
 ==================
  - [patch] remove deprecated `jsx-a11y/accessible-emoji` rule (#2322)
