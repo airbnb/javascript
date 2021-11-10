@@ -13,6 +13,8 @@ const cli = new (CLIEngine || ESLint)({
     'import/no-extraneous-dependencies': [2, { devDependencies: true }],
     // this doesn't matter for tests
     'lines-between-class-members': 0,
+    // otherwise we need some junk in our fixture code
+    'react/no-unused-class-component-methods': 0,
   },
 });
 

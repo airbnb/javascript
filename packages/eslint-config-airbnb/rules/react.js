@@ -506,8 +506,7 @@ module.exports = {
 
     // Prevent usage of `javascript:` URLs
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-script-url.md
-    // TODO: enable, semver-major
-    'react/jsx-no-script-url': ['off', [
+    'react/jsx-no-script-url': ['error', [
       {
         name: 'Link',
         props: ['to'],
@@ -516,8 +515,7 @@ module.exports = {
 
     // Disallow unnecessary fragments
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
-    // TODO: enable, semver-major
-    'react/jsx-no-useless-fragment': 'off',
+    'react/jsx-no-useless-fragment': 'error',
 
     // Prevent adjacent inline elements not separated by whitespace
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-adjacent-inline-elements.md
@@ -526,9 +524,8 @@ module.exports = {
 
     // Enforce a specific function type for function components
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
-    // TODO: enable! semver-minor, but do it in a major to be safe
     // TODO: investigate if setting namedComponents to expression vs declaration is problematic
-    'react/function-component-definition': ['off', {
+    'react/function-component-definition': ['error', {
       namedComponents: 'function-expression',
       unnamedComponents: 'function-expression',
     }],
@@ -539,23 +536,31 @@ module.exports = {
 
     // Prevent react contexts from taking non-stable values
     // https://github.com/yannickcr/eslint-plugin-react/blob/e2eaadae316f9506d163812a09424eb42698470a/docs/rules/jsx-no-constructed-context-values.md
-    // TODO: enable, semver-minor
-    'react/jsx-no-constructed-context-values': 'off',
+    'react/jsx-no-constructed-context-values': 'error',
 
     // Prevent creating unstable components inside components
     // https://github.com/yannickcr/eslint-plugin-react/blob/c2a790a3472eea0f6de984bdc3ee2a62197417fb/docs/rules/no-unstable-nested-components.md
-    // TODO: enable, semver-major
-    'react/no-unstable-nested-components': 'off',
+    'react/no-unstable-nested-components': 'error',
 
     // Enforce that namespaces are not used in React elements
     // https://github.com/yannickcr/eslint-plugin-react/blob/8785c169c25b09b33c95655bf508cf46263bc53f/docs/rules/no-namespace.md
-    // TODO: enable, semver-minor
-    'react/no-namespace': 'off',
+    'react/no-namespace': 'error',
 
     // Prefer exact proptype definitions
     // https://github.com/yannickcr/eslint-plugin-react/blob/8785c169c25b09b33c95655bf508cf46263bc53f/docs/rules/prefer-exact-props.md
-    // TODO: enable, semver-major, just in case
-    'react/prefer-exact-props': 'off',
+    'react/prefer-exact-props': 'error',
+
+    // Lifecycle methods should be methods on the prototype, not class fields
+    // https://github.com/yannickcr/eslint-plugin-react/blob/21e01b61af7a38fc86d94f27eb66cda8054582ed/docs/rules/no-arrow-function-lifecycle.md
+    'react/no-arrow-function-lifecycle': 'error',
+
+    // Prevent usage of invalid attributes
+    // https://github.com/yannickcr/eslint-plugin-react/blob/21e01b61af7a38fc86d94f27eb66cda8054582ed/docs/rules/no-invalid-html-attribute.md
+    'react/no-invalid-html-attribute': 'error',
+
+    // Prevent declaring unused methods of component class
+    // https://github.com/yannickcr/eslint-plugin-react/blob/21e01b61af7a38fc86d94f27eb66cda8054582ed/docs/rules/no-unused-class-component-methods.md
+    'react/no-unused-class-component-methods': 'error',
   },
 
   settings: {
