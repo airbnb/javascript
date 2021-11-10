@@ -524,9 +524,8 @@ module.exports = {
 
     // Enforce a specific function type for function components
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
-    // TODO: investigate if setting namedComponents to expression vs declaration is problematic
     'react/function-component-definition': ['error', {
-      namedComponents: 'function-expression',
+      namedComponents: ['function-declaration', 'function-expression'],
       unnamedComponents: 'function-expression',
     }],
 
