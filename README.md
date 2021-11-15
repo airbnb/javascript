@@ -564,7 +564,7 @@ Other Style Guides
     ```
 
   <a name="destructuring--alias"></a><a name="5.4"></a>
-    - [5.4](#destructuring--alias) Use object alias for getting store the value in the new variable instaed of assigning it to different variable explicitly.
+    - [5.4](#destructuring--alias) Use object alias for getting store the value in the new variable instead of assigning it to different variable explicitly.
 
     ```javascript
     const person = { name: "foo" };
