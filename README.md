@@ -951,6 +951,9 @@ Other Style Guides
       const y = x + 1;
       return x * y;
     });
+    
+    // best
+    [1, 2, 3].map((x) => x * (x + 1));
     ```
 
   <a name="arrows--implicit-return"></a><a name="8.2"></a>
