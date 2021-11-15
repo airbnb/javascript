@@ -928,6 +928,23 @@ Other Style Guides
     );
     ```
 
+  <a name="functions--rest-operator-last"></a>
+  - [7.16](#functions--rest-operator-last) Always put rest operator last.
+
+    > Why? Because you don't able to get the arguments which are after rest, all the arguments you get in the rest opertor only or all the arguments are absorbs by rest operator only.
+
+    ```javascript
+    // bad
+    function handleRest(...rest, name) {
+      // ...
+    }
+
+    // good
+    function handleRest(name, ...rest) {
+      // ...
+    }
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrow Functions
