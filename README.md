@@ -928,7 +928,7 @@ Other Style Guides
     );
     ```
 
-  <a name="functions--rest-operator-last"></a><a name="7.16"></a>
+  <a name="functions--rest-operator-last"></a>
   - [7.16](#functions--rest-operator-last) Always put rest operator last.
 
     > Why? Because you don't able to get the arguments which are after rest, all the arguments you get in the rest opertor only or all the arguments are absorbs by rest operator only.
