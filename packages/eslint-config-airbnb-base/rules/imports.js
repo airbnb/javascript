@@ -75,6 +75,7 @@ module.exports = {
         'spec/**', // mocha, rspec-like pattern
         '**/__tests__/**', // jest pattern
         '**/__mocks__/**', // jest pattern
+        '**/*.{stories,test}.{js,jsx,ts,tsx}', // collocated test and storybook files
         'test.{js,jsx}', // repos with a single test file
         'test-*.{js,jsx}', // repos with multiple top-level test files
         '**/*{.,_}{test,spec}.{js,jsx}', // tests where the extension or filename suffix denotes that it is a test
