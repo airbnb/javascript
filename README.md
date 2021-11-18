@@ -929,9 +929,9 @@ Other Style Guides
     ```
 
   <a name="functions--prefer-rest-params"></a>
-  - [7.16](#functions--prefer-rest-params) Prefer the use `...rest` operator instead of `arguments` keyword for taking n number of arguments in function. eslint: [`prefer-rest-params`](https://eslint.org/docs/rules/prefer-rest-params)
+  - [7.16](#functions--prefer-rest-params) Prefer the use `...rest` syntax instead of the `arguments` keyword for taking a variable number of arguments in a function. eslint: [`prefer-rest-params`](https://eslint.org/docs/rules/prefer-rest-params)
 
-    > Why? It’s cleaner and descriptive, you get the array of arguments which are passed to the function.
+    > Why? It’s cleaner and descriptive, you get the array of arguments which are passed to the function. It's also the only option in an arrow function.
 
     ```javascript
     // bad
@@ -939,6 +939,11 @@ Other Style Guides
       console.log(arguments);
     }
 
+    // good
+    const foo = (...args) => {
+      console.log(args);
+    }
+    
     // good
     function foo(...args) {
       console.log(args);
