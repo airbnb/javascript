@@ -389,20 +389,20 @@ export const typescript: Linter.RulesRecord = {
    * Enforce the usage of the nullish coalescing operator instead of logical chaining 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-nullish-coalescing.md
    */
-  "@typescript-eslint/prefer-nullish-coalescing": "off",
+  "@typescript-eslint/prefer-nullish-coalescing": "error",
 
   /**
    * Prefer using concise optional chain expressions instead of chained logical ands
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-optional-chain.md
    */
-  "@typescript-eslint/prefer-optional-chain": "off",
+  "@typescript-eslint/prefer-optional-chain": "error",
 
   /**
    * Requires that private members are marked as `readonly` if
    * they're never modified outside of the constructor 🔧 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-readonly.md
    */
-  "@typescript-eslint/prefer-readonly": "off",
+  "@typescript-eslint/prefer-readonly": "error",
 
   /**
    * Requires that function parameters are typed as `readonly`
@@ -415,7 +415,7 @@ export const typescript: Linter.RulesRecord = {
    * Prefer using type parameter when calling `Array#reduce` instead of casting 🔧 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-reduce-type-parameter.md
    */
-  "@typescript-eslint/prefer-reduce-type-parameter": "off",
+  "@typescript-eslint/prefer-reduce-type-parameter": "error",
 
   /**
    * Enforce that `RegExp#exec` is used instead of `String#match`
@@ -428,20 +428,20 @@ export const typescript: Linter.RulesRecord = {
    * Enforce that `this` is used when only `this` type is returned 🔧 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-return-this-type.md
    */
-  "@typescript-eslint/prefer-return-this-type": "off",
+  "@typescript-eslint/prefer-return-this-type": "error",
 
   /**
    * Enforce the use of `String#startsWith` and `String#endsWith` instead
    * of other equivalent methods of checking substrings 🔧 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md
    */
-  "@typescript-eslint/prefer-string-starts-ends-with": "off",
+  "@typescript-eslint/prefer-string-starts-ends-with": "error",
 
   /**
    * Recommends using `@ts-expect-error` over `@ts-ignore` 🔧
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-ts-expect-error.md
    */
-  "@typescript-eslint/prefer-ts-expect-error": "off",
+  "@typescript-eslint/prefer-ts-expect-error": "error",
 
   /**
    * Requires any function or method that returns a Promise to be marked async 🔧 💭
@@ -453,7 +453,7 @@ export const typescript: Linter.RulesRecord = {
    * Requires `Array#sort` calls to always provide a `compareFunction` 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/require-array-sort-compare.md
    */
-  "@typescript-eslint/require-array-sort-compare": "off",
+  "@typescript-eslint/require-array-sort-compare": "error",
 
   /**
    * When adding two variables, operands must both be of type number or of type string ✅ 💭
@@ -471,19 +471,19 @@ export const typescript: Linter.RulesRecord = {
    * Enforces that members of a type union/intersection are sorted alphabetically 🔧
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/sort-type-union-intersection-members.md
    */
-  "@typescript-eslint/sort-type-union-intersection-members": "off",
+  "@typescript-eslint/sort-type-union-intersection-members": "error",
 
   /**
    * Restricts the types allowed in boolean expressions 🔧 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/strict-boolean-expressions.md
    */
-  "@typescript-eslint/strict-boolean-expressions": "off",
+  "@typescript-eslint/strict-boolean-expressions": "error",
 
   /**
    * Exhaustiveness checking in switch with union type 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/switch-exhaustiveness-check.md
    */
-  "@typescript-eslint/switch-exhaustiveness-check": "off",
+  "@typescript-eslint/switch-exhaustiveness-check": "error",
 
   /**
    * Sets preference level for triple slash directives versus ES6-style import declarations ✅
@@ -495,7 +495,7 @@ export const typescript: Linter.RulesRecord = {
    * Require consistent spacing around type annotations 🔧
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/type-annotation-spacing.md
    */
-  "@typescript-eslint/type-annotation-spacing": "off",
+  "@typescript-eslint/type-annotation-spacing": "error",
 
   /**
    * Requires type annotations to exist
@@ -507,12 +507,12 @@ export const typescript: Linter.RulesRecord = {
    * Enforces unbound methods are called with their expected scope ✅ 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/unbound-method.md
    */
-  "@typescript-eslint/unbound-method": "off",
+  "@typescript-eslint/unbound-method": ["error", { ignoreStatic: true }],
 
   /**
    * Warns for any two overloads that could be unified into
    * one by using a union or an optional/rest parameter
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/unified-signatures.md
    */
-  "@typescript-eslint/unified-signatures": "off",
+  "@typescript-eslint/unified-signatures": "error",
 };

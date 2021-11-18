@@ -1,4 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
+import { Linter } from "eslint";
 import type { BestPractices } from "eslint/rules/best-practices";
 
 // ✅ = recommended, 🔧 = fixable
@@ -511,8 +512,9 @@ export const bestPractices: BestPractices = {
   /**
    * disallow use of void operator
    * https://eslint.org/docs/rules/no-void
+   * Typing for this rule config seems to be incorrect
    */
-  "no-void": "error",
+  "no-void": ["error", { allowAsStatement: true }] as unknown as Linter.RuleEntry<[]>,
 
   /**
    * disallow usage of configurable warning terms in comments: e.g. todo

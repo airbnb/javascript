@@ -1336,7 +1336,7 @@ class Foo {
   }
 }
 
-// good - this is used
+// good - `this` is used
 class Foo {
   bar() {
     console.log(this.bar);

@@ -1,6 +1,6 @@
 {
   "name": "@spscommerce/eslint-config-typescript",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "description": "SPS official linter configuration for TypeScript.",
   "main": "lib/index.js",
   "scripts": {

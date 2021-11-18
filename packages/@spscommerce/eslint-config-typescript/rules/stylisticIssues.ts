@@ -124,8 +124,9 @@ export const stylisticIssues: StylisticIssues = {
   /**
    * enforce consistent line breaks inside function parentheses 🔧
    * https://eslint.org/docs/rules/function-paren-newline
+   * Disabled because it results in conflicts with Prettier
    */
-  "function-paren-newline": ["error", "consistent"],
+  "function-paren-newline": "off",
 
   /**
    * Blacklist certain identifiers to prevent them being used
@@ -155,8 +156,9 @@ export const stylisticIssues: StylisticIssues = {
   /**
    * Enforce the location of arrow function bodies with implicit returns 🔧
    * https://eslint.org/docs/rules/implicit-arrow-linebreak
+   * Disabled because it results in conflicts with Prettier
    */
-  "implicit-arrow-linebreak": "error",
+  "implicit-arrow-linebreak": "off",
 
   /**
    * this option sets a specific tab width for your code 🔧
@@ -489,10 +491,9 @@ export const stylisticIssues: StylisticIssues = {
   /**
    * Requires operator at the beginning of the line in multiline statements 🔧
    * https://eslint.org/docs/rules/operator-linebreak
+   * Disabled because it results in conflicts with Prettier
    */
-  "operator-linebreak": ["error",
-    "before",
-    { overrides: { "=": "none" } }],
+  "operator-linebreak": "off",
 
   /**
    * disallow padding within blocks 🔧
