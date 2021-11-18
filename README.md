@@ -928,14 +928,14 @@ Other Style Guides
     );
     ```
 
-  <a name="functions--rest-operator-last"></a>
-  - [7.16](#functions--rest-operator-last) Always put rest operator last.
+  <a name="functions--rest-syntax-last"></a>
+  - [7.16](#functions--rest-syntax-last) Always put rest parameter syntax last.
 
-    > Why? Because you don't able to get the arguments which are after rest, all the arguments you get in the rest opertor only or all the arguments are absorbs by rest operator only.
+    > Why? Because you don't able to get the arguments which are declared after rest syntax and get the Syntax Error: `Rest parameter must be last formal parameter`.
 
     ```javascript
     // bad
-    function handleRest(...rest, name) {
+    function handleRest(...rest, name) { // SyntaxError
       // ...
     }
 
