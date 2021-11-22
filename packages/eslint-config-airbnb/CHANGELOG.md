@@ -1,3 +1,9 @@
+19.0.1 / 2021-11-22
+==================
+ - [fix] `whitespace`: update to support eslint 8 (#2517)
+ - [deps] update `eslint-plugin-react`
+ - [dev deps] update `tape`
+
 19.0.0 / 2021-11-10
 ==================
  - [breaking] support `eslint` 8; drop `eslint` < 7
