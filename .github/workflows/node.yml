@@ -62,16 +62,12 @@ jobs:
       matrix:
         node-version: ${{ fromJson(needs.matrix.outputs.latest) }}
         eslint:
+          - 8
           - 7
-          # - 6
-          # - 5
         package:
           - eslint-config-airbnb
         react-hooks:
-          - ''
-          # - 3 # TODO: re-enable these once the react config uses eslint 8
-          # - 2.3
-          # - 1.7
+          - 4
 
     defaults:
       run:
@@ -131,16 +127,12 @@ jobs:
       fail-fast: false
       matrix:
         eslint:
+          - 8
           - 7
-          # - 6
-          # - 5
         package:
           - eslint-config-airbnb
         react-hooks:
-          - ''
-          # - 3 # TODO: re-enable these once the react config uses eslint 8
-          # - 2.3
-          # - 1.7
+          - 4
 
     defaults:
       run:
