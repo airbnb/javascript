@@ -77,7 +77,7 @@
     "eslint-plugin-import": "^2.25.3",
     "in-publish": "^2.0.1",
     "safe-publish-latest": "^2.0.0",
-    "tape": "^5.3.1"
+    "tape": "^5.3.2"
   },
   "peerDependencies": {
     "eslint": "^7.32.0 || ^8.2.0",
