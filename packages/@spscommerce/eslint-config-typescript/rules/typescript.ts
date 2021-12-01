@@ -130,10 +130,7 @@ export const typescript: Linter.RulesRecord = {
    * Requires expressions of type void to appear in statement position 🔧 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-confusing-void-expression.md
    */
-  "@typescript-eslint/no-confusing-void-expression": [
-    "error",
-    { "ignoreArrowShorthand": true }
-  ],
+  "@typescript-eslint/no-confusing-void-expression": ["error", { ignoreArrowShorthand: true }],
 
   /**
    * Disallow the delete operator with computed key expressions 🔧
@@ -337,8 +334,10 @@ export const typescript: Linter.RulesRecord = {
   /**
    * Prefers a non-null assertion over explicit type cast when possible 🔧 💭
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/non-nullable-type-assertion-style.md
+   * Disabled because it enforces use of postfix ! operator, which is banned by
+   * @typescript-eslint/no-non-null-assertion (a recommended rule)
    */
-  "@typescript-eslint/non-nullable-type-assertion-style": "error",
+  "@typescript-eslint/non-nullable-type-assertion-style": "off",
 
   /**
    * Prefer usage of as const over literal type ✅ 🔧
@@ -514,5 +513,5 @@ export const typescript: Linter.RulesRecord = {
    * one by using a union or an optional/rest parameter
    * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/unified-signatures.md
    */
-  "@typescript-eslint/unified-signatures": "error",
+  "@typescript-eslint/unified-signatures": "warn",
 };

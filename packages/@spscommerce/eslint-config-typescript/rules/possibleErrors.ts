@@ -110,8 +110,9 @@ export const possibleErrors: PossibleErrors = {
   /**
    * disallow double-negation boolean casts in a boolean context ✅ 🔧
    * https://eslint.org/docs/rules/no-extra-boolean-cast
+   * Disabled because it conflicts with @typescript-eslint/strict-boolean-expressions
    */
-  "no-extra-boolean-cast": "error",
+  "no-extra-boolean-cast": "off",
 
   /**
    * disallow unnecessary parentheses 🔧

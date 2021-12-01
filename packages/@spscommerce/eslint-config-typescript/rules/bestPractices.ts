@@ -278,9 +278,12 @@ export const bestPractices: BestPractices = {
   "@typescript-eslint/no-magic-numbers": [
     "error",
     {
-      ignore: [0,
+      ignore: [
+        -1,
+        0,
         1,
-        2],
+        2,
+      ],
       ignoreArrayIndexes: true,
     },
   ],
