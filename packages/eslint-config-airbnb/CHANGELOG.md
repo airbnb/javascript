@@ -1,3 +1,8 @@
+19.0.2 / 2021-12-02
+==================
+ - [meta] fix "exports" path (#2525)
+ - [Tests] re-enable tests disabled for the eslint 8 upgrade
+
 19.0.1 / 2021-11-22
 ==================
  - [fix] `whitespace`: update to support eslint 8 (#2517)
