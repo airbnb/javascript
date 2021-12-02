@@ -11,7 +11,7 @@
     "./whitespace": "./whitespace.js",
     "./rules/react": "./rules/react.js",
     "./rules/react-a11y": "./rules/react-a11y.js",
-    "./rules/react-hooks": "./rules/react-hook.js",
+    "./rules/react-hooks": "./rules/react-hooks.js",
     "./package.json": "./package.json"
   },
   "scripts": {
