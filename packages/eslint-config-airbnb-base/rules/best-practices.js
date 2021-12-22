@@ -376,6 +376,11 @@ module.exports = {
     // https://eslint.org/docs/rules/prefer-named-capture-group
     'prefer-named-capture-group': 'off',
 
+    // Prefer Object.hasOwn() over Object.prototype.hasOwnProperty.call()
+    // https://eslint.org/docs/rules/prefer-object-has-own
+    // TODO: semver-major: enable thus rule, once eslint v8.5.0 is required
+    'prefer-object-has-own': 'off',
+
     // https://eslint.org/docs/rules/prefer-regex-literals
     'prefer-regex-literals': ['error', {
       disallowRedundantWrapping: true,
