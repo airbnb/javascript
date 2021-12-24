@@ -1,3 +1,8 @@
+19.0.3 / 2021-12-24
+==================
+ - [patch] set `namedComponents` option to match style guide
+ - [deps] update `eslint-plugin-react`
+
 19.0.2 / 2021-12-02
 ==================
  - [meta] fix "exports" path (#2525)
