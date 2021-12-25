@@ -72,7 +72,7 @@
     "babel-preset-airbnb": "^4.5.0",
     "babel-tape-runner": "^3.0.0",
     "eclint": "^2.8.1",
-    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint": "file:../eslint-config-airbnb/node_modules/eslint",
     "eslint-find-rules": "^4.0.0",
     "eslint-plugin-import": "^2.25.3",
     "in-publish": "^2.0.1",
@@ -80,7 +80,7 @@
     "tape": "^5.3.2"
   },
   "peerDependencies": {
-    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint": "file:../eslint-config-airbnb/node_modules/eslint",
     "eslint-plugin-import": "^2.25.3"
   },
   "engines": {

@@ -1,3 +1,7 @@
+19.0.4 / 2021-12-25
+==================
+ - republish to fix #2529
+
 19.0.3 / 2021-12-24
 ==================
  - [patch] set `namedComponents` option to match style guide
