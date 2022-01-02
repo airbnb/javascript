@@ -1,18 +1,30 @@
 {
   "name": "eslint-config-airbnb",
-  "version": "18.2.1",
+  "version": "19.0.4",
   "description": "Airbnb's ESLint config, following our styleguide",
   "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./base": "./base.js",
+    "./hooks": "./hooks.js",
+    "./legacy": "./legacy.js",
+    "./whitespace": "./whitespace.js",
+    "./rules/react": "./rules/react.js",
+    "./rules/react-a11y": "./rules/react-a11y.js",
+    "./rules/react-hooks": "./rules/react-hooks.js",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "prelint": "eclint check * rules/* test/*",
     "lint": "eslint .",
     "pretests-only": "node ./test/requires",
     "tests-only": "babel-tape-runner ./test/test-*.js",
-    "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test) && safe-publish-latest",
+    "prepublishOnly": "eslint-find-rules --unused && npm test && safe-publish-latest",
+    "prepublish": "not-in-publish || npm run prepublishOnly",
     "pretest": "npm run --silent lint",
     "test": "npm run --silent tests-only",
     "link:eslint": "cd node_modules/eslint && npm link --production && cd -",
-    "pretravis": "npm run link:eslint && cd ../eslint-config-airbnb-base && npm link eslint && npm install && npm link && cd - && npm link --no-save eslint-config-airbnb-base",
+    "pretravis": "npm run link:eslint && cd ../eslint-config-airbnb-base && npm link --no-save eslint && npm install && npm link && cd - && npm link --no-save eslint-config-airbnb-base",
     "travis": "npm run --silent tests-only",
     "posttravis": "npm unlink --no-save eslint-config-airbnb-base eslint >/dev/null &"
   },
@@ -54,34 +66,34 @@
   },
   "homepage": "https://github.com/airbnb/javascript",
   "dependencies": {
-    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-base": "^15.0.0",
     "object.assign": "^4.1.2",
-    "object.entries": "^1.1.4"
+    "object.entries": "^1.1.5"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.15.4",
+    "@babel/runtime": "^7.16.3",
     "babel-preset-airbnb": "^4.5.0",
     "babel-tape-runner": "^3.0.0",
     "eclint": "^2.8.1",
-    "eslint": "^5.16.0 || ^6.8.0 || ^7.2.0",
-    "eslint-find-rules": "^3.6.1",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.26.0",
-    "eslint-plugin-react-hooks": "^4.0.1 || ^3 || ^2.3.0 || ^1.7.0",
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-find-rules": "^4.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "in-publish": "^2.0.1",
     "react": ">= 0.13.0",
-    "safe-publish-latest": "^1.1.4",
-    "tape": "^5.3.1"
+    "safe-publish-latest": "^2.0.0",
+    "tape": "^5.3.2"
   },
   "peerDependencies": {
-    "eslint": "^5.16.0 || ^6.8.0 || ^7.2.0",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.26.0",
-    "eslint-plugin-react-hooks": "^4.0.1 || ^3 || ^2.3.0 || ^1.7.0"
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0"
   },
   "engines": {
-    "node": ">= 6"
+    "node": "^10.12.0 || ^12.22.0 || ^14.17.0 || >=16.0.0"
   }
 }

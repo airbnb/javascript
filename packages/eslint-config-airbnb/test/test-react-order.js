@@ -4,23 +4,25 @@ import eslintrc from '..';
 import reactRules from '../rules/react';
 import reactA11yRules from '../rules/react-a11y';
 
+const rules = {
+  // It is okay to import devDependencies in tests.
+  'import/no-extraneous-dependencies': [2, { devDependencies: true }],
+  // this doesn't matter for tests
+  'lines-between-class-members': 0,
+  // otherwise we need some junk in our fixture code
+  'react/no-unused-class-component-methods': 0,
+};
 const cli = new (CLIEngine || ESLint)({
   useEslintrc: false,
   baseConfig: eslintrc,
-
-  rules: {
-    // It is okay to import devDependencies in tests.
-    'import/no-extraneous-dependencies': [2, { devDependencies: true }],
-    // this doesn't matter for tests
-    'lines-between-class-members': 0,
-  },
+  ...(CLIEngine ? { rules } : { overrideConfig: { rules } }),
 });
 
-function lint(text) {
+async function lint(text) {
   // @see https://eslint.org/docs/developer-guide/nodejs-api.html#executeonfiles
   // @see https://eslint.org/docs/developer-guide/nodejs-api.html#executeontext
-  const linter = CLIEngine ? cli.executeOnText(text) : cli.lintText(text);
-  return linter.results[0];
+  const linter = CLIEngine ? cli.executeOnText(text) : await cli.lintText(text);
+  return (CLIEngine ? linter.results : linter)[0];
 }
 
 function wrapComponent(body) {
@@ -40,9 +42,8 @@ test('validate react methods order', (t) => {
     t.deepEqual(reactA11yRules.plugins, ['jsx-a11y', 'react']);
   });
 
-  t.test('passes a good component', (t) => {
-    t.plan(3);
-    const result = lint(wrapComponent(`
+  t.test('passes a good component', async (t) => {
+    const result = await lint(wrapComponent(`
   componentDidMount() {}
   handleSubmit() {}
   onButtonAClick() {}
@@ -59,9 +60,8 @@ test('validate react methods order', (t) => {
     t.notOk(result.errorCount, 'no errors');
   });
 
-  t.test('order: when random method is first', (t) => {
-    t.plan(2);
-    const result = lint(wrapComponent(`
+  t.test('order: when random method is first', async (t) => {
+    const result = await lint(wrapComponent(`
   someMethod() {}
   componentDidMount() {}
   setFoo() {}
@@ -75,9 +75,8 @@ test('validate react methods order', (t) => {
     t.deepEqual(result.messages.map((msg) => msg.ruleId), ['react/sort-comp'], 'fails due to sort');
   });
 
-  t.test('order: when random method after lifecycle methods', (t) => {
-    t.plan(2);
-    const result = lint(wrapComponent(`
+  t.test('order: when random method after lifecycle methods', async (t) => {
+    const result = await lint(wrapComponent(`
   componentDidMount() {}
   someMethod() {}
   setFoo() {}
@@ -91,9 +90,8 @@ test('validate react methods order', (t) => {
     t.deepEqual(result.messages.map((msg) => msg.ruleId), ['react/sort-comp'], 'fails due to sort');
   });
 
-  t.test('order: when handler method with `handle` prefix after method with `on` prefix', (t) => {
-    t.plan(2);
-    const result = lint(wrapComponent(`
+  t.test('order: when handler method with `handle` prefix after method with `on` prefix', async (t) => {
+    const result = await lint(wrapComponent(`
   componentDidMount() {}
   onButtonAClick() {}
   handleSubmit() {}
@@ -106,9 +104,8 @@ test('validate react methods order', (t) => {
     t.deepEqual(result.messages.map((msg) => msg.ruleId), ['react/sort-comp'], 'fails due to sort');
   });
 
-  t.test('order: when lifecycle methods after event handler methods', (t) => {
-    t.plan(2);
-    const result = lint(wrapComponent(`
+  t.test('order: when lifecycle methods after event handler methods', async (t) => {
+    const result = await lint(wrapComponent(`
   handleSubmit() {}
   componentDidMount() {}
   setFoo() {}
@@ -120,9 +117,8 @@ test('validate react methods order', (t) => {
     t.deepEqual(result.messages.map((msg) => msg.ruleId), ['react/sort-comp'], 'fails due to sort');
   });
 
-  t.test('order: when event handler methods after getters and setters', (t) => {
-    t.plan(2);
-    const result = lint(wrapComponent(`
+  t.test('order: when event handler methods after getters and setters', async (t) => {
+    const result = await lint(wrapComponent(`
   componentDidMount() {}
   setFoo() {}
   getFoo() {}

@@ -1,6 +1,6 @@
 # eslint-config-airbnb
 
-[![npm version](https://badge.fury.io/js/eslint-config-airbnb.svg)](http://badge.fury.io/js/eslint-config-airbnb)
+[![npm version](https://badge.fury.io/js/eslint-config-airbnb.svg)](https://badge.fury.io/js/eslint-config-airbnb)
 
 This package provides Airbnb's .eslintrc as an extensible shared config.
 
@@ -10,7 +10,9 @@ We export three ESLint configurations for your usage.
 
 ### eslint-config-airbnb
 
-Our default export contains all of our ESLint rules, including ECMAScript 6+ and React. It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, `eslint-plugin-react-hooks`, and `eslint-plugin-jsx-a11y`. If you don't need React, see [eslint-config-airbnb-base](https://npmjs.com/eslint-config-airbnb-base).
+Our default export contains most of our ESLint rules, including ECMAScript 6+ and React. It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, `eslint-plugin-react-hooks`, and `eslint-plugin-jsx-a11y`. Note that it does not enable our React Hooks rules. To enable those, see the [`eslint-config-airbnb/hooks` section](#eslint-config-airbnbhooks).
+
+If you don't need React, see [eslint-config-airbnb-base](https://npmjs.com/eslint-config-airbnb-base).
 
 1. Install the correct versions of each package, which are listed by the command:
 
@@ -58,7 +60,7 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+ and
 
 ### eslint-config-airbnb/hooks
 
-This entry point enables the linting rules for React hooks (requires v16.8+). To use, add `"extends": ["airbnb", "airbnb/hooks"]` to your `.eslintrc`
+This entry point enables the linting rules for React hooks (requires v16.8+). To use, add `"extends": ["airbnb", "airbnb/hooks"]` to your `.eslintrc`.
 
 ### eslint-config-airbnb/whitespace
 

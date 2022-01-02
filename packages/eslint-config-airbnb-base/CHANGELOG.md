@@ -1,3 +1,22 @@
+15.0.0 / 2021-11-08
+==================
+ - [breaking] drop eslint < 7, add eslint 8 (#2495)
+ - [breaking] add `exports`
+ - [patch] Improve `function-paren-newline` with `multiline-arguments` option (#2471)
+ - [patch] update default value for complexity (#2420)
+ - [patch] add disabled `no-unsafe-optional-chaining` rule
+ - [patch] arthmetic -> arithmetic (#2341)
+ - [patch] fix spelling of "than" (#2333)
+ - [patch] add `no-nonoctal-decimal-escape` rule
+ - [patch] `import/no-extraneous-dependencies`: Add .eslintrc.js to devDeps (#2329)
+ - [guide] Spread operator => Spread syntax (#2423)
+ - [guide] add references for eslint rules (#2419)
+ - [Docs] HTTP => HTTPS (#2489)
+ - [readme] some updates
+ - [meta] use `prepublishOnly` script for npm 7+
+ - [deps] update `eslint-plugin-import`, `eslint-plugin-react`, `object.entries`
+ - [dev deps] update `@babel/runtime`, ``tape`
+
 14.2.1 / 2020-11-06
 ==================
  - [base] `no-restricted-globals`: add better messages (#2320)
