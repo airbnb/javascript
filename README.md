@@ -3339,7 +3339,7 @@ Other Style Guides
     this._firstName = 'Panda';
 
     // good
-    this.firstName = 'Panda'; 
+    this.firstName = 'Panda';
 
     // good, in environments where WeakMaps are available
     // see https://kangax.github.io/compat-table/es6/#test-WeakMap
