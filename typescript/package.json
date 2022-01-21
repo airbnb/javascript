@@ -1,6 +1,6 @@
 {
   "name": "@spscommerce/eslint-config-typescript",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "SPS official linter configuration for TypeScript.",
   "main": "lib/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SPSCommerce/javascript.git"
+    "url": "https://github.com/SPSCommerce/typescript.git"
   },
   "keywords": [
     "style guide",
@@ -27,9 +27,9 @@
   "author": "SPS Commerce",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SPSCommerce/javascript/issues"
+    "url": "https://github.com/SPSCommerce/typescript/issues"
   },
-  "homepage": "https://github.com/SPSCommerce/javascript",
+  "homepage": "https://github.com/SPSCommerce/typescript/tree/main/typescript#readme",
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",

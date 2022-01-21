@@ -1,9 +1,11 @@
 {
   "name": "@spscommerce/typescript",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "SPS official style guides and lint configs for frontend development, forked from airbnb/javascript",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "build": "pnpm build --parallel"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/SPSCommerce/typescript.git"
@@ -28,9 +30,6 @@
     "url": "https://github.com/SPSCommerce/typescript/issues"
   },
   "homepage": "https://github.com/SPSCommerce/typescript",
-  "workspaces": [
-    "packages/@spscommerce/*"
-  ],
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
