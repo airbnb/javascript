@@ -1,6 +1,6 @@
 {
   "name": "@spscommerce/typescript",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "description": "SPS official style guides and lint configs for frontend development, forked from airbnb/javascript",
   "private": true,
   "scripts": {
