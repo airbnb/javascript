@@ -4000,3 +4000,12 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 We encourage you to fork this guide and change the rules to fit your team’s style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
 
 # };
+
+COMMENTS:
+
+L is for the way you look at me
+O is for the only one I see
+V is very, very extraordinary
+E is even more than anyone that you adore
+
+
