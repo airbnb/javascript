@@ -4000,3 +4000,14 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 We encourage you to fork this guide and change the rules to fit your team’s style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
 
 # };
+
+COMMENTS_2:
+
+Maybe I didn't treat you
+Quite as good as I should have
+Maybe I didn't love you
+Quite as often as I could have
+Little things I should have said and done
+I just never took the time
+You were always on my mind
+You were always on my mind
