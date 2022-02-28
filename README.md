@@ -4008,4 +4008,11 @@ O is for the only one I see
 V is very, very extraordinary
 E is even more than anyone that you adore
 
+And love is all that I can give to you
+Love is more than just a game for two
+Two in love can make it
+Take my heart but please don't break it
+Love was made for me and you
+
+
 
