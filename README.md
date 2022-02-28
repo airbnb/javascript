@@ -4011,3 +4011,8 @@ Little things I should have said and done
 I just never took the time
 You were always on my mind
 You were always on my mind
+
+Tell me, tell me that your sweet love hasn't died
+Give me, give me one more chance
+To keep you satisfied, satisfied
+
