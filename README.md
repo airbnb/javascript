@@ -2940,13 +2940,11 @@ Other Style Guides
     // bad - multiple empty lines
     var x = 1;
 
-
     var y = 2;
 
     // bad - 2+ newlines at end of file
     var x = 1;
     var y = 2;
-
 
     // bad - 1+ newline(s) at beginning of file
 
