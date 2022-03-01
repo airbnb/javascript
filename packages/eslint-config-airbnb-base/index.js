@@ -10,7 +10,7 @@ module.exports = {
     './rules/strict',
   ].map(require.resolve),
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2022,
     sourceType: 'module',
   },
   rules: {},
