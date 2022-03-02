@@ -1,1 +1,3 @@
-This is the main file of this practice
+<html>
+	<h1>This is the main file of this practice</h1>
+</html>
