@@ -1,6 +1,6 @@
 # Airbnb React/JSX Style Guide
 
------New text here. second commit.-----
+-----New text here. second commit. third commit.-----
 
 *A mostly reasonable approach to React and JSX*
 
