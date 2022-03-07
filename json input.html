@@ -1,0 +1,18 @@
+<html><head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("button").click(function(){
+          var jsondata = ['{"Site":"Stechies", "Code":"Jquery"}'];
+          var jsonarray = JSON.parse(jsondata);
+          $.each(jsonarray, function(i, field){
+              $("div").append(field + " ");
+          });
+      });
+    });
+    </script>
+    </head>
+    <body>
+    <button>Get data</button>
+    <div></div>
+    </body></html>
