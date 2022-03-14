@@ -1,4 +1,4 @@
-//Модуль вот таких экспортов
+//Модуль ЭКСПОРТОВ чего-то
 module.exports = {
   extends: [
     'eslint-config-airbnb-base',
