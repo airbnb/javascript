@@ -1,4 +1,4 @@
-//Коммент о велИИИИком экспоре
+//Экспорт модулей гыг
 module.exports = {
   extends: [
     'eslint-config-airbnb-base',
