@@ -3108,7 +3108,7 @@ Other Style Guides
     // bad - raises exception
     const luke = {}
     const leia = {}
-    [luke, leia].forEach((jedi) => jedi.father = 'vader')
+    [luke, leia].forEach((jedi) => jedi.parent = 'vader')
 
     // bad - raises exception
     const reaction = "No! That’s impossible!"
@@ -3127,7 +3127,7 @@ Other Style Guides
     const luke = {};
     const leia = {};
     [luke, leia].forEach((jedi) => {
-      jedi.father = 'vader';
+      jedi.parent = 'vader';
     });
 
     // good
