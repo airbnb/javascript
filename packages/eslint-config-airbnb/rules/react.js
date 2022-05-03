@@ -560,6 +560,16 @@ module.exports = {
     // Prevent declaring unused methods of component class
     // https://github.com/yannickcr/eslint-plugin-react/blob/21e01b61af7a38fc86d94f27eb66cda8054582ed/docs/rules/no-unused-class-component-methods.md
     'react/no-unused-class-component-methods': 'error',
+
+    // Ensure destructuring and symmetric naming of useState hook value and setter variables
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/c8833f301314dab3e79ef7ac4cf863e4d5fa0019/docs/rules/hook-use-state.md
+    // TODO: semver-major, enable
+    'react/hook-use-state': 'off',
+
+    // Enforce sandbox attribute on iframe elements
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/c8833f301314dab3e79ef7ac4cf863e4d5fa0019/docs/rules/iframe-missing-sandbox.md
+    // TODO: semver-major, enable
+    'react/iframe-missing-sandbox': 'off',
   },
 
   settings: {
