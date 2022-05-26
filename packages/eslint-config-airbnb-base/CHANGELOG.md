@@ -15,7 +15,7 @@
  - [readme] some updates
  - [meta] use `prepublishOnly` script for npm 7+
  - [deps] update `eslint-plugin-import`, `eslint-plugin-react`, `object.entries`
- - [dev deps] update `@babel/runtime`, ``tape`
+ - [dev deps] update `@babel/runtime`, `tape`
 
 14.2.1 / 2020-11-06
 ==================
