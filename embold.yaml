@@ -1,6 +1,6 @@
 version: 1
 ## Please visit https://docs.embold.io/v2-quick-start-guide/#update-configurations to know more
-#languages: 'JAVA,CPP'
+#languages: 'JAVA,CPP,JAVASCRIPT'
 # Sources mention which Files/Dirs to be taken for Analysis
 sources:
   #Files or Directories to be Excluded are mentioned in exclusions
