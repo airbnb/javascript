@@ -1,0 +1,36 @@
+version: 1
+## Please visit https://docs.embold.io/v2-quick-start-guide/#update-configurations to know more
+#languages: 'JAVA,CPP'
+# Sources mention which Files/Dirs to be taken for Analysis
+sources:
+  #Files or Directories to be Excluded are mentioned in exclusions
+  exclusions:
+    - 'test'
+    - 'generated'
+    - 'mock'
+    - 'thirdparty'
+    - 'third-party'
+    - '3rd-party'
+    - '3rdparty'
+    - 'external'
+    - 'build'
+    - 'node_modules'
+    - 'assets'
+    - 'gulp'
+    - 'grunt'
+    - 'library'
+    - 'libs'
+    - '.git'
+    - 'demosubproject'
+
+#Specify modules you would like to enable or disable.
+#modules:
+#    - name: gamma_java
+#      enabled: true
+#      rules:
+#         - key: 'EMB-JAVA-10'
+#           enabled: false
+#    - name: pmd
+#      enabled: true
+
+## Please visit https://docs.embold.io/v2-quick-start-guide/#update-configurations to know more
