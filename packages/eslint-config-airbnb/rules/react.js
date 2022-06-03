@@ -388,9 +388,11 @@ module.exports = {
     'react/no-array-index-key': 'error',
 
     // Enforce a defaultProps definition for every prop that is not a required prop
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/require-default-props.md
+    // Enforce defaultArguments rather than defaultProps
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
     'react/require-default-props': ['error', {
       forbidDefaultForRequired: true,
+      functions: 'defaultArguments',
     }],
 
     // Forbids using non-exported propTypes
