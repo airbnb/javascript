@@ -305,7 +305,7 @@ Other Style Guides
     const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
     console.log(has.call(object, key));
     /* or */
-    console.log(object.hasOwn(key));  // only supported in browsers that support ES2022
+    console.log(Object.hasOwn(object, key));  // only supported in browsers that support ES2022
     /* or */
     import has from 'has'; // https://www.npmjs.com/package/has
     console.log(has(object, key));
