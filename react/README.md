@@ -609,8 +609,8 @@ render() {
     constructor(props) {
       super(props);
 
+      //this.onClickDiv = this.onClickDiv.bind(this);you do not need this after rebind (this)
       this.onClickDiv = this.onClickDiv.bind(this);
-      //this.onClickDiv = this.onClickDiv.bind(this);you do not need it after rebind (this)
     }
 
 
