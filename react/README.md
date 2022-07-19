@@ -251,7 +251,7 @@ This style guide is mostly based on the standards that are currently prevalent i
     <Foo bar="bar" />
 
     // bad
-    <Foo className="bad example" />
+    <Foo className='bad example' />
 
     // good
     <Foo className="good example" />
