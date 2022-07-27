@@ -502,7 +502,7 @@ module.exports = {
         markers: ['=', '!', '/'], // space here to support sprockets directives, slash for TS /// comments
       },
       block: {
-        exceptions: ['-', '+'],
+        exceptions: ['-', '+', '*'],
         markers: ['=', '!', ':', '::'], // space here to support sprockets directives and flow comment types
         balanced: true,
       }
