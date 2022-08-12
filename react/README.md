@@ -29,6 +29,8 @@ This style guide is mostly based on the standards that are currently prevalent i
   - Always use JSX syntax.
   - Do not use `React.createElement` unless you’re initializing the app from a file that is not JSX.
   - [`react/forbid-prop-types`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md) will allow `arrays` and `objects` only if it is explicitly noted what `array` and `object` contains, using `arrayOf`, `objectOf`, or `shape`.
+  - Consider not using React memo,useMemo and useCallback hooks in the code unless there is no way to write the code.
+  - React specific file names should start with Capital letter where as Javascript specific file name can start with small letter.
 
 ## Class vs `React.createClass` vs stateless
 
