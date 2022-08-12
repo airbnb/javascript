@@ -64,6 +64,9 @@ This style guide is mostly based on the standards that are currently prevalent i
 
 
     ```filenames in Javascript
+    //bad
+    Header.js
+    
     //good
     header.js
 
