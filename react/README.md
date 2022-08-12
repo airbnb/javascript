@@ -55,6 +55,18 @@ This style guide is mostly based on the standards that are currently prevalent i
     }
     ```
 
+     ```filenames in React
+    // bad
+    header.jsx
+
+    //good
+    Header.jsx
+
+
+    ```filenames in Javascript
+    //good
+    header.js
+
     And if you don’t have state or refs, prefer normal functions (not arrow functions) over classes:
 
     ```jsx
