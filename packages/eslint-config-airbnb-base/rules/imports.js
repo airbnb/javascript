@@ -73,11 +73,13 @@ module.exports = {
         'test/**', // tape, common npm pattern
         'tests/**', // also common npm pattern
         'spec/**', // mocha, rspec-like pattern
+        'stories/**', // storybook pattern
         '**/__tests__/**', // jest pattern
         '**/__mocks__/**', // jest pattern
         'test.{js,jsx}', // repos with a single test file
         'test-*.{js,jsx}', // repos with multiple top-level test files
         '**/*{.,_}{test,spec}.{js,jsx}', // tests where the extension or filename suffix denotes that it is a test
+        '**/*{.,_}stories.{js,jsx}', // storybooks where the extension or filename suffix denotes that it is a storybooks
         '**/jest.config.js', // jest config
         '**/jest.setup.js', // jest setup
         '**/vue.config.js', // vue-cli config
