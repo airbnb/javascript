@@ -62,6 +62,8 @@ Other Style Guides
 
 ## Types
 
+  *Explains what types are in Javascript*
+
   Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in JavaScript and what properties they have. These can be used to build other data structures. Wherever possible, comparisons with other languages are drawn.
 
   <a name="types--primitives"></a><a name="1.1"></a>
@@ -74,6 +76,8 @@ Other Style Guides
     - `undefined`
     - `symbol`
     - `bigint`
+
+    *Goes over numbers*
 
     ```javascript
     const foo = 1;
@@ -93,6 +97,8 @@ Other Style Guides
     - `array`
     - `function`
 
+    *Goes over arrays* 
+
     ```javascript
     const foo = [1, 2];
     const bar = foo;
@@ -110,6 +116,8 @@ Other Style Guides
   - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign)
 
     > Why? This ensures that you can’t reassign your references, which can lead to bugs and difficult to comprehend code.
+
+    *Vars and Consts* 
 
     ```javascript
     // bad
@@ -143,6 +151,8 @@ Other Style Guides
   <a name="references--block-scope"></a><a name="2.3"></a>
   - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped, whereas `var` is function-scoped.
 
+    *Goes over scopes in Javascript* 
+
     ```javascript
     // const and let only exist in the blocks they are defined in.
     {
@@ -163,6 +173,8 @@ Other Style Guides
 
   <a name="objects--no-new"></a><a name="3.1"></a>
   - [3.1](#objects--no-new) Use the literal syntax for object creation. eslint: [`no-new-object`](https://eslint.org/docs/rules/no-new-object)
+
+    *Goes over objects* 
 
     ```javascript
     // bad
