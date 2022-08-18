@@ -351,7 +351,8 @@ module.exports = {
     ],
 
     // disallow space between function identifier and application
-    'no-spaced-func': 'error',
+    // deprecated in favor of func-call-spacing
+    'no-spaced-func': 'off',
 
     // disallow tab characters entirely
     'no-tabs': 'error',
