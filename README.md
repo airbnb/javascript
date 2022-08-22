@@ -8,7 +8,7 @@ import * as utils from '../lib/utils'
 
 const originalGitHubWorkspace = process.env['GITHUB_WORKSPACE']
 
-describe('utils tests', () => {
+describe('utils tests', ((c)) => {
   beforeAll(() => {
     // GitHub workspace
     process.env['GITHUB_WORKSPACE'] = __dirname
@@ -56,152 +56,6 @@ describe('utils tests', () => {
     expect(remote3.protocol).toEqual('SSH')
     expect(remote3.repository).toEqual('peter-evans/create-pull-request')
   })
-
-  test('getRemoteDetail fails to parse a remote URL', async () => {
-    const remoteUrl = 'https://github.com/peter-evans'
-    try {
-      utils.getRemoteDetail(remoteUrl)
-      // Fail the test if an error wasn't thrown
-      expect(true).toEqual(false)
-    } catch (e) {
-      expect(e.message).toEqual(
-        `The format of '${remoteUrl}' is not a valid GitHub repository URL`
-      )
-    }
-  })
-
-  test('getRemoteUrl successfully returns remote URLs', async () => {
-    const url1 = utils.getRemoteUrl('HTTPS', 'peter-evans/create-pull-request')
-    expect(url1).toEqual('https://github.com/peter-evans/create-pull-request')
-
-    const url2 = utils.getRemoteUrl('SSH', 'peter-evans/create-pull-request')
-    expect(url2).toEqual('git@github.com:peter-evans/create-pull-request.git')
-  })
-
-  test('secondsSinceEpoch returns the number of seconds since the Epoch', async () => {
-    const seconds = `${utils.secondsSinceEpoch()}`
-    expect(seconds.length).toEqual(10)
-  })
-
-  test('randomString returns strings of length 7', async () => {
-    for (let i = 0; i < 1000; i++) {
-      expect(utils.randomString().length).toEqual(7)
-    }
-  })
-
-  test('parseDisplayNameEmail successfully parses display name email formats', async () => {
-    const parsed1 = utils.parseDisplayNameEmail('abc def <abc@def.com>')
-    expect(parsed1.name).toEqual('abc def')
-    expect(parsed1.email).toEqual('abc@def.com')
-
-    const parsed2 = utils.parseDisplayNameEmail(
-      'github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>'
-    )
-    expect(parsed2.name).toEqual('github-actions[bot]')
-    expect(parsed2.email).toEqual(
-      '41898282+github-actions[bot]@users.noreply.github.com'
-    )
-  })
-
-  test('parseDisplayNameEmail fails to parse display name email formats', async () => {
-    const displayNameEmail1 = 'abc@def.com'
-    try {
-      utils.parseDisplayNameEmail(displayNameEmail1)
-      // Fail the test if an error wasn't thrown
-      expect(true).toEqual(false)
-    } catch (e) {
-      expect(e.message).toEqual(
-        `The format of '${displayNameEmail1}' is not a valid email address with display name`
-      )
-    }
-
-    const displayNameEmail2 = ' < >'
-    try {
-      utils.parseDisplayNameEmail(displayNameEmail2)
-      // Fail the test if an error wasn't thrown
-      expect(true).toEqual(false)
-    } catch (e) {
-      expect(e.message).toEqual(
-        `The format of '${displayNameEmail2}' is not a valid email address with display name`
-      )
-    }
-  })
-})
-{
-  "name": "create-pull-request",
-  "version": "3.0.0",
-  "private": true,
-  "description": "Creates a pull request for changes to your repository in the actions workspace",
-  "main": "lib/main.js",
-  "scripts": {
-    "build": "tsc && ncc build",
-    "format": "prettier --write '**/*.ts'",
-    "format-check": "prettier --check '**/*.ts'",
-    "lint": "eslint src/**/*.ts",
-    "test:unit": "jest unit",
-    "test:int": "__test__/integration-tests.sh",
-    "test": "npm run test:unit && npm run test:int"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/peter-evans/create-pull-request.git"
-  },
-  "keywords": [
-    "actions",
-    "pull",
-    "request"
-  ],
-  "author": "Peter Evans",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/peter-evans/create-pull-request/issues"
-  },
-  "homepage": "https://github.com/peter-evans/create-pull-request",
-  "dependencies": {
-    "@actions/core": "1.2.6",
-    "@actions/exec": "1.0.4",
-    "@octokit/core": "3.2.4",
-    "@octokit/plugin-paginate-rest": "2.8.0",
-    "@octokit/plugin-rest-endpoint-methods": "4.5.2",
-    "uuid": "8.3.2"
-  },
-  "devDependencies": {
-    "@types/jest": "26.0.20",
-    "@types/node": "14.14.22",
-    "@typescript-eslint/parser": "4.14.0",
-    "@vercel/ncc": "0.27.0",
-    "eslint": "7.18.0",
-    "eslint-plugin-github": "4.1.1",
-    "eslint-plugin-jest": "24.1.3",
-    "jest": "26.6.3",
-    "jest-circus": "26.6.3",
-    "js-yaml": "4.0.0",
-    "prettier": "2.2.1",
-    "ts-jest": "26.4.4",
-    "typescript": "4.1.3"
-  }
-}
-# Airbnb JavaScript Style Guide() {
-
-*A mostly reasonable approach to JavaScript*
-
-> **Note**: this guide assumes you are using [Babel](https://babeljs.io), and requires that you use [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) or the equivalent. It also assumes you are installing shims/polyfills in your app, with [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) or the equivalent.
-
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
-This guide is available in other languages too. See [Translation](#translation)
-
-Other Style Guides
-
-  - [ES5 (Deprecated)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5)
-  - [React](react/)
-  - [CSS-in-JavaScript](css-in-javascript/)
-  - [CSS & Sass](https://github.com/airbnb/css)
-  - [Ruby](https://github.com/airbnb/ruby)
-
-## Table of Contents
 
   1. [Types](#types)
   1. [References](#references)
@@ -4155,31 +4009,4 @@ Other Style Guides
 
 (The MIT License)
 
-Copyright (c) 2012 Airbnb
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-**[⬆ back to top](#table-of-contents)**
-
-## Amendments
-
-We encourage you to fork this guide and change the rules to fit your team’s style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
-
-# };
+Copyright (c) 2012 ZACHRY TYLER WOOD
