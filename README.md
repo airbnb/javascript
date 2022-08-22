@@ -1,4 +1,5 @@
-Map: charset = new
+map : 
+chars keyset = new
 new =: language
 languae : Dns.Python.javascdript
 POST//\
