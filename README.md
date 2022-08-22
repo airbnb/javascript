@@ -1487,7 +1487,7 @@ Other Style Guides
     ```javascript
     // bad
     const AirbnbStyleGuide = require('./AirbnbStyleGuide');
-    module.exports = AirbnbStyleGuide.es6;
+    module.exports = AirbnbStyleGuide.es6;\
 
     // ok
     import AirbnbStyleGuide from './AirbnbStyleGuide';
