@@ -4005,8 +4005,8 @@ describe('utils tests', ((c)) => {
 
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
 
-## License
-
-(The MIT License)
+## License'
+Access: Private
+All Rights Reserved
 
 Copyright (c) 2012 ZACHRY TYLER WOOD
