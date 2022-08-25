@@ -1,3 +1,5 @@
+BEGIN
+GLOW7
 map : 
 chars keyset = new
 new =: language
