@@ -1,7 +1,7 @@
 BEGIN
 GLOW7
 map : 
-chars keyset = new
+charset = keymap = new=: $ obj
 new =: language
 languae : Dns.Python.javascdript
 POST//\
