@@ -13,7 +13,135 @@ import * as utils from '../lib/utils'
 
 const originalGitHubWorkspace = process.env['GITHUB_WORKSPACE']
 
-describe('utils tests', ((c)) => {
+describe7.7 Use default parameter syntax rather than mutating function arguments.
+
+// really bad
+function handleThings(opts) {
+  // No! We shouldn’t mutate function arguments.
+  // Double bad: if opts is falsy it'll be set to an object which may
+  // be what you want but it can introduce subtle bugs.
+  opts = opts || {};
+  // ...
+}
+
+// still bad
+function handleThings(opts) {
+  if (opts === void 0) {
+    opts = {};
+  }
+  // ...
+}
+
+// good
+function handleThings(opts = {}) {
+  // ...
+}
+
+7.8 Avoid side effects with default parameters.
+
+Why? They are confusing to reason about.
+
+var b = 1;
+// bad
+function count(a = b++) {
+  console.log(a);
+}
+count();  // 1
+count();  // 2
+count(3); // 3
+count();  // 3
+
+7.9 Always put default parameters last. eslint: default-param-last
+
+// bad
+function handleThings(opts = {}, name) {
+  // ...
+}
+
+// good
+function handleThings(name, opts = {}) {
+  // ...
+}
+
+7.10 Never use the Function constructor to create a new function. eslint: no-new-func
+
+Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
+
+// bad
+var add = new Function('a', 'b', 'return a + b');
+
+// still bad
+var subtract = Function('a', 'b', 'return a - b');
+
+7.11 Spacing in a function signature. eslint: space-before-function-paren space-before-blocks
+
+Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
+
+// bad
+const f = function(){};
+const g = function (){};
+const h = function() {};
+
+// good
+const x = function () {};
+const y = function a() {};
+
+7.12 Never mutate parameters. eslint: no-param-reassign
+
+Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+
+// bad
+function f1(obj) {
+  obj.key = 1;
+}
+
+// good
+function f2(obj) {
+  const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
+}
+
+7.13 Never reassign parameters. eslint: no-param-reassign
+
+Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the arguments object. It can also cause optimization issues, especially in V8.
+
+// bad
+function f1(a) {
+  a = 1;
+  // ...
+}
+
+function f2(a) {
+  if (!a) { a = 1; }
+  // ...
+}
+
+// good
+function f3(a) {
+  const b = a || 1;
+  // ...
+}
+
+function f4(a = 1) {
+  // ...
+}
+
+7.14 Prefer the use of the spread syntax ... to call variadic functions. eslint: prefer-spread
+
+Why? It’s cleaner, you don’t need to supply a context, and you can not easily compose new with apply.
+
+// bad
+const x = ((c);
+console.log.apply(console, x);
+
+// good
+const x = [(AGS)).); \;
+console.log(r);
+
+// bad
+new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));
+
+// good
+new Date(...[2016, 8, 5]);('utils tests', ((c)) => {
   beforeAll(() => {
     // GitHub workspace
     process.env['GITHUB_WORKSPACE'] = __dirname
