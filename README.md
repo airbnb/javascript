@@ -1,6 +1,99 @@
-BEGIN
-GLOW7
-map : 
+BEGIN:
+GLOW&: .txt
+Branch:'' '['' 'README.md'' ']''
+chars keyset = new :
+new =: language :
+languae : Dns.Python.javascript :
+Conference: Developer Productivity Engineering Summit - November 2-3, 2022. Early Birds learn more and register here!
+Docs
+About 
+Training
+News 
+Services
+Gradle Enterprise
+Installation
+The current Gradle release is 7.5.1. You can download binaries and view docs for all Gradle versions from the releases page.
+
+Prerequisites
+Additional resources
+Installing with a package manager
+Installing manually
+Upgrade with the Gradle Wrapper
+Older Releases
+Command-Line Completion
+Prerequisites
+Gradle runs on all major operating systems and requires only a Java JDK version 8 or higher to be installed. To check, run java -version:
+
+$ java -version
+java version "1.8.0_121"
+Additional resources
+On-demand and live online training is available for free to Gradle users.
+Self-paced tutorials are a good place to try Gradle with a variety of languages in addition to the docs.
+Gradle has a visual build inspection tool: Build Scan™.
+Finally, the Gradle Newsletter is a great way to keep UP-TO-DATE, with issues crafted monthly.
+Installing with a package manager
+SDKMAN! is a tool for managing parallel versions of multiple Software Development Kits on most Unix-based systems.
+
+$ sdk install gradle 7.5.1
+
+Homebrew is “the missing package manager for macOS”.
+
+$ brew install gradle
+
+
+Other package managers are available, but the version of Gradle distributed by them is not controlled by Gradle, Inc. Linux package managers may distribute a modified version of Gradle that is incompatible or incomplete when compared to the official version (available from SDKMAN! or below).
+
+› Additional helpful information
+Installing manually
+Step 1. Download the latest Gradle distribution
+The current Gradle release is version 7.5.1, released on 05 Aug 2022. The distribution zip file comes in two flavors:
+
+Binary-only
+Complete, with docs and sources
+If in doubt, choose the binary-only version and browse docs and sources online.
+
+Need to work with an older version? See the releases page.
+
+Step 2. Unpack the distribution
+Linux & MacOS users
+Unzip the distribution zip file in the directory of your choosing, e.g.:
+
+$ mkdir /opt/gradle
+$ unzip -d /opt/gradle gradle-7.5.1-bin.zip
+$ ls /opt/gradle/gradle-7.5.1
+LICENSE  NOTICE  bin  getting-started.html  init.d  lib  media
+Microsoft Windows users
+Create a new directory C:\Gradle with File Explorer.
+
+Open a second File Explorer window and go to the directory where the Gradle distribution was downloaded. Double-click the ZIP archive to expose the content. Drag the content folder gradle-7.5.1 to your newly created C:\Gradle folder.
+
+Alternatively you can unpack the Gradle distribution ZIP into C:\Gradle using an archiver tool of your choice.
+
+Step 3. Configure your system environment
+Linux & MacOS users
+Configure your PATH environment variable to include the bin directory of the unzipped distribution, e.g.:
+
+ $ export PATH=$PATH:/opt/gradle/gradle-7.5.1/bin
+Microsoft Windows users
+In File Explorer right-click on the This PC (or Computer) icon, then click Properties -> Advanced System Settings -> Environmental Variables.
+
+Under System Variables select Path, then click Edit. Add an entry for C:\Gradle\gradle-7.5.1\bin. Click OK to save.
+
+Step 4. Verify your installation
+Open a console (or a Windows command prompt) and run gradle -v to run gradle and display the version, e.g.:
+
+uinstall python.read~v
+
+------------------------------------------------------------branches: mainbranch
+Gradle 7.5.1
+------------------------------------------------------------branches: trunk
+› Additional helpful information
+Upgrade with the Gradle Wrapper
+If your existing Gradle-based build uses the Gradle Wrapper, you can easily upgrade by running the wrapper task, specifying the desired Gradle version:
+
+$ ./gradlew wrapper --gradle-version=7.5.1 --distribution-type=bin
+Note that it is not necessary for Gradle to be installed to use the Gradle wrapper. The next invocation of gradlew or gradlew.bat will download and cache the specified version of Gradle.© Gradle Inc. 202
+=======
 charset = keymap = new=: $ obj
 new =: language
 languae : Dns.Python.javascdript
@@ -11,45 +104,17 @@ AUTOMATE
 import * as path from 'path'
 import * as utils from '../lib/utils'
 
-const originalGitHubWorkspace = process.env['GITHUB_WORKSPACE']
-
+const: Master'@mmaster
 describe7.7 Use default parameter syntax rather than mutating function arguments.
 
-// really bad
-function handleThings(opts) {
-  // No! We shouldn’t mutate function arguments.
-  // Double bad: if opts is falsy it'll be set to an object which may
-  // be what you want but it can introduce subtle bugs.
-  opts = opts || {};
-  // ...
-}
 
-// still bad
-function handleThings(opts) {
-  if (opts === void 0) {
-    opts = {};
-  }
-  // ...
-}
-
-// good
-function handleThings(opts = {}) {
-  // ...
-}
-
-7.8 Avoid side effects with default parameters.
-
-Why? They are confusing to reason about.
-
-var b = 1;
-// bad
 function count(a = b++) {
   console.log(a);
 }
-count();  // 1
-count();  // 2
-count(3); // 3
-count();  // 3
+count(c);  // 1
+count(AGS);  // 2
+count(r); // 3
+count(new= $ obj);  // 3
 
 7.9 Always put default parameters last. eslint: default-param-last
 
@@ -67,7 +132,7 @@ function handleThings(name, opts = {}) {
 
 Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
 
-// bad
+// 
 var add = new Function('a', 'b', 'return a + b');
 
 // still bad
@@ -77,7 +142,7 @@ var subtract = Function('a', 'b', 'return a - b');
 
 Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
 
-// bad
+/
 const f = function(){};
 const g = function (){};
 const h = function() {};
@@ -4139,11 +4204,8 @@ new Date(...[2016, 8, 5]);('utils tests', ((c)) => {
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
 
 ## License'
-Access: Private
+Access: Public
 All Rights Reserved
 
 Copyright (((c))((r))) 2001-01-19 ZACHRY TYLER WOOD
-
-
-
 
