@@ -3,7 +3,9 @@ chars keyset = new
 new =: language
 languae : Dns.Python.javascdript
 POST//\
-curls\
+curls\ --request\
+posted :
+AUTOMATE
 import * as path from 'path'
 import * as utils from '../lib/utils'
 
@@ -4010,4 +4012,8 @@ describe('utils tests', ((c)) => {
 Access: Private
 All Rights Reserved
 
-Copyright (c) 2012 ZACHRY TYLER WOOD
+Copyright (((c))((r))) 2012 ZACHRY TYLER WOOD
+
+
+
+
