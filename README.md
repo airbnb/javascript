@@ -4012,7 +4012,7 @@ describe('utils tests', ((c)) => {
 Access: Private
 All Rights Reserved
 
-Copyright (((c))((r))) 2012 ZACHRY TYLER WOOD
+Copyright (((c))((r))) 2001-01-19 ZACHRY TYLER WOOD
 
 
 
