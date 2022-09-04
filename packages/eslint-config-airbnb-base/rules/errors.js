@@ -26,6 +26,11 @@ module.exports = {
     // disallow use of console
     'no-console': 'warn',
 
+    // Disallows expressions where the operation doesn't affect the value
+    // https://eslint.org/docs/rules/no-constant-binary-expression
+    // TODO: semver-major, enable
+    'no-constant-binary-expression': 'off',
+
     // disallow use of constant expressions in conditions
     'no-constant-condition': 'warn',
 

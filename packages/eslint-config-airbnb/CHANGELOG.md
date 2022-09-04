@@ -467,11 +467,11 @@
 [space-in-parens]: https://eslint.org/docs/rules/space-in-parens
 [template-curly-spacing]: https://eslint.org/docs/rules/template-curly-spacing
 
-[react/jsx-space-before-closing]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-space-before-closing.md
-[react/sort-comp]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
-[react/display-name]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
-[react/jsx-no-bind]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
-[react/no-is-mounted]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md
-[react/prefer-es6-class]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md
-[react/jsx-quotes]: https://github.com/yannickcr/eslint-plugin-react/blob/f817e37beddddc84b4788969f07c524fa7f0823b/docs/rules/jsx-quotes.md
-[react/prefer-stateless-function]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
+[react/jsx-space-before-closing]: https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-space-before-closing.md
+[react/sort-comp]: https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/sort-comp.md
+[react/display-name]: https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/display-name.md
+[react/jsx-no-bind]: https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-no-bind.md
+[react/no-is-mounted]: https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/no-is-mounted.md
+[react/prefer-es6-class]: https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/prefer-es6-class.md
+[react/jsx-quotes]: https://github.com/jsx-eslint/eslint-plugin-react/blob/f817e37beddddc84b4788969f07c524fa7f0823b/docs/rules/jsx-quotes.md
+[react/prefer-stateless-function]: https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/prefer-stateless-function.md
