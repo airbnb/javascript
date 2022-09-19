@@ -67,6 +67,7 @@ module.exports = {
 
     // disallow the use of alert, confirm, and prompt
     // https://eslint.org/docs/rules/no-alert
+    // TODO: enable, semver-major
     'no-alert': 'warn',
 
     // disallow use of arguments.caller or arguments.callee
