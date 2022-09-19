@@ -71,7 +71,7 @@
     "object.entries": "^1.1.5"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.18.0",
+    "@babel/runtime": "^7.19.0",
     "babel-preset-airbnb": "^4.5.0",
     "babel-tape-runner": "^3.0.0",
     "eclint": "^2.8.1",
@@ -84,7 +84,7 @@
     "in-publish": "^2.0.1",
     "react": ">= 0.13.0",
     "safe-publish-latest": "^2.0.0",
-    "tape": "^5.5.3"
+    "tape": "^5.6.0"
   },
   "peerDependencies": {
     "eslint": "^7.32.0 || ^8.2.0",
