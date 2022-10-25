@@ -2852,6 +2852,14 @@ Other Style Guides
       && jsonData.foo.bar.baz.quux
       && jsonData.foo.bar.baz.quux.xyzzy;
 
+    // better
+    const foo = jsonData
+      ?.foo
+      ?.bar
+      ?.baz
+      ?.quux
+      ?.xyzzy;
+
     // good
     $.ajax({
       method: 'POST',
