@@ -2096,11 +2096,13 @@ Other Style Guides
     const foo = a ? a : b;
     const bar = c ? true : false;
     const baz = c ? false : true;
+    const quux = a != null ? a : b;
 
     // good
     const foo = a || b;
     const bar = !!c;
     const baz = !c;
+    const quux = a ?? b;
     ```
 
   <a name="comparison--no-mixed-operators"></a>
