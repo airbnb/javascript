@@ -191,6 +191,13 @@ module.exports = {
       after: 'always',
     }],
 
+    // Require or disallow logical assignment logical operator shorthand
+    // https://eslint.org/docs/latest/rules/logical-assignment-operators
+    // TODO, semver-major: enable
+    'logical-assignment-operators': ['off', 'always', {
+      enforceForIfStatements: true,
+    }],
+
     // specify the maximum depth that blocks can be nested
     'max-depth': ['off', 4],
 
