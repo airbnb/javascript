@@ -2702,7 +2702,7 @@ Other Style Guides
     // bad
     if (baz) {
 
-      console.log(qux);
+      console.log(quux);
     } else {
       console.log(foo);
 
@@ -2723,7 +2723,7 @@ Other Style Guides
 
     // good
     if (baz) {
-      console.log(qux);
+      console.log(quux);
     } else {
       console.log(foo);
     }
