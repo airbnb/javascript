@@ -2509,7 +2509,7 @@ Other Style Guides
     }
 
     // bad
-    dog.set('attr',{
+    dog.set('attr', {
       age: '1 year',
       breed: 'Bernese Mountain Dog',
     });
@@ -2609,7 +2609,7 @@ Other Style Guides
     // bad
     const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
         .attr('width', (radius + margin) * 2).append('svg:g')
-        .attr('transform', `translate(${radius + margin},${radius + margin})`)
+        .attr('transform', `translate(${radius + margin}, ${radius + margin})`)
         .call(tron.led);
 
     // good
@@ -2619,7 +2619,7 @@ Other Style Guides
         .classed('led', true)
         .attr('width', (radius + margin) * 2)
       .append('svg:g')
-        .attr('transform', `translate(${radius + margin},${radius + margin})`)
+        .attr('transform', `translate(${radius + margin}, ${radius + margin})`)
         .call(tron.led);
 
     // good
@@ -2627,7 +2627,7 @@ Other Style Guides
     const svg = leds.enter().append('svg:svg');
     svg.classed('led', true).attr('width', (radius + margin) * 2);
     const g = svg.append('svg:g');
-    g.attr('transform', `translate(${radius + margin},${radius + margin})`).call(tron.led);
+    g.attr('transform', `translate(${radius + margin}, ${radius + margin})`).call(tron.led);
     ```
 
   <a name="whitespace--after-blocks"></a><a name="18.7"></a>
@@ -3481,7 +3481,7 @@ Other Style Guides
 
     // good
     export const MAPPING = {
-      key: 'value'
+      key: 'value',
     };
     ```
 
