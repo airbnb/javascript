@@ -3213,7 +3213,7 @@ Other Style Guides
     ```
 
   <a name="coercion--comment-deviations"></a><a name="21.4"></a>
-  - [22.4](#coercion--comment-deviations) If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](https://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you’re doing.
+  - [22.4](#coercion--comment-deviations) If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](https://web.archive.org/web/20200414205431/https://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you’re doing.
 
     ```javascript
     // good
@@ -3636,7 +3636,7 @@ Other Style Guides
     ```
 
   <a name="jquery--queries"></a><a name="25.3"></a>
-  - [26.3](#jquery--queries) For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](https://jsperf.com/jquery-find-vs-context-sel/16)
+  - [26.3](#jquery--queries) For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](https://web.archive.org/web/20200414183810/https://jsperf.com/jquery-find-vs-context-sel/16)
 
   <a name="jquery--find"></a><a name="25.4"></a>
   - [26.4](#jquery--find) Use `find` with scoped jQuery object queries.
@@ -3760,12 +3760,12 @@ Other Style Guides
 ## Performance
 
   - [On Layout & Web Performance](https://www.kellegous.com/j/2013/01/26/layout-performance/)
-  - [String vs Array Concat](https://jsperf.com/string-vs-array-concat/2)
-  - [Try/Catch Cost In a Loop](https://jsperf.com/try-catch-in-loop-cost/12)
-  - [Bang Function](https://jsperf.com/bang-function)
-  - [jQuery Find vs Context, Selector](https://jsperf.com/jquery-find-vs-context-sel/164)
-  - [innerHTML vs textContent for script text](https://jsperf.com/innerhtml-vs-textcontent-for-script-text)
-  - [Long String Concatenation](https://jsperf.com/ya-string-concat/38)
+  - [String vs Array Concat](https://web.archive.org/web/20200414200857/https://jsperf.com/string-vs-array-concat/2)
+  - [Try/Catch Cost In a Loop](https://web.archive.org/web/20200414190827/https://jsperf.com/try-catch-in-loop-cost/12)
+  - [Bang Function](https://web.archive.org/web/20200414205426/https://jsperf.com/bang-function)
+  - [jQuery Find vs Context, Selector](https://web.archive.org/web/20200414200850/https://jsperf.com/jquery-find-vs-context-sel/164)
+  - [innerHTML vs textContent for script text](https://web.archive.org/web/20200414205428/https://jsperf.com/innerhtml-vs-textcontent-for-script-text)
+  - [Long String Concatenation](https://web.archive.org/web/20200414203914/https://jsperf.com/ya-string-concat/38)
   - [Are JavaScript functions like `map()`, `reduce()`, and `filter()` optimized for traversing arrays?](https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta)
   - Loading...
 
@@ -3829,7 +3829,7 @@ Other Style Guides
   - [Superhero.js](http://superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy
   - [JSBooks](https://jsbooks.revolunet.com/) - Julien Bouquillon
   - [Third Party JavaScript](https://www.manning.com/books/third-party-javascript) - Ben Vinegar and Anton Kovalyov
-  - [Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript](https://amzn.com/0321812182) - David Herman
+  - [Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript](https://amzn.com/dp/0321812182) - David Herman
   - [Eloquent JavaScript](https://eloquentjavascript.net/) - Marijn Haverbeke
   - [You Don’t Know JS: ES6 & Beyond](https://shop.oreilly.com/product/0636920033769.do) - Kyle Simpson
 
@@ -3911,16 +3911,15 @@ Other Style Guides
   - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
   - **MitocGroup**: [MitocGroup/javascript](https://github.com/MitocGroup/javascript)
   - **Muber**: [muber](https://github.com/muber/)
-  - **National Geographic**: [natgeo](https://github.com/natgeo/)
+  - **National Geographic Society**: [natgeosociety](https://github.com/natgeosociety/)
   - **NullDev**: [NullDevCo/JavaScript-Styleguide](https://github.com/NullDevCo/JavaScript-Styleguide)
   - **Nulogy**: [nulogy/javascript](https://github.com/nulogy/javascript)
   - **Orange Hill Development**: [orangehill/javascript](https://github.com/orangehill/javascript)
   - **Orion Health**: [orionhealth/javascript](https://github.com/orionhealth/javascript)
-  - **OutBoxSoft**: [OutBoxSoft/javascript](https://github.com/OutBoxSoft/javascript)
   - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
   - **Pier 1**: [Pier1/javascript](https://github.com/pier1/javascript)
   - **Qotto**: [Qotto/javascript-style-guide](https://github.com/Qotto/javascript-style-guide)
-  - **React**: [facebook.github.io/react/contributing/how-to-contribute.html#style-guide](https://facebook.github.io/react/contributing/how-to-contribute.html#style-guide)
+  - **React**: [reactjs.org/docs/how-to-contribute.html#style-guide](https://reactjs.org/docs/how-to-contribute.html#style-guide)
   - **REI**: [reidev/js-style-guide](https://github.com/rei/code-style-guides/)
   - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
   - **Sainsbury’s Supermarkets**: [jsainsburyplc](https://github.com/jsainsburyplc)
