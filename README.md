@@ -778,7 +778,7 @@ Other Style Guides
     > Why? They are confusing to reason about.
 
     ```javascript
-    var b = 1;
+    let b = 1;
     // bad
     function count(a = b++) {
       console.log(a);
@@ -811,10 +811,10 @@ Other Style Guides
 
     ```javascript
     // bad
-    var add = new Function('a', 'b', 'return a + b');
+    const add = new Function('a', 'b', 'return a + b');
 
     // still bad
-    var subtract = Function('a', 'b', 'return a - b');
+    const subtract = Function('a', 'b', 'return a - b');
     ```
 
   <a name="functions--signature-spacing"></a><a name="7.11"></a>
@@ -1830,14 +1830,14 @@ Other Style Guides
     ```javascript
     // bad
 
-    var some_unused_var = 42;
+    const some_unused_var = 42;
 
     // Write-only variables are not considered as used.
-    var y = 10;
+    let y = 10;
     y = 5;
 
     // A read for a modification of itself is not considered as used.
-    var z = 0;
+    let z = 0;
     z = z + 1;
 
     // Unused function arguments.
@@ -1851,14 +1851,14 @@ Other Style Guides
       return x + y;
     }
 
-    var x = 1;
-    var y = a + 2;
+    const x = 1;
+    const y = a + 2;
 
     alert(getXPlusY(x, y));
 
     // 'type' is ignored even if unused because it has a rest property sibling.
     // This is a form of extracting an object that omits the specified keys.
-    var { type, ...coords } = data;
+    const { type, ...coords } = data;
     // 'coords' is now the 'data' object without its 'type' property.
     ```
 
@@ -2892,12 +2892,12 @@ Other Style Guides
 
     ```javascript
     // bad
-    var foo = 1,bar = 2;
-    var arr = [1 , 2];
+    const foo = 1,bar = 2;
+    const arr = [1 , 2];
 
     // good
-    var foo = 1, bar = 2;
-    var arr = [1, 2];
+    const foo = 1, bar = 2;
+    const arr = [1, 2];
     ```
 
   <a name="whitespace--computed-property-spacing"></a>
@@ -2907,13 +2907,13 @@ Other Style Guides
     // bad
     obj[foo ]
     obj[ 'foo']
-    var x = {[ b ]: a}
+    const x = {[ b ]: a}
     obj[foo[ bar ]]
 
     // good
     obj[foo]
     obj['foo']
-    var x = { [b]: a }
+    const x = { [b]: a }
     obj[foo[bar]]
     ```
 
@@ -2936,11 +2936,11 @@ Other Style Guides
 
     ```javascript
     // bad
-    var obj = { foo : 42 };
-    var obj2 = { foo:42 };
+    const obj = { foo : 42 };
+    const obj2 = { foo:42 };
 
     // good
-    var obj = { foo: 42 };
+    const obj = { foo: 42 };
     ```
 
   <a name="whitespace--no-trailing-spaces"></a>
@@ -2952,24 +2952,24 @@ Other Style Guides
     <!-- markdownlint-disable MD012 -->
     ```javascript
     // bad - multiple empty lines
-    var x = 1;
+    const x = 1;
 
 
-    var y = 2;
+    const y = 2;
 
     // bad - 2+ newlines at end of file
-    var x = 1;
-    var y = 2;
+    const x = 1;
+    const y = 2;
 
 
     // bad - 1+ newline(s) at beginning of file
 
-    var x = 1;
-    var y = 2;
+    const x = 1;
+    const y = 2;
 
     // good
-    var x = 1;
-    var y = 2;
+    const x = 1;
+    const y = 2;
 
     ```
     <!-- markdownlint-enable MD012 -->
