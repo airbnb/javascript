@@ -2,6 +2,9 @@ name: 'Tests: node.js'
 
 on: [pull_request, push]
 
+permissions:
+  contents: read
+
 jobs:
   matrix:
     runs-on: ubuntu-latest
