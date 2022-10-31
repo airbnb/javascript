@@ -2509,7 +2509,7 @@ Other Style Guides
     }
 
     // bad
-    dog.set('attr', {
+    dog.set('attr',{
       age: '1 year',
       breed: 'Bernese Mountain Dog',
     });
