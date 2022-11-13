@@ -73,6 +73,8 @@ Other Style Guides
     - `symbol`
     - `bigint`
 
+    <br />
+
     ```javascript
     const foo = 1;
     let bar = foo;
@@ -90,6 +92,8 @@ Other Style Guides
     - `object`
     - `array`
     - `function`
+
+    <br />
 
     ```javascript
     const foo = [1, 2];
