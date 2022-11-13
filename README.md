@@ -73,16 +73,18 @@ Other Style Guides
     - `symbol`
     - `bigint`
 
+    <p></p>
+
     ```javascript
-    const foo = 1;
-    let bar = foo;
+      const foo = 1;
+      let bar = foo;
 
-    bar = 9;
+      bar = 9;
 
-    console.log(foo, bar); // => 1, 9
+      console.log(foo, bar); // => 1, 9
     ```
 
-    - Symbols and BigInts cannot be faithfully polyfilled, so they should not be used when targeting browsers/environments that don’t support them natively.
+  - Symbols and BigInts cannot be faithfully polyfilled, so they should not be used when targeting browsers/environments that don’t support them natively.
 
   <a name="types--complex"></a><a name="1.2"></a>
   - [1.2](#types--complex)  **Complex**: When you access a complex type you work on a reference to its value.
@@ -90,6 +92,8 @@ Other Style Guides
     - `object`
     - `array`
     - `function`
+
+    <p></p>
 
     ```javascript
     const foo = [1, 2];
