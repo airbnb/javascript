@@ -311,6 +311,8 @@ Other Style Guides
     /* or */
     import has from 'has'; // https://www.npmjs.com/package/has
     console.log(has(object, key));
+    /* or */
+    console.log(Object.hasOwn(object, key)); // https://www.npmjs.com/package/object.hasown
     ```
 
   <a name="objects--rest-spread"></a>
