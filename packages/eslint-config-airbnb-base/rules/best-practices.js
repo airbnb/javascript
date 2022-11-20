@@ -104,6 +104,11 @@ module.exports = {
     // https://eslint.org/docs/rules/no-empty-pattern
     'no-empty-pattern': 'error',
 
+    // Disallow empty static blocks
+    // https://eslint.org/docs/latest/rules/no-empty-static-block
+    // TODO: semver-major, enable
+    'no-empty-static-block': 'off',
+
     // disallow comparisons to null without a type-checking operator
     // https://eslint.org/docs/rules/no-eq-null
     'no-eq-null': 'off',
