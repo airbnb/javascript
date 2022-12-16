@@ -91,6 +91,7 @@ module.exports = {
 
     // Validate JSX has key prop when in array or iterator
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-key.md
+    // Turned off because it has too many false positives
     'react/jsx-key': 'off',
 
     // Limit maximum of props on a single line in JSX
@@ -244,6 +245,7 @@ module.exports = {
         'static-methods',
         'instance-variables',
         'lifecycle',
+        '/^handle.+$/',
         '/^on.+$/',
         'getters',
         'setters',
@@ -494,6 +496,7 @@ module.exports = {
     'react/jsx-props-no-spreading': ['error', {
       html: 'enforce',
       custom: 'enforce',
+      explicitSpread: 'ignore',
       exceptions: [],
     }],
 
@@ -503,8 +506,7 @@ module.exports = {
 
     // Prevent usage of `javascript:` URLs
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-script-url.md
-    // TODO: enable, semver-major
-    'react/jsx-no-script-url': ['off', [
+    'react/jsx-no-script-url': ['error', [
       {
         name: 'Link',
         props: ['to'],
@@ -513,8 +515,7 @@ module.exports = {
 
     // Disallow unnecessary fragments
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
-    // TODO: enable, semver-major
-    'react/jsx-no-useless-fragment': 'off',
+    'react/jsx-no-useless-fragment': 'error',
 
     // Prevent adjacent inline elements not separated by whitespace
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-adjacent-inline-elements.md
@@ -523,12 +524,42 @@ module.exports = {
 
     // Enforce a specific function type for function components
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
-    // TODO: enable! semver-minor, but do it in a major to be safe
-    // TODO: investigate if setting namedComponents to expression vs declaration is problematic
-    'react/function-component-definition': ['off', {
-      namedComponents: 'function-expression',
+    'react/function-component-definition': ['error', {
+      namedComponents: ['function-declaration', 'function-expression'],
       unnamedComponents: 'function-expression',
     }],
+
+    // Enforce a new line after jsx elements and expressions
+    // https://github.com/yannickcr/eslint-plugin-react/blob/e2eaadae316f9506d163812a09424eb42698470a/docs/rules/jsx-newline.md
+    'react/jsx-newline': 'off',
+
+    // Prevent react contexts from taking non-stable values
+    // https://github.com/yannickcr/eslint-plugin-react/blob/e2eaadae316f9506d163812a09424eb42698470a/docs/rules/jsx-no-constructed-context-values.md
+    'react/jsx-no-constructed-context-values': 'error',
+
+    // Prevent creating unstable components inside components
+    // https://github.com/yannickcr/eslint-plugin-react/blob/c2a790a3472eea0f6de984bdc3ee2a62197417fb/docs/rules/no-unstable-nested-components.md
+    'react/no-unstable-nested-components': 'error',
+
+    // Enforce that namespaces are not used in React elements
+    // https://github.com/yannickcr/eslint-plugin-react/blob/8785c169c25b09b33c95655bf508cf46263bc53f/docs/rules/no-namespace.md
+    'react/no-namespace': 'error',
+
+    // Prefer exact proptype definitions
+    // https://github.com/yannickcr/eslint-plugin-react/blob/8785c169c25b09b33c95655bf508cf46263bc53f/docs/rules/prefer-exact-props.md
+    'react/prefer-exact-props': 'error',
+
+    // Lifecycle methods should be methods on the prototype, not class fields
+    // https://github.com/yannickcr/eslint-plugin-react/blob/21e01b61af7a38fc86d94f27eb66cda8054582ed/docs/rules/no-arrow-function-lifecycle.md
+    'react/no-arrow-function-lifecycle': 'error',
+
+    // Prevent usage of invalid attributes
+    // https://github.com/yannickcr/eslint-plugin-react/blob/21e01b61af7a38fc86d94f27eb66cda8054582ed/docs/rules/no-invalid-html-attribute.md
+    'react/no-invalid-html-attribute': 'error',
+
+    // Prevent declaring unused methods of component class
+    // https://github.com/yannickcr/eslint-plugin-react/blob/21e01b61af7a38fc86d94f27eb66cda8054582ed/docs/rules/no-unused-class-component-methods.md
+    'react/no-unused-class-component-methods': 'error',
   },
 
   settings: {

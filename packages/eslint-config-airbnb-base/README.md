@@ -1,6 +1,10 @@
-# eslint-config-airbnb-base
+# eslint-config-airbnb-base <sup>[![Version Badge][npm-version-svg]][package-url]</sup>
 
-[![npm version](https://badge.fury.io/js/eslint-config-airbnb-base.svg)](http://badge.fury.io/js/eslint-config-airbnb-base)
+[![npm version](https://badge.fury.io/js/eslint-config-airbnb-base.svg)][package-url]
+
+[![github actions][actions-image]][actions-url]
+[![License][license-image]][license-url]
+[![Downloads][downloads-image]][downloads-url]
 
 This package provides Airbnb's base JS .eslintrc (without React plugins) as an extensible shared config.
 
@@ -79,7 +83,7 @@ Lints ES5 and below. Requires `eslint` and `eslint-plugin-import`.
   Which produces and runs a command like:
 
   ```sh
-  npm install --save-dev eslint-config-airbnb-base eslint@^3.0.1 eslint-plugin-import@^1.10.3
+  npm install --save-dev eslint-config-airbnb-base eslint@^#.#.# eslint-plugin-import@^#.#.#
   ```
 
 2. Add `"extends": "airbnb-base/legacy"` to your .eslintrc
@@ -97,3 +101,12 @@ Consider adding test cases if you're making complicated rules changes, like anyt
 You can run tests with `npm test`.
 
 You can make sure this module lints with itself using `npm run lint`.
+
+[package-url]: https://npmjs.org/package/eslint-config-airbnb-base
+[npm-version-svg]: https://versionbadg.es/airbnb/javascript.svg
+[license-image]: https://img.shields.io/npm/l/eslint-config-airbnb-base.svg
+[license-url]: LICENSE.md
+[downloads-image]: https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg
+[downloads-url]: https://npm-stat.com/charts.html?package=eslint-config-airbnb-base
+[actions-image]: https://img.shields.io/endpoint?url=https://github-actions-badge-u3jn4tfpocch.runkit.sh/airbnb/javascript
+[actions-url]: https://github.com/airbnb/javascript/actions

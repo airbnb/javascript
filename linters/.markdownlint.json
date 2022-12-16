@@ -69,7 +69,7 @@
   "no-multiple-space-closed-atx": true,
 
   "comment": "MD022: Headers should be surrounded by blank lines.",
-  "comment": "Some headers have preceeding HTML anchors. Unfortunate that we have to disable this, as it otherwise catches a real problem that trips up some Markdown renderers",
+  "comment": "Some headers have preceding HTML anchors. Unfortunate that we have to disable this, as it otherwise catches a real problem that trips up some Markdown renderers",
   "blanks-around-headers": false,
 
   "comment": "MD023: Headers must start at the beginning of the line.",
@@ -111,7 +111,7 @@
   "blanks-around-fences": true,
 
   "comment": "MD032: Lists should be surrounded by blank lines",
-  "comment": "Some lists have preceeding HTML anchors. Unfortunate that we have to disable this, as it otherwise catches a real problem that trips up some Markdown renderers",
+  "comment": "Some lists have preceding HTML anchors. Unfortunate that we have to disable this, as it otherwise catches a real problem that trips up some Markdown renderers",
   "blanks-around-lists": false,
 
   "comment": "MD033: Disallow inline HTML",

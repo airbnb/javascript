@@ -67,6 +67,15 @@ module.exports = {
     // https://eslint.org/docs/rules/no-new-symbol
     'no-new-symbol': 'error',
 
+    // Disallow specified names in exports
+    // https://eslint.org/docs/rules/no-restricted-exports
+    'no-restricted-exports': ['error', {
+      restrictedNamedExports: [
+        'default', // use `export default` to provide a default export
+        'then', // this will cause tons of confusion when your module is dynamically `import()`ed, and will break in most node ESM versions
+      ],
+    }],
+
     // disallow specific imports
     // https://eslint.org/docs/rules/no-restricted-imports
     'no-restricted-imports': [
@@ -163,7 +172,7 @@ module.exports = {
     // https://eslint.org/docs/rules/prefer-rest-params
     'prefer-rest-params': 'error',
 
-    // suggest using the spread operator instead of .apply()
+    // suggest using the spread syntax instead of .apply()
     // https://eslint.org/docs/rules/prefer-spread
     'prefer-spread': 'error',
 

@@ -1,0 +1,163 @@
+name: 'Tests: node.js'
+
+on: [pull_request, push]
+
+jobs:
+  matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      latest: ${{ steps.set-matrix.outputs.requireds }}
+    steps:
+      - uses: ljharb/actions/node/matrix@main
+        id: set-matrix
+        with:
+          versionsAsRoot: true
+          type: 'majors'
+          preset: '^12 || ^14 || ^16 || >= 17'
+
+  base:
+    needs: [matrix]
+    name: 'base config'
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ${{ fromJson(needs.matrix.outputs.latest) }}
+        eslint:
+          - 8
+          - 7
+        package:
+          - eslint-config-airbnb-base
+        exclude:
+          - node-version: 10
+            eslint: 8
+            package: eslint-config-airbnb-base
+
+    defaults:
+      run:
+        working-directory: "packages/${{ matrix.package }}"
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ljharb/actions/node/install@main
+        name: 'nvm install ${{ matrix.node-version }} && npm install'
+        with:
+          before_install: cd "packages/${{ matrix.package }}"
+          node-version: ${{ matrix.node-version }}
+          after_install: |
+            npm install --no-save "eslint@${{ matrix.eslint }}"
+      - run: node -pe "require('eslint/package.json').version"
+        name: 'eslint version'
+      - run: npm run travis
+      - uses: codecov/codecov-action@v2
+
+  react:
+    needs: [matrix]
+    name: 'react config'
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ${{ fromJson(needs.matrix.outputs.latest) }}
+        eslint:
+          - 8
+          - 7
+        package:
+          - eslint-config-airbnb
+        react-hooks:
+          - 4
+
+    defaults:
+      run:
+        working-directory: "packages/${{ matrix.package }}"
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ljharb/actions/node/install@main
+        name: 'nvm install ${{ matrix.node-version }} && npm install'
+        with:
+          before_install: cd "packages/${{ matrix.package }}"
+          node-version: ${{ matrix.node-version }}
+          after_install: |
+            npm install --no-save "eslint@${{ matrix.eslint }}"
+      - run: node -pe "require('eslint/package.json').version"
+        name: 'eslint version'
+      - run: npm install --no-save "eslint-plugin-react-hooks@${{ matrix.react-hooks }}"
+        if: ${{ matrix.react-hooks > 0}}
+      - run: npm run travis
+      - uses: codecov/codecov-action@v2
+
+  prepublish-base:
+    name: 'prepublish tests (base config)'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        eslint:
+          - 8
+          - 7
+        package:
+          - eslint-config-airbnb-base
+
+    defaults:
+      run:
+        working-directory: "packages/${{ matrix.package }}"
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ljharb/actions/node/install@main
+        name: 'nvm install lts/* && npm install'
+        with:
+          before_install: cd "packages/${{ matrix.package }}"
+          node-version: lts/*
+          after_install: |
+            npm install --no-save "eslint@${{ matrix.eslint }}"
+      - run: node -pe "require('eslint/package.json').version"
+        name: 'eslint version'
+      - run: npm run pretravis
+      - run: npm run prepublishOnly
+      - run: npm run posttravis
+
+  prepublish-react:
+    name: 'prepublish tests (react config)'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        eslint:
+          - 8
+          - 7
+        package:
+          - eslint-config-airbnb
+        react-hooks:
+          - 4
+
+    defaults:
+      run:
+        working-directory: "packages/${{ matrix.package }}"
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ljharb/actions/node/install@main
+        name: 'nvm install lts/* && npm install'
+        with:
+          before_install: cd "packages/${{ matrix.package }}"
+          node-version: lts/*
+          after_install: |
+            npm install --no-save "eslint@${{ matrix.eslint }}"
+      - run: npm install --no-save "eslint-plugin-react-hooks@${{ matrix.react-hooks }}"
+        if: ${{ matrix.react-hooks > 0}}
+      - run: node -pe "require('eslint/package.json').version"
+        name: 'eslint version'
+      - run: npm run pretravis
+      - run: npm run prepublishOnly
+      - run: npm run posttravis
+
+  node:
+    name: 'node 10+'
+    needs: [base, prepublish-base, react, prepublish-react]
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'echo tests completed'
