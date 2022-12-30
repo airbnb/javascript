@@ -4,7 +4,6 @@ const { CLIEngine } = require('eslint');
 
 if (CLIEngine) {
   /* eslint no-inner-declarations: 0 */
-  const assign = require('object.assign');
   const entries = require('object.entries');
   const whitespaceRules = require('./whitespaceRules');
 
@@ -23,7 +22,7 @@ if (CLIEngine) {
   }
 
   function onlyErrorOnRules(rulesToError, config) {
-    const errorsOnly = assign({}, config);
+    const errorsOnly = { ...config };
     const cli = new CLIEngine({ baseConfig: config, useEslintrc: false });
     const baseRules = cli.getConfigForFile(require.resolve('./')).rules;
 

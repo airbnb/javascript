@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const assign = require('object.assign');
 const entries = require('object.entries');
 const { ESLint } = require('eslint');
 
@@ -20,7 +19,7 @@ function getSeverity(ruleConfig) {
 }
 
 async function onlyErrorOnRules(rulesToError, config) {
-  const errorsOnly = assign({}, config);
+  const errorsOnly = { ...config };
   const cli = new ESLint({
     useEslintrc: false,
     baseConfig: config
