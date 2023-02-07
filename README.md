@@ -3781,6 +3781,7 @@ Other Style Guides
   - [ExploringJS](https://exploringjs.com/)
   - [ES6 Compatibility Table](https://kangax.github.io/compat-table/es6/)
   - [Comprehensive Overview of ES6 Features](http://es6-features.org/)
+  - [JavaScript Roadmap](https://roadmap.sh/javascript)
 
 **Read This**
 
