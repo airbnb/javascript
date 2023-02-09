@@ -269,5 +269,15 @@ module.exports = {
     // Use this rule to prevent importing packages through relative paths.
     // https://github.com/benmosher/eslint-plugin-import/blob/1012eb951767279ce3b540a4ec4f29236104bb5b/docs/rules/no-relative-packages.md
     'import/no-relative-packages': 'error',
+
+    // enforce a consistent style for type specifiers (inline or top-level)
+    // https://github.com/import-js/eslint-plugin-import/blob/d5fc8b670dc8e6903dbb7b0894452f60c03089f5/docs/rules/consistent-type-specifier-style.md
+    // TODO, semver-major: enable (just in case)
+    'import/consistent-type-specifier-style': ['off', 'prefer-inline'],
+
+    // Reports the use of empty named import blocks.
+    // https://github.com/import-js/eslint-plugin-import/blob/d5fc8b670dc8e6903dbb7b0894452f60c03089f5/docs/rules/no-empty-named-blocks.md
+    // TODO, semver-minor: enable
+    'import/no-empty-named-blocks': 'off',
   },
 };
