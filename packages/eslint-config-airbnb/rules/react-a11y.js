@@ -247,5 +247,20 @@ module.exports = {
       },
       allowChildren: false,
     }],
+
+    // Ensures anchor text is not ambiguous
+    // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/93f78856655696a55309440593e0948c6fb96134/docs/rules/anchor-ambiguous-text.md
+    // TODO: semver-major, enable
+    'jsx-a11y/anchor-ambiguous-text': 'off',
+
+    // Enforce that aria-hidden="true" is not set on focusable elements.
+    // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/93f78856655696a55309440593e0948c6fb96134/docs/rules/no-aria-hidden-on-focusable.md
+    // TODO: semver-major, enable
+    'jsx-a11y/no-aria-hidden-on-focusable': 'off',
+
+    // Enforces using semantic DOM elements over the ARIA role property.
+    // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/93f78856655696a55309440593e0948c6fb96134/docs/rules/prefer-tag-over-role.md
+    // TODO: semver-major, enable
+    'jsx-a11y/prefer-tag-over-role': 'off',
   },
 };

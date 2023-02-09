@@ -77,8 +77,8 @@
     "eslint": "^7.32.0 || ^8.2.0",
     "eslint-find-rules": "^4.1.0",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "in-publish": "^2.0.1",
     "react": ">= 0.13.0",
@@ -88,8 +88,8 @@
   "peerDependencies": {
     "eslint": "^7.32.0 || ^8.2.0",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "engines": {
