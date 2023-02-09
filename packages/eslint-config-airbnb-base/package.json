@@ -68,7 +68,7 @@
   },
   "homepage": "https://github.com/airbnb/javascript",
   "devDependencies": {
-    "@babel/runtime": "^7.19.0",
+    "@babel/runtime": "^7.20.13",
     "babel-preset-airbnb": "^4.5.0",
     "babel-tape-runner": "^3.0.0",
     "eclint": "^2.8.1",
@@ -77,7 +77,7 @@
     "eslint-plugin-import": "^2.26.0",
     "in-publish": "^2.0.1",
     "safe-publish-latest": "^2.0.0",
-    "tape": "^5.6.0"
+    "tape": "^5.6.3"
   },
   "peerDependencies": {
     "eslint": "^7.32.0 || ^8.2.0",
