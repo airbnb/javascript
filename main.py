@@ -1,6 +1,10 @@
 num1 = int(input())
 num2 = int(input())
+choice = input()
 
-print(num1 + num2)
-print(num1 - num2)
-print(num1 * num2)
+variations = {'+': num1 + num2, '-': num1 - num2, '*': num1 * num2, '/': num1 / num2}
+
+if choice in variations.keys():
+	print(variations[choice])
+else:
+	print("Недопустимая операция")
