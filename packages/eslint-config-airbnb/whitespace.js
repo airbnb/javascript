@@ -20,7 +20,7 @@ if (CLIEngine) {
     }
     return ruleConfig;
   }
-
+//changed this in second rep
   function onlyErrorOnRules(rulesToError, config) {
     const errorsOnly = { ...config };
     const cli = new CLIEngine({ baseConfig: config, useEslintrc: false });
