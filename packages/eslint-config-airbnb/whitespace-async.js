@@ -17,7 +17,7 @@ function getSeverity(ruleConfig) {
   }
   return ruleConfig;
 }
-
+//changed this in second rep
 async function onlyErrorOnRules(rulesToError, config) {
   const errorsOnly = { ...config };
   const cli = new ESLint({
