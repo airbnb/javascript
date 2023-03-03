@@ -1,5 +1,9 @@
 MIT License a
+<<<<<<< HEAD
 ddgf
+=======
+fggh
+>>>>>>> 998e95dd448c7180abeac62245101f8b50a5ef51
 Copyright (c) 2012 Airbnb
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
