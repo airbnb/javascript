@@ -1,6 +1,6 @@
 {
   "name": "airbnb-style",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "scripts": {
     "preinstall": "npm run install:config && npm run install:config:base",
     "postinstall": "rm -rf node_modules/markdownlint-cli/node_modules/markdownlint",
