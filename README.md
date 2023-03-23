@@ -1480,7 +1480,7 @@ Other Style Guides
 
     ```javascript
     // bad
-    // Not declared in package,json - es6.js
+    // Not declared in package.json - es6.js
     import es6 from 'es6';
     const es6 = require('es6');
 
