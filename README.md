@@ -464,7 +464,7 @@ Other Style Guides
     ```
 
   <a name="arrays--bracket-newline"></a>
-  - [4.8](#arrays--bracket-newline) Use line breaks after open and before close array brackets if an array has multiple lines
+  - [4.8](#arrays--bracket-newline) Use line breaks after opening array brackets and before closing array brackets, if an array has multiple lines
 
     ```javascript
     // bad
