@@ -1961,6 +1961,56 @@ Other Style Guides
     }
     ```
 
+  <a name="no-use-before-define"></a>
+  - [14.5](#no-use-before-define) Variables, classes, and functions should be defined before they can be used. eslint: [`no-use-before-define`](https://eslint.org/docs/latest/rules/no-use-before-define)
+
+    > Why? When variables, classes, or functions are declared before being used, it can harm readability since a reader won't know what a thing that's referenced is. It's much clearer for a reader to first encounter the source of a thing (whether imported from another module, or defined in the file) before encountering a use of the thing.
+
+    ```javascript
+    // bad
+
+    // Variable a is being used before it is being defined.
+    console.log(a); // this will be undefined, since while the declaration is hoisted, the initialization is not
+    var a = 10;
+
+    // Function fun is being called before being defined.
+    fun();
+    function fun() {}
+
+    // Class A is being used before being defined.
+    new A(); // ReferenceError: Cannot access 'A' before initialization
+    class A {
+    }
+
+    // `let` and `const` are hoisted, but they don't have a default initialization.
+    // The variables 'a' and 'b' are in a Temporal Dead Zone where JavaScript
+    // knows they exist (declaration is hoisted) but they are not accessible
+    // (as they are not yet initialized).
+
+    console.log(a); // ReferenceError: Cannot access 'a' before initialization
+    console.log(b); // ReferenceError: Cannot access 'b' before initialization
+    let a = 10;
+    const b = 5;
+
+
+    // good
+
+    var a = 10;
+    console.log(a); // 10
+
+    function fun() {}
+    fun();
+
+    class A {
+    }
+    new A();
+
+    let a = 10;
+    const b = 5;
+    console.log(a); // 10
+    console.log(b); // 5
+    ```
+
   - For more information refer to [JavaScript Scoping & Hoisting](https://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) by [Ben Cherry](https://www.adequatelygood.com/).
 
 **[⬆ back to top](#table-of-contents)**
