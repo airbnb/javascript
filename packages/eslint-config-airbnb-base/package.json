@@ -88,6 +88,6 @@
   },
   "dependencies": {
     "confusing-browser-globals": "^1.0.11",
-    "object.entries": "^1.1.5"
+    "object.entries": "^1.1.6"
   }
 }
