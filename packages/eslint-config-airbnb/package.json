@@ -70,7 +70,7 @@
     "object.entries": "^1.1.5"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.20.13",
+    "@babel/runtime": "^7.21.5",
     "babel-preset-airbnb": "^4.5.0",
     "babel-tape-runner": "^3.0.0",
     "eclint": "^2.8.1",
