@@ -162,7 +162,7 @@ This style guide is mostly based on the standards that are currently prevalent i
     // bad
     export default React.createClass({
       displayName: 'ReservationCard',
-      // stuff goes here
+    // stuff goes here
     });
 
     // good
