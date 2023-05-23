@@ -1,4 +1,1 @@
-function b64EncodeUnicode(str) {
-  return btoa(encodeURIComponent(str));
-}
-b64EncodeUnicode("https://alb-vn2gup1300g57qm7qq.cn-hangzhou.alb.aliyuncs.com");
+aHR0cHM6Ly9hbGItdm4yZ3VwMTMwMGc1N3FtN3FxLmNuLWhhbmd6aG91LmFsYi5hbGl5dW5jcy5jb20=
