@@ -2198,6 +2198,33 @@ Other Style Guides
     const bar = a + (b / c) * d;
     ```
 
+  <a name="nullish-coalescing-operator"></a>
+  - [15.9](#nullish-coalescing-operator) The nullish coalescing operator (`??`) is a logical operator that returns its right-hand side operand when its left-hand side operand is `null` or `undefined`. Otherwise, it returns the left-hand side operand.
+
+    > Why? It provides precision by distinguishing null/undefined from other falsy values, enhancing code clarity and predictability.
+
+    ```javascript
+    // bad
+    const value = 0 ?? 'default';
+    // returns 0, not 'default'
+
+    // bad
+    const value = '' ?? 'default';
+    // returns '', not 'default'
+
+    // good
+    const value = null ?? 'default';
+    // returns 'default'
+
+    // good
+    const user = {
+      name: 'John',
+      age: null
+    };
+    const age = user.age ?? 18;
+    // returns 18
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Blocks
