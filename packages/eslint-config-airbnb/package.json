@@ -70,24 +70,24 @@
     "object.entries": "^1.1.6"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.21.5",
+    "@babel/runtime": "^7.22.6",
     "babel-preset-airbnb": "^4.5.0",
     "babel-tape-runner": "^3.0.0",
     "eclint": "^2.8.1",
     "eslint": "^7.32.0 || ^8.2.0",
     "eslint-find-rules": "^4.1.0",
-    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-import": "^2.28.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "in-publish": "^2.0.1",
     "react": ">= 0.13.0",
     "safe-publish-latest": "^2.0.0",
-    "tape": "^5.6.3"
+    "tape": "^5.6.6"
   },
   "peerDependencies": {
     "eslint": "^7.32.0 || ^8.2.0",
-    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-import": "^2.28.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0"
