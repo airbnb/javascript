@@ -6,9 +6,9 @@ const { ESLint } = require('eslint');
 const baseConfig = require('.');
 const whitespaceRules = require('./whitespaceRules');
 
-const severities = ['off', 'warn', 'error'];
-
 function getSeverity(ruleConfig) {
+  const severities = ['off', 'warn', 'error'];
+
   if (Array.isArray(ruleConfig)) {
     return getSeverity(ruleConfig[0]);
   }
@@ -27,8 +27,7 @@ async function onlyErrorOnRules(rulesToError, config) {
   const baseRules = (await cli.calculateConfigForFile(require.resolve('./'))).rules;
 
   entries(baseRules).forEach((rule) => {
-    const ruleName = rule[0];
-    const ruleConfig = rule[1];
+    const [ruleName, ruleConfig] = rule;
     const severity = getSeverity(ruleConfig);
 
     if (rulesToError.indexOf(ruleName) === -1 && severity === 'error') {

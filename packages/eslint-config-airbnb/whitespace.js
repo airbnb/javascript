@@ -9,9 +9,9 @@ if (CLIEngine) {
 
   const baseConfig = require('.');
 
-  const severities = ['off', 'warn', 'error'];
-
   function getSeverity(ruleConfig) {
+    const severities = ['off', 'warn', 'error'];
+
     if (Array.isArray(ruleConfig)) {
       return getSeverity(ruleConfig[0]);
     }
@@ -27,8 +27,7 @@ if (CLIEngine) {
     const baseRules = cli.getConfigForFile(require.resolve('./')).rules;
 
     entries(baseRules).forEach((rule) => {
-      const ruleName = rule[0];
-      const ruleConfig = rule[1];
+      const [ruleName, ruleConfig] = rule;
       const severity = getSeverity(ruleConfig);
 
       if (rulesToError.indexOf(ruleName) === -1 && severity === 'error') {
