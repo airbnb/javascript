@@ -9,9 +9,9 @@ if (CLIEngine) {
 
   const baseConfig = require('.');
 
-  function getSeverity(ruleConfig) {
-    const severities = ['off', 'warn', 'error'];
+  const severities = ['off', 'warn', 'error'];
 
+  function getSeverity(ruleConfig) {
     if (Array.isArray(ruleConfig)) {
       return getSeverity(ruleConfig[0]);
     }

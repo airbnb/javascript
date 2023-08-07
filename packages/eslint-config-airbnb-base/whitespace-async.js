@@ -6,9 +6,9 @@ const { ESLint } = require('eslint');
 const baseConfig = require('.');
 const whitespaceRules = require('./whitespaceRules');
 
-function getSeverity(ruleConfig) {
-  const severities = ['off', 'warn', 'error'];
+const severities = ['off', 'warn', 'error'];
 
+function getSeverity(ruleConfig) {
   if (Array.isArray(ruleConfig)) {
     return getSeverity(ruleConfig[0]);
   }
