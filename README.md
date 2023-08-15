@@ -296,7 +296,7 @@ Other Style Guides
   <a name="objects--prototype-builtins"></a>
   - [3.7](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`. eslint: [`no-prototype-builtins`](https://eslint.org/docs/rules/no-prototype-builtins)
 
-    > Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
+    > Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`). In modern browsers that support ES2022, or with a polyfill such as <https://npmjs.com/object.hasown>, `Object.hasOwn` can also be used as an alternative to `Object.prototype.hasOwnProperty.call`.
 
     ```javascript
     // bad
@@ -305,9 +305,13 @@ Other Style Guides
     // good
     console.log(Object.prototype.hasOwnProperty.call(object, key));
 
-    // best
+    // better
     const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
     console.log(has.call(object, key));
+
+    // best
+    console.log(Object.hasOwn(object, key)); // only supported in browsers that support ES2022
+
     /* or */
     import has from 'has'; // https://www.npmjs.com/package/has
     console.log(has(object, key));
