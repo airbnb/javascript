@@ -157,7 +157,7 @@ Other Style Guides
     console.log(c); // Prints 1
     ```
 
-    In the above code, you can see that referencing `a` and `b` will produce a ReferenceError, while `c` contains the number. This is because `a` and `b` are block scoped, while `c` is scoped to the containing function.
+    In the above code, you can see that referencing `a` and `b` will produce a ReferenceError, while `c` prints the number 1. This is because `a` and `b` are block-scoped, while `c` is scoped to the containing function.
 
 **[⬆ back to top](#table-of-contents)**
 
