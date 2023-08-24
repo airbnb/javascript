@@ -5,6 +5,7 @@
   "main": "index.js",
   "exports": {
     ".": "./index.js",
+    "./flat": "./flat.js",
     "./legacy": "./legacy.js",
     "./whitespace": "./whitespace.js",
     "./rules/best-practices": "./rules/best-practices.js",
