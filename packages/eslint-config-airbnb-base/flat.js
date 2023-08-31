@@ -58,35 +58,29 @@ const envMapping = {
   devtools: 'devtools'
 };
 
-function convertIntoEslintFlatConfig(config) {
-  const newConfig = { ...config, languageOptions: {} };
-
-  // Handle the `env` key
-  if ('env' in newConfig) {
-    newConfig.languageOptions.globals = Object.fromEntries(
-      Object.keys(newConfig.env)
-        .filter(
-          (key) => newConfig.env[key] === true &&
-            key in envMapping &&
-            envMapping[key] in globals
-        )
-        .flatMap((key) => Object.entries(globals[envMapping[key]]))
-    );
-    delete newConfig.env;
-  }
-
-  // Handle the `parserOptions` key
-  if ('parserOptions' in newConfig) {
-    newConfig.languageOptions.parserOptions = newConfig.parserOptions;
-    delete newConfig.parserOptions;
-  }
-
-  // Remove the `plugins` key as it will be spread directly during export
-  if ('plugins' in newConfig) {
-    delete newConfig.plugins;
-  }
-
-  return newConfig;
+function convertIntoEslintFlatConfig({
+  env, // convert to explicit globals list
+  parserOptions, // move into languageOptions
+  plugins, // Remove the `plugins` key as it will be spread directly during export
+  ...oldConfig
+}) {
+  return {
+    ...oldConfig,
+    languageOptions: {
+      ...('env' in config && {
+        globals: Object.fromEntries(
+          Object.keys(env)
+            .filter((key) => env[key] === true && key in envMapping && envMapping[key] in globals)
+            .flatMap((key) => Object.entries(globals[envMapping[key]]))
+        ),
+        ...('parserOptions' in config && {
+          languageOptions: {
+            parserOptions,
+          },
+        }),
+      })
+    }
+  };
 }
 
 module.exports = [
