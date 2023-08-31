@@ -1923,7 +1923,7 @@ Other Style Guides
     }
     ```
 
-  <a name="hoisting--named-expresions"></a><a name="hoisting--named-expressions"></a><a name="14.3"></a>
+  <a name="hoisting--named-expressions"></a><a name="14.3"></a>
   - [14.3](#hoisting--named-expressions) Named function expressions hoist the variable name, not the function name or the function body.
 
     ```javascript
