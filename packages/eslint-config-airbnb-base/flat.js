@@ -66,4 +66,5 @@ function convertIntoEslintFlatConfig(config) {
 
 module.exports = [
   ...airbnbRules.map((rule) => convertIntoEslintFlatConfig(require(rule))),
-  convertIntoEslintFlatConfig(airbnbConfig)];
+  convertIntoEslintFlatConfig(airbnbConfig)
+];
