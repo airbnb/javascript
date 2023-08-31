@@ -23,7 +23,7 @@ const handledPlugins = {
 function convertIntoEslintFlatConfig(config) {
   const newConfig = { ...config, languageOptions: {} };
 
-  // Handle the `extends` key
+  // Handle the `env` key
   if ('env' in newConfig) {
     newConfig.languageOptions.globals = Object.keys(newConfig.env)
       .filter((key) => newConfig.env[key] === true)
