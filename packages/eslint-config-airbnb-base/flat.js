@@ -10,19 +10,52 @@ const {
   extends: airbnbRules,
   ...airbnbConfig
 } = require('.');
-const importPlugin = require('eslint-plugin-import');
+const importPlugin = require('eslint-plugin-import/flat');
 const globals = require('globals');
 
-/**
- * In the `globals` module, only the 'es6' key differs from the accepted ESLint `env` keys.
- * The keys 'es2016', 'es2018', 'es2019', 'es2022', 'es2023' and 'es2024'
- * are not handled by the `globals` module.
- */
 const envMapping = {
+  builtin: 'builtin',
+  es5: 'es5',
   es6: 'es2015',
-};
-const plugins = {
-  import: importPlugin,
+  es2016: 'es2015',
+  es2017: 'es2017',
+  es2018: 'es2017',
+  es2019: 'es2017',
+  es2020: 'es2020',
+  es2021: 'es2021',
+  es2022: 'es2021',
+  es2023: 'es2021',
+  es2024: 'es2021',
+  browser: 'browser',
+  worker: 'worker',
+  node: 'node',
+  nodeBuiltin: 'nodeBuiltin',
+  commonjs: 'commonjs',
+  amd: 'amd',
+  mocha: 'mocha',
+  jasmine: 'jasmine',
+  jest: 'jest',
+  qunit: 'qunit',
+  phantomjs: 'phantomjs',
+  couch: 'couch',
+  rhino: 'rhino',
+  nashorn: 'nashorn',
+  wsh: 'wsh',
+  jquery: 'jquery',
+  yui: 'yui',
+  shelljs: 'shelljs',
+  prototypejs: 'prototypejs',
+  meteor: 'meteor',
+  mongo: 'mongo',
+  applescript: 'applescript',
+  serviceworker: 'serviceworker',
+  atomtest: 'atomtest',
+  embertest: 'embertest',
+  protractor: 'protractor',
+  'shared-node-browser': 'shared-node-browser',
+  webextensions: 'webextensions',
+  greasemonkey: 'greasemonkey',
+  devtools: 'devtools'
 };
 
 function convertIntoEslintFlatConfig(config) {
@@ -34,14 +67,10 @@ function convertIntoEslintFlatConfig(config) {
       Object.keys(newConfig.env)
         .filter(
           (key) => newConfig.env[key] === true &&
-          (key in globals ||
-            (key in envMapping && envMapping[key] in globals))
+            key in envMapping &&
+            envMapping[key] in globals
         )
-        .flatMap((key) =>
-          (key in globals
-            ? Object.entries(globals[key])
-            : Object.entries(globals[envMapping[key]]))
-        )
+        .flatMap((key) => Object.entries(globals[envMapping[key]]))
     );
     delete newConfig.env;
   }
@@ -52,13 +81,9 @@ function convertIntoEslintFlatConfig(config) {
     delete newConfig.parserOptions;
   }
 
-  // Handle the `plugins` key
+  // Remove the `plugins` key as it will be spread directly during export
   if ('plugins' in newConfig) {
-    newConfig.plugins = Object.fromEntries(
-      newConfig.plugins
-        .filter((plugin) => plugin in plugins)
-        .map((plugin) => [plugin, plugins[plugin]])
-    );
+    delete newConfig.plugins;
   }
 
   return newConfig;
@@ -66,5 +91,6 @@ function convertIntoEslintFlatConfig(config) {
 
 module.exports = [
   ...airbnbRules.map((rule) => convertIntoEslintFlatConfig(require(rule))),
-  convertIntoEslintFlatConfig(airbnbConfig)
+  convertIntoEslintFlatConfig(airbnbConfig),
+  ...importPlugin,
 ];
