@@ -11,7 +11,7 @@ const {
   ...airbnbConfig
 } = require('.');
 const importPlugin = require('eslint-plugin-import/flat');
-const globals = require('globals');
+const envs = require('globals');
 
 const envMapping = {
   builtin: 'builtin',
@@ -58,25 +58,24 @@ const envMapping = {
   devtools: 'devtools'
 };
 
-function convertIntoEslintFlatConfig({
-  env, // convert to explicit globals list
-  parserOptions, // move into languageOptions
-  plugins, // Remove the `plugins` key as it will be spread directly during export
-  ...oldConfig
-}) {
+function convertIntoEslintFlatConfig(config) {
+  const {
+    env, // convert to explicit `globals` list
+    parserOptions, // move into `languageOptions`
+    plugins, // remove the `plugins` key as it will be spread directly during export
+    ...oldConfig
+  } = config
   return {
     ...oldConfig,
     languageOptions: {
       ...('env' in config && {
         globals: Object.fromEntries(
           Object.keys(env)
-            .filter((key) => env[key] === true && key in envMapping && envMapping[key] in globals)
-            .flatMap((key) => Object.entries(globals[envMapping[key]]))
+            .filter((key) => env[key] === true && key in envMapping && envMapping[key] in envs)
+            .flatMap((key) => Object.entries(envs[envMapping[key]]))
         ),
         ...('parserOptions' in config && {
-          languageOptions: {
-            parserOptions,
-          },
+          parserOptions,
         }),
       })
     }
