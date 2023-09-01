@@ -77,8 +77,8 @@ function convertIntoEslintFlatConfig(config) {
         ...('parserOptions' in config && {
           parserOptions,
         }),
-      })
-    }
+      }),
+    },
   };
 }
 
