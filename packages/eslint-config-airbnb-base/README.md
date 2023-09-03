@@ -60,7 +60,22 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+. It
   npm install --save-dev eslint-config-airbnb-base eslint@^#.#.# eslint-plugin-import@^#.#.#
   ```
 
-2. Add `"extends": "airbnb-base"` to your .eslintrc.
+2. Use it in your eslint config.
+
+  If you use the new flat format, add the following to your eslint.config.js:
+
+  ```javascript
+  const airbnbBase = require('eslint-config-airbnb-base/flat')
+
+  module.exports = [
+    ...airbnbBase,
+    {
+      // any other config
+    }
+  ]
+  ```
+
+  If you still use the regular format: add `"extends": "airbnb-base"` to your .eslintrc.
 
 ### eslint-config-airbnb-base/legacy
 

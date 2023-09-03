@@ -5,6 +5,7 @@
   "main": "index.js",
   "exports": {
     ".": "./index.js",
+    "./flat": "./flat.js",
     "./legacy": "./legacy.js",
     "./whitespace": "./whitespace.js",
     "./rules/best-practices": "./rules/best-practices.js",
@@ -88,6 +89,7 @@
   },
   "dependencies": {
     "confusing-browser-globals": "^1.0.11",
+    "globals": "^13.21.0",
     "object.entries": "^1.1.6"
   }
 }
