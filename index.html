@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript Style Guide</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css"
+      title="docsify-darklight-theme"
+      type="text/css"
+    />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <style>
+      /* CSS */
+
+      body {
+        --sb-track-color: #232e33;
+        --sb-thumb-color: #6baf8d;
+        --sb-size: 10px;
+
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+      }
+
+      body::-webkit-scrollbar {
+        width: var(--sb-size);
+      }
+
+      body::-webkit-scrollbar-track {
+        background: var(--sb-track-color);
+        border-radius: 10px;
+      }
+
+      body::-webkit-scrollbar-thumb {
+        background: var(--sb-thumb-color);
+        border-radius: 10px;
+      }
+      :root {
+        font-family: 'Inter', sans-serif;
+      }
+      ::selection {background-color: #fff2ca}
+      @supports (font-variation-settings: normal) {
+        :root {
+          font-family: 'Inter var', sans-serif;
+        }
+      }
+      ul {
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      window.$docsify = {
+        name: 'AirBNB Javascript guide ',
+        //coverpage: true,//
+        repo: '',
+        basePath:
+          'https://raw.githubusercontent.com/airbnb/javascript/master/',
+        loadSidebar: true,
+        loadNavbar: true,
+         // docsify-copy-code (defaults)
+  copyCode: {
+    buttonText: 'Copy to clipboard',
+    errorText: 'Error',
+    successText: 'Copied',
+  },
+      };
+    </script>
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js" type="text/javascript"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  </body>
+</html>
