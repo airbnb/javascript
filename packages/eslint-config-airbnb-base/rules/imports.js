@@ -92,7 +92,7 @@ module.exports = {
         '**/protractor.conf.*.js', // protractor config
         '**/karma.conf.js', // karma config
         '**/.eslintrc.js', // eslint config
-        '**/eslint.config.{js,mjs,cjs}' // eslint flat config
+        '**/eslint.config.js' // eslint flat config
       ],
       optionalDependencies: false,
     }],
