@@ -3860,7 +3860,7 @@ Other Style Guides
 
   - [Latest ECMA spec](https://tc39.github.io/ecma262/)
   - [ExploringJS](https://exploringjs.com/)
-  - [ES6 Compatibility Table](https://kangax.github.io/compat-table/es6/)
+  - [ES6 Compatibility Table](https://compat-table.github.io/compat-table/es6/)
   - [Comprehensive Overview of ES6 Features](http://es6-features.org/)
   - [JavaScript Roadmap](https://roadmap.sh/javascript)
 
@@ -3931,7 +3931,7 @@ Other Style Guides
 
 **Podcasts**
 
-  - [JavaScript Air](https://javascriptair.com/)
+  - [JavaScript Air](http://audio.javascriptair.com/)
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
 
 **[⬆ back to top](#table-of-contents)**
