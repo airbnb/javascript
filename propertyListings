@@ -1,0 +1,36 @@
+// app.js
+const propertyListings = [
+    {
+        title: "Cozy Cabin in the Woods",
+        location: "Countryside",
+        price: "$100/night",
+    },
+    {
+        title: "Beachfront Villa",
+        location: "Tropical Paradise",
+        price: "$200/night",
+    },
+    {
+        title: "City Apartment",
+        location: "Downtown",
+        price: "$150/night",
+    },
+    // Add more property listings here
+];
+
+const propertyListingsContainer = document.getElementById("property-listings");
+
+function generatePropertyListings() {
+    propertyListings.forEach((property, index) => {
+        const propertyElement = document.createElement("div");
+        propertyElement.classList.add("property");
+        propertyElement.innerHTML = `
+            <h2>${property.title}</h2>
+            <p><strong>Location:</strong> ${property.location}</p>
+            <p><strong>Price:</strong> ${property.price}</p>
+        `;
+        propertyListingsContainer.appendChild(propertyElement);
+    });
+}
+
+generatePropertyListings();
