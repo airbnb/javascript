@@ -254,8 +254,8 @@ This style guide is mostly based on the standards that are currently prevalent i
     <Foo style={{ left: "20px" }} />
 
     // good
-    <Foo style={{ left: '20px' }} />
-    ```
+    //<Foo style={{ left: '20px' }} />
+    //```
 
 ## Spacing
 
