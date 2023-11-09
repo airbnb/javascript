@@ -3521,7 +3521,7 @@ Other Style Guides
     ];
 
     // also good
-    const httpRequests = [
+    const httpUrlRequests = [
       // ...
     ];
 
