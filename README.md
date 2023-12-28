@@ -2427,7 +2427,7 @@ Other Style Guides
     // bad
     // make() returns a new element
     // based on the passed in tag name
-    //
+    // Used to provide some information about the code in short term
     // @param {String} tag
     // @return {Element} element
     function make(tag) {
