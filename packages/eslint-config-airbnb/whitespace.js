@@ -4,7 +4,6 @@ const { CLIEngine } = require('eslint');
 
 if (CLIEngine) {
   /* eslint no-inner-declarations: 0 */
-  const entries = require('object.entries');
   const whitespaceRules = require('./whitespaceRules');
 
   const baseConfig = require('.');
@@ -26,7 +25,7 @@ if (CLIEngine) {
     const cli = new CLIEngine({ baseConfig: config, useEslintrc: false });
     const baseRules = cli.getConfigForFile(require.resolve('./')).rules;
 
-    entries(baseRules).forEach((rule) => {
+    Object.entries(baseRules).forEach((rule) => {
       const ruleName = rule[0];
       const ruleConfig = rule[1];
       const severity = getSeverity(ruleConfig);

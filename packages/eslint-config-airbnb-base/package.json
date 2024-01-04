@@ -87,7 +87,6 @@
     "node": "^10.12.0 || >=12.0.0"
   },
   "dependencies": {
-    "confusing-browser-globals": "^1.0.11",
-    "object.entries": "^1.1.7"
+    "confusing-browser-globals": "^1.0.11"
   }
 }
