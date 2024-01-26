@@ -1,22 +1,8 @@
 {
-  "name": "airbnb-style",
+  "name": "10-3-coding-style",
   "version": "2.0.0",
   "description": "A mostly reasonable approach to JavaScript.",
-  "scripts": {
-    "preinstall": "npm run install:config && npm run install:config:base",
-    "postinstall": "rm -rf node_modules/markdownlint-cli/node_modules/markdownlint",
-    "install:config": "cd packages/eslint-config-airbnb && npm prune && npm install",
-    "install:config:base": "cd packages/eslint-config-airbnb-base && npm prune && npm install",
-    "lint": "markdownlint --config linters/.markdownlint.json README.md */README.md",
-    "pretest": "npm run --silent lint",
-    "test": "npm run --silent test:config && npm run --silent test:config:base",
-    "test:config": "cd packages/eslint-config-airbnb; npm test",
-    "test:config:base": "cd packages/eslint-config-airbnb-base; npm test",
-    "pretravis": "npm run --silent lint",
-    "travis": "npm run --silent travis:config && npm run --silent travis:config:base",
-    "travis:config": "cd packages/eslint-config-airbnb; npm run travis",
-    "travis:config:base": "cd packages/eslint-config-airbnb-base; npm run travis"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/airbnb/javascript.git"
