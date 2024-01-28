@@ -7,8 +7,8 @@ module.exports = {
     sourceType: 'module',
     ecmaFeatures: {
       generators: false,
-      objectLiteralDuplicateProperties: false
-    }
+      objectLiteralDuplicateProperties: false,
+    },
   },
 
   rules: {
@@ -73,7 +73,7 @@ module.exports = {
     // https://eslint.org/docs/rules/no-restricted-imports
     'no-restricted-imports': ['off', {
       paths: [],
-      patterns: []
+      patterns: [],
     }],
 
     // disallow to use this/super before super() calling in constructors.
@@ -180,6 +180,6 @@ module.exports = {
 
     // enforce spacing around the * in yield* expressions
     // https://eslint.org/docs/rules/yield-star-spacing
-    'yield-star-spacing': ['error', 'after']
+    'yield-star-spacing': ['error', 'after'],
   }
 };

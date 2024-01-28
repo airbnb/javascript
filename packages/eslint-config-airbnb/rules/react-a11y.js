@@ -1,7 +1,7 @@
 module.exports = {
   plugins: [
     'jsx-a11y',
-    'react'
+    'react',
   ],
 
   parserOptions: {
@@ -125,7 +125,7 @@ module.exports = {
       labelAttributes: [],
       controlComponents: [],
       assert: 'both',
-      depth: 25
+      depth: 25,
     }],
 
     // require HTML element's lang prop to be valid
