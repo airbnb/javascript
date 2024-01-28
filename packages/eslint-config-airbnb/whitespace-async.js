@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+const { isArray } = Array;
+const { entries } = Object;
 const { ESLint } = require('eslint');
 
 const baseConfig = require('.');
@@ -8,7 +10,7 @@ const whitespaceRules = require('./whitespaceRules');
 const severities = ['off', 'warn', 'error'];
 
 function getSeverity(ruleConfig) {
-  if (Array.isArray(ruleConfig)) {
+  if (isArray(ruleConfig)) {
     return getSeverity(ruleConfig[0]);
   }
   if (typeof ruleConfig === 'number') {
@@ -25,13 +27,13 @@ async function onlyErrorOnRules(rulesToError, config) {
   });
   const baseRules = (await cli.calculateConfigForFile(require.resolve('./'))).rules;
 
-  Object.entries(baseRules).forEach((rule) => {
+  entries(baseRules).forEach((rule) => {
     const ruleName = rule[0];
     const ruleConfig = rule[1];
     const severity = getSeverity(ruleConfig);
 
     if (rulesToError.indexOf(ruleName) === -1 && severity === 'error') {
-      if (Array.isArray(ruleConfig)) {
+      if (isArray(ruleConfig)) {
         errorsOnly.rules[ruleName] = ['warn'].concat(ruleConfig.slice(1));
       } else if (typeof ruleConfig === 'number') {
         errorsOnly.rules[ruleName] = 1;
