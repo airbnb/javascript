@@ -51,5 +51,4 @@ if (CLIEngine) {
   const path = require('path');
   const { execSync } = require('child_process');
 
-  module.exports = JSON.parse(String(execSync(path.join(__dirname, 'whitespace-async.js'))));
-}
+  module.exports = JSON.parse(String(execSync(`node ${path.join(__dirname, 'whitespace-async.js')}`)));}
