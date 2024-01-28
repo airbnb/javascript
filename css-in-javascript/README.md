@@ -9,6 +9,7 @@
 1. [Nesting](#nesting)
 1. [Inline](#inline)
 1. [Themes](#themes)
+1. [Translation](#translation)
 
 ## Naming
 
@@ -426,6 +427,16 @@
       },
     });
     ```
+
+
+## Translation
+
+  This style guide is also available in other languages:
+
+  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javascript-style-guide](https://github.com/mitsuruog/javascript-style-guide/tree/master/css-in-javascript)
+  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [ParkSB/javascript-style-guide](https://github.com/parksb/javascript-style-guide/tree/master/css-in-javascript)
+  - ![fa-IR](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Iran.png) **Persian**:    [Abolfazl-chaman/javascript-style-guide](https://github.com/abolfazlchaman/javascript-style-guide)
+  - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [leonidlebedev/javascript-airbnb](https://github.com/leonidlebedev/javascript-airbnb/tree/master/css-in-javascript)
 
 ---
 
