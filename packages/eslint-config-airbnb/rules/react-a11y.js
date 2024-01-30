@@ -201,7 +201,9 @@ module.exports = {
 
     // ensure HTML elements do not specify redundant ARIA roles
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-redundant-roles.md
-    'jsx-a11y/no-redundant-roles': 'error',
+    'jsx-a11y/no-redundant-roles': ['error', {
+      nav: ['navigation'],
+    }],
 
     // Enforce that DOM elements without semantic behavior not have interaction handlers
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-static-element-interactions.md
