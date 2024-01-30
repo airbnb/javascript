@@ -192,6 +192,7 @@ module.exports = {
     'jsx-a11y/no-noninteractive-tabindex': ['error', {
       tags: [],
       roles: ['tabpanel'],
+      allowExpressionValues: true,
     }],
 
     // require onBlur instead of onChange
