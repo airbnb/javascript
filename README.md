@@ -447,24 +447,31 @@ Other Style Guides
     });
 
     // bad
-    inbox.filter((msg) => {
-      const { subject, author } = msg;
-      if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
-      } else {
-        return false;
-      }
-    });
+    var indexMap = myArray.reduce(function(memo, item, index) {
+      memo[item] = index;
+    }, {});
+
 
     // good
-    inbox.filter((msg) => {
-      const { subject, author } = msg;
-      if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
-      }
-
-      return false;
+    var indexMap = myArray.reduce(function(memo, item, index) {
+      memo[item] = index;
+      return memo;
+    }, {});
+      
+    
+    // bad
+    const alpha = people.sort((lastOne, nextOne) => {
+      const [aLast, aFirst] = lastOne.split(', ');
+      const [bLast, bFirst] = nextOne.split(', ');
     });
+      
+    // good
+    const alpha = people.sort((lastOne, nextOne) => {
+      const [aLast, aFirst] = lastOne.split(', ');
+      const [bLast, bFirst] = nextOne.split(', ');
+      return aLast > bLast ? 1 : -1;
+    });
+
     ```
 
   <a name="arrays--bracket-newline"></a>
