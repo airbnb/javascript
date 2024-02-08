@@ -52,6 +52,7 @@ Other Style Guides
   1. [Testing](#testing)
   1. [Performance](#performance)
   1. [Resources](#resources)
+  1. [Readme badge](#readme-badge)
   1. [In the Wild](#in-the-wild)
   1. [Translation](#translation)
   1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
@@ -3933,6 +3934,24 @@ Other Style Guides
 
   - [JavaScript Air](https://javascriptair.com/)
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
+
+**[⬆ back to top](#table-of-contents)**
+
+## Readme badge
+
+Do you want to show the people you're following this style guide in your code? You can include one of these badges in your readme.
+
+[![Code Style](https://badgen.net/badge/code%20style/airbnb/ff5a5f)](https://github.com/airbnb/javascript)
+
+```md
+[![Code Style](https://badgen.net/badge/code%20style/airbnb/ff5a5f)](https://github.com/airbnb/javascript)
+```
+
+[![Code Style](https://badgen.net/badge/code%20style/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
+
+```md
+[![Code Style](https://badgen.net/badge/code%20style/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
+```
 
 **[⬆ back to top](#table-of-contents)**
 
