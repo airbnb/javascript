@@ -2984,7 +2984,7 @@ Other Style Guides
     ```
 
   <a name="whitespace--computed-property-spacing"></a>
-  - [19.16](#whitespace--computed-property-spacing) Enforce spacing inside of computed property brackets. eslint: [`computed-property-spacing`](https://eslint.org/docs/rules/computed-property-spacing)
+  - [19.16](#whitespace--computed-property-spacing) Avoid spaces inside of computed property brackets. eslint: [`computed-property-spacing`](https://eslint.org/docs/rules/computed-property-spacing)
 
     ```javascript
     // bad
