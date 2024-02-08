@@ -115,8 +115,8 @@ Other Style Guides
 
     ```javascript
     // bad
-    var a = 1;
-    var b = 2;
+    const a = 1;
+    const b = 2;
 
     // good
     const a = 1;
@@ -147,15 +147,20 @@ Other Style Guides
 
     ```javascript
     // const and let only exist in the blocks they are defined in.
-    {
-      let a = 1;
-      const b = 1;
-      var c = 1;
-    }
-    console.log(a); // ReferenceError
-    console.log(b); // ReferenceError
-    console.log(c); // Prints 1
-    ```
+   let a; // Declare a outside the block
+const b = 1; // Declare b with const
+
+{
+  a = 1; // Assign a value inside the block
+}
+
+var c = 1; // Declare c with var outside the block
+
+console.log(a); // Prints 1
+console.log(b); // Prints 1
+console.log(c); // Prints 1
+
+    
 
     In the above code, you can see that referencing `a` and `b` will produce a ReferenceError, while `c` contains the number. This is because `a` and `b` are block scoped, while `c` is scoped to the containing function.
 
