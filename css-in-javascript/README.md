@@ -9,7 +9,8 @@
 1. [Nesting](#nesting)
 1. [Inline](#inline)
 1. [Themes](#themes)
-
+1. [Building-your-CSS-framework-using-JavaScript-document](#JavaScript-document)
+   
 ## Naming
 
   - Use camelCase for object keys (i.e. "selectors").
@@ -427,6 +428,41 @@
     });
     ```
 
+## JavaScript-document
+
+     - Using javaScript document to customize you CSS framework and use it personally whenever you are building projects*
+
+  > This is just an important code that can help you to achieve that.
+
+  - Finding the element by tagName and looping through them and then writing some if statement code based on the classlist contain and       styling the class name based on what style you want it to be.
+    ```js
+    
+    //bad
+    
+      let theTagName = document.querySelector("h1");
+      // Loop through all h1 elements
+      for (let i = 0; i < theTagName.length; i++) {
+          let element = theTagName[i];
+      // Check if the element has the class "b-red"
+      if (element.classList.contains("b-red")) {
+          // Apply style if the class is present
+          element.style.color = "red";
+      }}
+        }
+    
+        // good
+    
+        let theTagName = document.getElementsByTagName("h1");
+        // Loop through all h1 elements
+        for (let i = 0; i < theTagName.length; i++) {
+            let element = theTagName[i];
+        
+        // Check if the element has the class "b-red"
+        if (element.classList.contains("b-red")) {
+            // Apply style if the class is present
+            element.style.color = "red";
+        }};
+    ```
 ---
 
 CSS puns adapted from [Saijo George](https://saijogeorge.com/css-puns/).
