@@ -13,7 +13,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.mjs', '.js', '.json']
+        extensions: ['.mjs', '.js', '.json','/.eslintrc.js']
       }
     },
     'import/extensions': [
