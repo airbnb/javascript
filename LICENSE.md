@@ -1,5 +1,5 @@
 MIT License
-Коммит 2 в branch1
+Коммит 3 в branch1
 Copyright (c) 2012 Airbnb
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
