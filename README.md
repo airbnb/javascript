@@ -46,7 +46,7 @@ Other Style Guides
   1. [Accessors](#accessors)
   1. [Events](#events)
   1. [jQuery](#jquery)
-  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
+  1. [ECMAScript 6 Compatibility](#ecmascript-6-compatibility)
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
   1. [Standard Library](#standard-library)
   1. [Testing](#testing)
@@ -374,9 +374,8 @@ Other Style Guides
     // bad
     const len = items.length;
     const itemsCopy = [];
-    let i;
 
-    for (i = 0; i < len; i += 1) {
+    for (let i = 0; i < len; i += 1) {
       itemsCopy[i] = items[i];
     }
 
@@ -412,7 +411,7 @@ Other Style Guides
     ```
 
   <a name="arrays--mapping"></a>
-  - [4.6](#arrays--mapping) Use [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) instead of spread `...` for mapping over iterables, because it avoids creating an intermediate array.
+  - [4.6](#arrays--mapping) Use [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) instead of spread `...` for mapping over iterables like Sets, Maps or NodeLists, because it avoids creating an intermediate array.
 
     ```javascript
     // bad
@@ -710,9 +709,8 @@ Other Style Guides
     }
 
     // good
-    let test;
     if (currentUser) {
-      test = () => {
+      let test = () => {
         console.log('Yup.');
       };
     }
@@ -740,13 +738,13 @@ Other Style Guides
 
     ```javascript
     // bad
-    function concatenateAll() {
+    function concatenateAllStrings() {
       const args = Array.prototype.slice.call(arguments);
       return args.join('');
     }
 
     // good
-    function concatenateAll(...args) {
+    function concatenateAllStrings(...args) {
       return args.join('');
     }
     ```
@@ -853,6 +851,11 @@ Other Style Guides
     // good
     function f2(obj) {
       const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
+    }
+
+    // best
+    function f2(obj) {
+      const key = Object.hasOwn(obj, 'key') ? obj.key : 1;
     }
     ```
 
@@ -1031,9 +1034,9 @@ Other Style Guides
     ```
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) Always include parentheses around arguments for clarity and consistency. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens)
+  - [8.4](#arrows--one-arg-parens) Always include parentheses around parameters for clarity and consistency. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens)
 
-    > Why? Minimizes diff churn when adding or removing arguments.
+    > Why? Minimizes diff churn when adding or removing parameters.
 
     ```javascript
     // bad
@@ -1129,6 +1132,7 @@ Other Style Guides
       constructor(contents = []) {
         this.queue = [...contents];
       }
+
       pop() {
         const value = this.queue[0];
         this.queue.splice(0, 1);
@@ -1194,8 +1198,7 @@ Other Style Guides
 
     const luke = new Jedi();
 
-    luke.jump()
-      .setHeight(20);
+    luke.jump().setHeight(20);
     ```
 
   <a name="constructors--tostring"></a><a name="9.4"></a>
@@ -1326,7 +1329,7 @@ Other Style Guides
     ```
 
   <a name="modules--no-wildcard"></a><a name="10.2"></a>
-  - [10.2](#modules--no-wildcard) Do not use wildcard imports.
+  - [10.2](#modules--no-wildcard) Do not use wildcard imports unless you have multiple named exports and want to import all of them as single object.
 
     > Why? This makes sure you have a single default export.
 
@@ -1479,7 +1482,7 @@ Other Style Guides
 ## Iterators and Generators
 
   <a name="iterators--nope"></a><a name="11.1"></a>
-  - [11.1](#iterators--nope) Don’t use iterators. Prefer JavaScript’s higher-order functions instead of loops like `for-in` or `for-of`. eslint: [`no-iterator`](https://eslint.org/docs/rules/no-iterator) [`no-restricted-syntax`](https://eslint.org/docs/rules/no-restricted-syntax)
+  - [11.1](#iterators--nope) Don’t use iterators. Prefer JavaScript’s higher-order functions instead of loops like `for`, `for-in` or `for-of`. eslint: [`no-iterator`](https://eslint.org/docs/rules/no-iterator) [`no-restricted-syntax`](https://eslint.org/docs/rules/no-restricted-syntax)
 
     > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
 
@@ -1493,18 +1496,18 @@ Other Style Guides
     for (let num of numbers) {
       sum += num;
     }
-    sum === 15;
+    sum === 15; // true
 
     // good
     let sum = 0;
     numbers.forEach((num) => {
       sum += num;
     });
-    sum === 15;
+    sum === 15; // true
 
     // best (use the functional force)
     const sum = numbers.reduce((total, num) => total + num, 0);
-    sum === 15;
+    sum === 15; // true
 
     // bad
     const increasedByOne = [];
@@ -1640,11 +1643,21 @@ Other Style Guides
 ## Variables
 
   <a name="variables--const"></a><a name="13.1"></a>
-  - [13.1](#variables--const) Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](https://eslint.org/docs/rules/no-undef) [`prefer-const`](https://eslint.org/docs/rules/prefer-const)
+  - [13.1](#variables--const) Always use `const` or `let` to declare variables. Not doing so will result in global variables in case strict mode is disabled. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](https://eslint.org/docs/rules/no-undef) [`prefer-const`](https://eslint.org/docs/rules/prefer-const)
+
+    > Note: The entire contents of JavaScript modules are automatically in [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) and therefore usage of the undeclared variables will not lead to creation of the global variables
 
     ```javascript
     // bad
     superPower = new SuperPower();
+
+    // bad
+    function foo() {
+      bar = 10 // bar will appear in the global scope
+    }
+
+    foo()
+    console.log(bar) // 10
 
     // good
     const superPower = new SuperPower();
@@ -1741,7 +1754,7 @@ Other Style Guides
   <a name="variables--no-chain-assignment"></a><a name="13.5"></a>
   - [13.5](#variables--no-chain-assignment) Don’t chain variable assignments. eslint: [`no-multi-assign`](https://eslint.org/docs/rules/no-multi-assign)
 
-    > Why? Chaining variable assignments creates implicit global variables.
+    > Why? Chaining variable assignments creates implicit global variables in case [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) is disabled.
 
     ```javascript
     // bad
@@ -1778,7 +1791,6 @@ Other Style Guides
 
     ```javascript
     // bad
-
     const array = [1, 2, 3];
     let num = 1;
     num++;
@@ -1795,7 +1807,6 @@ Other Style Guides
     }
 
     // good
-
     const array = [1, 2, 3];
     let num = 1;
     num += 1;
@@ -1835,7 +1846,6 @@ Other Style Guides
 
     ```javascript
     // bad
-
     const some_unused_var = 42;
 
     // Write-only variables are not considered as used.
@@ -1852,7 +1862,6 @@ Other Style Guides
     }
 
     // good
-
     function getXPlusY(x, y) {
       return x + y;
     }
@@ -2091,7 +2100,7 @@ Other Style Guides
         let x = 1;
         break;
       case 2:
-        const y = 2;
+        const x = 2; // SyntaxError: Identifier 'x' has already been declared
         break;
       case 3:
         function f() {
@@ -2109,7 +2118,7 @@ Other Style Guides
         break;
       }
       case 2: {
-        const y = 2;
+        const x = 2; // No SyntaxError
         break;
       }
       case 3: {
@@ -2156,7 +2165,7 @@ Other Style Guides
     const foo = a ? a : b;
     const bar = c ? true : false;
     const baz = c ? false : true;
-    const quux = a != null ? a : b;
+    const quux = (a !== undefined && a !== null) ? a : b;
 
     // good
     const foo = a || b;
@@ -2208,25 +2217,32 @@ Other Style Guides
     > Why? It provides precision by distinguishing null/undefined from other falsy values, enhancing code clarity and predictability.
 
     ```javascript
-    // bad
-    const value = 0 ?? 'default';
-    // returns 0, not 'default'
-
-    // bad
-    const value = '' ?? 'default';
-    // returns '', not 'default'
+    // good
+    const value = '' ?? 'default'; // '', not 'default'
 
     // good
-    const value = null ?? 'default';
-    // returns 'default'
+    const value = null ?? 'default'; // 'default'
 
     // good
     const user = {
       name: 'John',
       age: null
     };
-    const age = user.age ?? 18;
-    // returns 18
+    const age = user.age ?? 18; // 18
+
+    // good
+    const user = {
+      name: 'John',
+    };
+    const age = user.age ?? 18; // 18
+
+    // good
+    const user = {
+      name: 'John',
+      age: 0
+    };
+    const age = user.age ?? 18; // 0
+    const defaultAge = user.age || 18 // 18
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -2455,11 +2471,11 @@ Other Style Guides
 
     ```javascript
     // bad
-    const active = true;  // is current tab
+    const isActive = true;  // is current tab
 
     // good
     // is current tab
-    const active = true;
+    const isActive = true;
 
     // bad
     function getType() {
@@ -2688,10 +2704,10 @@ Other Style Guides
     // good
     $('#items')
       .find('.selected')
-        .highlight()
-        .end()
+      .highlight()
+      .end()
       .find('.open')
-        .updateCount();
+      .updateCount();
 
     // bad
     const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
@@ -2700,14 +2716,16 @@ Other Style Guides
         .call(tron.led);
 
     // good
-    const leds = stage.selectAll('.led')
-        .data(data)
-      .enter().append('svg:svg')
-        .classed('led', true)
-        .attr('width', (radius + margin) * 2)
+    const leds = stage
+      .selectAll('.led')
+      .data(data)
+      .enter()
+      .append('svg:svg')
+      .classed('led', true)
+      .attr('width', (radius + margin) * 2)
       .append('svg:g')
-        .attr('transform', `translate(${radius + margin}, ${radius + margin})`)
-        .call(tron.led);
+      .attr('transform', `translate(${radius + margin}, ${radius + margin})`)
+      .call(tron.led);
 
     // good
     const leds = stage.selectAll('.led').data(data);
@@ -2948,11 +2966,12 @@ Other Style Guides
       ?.xyzzy;
 
     // good
-    $.ajax({
-      method: 'POST',
-      url: 'https://airbnb.com/',
-      data: { name: 'John' },
-    })
+    $
+      .ajax({
+        method: 'POST',
+        url: 'https://airbnb.com/',
+        data: { name: 'John' },
+      })
       .done(() => console.log('Congratulations!'))
       .fail(() => console.log('You have failed this city.'));
     ```
@@ -3190,6 +3209,20 @@ Other Style Guides
       inventorOf,
       ...heroArgs
     );
+
+    // bad
+    import {
+      firstVariable,
+      secondVariable,
+      thirdVariable
+    } from './someModule';
+
+    // good
+    import {
+      firstVariable,
+      secondVariable,
+      thirdVariable,
+    } from './someModule';
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -3347,7 +3380,7 @@ Other Style Guides
     }
 
     // good
-    function query() {
+    function makeQuery() {
       // ...
     }
     ```
@@ -3743,10 +3776,10 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
-## ECMAScript 5 Compatibility
+## ECMAScript 6 Compatibility
 
-  <a name="es5-compat--kangax"></a><a name="26.1"></a>
-  - [27.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)’s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
+  <a name="ecmascript-6-compatibility"></a><a name="26.1"></a>
+  - [27.1](#ecmascript-6-compatibility) Refer to [Can I use](https://caniuse.com/es6) for features compatibility
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -3860,8 +3893,7 @@ Other Style Guides
 
   - [Latest ECMA spec](https://tc39.github.io/ecma262/)
   - [ExploringJS](https://exploringjs.com/)
-  - [ES6 Compatibility Table](https://compat-table.github.io/compat-table/es6/)
-  - [Comprehensive Overview of ES6 Features](https://web.archive.org/web/20240404212626/http://es6-features.org/)
+  - [Comprehensive Overview of ES6 Features](http://es6-features.org/)
   - [JavaScript Roadmap](https://roadmap.sh/javascript)
 
 **Read This**
