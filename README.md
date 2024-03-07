@@ -411,7 +411,7 @@ Other Style Guides
     ```
 
   <a name="arrays--mapping"></a>
-  - [4.6](#arrays--mapping) Use [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) instead of spread `...` for mapping over iterables like Sets, Maps or NodeLists, because it avoids creating an intermediate array.
+  - [4.6](#arrays--mapping) Use [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) instead of spread `...` for mapping over iterables, because it avoids creating an intermediate array.
 
     ```javascript
     // bad
@@ -710,7 +710,7 @@ Other Style Guides
 
     // good
     if (currentUser) {
-      let test = () => {
+      const test = () => {
         console.log('Yup.');
       };
     }
