@@ -738,13 +738,13 @@ Other Style Guides
 
     ```javascript
     // bad
-    function concatenateAllStrings() {
+    function concatenateAll() {
       const args = Array.prototype.slice.call(arguments);
       return args.join('');
     }
 
     // good
-    function concatenateAllStrings(...args) {
+    function concatenateAll(...args) {
       return args.join('');
     }
     ```
@@ -851,11 +851,6 @@ Other Style Guides
     // good
     function f2(obj) {
       const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
-    }
-
-    // best
-    function f2(obj) {
-      const key = Object.hasOwn(obj, 'key') ? obj.key : 1;
     }
     ```
 
@@ -1198,7 +1193,8 @@ Other Style Guides
 
     const luke = new Jedi();
 
-    luke.jump().setHeight(20);
+    luke.jump()
+      .setHeight(20);
     ```
 
   <a name="constructors--tostring"></a><a name="9.4"></a>
@@ -1329,7 +1325,7 @@ Other Style Guides
     ```
 
   <a name="modules--no-wildcard"></a><a name="10.2"></a>
-  - [10.2](#modules--no-wildcard) Do not use wildcard imports unless you have multiple named exports and want to import all of them as single object.
+  - [10.2](#modules--no-wildcard) Do not use wildcard imports.
 
     > Why? This makes sure you have a single default export.
 
@@ -1791,6 +1787,7 @@ Other Style Guides
 
     ```javascript
     // bad
+
     const array = [1, 2, 3];
     let num = 1;
     num++;
@@ -1807,6 +1804,7 @@ Other Style Guides
     }
 
     // good
+
     const array = [1, 2, 3];
     let num = 1;
     num += 1;
@@ -1846,6 +1844,7 @@ Other Style Guides
 
     ```javascript
     // bad
+
     const some_unused_var = 42;
 
     // Write-only variables are not considered as used.
@@ -1862,6 +1861,7 @@ Other Style Guides
     }
 
     // good
+
     function getXPlusY(x, y) {
       return x + y;
     }
@@ -2165,7 +2165,7 @@ Other Style Guides
     const foo = a ? a : b;
     const bar = c ? true : false;
     const baz = c ? false : true;
-    const quux = (a !== undefined && a !== null) ? a : b;
+    const quux = a != null ? a : b;
 
     // good
     const foo = a || b;
@@ -2966,12 +2966,11 @@ Other Style Guides
       ?.xyzzy;
 
     // good
-    $
-      .ajax({
-        method: 'POST',
-        url: 'https://airbnb.com/',
-        data: { name: 'John' },
-      })
+    $.ajax({
+      method: 'POST',
+      url: 'https://airbnb.com/',
+      data: { name: 'John' },
+    })
       .done(() => console.log('Congratulations!'))
       .fail(() => console.log('You have failed this city.'));
     ```
