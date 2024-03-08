@@ -3778,7 +3778,7 @@ Other Style Guides
 ## ECMAScript 6 Compatibility
 
   <a name="ecmascript-5-compatibility"></a><a name="26.1"></a>
-  - [27.1](#ecmascript-5-compatibility) Refer to the [ES5 compatibility table](http://compat-table.github.io/compat-table/es5/) for features compatibility
+  - [27.1](#ecmascript-5-compatibility) Refer to the [ES5 compatibility table](https://compat-table.github.io/compat-table/es5/) for features compatibility
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -3892,6 +3892,7 @@ Other Style Guides
 
   - [Latest ECMA spec](https://tc39.github.io/ecma262/)
   - [ExploringJS](https://exploringjs.com/)
+  - [ES6 Compatibility Table](https://compat-table.github.io/compat-table/es6/)
   - [Comprehensive Overview of ES6 Features](http://es6-features.org/)
   - [JavaScript Roadmap](https://roadmap.sh/javascript)
 
