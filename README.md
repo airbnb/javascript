@@ -46,7 +46,7 @@ Other Style Guides
   1. [Accessors](#accessors)
   1. [Events](#events)
   1. [jQuery](#jquery)
-  1. [ECMAScript 6 Compatibility](#ecmascript-6-compatibility)
+  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
   1. [Standard Library](#standard-library)
   1. [Testing](#testing)
@@ -3777,8 +3777,8 @@ Other Style Guides
 
 ## ECMAScript 6 Compatibility
 
-  <a name="ecmascript-6-compatibility"></a><a name="26.1"></a>
-  - [27.1](#ecmascript-6-compatibility) Refer to [Can I use](https://caniuse.com/es6) for features compatibility
+  <a name="ecmascript-5-compatibility"></a><a name="26.1"></a>
+  - [27.1](#ecmascript-5-compatibility) Refer to the [ES5 compatibility table](http://compat-table.github.io/compat-table/es5/) for features compatibility
 
 **[⬆ back to top](#table-of-contents)**
 
