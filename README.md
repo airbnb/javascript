@@ -46,7 +46,7 @@ Other Style Guides
   1. [Accessors](#accessors)
   1. [Events](#events)
   1. [jQuery](#jquery)
-  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
+  1. [ECMAScript 5 Compatibility](#es5-compat--kangax)
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
   1. [Standard Library](#standard-library)
   1. [Testing](#testing)
@@ -709,7 +709,7 @@ Other Style Guides
     }
 
     // good
-    let test;  // if you are planning to reassign value 
+    let test;  // if you are planning to reassign value
     if (currentUser) {
       test = () => {
         console.log('Yup.');
@@ -2141,7 +2141,7 @@ Other Style Guides
       case 4:
         bar();
         break;
-      default: { 
+      default: {
         // Will be available only in the default block
         class C {}
       }
@@ -3790,8 +3790,8 @@ Other Style Guides
 
 ## ECMAScript 6 Compatibility
 
-  <a name="ecmascript-5-compatibility"></a><a name="26.1"></a>
-  - [27.1](#ecmascript-5-compatibility) Refer to the [ES5 compatibility table](https://compat-table.github.io/compat-table/es5/) for features compatibility
+  <a name="es5-compat--kangax"></a><a name="26.1"></a>
+  - [27.1](#es5-compat--kangax) Refer to the [ES5 compatibility table](https://compat-table.github.io/compat-table/es5/) for features compatibility
 
 **[⬆ back to top](#table-of-contents)**
 
