@@ -709,6 +709,14 @@ Other Style Guides
     }
 
     // good
+    let test;  // if you are planning to reassign value 
+    if (currentUser) {
+      test = () => {
+        console.log('Yup.');
+      };
+    }
+
+    // good
     if (currentUser) {
       const test = () => {
         console.log('Yup.');
@@ -1478,7 +1486,7 @@ Other Style Guides
 ## Iterators and Generators
 
   <a name="iterators--nope"></a><a name="11.1"></a>
-  - [11.1](#iterators--nope) Don’t use iterators. Prefer JavaScript’s higher-order functions instead of loops like `for`, `for-in` or `for-of`. eslint: [`no-iterator`](https://eslint.org/docs/rules/no-iterator) [`no-restricted-syntax`](https://eslint.org/docs/rules/no-restricted-syntax)
+  - [11.1](#iterators--nope) Don’t use iterators. Prefer JavaScript’s higher-order functions instead of loops like `for-in` or `for-of`. eslint: [`no-iterator`](https://eslint.org/docs/rules/no-iterator) [`no-restricted-syntax`](https://eslint.org/docs/rules/no-restricted-syntax)
 
     > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
 
@@ -1639,9 +1647,7 @@ Other Style Guides
 ## Variables
 
   <a name="variables--const"></a><a name="13.1"></a>
-  - [13.1](#variables--const) Always use `const` or `let` to declare variables. Not doing so will result in global variables in case strict mode is disabled. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](https://eslint.org/docs/rules/no-undef) [`prefer-const`](https://eslint.org/docs/rules/prefer-const)
-
-    > Note: The entire contents of JavaScript modules are automatically in [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) and therefore usage of the undeclared variables will not lead to creation of the global variables
+  - [13.1](#variables--const) Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](https://eslint.org/docs/rules/no-undef) [`prefer-const`](https://eslint.org/docs/rules/prefer-const)
 
     ```javascript
     // bad
@@ -1750,7 +1756,7 @@ Other Style Guides
   <a name="variables--no-chain-assignment"></a><a name="13.5"></a>
   - [13.5](#variables--no-chain-assignment) Don’t chain variable assignments. eslint: [`no-multi-assign`](https://eslint.org/docs/rules/no-multi-assign)
 
-    > Why? Chaining variable assignments creates implicit global variables in case [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) is disabled.
+    > Why? Chaining variable assignments creates implicit global variables.
 
     ```javascript
     // bad
@@ -2103,25 +2109,30 @@ Other Style Guides
         const x = 2; // SyntaxError: Identifier 'x' has already been declared
         break;
       case 3:
+        // Will be available in entire switch block
         function f() {
           // ...
         }
         break;
       default:
+        // Will be available in entire switch block
         class C {}
     }
 
     // good
     switch (foo) {
       case 1: {
+        // Will be available only in the case 1 block
         let x = 1;
         break;
       }
       case 2: {
+        // Will be available only in the case 2 block
         const x = 2; // No SyntaxError
         break;
       }
       case 3: {
+        // Will be available only in the case 3 block
         function f() {
           // ...
         }
@@ -2130,7 +2141,8 @@ Other Style Guides
       case 4:
         bar();
         break;
-      default: {
+      default: { 
+        // Will be available only in the default block
         class C {}
       }
     }
@@ -2217,7 +2229,10 @@ Other Style Guides
     > Why? It provides precision by distinguishing null/undefined from other falsy values, enhancing code clarity and predictability.
 
     ```javascript
-    // good
+    // bad
+    const value = 0 ?? 'default'; // 0, not 'default'
+
+    // bad
     const value = '' ?? 'default'; // '', not 'default'
 
     // good
@@ -2242,7 +2257,7 @@ Other Style Guides
       age: 0
     };
     const age = user.age ?? 18; // 0
-    const defaultAge = user.age || 18 // 18
+    const anotherAge = user.age || 18 // 18
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -2471,7 +2486,7 @@ Other Style Guides
 
     ```javascript
     // bad
-    const isActive = true;  // is current tab
+    const active = true;  // is current tab
 
     // good
     // is current tab
@@ -2704,10 +2719,10 @@ Other Style Guides
     // good
     $('#items')
       .find('.selected')
-      .highlight()
-      .end()
+        .highlight()
+        .end()
       .find('.open')
-      .updateCount();
+        .updateCount();
 
     // bad
     const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
@@ -2716,16 +2731,14 @@ Other Style Guides
         .call(tron.led);
 
     // good
-    const leds = stage
-      .selectAll('.led')
-      .data(data)
-      .enter()
-      .append('svg:svg')
-      .classed('led', true)
-      .attr('width', (radius + margin) * 2)
+    const leds = stage.selectAll('.led')
+        .data(data)
+      .enter().append('svg:svg')
+        .classed('led', true)
+        .attr('width', (radius + margin) * 2)
       .append('svg:g')
-      .attr('transform', `translate(${radius + margin}, ${radius + margin})`)
-      .call(tron.led);
+        .attr('transform', `translate(${radius + margin}, ${radius + margin})`)
+        .call(tron.led);
 
     // good
     const leds = stage.selectAll('.led').data(data);
@@ -3379,7 +3392,7 @@ Other Style Guides
     }
 
     // good
-    function makeQuery() {
+    function query() {
       // ...
     }
     ```
