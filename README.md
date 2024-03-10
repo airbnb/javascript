@@ -3451,7 +3451,7 @@ Other Style Guides
     this.firstName = 'Panda';
 
     // good, in environments where WeakMaps are available
-    // see https://kangax.github.io/compat-table/es6/#test-WeakMap
+    // see https://compat-table.github.io/compat-table/es6/ -> Built-ins -> WeakMap
     const firstNames = new WeakMap();
     firstNames.set(this, 'Panda');
     ```
