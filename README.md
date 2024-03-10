@@ -3788,7 +3788,7 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
-## ECMAScript 6 Compatibility
+## ECMAScript 5 Compatibility
 
   <a name="es5-compat--kangax"></a><a name="26.1"></a>
   - [27.1](#es5-compat--kangax) Refer to the [ES5 compatibility table](https://compat-table.github.io/compat-table/es5/) for features compatibility
