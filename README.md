@@ -346,8 +346,11 @@ Other Style Guides
 Property descriptors provide detailed information about object properties:
 
 Value: Represents the current value of the property.
+
 Writable: Determines if the property can be changed.
+
 Enumerable: Controls if the property is listed when iterating over object properties.
+
 Configurable: Specifies if the property's attributes can be changed or deleted.
 
 ```javascript
