@@ -23,6 +23,7 @@ Other Style Guides
   1. [Types](#types)
   1. [References](#references)
   1. [Objects](#objects)
+  1. [Descriptors](#descriptors)
   1. [Arrays](#arrays)
   1. [Destructuring](#destructuring)
   1. [Strings](#strings)
@@ -340,6 +341,62 @@ Other Style Guides
     ```
 
 **[⬆ back to top](#table-of-contents)**
+
+## Descriptors
+Property descriptors provide detailed information about object properties:
+
+Value: Represents the current value of the property.
+Writable: Determines if the property can be changed.
+Enumerable: Controls if the property is listed when iterating over object properties.
+Configurable: Specifies if the property's attributes can be changed or deleted.
+
+```javascript
+let obj = {
+    name: 'John',
+    age: 30
+};
+
+// Example of property descriptors
+let descriptors = Object.getOwnPropertyDescriptors(obj);
+console.log(descriptors.name);
+// Output:
+// {
+//     value: 'John',
+//     writable: true,
+//     enumerable: true,
+//     configurable: true
+// }
+
+// Changing property attributes
+Object.defineProperty(obj, 'name', {
+    writable: false,
+    enumerable: false,
+    configurable: false
+});
+
+obj.name = 'Alice'; // Attempt to change value
+console.log(obj.name); // Output: John (unchanged)
+
+for (let key in obj) {
+    console.log(key); // No output because 'name' is not enumerable
+}
+
+delete obj.name; // Attempt to delete property
+console.log(obj.name); // Output: John (property still exists)
+
+// Output updated descriptors
+descriptors = Object.getOwnPropertyDescriptors(obj);
+console.log(descriptors.name);
+// Output:
+// {
+//     value: 'John',
+//     writable: false,
+//     enumerable: false,
+//     configurable: false
+// }
+
+```
+
 
 ## Arrays
 
