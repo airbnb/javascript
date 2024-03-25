@@ -82,7 +82,7 @@
     "in-publish": "^2.0.1",
     "react": ">= 0.13.0",
     "safe-publish-latest": "^2.0.0",
-    "tape": "^5.7.4"
+    "tape": "^5.7.5"
   },
   "peerDependencies": {
     "eslint": "^7.32.0 || ^8.2.0",
