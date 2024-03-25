@@ -3406,7 +3406,7 @@ Other Style Guides
     this.firstName = 'Panda';
 
     // good, in environments where WeakMaps are available
-    // see https://kangax.github.io/compat-table/es6/#test-WeakMap
+    // see https://compat-table.github.io/compat-table/es6/#test-WeakMap
     const firstNames = new WeakMap();
     firstNames.set(this, 'Panda');
     ```
@@ -3860,7 +3860,7 @@ Other Style Guides
 
   - [Latest ECMA spec](https://tc39.github.io/ecma262/)
   - [ExploringJS](https://exploringjs.com/)
-  - [ES6 Compatibility Table](https://kangax.github.io/compat-table/es6/)
+  - [ES6 Compatibility Table](https://compat-table.github.io/compat-table/es6/)
   - [Comprehensive Overview of ES6 Features](http://es6-features.org/)
   - [JavaScript Roadmap](https://roadmap.sh/javascript)
 
