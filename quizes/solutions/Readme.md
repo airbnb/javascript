@@ -1,1 +1,12 @@
+<b>1) c </b> <hr>
+<b>2) c </b> <hr>
+<b>3) d </b> <hr>
+<b>4) d </b> <hr>
+<b>5) b </b> <hr>
+<b>6) d </b> <hr>
+<b>7) b </b> <hr>
+<b>8) a </b> <hr>
+<b>9) c </b> <hr>
+<b>10) b </b> <hr>
+<b>11) c </b> <hr>
 
