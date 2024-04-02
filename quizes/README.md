@@ -187,6 +187,34 @@ console.log(objA);
 <b>d) null</b> <br>
 <hr/>
 
+10) *Based on Objects and Inheritance*
+
+```javascript
+
+const obj = {
+  name: 'John',
+  age: 30,
+  greet: function() {
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+};
+
+const obj2 = Object.create(obj);
+obj2.name = 'Alice';
+obj2.greet();
+
+console.log(obj2.hasOwnProperty('age'));
+
+
+
+```
+
+<b>a) {}<br></b>
+<b>b) true</b> <br>
+<b>c) false</b> <br>
+<b>d) String ["30"] </b> <br>
+<hr/>
+
 
 
 
