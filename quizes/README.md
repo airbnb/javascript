@@ -87,3 +87,22 @@ console.log(typeof typeof null);
 <b>c) null</b> <br>
 <b>d) object</b> <br>
 <hr/>
+
+6) *Based on datatypes*
+
+```javascript
+
+let a = isNaN("10");
+let b = isNaN("Hello");
+let c = isNaN(10);
+
+console.log(a * ( b - c ) );
+
+
+```
+
+<b>a) true <br></b>
+<b>b) false</b> <br>
+<b>c) 1</b> <br>
+<b>d) 0</b> <br>
+<hr/>
