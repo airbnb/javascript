@@ -4,3 +4,7 @@
 <b>4) d </b> <hr>
 <b>5) b </b> <hr>
 <b>6) d </b> <hr>
+<b>6) b </b> <hr>
+<b>6) a </b> <hr>
+<b>6) c </b> <hr>
+<b>6) b </b> <hr>
