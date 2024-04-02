@@ -106,3 +106,92 @@ console.log(a * ( b - c ) );
 <b>c) 1</b> <br>
 <b>d) 0</b> <br>
 <hr/>
+
+7) *Based on hoisting*
+
+```javascript
+
+sum(3,2);
+
+const sum = (x,y) => {
+    console.log(x + y);
+}
+
+
+```
+
+<b>a) 5 <br></b>
+<b>b) error</b> <br>
+<b>c) null</b> <br>
+<b>d) undefined</b> <br>
+<hr/>
+
+
+
+8) *Based on functions*
+
+```javascript
+
+function add(a,b){
+     return a + b;
+}
+
+function add(a,b,c){
+    return a + b + c;
+}
+
+console.log(add(2,3));
+console.log(add(2,3,5));
+
+
+```
+
+<b>a) NaN 10<br></b>
+<b>b) error</b> <br>
+<b>c) 10 NaN</b> <br>
+<b>d) 5 10</b> <br>
+<hr/>
+
+9) *Based on Arrays*
+
+```javascript
+
+const arr = [1, 2, 3, 4, 5];
+const result = arr.filter(x => x % 2 === 0);
+console.log(result);
+
+
+```
+
+<b>a) 2,4<br></b>
+<b>b) [2, 4]</b> <br>
+<b>c) [ 2, 4 ]</b> <br>
+<b>d) [2, 4, 6, 8, 10]</b> <br>
+<hr/>
+
+10) *Based on Objects*
+
+```javascript
+
+let objA = { porp1: 42 };
+let objB = objA;
+objB = {}
+console.log(objA);
+
+
+```
+
+<b>a) {}<br></b>
+<b>b) {porp1: 42}</b> <br>
+<b>c) {prop1: 42}</b> <br>
+<b>d) null</b> <br>
+<hr/>
+
+
+
+
+
+
+
+
+
