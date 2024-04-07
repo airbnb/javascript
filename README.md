@@ -3861,7 +3861,7 @@ Other Style Guides
   - [Latest ECMA spec](https://tc39.github.io/ecma262/)
   - [ExploringJS](https://exploringjs.com/)
   - [ES6 Compatibility Table](https://compat-table.github.io/compat-table/es6/)
-  - [Comprehensive Overview of ES6 Features](http://es6-features.org/)
+  - [Comprehensive Overview of ES6 Features](https://web.archive.org/web/20240404212626/http://es6-features.org/)
   - [JavaScript Roadmap](https://roadmap.sh/javascript)
 
 **Read This**
