@@ -4097,3 +4097,4 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 We encourage you to fork this guide and change the rules to fit your team’s style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
 
 # };
+7. Error Handling: Emphasize the importance of proper error handling techniques, such as using try-catch blocks for exceptions and errors. Encourage beginners to anticipate potential issues and implement graceful error handling to improve the robustness of their code. Mention the significance of logging errors for debugging and monitoring purposes.s
