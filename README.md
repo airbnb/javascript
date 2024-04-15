@@ -65,13 +65,13 @@ Other Style Guides
   <a name="types--primitives"></a><a name="1.1"></a>
   - [1.1](#types--primitives) **Primitives**: When you access a primitive type you work directly on its value.
 
-    - `string`
-    - `number`
-    - `boolean`
+    - `String`
+    - `Number`
+    - `Boolean`
     - `null`
-    - `undefined`
-    - `symbol`
-    - `bigint`
+    - `Undefined`
+    - `Symbol`
+    - `Bigint`
 
     <br />
 
@@ -136,7 +136,7 @@ Other Style Guides
     }
 
     // good, use the let.
-    let count = 1;
+    let count = 0;
     if (true) {
       count += 1;
     }
@@ -692,7 +692,7 @@ Other Style Guides
     // immediately-invoked function expression (IIFE)
     (function () {
       console.log('Welcome to the Internet. Please follow me.');
-    }());
+    }());/*here semicolon is Imp. because when you write again IIFE statement otherwise it will gives you a Error*/
     ```
 
   <a name="functions--in-blocks"></a><a name="7.3"></a>
@@ -1990,6 +1990,7 @@ Other Style Guides
     // The variables 'a' and 'b' are in a Temporal Dead Zone where JavaScript
     // knows they exist (declaration is hoisted) but they are not accessible
     // (as they are not yet initialized).
+    //Temporal Dead Zone :-  the period of time between the start of a scope and the moment when a variable declared with let or const is initialized. During this time, the variable is not accessible.
 
     console.log(a); // ReferenceError: Cannot access 'a' before initialization
     console.log(b); // ReferenceError: Cannot access 'b' before initialization
@@ -2104,6 +2105,11 @@ Other Style Guides
 
     // good
     switch (foo) {
+      /*
+      default: {
+        class C {} // in starting of switch case also written a default statement
+      }
+      */
       case 1: {
         let x = 1;
         break;
