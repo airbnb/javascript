@@ -1165,6 +1165,7 @@ Other Style Guides
   - [9.3](#constructors--chaining) Methods can return `this` to help with method chaining.
 
     ```javascript
+    example:a
     // bad
     Jedi.prototype.jump = function () {
       this.jumping = true;
@@ -1196,6 +1197,26 @@ Other Style Guides
 
     luke.jump()
       .setHeight(20);
+
+    example:b
+    //good
+    function Bill(UserName,Cost){
+    this.UserName=UserName;
+    this.Cost=Cost;
+    }
+    
+    Bill.prototype.gst=function(tile){
+        return (tile/100)*this.Cost;
+    }
+    
+    Bill.prototype.totalCost = function(tile){
+       return this.gst(tile)+this.Cost;
+    }
+    
+    const Shanjay =new Bill("Prince",555);
+    console.log(Prince.Cost); //555
+    console.log(Prince.gst(20)); //111
+    console.log(Prince.totalCost(20)); //666
     ```
 
   <a name="constructors--tostring"></a><a name="9.4"></a>
@@ -1301,6 +1322,7 @@ Other Style Guides
       }
     }
     ```
+
 
 **[⬆ back to top](#table-of-contents)**
 
