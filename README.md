@@ -1213,7 +1213,7 @@ Other Style Guides
        return this.gst(tile)+this.Cost;
     }
     
-    const Shanjay =new Bill("Prince",555);
+    const Prince=new Bill("Prince",555);
     console.log(Prince.Cost); //555
     console.log(Prince.gst(20)); //111
     console.log(Prince.totalCost(20)); //666
