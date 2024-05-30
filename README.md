@@ -334,7 +334,14 @@ Other Style Guides
 
     // good
     const original = { a: 1, b: 2 };
-    const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
+    const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 } unsuitable for nested object
+
+    const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
+
+    // best
+    const original = { a: 1, b: 2 };
+    // structuredClone is a hypothetical function that deep clones an object
+    const copy = {...structuredClone(original), c: 3}; // copy => { a: 1, b: 2, c: 3 }
 
     const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
     ```
