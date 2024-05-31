@@ -2335,13 +2335,8 @@ Other Style Guides
 
     // good
     function dogs(x) {
-      if (x) {
-        if (z) {
-          return y;
-        }
-      } else {
-        return z;
-      }
+     if(x && z) return y;
+     if(!x) return z;
     }
     ```
 
