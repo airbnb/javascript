@@ -289,7 +289,7 @@ This style guide is mostly based on the standards that are currently prevalent i
 ## Props
 
   - Always use camelCase for prop names, or PascalCase if the prop value is a React component.
-
+  - Using CamelCase Notation during initialization of any variable.
     ```jsx
     // bad
     <Foo
@@ -297,7 +297,7 @@ This style guide is mostly based on the standards that are currently prevalent i
       phone_number={12345678}
     />
 
-    // good
+    // good 
     <Foo
       userName="hello"
       phoneNumber={12345678}
