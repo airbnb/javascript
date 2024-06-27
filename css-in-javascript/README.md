@@ -9,6 +9,9 @@ _A mostly reasonable approach to CSS-in-JavaScript_
 3. [Nesting](#nesting)
 4. [Inline](#inline)
 5. [Themes](#themes)
+6. [Specificity](#Specificity)
+7. [Responsiveness](#Responsiveness)
+8. [Common_Pitfalls](#Common_Pitfalls)
 
 ## Naming
 
@@ -431,7 +434,7 @@ _A mostly reasonable approach to CSS-in-JavaScript_
 
 ---
 
-### Specificity
+## Specificity
 
 **Why Specificity Matters:**
 CSS specificity determines which styles are applied to an element when conflicting styles are present. It's important to manage specificity to maintain predictable styling behavior.
@@ -473,7 +476,7 @@ CSS specificity determines which styles are applied to an element when conflicti
 
 ---
 
-### Responsiveness
+## Responsiveness
 
 **Why Responsive Design is Important:**
 Responsive design ensures that your web application looks and functions well on different devices and screen sizes, providing a better user experience.
@@ -495,7 +498,7 @@ Responsive design ensures that your web application looks and functions well on 
 
 ---
 
-### Common Pitfalls
+## Common_Pitfalls
 
 **Understanding Common CSS-in-JavaScript Pitfalls:**
 Identifying and avoiding common mistakes in CSS-in-JavaScript can improve code maintainability and performance.
