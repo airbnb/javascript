@@ -65,7 +65,7 @@ Other Style Guides
   <a name="types--primitives"></a><a name="1.1"></a>
   - [1.1](#types--primitives) **Primitives**: When you access a primitive type you work directly on its value.
 
-    - `string`
+    - `Строка`
     - `number`
     - `boolean`
     - `null`
