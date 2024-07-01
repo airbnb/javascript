@@ -488,39 +488,36 @@ Guidelines:
   };
   ```
 
-````
-
 This naming convention avoids tying styles to specific devices and accommodates the diversity of screen sizes and resolutions.
-
-
 
 ## Common Pitfalls
 
 > Understanding Common CSS-in-JavaScript Pitfalls:
-Identifying and avoiding common mistakes in CSS-in-JavaScript can improve code maintainability and performance.
+> Identifying and avoiding common mistakes in CSS-in-JavaScript can improve code maintainability and performance.
 
 Tips:
 
 - High Cardinality Styles:
-   Use inline styles for styles that vary based on props or have a high number of variations. This approach avoids generating unnecessary stylesheets and optimizes performance.
+  Use inline styles for styles that vary based on props or have a high number of variations. This approach avoids generating unnecessary stylesheets and optimizes performance.
 
-   ```javascript
-   function Button({ color, size }) {
-     return (
-       <button
-         style={{
-           backgroundColor: color,
-           fontSize: size === "large" ? "20px" : "16px",
-           padding: "10px",
-         }}
-       >
-         Click me
-       </button>
-     );
-   }
-````
+  ```javascript
+  function Button({ color, size }) {
+    return (
+      <button
+        style={{
+          backgroundColor: color,
+          fontSize: size === "large" ? "20px" : "16px",
+          padding: "10px",
+        }}
+      >
+        Click me
+      </button>
+    );
+  }
+  ```
 
-> Debugging Techniques:
+## Debugging Techniques:
+
 > Implement effective debugging strategies to identify and resolve CSS-in-JavaScript issues quickly. Utilize browser developer tools to inspect applied styles, debug CSS specificity issues, and validate responsive designs across different devices.
 
 - Browser DevTools: Use the Elements panel to inspect applied styles and understand CSS inheritance and specificity.
