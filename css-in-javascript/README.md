@@ -435,7 +435,7 @@ _A mostly reasonable approach to CSS-in-JavaScript_
 > Why Specificity Matters:
 > CSS specificity determines which styles are applied to an element when conflicting styles are present. It's important to manage specificity to maintain predictable styling behavior.
 
-> Best Practices:
+Best Practices:
 
 - Use camelCase for Object Keys:
   When defining styles in JavaScript objects, use camelCase for object keys. This convention aligns with JavaScript syntax and makes accessing style properties straightforward.
@@ -470,29 +470,29 @@ _A mostly reasonable approach to CSS-in-JavaScript_
 
   If you encounter specificity issues, refactor your selectors or consider using inline styles for specific cases where necessary.
 
-````
-
 ## Responsiveness
 
 > Why Responsive Design is Important:
-Responsive design ensures that your web application looks and functions well on different devices and screen sizes, providing a better user experience.
+> Responsive design ensures that your web application looks and functions well on different devices and screen sizes, providing a better user experience.
 
-> Guidelines:
+Guidelines:
 
 - Use Device-Agnostic Names for Breakpoints:
-   Name your media query breakpoints based on size characteristics (`small`, `medium`, `large`) rather than specific device names (`mobile`, `tablet`, `desktop`). This approach sets appropriate expectations for how styles will adapt across various devices.
+  Name your media query breakpoints based on size characteristics (`small`, `medium`, `large`) rather than specific device names (`mobile`, `tablet`, `desktop`). This approach sets appropriate expectations for how styles will adapt across various devices.
 
-   ```javascript
-   const breakpoints = {
-     small: "@media (max-width: 639px)",
-     medium: "@media (max-width: 1047px)",
-     large: "@media (min-width: 1048px)",
-   };
+  ```javascript
+  const breakpoints = {
+    small: "@media (max-width: 639px)",
+    medium: "@media (max-width: 1047px)",
+    large: "@media (min-width: 1048px)",
+  };
+  ```
+
 ````
 
 This naming convention avoids tying styles to specific devices and accommodates the diversity of screen sizes and resolutions.
 
-````
+
 
 ## Common Pitfalls
 
@@ -520,25 +520,25 @@ Tips:
    }
 ````
 
-- Debugging Techniques:
-  Implement effective debugging strategies to identify and resolve CSS-in-JavaScript issues quickly. Utilize browser developer tools to inspect applied styles, debug CSS specificity issues, and validate responsive designs across different devices.
+> Debugging Techniques:
+> Implement effective debugging strategies to identify and resolve CSS-in-JavaScript issues quickly. Utilize browser developer tools to inspect applied styles, debug CSS specificity issues, and validate responsive designs across different devices.
 
-  - Browser DevTools: Use the Elements panel to inspect applied styles and understand CSS inheritance and specificity.
+- Browser DevTools: Use the Elements panel to inspect applied styles and understand CSS inheritance and specificity.
 
-  - Linting Tools: Integrate linting tools like ESLint with plugins for CSS-in-JavaScript to enforce best practices and catch common errors early in development.
+- Linting Tools: Integrate linting tools like ESLint with plugins for CSS-in-JavaScript to enforce best practices and catch common errors early in development.
 
-  ```javascript
-  // ESLint rule example for avoiding !important
-  // .eslintrc.js
-  module.exports = {
-    // other settings...
-    rules: {
-      "jsx-quotes": ["error", "prefer-single"],
-      "no-important": "error",
-    },
-  };
-  ```
+```javascript
+// ESLint rule example for avoiding !important
+// .eslintrc.js
+module.exports = {
+  // other settings...
+  rules: {
+    "jsx-quotes": ["error", "prefer-single"],
+    "no-important": "error",
+  },
+};
+```
 
-  ***
+---
 
 CSS puns adapted from [Saijo George](https://saijogeorge.com/css-puns/).
