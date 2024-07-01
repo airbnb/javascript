@@ -9,9 +9,9 @@ _A mostly reasonable approach to CSS-in-JavaScript_
 3. [Nesting](#nesting)
 4. [Inline](#inline)
 5. [Themes](#themes)
-6. [Specificity](#Specificity)
-7. [Responsiveness](#Responsiveness)
-8. [Common_Pitfalls](#Common_Pitfalls)
+6. [Specificity](#specificity)
+7. [Responsiveness](#responsiveness)
+8. [Common Pitfalls](#common-pitfalls)
 
 ## Naming
 
@@ -430,60 +430,56 @@ _A mostly reasonable approach to CSS-in-JavaScript_
   });
   ```
 
----
-
----
-
 ## Specificity
 
-**Why Specificity Matters:**
-CSS specificity determines which styles are applied to an element when conflicting styles are present. It's important to manage specificity to maintain predictable styling behavior.
+> Why Specificity Matters:
+> CSS specificity determines which styles are applied to an element when conflicting styles are present. It's important to manage specificity to maintain predictable styling behavior.
 
-**Best Practices:**
+> Best Practices:
 
-1. **Use camelCase for Object Keys:**
-   When defining styles in JavaScript objects, use camelCase for object keys. This convention aligns with JavaScript syntax and makes accessing style properties straightforward.
+- Use camelCase for Object Keys:
+  When defining styles in JavaScript objects, use camelCase for object keys. This convention aligns with JavaScript syntax and makes accessing style properties straightforward.
 
-   ```javascript
-   // Bad
-   const styles = {
-     "background-color": "blue",
-   };
+  ```javascript
+  // Bad
+  const styles = {
+    "background-color": "blue",
+  };
 
-   // Good
-   const styles = {
-     backgroundColor: "blue",
-   };
-   ```
+  // Good
+  const styles = {
+    backgroundColor: "blue",
+  };
+  ```
 
-2. **Avoid !important:**
-   Avoid using `!important` whenever possible. Instead, structure your styles and use more specific selectors to control the order of style application.
+- Avoid !important:
+  Avoid using `!important` whenever possible. Instead, structure your styles and use more specific selectors to control the order of style application.
 
-   ```javascript
-   // Bad
-   const styles = {
-     color: "red !important",
-   };
+  ```javascript
+  // Bad
+  const styles = {
+    color: "red !important",
+  };
 
-   // Good
-   const styles = {
-     color: "red",
-     fontSize: "16px",
-   };
-   ```
+  // Good
+  const styles = {
+    color: "red",
+    fontSize: "16px",
+  };
+  ```
 
-   If you encounter specificity issues, refactor your selectors or consider using inline styles for specific cases where necessary.
+  If you encounter specificity issues, refactor your selectors or consider using inline styles for specific cases where necessary.
 
----
+````
 
 ## Responsiveness
 
-**Why Responsive Design is Important:**
+> Why Responsive Design is Important:
 Responsive design ensures that your web application looks and functions well on different devices and screen sizes, providing a better user experience.
 
-**Guidelines:**
+> Guidelines:
 
-1. **Use Device-Agnostic Names for Breakpoints:**
+- Use Device-Agnostic Names for Breakpoints:
    Name your media query breakpoints based on size characteristics (`small`, `medium`, `large`) rather than specific device names (`mobile`, `tablet`, `desktop`). This approach sets appropriate expectations for how styles will adapt across various devices.
 
    ```javascript
@@ -492,20 +488,20 @@ Responsive design ensures that your web application looks and functions well on 
      medium: "@media (max-width: 1047px)",
      large: "@media (min-width: 1048px)",
    };
-   ```
+````
 
-   This naming convention avoids tying styles to specific devices and accommodates the diversity of screen sizes and resolutions.
+This naming convention avoids tying styles to specific devices and accommodates the diversity of screen sizes and resolutions.
 
----
+````
 
-## Common_Pitfalls
+## Common Pitfalls
 
-**Understanding Common CSS-in-JavaScript Pitfalls:**
+> Understanding Common CSS-in-JavaScript Pitfalls:
 Identifying and avoiding common mistakes in CSS-in-JavaScript can improve code maintainability and performance.
 
-**Tips:**
+Tips:
 
-1. **High Cardinality Styles:**
+- High Cardinality Styles:
    Use inline styles for styles that vary based on props or have a high number of variations. This approach avoids generating unnecessary stylesheets and optimizes performance.
 
    ```javascript
@@ -522,26 +518,27 @@ Identifying and avoiding common mistakes in CSS-in-JavaScript can improve code m
        </button>
      );
    }
-   ```
+````
 
-2. **Debugging Techniques:**
-   Implement effective debugging strategies to identify and resolve CSS-in-JavaScript issues quickly. Utilize browser developer tools to inspect applied styles, debug CSS specificity issues, and validate responsive designs across different devices.
+- Debugging Techniques:
+  Implement effective debugging strategies to identify and resolve CSS-in-JavaScript issues quickly. Utilize browser developer tools to inspect applied styles, debug CSS specificity issues, and validate responsive designs across different devices.
 
-   - **Browser DevTools:** Use the Elements panel to inspect applied styles and understand CSS inheritance and specificity.
-   - **Linting Tools:** Integrate linting tools like ESLint with plugins for CSS-in-JavaScript to enforce best practices and catch common errors early in development.
+  - Browser DevTools: Use the Elements panel to inspect applied styles and understand CSS inheritance and specificity.
 
-   ```javascript
-   // ESLint rule example for avoiding !important
-   // .eslintrc.js
-   module.exports = {
-     // other settings...
-     rules: {
-       "jsx-quotes": ["error", "prefer-single"],
-       "no-important": "error",
-     },
-   };
-   ```
+  - Linting Tools: Integrate linting tools like ESLint with plugins for CSS-in-JavaScript to enforce best practices and catch common errors early in development.
 
----
+  ```javascript
+  // ESLint rule example for avoiding !important
+  // .eslintrc.js
+  module.exports = {
+    // other settings...
+    rules: {
+      "jsx-quotes": ["error", "prefer-single"],
+      "no-important": "error",
+    },
+  };
+  ```
+
+  ***
 
 CSS puns adapted from [Saijo George](https://saijogeorge.com/css-puns/).
