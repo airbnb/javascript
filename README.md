@@ -138,7 +138,7 @@ Other Style Guides
     // good, use the let.
     let count = 1;
     if (true) {
-      count += 1;
+      count++;
     }
     ```
 
@@ -543,9 +543,15 @@ Other Style Guides
     // bad
     const first = arr[0];
     const second = arr[1];
+    const second = arr[2];
+    const fourth = arr[3];
 
     // good
-    const [first, second] = arr;
+    const [first, second,third,fourth] = arr;
+
+
+
+
     ```
 
   <a name="destructuring--object-over-array"></a><a name="5.3"></a>
