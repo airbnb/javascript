@@ -584,16 +584,22 @@ module.exports = {
     'react/jsx-no-leaked-render': 'off',
 
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/66b58dd4864678eb869a7bf434c72ff7ac530eb1/docs/rules/no-object-type-as-default-prop.md
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/66b58dd4864678eb869a7bf434c72ff7ac530eb1/docs/rules/no-object-type-as-default-prop.md
     // TODO: semver-major, enable
     'react/no-object-type-as-default-prop': 'off',
 
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/66b58dd4864678eb869a7bf434c72ff7ac530eb1/docs/rules/sort-default-props.md
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/66b58dd4864678eb869a7bf434c72ff7ac530eb1/docs/rules/sort-default-props.md
     // TODO: semver-major, enable?
     'react/sort-default-props': ['off', {
       ignoreCase: false
     }],
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/9668ee0762acd5c23f53cd3a372e2d8d9563944d/docs/rules/forward-ref-uses-ref.md
+    // TODO: semver-major, enable
+    'react/forward-ref-uses-ref': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/9668ee0762acd5c23f53cd3a372e2d8d9563944d/docs/rules/jsx-props-no-spread-multi.md
+    // TODO: semver-major, enable
+    'react/jsx-props-no-spread-multi': 'off',
   },
 
   settings: {
