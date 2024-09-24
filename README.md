@@ -4028,6 +4028,7 @@ Other Style Guides
   - **WeBox Studio**: [weboxstudio/javascript](https://github.com/weboxstudio/javascript)
   - **Weggo**: [Weggo/javascript](https://github.com/Weggo/javascript)
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
+  - **Zit Software**: [zit-software/javascript](https://github.com/zit-software/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
 **[⬆ back to top](#table-of-contents)**
