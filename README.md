@@ -374,9 +374,8 @@ Other Style Guides
     // bad
     const len = items.length;
     const itemsCopy = [];
-    let i;
 
-    for (i = 0; i < len; i += 1) {
+    for (let i = 0; i < len; i += 1) {
       itemsCopy[i] = items[i];
     }
 
@@ -710,9 +709,16 @@ Other Style Guides
     }
 
     // good
-    let test;
+    let test;  // if you are planning to reassign value
     if (currentUser) {
       test = () => {
+        console.log('Yup.');
+      };
+    }
+
+    // good
+    if (currentUser) {
+      const test = () => {
         console.log('Yup.');
       };
     }
@@ -1031,9 +1037,9 @@ Other Style Guides
     ```
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) Always include parentheses around arguments for clarity and consistency. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens)
+  - [8.4](#arrows--one-arg-parens) Always include parentheses around parameters for clarity and consistency. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens)
 
-    > Why? Minimizes diff churn when adding or removing arguments.
+    > Why? Minimizes diff churn when adding or removing parameters.
 
     ```javascript
     // bad
@@ -1129,6 +1135,7 @@ Other Style Guides
       constructor(contents = []) {
         this.queue = [...contents];
       }
+
       pop() {
         const value = this.queue[0];
         this.queue.splice(0, 1);
@@ -1493,18 +1500,18 @@ Other Style Guides
     for (let num of numbers) {
       sum += num;
     }
-    sum === 15;
+    sum === 15; // true
 
     // good
     let sum = 0;
     numbers.forEach((num) => {
       sum += num;
     });
-    sum === 15;
+    sum === 15; // true
 
     // best (use the functional force)
     const sum = numbers.reduce((total, num) => total + num, 0);
-    sum === 15;
+    sum === 15; // true
 
     // bad
     const increasedByOne = [];
@@ -1645,6 +1652,14 @@ Other Style Guides
     ```javascript
     // bad
     superPower = new SuperPower();
+
+    // bad
+    function foo() {
+      bar = 10 // bar will appear in the global scope
+    }
+
+    foo()
+    console.log(bar) // 10
 
     // good
     const superPower = new SuperPower();
@@ -2091,28 +2106,33 @@ Other Style Guides
         let x = 1;
         break;
       case 2:
-        const y = 2;
+        const x = 2; // SyntaxError: Identifier 'x' has already been declared
         break;
       case 3:
+        // Will be available in entire switch block
         function f() {
           // ...
         }
         break;
       default:
+        // Will be available in entire switch block
         class C {}
     }
 
     // good
     switch (foo) {
       case 1: {
+        // Will be available only in the case 1 block
         let x = 1;
         break;
       }
       case 2: {
-        const y = 2;
+        // Will be available only in the case 2 block
+        const x = 2; // No SyntaxError
         break;
       }
       case 3: {
+        // Will be available only in the case 3 block
         function f() {
           // ...
         }
@@ -2122,6 +2142,7 @@ Other Style Guides
         bar();
         break;
       default: {
+        // Will be available only in the default block
         class C {}
       }
     }
@@ -2209,24 +2230,34 @@ Other Style Guides
 
     ```javascript
     // bad
-    const value = 0 ?? 'default';
-    // returns 0, not 'default'
+    const value = 0 ?? 'default'; // 0, not 'default'
 
     // bad
-    const value = '' ?? 'default';
-    // returns '', not 'default'
+    const value = '' ?? 'default'; // '', not 'default'
 
     // good
-    const value = null ?? 'default';
-    // returns 'default'
+    const value = null ?? 'default'; // 'default'
 
     // good
     const user = {
       name: 'John',
       age: null
     };
-    const age = user.age ?? 18;
-    // returns 18
+    const age = user.age ?? 18; // 18
+
+    // good
+    const user = {
+      name: 'John',
+    };
+    const age = user.age ?? 18; // 18
+
+    // good
+    const user = {
+      name: 'John',
+      age: 0
+    };
+    const age = user.age ?? 18; // 0
+    const anotherAge = user.age || 18 // 18
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -2459,7 +2490,7 @@ Other Style Guides
 
     // good
     // is current tab
-    const active = true;
+    const isActive = true;
 
     // bad
     function getType() {
@@ -3190,6 +3221,20 @@ Other Style Guides
       inventorOf,
       ...heroArgs
     );
+
+    // bad
+    import {
+      firstVariable,
+      secondVariable,
+      thirdVariable
+    } from './someModule';
+
+    // good
+    import {
+      firstVariable,
+      secondVariable,
+      thirdVariable,
+    } from './someModule';
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -3746,7 +3791,7 @@ Other Style Guides
 ## ECMAScript 5 Compatibility
 
   <a name="es5-compat--kangax"></a><a name="26.1"></a>
-  - [27.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)’s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
+  - [27.1](#es5-compat--kangax) Refer to the [ES5 compatibility table](https://compat-table.github.io/compat-table/es5/) for features compatibility
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -3861,7 +3906,7 @@ Other Style Guides
   - [Latest ECMA spec](https://tc39.github.io/ecma262/)
   - [ExploringJS](https://exploringjs.com/)
   - [ES6 Compatibility Table](https://compat-table.github.io/compat-table/es6/)
-  - [Comprehensive Overview of ES6 Features](https://web.archive.org/web/20240404212626/http://es6-features.org/)
+  - [Comprehensive Overview of ES6 Features](http://es6-features.org/)
   - [JavaScript Roadmap](https://roadmap.sh/javascript)
 
 **Read This**
