@@ -2,6 +2,9 @@ name: 'Tests: pretest/posttest'
 
 on: [pull_request, push]
 
+permissions:
+  contents: read
+
 jobs:
   pretest:
     runs-on: ubuntu-latest
