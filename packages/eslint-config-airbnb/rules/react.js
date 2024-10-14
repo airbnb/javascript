@@ -109,7 +109,7 @@ module.exports = {
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
     'react/jsx-no-bind': ['error', {
       ignoreRefs: true,
-      allowArrowFunctions: true,
+      allowArrowFunctions: false,
       allowFunctions: false,
       allowBind: false,
       ignoreDOMComponents: true,
