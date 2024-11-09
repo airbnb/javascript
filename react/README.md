@@ -245,16 +245,16 @@ This style guide is mostly based on the standards that are currently prevalent i
 
     ```jsx
     // bad
-    <Foo bar='bar' />
+    &lt;Foo bar='bar' /&gt;
 
     // good
-    <Foo bar="bar" />
+    &lt;Foo bar="bar" /&gt;
 
     // bad
-    <Foo style={{ left: "20px" }} />
+    &lt;Foo style={{ left: "20px" }} /&gt;
 
     // good
-    <Foo style={{ left: '20px' }} />
+    &lt;Foo style={{ left: '20px' }} /&gt;
     ```
 
 ## Spacing
