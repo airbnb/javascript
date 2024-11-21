@@ -21,6 +21,7 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [Methods](#methods)
   1. [Ordering](#ordering)
   1. [`isMounted`](#ismounted)
+  1. [Things to avoid](#thingstoavoid)
 
 ## Basic Rules
 
@@ -736,6 +737,15 @@ We don’t recommend using indexes for keys if the order of items may change.
   > Why? [`isMounted` is an anti-pattern][anti-pattern], is not available when using ES6 classes, and is on its way to being officially deprecated.
 
   [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
+  
+## Things to avoid
+
+Using deprecated APIs will create bad legacy code. Hence it's good to know that which APIs have been deprecated.
+
+These Component lifecycles are been deprecated since React version 16.3+ :
+- componentWillMount
+- componentWillReceiveProps
+- componentWillUpdate
 
 ## Translation
 
