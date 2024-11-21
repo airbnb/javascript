@@ -3983,6 +3983,7 @@ Other Style Guides
   - **InterCity Group**: [intercitygroup/javascript-style-guide](https://github.com/intercitygroup/javascript-style-guide)
   - **Jam3**: [Jam3/Javascript-Code-Conventions](https://github.com/Jam3/Javascript-Code-Conventions)
   - **JSSolutions**: [JSSolutions/javascript](https://github.com/JSSolutions/javascript)
+  - **Jumpcut**: [jumpcut/javascript](https://github.com/jumpcut/javascript)
   - **Kaplan Komputing**: [kaplankomputing/javascript](https://github.com/kaplankomputing/javascript)
   - **KickorStick**: [kickorstick](https://github.com/kickorstick/)
   - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/Javascript-style-guide)
