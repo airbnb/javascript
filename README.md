@@ -1164,6 +1164,8 @@ Other Style Guides
   <a name="constructors--chaining"></a><a name="9.3"></a>
   - [9.3](#constructors--chaining) Methods can return `this` to help with method chaining.
 
+    > When? Use chaining when functions manipulate the internals of an object instead of just returning data.
+
     ```javascript
     // bad
     Jedi.prototype.jump = function () {
@@ -1195,7 +1197,7 @@ Other Style Guides
     const luke = new Jedi();
 
     luke.jump()
-      .setHeight(20);
+      .setHeight(20); // same as const tmp = luke.jump(); tmp.setHeight(20);
     ```
 
   <a name="constructors--tostring"></a><a name="9.4"></a>
