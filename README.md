@@ -4034,6 +4034,7 @@ Other Style Guides
 
   This style guide is also available in other languages:
 
+  - ![ar](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Saudi-Arabia.png) **Arabic**: [‫دليل Airbnb لنمط جافا سكربت‪](https://academy.hsoub.com/programming/javascript/دليل-airbnb-لنمط-جافا-سكريبت-r632/)
   - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
   - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
   - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
