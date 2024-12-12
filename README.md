@@ -1301,6 +1301,39 @@ Other Style Guides
       }
     }
     ```
+    
+    <a name="classes--private-identifier"></a>
+  - [9.8](#classes--private-identifier) Class members should use `#` to mark them as private members. 
+
+    ```javascript
+    // bad
+    class Foo {
+      _bar() {
+        console.log('bar');
+      }
+    }
+    
+    // bad
+    class Foo {
+      bar_() {
+        console.log('bar');
+      }
+    }
+    
+    // bad
+    class Foo {
+      __bar__() {
+        console.log('bar');
+      }
+    }
+    
+    // good
+    class Foo {
+      #bar() {
+        console.log(this.bar);
+      }
+    }
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -3394,7 +3427,7 @@ Other Style Guides
   <a name="naming--leading-underscore"></a><a name="22.4"></a>
   - [23.4](#naming--leading-underscore) Do not use trailing or leading underscores. eslint: [`no-underscore-dangle`](https://eslint.org/docs/rules/no-underscore-dangle)
 
-    > Why? JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won’t count as breaking, or that tests aren’t needed. tl;dr: if you want something to be “private”, it must not be observably present.
+    > Why? ECMA2022 introduced [**# names**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields) to create private class members with a `#` prefix. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won’t count as breaking, or that tests aren’t needed. tl;dr: if you want something to be “private”, it must not be observably present.
 
     ```javascript
     // bad
