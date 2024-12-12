@@ -3546,7 +3546,7 @@ Other Style Guides
     const PRIVATE_VARIABLE = 'should not be unnecessarily uppercased within a file';
 
     // bad
-    export const THING_TO_BE_CHANGED = 'should obviously not be uppercased';
+    export const some_exported_constant = 'should obviously be uppercased';
 
     // bad
     export let REASSIGNABLE_VARIABLE = 'do not use let with uppercase variables';
