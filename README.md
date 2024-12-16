@@ -3183,6 +3183,11 @@ Other Style Guides
       inventorOf,
     );
 
+    //good
+    export function MY_EXPORTED_FUNCTION() {
+      return 'hello function';
+    };
+
     // good (note that a comma must not appear after a "rest" element)
     createHero(
       firstName,
@@ -3546,7 +3551,7 @@ Other Style Guides
     const PRIVATE_VARIABLE = 'should not be unnecessarily uppercased within a file';
 
     // bad
-    export const THING_TO_BE_CHANGED = 'should obviously not be uppercased';
+    export const MY_CONSTANT = 'should obviously not be uppercased';
 
     // bad
     export let REASSIGNABLE_VARIABLE = 'do not use let with uppercase variables';
