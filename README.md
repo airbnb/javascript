@@ -3184,9 +3184,9 @@ Other Style Guides
     );
 
     //good
-    export const MY_EXPORTED_FUNCTION = () => {
-  return 'hello function';
-};
+    export function MY_EXPORTED_FUNCTION() {
+      return 'hello function';
+    };
 
     // good (note that a comma must not appear after a "rest" element)
     createHero(
