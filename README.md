@@ -1655,7 +1655,7 @@ Other Style Guides
 
     // bad
     function foo() {
-      bar = 10 // bar will appear in the global scope
+      bar = 10; // bar will appear in the global scope
     }
 
     foo()
