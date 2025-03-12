@@ -1659,7 +1659,7 @@ Other Style Guides
     }
 
     foo()
-    console.log(bar) // 10
+    console.log(bar); // 10
 
     // good
     const superPower = new SuperPower();
