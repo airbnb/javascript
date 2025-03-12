@@ -1658,7 +1658,7 @@ Other Style Guides
       bar = 10; // bar will appear in the global scope
     }
 
-    foo()
+    foo();
     console.log(bar); // 10
 
     // good
