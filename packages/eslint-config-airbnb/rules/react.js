@@ -260,6 +260,7 @@ module.exports = {
         'instance-methods',
         'everything-else',
         'rendering',
+        'type-annotations',
       ],
       groups: {
         lifecycle: [
