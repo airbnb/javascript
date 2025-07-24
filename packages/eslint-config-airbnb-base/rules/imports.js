@@ -280,4 +280,23 @@ module.exports = {
     // TODO, semver-minor: enable
     'import/no-empty-named-blocks': 'off',
   },
+  plugins: ["markdown"],
+  overrides: [
+    {
+      // Step 2a: Extract code blocks from markdown
+      files: ["**/*.md"],
+      processor: "markdown/markdown"
+    },
+    {
+      // Step 2b: Apply JS rules to those code blocks
+      files: ["**/*.md/*.js"],
+      rules: {
+        // Allow console logs in docs
+        "no-console": "off",
+        // Don't bother with unresolved imports in examples
+        "import/no-unresolved": "off"
+      }
+    }
+    // ...other overrides or rules
+  ],
 };
