@@ -361,7 +361,7 @@ Other Style Guides
     const someStack = [];
 
     // bad
-    someStack[someStack.length] = 'abracadabra';
+    someStack[someStack.length - 1] = 'abracadabra';
 
     // good
     someStack.push('abracadabra');
