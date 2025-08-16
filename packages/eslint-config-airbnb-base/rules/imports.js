@@ -1,20 +1,20 @@
 module.exports = {
   env: {
-    es6: true
+    es6: true,
   },
   parserOptions: {
     ecmaVersion: 6,
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: [
-    'import'
+    'import',
   ],
 
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.mjs', '.js', '.json']
-      }
+        extensions: ['.mjs', '.js', '.json'],
+      },
     },
     'import/extensions': [
       '.js',
@@ -91,7 +91,7 @@ module.exports = {
         '**/protractor.conf.js', // protractor config
         '**/protractor.conf.*.js', // protractor config
         '**/karma.conf.js', // karma config
-        '**/.eslintrc.js' // eslint config
+        '**/.eslintrc.js', // eslint config
       ],
       optionalDependencies: false,
     }],
@@ -260,8 +260,9 @@ module.exports = {
       unusedExports: true,
     }],
 
-    // Reports the use of import declarations with CommonJS exports in any module except for the main module.
-    // https://github.com/import-js/eslint-plugin-import/blob/1012eb951767279ce3b540a4ec4f29236104bb5b/docs/rules/no-import-module-exports.md
+    // Reports the use of import declarations with CommonJS exports in any module
+    // except for the main module.
+    // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-import-module-exports.md
     'import/no-import-module-exports': ['error', {
       exceptions: [],
     }],
