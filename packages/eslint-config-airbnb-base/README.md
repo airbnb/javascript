@@ -62,6 +62,16 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+. It
 
 2. Add `"extends": "airbnb-base"` to your .eslintrc.
 
+> **Note**: ESLint only lints `.js` files by default.
+
+  If your project uses `.jsx` (or `.tsx` with TypeScript), you need to pass extensions to the CLI:
+
+  ```sh
+  eslint . --ext .js, .jsx, .mjs
+  ```
+
+  Without this, JSX-related rules will not apply to `.jsx` files.
+
 ### eslint-config-airbnb-base/legacy
 
 Lints ES5 and below. Requires `eslint` and `eslint-plugin-import`.
