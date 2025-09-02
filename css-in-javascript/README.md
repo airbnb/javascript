@@ -32,7 +32,7 @@
     }
     ```
 
-  - Use an underscore for modifiers to other styles...
+  - Use an underscore for modifiers to other styles.....
 
     > Why? Similar to [BEM](https://getbem.com/introduction/), this naming convention makes it clear that the styles are intended to modify the element preceded by the underscore. Underscores do not need to be quoted, so they are preferred over other characters, such as dashes.
 
