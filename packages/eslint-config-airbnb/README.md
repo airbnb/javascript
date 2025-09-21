@@ -58,13 +58,78 @@ If you don't need React, see [eslint-config-airbnb-base](https://npmjs.com/eslin
 
 2. Add `"extends": "airbnb"` to your `.eslintrc`
 
+  If using **flat config**, add `eslint-config-airbnb/flat` to `eslint.config.mjs` / `eslint.config.cjs` / `eslint.config.js` :
+
+  ```js
+  // eslint.config.cjs
+  const airbnb = require('eslint-config-airbnb/flat');
+
+  module.exports = [
+    ...airbnb,
+    // ......
+  ];
+  ```
+
+  ```js
+  // eslint.config.mjs
+  import airbnb from 'eslint-config-airbnb/flat';
+
+  export default [
+    ...airbnb,
+    // ......
+  ];
+  ```
+
 ### eslint-config-airbnb/hooks
 
 This entry point enables the linting rules for React hooks (requires v16.8+). To use, add `"extends": ["airbnb", "airbnb/hooks"]` to your `.eslintrc`.
 
+If using **flat config**, add `eslint-config-airbnb/hooks-flat` to `eslint.config.mjs` / `eslint.config.cjs` / `eslint.config.js` :
+
+```js
+// eslint.config.cjs
+const hooksFlat = require('eslint-config-airbnb/hooks-flat');
+
+module.exports = [
+  ...hooksFlat,
+  // ......
+];
+```
+
+```js
+// eslint.config.mjs
+import hooksFlat from 'eslint-config-airbnb/hooks-flat';
+
+export default [
+  ...hooksFlat,
+  // ......
+];
+```
+
 ### eslint-config-airbnb/whitespace
 
 This entry point only errors on whitespace rules and sets all other rules to warnings. View the list of whitespace rules [here](https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/whitespace.js).
+
+If using **flat config**, add `eslint-config-airbnb/whitespace-flat` to `eslint.config.mjs` / `eslint.config.cjs` / `eslint.config.js` :
+```js
+// eslint.config.cjs
+const whitespace = require('eslint-config-airbnb/whitespace-flat');
+
+module.exports = [
+  whitespace,
+  // ......
+];
+```
+
+```js
+// eslint.config.mjs
+import whitespace from 'eslint-config-airbnb/whitespace-flat';
+
+export default [
+  whitespace,
+  // ......
+];
+```
 
 ### eslint-config-airbnb/base
 
