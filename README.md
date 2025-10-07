@@ -1908,6 +1908,22 @@ Other Style Guides
     }
     ```
 
+  <a name="hoisting--Temporal--Dead--Zone"></a><a name="14.1.1"></a>
+  - [14.1.1](#hoisting--Temporal--Dead--Zone) Temporal Dead Zone (TDZ) is the period from entering a scope until the exact line where a let, const, or class binding is initialized; accessing it during this window throws a ReferenceError, unlike var which is hoisted and reads as undefined before assignment.
+    ```javascript
+       // TDZ: accessing before initialization → ReferenceError
+    {
+      // console.log(foo);        // ReferenceError
+      // console.log(typeof foo); // ReferenceError
+      let foo = 2;                // TDZ ends here
+    }
+    
+    // var contrasts with TDZ: hoisted to undefined
+    {
+      console.log(bar);           // undefined
+      var bar = 1;
+    }
+    ```
   <a name="hoisting--anon-expressions"></a><a name="14.2"></a>
   - [14.2](#hoisting--anon-expressions) Anonymous function expressions hoist their variable name, but not the function assignment.
 
