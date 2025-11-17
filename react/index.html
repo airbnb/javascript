@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+	<head>
+	      <base href="../">
+		<meta charset="UTF-8">
+		<title>Airbnb JavaScript Style Guide by airbnb</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+	</head>
+
+	<body>
+		<section class="page-header">
+			<h1 class="project-name">Airbnb JavaScript Style Guide</h1>
+			<h2 class="project-tagline">A mostly reasonable approach to JavaScript</h2>
+			<a href="https://github.com/airbnb/javascript" class="btn">View on GitHub</a>
+			<a href="https://github.com/airbnb/javascript/zipball/master" class="btn">Download .zip</a>
+			<a href="https://github.com/airbnb/javascript/tarball/master" class="btn">Download .tar.gz</a>
+		</section>
+		<section class="main-content">
+			<h1><a id="Airbnb_ReactJSX_Style_Guide_0"></a>Airbnb React/JSX Style Guide</h1>
+			<p><em>A mostly reasonable approach to React and JSX</em></p>
+			<h2><a id="Table_of_Contents_4"></a>Table of Contents</h2>
+			<ol>
+				<li><a href="#basic-rules">Basic Rules</a></li>
+				<li><a href="#class-vs-reactcreateclass-vs-stateless">Class vs <code>React.createClass</code> vs stateless</a></li>
+				<li><a href="#naming">Naming</a></li>
+				<li><a href="#declaration">Declaration</a></li>
+				<li><a href="#alignment">Alignment</a></li>
+				<li><a href="#quotes">Quotes</a></li>
+				<li><a href="#spacing">Spacing</a></li>
+				<li><a href="#props">Props</a></li>
+				<li><a href="#refs">Refs</a></li>
+				<li><a href="#parentheses">Parentheses</a></li>
+				<li><a href="#tags">Tags</a></li>
+				<li><a href="#methods">Methods</a></li>
+				<li><a href="#ordering">Ordering</a></li>
+				<li><a href="#ismounted"><code>isMounted</code></a></li>
+			</ol>
+			<h2><a id="Basic_Rules_21"></a>Basic Rules</h2>
+			<ul>
+				<li>Only include one React component per file.
+					<ul>
+						<li>However, multiple <a href="https://facebook.github.io/react/docs/reusable-components.html#stateless-functions">Stateless, or Pure, Components</a> are allowed per file. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless"><code>react/no-multi-comp</code></a>.</li>
+					</ul>
+				</li>
+				<li>Always use JSX syntax.</li>
+				<li>Do not use <code>React.createElement</code> unless you’re initializing the app from a file that is not JSX.</li>
+			</ul>
+			<h2><a id="Class_vs_ReactcreateClass_vs_stateless_28"></a>Class vs <code>React.createClass</code> vs stateless</h2>
+			<ul>
+				<li>
+					<p>If you have internal state and/or refs, prefer <code>class extends React.Component</code> over <code>React.createClass</code> unless you have a very good reason to use mixins. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md"><code>react/prefer-es6-class</code></a> <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md"><code>react/prefer-stateless-function</code></a></p>
+					<pre><code class="language-jsx">// bad
+const Listing = React.createClass({
+	// ...
+	render() {
+		return &lt;div&gt;{this.state.hello}&lt;/div&gt;;
+	}
+});
+
+// good
+class Listing extends React.Component {
+	// ...
+	render() {
+		return &lt;div&gt;{this.state.hello}&lt;/div&gt;;
+	}
+}
+</code></pre>
+					<p>And if you don’t have state or refs, prefer normal functions (not arrow functions) over classes:</p>
+					<pre><code class="language-jsx">// bad
+class Listing extends React.Component {
+	render() {
+		return &lt;div&gt;{this.props.hello}&lt;/div&gt;;
+	}
+}
+
+// bad (relying on function name inference is discouraged)
+const Listing = ({ hello }) =&gt; (
+	&lt;div&gt;{hello}&lt;/div&gt;
+);
+
+// good
+function Listing({ hello }) {
+	return &lt;div&gt;{hello}&lt;/div&gt;;
+}
+</code></pre>
+				</li>
+			</ul>
+			<h2><a id="Naming_71"></a>Naming</h2>
+			<ul>
+				<li>
+					<p><strong>Extensions</strong>: Use <code>.jsx</code> extension for React components.</p>
+				</li>
+				<li>
+					<p><strong>Filename</strong>: Use PascalCase for filenames. E.g., <code>ReservationCard.jsx</code>.</p>
+				</li>
+				<li>
+					<p><strong>Reference Naming</strong>: Use PascalCase for React components and camelCase for their instances. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md"><code>react/jsx-pascal-case</code></a></p>
+					<pre><code class="language-jsx">// bad
+import reservationCard from './ReservationCard';
+
+// good
+import ReservationCard from './ReservationCard';
+
+// bad
+const ReservationItem = &lt;ReservationCard /&gt;;
+
+// good
+const reservationItem = &lt;ReservationCard /&gt;;
+</code></pre>
+				</li>
+				<li>
+					<p><strong>Component Naming</strong>: Use the filename as the component name. For example, <code>ReservationCard.jsx</code> should have a reference name of <code>ReservationCard</code>. However, for root components of a directory, use <code>index.jsx</code> as the filename and use the directory name as the component name:</p>
+					<pre><code class="language-jsx">// bad
+import Footer from './Footer/Footer';
+
+// bad
+import Footer from './Footer/index';
+
+// good
+import Footer from './Footer';
+</code></pre>
+				</li>
+			</ul>
+			<h2><a id="Declaration_104"></a>Declaration</h2>
+			<ul>
+				<li>
+					<p>Do not use <code>displayName</code> for naming components. Instead, name the component by reference.</p>
+					<pre><code class="language-jsx">// bad
+export default React.createClass({
+	displayName: 'ReservationCard',
+	// stuff goes here
+});
+
+// good
+export default class ReservationCard extends React.Component {
+}
+</code></pre>
+				</li>
+			</ul>
+			<h2><a id="Alignment_120"></a>Alignment</h2>
+			<ul>
+				<li>
+					<p>Follow these alignment styles for JSX syntax. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md"><code>react/jsx-closing-bracket-location</code></a></p>
+					<pre><code class="language-jsx">// bad
+&lt;Foo superLongParam="bar"
+		 anotherSuperLongParam="baz" /&gt;
+
+// good
+&lt;Foo
+	superLongParam="bar"
+	anotherSuperLongParam="baz"
+/&gt;
+
+// if props fit in one line then keep it on the same line
+&lt;Foo bar="bar" /&gt;
+
+// children get indented normally
+&lt;Foo
+	superLongParam="bar"
+	anotherSuperLongParam="baz"
+&gt;
+	&lt;Quux /&gt;
+&lt;/Foo&gt;
+</code></pre>
+				</li>
+			</ul>
+			<h2><a id="Quotes_147"></a>Quotes</h2>
+			<ul>
+				<li>Always use double quotes (<code>"</code>) for JSX attributes, but single quotes for all other JS. eslint: <a href="http://eslint.org/docs/rules/jsx-quotes"><code>jsx-quotes</code></a></li>
+			</ul>
+			<blockquote>
+				<p>Why? JSX attributes <a href="http://eslint.org/docs/rules/jsx-quotes">can’t contain escaped quotes</a>, so double quotes make conjunctions like <code>"don't"</code> easier to type. Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.</p>
+			</blockquote>
+			<pre><code>```jsx
+// bad
+&lt;Foo bar='bar' /&gt;
+
+// good
+&lt;Foo bar="bar" /&gt;
+
+// bad
+&lt;Foo style={{ left: "20px" }} /&gt;
+
+// good
+&lt;Foo style={{ left: '20px' }} /&gt;
+```
+</code></pre>
+			<h2><a id="Spacing_168"></a>Spacing</h2>
+			<ul>
+				<li>
+					<p>Always include a single space in your self-closing tag.</p>
+					<pre><code class="language-jsx">// bad
+&lt;Foo/&gt;
+
+// very bad
+&lt;Foo                 /&gt;
+
+// bad
+&lt;Foo
+ /&gt;
+
+// good
+&lt;Foo /&gt;
+</code></pre>
+				</li>
+				<li>
+					<p>Do not pad JSX curly braces with spaces. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md"><code>react/jsx-curly-spacing</code></a></p>
+					<pre><code class="language-jsx">// bad
+&lt;Foo bar={ baz } /&gt;
+
+// good
+&lt;Foo bar={baz} /&gt;
+</code></pre>
+				</li>
+			</ul>
+			<h2><a id="Props_197"></a>Props</h2>
+			<ul>
+				<li>
+					<p>Always use camelCase for prop names.</p>
+					<pre><code class="language-jsx">// bad
+&lt;Foo
+	UserName="hello"
+	phone_number={12345678}
+/&gt;
+
+// good
+&lt;Foo
+	userName="hello"
+	phoneNumber={12345678}
+/&gt;
+</code></pre>
+				</li>
+				<li>
+					<p>Omit the value of the prop when it is explicitly <code>true</code>. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md"><code>react/jsx-boolean-value</code></a></p>
+					<pre><code class="language-jsx">// bad
+&lt;Foo
+	hidden={true}
+/&gt;
+
+// good
+&lt;Foo
+	hidden
+/&gt;
+</code></pre>
+				</li>
+				<li>
+					<p>Always include an <code>alt</code> prop on <code>&lt;img&gt;</code> tags. If the image is presentational, <code>alt</code> can be an empty string or the <code>&lt;img&gt;</code> must have <code>role="presentation"</code>. eslint: <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-has-alt.md"><code>jsx-a11y/img-has-alt</code></a></p>
+					<pre><code class="language-jsx">// bad
+&lt;img src="hello.jpg" /&gt;
+
+// good
+&lt;img src="hello.jpg" alt="Me waving hello" /&gt;
+
+// good
+&lt;img src="hello.jpg" alt="" /&gt;
+
+// good
+&lt;img src="hello.jpg" role="presentation" /&gt;
+</code></pre>
+				</li>
+				<li>
+					<p>Do not use words like “image”, “photo”, or “picture” in <code>&lt;img&gt;</code> <code>alt</code> props. eslint: <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md"><code>jsx-a11y/img-redundant-alt</code></a></p>
+				</li>
+			</ul>
+			<blockquote>
+				<p>Why? Screenreaders already announce <code>img</code> elements as images, so there is no need to include this information in the alt text.</p>
+			</blockquote>
+			<pre><code>```jsx
+// bad
+&lt;img src="hello.jpg" alt="Picture of me waving hello" /&gt;
+
+// good
+&lt;img src="hello.jpg" alt="Me waving hello" /&gt;
+```
+</code></pre>
+			<ul>
+				<li>
+					<p>Use only valid, non-abstract <a href="https://www.w3.org/TR/wai-aria/roles#role_definitions">ARIA roles</a>. eslint: <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md"><code>jsx-a11y/aria-role</code></a></p>
+					<pre><code class="language-jsx">// bad - not an ARIA role
+&lt;div role="datepicker" /&gt;
+
+// bad - abstract ARIA role
+&lt;div role="range" /&gt;
+
+// good
+&lt;div role="button" /&gt;
+</code></pre>
+				</li>
+				<li>
+					<p>Do not use <code>accessKey</code> on elements. eslint: <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md"><code>jsx-a11y/no-access-key</code></a></p>
+				</li>
+			</ul>
+			<blockquote>
+				<p>Why? Inconsistencies between keyboard shortcuts and keyboard commands used by people using screenreaders and keyboards complicate accessibility.</p>
+			</blockquote>
+			<pre><code class="language-jsx">// bad
+&lt;div accessKey="h" /&gt;
+
+// good
+&lt;div /&gt;
+</code></pre>
+			<ul>
+				<li>Avoid using an array index as <code>key</code> prop, prefer a unique ID. (<a href="https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318">why?</a>)</li>
+			</ul>
+			<pre><code class="language-jsx">// bad
+{todos.map((todo, index) =&gt;
+	&lt;Todo
+		{...todo}
+		key={index}
+	/&gt;
+)}
+
+// good
+{todos.map(todo =&gt; (
+	&lt;Todo
+		{...todo}
+		key={todo.id}
+	/&gt;
+))}
+</code></pre>
+			<h2><a id="Refs_302"></a>Refs</h2>
+			<ul>
+				<li>
+					<p>Always use ref callbacks. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md"><code>react/no-string-refs</code></a></p>
+					<pre><code class="language-jsx">// bad
+&lt;Foo
+	ref="myRef"
+/&gt;
+
+// good
+&lt;Foo
+	ref={(ref) =&gt; this.myRef = ref}
+/&gt;
+</code></pre>
+				</li>
+			</ul>
+			<h2><a id="Parentheses_318"></a>Parentheses</h2>
+			<ul>
+				<li>
+					<p>Wrap JSX tags in parentheses when they span more than one line. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md"><code>react/wrap-multilines</code></a></p>
+					<pre><code class="language-jsx">// bad
+render() {
+	return &lt;MyComponent className="long body" foo="bar"&gt;
+					 &lt;MyChild /&gt;
+				 &lt;/MyComponent&gt;;
+}
+
+// good
+render() {
+	return (
+		&lt;MyComponent className="long body" foo="bar"&gt;
+			&lt;MyChild /&gt;
+		&lt;/MyComponent&gt;
+	);
+}
+
+// good, when single line
+render() {
+	const body = &lt;div&gt;hello&lt;/div&gt;;
+	return &lt;MyComponent&gt;{body}&lt;/MyComponent&gt;;
+}
+</code></pre>
+				</li>
+			</ul>
+			<h2><a id="Tags_346"></a>Tags</h2>
+			<ul>
+				<li>
+					<p>Always self-close tags that have no children. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md"><code>react/self-closing-comp</code></a></p>
+					<pre><code class="language-jsx">// bad
+&lt;Foo className="stuff"&gt;&lt;/Foo&gt;
+
+// good
+&lt;Foo className="stuff" /&gt;
+</code></pre>
+				</li>
+				<li>
+					<p>If your component has multi-line properties, close its tag on a new line. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md"><code>react/jsx-closing-bracket-location</code></a></p>
+					<pre><code class="language-jsx">// bad
+&lt;Foo
+	bar="bar"
+	baz="baz" /&gt;
+
+// good
+&lt;Foo
+	bar="bar"
+	baz="baz"
+/&gt;
+</code></pre>
+				</li>
+			</ul>
+			<h2><a id="Methods_373"></a>Methods</h2>
+			<ul>
+				<li>
+					<p>Use arrow functions to close over local variables.</p>
+					<pre><code class="language-jsx">function ItemList(props) {
+	return (
+		&lt;ul&gt;
+			{props.items.map((item, index) =&gt; (
+				&lt;Item
+					key={item.key}
+					onClick={() =&gt; doSomethingWith(item.name, index)}
+				/&gt;
+			))}
+		&lt;/ul&gt;
+	);
+}
+</code></pre>
+				</li>
+				<li>
+					<p>Bind event handlers for the render method in the constructor. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md"><code>react/jsx-no-bind</code></a></p>
+				</li>
+			</ul>
+			<blockquote>
+				<p>Why? A bind call in the render path creates a brand new function on every single render.</p>
+			</blockquote>
+			<pre><code>```jsx
+// bad
+class extends React.Component {
+	onClickDiv() {
+		// do stuff
+	}
+
+	render() {
+		return &lt;div onClick={this.onClickDiv.bind(this)} /&gt;
+	}
+}
+
+// good
+class extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.onClickDiv = this.onClickDiv.bind(this);
+	}
+
+	onClickDiv() {
+		// do stuff
+	}
+
+	render() {
+		return &lt;div onClick={this.onClickDiv} /&gt;
+	}
+}
+```
+</code></pre>
+			<ul>
+				<li>
+					<p>Do not use underscore prefix for internal methods of a React component.</p>
+					<pre><code class="language-jsx">// bad
+React.createClass({
+	_onClickSubmit() {
+		// do stuff
+	},
+
+	// other stuff
+});
+
+// good
+class extends React.Component {
+	onClickSubmit() {
+		// do stuff
+	}
+
+	// other stuff
+}
+</code></pre>
+				</li>
+				<li>
+					<p>Be sure to return a value in your <code>render</code> methods. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/pull/502"><code>require-render-return</code></a></p>
+					<pre><code class="language-jsx">// bad
+render() {
+	(&lt;div /&gt;);
+}
+
+// good
+render() {
+	return (&lt;div /&gt;);
+}
+</code></pre>
+				</li>
+			</ul>
+			<h2><a id="Ordering_462"></a>Ordering</h2>
+			<ul>
+				<li>Ordering for <code>class extends React.Component</code>:</li>
+			</ul>
+			<ol>
+				<li>optional <code>static</code> methods</li>
+				<li><code>constructor</code></li>
+				<li><code>getChildContext</code></li>
+				<li><code>componentWillMount</code></li>
+				<li><code>componentDidMount</code></li>
+				<li><code>componentWillReceiveProps</code></li>
+				<li><code>shouldComponentUpdate</code></li>
+				<li><code>componentWillUpdate</code></li>
+				<li><code>componentDidUpdate</code></li>
+				<li><code>componentWillUnmount</code></li>
+				<li><em>clickHandlers or eventHandlers</em> like <code>onClickSubmit()</code> or <code>onChangeDescription()</code></li>
+				<li><em>getter methods for <code>render</code></em> like <code>getSelectReason()</code> or <code>getFooterContent()</code></li>
+				<li><em>Optional render methods</em> like <code>renderNavigation()</code> or <code>renderProfilePicture()</code></li>
+				<li><code>render</code></li>
+			</ol>
+			<ul>
+				<li>
+					<p>How to define <code>propTypes</code>, <code>defaultProps</code>, <code>contextTypes</code>, etc…</p>
+					<pre><code class="language-jsx">import React, { PropTypes } from 'react';
+
+const propTypes = {
+	id: PropTypes.number.isRequired,
+	url: PropTypes.string.isRequired,
+	text: PropTypes.string,
+};
+
+const defaultProps = {
+	text: 'Hello World',
+};
+
+class Link extends React.Component {
+	static methodsAreOk() {
+		return true;
+	}
+
+	render() {
+		return &lt;a href={this.props.url} data-id={this.props.id}&gt;{this.props.text}&lt;/a&gt;
+	}
+}
+
+Link.propTypes = propTypes;
+Link.defaultProps = defaultProps;
+
+export default Link;
+</code></pre>
+				</li>
+				<li>
+					<p>Ordering for <code>React.createClass</code>: eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md"><code>react/sort-comp</code></a></p>
+				</li>
+			</ul>
+			<ol>
+				<li><code>displayName</code></li>
+				<li><code>propTypes</code></li>
+				<li><code>contextTypes</code></li>
+				<li><code>childContextTypes</code></li>
+				<li><code>mixins</code></li>
+				<li><code>statics</code></li>
+				<li><code>defaultProps</code></li>
+				<li><code>getDefaultProps</code></li>
+				<li><code>getInitialState</code></li>
+				<li><code>getChildContext</code></li>
+				<li><code>componentWillMount</code></li>
+				<li><code>componentDidMount</code></li>
+				<li><code>componentWillReceiveProps</code></li>
+				<li><code>shouldComponentUpdate</code></li>
+				<li><code>componentWillUpdate</code></li>
+				<li><code>componentDidUpdate</code></li>
+				<li><code>componentWillUnmount</code></li>
+				<li><em>clickHandlers or eventHandlers</em> like <code>onClickSubmit()</code> or <code>onChangeDescription()</code></li>
+				<li><em>getter methods for <code>render</code></em> like <code>getSelectReason()</code> or <code>getFooterContent()</code></li>
+				<li><em>Optional render methods</em> like <code>renderNavigation()</code> or <code>renderProfilePicture()</code></li>
+				<li><code>render</code></li>
+			</ol>
+			<h2><a id="isMounted_536"></a><code>isMounted</code></h2>
+			<ul>
+				<li>Do not use <code>isMounted</code>. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md"><code>react/no-is-mounted</code></a></li>
+			</ul>
+			<blockquote>
+				<p>Why? <a href="https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html"><code>isMounted</code> is an anti-pattern</a>, is not available when using ES6 classes, and is on its way to being officially deprecated.</p>
+			</blockquote>
+			<h2><a id="Translation_544"></a>Translation</h2>
+			<p>This JSX/React style guide is also available in other languages:</p>
+			<ul>
+				<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png" alt="cn"> <strong>Chinese (Simplified)</strong>: <a href="https://github.com/JasonBoy/javascript/tree/master/react">JasonBoy/javascript</a></li>
+				<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png" alt="pl"> <strong>Polish</strong>: <a href="https://github.com/pietraszekl/javascript/tree/master/react">pietraszekl/javascript</a></li>
+				<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png" alt="kr"> <strong>Korean</strong>: <a href="https://github.com/apple77y/javascript/tree/master/react">apple77y/javascript</a></li>
+			</ul>
+			<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+			<footer class="site-footer">
+				<span class="site-footer-owner"><a href="https://github.com/airbnb/javascript">Airbnb JavaScript Style Guide</a> is maintained by <a href="https://github.com/airbnb">airbnb</a>.</span>
+				<span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+			</footer>
+		</section>
+	</body>
+
+</html>
