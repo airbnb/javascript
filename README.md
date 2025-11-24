@@ -1,4 +1,5 @@
 # Airbnb JavaScript Style Guide() {
+<!-- Updated for semicolon consistency per Issue #3152 -->
 
 *A mostly reasonable approach to JavaScript*
 
