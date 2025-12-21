@@ -82,6 +82,8 @@ module.exports = {
         'textarea',
         'tr',
         'video',
+        'td',
+        'th',
       ],
       ignoreRoles: [
         'grid',
