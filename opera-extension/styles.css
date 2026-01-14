@@ -1,0 +1,6 @@
+body{font-family: system-ui, Arial, sans-serif; margin:0; padding:8px; width:260px}
+.container{display:flex;flex-direction:column;gap:8px}
+input#q{padding:8px;border:1px solid #ccc;border-radius:4px;width:100%}
+.buttons{display:flex;gap:8px}
+button{flex:1;padding:8px;border:none;border-radius:4px;background:#1a73e8;color:#fff;cursor:pointer}
+button#open{background:#5f6368}

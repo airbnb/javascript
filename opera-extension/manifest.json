@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Google Search (Opera)",
+  "description": "Adds a context-menu and popup to quickly search selected text on Google.",
+  "version": "1.0.0",
+  "permissions": ["contextMenus", "tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon48.svg",
+      "128": "icons/icon128.svg"
+    }
+  },
+  "icons": {
+    "48": "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  }
+}

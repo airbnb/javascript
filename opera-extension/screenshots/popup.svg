@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="320" viewBox="0 0 520 320">
+  <rect width="520" height="320" rx="8" fill="#f6f8fa" stroke="#e1e4e8" />
+  <rect x="20" y="20" width="480" height="44" rx="6" fill="#ffffff" stroke="#dfe4ea" />
+  <text x="32" y="50" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#666">Search Google...</text>
+  <rect x="20" y="80" width="320" height="40" rx="6" fill="#fff" stroke="#dfe4ea" />
+  <text x="32" y="105" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#222">example query</text>
+  <rect x="360" y="80" width="120" height="40" rx="6" fill="#1a73e8" />
+  <text x="398" y="105" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#fff">Search</text>
+  <rect x="360" y="132" width="120" height="40" rx="6" fill="#5f6368" />
+  <text x="388" y="157" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#fff">Open Google</text>
+</svg>
