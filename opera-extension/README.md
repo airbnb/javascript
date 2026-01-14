@@ -17,7 +17,7 @@ How to load in Opera:
 
 Icon preview:
 
-![Icon preview](icons/icon128.svg)
+![Icon preview](icons/icon128.png)
 
 Notes:
 
