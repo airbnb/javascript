@@ -949,6 +949,45 @@ Other Style Guides
 
     > Why not? If you have a fairly complicated function, you might move that logic out into its own named function expression.
 
+  > **Note:** While arrow functions are recommended for anonymous callbacks, traditional
+  > function declarations or expressions are still preferred in certain scenarios where
+  > their behavior is more appropriate.
+  >
+  > **Prefer traditional functions when:**
+  >
+  > - You rely on **function hoisting**, such as calling a function before its definition.
+  > - You need a **dynamic `this` binding**, for example in object methods or DOM event handlers.
+  > - You require access to the **`arguments` object**, which is not available in arrow functions.
+  >
+  > **Examples:**
+  >
+  > ```js
+  > // Function hoisting
+  > initialize();
+  >
+  > function initialize() {
+  >   // setup logic
+  > }
+  > ```
+  >
+  > ```js
+  > // Dynamic `this` binding (e.g. event handlers)
+  > const button = document.querySelector('button');
+  >
+  > button.addEventListener('click', function () {
+  >   this.classList.add('active');
+  > });
+  > ```
+  >
+  > ```js
+  > // Using the `arguments` object
+  > function sum() {
+  >   return Array.from(arguments).reduce((total, value) => total + value, 0);
+  > }
+  > ```
+
+
+
     ```javascript
     // bad
     [1, 2, 3].map(function (x) {
