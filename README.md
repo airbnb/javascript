@@ -955,18 +955,16 @@ Other Style Guides
   >
   > **Prefer traditional functions when:**
   >
-  > - You rely on **function hoisting**, such as calling a function before its definition.
+  > - You are defining top-level, reusable functions rather than inline callbacks.
   > - You need a **dynamic `this` binding**, for example in object methods or DOM event handlers.
   > - You require access to the **`arguments` object**, which is not available in arrow functions.
   >
   > **Examples:**
   >
   > ```js
-  > // Function hoisting
-  > initialize();
-  >
-  > function initialize() {
-  >   // setup logic
+  > // Named function for reuse and clearer stack traces
+  > function formatUserName(user) {
+  >   return `${user.firstName} ${user.lastName}`;
   > }
   > ```
   >
