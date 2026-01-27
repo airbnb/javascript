@@ -949,15 +949,18 @@ Other Style Guides
 
     > Why not? If you have a fairly complicated function, you might move that logic out into its own named function expression.
 
-  > **Note:** While arrow functions are recommended for anonymous callbacks, traditional
-  > function declarations or expressions are still preferred in certain scenarios where
-  > their behavior is more appropriate.
+  > **Note:** Arrow functions are intended primarily for short, anonymous callbacks.
+  > Outside of these cases, prefer traditional function declarations or expressions
+  > for clarity and consistency.
   >
-  > **Prefer traditional functions when:**
+  > **Use arrow functions only when:**
   >
-  > - You are defining top-level, reusable functions rather than inline callbacks.
-  > - You need a **dynamic `this` binding**, for example in object methods or DOM event handlers.
-  > - You require access to the **`arguments` object**, which is not available in arrow functions.
+  > - Defining inline callbacks (for example in `map`, `filter`, or event handlers).
+  > - A lexical `this` binding is explicitly desired.
+  >
+  > In other situations — such as defining reusable functions, object methods, or code
+  > that relies on a dynamic `this` value or the `arguments` object — prefer traditional
+  > functions.
   >
   > **Examples:**
   >
@@ -983,6 +986,7 @@ Other Style Guides
   >   return Array.from(arguments).reduce((total, value) => total + value, 0);
   > }
   > ```
+
 
 
 
