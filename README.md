@@ -949,7 +949,7 @@ Other Style Guides
 
     > Why not? If you have a fairly complicated function, you might move that logic out into its own named function expression.
 
-  > **Note:** Arrow functions are intended primarily for short, anonymous callbacks.
+  > **Note:** Arrow functions are intended primarily for inline, anonymous callbacks.
   > Outside of these cases, prefer traditional function declarations or expressions
   > for clarity and consistency.
   >
