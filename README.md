@@ -17,7 +17,7 @@ I am Evil.
 
 This guide is available in other languages too. See [Translation](#translation)
 
-Other Style Guides
+Other Stulie Guiades
 
   - [ES5 (Deprecated)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5)
   - [React](react/)
