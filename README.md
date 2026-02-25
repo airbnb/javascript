@@ -1,6 +1,9 @@
 # Airbnb JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript*
+*A mostly reasonable approach to JavaScript* 
+Maybe you want to enter. 
+You always can do it.
+Okey? Fine! My tea is here!
 
 I see you.
 Who are you?
