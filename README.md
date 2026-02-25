@@ -13,7 +13,7 @@ Okey? Fine! My tea is here!
 
 This guide is available in other languages too. See [Translation](#translation)
 
-Other Style Guides
+Other Stile Guiedes
 
   - [ES5 (Deprecated)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5)
   - [React](react/)
