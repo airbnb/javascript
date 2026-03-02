@@ -50,9 +50,13 @@ if (CLIEngine) {
 } else {
   const path = require('path');
   const { execSync } = require('child_process');
+  const isWindows = process.platform === 'win32';
+  const whitespaceAsyncPath = path.join(__dirname, 'whitespace-async.js');
+  const execSyncCommand = isWindows ? `node ${whitespaceAsyncPath}` : whitespaceAsyncPath;
 
   // NOTE: ESLint adds runtime statistics to the output (so it's no longer JSON) if TIMING is set
-  module.exports = JSON.parse(String(execSync(path.join(__dirname, 'whitespace-async.js'), {
+  module.exports = JSON.parse(String(execSync(execSyncCommand, {
+    windowsHide: true,
     env: {
       ...process.env,
       TIMING: undefined,
