@@ -184,12 +184,9 @@ module.exports = {
     // enforces empty lines around comments
     'lines-around-comment': 'off',
 
-    // require or disallow newlines around directives
-    // https://eslint.org/docs/rules/lines-around-directive
-    'lines-around-directive': ['error', {
-      before: 'always',
-      after: 'always',
-    }],
+// Require or disallow padding lines between statements
+    // https://eslint.org/docs/rules/padding-line-between-statements
+    'padding-line-between-statements': 'off',
 
     // Require or disallow logical assignment logical operator shorthand
     // https://eslint.org/docs/latest/rules/logical-assignment-operators
