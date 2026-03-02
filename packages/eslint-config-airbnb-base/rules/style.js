@@ -128,14 +128,14 @@ module.exports = {
       // MemberExpression: null,
       FunctionDeclaration: {
         parameters: 1,
-        body: 1
+        body: 1,
       },
       FunctionExpression: {
         parameters: 1,
-        body: 1
+        body: 1,
       },
       CallExpression: {
-        arguments: 1
+        arguments: 1,
       },
       ArrayExpression: 1,
       ObjectExpression: 1,
@@ -143,7 +143,7 @@ module.exports = {
       flatTernaryExpressions: false,
       // list derived from https://github.com/benjamn/ast-types/blob/HEAD/def/jsx.js
       ignoredNodes: ['JSXElement', 'JSXElement > *', 'JSXAttribute', 'JSXIdentifier', 'JSXNamespacedName', 'JSXMemberExpression', 'JSXSpreadAttribute', 'JSXExpressionContainer', 'JSXOpeningElement', 'JSXClosingElement', 'JSXFragment', 'JSXOpeningFragment', 'JSXClosingFragment', 'JSXText', 'JSXEmptyExpression', 'JSXSpreadChild'],
-      ignoreComments: false
+      ignoreComments: false,
     }],
 
     // specify whether double or single quotes should be used in JSX attributes
@@ -160,7 +160,7 @@ module.exports = {
       overrides: {
         return: { after: true },
         throw: { after: true },
-        case: { after: true }
+        case: { after: true },
       }
     }],
 
@@ -216,7 +216,7 @@ module.exports = {
     'max-lines': ['off', {
       max: 300,
       skipBlankLines: true,
-      skipComments: true
+      skipComments: true,
     }],
 
     // enforce a maximum function length
@@ -307,7 +307,7 @@ module.exports = {
         ['==', '!=', '===', '!=='],
         ['&&', '||'],
       ],
-      allowSamePrecedence: false
+      allowSamePrecedence: false,
     }],
 
     // disallow mixed spaces and tabs for indentation
@@ -484,7 +484,7 @@ module.exports = {
     'space-before-function-paren': ['error', {
       anonymous: 'always',
       named: 'never',
-      asyncArrow: 'always'
+      asyncArrow: 'always',
     }],
 
     // require or disallow spaces inside parentheses
@@ -529,6 +529,6 @@ module.exports = {
     'unicode-bom': ['error', 'never'],
 
     // require regex literals to be wrapped in parentheses
-    'wrap-regex': 'off'
+    'wrap-regex': 'off',
   }
 };

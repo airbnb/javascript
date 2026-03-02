@@ -45,5 +45,5 @@ module.exports = [
   'spaced-comment',
   'switch-colon-spacing',
   'template-tag-spacing',
-  'import/newline-after-import'
+  'import/newline-after-import',
 ];

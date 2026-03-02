@@ -1,20 +1,20 @@
 module.exports = {
   env: {
-    es6: true
+    es6: true,
   },
   parserOptions: {
     ecmaVersion: 6,
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: [
-    'import'
+    'import',
   ],
 
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.mjs', '.js', '.json']
-      }
+        extensions: ['.mjs', '.js', '.json'],
+      },
     },
     'import/extensions': [
       '.js',
@@ -91,7 +91,7 @@ module.exports = {
         '**/protractor.conf.js', // protractor config
         '**/protractor.conf.*.js', // protractor config
         '**/karma.conf.js', // karma config
-        '**/.eslintrc.js' // eslint config
+        '**/.eslintrc.js', // eslint config
       ],
       optionalDependencies: false,
     }],
