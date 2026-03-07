@@ -1,4 +1,4 @@
-# Airbnb JavaScript Style Guide() {
+# Airbnb JavaScript Style Guide() for fast ml development {
 
 *A mostly reasonable approach to JavaScript*
 
