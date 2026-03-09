@@ -2,7 +2,7 @@
 
 const { isArray } = Array;
 const { entries } = Object;
-const { ESLint } = require('eslint');
+const eslint = require('eslint');
 
 const baseConfig = require('.');
 const whitespaceRules = require('./whitespaceRules');
@@ -21,11 +21,18 @@ function getSeverity(ruleConfig) {
 
 async function onlyErrorOnRules(rulesToError, config) {
   const errorsOnly = { ...config };
-  const cli = new ESLint({
+  const ESLintClass = typeof eslint.loadESLint === 'function'
+    ? await eslint.loadESLint({ useFlatConfig: false })
+    : eslint.ESLint;
+  const cli = new ESLintClass({
     useEslintrc: false,
     baseConfig: config
   });
-  const baseRules = (await cli.calculateConfigForFile(require.resolve('./'))).rules;
+  const resolvedPath = require.resolve('./');
+  const configForFile = typeof cli.getConfigForFile === 'function'
+    ? cli.getConfigForFile(resolvedPath)
+    : await cli.calculateConfigForFile(resolvedPath);
+  const baseRules = configForFile.rules;
 
   entries(baseRules).forEach((rule) => {
     const ruleName = rule[0];
