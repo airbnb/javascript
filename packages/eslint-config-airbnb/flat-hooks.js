@@ -4,6 +4,7 @@ const reactHooks = require('./rules/react-hooks');
 
 module.exports = [
   {
+    files: ['**/*.{js,jsx,mjs,cjs}'],
     plugins: {
       'react-hooks': reactHooksPlugin,
     },
