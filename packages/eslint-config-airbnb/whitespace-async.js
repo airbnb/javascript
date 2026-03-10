@@ -4,7 +4,8 @@ const { isArray } = Array;
 const { entries } = Object;
 const { ESLint } = require('eslint');
 
-const baseConfig = require('.');
+const isFlat = ESLint.configType === 'flat';
+const baseConfig = isFlat ? require('./flat') : require('.');
 const whitespaceRules = require('./whitespaceRules');
 
 const severities = ['off', 'warn', 'error'];
@@ -20,11 +21,10 @@ function getSeverity(ruleConfig) {
 }
 
 async function onlyErrorOnRules(rulesToError, config) {
-  const errorsOnly = { ...config };
-  const cli = new ESLint({
-    useEslintrc: false,
-    baseConfig: config
-  });
+  const errorsOnly = isFlat ? { rules: {} } : { ...config };
+  const cli = isFlat
+    ? new ESLint({ overrideConfigFile: true, overrideConfig: config })
+    : new ESLint({ useEslintrc: false, baseConfig: config });
   const baseRules = (await cli.calculateConfigForFile(require.resolve('./'))).rules;
 
   entries(baseRules).forEach((rule) => {
