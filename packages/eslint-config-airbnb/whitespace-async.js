@@ -46,4 +46,7 @@ async function onlyErrorOnRules(rulesToError, config) {
   return errorsOnly;
 }
 
-onlyErrorOnRules(whitespaceRules, baseConfig).then((config) => console.log(JSON.stringify(config)));
+onlyErrorOnRules(whitespaceRules, baseConfig).then((config) => console.log(JSON.stringify(config))).catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
