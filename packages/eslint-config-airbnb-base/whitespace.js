@@ -60,6 +60,7 @@ if (CLIEngine) {
     }
   })));
 
+  // ESLint 9 transition-period API; will be moot once eslintrc is fully removed in ESLint 10+
   if (ESLint.configType === 'flat') {
     // In flat mode, whitespace-async.js outputs only { rules: {} } since plugins
     // are not JSON-serializable. Merge the rule overrides with the full flat config

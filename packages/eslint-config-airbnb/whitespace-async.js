@@ -4,6 +4,7 @@ const { isArray } = Array;
 const { entries } = Object;
 const { ESLint } = require('eslint');
 
+// ESLint 9 transition-period API; will be moot once eslintrc is fully removed in ESLint 10+
 const isFlat = ESLint.configType === 'flat';
 const baseConfig = isFlat ? require('./flat') : require('.');
 const whitespaceRules = require('./whitespaceRules');
