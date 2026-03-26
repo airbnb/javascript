@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: ljharb/actions/node/install@main
+      - uses: ljharb/actions/node/install@46bd9bc79196ec7b5c336b66bc3f5d99c6d2e828 # main
         name: 'nvm install lts/* && npm install'
         with:
           node-version: 'lts/*'

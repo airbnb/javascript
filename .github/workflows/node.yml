@@ -8,7 +8,7 @@ jobs:
     outputs:
       latest: ${{ steps.set-matrix.outputs.requireds }}
     steps:
-      - uses: ljharb/actions/node/matrix@main
+      - uses: ljharb/actions/node/matrix@46bd9bc79196ec7b5c336b66bc3f5d99c6d2e828 # main
         id: set-matrix
         with:
           versionsAsRoot: true
@@ -40,7 +40,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: ljharb/actions/node/install@main
+      - uses: ljharb/actions/node/install@46bd9bc79196ec7b5c336b66bc3f5d99c6d2e828 # main
         name: 'nvm install ${{ matrix.node-version }} && npm install'
         with:
           before_install: cd "packages/${{ matrix.package }}"
@@ -50,7 +50,7 @@ jobs:
       - run: node -pe "require('eslint/package.json').version"
         name: 'eslint version'
       - run: npm run travis
-      - uses: codecov/codecov-action@v2
+      - uses: codecov/codecov-action@f32b3a3741e1053eb607407145bc9619351dc93b # v2
 
   react:
     needs: [matrix]
@@ -75,7 +75,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: ljharb/actions/node/install@main
+      - uses: ljharb/actions/node/install@46bd9bc79196ec7b5c336b66bc3f5d99c6d2e828 # main
         name: 'nvm install ${{ matrix.node-version }} && npm install'
         with:
           before_install: cd "packages/${{ matrix.package }}"
@@ -87,7 +87,7 @@ jobs:
       - run: npm install --no-save "eslint-plugin-react-hooks@${{ matrix.react-hooks }}"
         if: ${{ matrix.react-hooks > 0}}
       - run: npm run travis
-      - uses: codecov/codecov-action@v2
+      - uses: codecov/codecov-action@f32b3a3741e1053eb607407145bc9619351dc93b # v2
 
   prepublish-base:
     name: 'prepublish tests (base config)'
@@ -107,7 +107,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: ljharb/actions/node/install@main
+      - uses: ljharb/actions/node/install@46bd9bc79196ec7b5c336b66bc3f5d99c6d2e828 # main
         name: 'nvm install lts/* && npm install'
         with:
           before_install: cd "packages/${{ matrix.package }}"
@@ -140,7 +140,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: ljharb/actions/node/install@main
+      - uses: ljharb/actions/node/install@46bd9bc79196ec7b5c336b66bc3f5d99c6d2e828 # main
         name: 'nvm install lts/* && npm install'
         with:
           before_install: cd "packages/${{ matrix.package }}"
