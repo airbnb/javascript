@@ -427,6 +427,48 @@
     });
     ```
 
+## Comments
+
+  - Inline comments (`// comment`) are allowed.
+
+    ```js
+    // good
+    let foo = 145; // This is modified below in the "baz()" function
+    ```
+
+  - Comments may also be placed above the line if it improves clarity.
+
+    ```js
+    // good
+    // This is modified below in the "baz()" function
+    let foo = 145;
+    ```
+
+  - When inline comments extend the line length beyond the maximum (100 characters), move the comment to the line above to preserve readability.
+
+    ```js
+    // bad
+    // This is a comment describing the following block of variable initializations
+    let foo = 123; // used in various contexts, but mostly for soccer games, basketball, and football games
+    let bar = 456; // used only for horse races; it is explicitly reset at the beginning of the "endRace()" function
+    let baz = 789; // used only for car races; it will be overwritten once we reach the "oilChange()" function
+
+    // good
+    // This is a comment describing the following block of variable initializations
+    let foo = 123;
+    // used in various contexts, but mostly for soccer games, basketball, and football games
+
+    let bar = 456;
+    // used only for horse races; it is explicitly reset at the beginning of the "endRace()" function
+
+    let baz = 789;
+    // used only for car races; it will be overwritten once we reach the "oilChange()" function
+    ```
+
+  - Use whichever style (inline or above) makes the most sense for readability and maintainability.
+
+    > Why? Inline comments can sometimes improve clarity, but when they hurt readability or line length, moving them above keeps code more maintainable. If large numbers of explanatory comments are required, consider refactoring the code to reduce complexity.
+
 ---
 
 CSS puns adapted from [Saijo George](https://saijogeorge.com/css-puns/).
