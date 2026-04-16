@@ -279,5 +279,9 @@ module.exports = {
     // https://github.com/import-js/eslint-plugin-import/blob/d5fc8b670dc8e6903dbb7b0894452f60c03089f5/docs/rules/no-empty-named-blocks.md
     // TODO, semver-minor: enable
     'import/no-empty-named-blocks': 'off',
+
+    // https://github.com/import-js/eslint-plugin-import/blob/3a99e4c8d3bfd2cd466353d11784eb06dad9b166/docs/rules/enforce-node-protocol-usage.md
+    // TODO, semver-major: enable
+    'import/enforce-node-protocol-usage': ['off', 'never'],
   },
 };
