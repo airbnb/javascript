@@ -462,9 +462,14 @@ Other Style Guides
       if (subject === 'Mockingbird') {
         return author === 'Harper Lee';
       }
-
       return false;
     });
+    
+    //best
+     inbox.filter(({ subject, author } ) => {
+       return subject === 'Mockingbird' && author === 'Harper Lee';
+    });
+    
     ```
 
   <a name="arrays--bracket-newline"></a>
@@ -532,6 +537,10 @@ Other Style Guides
     function getFullName({ firstName, lastName }) {
       return `${firstName} ${lastName}`;
     }
+    
+    // best - 2
+    const  getFullName = ({ firstName, lastName }) => `${firstName} ${lastName}`;
+    
     ```
 
   <a name="destructuring--array"></a><a name="5.2"></a>
@@ -776,6 +785,19 @@ Other Style Guides
     function handleThings(opts = {}) {
       // ...
     }
+    
+    // best
+    function isNullOrUndefined(obj){
+       // '==' handles both undefined and null
+       return obj == null;
+    }
+    function getDefaultValueIfNotPresent(obj,defaultValue){
+        return isNullOrUndefined(obj) ? defaultValue : obj;
+    }
+
+    function handleThings(opts = getDefaultValueIfNotPresent(opts,{})){
+       // ...
+    }
     ```
 
   <a name="functions--default-side-effects"></a><a name="7.8"></a>
@@ -961,6 +983,9 @@ Other Style Guides
       const y = x + 1;
       return x * y;
     });
+    
+    // best
+    [1, 2, 3].map((x) => x * (x + 1));
     ```
 
   <a name="arrows--implicit-return"></a><a name="8.2"></a>
