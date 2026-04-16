@@ -63,7 +63,19 @@ module.exports = {
     // Disallow specified names in exports
     // https://eslint.org/docs/rules/no-restricted-exports
     'no-restricted-exports': ['error', {
+      // TODO: semver-major: Uncomment the `restrictDefaultExports` below to permit re-exports of a module
+      // default export while still blocking other "default" exports.
+      // The 'default' entry in restrictedNamedExports must also be removed.
+      // See https://github.com/airbnb/javascript/issues/2500 and https://github.com/eslint/eslint/pull/16785
+      // restrictDefaultExports: {
+      //   direct: false, // permits `export default` declarations
+      //   named: true, // restricts `export { foo as default };` declarations
+      //   defaultFrom: false, // permits `export { default } from 'foo';` declarations
+      //   namedFrom: false, // permits `export { foo as default } from 'foo';` declarations
+      //   namespaceFrom: true, // restricts `export * as default from 'foo';` declarations
+      // },
       restrictedNamedExports: [
+        // TODO: semver-major: In conjunction with the above restrictDefaultExports, remove 'default' below
         'default', // use `export default` to provide a default export
         'then', // this will cause tons of confusion when your module is dynamically `import()`ed, and will break in most node ESM versions
       ],
