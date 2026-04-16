@@ -3840,6 +3840,29 @@ Other Style Guides
 
 **[⬆ back to top](#table-of-contents)**
 
+## Non-code issues
+
+Now that your code is covered, consider some aspects that are not/
+should not be about *your* code:
+
+  <a name="non-code-issues--transport-and-packaging"></a><a name="31.1"></a>
+  - [31.1](#non-code-issues--transport-and-packaging)
+    **Transport and packaging**:
+    Your code should not be concerned with how it's going to be packaged
+    or transported. Caring about those aspects should be left to automated
+    tools that are part of your build stack.
+    - All of your code files should use Unicode in UTF-8 encoding.
+    - Since all of them do, mentioning it inside your code files
+      (e.g. via a BOM (Byte Order Mark)) is useless noise.
+      Instead, configure your tools so they know UTF-8 is your default.
+      eslint: [`unicode-bom`](https://eslint.org/docs/rules/unicode-bom.html)
+    - Don't re-invent import/export compatibility mechanisms.
+      If you need support for CommonJS or AMD or UMD, just tell your
+      transpiler or bundler. Let other people care about optimizing
+      that wrapping and dealing with its edge cases.
+
+**[⬆ back to top](#table-of-contents)**
+
 ## Performance
 
   - [On Layout & Web Performance](https://www.kellegous.com/j/2013/01/26/layout-performance/)
