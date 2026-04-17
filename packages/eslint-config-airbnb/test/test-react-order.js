@@ -4,6 +4,8 @@ import eslintrc from '..';
 import reactRules from '../rules/react';
 import reactA11yRules from '../rules/react-a11y';
 
+const isFlat = ESLint.configType === 'flat';
+
 const rules = {
   // It is okay to import devDependencies in tests.
   'import/no-extraneous-dependencies': [2, { devDependencies: true }],
@@ -12,17 +14,32 @@ const rules = {
   // otherwise we need some junk in our fixture code
   'react/no-unused-class-component-methods': 0,
 };
-const cli = new (CLIEngine || ESLint)({
-  useEslintrc: false,
-  baseConfig: eslintrc,
-  ...(CLIEngine ? { rules } : { overrideConfig: { rules } }),
-});
+
+function createCli() {
+  if (isFlat) {
+    // eslint-disable-next-line global-require
+    const flatConfig = require('../flat');
+    return new ESLint({
+      overrideConfigFile: true,
+      overrideConfig: [...flatConfig, { rules }],
+    });
+  }
+  return new (CLIEngine || ESLint)({
+    useEslintrc: false,
+    baseConfig: eslintrc,
+    ...(CLIEngine ? { rules } : { overrideConfig: { rules } }),
+  });
+}
+const cli = createCli();
 
 async function lint(text) {
   // @see https://eslint.org/docs/developer-guide/nodejs-api.html#executeonfiles
   // @see https://eslint.org/docs/developer-guide/nodejs-api.html#executeontext
-  const linter = CLIEngine ? cli.executeOnText(text) : await cli.lintText(text);
-  return (CLIEngine ? linter.results : linter)[0];
+  if (CLIEngine) {
+    return cli.executeOnText(text).results[0];
+  }
+  const results = await cli.lintText(text, isFlat ? { filePath: 'test.jsx' } : undefined);
+  return results[0];
 }
 
 function wrapComponent(body) {
