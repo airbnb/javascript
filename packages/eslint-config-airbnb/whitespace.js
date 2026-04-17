@@ -56,6 +56,7 @@ if (CLIEngine) {
     env: {
       ...process.env,
       TIMING: undefined,
+      ESLINT_USE_FLAT_CONFIG: 'false',
     }
   })));
 }
