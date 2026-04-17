@@ -949,6 +949,47 @@ Other Style Guides
 
     > Why not? If you have a fairly complicated function, you might move that logic out into its own named function expression.
 
+  > **Note:** Arrow functions are intended primarily for inline, anonymous callbacks.
+  > Outside of these cases, prefer traditional function declarations or expressions
+  > for clarity and consistency.
+  >
+  > **Use arrow functions only when:**
+  >
+  > - Defining inline callbacks (for example in `map`, `filter`, or event handlers).
+  > - A lexical `this` binding is explicitly desired.
+  >
+  > In other situations — such as defining reusable functions, object methods, or code
+  > that relies on a dynamic `this` value or the `arguments` object — prefer traditional
+  > functions.
+  >
+  > **Examples:**
+  >
+  > ```js
+  > // Named function for reuse and clearer stack traces
+  > function formatUserName(user) {
+  >   return `${user.firstName} ${user.lastName}`;
+  > }
+  > ```
+  >
+  > ```js
+  > // Dynamic `this` binding (e.g. event handlers)
+  > const button = document.querySelector('button');
+  >
+  > button.addEventListener('click', function () {
+  >   this.classList.add('active');
+  > });
+  > ```
+  >
+  > ```js
+  > // Using the `arguments` object
+  > function sum() {
+  >   return Array.from(arguments).reduce((total, value) => total + value, 0);
+  > }
+  > ```
+
+
+
+
     ```javascript
     // bad
     [1, 2, 3].map(function (x) {
