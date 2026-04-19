@@ -759,7 +759,7 @@ Other Style Guides
     function handleThings(opts) {
       // No! We shouldn’t mutate function arguments.
       // Double bad: if opts is falsy it'll be set to an object which may
-      // be what you want but it can introduce subtle bugs.
+      // be what you want but it can introduce subtle bugs (see rule 7.11).
       opts = opts || {};
       // ...
     }
@@ -937,6 +937,29 @@ Other Style Guides
       baz,
     );
     ```
+
+- [7.11](#7.11) <a name='7.11'></a> Avoid defaulting variables using `||`.
+
+  > Why? Because `||` does not check for strict equality (i.e. `===` vs. `==`). If a passed argument is falsy (`0`, `false`, `null`, `''`...), it will be defaulted while it shouldn't be.
+
+  ```javascript
+  // bad
+  function f(arg, optionalArg, opts = {}) {
+      const message = optionalArg || 'not set';  // what if arg === ''?
+      const rate = opts.rate || 0.1;             // what if arg === 0.0?
+  }
+
+  // bad
+  const useUnicode = ENV['USE_UTF8'] || true;    // what if arg === false?
+
+  // good
+  function f(arg, optionalArg = 'not set', opts = {}) {
+      const rate = opts.rate !== undefined ? opts.rate : 0.1;
+  }
+
+  // good
+  const useUnicode = ENV['USE_UTF8'] !== undefined : ENV['USE_UTF8'] || true;
+  ```
 
 **[⬆ back to top](#table-of-contents)**
 
