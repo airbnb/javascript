@@ -1472,6 +1472,27 @@ Other Style Guides
     import foo from './foo';
     import bar from './bar';
     import baz from './baz';
+
+    ```
+
+  <a name="modules--import/no-extraneous-dependencies"></a><a name="10.11"></a>
+
+  - [10.11](#modules--import/no-extraneous-dependencies) Forbid the use of extraneous packages.
+  eslint: [`import/no-extraneous-dependencies`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md)
+
+    > Why? You should only allow modules that are declared in the package.json's dependencies, devDependencies, optionalDependencies, peerDependencies, or bundledDependencies to be imported and used within the project.
+
+    ```javascript
+    // bad
+    // Not declared in package.json - es6.js
+    import es6 from 'es6';
+    const es6 = require('es6');
+
+    // good
+    // Declared in package.json es6.js
+    import es6 from 'es6';
+    const es6 = require('es6');
+    
     ```
 
 **[⬆ back to top](#table-of-contents)**
