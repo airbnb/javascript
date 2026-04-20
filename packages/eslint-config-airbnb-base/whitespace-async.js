@@ -23,7 +23,7 @@ async function onlyErrorOnRules(rulesToError, config) {
   const errorsOnly = { ...config };
   const cli = new ESLint({
     useEslintrc: false,
-    baseConfig: config
+    baseConfig: config,
   });
   const baseRules = (await cli.calculateConfigForFile(require.resolve('./'))).rules;
 
@@ -46,4 +46,5 @@ async function onlyErrorOnRules(rulesToError, config) {
   return errorsOnly;
 }
 
+// eslint-disable-next-line no-console
 onlyErrorOnRules(whitespaceRules, baseConfig).then((config) => console.log(JSON.stringify(config)));
