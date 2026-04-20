@@ -3554,10 +3554,10 @@ Other Style Guides
     // ---
 
     // allowed but does not supply semantic value
-    export const apiKey = 'SOMEKEY';
+    export const apiKey = 'YOUR_API_KEY_HERE';
 
     // better in most cases
-    export const API_KEY = 'SOMEKEY';
+    export const API_KEY = 'YOUR_API_KEY_HERE';
 
     // ---
 
