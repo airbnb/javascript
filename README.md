@@ -3931,7 +3931,7 @@ Other Style Guides
 
 **Podcasts**
 
-  - [JavaScript Air](https://javascriptair.com/)
+  - [JavaScript Air](https://web.archive.org/web/20190626004622/https://javascriptair.com/)
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
 
 **[⬆ back to top](#table-of-contents)**
