@@ -50,12 +50,28 @@ if (CLIEngine) {
 } else {
   const path = require('path');
   const { execSync } = require('child_process');
+  const { ESLint } = require('eslint');
 
   // NOTE: ESLint adds runtime statistics to the output (so it's no longer JSON) if TIMING is set
-  module.exports = JSON.parse(String(execSync(path.join(__dirname, 'whitespace-async.js'), {
+  const ruleOverrides = JSON.parse(String(execSync(path.join(__dirname, 'whitespace-async.js'), {
     env: {
       ...process.env,
       TIMING: undefined,
     }
   })));
+
+  // ESLint 9 transition-period API; will be moot once eslintrc is fully removed in ESLint 10+
+  if (ESLint.configType === 'flat') {
+    // In flat mode, whitespace-async.js outputs only { rules: {} } since plugins
+    // are not JSON-serializable. Merge the rule overrides with the full flat config
+    // so consumers get a complete config with plugins, settings, and languageOptions.
+    const flatConfig = require('./flat');
+    const lastConfig = flatConfig[flatConfig.length - 1];
+    module.exports = [
+      ...flatConfig.slice(0, -1),
+      { ...lastConfig, rules: { ...lastConfig.rules, ...ruleOverrides.rules } },
+    ];
+  } else {
+    module.exports = ruleOverrides;
+  }
 }
