@@ -107,13 +107,15 @@ module.exports = {
 
     // Prevent usage of .bind() in JSX props
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
-    'react/jsx-no-bind': ['error', {
-      ignoreRefs: true,
-      allowArrowFunctions: true,
-      allowFunctions: false,
-      allowBind: false,
-      ignoreDOMComponents: true,
-    }],
+    // Prevent usage of .bind() and inline arrow functions in JSX props
+// https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
+'react/jsx-no-bind': ['error', {
+  ignoreRefs: true,
+  allowArrowFunctions: false,
+  allowFunctions: false,
+  allowBind: false,
+  ignoreDOMComponents: false,
+}],
 
     // Prevent duplicate props in JSX
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-duplicate-props.md
