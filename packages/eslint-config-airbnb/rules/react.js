@@ -42,7 +42,7 @@ module.exports = {
         'componentDidUpdate',
         'componentWillUnmount',
         'componentDidCatch',
-        'getSnapshotBeforeUpdate'
+        'getSnapshotBeforeUpdate',
       ],
     }],
 
@@ -229,7 +229,7 @@ module.exports = {
     'react/prop-types': ['error', {
       ignore: [],
       customValidators: [],
-      skipUndeclared: false
+      skipUndeclared: false,
     }],
 
     // Prevent missing React when using JSX
@@ -287,11 +287,11 @@ module.exports = {
           'getSnapshotBeforeUpdate',
           'componentDidUpdate',
           'componentDidCatch',
-          'componentWillUnmount'
+          'componentWillUnmount',
         ],
         rendering: [
           '/^render.+$/',
-          'render'
+          'render',
         ],
       },
     }],
@@ -350,7 +350,7 @@ module.exports = {
 
     // Forbid certain elements
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-elements.md
-    'react/forbid-elements': ['off', { forbid: [], }],
+    'react/forbid-elements': ['off', { forbid: [] }],
 
     // Prevent problem with children and props.dangerouslySetInnerHTML
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-danger-with-children.md
@@ -590,7 +590,7 @@ module.exports = {
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/66b58dd4864678eb869a7bf434c72ff7ac530eb1/docs/rules/sort-default-props.md
     // TODO: semver-major, enable?
     'react/sort-default-props': ['off', {
-      ignoreCase: false
+      ignoreCase: false,
     }],
 
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/9668ee0762acd5c23f53cd3a372e2d8d9563944d/docs/rules/forward-ref-uses-ref.md
@@ -605,8 +605,8 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.json']
-      }
+        extensions: ['.js', '.jsx', '.json'],
+      },
     },
     react: {
       pragma: 'React',

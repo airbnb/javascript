@@ -4,14 +4,14 @@ module.exports = {
     './rules/errors',
     './rules/node',
     './rules/style',
-    './rules/variables'
+    './rules/variables',
   ].map(require.resolve),
   env: {
     browser: true,
     node: true,
     amd: false,
     mocha: false,
-    jasmine: false
+    jasmine: false,
   },
   rules: {
     'comma-dangle': ['error', 'never'],
@@ -30,5 +30,5 @@ module.exports = {
     'no-var': 'off',
     'prefer-object-spread': 'off',
     strict: ['error', 'safe'],
-  }
+  },
 };
