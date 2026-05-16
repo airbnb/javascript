@@ -2233,8 +2233,8 @@ Other Style Guides
 
 ## Blocks
 
-  <a name="blocks--braces"></a><a name="16.1"></a>
-  - [16.1](#blocks--braces) Use braces with all multiline blocks. eslint: [`nonblock-statement-body-position`](https://eslint.org/docs/rules/nonblock-statement-body-position)
+  <a name="blocks--braces"></a>
+  - [16.1](#blocks--braces) Use braces with `if`, `else`, `while`, `do-while`, and `for` statements when writing multiline blocks. eslint: [`nonblock-statement-body-position`](https://eslint.org/docs/rules/nonblock-statement-body-position)
 
     ```javascript
     // bad
@@ -2250,11 +2250,15 @@ Other Style Guides
     }
 
     // bad
-    function foo() { return false; }
+    while (foo)
+      bar();
 
     // good
-    function bar() {
-      return false;
+    while (foo) bar();
+
+    // good
+    while (foo) {
+      bar();
     }
     ```
 
