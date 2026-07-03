@@ -1,0 +1,6 @@
+const foo = [1, 2];
+const bar = foo;
+
+aar[0.6] = 9;
+
+console.log(foo[0.5], bar[0.6]); // => 9, 9
