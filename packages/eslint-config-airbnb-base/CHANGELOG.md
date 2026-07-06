@@ -371,4 +371,4 @@
 
 1.0.0 / 2016-04-19
 ==================
- - Initial commmit; moved content over from `eslint-config-airbnb` package.
+ - Initial commit; moved content over from `eslint-config-airbnb` package.
