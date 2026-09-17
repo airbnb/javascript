@@ -52,10 +52,16 @@ if (CLIEngine) {
   const { execSync } = require('child_process');
 
   // NOTE: ESLint adds runtime statistics to the output (so it's no longer JSON) if TIMING is set
-  module.exports = JSON.parse(String(execSync(path.join(__dirname, 'whitespace-async.js'), {
-    env: {
-      ...process.env,
-      TIMING: undefined,
-    }
-  })));
+  try {
+    const stdout = execSync(path.join(__dirname, 'whitespace-async.js'), {
+      env: {
+        ...process.env,
+        TIMING: undefined,
+      },
+      encoding: 'utf8',
+    });
+    module.exports = JSON.parse(stdout);
+  } catch (err) {
+    throw new Error(`Failed to load whitespace rules from whitespace-async.js: ${err.message}`, { cause: err });
+  }
 }
