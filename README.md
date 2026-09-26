@@ -3203,9 +3203,9 @@ Other Style Guides
 
     ```javascript
     // bad - raises exception
-    const luke = {}
-    const leia = {}
-    [luke, leia].forEach((jedi) => jedi.father = 'vader')
+    const luke = {};
+    const leia = {};
+    [luke, leia].forEach((jedi) => jedi.father = 'vader');
 
     // bad - raises exception
     const reaction = "No! That’s impossible!"
