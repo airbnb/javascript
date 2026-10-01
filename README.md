@@ -3203,9 +3203,9 @@ Other Style Guides
 
     ```javascript
     // bad - raises exception
-    const luke = {}
-    const leia = {}
-    [luke, leia].forEach((jedi) => jedi.father = 'vader')
+    const luke = {};
+    const leia = {};
+    [luke, leia].forEach((jedi) => jedi.father = 'vader');
 
     // bad - raises exception
     const reaction = "No! That’s impossible!"
@@ -3887,7 +3887,6 @@ Other Style Guides
 
   - [Naming this in nested functions](https://gist.github.com/cjohansen/4135065) - Christian Johansen
   - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52) - Ross Allen
-  - [Popular JavaScript Coding Conventions on GitHub](http://sideeffect.kr/popularconvention/#javascript) - JeongHoon Byun
   - [Multiple var statements in JavaScript, not superfluous](https://benalman.com/news/2012/05/multiple-var-statements-javascript/) - Ben Alman
 
 **Further Reading**
