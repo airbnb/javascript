@@ -59,13 +59,13 @@ If you don't need React, see [eslint-config-airbnb-base](https://npmjs.com/eslin
 2. Add `"extends": "airbnb"` to your `.eslintrc`
 
 > **Note**: ESLint only lints `.js` files by default.
-  If your project uses `.jsx` (or `.tsx` with TypeScript), you need to pass extensions to the CLI:
+  If your project uses `.jsx` or `.tsx` (with a TypeScript parser configured), include those extensions in the CLI command:
 
   ```sh
-  eslint . --ext .js, .jsx, .mjs
+  eslint . --ext .js,.jsx,.mjs,.tsx
   ```
 
-  Without this, JSX-related rules will not apply to `.jsx` files.
+  Without the relevant extension, ESLint will not lint those files; `.tsx` also requires a TypeScript parser configured in your project.
 
 ### eslint-config-airbnb/hooks
 
