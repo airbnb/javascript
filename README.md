@@ -422,7 +422,7 @@ Other Style Guides
     const baz = Array.from(foo, bar);
     ```
 
-  <a name="arrays--callback-return"></a><a name="4.5"></a>
+  <a name="arrays--callback-return"></a><a name="4.7"></a>
   - [4.7](#arrays--callback-return) Use return statements in array method callbacks. It’s ok to omit the return if the function body consists of a single statement returning an expression without side effects, following [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](https://eslint.org/docs/rules/array-callback-return)
 
     ```javascript
